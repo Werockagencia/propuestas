@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propuesta Comercial — Saribella | We Rock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #E8000A;
+      --red-h: #FF1A22;
+      --dk: #0A0A0A;
+      --dk2: #111111;
+      --dk3: #161616;
+      --lt: #F5F2EB;
+      --lt2: #EDE9DF;
+      --lt3: #E4DFD4;
+      --white: #FFFFFF;
+      --gray: #888888;
+      --gray2: #555555;
+      --text-dk: #E8E4DC;
+      --text-dk2: #AAAAAA;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--dk);
+      color: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #grad-canvas { position:fixed; inset:0; pointer-events:none; z-index:0; opacity:0.55; }
+
+    #prog {
+      position: fixed; top: 0; left: 0; height: 2px;
+      background: var(--red); z-index: 9997;
+      width: 0%; transition: width .1s linear;
+    }
+
+    body { cursor: none; }
+    #cur {
+      width: 9px; height: 9px; background: var(--red); border-radius: 50%;
+      position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
+      mix-blend-mode: exclusion;
+    }
+    #cur2 {
+      width: 38px; height: 38px; border: 1.5px solid rgba(232,0,10,.45); border-radius: 50%;
+      position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998;
+      transition: transform .22s cubic-bezier(.16,1,.3,1);
+    }
+    @media (max-width: 768px) { #cur, #cur2 { display: none; } body { cursor: auto; } }
+
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 60px;
+      background: rgba(10,10,10,0); backdrop-filter: blur(0px);
+      border-bottom: 1px solid rgba(255,255,255,0);
+      transition: all .4s ease;
+    }
+    #nav.scrolled {
+      background: rgba(10,10,10,.92); backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-logo img { height: 24px; filter: brightness(0) invert(1); }
+    .nav-logo span {
+      font-size: 13px; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--white);
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-size: 11px; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; color: rgba(255,255,255,.45);
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--red); }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+    .cover {
+      min-height: 100vh;
+      background: var(--dk);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 64px;
+      position: relative; overflow: hidden;
+    }
+    #hero-canvas {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      z-index: 0; pointer-events: none;
+    }
+    .cover-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+      animation: gd 28s linear infinite;
+      pointer-events: none; z-index: 1;
+    }
+    @keyframes gd { from { background-position: 0 0; } to { background-position: 88px 88px; } }
+    .cover-ov {
+      position: absolute; inset: 0;
+      background: linear-gradient(110deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.08) 55%, rgba(0,0,0,.4) 100%);
+      z-index: 1;
+    }
+    .cover-red-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 80% at 4% 60%, rgba(232,0,10,.14) 0%, transparent 65%);
+      z-index: 1; animation: glw 10s ease-in-out infinite alternate;
+    }
+    @keyframes glw { 0% { opacity:.5; transform:scale(1); } 100% { opacity:1; transform:scale(1.08); } }
+
+    .cover-inner {
+      position: relative; z-index: 10;
+      max-width: 1080px; width: 100%;
+      display: grid; grid-template-columns: 1.3fr 1fr;
+      gap: 80px; align-items: flex-end;
+      padding: 160px 0 112px; margin: 0 auto;
+    }
+    .cover-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 32px; opacity: 0; animation: su .7s ease .05s forwards;
+    }
+    .cover-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--red);
+      animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+    .cover-eyebrow span {
+      font-size: 11px; font-weight: 800; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--red);
+    }
+    .cover-title {
+      font-size: clamp(42px, 5.5vw, 82px);
+      font-weight: 900; text-transform: uppercase;
+      line-height: .92; letter-spacing: -2px; color: var(--white);
+      display: flex; flex-direction: column; gap: .08em;
+    }
+    .cover-title .r { color: var(--red); }
+    .hl {
+      display: block; opacity: 0;
+      transform: translateY(44px) skewY(2deg);
+      animation: hlIn .82s cubic-bezier(.16,1,.3,1) forwards;
+    }
+    .hl1 { animation-delay: .08s; } .hl2 { animation-delay: .22s; }
+    .hl3 { animation-delay: .36s; } .hl4 { animation-delay: .50s; }
+    @keyframes hlIn { to { opacity:1; transform:translateY(0) skewY(0); } }
+    @keyframes su { from { opacity:0; transform:translateY(38px); } to { opacity:1; transform:translateY(0); } }
+
+    .cover-right {
+      display: flex; flex-direction: column; justify-content: flex-end;
+      opacity: 0; animation: su .9s ease .28s forwards;
+    }
+    .cover-tag {
+      font-size: 11px; font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--red);
+      border: 1px solid rgba(232,0,10,.35); padding: 7px 14px;
+      display: inline-block; margin-bottom: 28px; align-self: flex-start;
+    }
+    .cover-subtitle {
+      font-size: clamp(15px, 1.7vw, 19px);
+      font-weight: 400; color: var(--text-dk2); line-height: 1.7; margin-bottom: 14px;
+    }
+    .cover-subtitle strong { color: var(--white); font-weight: 700; }
+    .cover-desc {
+      font-size: 14px; color: rgba(255,255,255,.4);
+      line-height: 1.75; border-left: 2px solid var(--red);
+      padding-left: 18px; margin-bottom: 36px;
+    }
+    .cover-client-block {
+      padding: 20px 24px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-left: 3px solid var(--red);
+    }
+    .cover-client-block .lbl {
+      font-size: 10px; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--red); display: block; margin-bottom: 4px;
+    }
+    .cover-client-block .name { font-size: 20px; font-weight: 800; color: var(--white); line-height: 1.2; }
+    .cover-client-block .sub { font-size: 12px; color: var(--text-dk2); margin-top: 3px; }
+
+    .cover-bar {
+      position: relative; z-index: 10;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 64px; margin-left: -64px; margin-right: -64px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.3); backdrop-filter: blur(16px);
+      opacity: 0; animation: su .8s ease .7s forwards;
+    }
+    .cbs { text-align: center; min-width: 90px; }
+    .cbn { font-size: 24px; font-weight: 900; color: var(--white); line-height: 1; }
+    .cbl { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.32); }
+    .cbdv { width: 1px; height: 32px; background: rgba(255,255,255,.08); }
+    .cbsc {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,.4);
+    }
+    .scroll-mouse {
+      width: 16px; height: 26px; border: 1.5px solid rgba(255,255,255,.28);
+      border-radius: 8px; position: relative; display: flex; justify-content: center; flex-shrink: 0;
+    }
+    .scroll-wheel {
+      width: 2px; height: 5px; background: var(--red); border-radius: 2px;
+      position: absolute; top: 4px; animation: scrollWheel 1.9s ease-in-out infinite;
+    }
+    @keyframes scrollWheel { 0%{transform:translateY(0);opacity:1} 55%{transform:translateY(9px);opacity:0} 56%{transform:translateY(0);opacity:0} 100%{transform:translateY(0);opacity:1} }
+
+    .sec { width: 100%; padding: 100px 0; }
+    .sec-dk  { background: var(--dk);  color: var(--white); }
+    .sec-dk2 { background: var(--dk2); color: var(--white); }
+    .sec-dk3 { background: var(--dk3); color: var(--white); }
+    .sec-lt  { background: var(--lt);  color: var(--dk); }
+    .sec-lt2 { background: var(--lt2); color: var(--dk); }
+
+    .inner { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+
+    .sec-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 20px; display: block;
+    }
+    .sec-title {
+      font-size: clamp(36px, 4.5vw, 62px);
+      font-weight: 800; line-height: 1.08;
+      letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+    .sec-title.dk { color: var(--white); }
+    .sec-title.lt { color: var(--dk); }
+    .sec-lead {
+      font-size: 20px; font-weight: 400; line-height: 1.65;
+      color: var(--text-dk2); max-width: 680px; margin-bottom: 64px;
+    }
+    .sec-lead.lt { color: var(--gray2); }
+    .rule { width: 48px; height: 3px; background: var(--red); margin-bottom: 40px; display: block; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; }
+    @media (max-width: 768px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .cover-inner { grid-template-columns: 1fr; }
+    }
+
+    .card { background: var(--dk3); padding: 40px 36px; }
+    .card.lt { background: var(--white); }
+    .card-num {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+      color: var(--red); margin-bottom: 20px; display: block;
+    }
+    .card-title { font-size: 20px; font-weight: 700; margin-bottom: 14px; color: var(--white); line-height: 1.25; }
+    .card-title.lt { color: var(--dk); }
+    .card-text { font-size: 14px; color: var(--text-dk2); line-height: 1.65; }
+    .card-text.lt { color: var(--gray2); }
+
+    .bullet-list { list-style: none; padding: 0; margin: 0; }
+    .bullet-list li {
+      font-size: 15px; color: var(--text-dk2);
+      padding: 9px 0 9px 22px; position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04); line-height: 1.5;
+    }
+    .bullet-list li:last-child { border-bottom: none; }
+    .bullet-list li::before {
+      content: ''; position: absolute; left: 0; top: 17px;
+      width: 8px; height: 2px; background: var(--red);
+    }
+    .bullet-list.lt li { color: var(--gray2); border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .bullet-list.lt li::before { background: var(--red); }
+
+    .diag-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px;
+    }
+    .diag-item {
+      padding: 36px 40px; background: var(--dk3);
+      border-left: 3px solid transparent;
+    }
+    .diag-item.warn { border-left-color: var(--red); }
+    .diag-label {
+      font-size: 10px; font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--red); margin-bottom: 10px; display: block;
+    }
+    .diag-text { font-size: 15px; color: var(--text-dk2); line-height: 1.6; }
+    .diag-text strong { color: var(--white); }
+
+    .pillar {
+      padding: 48px 40px; background: var(--dk3); border-top: 2px solid var(--red);
+    }
+    .pillar-num {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+      color: var(--red); display: block; margin-bottom: 16px;
+    }
+    .pillar-title { font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 8px; line-height: 1.2; }
+    .pillar-sub { font-size: 13px; color: var(--text-dk2); margin-bottom: 28px; font-style: italic; }
+
+    .metric-icon-wrap {
+      width: 44px; height: 44px; margin-bottom: 18px;
+      background: rgba(232,0,10,.08); border: 1px solid rgba(232,0,10,.2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .metric-icon-wrap svg { width: 22px; height: 22px; overflow: visible; }
+
+    .inv-wrap {
+      background: var(--dk3); border: 1px solid rgba(255,255,255,.07);
+    }
+    .inv-header {
+      padding: 36px 48px; border-bottom: 1px solid rgba(255,255,255,.06);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .inv-label {
+      font-size: 10px; font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--red); display: block; margin-bottom: 8px;
+    }
+    .inv-title { font-size: 20px; font-weight: 700; color: var(--white); }
+    .inv-price { text-align: right; }
+    .inv-amount {
+      font-size: 44px; font-weight: 900; color: var(--white);
+      line-height: 1; letter-spacing: -2px;
+    }
+    .inv-amount span { color: var(--red); }
+    .inv-period { font-size: 12px; color: var(--text-dk2); margin-top: 4px; }
+
+    .inv-table { width: 100%; border-collapse: collapse; }
+    .inv-table th {
+      text-align: left; font-size: 10px; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--red); padding: 16px 24px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .inv-table th:last-child { text-align: right; }
+    .inv-table td {
+      font-size: 15px; color: var(--text-dk2); padding: 14px 24px;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+    .inv-table td:last-child { text-align: right; color: var(--white); font-weight: 600; }
+    .inv-table tr:last-child td { border-bottom: none; }
+    .inv-table tr.total td {
+      font-weight: 800; color: var(--white); font-size: 17px;
+      border-top: 2px solid var(--red); padding-top: 20px;
+    }
+
+    .halcon-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--red); text-decoration: none; font-size: 14px; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      border: 1px solid rgba(232,0,10,.35); padding: 12px 24px;
+      transition: background .2s, color .2s;
+    }
+    .halcon-link:hover { background: var(--red); color: var(--white); }
+    .halcon-link svg { width: 14px; height: 14px; }
+
+    .cta-block {
+      text-align: center; padding: 100px 48px;
+      position: relative; overflow: hidden;
+    }
+    .cta-tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--red); border: 1px solid rgba(232,0,10,.35);
+      padding: 7px 14px; margin-bottom: 32px;
+    }
+    .cta-title {
+      font-size: clamp(32px, 4vw, 54px); font-weight: 900;
+      text-transform: uppercase; line-height: 1; letter-spacing: -1.5px;
+      color: var(--white); margin-bottom: 24px;
+    }
+    .cta-title .r { color: var(--red); }
+    .cta-sub { font-size: 18px; color: var(--text-dk2); max-width: 520px; margin: 0 auto 48px; line-height: 1.6; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--red); color: var(--white); text-decoration: none;
+      font-size: 13px; font-weight: 800; letter-spacing: .12em;
+      text-transform: uppercase; padding: 18px 40px;
+      transition: background .2s, transform .2s;
+    }
+    .cta-btn:hover { background: var(--red-h); transform: translateY(-2px); }
+    .cta-btn svg { width: 16px; height: 16px; }
+    .cta-glow {
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(232,0,10,.07) 0%, transparent 70%);
+    }
+
+    footer {
+      background: var(--dk2); border-top: 1px solid rgba(255,255,255,.06);
+      padding: 32px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .ft-logo img { height: 22px; filter: brightness(0) invert(1); opacity: .5; }
+    .ft-logo span { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); }
+    .ft-text { font-size: 11px; color: rgba(255,255,255,.22); letter-spacing: .05em; }
+    @media (max-width: 640px) { footer { flex-direction: column; gap: 16px; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur2"></div>
+<div id="prog"></div>
+<canvas id="grad-canvas"></canvas>
+
+<nav id="nav">
+  <div class="nav-logo">
+    <img src="we-rock.png" alt="We Rock" onerror="this.outerHTML='<span>WE ROCK</span>'">
+  </div>
+  <div class="nav-links">
+    <a href="#s-oportunidad">Oportunidad</a>
+    <a href="#s-web">Sitio Web</a>
+    <a href="#s-halconbot">HalconBot</a>
+    <a href="#s-inversion">Inversión</a>
+  </div>
+</nav>
+
+
+<!-- 01 · PORTADA -->
+<section class="cover">
+  <canvas id="hero-canvas"></canvas>
+  <div class="cover-grid"></div>
+  <div class="cover-ov"></div>
+  <div class="cover-red-glow"></div>
+
+  <div class="cover-inner">
+    <div>
+      <div class="cover-eyebrow">
+        <div class="cover-dot"></div>
+        <span>Estructura y Automatización · We Rock</span>
+      </div>
+      <h1 class="cover-title">
+        <span class="hl hl1">SARIBELLA</span>
+        <span class="hl hl2">EVENTOS QUE <span class="r">SE VENDEN</span></span>
+        <span class="hl hl3">SOLOS</span>
+        <span class="hl hl4">EN SERIO.</span>
+      </h1>
+    </div>
+    <div class="cover-right">
+      <div style="margin-bottom:28px;text-align:right;opacity:0;animation:su .7s ease .1s forwards;">
+        <span style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:3px;">Propuesta comercial</span>
+        <span style="font-size:12px;color:var(--text-dk2);">Agosto 2026 · Confidencial</span>
+      </div>
+      <span class="cover-tag">Landing Page + HalconBot + Redes · We Rock</span>
+      <p class="cover-subtitle">
+        Landing page y <strong>HalconBot</strong> para que Saribella deje de perder clientes por una cotización lenta, más contenido y pauta para llegar a gente nueva en <strong>toda la Sabana.</strong>
+      </p>
+      <p class="cover-desc">
+        Eventos, desayunos sorpresa y decoración corporativa<br>
+        Cajicá y zona norte de Bogotá
+      </p>
+      <div class="cover-client-block">
+        <span class="lbl">Propuesta para</span>
+        <div class="name">Saribella</div>
+        <div class="sub">Cajicá, Colombia</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bar">
+    <div class="cbs">
+      <div class="cbn">6</div>
+      <div class="cbl">Años en el mercado</div>
+    </div>
+    <div class="cbdv"></div>
+    <div class="cbs">
+      <div class="cbn">80%</div>
+      <div class="cbl">Clientes por referido</div>
+    </div>
+    <div class="cbdv"></div>
+    <div class="cbs">
+      <div class="cbn">100%</div>
+      <div class="cbl">Detalles personalizados</div>
+    </div>
+    <div class="cbdv"></div>
+    <div class="cbs">
+      <div class="cbn">Sabana</div>
+      <div class="cbl">Zona de cobertura</div>
+    </div>
+    <div class="cbdv"></div>
+    <div class="cbsc">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      Desplazar
+    </div>
+  </div>
+</section>
+
+
+<!-- 02 · LA OPORTUNIDAD -->
+<section class="sec sec-dk" id="s-oportunidad">
+  <div class="inner">
+
+    <span class="sec-label">02 · La oportunidad</span>
+    <h2 class="sec-title dk">Saribella ya validó la demanda.<br>Le falta la estructura para no perderla.</h2>
+    <span class="rule"></span>
+    <p class="sec-lead">
+      Seis años de crecimiento por voz a voz confirman que el servicio funciona. Pero hoy cada cotización depende de que alguien responda el WhatsApp personal a tiempo, no hay forma de volver a contactar a un cliente que no compra de inmediato y las redes no muestran todo lo que Saribella realmente hace. Eso es lo que frena el paso de un negocio querido por sus clientes a una empresa reconocida en toda la Sabana.
+    </p>
+
+    <div class="diag-grid">
+      <div class="diag-item warn">
+        <span class="diag-label">Sin sitio web</span>
+        <p class="diag-text">Toda la marca vive en WhatsApp y en redes desordenadas. Un cliente corporativo que busca referencias antes de contratar no encuentra un catálogo claro ni galerías del trabajo de Saribella. <strong>Se necesita un sitio que muestre el catálogo completo</strong> y le dé confianza a quien todavía no la conoce.</p>
+      </div>
+      <div class="diag-item warn">
+        <span class="diag-label">Cotización lenta</span>
+        <p class="diag-text">Cada cliente escribe por WhatsApp y espera a que alguien del equipo esté disponible para entender la necesidad y armar la cotización. Ese tiempo de respuesta hoy hace perder clientes. <strong>Con HalconBot</strong> la primera respuesta y una cotización inicial pueden salir al instante.</p>
+      </div>
+      <div class="diag-item warn">
+        <span class="diag-label">Sin seguimiento</span>
+        <p class="diag-text">Un cliente que pregunta y no compra de inmediato se pierde en la conversación de WhatsApp, sin forma de retomarlo más adelante. <strong>Con HalconBot</strong> cada conversación queda registrada y con seguimiento automático hasta confirmar.</p>
+      </div>
+      <div class="diag-item warn">
+        <span class="diag-label">Redes sin estrategia</span>
+        <p class="diag-text">El contenido son fotos sueltas, sin calendario ni línea editorial, y la pauta que se intentó antes no dio resultado. <strong>Con dirección de contenido y Meta Ads bien segmentado</strong> Saribella puede llegar a gente nueva, no solo a quien ya la conoce.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:2px;padding:36px 48px;background:rgba(232,0,10,.06);border-left:4px solid var(--red);">
+      <p style="font-size:17px;color:var(--text-dk);line-height:1.7;max-width:680px;">
+        <span style="color:var(--red);font-weight:800;">Este proyecto construye la estructura sin perder lo que hizo fuerte a Saribella.</span> Landing page con el catálogo completo, un chatbot que responde primero, cotiza y hace seguimiento sin que se pierda ningún cliente, y contenido y pauta que atraen clientes nuevos.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 03 · SITIO WEB -->
+<section class="sec sec-dk2" id="s-web">
+  <div class="inner">
+
+    <span class="sec-label">03 · Sitio web</span>
+    <h2 class="sec-title dk">El catálogo completo de Saribella,<br>en un solo lugar.</h2>
+    <span class="rule"></span>
+    <p class="sec-lead" style="color:var(--text-dk2);">
+      Sitio profesional con el catálogo de servicios, galerías de eventos y desayunos realizados, y un formulario de cotización directo. Conserva el logo y la paleta de colores actuales de Saribella; el sitio organiza lo que ya existe, no reinventa la marca.
+    </p>
+
+    <div class="grid-2" style="margin-bottom:2px;">
+      <div class="pillar">
+        <span class="pillar-num">01 · Catálogo y galerías</span>
+        <div class="pillar-title">Diseño y desarrollo del sitio</div>
+        <div class="pillar-sub">Desarrollo incluido</div>
+        <ul class="bullet-list">
+          <li>Catálogo completo: eventos, desayunos sorpresa, decoración corporativa y refrigerios</li>
+          <li>Galería de fotos por tipo de servicio</li>
+          <li>Casos destacados con clientes corporativos como El Pomar y La Alquería</li>
+          <li>Formulario de cotización directo por servicio</li>
+          <li>Botón de contacto directo por WhatsApp</li>
+          <li>Diseño 100% responsive, con el logo y colores actuales de Saribella</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">02 · SEO local</span>
+        <div class="pillar-title">Google Business y posicionamiento</div>
+        <div class="pillar-sub">Incluido en el desarrollo</div>
+        <ul class="bullet-list">
+          <li>Optimización completa del perfil de Google Business</li>
+          <li>Gestión y respuesta de reseñas</li>
+          <li>SEO para búsquedas como "casa de eventos en Cajicá"</li>
+          <li>SEO para "desayunos sorpresa Cajicá" y "decoración de cumpleaños"</li>
+          <li>Estructura pensada para búsquedas locales en la Sabana</li>
+          <li>Velocidad de carga optimizada para móvil</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:2px;padding:28px 40px;background:var(--dk3);border-left:3px solid var(--red);">
+      <p style="font-size:14px;color:var(--text-dk2);line-height:1.7;">
+        <strong style="color:var(--white);">La marca se queda igual, el sitio la organiza.</strong> Se conserva el logo y la paleta de colores actuales de Saribella. El objetivo no es cambiar la identidad; es darle un lugar profesional donde mostrarla completa.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 04 · HALCONBOT -->
+<section class="sec sec-lt" id="s-halconbot">
+  <div class="inner">
+
+    <span class="sec-label">04 · HalconBot</span>
+    <h2 class="sec-title lt">La primera respuesta ya no depende<br>de que alguien esté libre.</h2>
+    <span class="rule"></span>
+    <p class="sec-lead lt">
+      Cuando un cliente escribe, HalconBot responde de inmediato, entiende qué necesita, arma una cotización inicial y registra cada conversación para que ningún cliente interesado se quede sin seguimiento.
+    </p>
+
+    <div class="grid-3" style="margin-bottom:2px;">
+      <div style="padding:40px 36px;background:var(--white);border-top:3px solid var(--red);">
+        <span class="card-num">01 · Registro de clientes</span>
+        <div class="card-title lt">Ningún cliente se pierde</div>
+        <ul class="bullet-list lt" style="margin-top:20px;">
+          <li>Registro de cada cliente que escribe, compre o no de inmediato</li>
+          <li>Seguimiento a cotizaciones enviadas sin respuesta</li>
+          <li>Historial por cliente: eventos anteriores, gustos, detalles personalizados</li>
+          <li>Visibilidad de cuántas cotizaciones están abiertas, directo desde el panel de HalconBot</li>
+          <li>Reemplaza el seguimiento manual por WhatsApp personal</li>
+        </ul>
+      </div>
+      <div style="padding:40px 36px;background:var(--white);border-top:3px solid var(--red);">
+        <span class="card-num">02 · HalconBot IA</span>
+        <div class="card-title lt">Responde y cotiza al instante</div>
+        <ul class="bullet-list lt" style="margin-top:20px;">
+          <li>Responde de inmediato, sin importar la hora</li>
+          <li>Pregunta lo necesario: tipo de servicio, fecha, cantidad de personas</li>
+          <li>Arma una cotización inicial automática</li>
+          <li>Escala al equipo humano para cerrar el detalle personalizado</li>
+          <li>Registra cada conversación directamente en el panel de HalconBot</li>
+        </ul>
+      </div>
+      <div style="padding:40px 36px;background:var(--white);border-top:3px solid var(--red);">
+        <span class="card-num">03 · Seguimiento</span>
+        <div class="card-title lt">Nadie se enfría en el proceso</div>
+        <ul class="bullet-list lt" style="margin-top:20px;">
+          <li>Recordatorio de seguimiento a cotizaciones sin respuesta</li>
+          <li>Aviso al equipo cuando un cliente está listo para confirmar</li>
+          <li>Mensaje de seguimiento después de cada evento o entrega</li>
+          <li>Reporte semanal de cotizaciones y conversión</li>
+          <li>El trato personalizado sigue en manos del equipo; el bot filtra y organiza</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:48px;padding:40px;background:var(--lt3);border-top:3px solid var(--red);">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:20px;">Flujo de una cotización</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="width:26px;height:26px;background:rgba(232,0,10,.12);border:1px solid rgba(232,0,10,.25);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--red);flex-shrink:0;">1</div>
+          <span style="font-size:14px;color:var(--gray2);">Cliente escribe por WhatsApp o desde el sitio</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="width:26px;height:26px;background:rgba(232,0,10,.12);border:1px solid rgba(232,0,10,.25);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--red);flex-shrink:0;">2</div>
+          <span style="font-size:14px;color:var(--gray2);">HalconBot responde y pregunta los detalles</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="width:26px;height:26px;background:rgba(232,0,10,.12);border:1px solid rgba(232,0,10,.25);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--red);flex-shrink:0;">3</div>
+          <span style="font-size:14px;color:var(--gray2);">Arma la cotización inicial automática</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="width:26px;height:26px;background:rgba(232,0,10,.12);border:1px solid rgba(232,0,10,.25);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--red);flex-shrink:0;">4</div>
+          <span style="font-size:14px;color:var(--gray2);">Registra al cliente en HalconBot</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="width:26px;height:26px;background:rgba(232,0,10,.12);border:1px solid rgba(232,0,10,.25);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--red);flex-shrink:0;">5</div>
+          <span style="font-size:14px;color:var(--gray2);">El equipo cierra el detalle 100% personalizado</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="width:26px;height:26px;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--white);flex-shrink:0;">6</div>
+          <span style="font-size:14px;color:var(--dk);font-weight:600;">Seguimiento automático hasta confirmar</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 05 · CONTENIDO Y REDES -->
+<section class="sec sec-dk3" id="s-redes">
+  <div class="inner">
+
+    <span class="sec-label">05 · Contenido y redes</span>
+    <h2 class="sec-title dk">Contenido con estrategia,<br>no solo fotos sueltas.</h2>
+    <span class="rule"></span>
+    <p class="sec-lead" style="color:var(--text-dk2);">
+      Un calendario de contenido que muestra el trabajo de Saribella con intención: eventos corporativos, desayunos sorpresa y decoración, contados de forma consistente en Instagram y Facebook.
+    </p>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="card-num">01</span>
+        <div class="card-title">Contenido</div>
+        <p class="card-text">Calendario editorial mensual, fotografía y reels de eventos reales, narrativa consistente con la marca actual de Saribella.</p>
+      </div>
+      <div class="card">
+        <span class="card-num">02</span>
+        <div class="card-title">Community management</div>
+        <p class="card-text">Publicación en redes, respuesta oportuna a mensajes y comentarios, cuidado de la comunidad de clientes actuales.</p>
+      </div>
+      <div class="card">
+        <span class="card-num">03</span>
+        <div class="card-title">Fotografía profesional</div>
+        <p class="card-text">Registro fotográfico de eventos y desayunos destacados, para construir un banco de contenido para redes y sitio web.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 06 · META ADS -->
+<section class="sec sec-dk2" id="s-ads">
+  <div class="inner">
+
+    <span class="sec-label">06 · Meta Ads</span>
+    <h2 class="sec-title dk">Clientes nuevos,<br>no solo los que ya conocen a Saribella.</h2>
+    <span class="rule"></span>
+    <p class="sec-lead" style="color:var(--text-dk2);">
+      El 80% de los clientes de Saribella llegan por recomendación. Eso confirma que el servicio funciona. Meta Ads bien segmentado suma un canal más: gente nueva en Cajicá y la zona norte de Bogotá que todavía no conoce a Saribella.
+    </p>
+
+    <div class="grid-2" style="margin-bottom:2px;">
+      <div class="pillar">
+        <span class="pillar-num">Campañas</span>
+        <div class="pillar-title">Eventos y desayunos sorpresa</div>
+        <div class="pillar-sub">Presupuesto de pauta aparte</div>
+        <ul class="bullet-list">
+          <li>Campañas para eventos corporativos y familiares</li>
+          <li>Campañas específicas para desayunos sorpresa y regalos</li>
+          <li>Segmentación por zona: Cajicá y zona norte de Bogotá</li>
+          <li>Segmentación por edad e intereses acorde al cliente ideal</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">Optimización</span>
+        <div class="pillar-title">Remarketing y reporte</div>
+        <div class="pillar-sub">Presupuesto de pauta aparte</div>
+        <ul class="bullet-list">
+          <li>Remarketing a quienes visitaron el sitio sin cotizar</li>
+          <li>Optimización continua del costo por cotización generada</li>
+          <li>Reporte mensual de inversión y resultados</li>
+          <li>Presupuesto 100% invertido en la plataforma, sin markup</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 07 · INVERSIÓN -->
+<section class="sec sec-lt" id="s-inversion">
+  <div class="inner">
+
+    <span class="sec-label">07 · Inversión</span>
+    <h2 class="sec-title lt">Cada servicio,<br>por separado.</h2>
+    <span class="rule"></span>
+    <p class="sec-lead lt">
+      Sin paquetes obligatorios: cada servicio se contrata de forma independiente. Saribella arranca con lo que necesita hoy y suma lo demás cuando tenga sentido.
+    </p>
+
+    <!-- ITEM 1: LANDING PAGE -->
+    <div class="inv-wrap" style="margin-bottom:24px;background:var(--dk3);">
+      <div class="inv-header">
+        <div>
+          <span class="inv-label">Pago único · 2 cuotas</span>
+          <div class="inv-title">Desarrollo Landing Page</div>
+        </div>
+        <div class="inv-price">
+          <div class="inv-amount">$2.400<span>.000</span></div>
+          <div class="inv-period">COP · $1.200.000 al iniciar + $1.200.000 contra entrega</div>
+        </div>
+      </div>
+      <div style="padding:0 48px 36px;">
+        <table class="inv-table">
+          <thead>
+            <tr>
+              <th>Tarea</th>
+              <th>Horas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Diseño y desarrollo del sitio (catálogo, galerías, formularios)</td>
+              <td>30 hrs</td>
+            </tr>
+            <tr>
+              <td>SEO local + configuración de Google Business</td>
+              <td>10 hrs</td>
+            </tr>
+            <tr>
+              <td>Integración de HalconBot en el sitio</td>
+              <td>8 hrs</td>
+            </tr>
+            <tr class="total">
+              <td>Total · 48 horas × $50.000 COP/h (tarifa amigo)</td>
+              <td>$2.400.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ITEM 2: HALCONBOT -->
+    <div class="inv-wrap" style="margin-bottom:24px;">
+      <div class="inv-header">
+        <div>
+          <span class="inv-label">Mensual · Licencia</span>
+          <div class="inv-title">HalconBot</div>
+        </div>
+        <div class="inv-price">
+          <div class="inv-amount">$49</div>
+          <div class="inv-period">USD · licencia mensual</div>
+        </div>
+      </div>
+      <div style="padding:0 48px 36px;">
+        <ul class="bullet-list">
+          <li>Automatización de atención por WhatsApp</li>
+          <li>Cotización inicial automática</li>
+          <li>Registro y seguimiento de cada cliente</li>
+          <li>Captura y calificación de leads</li>
+          <li>Seguimiento automático de cotizaciones hasta confirmar</li>
+        </ul>
+        <div style="margin-top:16px;">
+          <a href="https://halconbot.com" target="_blank" class="halcon-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            halconbot.com
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 3 y 4: MARKETING Y CONTENIDO -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:24px;">
+      <div class="inv-wrap">
+        <div class="inv-header" style="flex-direction:column;align-items:flex-start;gap:12px;">
+          <div>
+            <span class="inv-label">Mensual · Contenido</span>
+            <div class="inv-title">Publicaciones</div>
+          </div>
+          <div>
+            <div class="inv-amount" style="font-size:36px;">$680<span>.000</span></div>
+            <div class="inv-period">COP · fee mensual</div>
+          </div>
+        </div>
+        <div style="padding:20px 48px 28px;">
+          <ul class="bullet-list">
+            <li>8 publicaciones mensuales para Instagram y Facebook</li>
+            <li>Calendario editorial mensual</li>
+            <li>Fotografía y edición de contenido</li>
+            <li>Community management: respuesta a mensajes y comentarios</li>
+          </ul>
+        </div>
+      </div>
+      <div class="inv-wrap">
+        <div class="inv-header" style="flex-direction:column;align-items:flex-start;gap:12px;">
+          <div>
+            <span class="inv-label">Mensual · Gestión de pauta</span>
+            <div class="inv-title">Anuncios</div>
+          </div>
+          <div>
+            <div class="inv-amount" style="font-size:36px;">$680<span>.000</span></div>
+            <div class="inv-period">COP · fee mensual</div>
+          </div>
+        </div>
+        <div style="padding:20px 48px 28px;">
+          <ul class="bullet-list">
+            <li>Gestión y optimización de campañas</li>
+            <li>Segmentación por zona, edad e intereses</li>
+            <li>Remarketing a quienes visitaron el sitio sin cotizar</li>
+            <li>Reporte mensual de resultados</li>
+          </ul>
+          <p style="font-size:12px;color:var(--gray2);margin-top:12px;">Fee de gestión de We Rock. No incluye el presupuesto de pauta (ver abajo).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 5 y 6: PAUTA (SE PAGA A LA PLATAFORMA), POR SEPARADO -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:24px;">
+      <div class="inv-wrap" style="background:var(--dk3);">
+        <div class="inv-header" style="flex-direction:column;align-items:flex-start;gap:12px;">
+          <div>
+            <span class="inv-label">Mensual · Presupuesto de pauta</span>
+            <div class="inv-title">Google Ads</div>
+          </div>
+          <div>
+            <div class="inv-amount" style="font-size:36px;">$600<span>.000</span></div>
+            <div class="inv-period">COP · presupuesto mensual</div>
+          </div>
+        </div>
+        <div style="padding:20px 48px 28px;">
+          <ul class="bullet-list">
+            <li>100% se paga directo a Google, no a We Rock, sin markup</li>
+            <li>Campañas en búsquedas con intención de compra</li>
+            <li>Escalable según el costo por cotización generada</li>
+          </ul>
+          <div style="margin-top:16px;padding:14px 18px;background:rgba(232,0,10,.08);border-left:3px solid var(--red);">
+            <p style="font-size:12.5px;color:var(--gray2);line-height:1.6;"><strong style="color:var(--dk);">Recomendación de We Rock:</strong> empezar por aquí. Búsquedas como "casa de eventos en Cajicá" ya tienen intención de compra.</p>
+          </div>
+        </div>
+      </div>
+      <div class="inv-wrap" style="background:var(--dk3);">
+        <div class="inv-header" style="flex-direction:column;align-items:flex-start;gap:12px;">
+          <div>
+            <span class="inv-label">Mensual · Presupuesto de pauta</span>
+            <div class="inv-title">Meta Ads</div>
+          </div>
+          <div>
+            <div class="inv-amount" style="font-size:36px;">$600<span>.000</span></div>
+            <div class="inv-period">COP · presupuesto mensual</div>
+          </div>
+        </div>
+        <div style="padding:20px 48px 28px;">
+          <ul class="bullet-list">
+            <li>100% se paga directo a Meta, no a We Rock, sin markup</li>
+            <li>Campañas en Instagram y Facebook, segmentadas por zona e intereses</li>
+            <li>Remarketing a quienes visitaron el sitio sin cotizar</li>
+          </ul>
+          <div style="margin-top:16px;padding:14px 18px;background:rgba(0,0,0,.2);border-left:3px solid rgba(255,255,255,.15);">
+            <p style="font-size:12.5px;color:var(--text-dk2);line-height:1.6;">Ideal para sumar más adelante, cuando el objetivo pase a ser alcance de marca además de búsqueda directa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 7: PRODUCCIÓN AUDIOVISUAL -->
+    <div class="inv-wrap" style="margin-bottom:24px;">
+      <div class="inv-header">
+        <div>
+          <span class="inv-label">Por sesión · Bajo demanda</span>
+          <div class="inv-title">Producción audiovisual</div>
+        </div>
+        <div class="inv-price">
+          <div class="inv-amount">$850<span>.000</span></div>
+          <div class="inv-period">COP · por sesión</div>
+        </div>
+      </div>
+      <div style="padding:0 48px 36px;">
+        <ul class="bullet-list">
+          <li>Registro fotográfico y en video de un evento o desayuno</li>
+          <li>Edición y entrega de material listo para redes</li>
+          <li>Se agenda por sesión, según el calendario de eventos de Saribella</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- NOTAS -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+      <div style="padding:28px 40px;background:var(--lt3);border-top:2px solid var(--red);">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px;">Requisitos previos</div>
+        <ul class="bullet-list lt">
+          <li>Acceso a Instagram, Facebook y WhatsApp Business de Saribella</li>
+          <li>Logo y paleta de colores actuales, en alta calidad</li>
+          <li>Fotos de eventos y desayunos anteriores</li>
+        </ul>
+      </div>
+      <div style="padding:28px 40px;background:var(--white);border-top:2px solid rgba(232,0,10,.3);">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px;">Cómo se contrata</div>
+        <ul class="bullet-list lt">
+          <li>Cada ítem es independiente: se contrata solo o combinado</li>
+          <li>Landing page: pago único, en 2 cuotas (50% / 50%)</li>
+          <li>HalconBot, Publicaciones y Anuncios: mensual, facturado mes vencido, sin permanencia mínima</li>
+          <li>Producción audiovisual: se agenda por sesión, según necesidad</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PAQUETES RECOMENDADOS -->
+    <div style="margin-top:64px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px;">Recomendación de We Rock</div>
+      <h3 style="font-size:clamp(26px,3vw,34px);font-weight:800;color:var(--dk);margin-bottom:14px;line-height:1.15;">Dos formas de empezar</h3>
+      <p style="font-size:15px;color:var(--gray2);max-width:640px;margin-bottom:32px;line-height:1.65;">
+        No hace falta contratar todo junto. Estas son las dos combinaciones con las que recomendamos arrancar, según el objetivo: capturar la demanda que ya busca en Google, o construir marca con contenido en redes.
+      </p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;">
+        <!-- OPCIÓN 1 -->
+        <div style="background:var(--dk3);padding:36px 40px;border-top:3px solid var(--red);">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);">Opción 1 · Etapa inicial</span>
+          <div style="font-size:22px;font-weight:700;color:var(--white);margin:10px 0 20px;">Página Web + Google Ads</div>
+          <ul class="bullet-list">
+            <li>Desarrollo Landing Page — $2.400.000 COP (50% inicial · 50% al finalizar)</li>
+            <li>Anuncios · gestión We Rock — $680.000 COP/mes, facturado mes vencido</li>
+            <li>Google Ads · presupuesto de pauta — $600.000 COP/mes</li>
+          </ul>
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);display:flex;gap:32px;flex-wrap:wrap;">
+            <div>
+              <div style="font-size:10px;color:var(--text-dk2);text-transform:uppercase;letter-spacing:.1em;">Inversión inicial</div>
+              <div style="font-size:26px;font-weight:900;color:var(--white);letter-spacing:-1px;">$2.400<span style="color:var(--red);">.000</span></div>
+              <div style="font-size:11px;color:var(--text-dk2);margin-top:2px;">2 pagos de $1.200.000</div>
+            </div>
+            <div>
+              <div style="font-size:10px;color:var(--text-dk2);text-transform:uppercase;letter-spacing:.1em;">Recurrente</div>
+              <div style="font-size:26px;font-weight:900;color:var(--white);letter-spacing:-1px;">$1.280<span style="color:var(--red);">.000</span></div>
+              <div style="font-size:11px;color:var(--text-dk2);margin-top:2px;">COP/mes · $680.000 gestión + $600.000 presupuesto Google</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- OPCIÓN 2 -->
+        <div style="background:var(--dk3);padding:36px 40px;border-top:3px solid var(--red);">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);">Opción 2 · Construcción de marca</span>
+          <div style="font-size:22px;font-weight:700;color:var(--white);margin:10px 0 20px;">Contenido + Meta Ads</div>
+          <ul class="bullet-list">
+            <li>Publicaciones — $680.000 COP/mes</li>
+            <li>Anuncios · gestión We Rock — $680.000 COP/mes</li>
+            <li>Meta Ads · presupuesto de pauta — $600.000 COP/mes</li>
+          </ul>
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);">
+            <div style="font-size:10px;color:var(--text-dk2);text-transform:uppercase;letter-spacing:.1em;">Fee mensual total</div>
+            <div style="font-size:26px;font-weight:900;color:var(--white);letter-spacing:-1px;">$1.960<span style="color:var(--red);">.000</span></div>
+            <div style="font-size:11px;color:var(--text-dk2);margin-top:2px;">COP/mes · $680.000 + $680.000 + $600.000 presupuesto Meta</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CRONOGRAMA DE PAGOS -->
+      <div style="margin-top:48px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:20px;">Cronograma de pagos</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+
+          <!-- Cronograma Opción 1 -->
+          <div style="background:var(--white);padding:32px 36px;border-top:2px solid rgba(232,0,10,.3);">
+            <div style="font-size:13px;font-weight:700;color:var(--dk);margin-bottom:22px;">Opción 1 · Página Web + Google Ads · 3 semanas</div>
+            <div style="display:flex;flex-direction:column;gap:18px;">
+              <div style="display:flex;gap:14px;">
+                <div style="width:28px;height:28px;background:rgba(232,0,10,.1);border:1px solid rgba(232,0,10,.25);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--red);flex-shrink:0;">S1</div>
+                <div>
+                  <div style="font-size:14px;font-weight:700;color:var(--dk);">Semana 1 · Inicio del desarrollo</div>
+                  <div style="font-size:12.5px;color:var(--gray2);margin-top:2px;">Pago 1 de 2 (50% inicial) · $1.200.000 COP</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:14px;">
+                <div style="width:28px;height:28px;background:rgba(232,0,10,.1);border:1px solid rgba(232,0,10,.25);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--red);flex-shrink:0;">S2</div>
+                <div>
+                  <div style="font-size:14px;font-weight:700;color:var(--dk);">Semana 2 · Desarrollo en curso</div>
+                  <div style="font-size:12.5px;color:var(--gray2);margin-top:2px;">Diseño, catálogo, galerías, SEO local</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:14px;">
+                <div style="width:28px;height:28px;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--white);flex-shrink:0;">S3</div>
+                <div>
+                  <div style="font-size:14px;font-weight:700;color:var(--dk);">Semana 3 · Lanzamiento</div>
+                  <div style="font-size:12.5px;color:var(--gray2);margin-top:2px;">Pago 2 de 2 (50% al finalizar) · $1.200.000 COP · sitio publicado · Google Ads activo ($1.280.000 COP/mes desde aquí: $600.000 presupuesto + $680.000 gestión, facturado mes vencido)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cronograma Opción 2 -->
+          <div style="background:var(--white);padding:32px 36px;border-top:2px solid rgba(232,0,10,.3);">
+            <div style="font-size:13px;font-weight:700;color:var(--dk);margin-bottom:22px;">Opción 2 · Contenido + Meta Ads · 2 semanas</div>
+            <div style="display:flex;flex-direction:column;gap:18px;">
+              <div style="display:flex;gap:14px;">
+                <div style="width:28px;height:28px;background:rgba(232,0,10,.1);border:1px solid rgba(232,0,10,.25);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--red);flex-shrink:0;">S1</div>
+                <div>
+                  <div style="font-size:14px;font-weight:700;color:var(--dk);">Semana 1 · Alistamiento de redes</div>
+                  <div style="font-size:12.5px;color:var(--gray2);margin-top:2px;">Calendario editorial, banco de fotos, línea gráfica en Instagram y Facebook</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:14px;">
+                <div style="width:28px;height:28px;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--white);flex-shrink:0;">S2</div>
+                <div>
+                  <div style="font-size:14px;font-weight:700;color:var(--dk);">Semana 2 · Lanzamiento</div>
+                  <div style="font-size:12.5px;color:var(--gray2);margin-top:2px;">Primeras publicaciones en marcha · Meta Ads activo · $1.960.000 COP/mes desde aquí</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 08 · ENTREGA -->
+<section class="sec sec-dk">
+  <div class="inner">
+
+    <span class="sec-label">08 · Entrega y próximos pasos</span>
+    <h2 class="sec-title dk">De aprobación a producción<br>en 3 semanas.</h2>
+    <span class="rule"></span>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:48px;">
+      <div style="padding:36px 28px;background:var(--dk3);border-top:3px solid var(--red);">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px;">Semana 1</div>
+        <div style="font-size:18px;font-weight:700;color:var(--white);margin-bottom:12px;">Base y configuración</div>
+        <ul class="bullet-list">
+          <li>Definición del flujo de cotizaciones en HalconBot</li>
+          <li>Inicio del diseño del sitio con el catálogo completo</li>
+          <li>Configuración base de HalconBot</li>
+          <li>Primer calendario de contenido</li>
+        </ul>
+      </div>
+      <div style="padding:36px 28px;background:var(--dk3);border-top:3px solid var(--red);">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px;">Semana 2</div>
+        <div style="font-size:18px;font-weight:700;color:var(--white);margin-bottom:12px;">Desarrollo en curso</div>
+        <ul class="bullet-list">
+          <li>Diseño y desarrollo del sitio (catálogo, galerías, formularios)</li>
+          <li>SEO local + configuración de Google Business</li>
+          <li>Línea editorial de redes en marcha</li>
+        </ul>
+      </div>
+      <div style="padding:36px 28px;background:var(--dk3);border-top:3px solid var(--red);">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px;">Semana 3</div>
+        <div style="font-size:18px;font-weight:700;color:var(--white);margin-bottom:12px;">Lanzamiento</div>
+        <ul class="bullet-list">
+          <li>Sitio publicado con SEO local activo</li>
+          <li>HalconBot activo y respondiendo en WhatsApp</li>
+          <li>Redes con línea editorial en marcha</li>
+          <li>Campañas de Google Ads o Meta Ads listas para lanzar</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:48px;">
+      <div style="padding:40px 28px;background:var(--dk3);text-align:center;">
+        <div style="font-size:52px;font-weight:900;color:var(--white);line-height:1;letter-spacing:-0.03em;">48</div>
+        <div style="font-size:11px;font-weight:700;color:var(--text-dk2);letter-spacing:.12em;text-transform:uppercase;margin-top:8px;">Horas · Landing Page</div>
+      </div>
+      <div style="padding:40px 28px;background:var(--dk3);text-align:center;">
+        <div style="font-size:52px;font-weight:900;color:var(--white);line-height:1;letter-spacing:-0.03em;">3</div>
+        <div style="font-size:11px;font-weight:700;color:var(--text-dk2);letter-spacing:.12em;text-transform:uppercase;margin-top:8px;">Sistemas integrados</div>
+      </div>
+      <div style="padding:40px 28px;background:var(--dk3);text-align:center;">
+        <div style="font-size:52px;font-weight:900;color:var(--white);line-height:1;letter-spacing:-0.03em;">6</div>
+        <div style="font-size:11px;font-weight:700;color:var(--text-dk2);letter-spacing:.12em;text-transform:uppercase;margin-top:8px;">Años de experiencia</div>
+      </div>
+      <div style="padding:40px 28px;background:var(--dk3);text-align:center;">
+        <div style="font-size:52px;font-weight:900;color:var(--white);line-height:1;letter-spacing:-0.03em;">24/7</div>
+        <div style="font-size:11px;font-weight:700;color:var(--text-dk2);letter-spacing:.12em;text-transform:uppercase;margin-top:8px;">HalconBot activo</div>
+      </div>
+    </div>
+
+    <div style="padding:36px 48px;background:rgba(232,0,10,.06);border-left:4px solid var(--red);">
+      <p style="font-size:17px;color:var(--text-dk);line-height:1.7;max-width:680px;">
+        <span style="color:var(--red);font-weight:800;">Saribella con estructura digital es otro negocio.</span> Cotizaciones que salen solas, clientes que no se pierden, contenido con línea editorial y pauta que trae gente nueva. Todo sin perder el trato cercano y personalizado que hizo crecer a Saribella durante seis años.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 09 · CIERRE -->
+<section class="sec sec-dk" style="padding:0;">
+  <div class="cta-block">
+    <div class="cta-glow"></div>
+    <span class="cta-tag">Siguiente paso</span>
+    <h2 class="cta-title">¿ARRANCAMOS<br><span class="r">ESTA SEMANA?</span></h2>
+    <p class="cta-sub">
+      Una llamada rápida para conocer el proceso de cotización actual y arrancar el diseño del sitio. En 3 semanas, Saribella tiene el sistema completo funcionando.
+    </p>
+    <a href="https://wa.me/573125766056?text=Hola%20David,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20sistema%20de%20crecimiento%20para%20Saribella" class="cta-btn" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.066.533 4.01 1.467 5.698L0 24l6.467-1.456A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-4.953-1.335l-.355-.21-3.833.862.872-3.742-.231-.373A9.818 9.818 0 012.182 12c0-5.419 4.399-9.818 9.818-9.818 5.419 0 9.818 4.399 9.818 9.818 0 5.419-4.399 9.818-9.818 9.818z"/></svg>
+      Hablar con David
+    </a>
+    <div style="margin-top:48px;display:flex;justify-content:center;gap:64px;flex-wrap:wrap;">
+      <div style="text-align:center;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:6px;">Email</div>
+        <div style="font-size:14px;color:var(--text-dk2);">davidh@werock.space</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:6px;">Web</div>
+        <div style="font-size:14px;color:var(--text-dk2);">werock.space</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="ft-logo">
+    <img src="we-rock.png" alt="We Rock" onerror="this.outerHTML='<span>WE ROCK</span>'">
+  </div>
+  <div class="ft-text">Propuesta comercial · Saribella · Agosto 2026 · Confidencial</div>
+</footer>
+
+
+<script>
+  /* CURSOR */
+  const cur = document.getElementById('cur');
+  const cur2 = document.getElementById('cur2');
+  let mx = 0, my = 0, cx = 0, cy = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function loop() {
+    cur.style.transform = `translate(${mx - 4.5}px, ${my - 4.5}px)`;
+    cx += (mx - cx) * 0.12; cy += (my - cy) * 0.12;
+    cur2.style.transform = `translate(${cx - 19}px, ${cy - 19}px)`;
+    requestAnimationFrame(loop);
+  })();
+
+  /* SCROLL PROGRESS */
+  const prog = document.getElementById('prog');
+  window.addEventListener('scroll', () => {
+    const p = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    prog.style.width = Math.min(p * 100, 100) + '%';
+  }, { passive: true });
+
+  /* NAV SCROLL */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* MOUSE-REACTIVE GRADIENT BACKGROUND */
+  (function(){
+    const canvas=document.getElementById('grad-canvas');
+    const ctx=canvas.getContext('2d');
+    let w,h;
+    function resizeCanvas(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}
+    resizeCanvas();
+    window.addEventListener('resize',resizeCanvas);
+    let gMx=0.3,gMy=0.6,tMx=0.3,tMy=0.6,angle=0;
+    document.addEventListener('mousemove',e=>{tMx=e.clientX/window.innerWidth;tMy=e.clientY/window.innerHeight;});
+    function drawGrad(){
+      ctx.clearRect(0,0,w,h);
+      gMx+=(tMx-gMx)*0.035; gMy+=(tMy-gMy)*0.035; angle+=0.006;
+      const g1=ctx.createRadialGradient(gMx*w,gMy*h,0,gMx*w,gMy*h,Math.max(w,h)*0.55);
+      g1.addColorStop(0,'rgba(232,0,10,0.09)'); g1.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=g1; ctx.fillRect(0,0,w,h);
+      const ox=w*(0.5+0.45*Math.cos(angle)),oy=h*(0.5+0.4*Math.sin(angle*0.8));
+      const g2=ctx.createRadialGradient(ox,oy,0,ox,oy,Math.max(w,h)*0.42);
+      g2.addColorStop(0,'rgba(232,0,10,0.055)'); g2.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=g2; ctx.fillRect(0,0,w,h);
+      const ox2=w*(0.2+0.6*Math.cos(angle*0.6+1)),oy2=h*(0.1+0.2*Math.sin(angle*0.5));
+      const g3=ctx.createRadialGradient(ox2,oy2,0,ox2,oy2,Math.max(w,h)*0.3);
+      g3.addColorStop(0,'rgba(180,0,8,0.04)'); g3.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=g3; ctx.fillRect(0,0,w,h);
+      requestAnimationFrame(drawGrad);
+    }
+    drawGrad();
+  })();
+
+  /* NEURAL NETWORK CANVAS */
+  function initNeuralNet(canvasId, light, neutral, onRed){
+    const cv = document.getElementById(canvasId);
+    if(!cv) return;
+    const cx = cv.getContext('2d');
+    let W, H, VH;
+    function resize(){
+      const sec = cv.parentElement;
+      W  = cv.width  = sec.clientWidth  || window.innerWidth;
+      VH = window.innerHeight;
+      H  = cv.height = sec.clientHeight || VH;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    const COUNT=window.innerWidth<600?55:110, CONNECT=165, M_REP=115, M_ATT=260;
+    const M_FREP=0.09, M_FATT=0.013, P_REP=60, P_FORCE=0.022;
+    const SIG_SPEED=0.026, FIRE_DUR=28, REF_DUR=200, FIRE_PROB=0.00065, CASC_PROB=0.25;
+    const mouse={x:W*0.5,y:VH*0.5,active:false};
+    cv.parentElement.addEventListener('mousemove',e=>{
+      const r=cv.getBoundingClientRect(); mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top; mouse.active=true;
+    });
+    cv.parentElement.addEventListener('mouseleave',()=>{mouse.active=false;});
+    const pts=Array.from({length:COUNT},()=>{
+      const node=Math.random()<0.22, startRef=node&&Math.random()<0.5;
+      return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*0.55,vy:(Math.random()-0.5)*0.55,
+        r:node?Math.random()*2.2+3.2:Math.random()*1.3+0.7,node,phase:Math.random()*Math.PI*2,
+        wangle:Math.random()*Math.PI*2,wspeed:node?0.004+Math.random()*0.003:0.0014+Math.random()*0.0014,
+        state:startRef?'refractory':'idle',fireT:0,refT:startRef?Math.floor(Math.random()*REF_DUR):0,arrivalT:0};
+    });
+    const signals=[];
+    function fireNode(fi){
+      const src=pts[fi]; if(!src.node||src.state!=='idle') return;
+      src.state='firing'; src.fireT=FIRE_DUR;
+      for(let j=0;j<pts.length;j++){
+        if(j===fi||!pts[j].node) continue;
+        const dx=src.x-pts[j].x,dy=src.y-pts[j].y;
+        if(Math.sqrt(dx*dx+dy*dy)<CONNECT&&Math.random()<0.38)
+          signals.push({fi,ti:j,t:0,speed:SIG_SPEED*(0.75+Math.random()*0.5)});
+      }
+      if(signals.length>18) signals.splice(0,signals.length-18);
+    }
+    function tick(){
+      if(cv.offsetParent===null){requestAnimationFrame(tick);return;}
+      if(!W||!H) resize();
+      cx.clearRect(0,0,W,H);
+      for(let i=0;i<pts.length;i++){
+        const p=pts[i]; p.phase+=0.02;
+        if(p.node){
+          if(p.state==='firing'){if(--p.fireT<=0){p.state='refractory';p.refT=REF_DUR;}}
+          else if(p.state==='refractory'){if(--p.refT<=0)p.state='idle';}
+          else{
+            let prob=FIRE_PROB;
+            if(mouse.active){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)prob+=FIRE_PROB*2.5*(1-dm/M_ATT);}
+            if(Math.random()<prob)fireNode(i);
+          }
+        }
+        if(mouse.active){
+          const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);
+          if(d<M_REP&&d>0){const f=(M_REP-d)/M_REP;p.vx+=(dx/d)*f*M_FREP;p.vy+=(dy/d)*f*M_FREP;}
+          else if(d<M_ATT&&d>0){const f=(1-(d-M_REP)/(M_ATT-M_REP));p.vx-=(dx/d)*f*M_FATT;p.vy-=(dy/d)*f*M_FATT;}
+        }
+        const BM=140,BF=0.08,nx=p.x/BM,nxr=(W-p.x)/BM,ny=p.y/BM,nyr=(H-p.y)/BM;
+        if(nx<1)p.vx+=BF*(1-nx)*(1-nx); if(nxr<1)p.vx-=BF*(1-nxr)*(1-nxr);
+        if(ny<1)p.vy+=BF*(1-ny)*(1-ny); if(nyr<1)p.vy-=BF*(1-nyr)*(1-nyr);
+        p.wangle+=(Math.random()-0.5)*0.045; p.vx+=Math.cos(p.wangle)*p.wspeed; p.vy+=Math.sin(p.wangle)*p.wspeed;
+        p.vx+=(Math.random()-0.5)*0.009; p.vy+=(Math.random()-0.5)*0.009;
+        p.vx*=0.970; p.vy*=0.970;
+        const spd=Math.sqrt(p.vx*p.vx+p.vy*p.vy); if(spd>1.4){p.vx=p.vx/spd*1.4;p.vy=p.vy/spd*1.4;}
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0||p.x>W||p.y<0||p.y>H){p.x=W*0.2+Math.random()*W*0.6;p.y=H*0.2+Math.random()*H*0.6;p.vx*=0.1;p.vy*=0.1;}
+      }
+      for(let s=signals.length-1;s>=0;s--){
+        const sig=signals[s]; sig.t+=sig.speed;
+        if(sig.t>=1){pts[sig.ti].arrivalT=1.0;if(Math.random()<CASC_PROB)fireNode(sig.ti);signals.splice(s,1);}
+      }
+      const activeCon=new Set();
+      for(const sig of signals) activeCon.add(sig.fi<sig.ti?`${sig.fi}_${sig.ti}`:`${sig.ti}_${sig.fi}`);
+      for(let i=0;i<pts.length;i++){
+        for(let j=i+1;j<pts.length;j++){
+          const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+          if(d<P_REP&&d>0){const f=(P_REP-d)/P_REP*P_FORCE;a.vx+=(dx/d)*f;a.vy+=(dy/d)*f;b.vx-=(dx/d)*f;b.vy-=(dy/d)*f;}
+          if(d<CONNECT){
+            let mBoost=0;
+            if(mouse.active){const nearest=Math.min(Math.sqrt((a.x-mouse.x)**2+(a.y-mouse.y)**2),Math.sqrt((b.x-mouse.x)**2+(b.y-mouse.y)**2));if(nearest<M_ATT)mBoost=(1-nearest/M_ATT)*0.55;}
+            const isActive=activeCon.has(`${i}_${j}`);
+            const base=(1-d/CONNECT)*(a.node||b.node?0.62:0.30);
+            const alpha=Math.min(base+mBoost+(isActive?0.5:0),1.0);
+            const lw=(a.node||b.node?1.0:0.45)+mBoost*0.8+(isActive?0.9:0);
+            cx.strokeStyle=onRed?`rgba(255,255,255,${alpha*0.28})`:neutral?`rgba(75,65,60,${alpha*0.42})`:light?`rgba(140,0,6,${alpha*0.38})`:`rgba(232,0,10,${alpha})`;
+            cx.lineWidth=lw; cx.beginPath(); cx.moveTo(a.x,a.y); cx.lineTo(b.x,b.y); cx.stroke();
+          }
+        }
+      }
+      for(const sig of signals){
+        const src=pts[sig.fi],dst=pts[sig.ti],STEPS=6,TAIL=0.18;
+        for(let k=0;k<STEPS;k++){
+          const frac=k/(STEPS-1),tt=sig.t-TAIL*(1-frac);
+          if(tt<0||tt>1) continue;
+          const px=src.x+(dst.x-src.x)*tt,py=src.y+(dst.y-src.y)*tt;
+          const rad=1.2+frac*10,alpha=0.02+frac*0.26;
+          const g=cx.createRadialGradient(px,py,0,px,py,rad);
+          g.addColorStop(0,`rgba(255,245,225,${alpha})`); g.addColorStop(0.38,`rgba(255,130,50,${alpha*0.45})`); g.addColorStop(1,'rgba(232,0,10,0)');
+          cx.fillStyle=g; cx.beginPath(); cx.arc(px,py,rad,0,Math.PI*2); cx.fill();
+        }
+        const hx=src.x+(dst.x-src.x)*Math.min(sig.t,1),hy=src.y+(dst.y-src.y)*Math.min(sig.t,1);
+        cx.save(); cx.shadowBlur=6; cx.shadowColor='rgba(255,210,150,0.65)'; cx.fillStyle='rgba(255,255,255,0.50)';
+        cx.beginPath(); cx.arc(hx,hy,1.3,0,Math.PI*2); cx.fill(); cx.restore();
+      }
+      for(const p of pts){
+        if(p.arrivalT<=0) continue; p.arrivalT-=0.033;
+        const prog=1-Math.max(0,p.arrivalT),bR=p.r+4+prog*22,alpha=p.arrivalT*0.45;
+        if(alpha<0.005) continue;
+        const bg=cx.createRadialGradient(p.x,p.y,p.r*0.5,p.x,p.y,bR);
+        bg.addColorStop(0,`rgba(255,220,160,${alpha*0.7})`); bg.addColorStop(0.45,`rgba(232,60,10,${alpha*0.5})`); bg.addColorStop(1,'rgba(232,0,10,0)');
+        cx.fillStyle=bg; cx.beginPath(); cx.arc(p.x,p.y,bR,0,Math.PI*2); cx.fill();
+      }
+      for(const p of pts){
+        const pr=p.r+(p.node?Math.sin(p.phase)*0.9:0);
+        let nearMouse=0;
+        if(mouse.active&&p.node){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)nearMouse=1-dm/M_ATT;}
+        if(p.node){
+          let coreBright=0.88+nearMouse*0.12,fireBoost=0;
+          if(p.state==='firing'){const ft=p.fireT/FIRE_DUR;fireBoost=ft*1.0;coreBright=Math.min(coreBright+ft*0.12,1.0);}
+          else if(p.state==='refractory'){const rec=1-p.refT/REF_DUR;coreBright*=0.6+rec*0.4;}
+          const haloR=pr*(8+nearMouse*4+fireBoost*3);
+          const hl=cx.createRadialGradient(p.x,p.y,pr*0.5,p.x,p.y,haloR);
+          const haloC=onRed?'255,255,255':neutral?'75,65,60':'232,0,10';
+          hl.addColorStop(0,`rgba(${haloC},${Math.min((onRed?0.14:light||neutral?0.08:0.22)+nearMouse*0.10+fireBoost*0.08,onRed?0.38:light||neutral?0.22:0.55)})`);
+          hl.addColorStop(1,`rgba(${haloC},0)`);
+          cx.fillStyle=hl; cx.beginPath(); cx.arc(p.x,p.y,haloR,0,Math.PI*2); cx.fill();
+          cx.save(); cx.shadowBlur=10+nearMouse*8+fireBoost*10;
+          cx.shadowColor=onRed?`rgba(255,255,255,${0.45+nearMouse*0.2})`:neutral?'rgba(75,65,60,0.35)':`rgba(232,40,10,${0.75+nearMouse*0.2})`;
+          cx.fillStyle=onRed?`rgba(255,255,255,${coreBright*0.88})`:neutral?`rgba(75,65,60,${coreBright*0.28})`:`rgba(232,0,10,${coreBright})`;
+          cx.beginPath(); cx.arc(p.x,p.y,pr,0,Math.PI*2); cx.fill(); cx.restore();
+        } else {
+          cx.save(); cx.shadowBlur=light?2:4;
+          cx.shadowColor=light?'rgba(0,0,0,0.08)':'rgba(255,255,255,0.25)';
+          cx.fillStyle=light?`rgba(30,20,20,${0.12+Math.sin(p.phase)*0.04})`:`rgba(255,255,255,${(onRed?0.16:0.22)+Math.sin(p.phase)*0.08})`;
+          cx.beginPath(); cx.arc(p.x,p.y,pr,0,Math.PI*2); cx.fill(); cx.restore();
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+    tick();
+  }
+  initNeuralNet('hero-canvas');
+</script>
+</body>
+</html>
