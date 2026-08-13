@@ -9,3 +9,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 ## Propuestas activas
 
 - [Saribella](https://werockagencia.github.io/propuestas/saribella/)
+- [Prieto Holguín Legal Solutions](https://werockagencia.github.io/propuestas/prietoholguin/)
