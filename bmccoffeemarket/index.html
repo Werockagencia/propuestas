@@ -1246,9 +1246,12 @@ const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
 let mx=0,my=0,cx2=0,cy2=0,curReady=false;
 document.addEventListener('mousemove',e=>{
   mx=e.clientX;my=e.clientY;
-  if(!curReady){cx2=mx;cy2=my;curReady=true;cur.style.opacity=1;cur2.style.opacity=1;}
+  if(!curReady){cx2=mx;cy2=my;curReady=true;}
+  cur.style.opacity=1;cur2.style.opacity=1;
   cur.style.transform=`translate(${mx-4}px,${my-4}px)`;
 });
+window.addEventListener('scroll',()=>{cur.style.opacity=0;cur2.style.opacity=0;curReady=false;},{passive:true});
+document.addEventListener('mouseleave',()=>{cur.style.opacity=0;cur2.style.opacity=0;curReady=false;});
 (function a(){cx2+=(mx-cx2)*.18;cy2+=(my-cy2)*.18;cur2.style.transform=`translate(${cx2-19}px,${cy2-19}px)`;requestAnimationFrame(a);})();
 
 // ── PROGRESS ──
