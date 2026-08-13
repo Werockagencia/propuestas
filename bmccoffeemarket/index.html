@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estrategia Digital y Ecommerce — BMC Coffee Market | We Rock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{--red:#E8000A;--red-h:#FF1A22;--dk:#0A0A0A;--dk2:#111111;--dk3:#161616;--lt:#F5F2EB;--lt2:#EDE9DF;--lt3:#E4DFD4;--white:#FFFFFF;--gray:#888888;--gray2:#555555;--text-dk:#E8E4DC;--text-dk2:#AAAAAA;--ink:#1A1A1A;--ink2:#444444;--ink3:#777777;--border:rgba(0,0,0,.07);--sh:0 2px 12px rgba(0,0,0,.06);--sh2:0 8px 32px rgba(0,0,0,.10);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Barlow',sans-serif;background:var(--white);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;cursor:none;overflow-x:hidden}
+    @media(max-width:768px){body{cursor:auto}}
+
+    #grad-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.5}
+    #prog{position:fixed;top:0;left:0;height:3px;background:var(--red);z-index:9997;width:0%;transition:width .1s linear}
+    #cur{width:10px;height:10px;background:white;border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference}
+    #cur2{width:38px;height:38px;border:1.5px solid rgba(255,255,255,.55);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform .22s cubic-bezier(.16,1,.3,1);mix-blend-mode:difference}
+    @media(max-width:768px){#cur,#cur2{display:none}}
+
+    #nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:62px;background:transparent;border-bottom:1px solid transparent;transition:all .4s ease}
+    #nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.07);box-shadow:0 2px 20px rgba(0,0,0,.06)}
+    .nav-logo{display:flex;align-items:center;gap:10px}
+    .nav-logo .logo-w{height:36px;display:block}
+    .nav-logo .logo-c{height:36px;display:none;mix-blend-mode:multiply}
+    #nav.scrolled .nav-logo .logo-w{display:none}
+    #nav.scrolled .nav-logo .logo-c{display:block}
+    .nav-links{display:flex;gap:24px}
+    .nav-links a{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+    #nav.scrolled .nav-links a{color:var(--ink3)}
+    .nav-links a:hover{color:var(--red)}
+    @media(max-width:768px){.nav-links{display:none}#nav{padding:0 24px}}
+
+    .cover{min-height:100vh;background:var(--dk);display:flex;flex-direction:column;justify-content:flex-end;padding:0 64px;position:relative;overflow:hidden}
+    #hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
+    .cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px;animation:gd 28s linear infinite;pointer-events:none;z-index:1}
+    @keyframes gd{from{background-position:0 0}to{background-position:88px 88px}}
+    .cover-ov{position:absolute;inset:0;background:linear-gradient(115deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.08) 55%,rgba(0,0,0,.5) 100%);z-index:1}
+    .cover-red-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 75% at 3% 65%,rgba(232,0,10,.14) 0%,transparent 65%);z-index:1;animation:glw 10s ease-in-out infinite alternate}
+    @keyframes glw{0%{opacity:.5;transform:scale(1)}100%{opacity:1;transform:scale(1.08)}}
+    .cover-inner-simple{position:relative;z-index:10;max-width:820px;width:100%;padding:148px 0 44px;margin:0 auto;text-align:center}
+    @media(max-width:768px){.cover{padding:0 24px}.cover-inner-simple{padding:120px 0 36px}}
+    .cover-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;opacity:0;animation:su .7s ease .05s forwards}
+    .cover-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 2s infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+    .cover-eyebrow span{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+    .cover-title{font-size:clamp(38px,5vw,74px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-2.2px;color:var(--white);display:flex;flex-direction:column;gap:.06em;align-items:center}
+    .cover-title .r{color:var(--red)}
+    .hl{display:block;opacity:0;transform:translateY(44px) skewY(2deg);animation:hlIn .82s cubic-bezier(.16,1,.3,1) forwards}
+    .hl1{animation-delay:.08s}.hl2{animation-delay:.22s}.hl3{animation-delay:.36s}.hl4{animation-delay:.50s}
+    @keyframes hlIn{to{opacity:1;transform:translateY(0) skewY(0)}}
+    @keyframes su{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:translateY(0)}}
+    .cover-hero-lead{font-size:clamp(15px,1.7vw,18px);color:var(--text-dk2);max-width:620px;margin:22px auto 0;line-height:1.75;opacity:0;animation:su .9s ease .52s forwards}
+    .cover-hero-meta{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px;flex-wrap:wrap;opacity:0;animation:su .7s ease .68s forwards}
+    .cover-hero-meta span{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.22)}
+    .cover-hero-meta .dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.15)}
+    .cover-bar{position:relative;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:20px 64px;margin-left:-64px;margin-right:-64px;border-top:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.32);backdrop-filter:blur(16px);opacity:0;animation:su .8s ease .7s forwards}
+    @media(max-width:768px){.cover-bar{padding:20px 24px;margin-left:-24px;margin-right:-24px;flex-wrap:wrap;gap:16px}}
+    .cbs{text-align:center;min-width:80px}
+    .cbn{font-size:22px;font-weight:900;color:var(--white);line-height:1}
+    .cbl{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:3px}
+    .cbdv{width:1px;height:32px;background:rgba(255,255,255,.08)}
+    .cbsc{display:flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+    .scroll-mouse{width:16px;height:26px;border:1.5px solid rgba(255,255,255,.28);border-radius:8px;position:relative;display:flex;justify-content:center;flex-shrink:0}
+    .scroll-wheel{width:2px;height:5px;background:var(--red);border-radius:2px;position:absolute;top:4px;animation:sw 1.9s ease-in-out infinite}
+    @keyframes sw{0%{transform:translateY(0);opacity:1}55%{transform:translateY(9px);opacity:0}56%{transform:translateY(0);opacity:0}100%{transform:translateY(0);opacity:1}}
+
+    .sec{width:100%;padding:96px 0;position:relative}
+    .sec-white{background:var(--white);color:var(--ink)}
+    .sec-lt{background:var(--lt);color:var(--ink)}
+    .sec-lt2{background:var(--lt2);color:var(--ink)}
+    .sec-dk{background:var(--dk);color:var(--white)}
+    .inner{max-width:1100px;margin:0 auto;padding:0 52px}
+    @media(max-width:768px){.inner{padding:0 24px}}
+    .sec-label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:block}
+    .sec-title{font-size:clamp(30px,4vw,52px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:18px}
+    .sec-title.dk{color:var(--white)}.sec-title.lt{color:var(--ink)}
+    .sec-lead{font-size:18px;font-weight:400;line-height:1.7;max-width:700px;margin-bottom:44px}
+    .sec-lead.dk{color:var(--text-dk2)}.sec-lead.lt{color:var(--ink2)}
+    .rule{width:44px;height:3px;background:var(--red);margin-bottom:36px;display:block}
+    .badge-red{display:inline-block;background:var(--red);color:white;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;margin-bottom:16px}
+
+    .sg>*{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+    .sg>*:nth-child(1){transition-delay:.00s}.sg>*:nth-child(2){transition-delay:.10s}
+    .sg>*:nth-child(3){transition-delay:.18s}.sg>*:nth-child(4){transition-delay:.26s}
+    .sg>*:nth-child(5){transition-delay:.34s}.sg>*:nth-child(6){transition-delay:.42s}
+    .sg>*:nth-child(7){transition-delay:.50s}
+    .sg.vis>*{opacity:1;transform:translateY(0)}
+    .fade-in{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+
+    .g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+    @media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.g2,.g3{grid-template-columns:1fr}}
+
+    .prob-grid{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:auto auto;gap:20px}
+    .prob-grid .prob-card:first-child{grid-row:1/3;display:flex;flex-direction:column;justify-content:center}
+    @media(max-width:900px){.prob-grid{grid-template-columns:1fr}.prob-grid .prob-card:first-child{grid-row:auto}}
+    .prob-card{background:var(--white);border:1px solid var(--border);padding:32px 28px;box-shadow:var(--sh);transition:box-shadow .2s,transform .2s;cursor:default}
+    .prob-card:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
+    .prob-card:hover .prob-bar{width:100%}
+    .prob-bar{width:40px;height:2px;background:var(--red);margin-bottom:16px;transition:width .3s ease}
+    .prob-label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block}
+    .prob-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3}
+    .prob-text{font-size:14.5px;color:var(--ink2);line-height:1.65}
+
+    .inv-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+    @media(max-width:900px){.inv-layout{grid-template-columns:1fr}}
+    .inv-main{background:var(--white);border:1px solid var(--border);box-shadow:var(--sh2)}
+    .inv-hd{padding:32px 40px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+    .inv-lbl{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px}
+    .inv-title{font-size:18px;font-weight:700;color:var(--ink)}
+    .inv-price{text-align:right;flex-shrink:0}
+    .inv-amount{font-size:38px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-2px}
+    .inv-amount span{color:var(--red)}
+    .inv-period{font-size:11px;color:var(--ink3);margin-top:5px}
+    .inv-body{padding:32px 40px}
+    .sline{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)}
+    .sline:last-child{border-bottom:none}
+    .sline-n{font-size:14px;color:var(--ink2)}.sline-n strong{color:var(--ink);font-weight:600}
+    .sline-p{font-size:15px;font-weight:700;color:var(--ink)}
+    .subtotal-bar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:rgba(232,0,10,.05);border:1px solid rgba(232,0,10,.15);margin:14px 0}
+    .subtotal-bar .lb{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+    .subtotal-bar .vl{font-size:20px;font-weight:900;color:var(--ink)}
+    .inv-side{display:flex;flex-direction:column;gap:20px}
+    .total-block{background:var(--red);padding:44px 36px;text-align:center}
+    .total-lbl{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:8px;display:block}
+    .total-amt{font-size:clamp(30px,4.5vw,46px);font-weight:900;color:var(--white);line-height:1;letter-spacing:-2px;margin-bottom:8px}
+    .total-sub{font-size:13px;color:rgba(255,255,255,.75)}
+    .entrega-card{background:var(--white);border:1px solid var(--border);padding:32px 36px;box-shadow:var(--sh)}
+    .pay-card{background:var(--white);border:1px solid var(--border);padding:28px 36px;box-shadow:var(--sh)}
+    .pay-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+    .pay-row:last-child{border-bottom:none}
+    .pay-icon{width:36px;height:36px;background:rgba(232,0,10,.07);border:1px solid rgba(232,0,10,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .pay-icon svg{width:17px;height:17px;overflow:visible}
+    .pay-text{font-size:14px;color:var(--ink2);line-height:1.45}
+    .pay-text strong{color:var(--ink);font-weight:700}
+
+    .bl{list-style:none;padding:0;margin:0}
+    .bl li{font-size:14px;color:var(--ink2);padding:8px 0 8px 22px;position:relative;border-bottom:1px solid rgba(0,0,0,.05);line-height:1.55}
+    .bl li:last-child{border-bottom:none}
+    .bl li::before{content:'';position:absolute;left:0;top:17px;width:9px;height:2px;background:var(--red)}
+    .bl.dk li{color:var(--text-dk2);border-bottom:1px solid rgba(255,255,255,.04)}
+    .cl{list-style:none;padding:0;margin:0}
+    .cl li{font-size:14px;color:var(--ink2);padding:10px 0 10px 32px;position:relative;border-bottom:1px solid rgba(0,0,0,.06);line-height:1.5}
+    .cl li:last-child{border-bottom:none}
+    .cl li::before{content:'';position:absolute;left:0;top:13px;width:18px;height:18px;background:rgba(232,0,10,.08);border:1px solid rgba(232,0,10,.25)}
+    .cl li::after{content:'';position:absolute;left:5px;top:18px;width:8px;height:5px;border-left:2px solid var(--red);border-bottom:2px solid var(--red);transform:rotate(-45deg)}
+
+    .wm-layout{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    @media(max-width:900px){.wm-layout{grid-template-columns:1fr}}
+    .wm-main{background:var(--white);border:1px solid var(--border);padding:52px 48px;border-top:3px solid var(--red);box-shadow:var(--sh2)}
+    .wm-price{font-size:clamp(44px,6vw,66px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-3px;margin-bottom:6px}
+    .wm-price .sl{color:var(--red)}
+    .wm-period{font-size:14px;font-weight:600;color:var(--ink2);margin-bottom:10px}
+    .wm-note{font-size:12px;color:var(--ink3);background:var(--lt);padding:10px 14px;border-left:2px solid var(--red);margin-bottom:26px}
+    .wm-side{background:var(--lt);border:1px solid var(--border);padding:44px 40px}
+    .quote-box{border-left:3px solid var(--red);padding:14px 20px;background:var(--lt2);margin:22px 0}
+    .quote-box p{font-size:13.5px;color:var(--ink2);line-height:1.7;font-style:italic}
+    .quote-box p strong{color:var(--ink);font-style:normal}
+
+    .pillar-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    @media(max-width:768px){.pillar-grid{grid-template-columns:1fr}}
+    .pillar{background:var(--white);border:1px solid var(--border);padding:44px 40px;border-top:3px solid var(--red);box-shadow:var(--sh);transition:box-shadow .2s}
+    .pillar:hover{box-shadow:var(--sh2)}
+    .pillar.dk{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.07)}
+    .pillar-num{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:14px}
+    .pillar-title{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.2}
+    .pillar-title.dk{color:var(--white)}
+    .pillar-sub{font-size:13px;color:var(--ink3);margin-bottom:22px}
+    .pillar-sub.dk{color:var(--text-dk2)}
+
+    .tl-step{background:var(--white);border:1px solid var(--border);padding:32px 26px;border-top:3px solid rgba(232,0,10,.18);box-shadow:var(--sh);transition:all .25s;cursor:default;width:100%}
+    .tl-step:hover{border-top-color:var(--red);box-shadow:var(--sh2)}
+    .tl-week{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block}
+    .tl-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.25}
+    .tl-desc{font-size:14px;color:var(--ink2);line-height:1.65}
+
+    .wr-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:36px 0 0}
+    @media(max-width:768px){.wr-stats{grid-template-columns:1fr}}
+    .wr-stat{background:var(--white);border:1px solid var(--border);padding:28px 36px;box-shadow:var(--sh)}
+    .wr-stat-val{font-size:clamp(36px,4.5vw,52px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-2px;margin-bottom:6px}
+    .wr-stat-val span{color:var(--red)}
+    .wr-stat-lbl{font-size:12px;font-weight:600;color:var(--ink3);line-height:1.4}
+
+    .cta-section{background:var(--dk);position:relative;overflow:hidden;padding:120px 48px;text-align:center}
+    #cta-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+    .cta-inner{position:relative;z-index:10;max-width:700px;margin:0 auto}
+    .cta-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);border:1px solid rgba(232,0,10,.35);padding:7px 14px;margin-bottom:36px}
+    .cta-title{font-size:clamp(28px,4.2vw,50px);font-weight:900;text-transform:uppercase;line-height:1.05;letter-spacing:-1.5px;color:var(--white);margin-bottom:22px}
+    .cta-title .r{color:var(--red)}
+    .cta-sub{font-size:17px;color:var(--text-dk2);max-width:520px;margin:0 auto 48px;line-height:1.65}
+    .cta-btn{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:var(--white);text-decoration:none;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:20px 44px;transition:background .2s,transform .2s}
+    .cta-btn:hover{background:var(--red-h);transform:translateY(-2px)}
+    .cta-btn svg{width:18px;height:18px}
+    .cta-detail{margin-top:28px;font-size:12px;color:rgba(255,255,255,.28);letter-spacing:.06em}
+    .cta-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 55% at 50% 50%,rgba(232,0,10,.07) 0%,transparent 70%)}
+
+    .draw{stroke-dasharray:120;stroke-dashoffset:120;animation:drawI 1s cubic-bezier(.4,0,.2,1) forwards}
+    @keyframes drawI{to{stroke-dashoffset:0}}
+
+    footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:32px 52px;display:flex;justify-content:space-between;align-items:center}
+    .ft-logo{display:flex;align-items:center;gap:12px}
+    .ft-logo img{height:20px;filter:brightness(0) invert(1);opacity:.45}
+    .ft-logo span{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+    .ft-text{font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.04em;text-align:right;line-height:1.6}
+    @media(max-width:640px){footer{flex-direction:column;gap:16px;text-align:center}.ft-text{text-align:center}}
+
+    .alert-box{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:rgba(232,0,10,.05);border:1px solid rgba(232,0,10,.18);border-left:3px solid var(--red);margin-top:24px}
+    .alert-box p{font-size:13px;color:var(--ink2);line-height:1.65}
+    .alert-box p strong{color:var(--ink)}
+
+    .scope-note{margin-top:32px;padding:20px 28px;border-left:3px solid rgba(0,0,0,.12);background:var(--lt2)}
+    .scope-note .scope-label{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+    .scope-note p{font-size:13px;color:var(--ink2);line-height:1.7;margin:0}
+
+    .icon-wrap{width:48px;height:48px;background:rgba(232,0,10,.08);border:1px solid rgba(232,0,10,.22);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+    .icon-wrap svg{width:24px;height:24px;overflow:visible}
+    .icon-wrap--lg{width:66px;height:66px;border-radius:50%}
+    .icon-wrap--lg svg{width:32px;height:32px;stroke-width:2.1}
+
+    .svc-block{padding:44px 0;border-top:1px solid var(--border);position:relative}
+    .svc-block:first-of-type{border-top:none;padding-top:0}
+    .svc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+    .svc-name{font-size:22px;font-weight:800;color:var(--ink);line-height:1.2}
+    .svc-tag{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:6px}
+    .svc-opt{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red);border:1px solid rgba(232,0,10,.3);padding:4px 10px;margin-bottom:10px}
+    .svc-ghost{position:absolute;top:-6px;right:0;font-size:84px;font-weight:900;color:rgba(232,0,10,.06);line-height:1;letter-spacing:-4px;pointer-events:none;user-select:none}
+    @media(max-width:768px){.svc-ghost{display:none}}
+    .svc-marker{display:flex;align-items:center;gap:16px;margin-bottom:6px}
+    .svc-marker .icon-wrap{margin-bottom:0}
+
+    .wa-mock{background:var(--dk2);border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35);max-width:380px;border:1px solid rgba(255,255,255,.08)}
+    .wa-mock-head{display:flex;align-items:center;gap:12px;padding:16px 20px;background:var(--dk3);border-bottom:1px solid rgba(255,255,255,.06)}
+    .wa-mock-avatar{width:36px;height:36px;border-radius:50%;background:rgba(232,0,10,.15);border:1px solid rgba(232,0,10,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .wa-mock-avatar svg{width:18px;height:18px}
+    .wa-mock-name{font-size:13px;font-weight:700;color:var(--white)}
+    .wa-mock-status{display:flex;align-items:center;gap:6px;font-size:10.5px;color:rgba(255,255,255,.35);margin-top:2px}
+    .wa-mock-status .dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 2s infinite}
+    .wa-mock-body{padding:22px 20px;display:flex;flex-direction:column;gap:12px;min-height:250px}
+    .wa-bubble{max-width:80%;padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.5}
+    .wa-bubble.in{align-self:flex-start;background:var(--dk3);color:var(--text-dk);border-bottom-left-radius:4px}
+    .wa-bubble.out{align-self:flex-end;background:var(--red);color:white;border-bottom-right-radius:4px}
+    .wa-typing{align-self:flex-start;display:flex;gap:4px;background:var(--dk3);padding:12px 16px;border-radius:14px;border-bottom-left-radius:4px}
+    .wa-typing span{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4);animation:wtyp 1.2s infinite ease-in-out}
+    .wa-typing span:nth-child(2){animation-delay:.15s}.wa-typing span:nth-child(3){animation-delay:.3s}
+    @keyframes wtyp{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+    .wa-mock-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);background:rgba(232,0,10,.1);border:1px solid rgba(232,0,10,.25);padding:6px 12px;border-radius:20px;margin-top:4px}
+
+    .browser-mock{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:var(--sh2);border:1px solid var(--border);margin-bottom:28px}
+    .browser-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--lt2);border-bottom:1px solid var(--border)}
+    .browser-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+    .browser-dot.r{background:#FF5F57}.browser-dot.y{background:#FEBC2E}.browser-dot.g{background:#28C840}
+    .browser-url{flex:1;background:var(--white);border-radius:6px;padding:5px 14px;font-size:11px;color:var(--ink3);text-align:center;margin-left:8px;border:1px solid var(--border)}
+    .bwm-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;background:var(--dk);flex-wrap:wrap;gap:10px}
+    .bwm-logo{font-size:13px;font-weight:900;color:var(--white);letter-spacing:-.3px}
+    .bwm-logo span{font-weight:500;color:var(--text-dk2)}
+    .bwm-tabs{display:flex;gap:18px;font-size:11px;font-weight:700;color:var(--text-dk2);text-transform:uppercase;letter-spacing:.05em}
+    .bwm-tabs .on{color:var(--red)}
+    .bwm-body{display:grid;grid-template-columns:1.1fr 1fr}
+    .bwm-col{padding:24px}
+    .bwm-col.dark{background:var(--dk2)}
+    .bwm-label{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;display:block}
+    .bwm-label.light{color:rgba(255,255,255,.4)}
+    .bwm-products{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .bwm-product{background:var(--lt2);border:1px solid var(--border);border-radius:8px;padding:10px}
+    .bwm-product-img{background:linear-gradient(135deg,#D9CBAE,#B89968);border-radius:6px;height:52px;margin-bottom:8px}
+    .bwm-product-name{font-size:11px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:4px}
+    .bwm-product-price{font-size:12px;font-weight:900;color:var(--red)}
+    .bwm-config{display:flex;flex-direction:column;gap:10px}
+    .bwm-config-row{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--text-dk2)}
+    .bwm-config-row strong{color:var(--white);font-weight:700}
+    .bwm-config-bar{height:5px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden}
+    .bwm-config-fill{width:64%;height:100%;background:var(--red);border-radius:4px}
+    .bwm-result{background:rgba(232,0,10,.12);border:1px solid rgba(232,0,10,.3);border-radius:8px;padding:12px 14px;font-size:12px;color:var(--text-dk2);margin-top:6px}
+    .bwm-result strong{color:var(--white);font-size:16px;font-weight:900;display:block;margin-top:2px}
+    .bwm-cta{margin-top:4px;background:var(--red);color:var(--white);font-size:11.5px;font-weight:700;text-align:center;padding:10px;border-radius:6px}
+    @media(max-width:640px){.bwm-body{grid-template-columns:1fr}}
+
+    .diag-flow{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:20px;padding:40px 32px;background:var(--dk);flex-wrap:wrap}
+    .diag-flow-pt{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;min-width:150px}
+    .diag-flow-num{font-size:clamp(38px,5vw,58px);font-weight:900;color:var(--white);letter-spacing:-2px;line-height:1}
+    .diag-flow-pt.end .diag-flow-num{color:var(--red)}
+    .diag-flow-lbl{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.4);max-width:170px;line-height:1.45}
+    .diag-flow-line{flex:1;min-width:90px;height:2px;background:linear-gradient(90deg,rgba(255,255,255,.15),var(--red));position:relative}
+    .diag-flow-line::after{content:'';position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid var(--red)}
+
+    .frentes-split{display:grid;grid-template-columns:1fr 1fr;position:relative;margin-top:8px}
+    @media(max-width:768px){.frentes-split{grid-template-columns:1fr}}
+    .frente-half{padding:52px 44px;position:relative}
+    .frente-half.cafe{background:var(--lt2);border:1px solid var(--border)}
+    .frente-half.renting{background:var(--dk)}
+    .frente-divider{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:0 8px 26px rgba(232,0,10,.4)}
+    .frente-divider svg{width:22px;height:22px}
+    @media(max-width:768px){.frente-divider{position:relative;left:50%;top:auto;transform:translate(-50%,-50%);margin-bottom:-28px}}
+    .frente-mini-stats{display:flex;gap:2px;margin-top:28px}
+    .frente-mini-stat{flex:1;padding:16px 14px;background:rgba(0,0,0,.03)}
+    .frente-half.renting .frente-mini-stat{background:rgba(255,255,255,.05)}
+    .frente-mini-val{font-size:26px;font-weight:900;letter-spacing:-1px;color:var(--red);line-height:1}
+    .frente-mini-lbl{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-top:5px;line-height:1.35}
+    .frente-half.renting .frente-mini-lbl{color:rgba(255,255,255,.4)}
+
+    .sec-wm{overflow:hidden;z-index:0}
+    .brand-mark{position:absolute;z-index:-1;pointer-events:none;fill:var(--red)}
+    .brand-mark--diag{width:240px;height:336px;top:8px;right:-46px;opacity:.045;transform:rotate(16deg)}
+    .brand-mark--pkg{width:300px;height:420px;top:-70px;right:-50px;opacity:.06;transform:rotate(9deg)}
+    @media(max-width:768px){.brand-mark{display:none}}
+
+    .tex-grid{background-image:linear-gradient(rgba(0,0,0,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.02) 1px,transparent 1px);background-size:58px 58px}
+    .tex-dots{background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1.6px);background-size:24px 24px}
+    .tex-glow-tr{background-image:radial-gradient(ellipse 60% 65% at 96% 0%,rgba(232,0,10,.035) 0%,transparent 60%)}
+    .tex-glow-bl{background-image:radial-gradient(ellipse 55% 60% at 0% 100%,rgba(232,0,10,.03) 0%,transparent 60%)}
+
+    .sec-cut-top{clip-path:polygon(0 34px,100% 0,100% 100%,0 100%);margin-top:-34px;padding-top:130px}
+    @media(max-width:768px){.sec-cut-top{clip-path:polygon(0 18px,100% 0,100% 100%,0 100%);margin-top:-18px;padding-top:114px}}
+    .cta-cut{clip-path:polygon(0 0,100% 46px,100% 100%,0 100%);margin-top:-46px;padding-top:166px}
+    @media(max-width:768px){.cta-cut{clip-path:polygon(0 0,100% 24px,100% 100%,0 100%);margin-top:-24px;padding-top:144px}}
+
+    .corner-fx{position:relative}
+    .corner-fx::before,.corner-fx::after{content:'';position:absolute;width:20px;height:20px;pointer-events:none;opacity:.6}
+    .corner-fx::before{top:16px;left:16px;border-top:2px solid var(--red);border-left:2px solid var(--red)}
+    .corner-fx::after{bottom:16px;right:16px;border-bottom:2px solid var(--red);border-right:2px solid var(--red)}
+
+    .fb{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);box-sizing:border-box;padding-left:clamp(24px,6vw,90px);padding-right:clamp(24px,6vw,90px)}
+
+    .mega-wrap{margin-top:6px}
+    .mega-title{font-size:clamp(60px,9vw,140px);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-.03em;color:var(--ink)}
+    .mega-sub{display:block;font-size:clamp(16px,1.7vw,21px);font-weight:500;text-transform:none;letter-spacing:0;color:var(--ink2);margin-top:26px;max-width:640px;line-height:1.65}
+    @media(max-width:768px){.mega-title{font-size:clamp(42px,13vw,64px)}}
+
+    .mig-band{background:var(--red);display:flex;align-items:center;gap:28px;padding-top:36px;padding-bottom:36px;margin:44px 0 48px;flex-wrap:wrap}
+    .mig-band-num{font-size:clamp(56px,7vw,92px);font-weight:900;color:var(--white);line-height:1;letter-spacing:-3px;flex-shrink:0}
+    .mig-band-text{font-size:clamp(15px,1.5vw,19px);font-weight:600;color:var(--white);max-width:480px;line-height:1.45}
+    @media(max-width:640px){.mig-band{padding-top:28px;padding-bottom:28px;gap:16px;margin-top:32px}}
+
+    .werock-head{display:grid;grid-template-columns:1.3fr .8fr;gap:44px;align-items:center}
+    @media(max-width:900px){.werock-head{grid-template-columns:1fr}}
+    .werock-mark-box{position:relative;height:260px;display:flex;align-items:center;justify-content:center}
+    @media(max-width:900px){.werock-mark-box{display:none}}
+
+    .kpi-foot{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-size:12px;color:var(--ink3);line-height:1.6}
+    .kpi-foot strong{color:var(--red)}
+  </style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur2"></div>
+<div id="prog"></div>
+<canvas id="grad-canvas"></canvas>
+
+<nav id="nav">
+  <div class="nav-logo">
+    <img class="logo-w" src="we-rock.png" alt="We Rock" onerror="this.style.display='none'">
+    <img class="logo-c" src="we-rock-v1.png" alt="We Rock" onerror="this.style.display='none'">
+  </div>
+  <div class="nav-links">
+    <a href="#s-diagnostico">Diagnóstico</a>
+    <a href="#s-idea">La idea central</a>
+    <a href="#s-servicios">Servicios</a>
+    <a href="#s-halconbot">HalconBot</a>
+    <a href="#s-kpis">KPIs</a>
+    <a href="#s-cta">Hablemos</a>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+  01 · PORTADA
+════════════════════════════════════════ -->
+<section class="cover">
+  <canvas id="hero-canvas"></canvas>
+  <div class="cover-grid"></div>
+  <div class="cover-ov"></div>
+  <div class="cover-red-glow"></div>
+
+  <div class="cover-inner-simple">
+    <div class="cover-eyebrow">
+      <div class="cover-dot"></div>
+      <span>Propuesta de crecimiento digital · We Rock</span>
+    </div>
+    <h1 class="cover-title">
+      <span class="hl hl1">BMC COFFEE MARKET</span>
+      <span class="hl hl2">CAFÉ Y RENTING, <span class="r">SIN FRICCIÓN</span></span>
+      <span class="hl hl3">PARA TODO</span>
+      <span class="hl hl4">EL SECTOR HORECA.</span>
+    </h1>
+    <p class="cover-hero-lead">Un ecommerce que vende dos cosas distintas de forma distinta: catálogo y carrito para el café, un configurador de ahorro para la maquinaria ESPRESSOMAT y ASCASO en renting. Barcelona y toda España.</p>
+    <div class="cover-hero-meta">
+      <span>Propuesta comercial</span>
+      <div class="dot"></div>
+      <span>Agosto 2026</span>
+      <div class="dot"></div>
+      <span>Preparado por We Rock</span>
+    </div>
+  </div>
+
+  <div class="cover-bar">
+    <div class="cbs"><div class="cbn" style="color:var(--red)">2</div><div class="cbl">Negocios en un solo ecommerce: café y renting</div></div>
+    <div class="cbdv"></div>
+    <div class="cbs"><div class="cbn">€0</div><div class="cbl">Inversión inicial para el cliente final en renting</div></div>
+    <div class="cbdv"></div>
+    <div class="cbs"><div class="cbn">8</div><div class="cbl">Servicios a la carta, sin paquetes obligados</div></div>
+    <div class="cbdv"></div>
+    <div class="cbsc"><div class="scroll-mouse"><div class="scroll-wheel"></div></div>Desplazar</div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  02 · EL DIAGNÓSTICO
+════════════════════════════════════════ -->
+<section class="sec sec-lt sec-wm tex-grid" id="s-diagnostico">
+  <svg class="brand-mark brand-mark--diag" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="inner">
+    <span class="sec-label">02 · El diagnóstico</span>
+    <div class="badge-red">Situación actual</div>
+    <h2 class="sec-title lt">Un modelo de negocio sólido.<br>Un sistema digital que todavía no existe.</h2>
+    <p class="sec-lead lt">BMC tiene lo más difícil resuelto: un modelo de renting flexible sin inversión inicial, marcas de calidad (ESPRESSOMAT y ASCASO) y presencia activa en el sector HORECA de Barcelona. Lo que falta no es validar la idea, es construir el sistema digital que la escale.</p>
+
+    <div class="prob-grid sg fade-in">
+
+      <div class="prob-card">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM19 14h2M14 19h2M19 19h2"/></svg>
+        </div>
+        <div class="prob-bar"></div>
+        <span class="prob-label">Todo depende de un flyer</span>
+        <div class="prob-title">El QR es el único puente hacia el presupuesto</div>
+        <p class="prob-text">El flyer actual invita a escanear un QR para calcular cuánto podría ahorrar un negocio con el renting, pero no hay una web propia detrás: ese cálculo hoy depende de un formulario genérico y de que alguien lo revise manualmente antes de responder.</p>
+      </div>
+
+      <div class="prob-card">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".8" fill="#E8000A"/></svg>
+        </div>
+        <div class="prob-bar"></div>
+        <span class="prob-label">Marca sin conversión</span>
+        <div class="prob-title">@bmccoffeemarket comunica, pero no vende ni califica</div>
+        <p class="prob-text">Instagram documenta el trabajo con clientes HORECA, pero no hay ecommerce detrás: cada consulta por café o por renting se resuelve una por una, por WhatsApp o por correo a cafe@bmcproyectos.com, sin un sistema que la capture y la priorice.</p>
+      </div>
+
+      <div class="prob-card">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r=".8" fill="#E8000A"/></svg>
+        </div>
+        <div class="prob-bar"></div>
+        <span class="prob-label">Sin captación activa</span>
+        <div class="prob-title">Ni SEO, ni pauta, ni email: todo es gestión comercial directa</div>
+        <p class="prob-text">No hay campañas activas en Google, Meta o LinkedIn, ni secuencias de email para los leads que preguntan por el renting y no cierran de inmediato. Cualquier presupuesto que se invierta empieza a generar aprendizaje desde el primer día, sin errores previos que corregir.</p>
+      </div>
+
+    </div>
+
+    <div class="diag-flow sg fade-in">
+      <div class="diag-flow-pt">
+        <div class="diag-flow-num">0</div>
+        <div class="diag-flow-lbl">Canales digitales de captación activos hoy</div>
+      </div>
+      <div class="diag-flow-line"></div>
+      <div class="diag-flow-pt end">
+        <div class="diag-flow-num">24/7</div>
+        <div class="diag-flow-lbl">Disponibilidad de respuesta, con ecommerce dual y HalconBot</div>
+      </div>
+    </div>
+
+    <div class="scope-note" style="margin-top:36px">
+      <div class="scope-label">La meta del sistema digital</div>
+      <p>Convertir el flyer y el QR actuales en un ecommerce dual con captación activa: catálogo de café con recompra, y un configurador de ahorro para renting que filtra y prioriza a los negocios HORECA de Barcelona y del resto de España que ya están listos para hablar de presupuesto.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  03 · LA IDEA CENTRAL
+════════════════════════════════════════ -->
+<section class="sec sec-white tex-glow-tr" id="s-idea">
+  <div class="inner">
+    <span class="sec-label">03 · La idea central</span>
+    <div class="badge-red">Arquitectura del ecommerce</div>
+  </div>
+
+  <div class="mega-wrap fb">
+    <h2 class="mega-title fade-in">CAFÉ SE COMPRA.<br>RENTING SE<br>CALCULA.</h2>
+    <p class="mega-sub">Dos modelos de decisión distintos necesitan dos experiencias distintas dentro del mismo ecommerce: catálogo y carrito para el café, un configurador de ahorro y solicitud de presupuesto para la maquinaria en renting.</p>
+  </div>
+
+  <div class="inner">
+    <div class="frentes-split sg fade-in" style="margin-top:52px">
+      <div class="frente-half cafe">
+        <span class="pillar-num">Frente 01 · Café</span>
+        <div class="pillar-title">Catálogo con recompra</div>
+        <p class="pillar-sub">Ecommerce clásico para el consumo recurrente de café</p>
+        <ul class="bl">
+          <li>Catálogo de referencias y formatos de café</li>
+          <li>Carrito y pasarela de pago integrada</li>
+          <li>Pensado para suscripción de reposición periódica</li>
+          <li>Producto de consumo recurrente, no una decisión compleja</li>
+        </ul>
+        <div class="frente-mini-stats">
+          <div class="frente-mini-stat">
+            <div class="frente-mini-val">Recurrente</div>
+            <div class="frente-mini-lbl">Modelo de recompra, no de decisión única</div>
+          </div>
+          <div class="frente-mini-stat">
+            <div class="frente-mini-val">01</div>
+            <div class="frente-mini-lbl">Frente de ingreso, consumo constante</div>
+          </div>
+        </div>
+      </div>
+      <div class="frente-divider">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="6" x2="12" y2="18"/><line x1="6" y1="12" x2="18" y2="12"/></svg>
+      </div>
+      <div class="frente-half renting">
+        <span class="pillar-num">Frente 02 · Renting</span>
+        <div class="pillar-title dk">Configurador de ahorro</div>
+        <p class="pillar-sub dk">Una decisión financiera para el negocio del cliente, no un clic de compra</p>
+        <ul class="bl dk">
+          <li>Configurador: rotación estimada de café, tipo de máquina (Espressomat o Ascaso)</li>
+          <li>Simulación de ahorro en tiempo real, la misma lógica del QR del flyer, automatizada</li>
+          <li>Termina en solicitud de presupuesto personalizado, no en checkout instantáneo</li>
+          <li>Pensado para dueños de bares, restaurantes, cafeterías y hoteles</li>
+        </ul>
+        <div class="frente-mini-stats">
+          <div class="frente-mini-stat">
+            <div class="frente-mini-val">€0</div>
+            <div class="frente-mini-lbl">Inversión inicial para el cliente final</div>
+          </div>
+          <div class="frente-mini-stat">
+            <div class="frente-mini-val">02</div>
+            <div class="frente-mini-lbl">Frente de ingreso, mayor valor por cliente</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-box" style="margin-top:36px">
+      <p><strong>"Equipa tu barra, impulsa tu proyecto":</strong> la promesa de marca de BMC necesita un sistema digital que la cumpla desde el primer clic, no solo desde la visita comercial. El configurador de ahorro es la pieza que reemplaza y mejora el QR actual del flyer.</p>
+    </div>
+
+    <div style="margin-top:28px;padding:28px 36px;background:var(--lt);border-left:3px solid var(--red)">
+      <p style="font-size:14.5px;color:var(--ink2);line-height:1.75">Café y renting no compiten por el mismo clic: uno se repite cada mes, el otro se calcula una vez y compromete la barra del negocio durante un plazo largo. El ecommerce trata cada decisión con la lógica que le corresponde.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  04 · SERVICIOS Y PRECIOS
+════════════════════════════════════════ -->
+<section class="sec sec-lt2 sec-wm tex-dots sec-cut-top" id="s-servicios">
+  <svg class="brand-mark brand-mark--pkg" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="inner">
+    <span class="sec-label">04 · Servicios y precios</span>
+    <div class="badge-red">Cada servicio, a la carta</div>
+    <h2 class="sec-title lt">Ocho servicios independientes.<br>Cada uno con su propio precio.</h2>
+    <p class="sec-lead lt">Sin paquete obligatorio, sin necesidad de contratar todo junto. Cada servicio funciona por separado, con su propio alcance y su propia forma de pago.</p>
+
+    <!-- ECOMMERCE DUAL -->
+    <div class="svc-block" style="padding-top:0;border-top:none">
+      <div class="svc-ghost">01</div>
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 12.2a2 2 0 002 1.8h7.6a2 2 0 002-1.7L20 8H6"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg>
+          </div>
+          <div>
+            <span class="svc-tag">Servicio 01 · Pago único</span>
+            <div class="svc-name">Ecommerce dual: café y configurador de renting</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">No es un ecommerce genérico de plantilla. Un solo sitio con dos flujos de conversión distintos: catálogo y carrito para el café, y un configurador de ahorro para la maquinaria en renting que termina en una solicitud de presupuesto personalizado, la misma lógica del QR del flyer, automatizada y disponible las 24 horas.</p>
+
+      <div class="browser-mock sg fade-in">
+        <div class="browser-bar">
+          <span class="browser-dot r"></span><span class="browser-dot y"></span><span class="browser-dot g"></span>
+          <div class="browser-url">bmccoffeemarket.com</div>
+        </div>
+        <div class="bwm-nav">
+          <div class="bwm-logo">BMC <span>Coffee Market</span></div>
+          <div class="bwm-tabs"><span class="on">Café</span><span>Renting</span><span>Contacto</span></div>
+        </div>
+        <div class="bwm-body">
+          <div class="bwm-col">
+            <span class="bwm-label">Catálogo de café</span>
+            <div class="bwm-products">
+              <div class="bwm-product">
+                <div class="bwm-product-img"></div>
+                <div class="bwm-product-name">Blend Barcelona 1kg</div>
+                <div class="bwm-product-price">€18,50</div>
+              </div>
+              <div class="bwm-product">
+                <div class="bwm-product-img"></div>
+                <div class="bwm-product-name">Origen Colombia 1kg</div>
+                <div class="bwm-product-price">€21,00</div>
+              </div>
+            </div>
+          </div>
+          <div class="bwm-col dark">
+            <span class="bwm-label light">Configurador de ahorro</span>
+            <div class="bwm-config">
+              <div class="bwm-config-row"><span>Cafés al día</span><strong>120</strong></div>
+              <div class="bwm-config-bar"><div class="bwm-config-fill"></div></div>
+              <div class="bwm-config-row"><span>Máquina</span><strong>Espressomat</strong></div>
+              <div class="bwm-result">Ahorro estimado vs. compra<strong>€340 / mes</strong></div>
+              <div class="bwm-cta">Solicitar presupuesto →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:12.5px;color:var(--ink3);margin-top:-16px;margin-bottom:28px">Referencia visual del flujo dual del ecommerce. Diseño final se define en la etapa de construcción con el catálogo y las reglas de cálculo reales de BMC.</p>
+
+      <div class="inv-layout">
+        <div class="inv-main corner-fx">
+          <div class="inv-hd">
+            <div>
+              <span class="inv-lbl">Pago único</span>
+              <div class="inv-title">Ecommerce dual</div>
+            </div>
+            <div class="inv-price">
+              <div class="inv-amount">€4<span>.</span>800</div>
+              <div class="inv-period">EUR · pago único</div>
+            </div>
+          </div>
+          <div class="inv-body">
+            <div class="sline">
+              <span class="sline-n"><strong>Catálogo de café,</strong> con variedades y formatos</span>
+              <span class="sline-p">Incluido</span>
+            </div>
+            <div class="sline">
+              <span class="sline-n"><strong>Carrito y pasarela de pago</strong></span>
+              <span class="sline-p">Incluido</span>
+            </div>
+            <div class="sline">
+              <span class="sline-n"><strong>Configurador de ahorro para renting,</strong> rotación y tipo de máquina</span>
+              <span class="sline-p">Incluido</span>
+            </div>
+            <div class="sline">
+              <span class="sline-n"><strong>Flujo de solicitud de presupuesto</strong> personalizado</span>
+              <span class="sline-p">Incluido</span>
+            </div>
+            <div class="sline">
+              <span class="sline-n"><strong>Diseño responsive:</strong> celular, tableta y computador</span>
+              <span class="sline-p">Incluido</span>
+            </div>
+            <div class="subtotal-bar" style="margin-top:20px">
+              <span class="lb">Total ecommerce dual</span>
+              <span class="vl">€4.800 EUR</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="inv-side">
+          <div class="total-block">
+            <span class="total-lbl">Inversión ecommerce dual</span>
+            <div class="total-amt">€4.800</div>
+            <div class="total-sub">EUR · pago único · precio fijo</div>
+          </div>
+
+          <div class="entrega-card">
+            <span class="sec-label">Tiempo de entrega</span>
+            <div style="font-size:clamp(34px,4.5vw,50px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-2px;margin-bottom:8px">6 <span style="font-size:.45em;color:var(--ink3);font-weight:600;letter-spacing:0">semanas</span></div>
+            <p style="font-size:14px;color:var(--ink2);line-height:1.6;margin-bottom:16px">Desde la confirmación y el envío del catálogo de café, fichas técnicas de Espressomat y Ascaso, y las condiciones comerciales del renting, hasta la publicación del ecommerce.</p>
+            <div class="alert-box" style="margin-top:0">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#E8000A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="5.5" x2="8" y2="9"/><circle cx="8" cy="11" r=".6" fill="#E8000A"/></svg>
+              <p><strong>Requerido para iniciar:</strong> catálogo de café, fichas técnicas de las máquinas y las reglas de cálculo del renting (rotación, plazos, tarifas).</p>
+            </div>
+          </div>
+
+          <div class="pay-card">
+            <span class="sec-label">Forma de pago</span>
+            <div class="pay-row">
+              <div class="pay-icon"><svg viewBox="0 0 17 17" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 1.5C4.6 1.5 1.5 4.6 1.5 8.5s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7z" class="draw" style="stroke-dasharray:44;stroke-dashoffset:44;animation:drawI .9s .1s cubic-bezier(.4,0,.2,1) forwards"/><path d="M8.5 5.5v3l2 2" class="draw" style="stroke-dasharray:10;stroke-dashoffset:10;animation:drawI .5s .7s cubic-bezier(.4,0,.2,1) forwards"/></svg></div>
+              <div class="pay-text"><strong>50% al iniciar</strong> y 50% al entregar</div>
+            </div>
+            <div class="pay-row">
+              <div class="pay-icon"><svg viewBox="0 0 17 17" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="4" width="14" height="10" rx="1.5" class="draw" style="stroke-dasharray:52;stroke-dashoffset:52;animation:drawI 1s .1s cubic-bezier(.4,0,.2,1) forwards"/><path d="M1.5 7.5h14" class="draw" style="stroke-dasharray:14;stroke-dashoffset:14;animation:drawI .5s .7s cubic-bezier(.4,0,.2,1) forwards"/></svg></div>
+              <div class="pay-text">Transferencia bancaria</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scope-note">
+        <div class="scope-label">Claridad de alcance</div>
+        <p>Dominio, hosting y pasarela de pago se contratan directamente por BMC; We Rock acompaña la configuración sin costo adicional. Nuevas funcionalidades del configurador o integraciones de pago adicionales se cotizan aparte cuando se necesiten.</p>
+      </div>
+    </div>
+
+    <!-- SEO -->
+    <div class="svc-block">
+      <div class="svc-ghost">02</div>
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-9"/><path d="M15 6h6v6"/></svg>
+          </div>
+          <div>
+            <span class="svc-tag">Servicio 02 · Gestión mensual</span>
+            <div class="svc-name">SEO local y nacional</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">Posicionamiento orgánico enfocado en búsquedas de alta intención del sector: quien busca renting de maquinaria de café ya sabe lo que quiere, solo falta que encuentre a BMC primero.</p>
+
+      <div class="wm-layout">
+        <div class="wm-main">
+          <span class="sec-label">Fee de gestión mensual</span>
+          <div class="wm-price">€350</div>
+          <div class="wm-period">EUR al mes · contrato mes a mes</div>
+          <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Cubre optimización on-page, técnica y de contenido del ecommerce dual. No incluye pauta paga, ese presupuesto se define aparte por canal.</p>
+          <div class="quote-box">
+            <p>Contratar una persona dedicada a SEO cuesta desde <strong>€2.000 al mes</strong> en salario, sin la curva de aprendizaje del sector. Por €350, We Rock ya trae la experiencia.</p>
+          </div>
+        </div>
+        <div class="wm-side">
+          <span class="sec-label">Qué incluye cada mes</span>
+          <ul class="cl">
+            <li>Palabras clave de alta intención: "renting máquina de café profesional", "alquiler cafetera para bar Barcelona", "máquina café HORECA sin inversión inicial"</li>
+            <li>Optimización de Google Business Profile</li>
+            <li>SEO técnico y de contenido del ecommerce dual</li>
+            <li>Reporte mensual de posiciones y tráfico orgánico</li>
+          </ul>
+        </div>
+      </div>
+      <div class="scope-note">
+        <div class="scope-label">Alcance del servicio</div>
+        <p>Facturación mensual, contrato mes a mes, sin permanencia forzada. El SEO es una inversión de mediano plazo: los primeros resultados de posicionamiento suelen verse a partir del tercer mes de trabajo continuo.</p>
+      </div>
+    </div>
+
+    <!-- GOOGLE ADS -->
+    <div class="svc-block">
+      <div class="svc-ghost">03</div>
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6.2"/><line x1="14.6" y1="14.6" x2="20.5" y2="20.5"/><path d="M7 11l1.8-2 1.8 1.4L13.5 6.8"/></svg>
+          </div>
+          <div>
+            <span class="svc-tag">Servicio 03 · Gestión mensual</span>
+            <div class="svc-name">Gestión de Google Ads</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">Búsquedas de alta intención sobre renting y café HORECA. We Rock diseña, opera y ajusta la campaña mes a mes, con foco en la calidad del lead, no solo en volumen de clics.</p>
+
+      <div class="wm-layout">
+        <div class="wm-main">
+          <span class="sec-label">Fee de gestión mensual</span>
+          <div class="wm-price">€320</div>
+          <div class="wm-period">EUR al mes · contrato mes a mes</div>
+          <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Este valor cubre solo la gestión. El presupuesto de pauta se define aparte y se paga directo a Google.</p>
+        </div>
+        <div class="wm-side">
+          <span class="sec-label">Qué incluye cada mes</span>
+          <ul class="cl">
+            <li>Configuración y optimización de la cuenta</li>
+            <li>Palabras clave de renting y café HORECA</li>
+            <li>Segmentación geográfica Barcelona y España</li>
+            <li>Reporte mensual de resultados en lenguaje claro</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="g2 sg fade-in" style="margin-top:20px">
+        <div style="background:var(--white);border:1px solid var(--border);padding:28px 32px;border-top:3px solid var(--red);box-shadow:var(--sh)">
+          <span class="sec-label" style="margin-bottom:10px">Fee de gestión We Rock</span>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€320</div>
+          <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago a We Rock</div>
+        </div>
+        <div style="background:var(--lt);border:1px solid var(--border);padding:28px 32px;border-top:3px solid rgba(232,0,10,.4);box-shadow:var(--sh)">
+          <span class="sec-label" style="margin-bottom:10px">Presupuesto de pauta sugerido</span>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€550</div>
+          <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago directo a Google</div>
+        </div>
+      </div>
+      <div class="scope-note">
+        <div class="scope-label">Alcance del servicio</div>
+        <p>El fee es independiente del presupuesto de pauta, que se paga directo a Google y se ajusta cada mes según resultados. Facturación mensual, contrato mes a mes, sin permanencia forzada.</p>
+      </div>
+    </div>
+
+    <!-- META ADS -->
+    <div class="svc-block">
+      <div class="svc-ghost">04</div>
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <div>
+            <span class="svc-tag">Servicio 04 · Gestión mensual</span>
+            <div class="svc-name">Gestión de Meta Ads</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">Instagram y Facebook para reconocimiento de marca en el sector HORECA y retargeting sobre quien ya visitó el configurador de renting sin completar la solicitud de presupuesto.</p>
+
+      <div class="wm-layout">
+        <div class="wm-main">
+          <span class="sec-label">Fee de gestión mensual</span>
+          <div class="wm-price">€280</div>
+          <div class="wm-period">EUR al mes · contrato mes a mes</div>
+          <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Fee de gestión, presupuesto de pauta aparte, pago directo a Meta.</p>
+        </div>
+        <div class="wm-side">
+          <span class="sec-label">Qué incluye cada mes</span>
+          <ul class="cl">
+            <li>Creativos y anuncios ajustados a café y a renting por separado</li>
+            <li>Retargeting sobre visitas al configurador sin conversión</li>
+            <li>Segmentación por sector HORECA, cargo y ubicación</li>
+            <li>Reporte mensual de resultados en lenguaje claro</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="g2 sg fade-in" style="margin-top:20px">
+        <div style="background:var(--white);border:1px solid var(--border);padding:28px 32px;border-top:3px solid var(--red);box-shadow:var(--sh)">
+          <span class="sec-label" style="margin-bottom:10px">Fee de gestión We Rock</span>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€280</div>
+          <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago a We Rock</div>
+        </div>
+        <div style="background:var(--lt);border:1px solid var(--border);padding:28px 32px;border-top:3px solid rgba(232,0,10,.4);box-shadow:var(--sh)">
+          <span class="sec-label" style="margin-bottom:10px">Presupuesto de pauta sugerido</span>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€450</div>
+          <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago directo a Meta</div>
+        </div>
+      </div>
+      <div class="scope-note">
+        <div class="scope-label">Alcance del servicio</div>
+        <p>En B2B, Meta funciona mejor como motor de alcance y retargeting que como canal de conversión directa; complementa a Google y LinkedIn, no los reemplaza. Facturación mensual, contrato mes a mes.</p>
+      </div>
+    </div>
+
+    <!-- LINKEDIN ADS -->
+    <div class="svc-block">
+      <div class="svc-ghost">05</div>
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="8" y1="10" x2="8" y2="16"/><circle cx="8" cy="7" r="1"/><path d="M12 16v-4a2 2 0 014 0v4"/><line x1="12" y1="10" x2="12" y2="16"/></svg>
+          </div>
+          <div>
+            <span class="svc-tag">Servicio 05 · Gestión mensual</span>
+            <div class="svc-name">Gestión de LinkedIn Ads</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">El canal más natural para este negocio: dueños de bares y restaurantes, gerentes de F&B y directores de hotel están ahí, y LinkedIn permite segmentar por sector y cargo con una precisión que Google y Meta no ofrecen en B2B. Más caro por clic, pero el lead que llega ya es un decisor real.</p>
+
+      <div class="wm-layout">
+        <div class="wm-main">
+          <span class="sec-label">Fee de gestión mensual</span>
+          <div class="wm-price">€380</div>
+          <div class="wm-period">EUR al mes · contrato mes a mes</div>
+          <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Fee de gestión, presupuesto de pauta aparte, pago directo a LinkedIn.</p>
+        </div>
+        <div class="wm-side">
+          <span class="sec-label">Qué incluye cada mes</span>
+          <ul class="cl">
+            <li>Segmentación por sector (hostelería, restauración, hotelería) y cargo</li>
+            <li>Lead Gen Forms nativos: formulario dentro de LinkedIn, sin salir a una landing</li>
+            <li>Creativos orientados a decisores B2B, no a consumidor final</li>
+            <li>Reporte mensual de resultados en lenguaje claro</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="g2 sg fade-in" style="margin-top:20px">
+        <div style="background:var(--white);border:1px solid var(--border);padding:28px 32px;border-top:3px solid var(--red);box-shadow:var(--sh)">
+          <span class="sec-label" style="margin-bottom:10px">Fee de gestión We Rock</span>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€380</div>
+          <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago a We Rock</div>
+        </div>
+        <div style="background:var(--lt);border:1px solid var(--border);padding:28px 32px;border-top:3px solid rgba(232,0,10,.4);box-shadow:var(--sh)">
+          <span class="sec-label" style="margin-bottom:10px">Presupuesto de pauta sugerido</span>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€500</div>
+          <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago directo a LinkedIn</div>
+        </div>
+      </div>
+      <div class="scope-note">
+        <div class="scope-label">Alcance del servicio</div>
+        <p>El CPC de LinkedIn es más alto que Google o Meta, pero los Lead Gen Forms nativos convierten varias veces más que llevar el mismo tráfico a una landing externa. Facturación mensual, contrato mes a mes.</p>
+      </div>
+    </div>
+
+    <!-- EMAIL MARKETING -->
+    <div class="svc-block">
+      <div class="svc-ghost">06</div>
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 6.5L20.5 6"/></svg>
+          </div>
+          <div>
+            <span class="svc-tag">Servicio 06 · Gestión mensual</span>
+            <div class="svc-name">Email marketing</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">Secuencias de nutrición para quien pidió presupuesto de renting y no cerró de inmediato, no solo un boletín mensual. La decisión de equipar una barra rara vez se toma en la primera visita.</p>
+
+      <div class="wm-layout">
+        <div class="wm-main">
+          <span class="sec-label">Fee de gestión mensual</span>
+          <div class="wm-price">€260</div>
+          <div class="wm-period">EUR al mes · contrato mes a mes</div>
+          <p style="font-size:14px;color:var(--ink2);line-height:1.65">La plataforma de envío (ej. Mailchimp o similar) se contrata aparte según volumen de contactos.</p>
+        </div>
+        <div class="wm-side">
+          <span class="sec-label">Qué incluye cada mes</span>
+          <ul class="cl">
+            <li>Secuencia de nutrición para leads de renting sin cerrar</li>
+            <li>Newsletter de café para clientes con recompra activa</li>
+            <li>Segmentación por frente: café o renting</li>
+            <li>Reporte de apertura, CTR y conversión a solicitud</li>
+          </ul>
+        </div>
+      </div>
+      <div class="scope-note">
+        <div class="scope-label">Alcance del servicio</div>
+        <p>Facturación mensual, contrato mes a mes, sin permanencia forzada.</p>
+      </div>
+    </div>
+
+    <!-- CONTENIDO EN REDES -->
+    <div class="svc-block">
+      <div class="svc-ghost">07</div>
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div>
+            <span class="svc-tag">Servicio 07 · Gestión mensual</span>
+            <div class="svc-name">Contenido en redes sociales</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">Casos de éxito con bares y restaurantes que ya adoptaron el renting, comparativas comprar vs. rentar, y contenido técnico sobre extracción: Espressomat y Ascaso son marcas de calidad, el contenido debe sonar a esa calidad, no a plantilla genérica de café.</p>
+
+      <div class="wm-layout">
+        <div class="wm-main">
+          <span class="sec-label">Fee de gestión mensual</span>
+          <div class="wm-price">€420</div>
+          <div class="wm-period">EUR al mes · contrato mes a mes</div>
+          <p style="font-size:14px;color:var(--ink2);line-height:1.65">Calendario, diseño y publicación para Instagram, LinkedIn y Facebook.</p>
+        </div>
+        <div class="wm-side">
+          <span class="sec-label">Qué incluye cada mes</span>
+          <ul class="cl">
+            <li>Calendario de contenido por frente: café y renting</li>
+            <li>Casos de éxito con clientes HORECA reales</li>
+            <li>Comparativas comprar vs. rentar</li>
+            <li>Contenido técnico sobre extracción y calidad de máquina</li>
+          </ul>
+        </div>
+      </div>
+      <div class="scope-note">
+        <div class="scope-label">Alcance del servicio</div>
+        <p>Facturación mensual, contrato mes a mes.</p>
+      </div>
+    </div>
+
+    <!-- HALCONBOT -->
+    <div class="svc-block">
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="12" rx="2.5"/><path d="M8.5 17l-1 3 4.2-3"/><circle cx="9" cy="11" r="1" fill="#E8000A"/><circle cx="15" cy="11" r="1" fill="#E8000A"/></svg>
+          </div>
+          <div>
+            <span class="svc-opt">Servicio 08 · Complemento recomendado</span>
+            <div class="svc-name">HalconBot, calificación 24/7 en WhatsApp</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:24px">Asistente con IA que responde, califica, toma pedidos y hace seguimiento a la entrega, en WhatsApp y en el chat del propio ecommerce, y que mejora con cada conversación real. Detalle completo, con ejemplo real de conversación, en la sección siguiente.</p>
+
+      <div style="background:var(--dk);padding:32px 36px;border-top:3px solid var(--red)">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+          <div style="font-size:clamp(28px,3.6vw,36px);font-weight:900;color:var(--white);letter-spacing:-1.5px">€150</div>
+          <div style="font-size:13px;color:var(--text-dk2)">EUR · implementación, pago único</div>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:8px">
+          <div style="font-size:clamp(22px,2.8vw,28px);font-weight:900;color:var(--white);letter-spacing:-1px">USD $89</div>
+          <div style="font-size:13px;color:var(--text-dk2)">/ mes · plan Growth (~€82 EUR/mes, estimado)</div>
+        </div>
+        <div style="font-size:12px;color:rgba(255,255,255,.35);margin-top:10px">Equivalencia EUR estimada al tipo de cambio de referencia del día. Hasta 75 conversaciones diarias, ~22.500 al mes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  05 · HALCONBOT
+════════════════════════════════════════ -->
+<section class="sec sec-white tex-glow-tr" id="s-halconbot">
+  <div class="inner">
+    <span class="sec-label">05 · HalconBot</span>
+    <div class="badge-red">El primer contacto, resuelto</div>
+    <h2 class="sec-title lt">La pregunta del QR,<br>respondida al instante.</h2>
+    <p class="sec-lead lt">Hoy, cuando alguien escanea el QR del flyer o entra a la web preguntando cuánto podría ahorrar, esa pregunta necesita una respuesta rápida y calificada para no perder el lead. Ningún vendedor puede estar disponible las 24 horas. HalconBot sí, y no es un simple chatbot de respuestas fijas: es un asistente con IA que atiende, vende y aprende, en WhatsApp y en el propio ecommerce.</p>
+
+    <div class="g2" style="align-items:start;margin-top:12px">
+      <div>
+        <div class="pillar-grid sg fade-in" style="grid-template-columns:1fr;gap:16px">
+          <div class="pillar" style="padding:28px 30px">
+            <span class="pillar-num">Responde de inmediato, en dos canales</span>
+            <div class="pillar-title" style="font-size:17px">WhatsApp y chat integrado en el ecommerce</div>
+            <p class="pillar-sub" style="margin-bottom:0">No solo por WhatsApp: el mismo asistente vive como widget de chat dentro de bmccoffeemarket.com, para quien prefiere resolver la duda sin salir del sitio ni abrir otra app.</p>
+          </div>
+          <div class="pillar" style="padding:28px 30px">
+            <span class="pillar-num">Califica antes de escalar</span>
+            <div class="pillar-title" style="font-size:17px">Tipo de negocio, rotación, marca de interés</div>
+            <p class="pillar-sub" style="margin-bottom:0">Pregunta lo esencial (bar, restaurante u hotel; rotación estimada; Espressomat o Ascaso) antes de pasar el contacto a un vendedor.</p>
+          </div>
+          <div class="pillar" style="padding:28px 30px">
+            <span class="pillar-num">CRM: pedidos y entrega, sin salir del chat</span>
+            <div class="pillar-title" style="font-size:17px">Toma el pedido y hace seguimiento a la entrega</div>
+            <p class="pillar-sub" style="margin-bottom:0">Conectado al catálogo del ecommerce, puede tomar el pedido de café directo en la conversación, confirmar disponibilidad y avisar el estado de la entrega, sin que el cliente tenga que abrir el sitio.</p>
+          </div>
+          <div class="pillar" style="padding:28px 30px">
+            <span class="pillar-num">Aprende con cada cliente atendido</span>
+            <div class="pillar-title" style="font-size:17px">Machine learning evolutivo</div>
+            <p class="pillar-sub" style="margin-bottom:0">Cada conversación real lo afina: identifica los pedidos y objeciones más comunes por tipo de negocio, anticipa qué pregunta primero un bar frente a un hotel, y mejora sus respuestas mes a mes con el volumen de BMC, no con un guion fijo desde el día uno.</p>
+          </div>
+          <div class="pillar" style="padding:28px 30px">
+            <span class="pillar-num">Conecta con el configurador</span>
+            <div class="pillar-title" style="font-size:17px">Primera estimación sin esperar a nadie</div>
+            <p class="pillar-sub" style="margin-bottom:0">Puede dar una primera cifra de ahorro y capturar el contacto antes de que el lead se enfríe, usando la misma lógica del configurador del ecommerce.</p>
+          </div>
+          <div class="pillar" style="padding:28px 30px">
+            <span class="pillar-num">Filtra a tiempo</span>
+            <div class="pillar-title" style="font-size:17px">Separa curiosos de negocios listos para avanzar</div>
+            <p class="pillar-sub" style="margin-bottom:0">El equipo comercial de BMC dedica su tiempo a conversaciones que sí van a cerrar, no a repetir la misma explicación veinte veces al día.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wa-mock sg fade-in" style="margin:0 auto">
+        <div class="wa-mock-head">
+          <div class="wa-mock-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="12" rx="2.5"/><path d="M8.5 17l-1 3 4.2-3"/><circle cx="9" cy="11" r="1" fill="#E8000A"/><circle cx="15" cy="11" r="1" fill="#E8000A"/></svg>
+          </div>
+          <div>
+            <div class="wa-mock-name">HalconBot · BMC Coffee Market</div>
+            <div class="wa-mock-status"><span class="dot"></span>Calificando en vivo</div>
+          </div>
+        </div>
+        <div class="wa-mock-body">
+          <div class="wa-bubble in">Hola, vi el QR del flyer. ¿Cuánto podría ahorrar equipando mi bar con renting?</div>
+          <div class="wa-bubble out">Claro, soy el asistente de BMC. ¿Tu negocio es bar, restaurante u hotel, y cuántos cafés sirves aproximadamente al día?</div>
+          <div class="wa-bubble in">Restaurante, servimos unos 120 cafés al día.</div>
+          <div class="wa-bubble out">Con esa rotación, Espressomat encaja bien. Te conecto ahora con el equipo comercial para el presupuesto exacto.</div>
+          <div class="wa-typing"><span></span><span></span><span></span></div>
+          <div class="wa-mock-tag">Lead calificado → enviado al equipo comercial</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scope-note" style="margin-top:32px">
+      <div class="scope-label">Por qué se cotiza aparte del ecommerce</div>
+      <p>HalconBot es un producto propio de We Rock, con su propia suscripción mensual (ver servicio 08). Se integra al configurador de renting, al catálogo y al chat del ecommerce, pero funciona de forma independiente: puede activarse antes, durante o después de la construcción del ecommerce.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  06 · KPIS Y PROYECCIÓN DE RESULTADOS
+════════════════════════════════════════ -->
+<section class="sec sec-lt2 tex-dots sec-cut-top" id="s-kpis">
+  <div class="inner">
+    <span class="sec-label">06 · KPIs y proyección de resultados</span>
+    <div class="badge-red">Estimado conservador, sector B2B 2026</div>
+    <h2 class="sec-title lt">Lo que se mide.<br>Lo que se puede esperar, sin prometer de más.</h2>
+    <p class="sec-lead lt">Proyección basada en benchmarks de la industria para el sector B2B en 2026, no en promesas. Los números reales de la cuenta de BMC se validan y ajustan con datos propios después del primer mes de campaña activa. Nadie en el sector puede garantizar performance de ads antes de tener datos reales.</p>
+
+    <div class="g3 sg fade-in">
+      <div class="prob-card">
+        <span class="prob-label">Google Ads</span>
+        <div class="prob-title">CTR 2,5%-3,5% · CPC €2-4</div>
+        <p class="prob-text">Tasa de conversión esperada 3%-5%, CPL estimado €90-130. El KPI que más vigilar: CPL y tasa de conversión, no solo clics.</p>
+      </div>
+      <div class="prob-card">
+        <span class="prob-label">Meta Ads</span>
+        <div class="prob-title">CTR 0,7%-1,2% · CPC €2-2,5</div>
+        <p class="prob-text">Más orientado a alcance y retargeting que a conversión directa en B2B. El KPI que más vigilar: alcance cualificado y CPL de retargeting.</p>
+      </div>
+      <div class="prob-card">
+        <span class="prob-label">LinkedIn Ads</span>
+        <div class="prob-title">CTR 0,4%-0,6% · CPC €5-8</div>
+        <p class="prob-text">Con Lead Gen Forms nativos, la conversión sube a 10%-18%, CPL estimado €70-140. El KPI que más vigilar: calidad del lead vía Lead Gen Forms, no el CTR aislado.</p>
+      </div>
+    </div>
+
+    <div class="wm-layout sg fade-in" style="margin-top:20px">
+      <div class="wm-main" style="border-top-color:rgba(232,0,10,.4)">
+        <span class="sec-label">Email marketing</span>
+        <div class="wm-price" style="font-size:clamp(30px,4vw,40px)">25%-35%<span class="sl"> apertura</span></div>
+        <div class="wm-period">CTR esperado 2%-4%</div>
+        <p style="font-size:13.5px;color:var(--ink2);line-height:1.65">Apple Mail Privacy Protection y protecciones similares hacen que la tasa de apertura sea un indicador cada vez menos confiable; el CTR y la tasa de conversión a solicitud de presupuesto son las métricas que de verdad importan.</p>
+      </div>
+      <div class="wm-side">
+        <span class="sec-label">Proyección combinada de leads</span>
+        <div style="font-size:clamp(32px,4vw,42px);font-weight:900;color:var(--ink);letter-spacing:-1.5px;margin:8px 0">10 a 17</div>
+        <p style="font-size:13.5px;color:var(--ink2);line-height:1.7">Leads cualificados por mes, combinando Google, Meta y LinkedIn con la pauta sugerida (€1.500/mes en total). Este es el punto de partida esperado, no el techo: el volumen mejora con la optimización continua mes a mes.</p>
+      </div>
+    </div>
+
+    <div class="kpi-foot">
+      Estimados construidos sobre benchmarks públicos de la industria para campañas B2B en 2026 (Google Ads, Meta Ads y LinkedIn Ads). <strong>No son una garantía de resultados</strong>: son el punto de partida que usamos para fijar expectativas realistas antes de tener datos propios de la cuenta de BMC.
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  07 · CRONOGRAMA
+════════════════════════════════════════ -->
+<section class="sec sec-white" id="s-cronograma">
+  <div class="inner">
+    <span class="sec-label">07 · Cronograma</span>
+    <h2 class="sec-title lt">De la confirmación<br>al ecommerce funcionando.</h2>
+    <p class="sec-lead lt">El ecommerce marca el ritmo de arranque. Los servicios mensuales se activan apenas se confirman, sin esperar a nada más.</p>
+
+    <div class="g3 sg fade-in">
+      <div class="tl-step">
+        <span class="tl-week">Semanas 1 y 2</span>
+        <div class="tl-title">Catálogo, fichas técnicas y reglas del renting</div>
+        <p class="tl-desc">Recolección del catálogo de café, fichas de Espressomat y Ascaso, y las reglas de cálculo del configurador de ahorro.</p>
+      </div>
+      <div class="tl-step">
+        <span class="tl-week">Semanas 3 a 5</span>
+        <div class="tl-title">Diseño y desarrollo del ecommerce dual</div>
+        <p class="tl-desc">Construcción del catálogo de café con carrito, y del configurador de renting con el flujo de solicitud de presupuesto.</p>
+      </div>
+      <div class="tl-step">
+        <span class="tl-week">Semana 6</span>
+        <div class="tl-title">Pruebas y publicación</div>
+        <p class="tl-desc">Revisión conjunta con BMC, ajustes finales y publicación del ecommerce. A partir de aquí arrancan los servicios mensuales confirmados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  08 · POR QUÉ WE ROCK
+════════════════════════════════════════ -->
+<section class="sec sec-lt" id="s-werock">
+  <div class="inner">
+    <span class="sec-label">08 · Por qué We Rock</span>
+    <div class="werock-head">
+      <div>
+        <h2 class="sec-title lt">No es una tienda online más.<br>Es un equipo que entiende<br>por qué café y renting no son lo mismo.</h2>
+        <p class="sec-lead lt" style="margin-bottom:0">We Rock nació en 2018. La experiencia detrás tiene más de 15 años en estrategia digital, con proyectos de ecommerce B2B y B2C, y campañas activas en Google, Meta y LinkedIn para distintos sectores.</p>
+      </div>
+      <div class="werock-mark-box">
+        <img src="we-rock-v1.png" alt="We Rock" style="max-width:78%;max-height:78%;mix-blend-mode:multiply;object-fit:contain" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <div class="wr-stats sg fade-in">
+      <div class="wr-stat">
+        <div class="wr-stat-val"><span class="cnt" data-target="15">0</span><span>+</span></div>
+        <div class="wr-stat-lbl">Años de experiencia del fundador en estrategia digital</div>
+      </div>
+      <div class="wr-stat">
+        <div class="wr-stat-val"><span class="cnt" data-target="2018">0</span></div>
+        <div class="wr-stat-lbl">Año de fundación de We Rock</div>
+      </div>
+      <div class="wr-stat">
+        <div class="wr-stat-val"><span class="cnt" data-target="8">0</span></div>
+        <div class="wr-stat-lbl">Servicios independientes, cada uno con su propio precio</div>
+      </div>
+    </div>
+
+    <div class="pillar-grid sg fade-in" style="margin-top:20px">
+      <div class="pillar">
+        <span class="pillar-num">Un solo equipo, dos frentes</span>
+        <div class="pillar-title">El mismo equipo diseña el ecommerce y opera la pauta</div>
+        <p class="pillar-sub">Sin fricción entre quien construye el configurador y quien maneja las campañas</p>
+        <ul class="bl">
+          <li>El ecommerce se construye pensado para convertir clics en solicitudes calificadas</li>
+          <li>El contenido de redes y los anuncios hablan el mismo idioma que el configurador</li>
+          <li>Ajustes a la estrategia se coordinan en un solo canal, directo con We Rock</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">Trato directo</span>
+        <div class="pillar-title">Un canal directo con David, sin intermediarios</div>
+        <p class="pillar-sub">Comunicación clara y respuesta rápida por WhatsApp</p>
+        <ul class="bl">
+          <li>Reportes mensuales en lenguaje simple, sin jerga técnica</li>
+          <li>Ajustes a la estrategia según lo que realmente esté funcionando</li>
+          <li>Contratos mes a mes en los servicios recurrentes, sin permanencia forzada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  09 · CTA
+════════════════════════════════════════ -->
+<section class="cta-section cta-cut" id="s-cta">
+  <canvas id="cta-canvas"></canvas>
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <div class="cta-tag">09 · Siguiente paso</div>
+    <h2 class="cta-title">EQUIPA TU BARRA<br><span class="r">DIGITALMENTE,</span><br>HOY.</h2>
+    <p class="cta-sub">David revisa el proyecto contigo, resuelve dudas sobre el configurador y los canales de pauta, y define qué servicios arrancan primero.</p>
+    <a href="https://wa.me/573125766056?text=Hola%20David%2C%20quiero%20hablar%20sobre%20la%20propuesta%20de%20estrategia%20digital%20y%20ecommerce%20para%20BMC%20Coffee%20Market." class="cta-btn" target="_blank">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.5A2.5 2.5 0 0114.5 15h-1l-4 2-4-2H4A2.5 2.5 0 011.5 12.5v-7A2.5 2.5 0 014 3h10.5A2.5 2.5 0 0117 5.5v7z"/></svg>
+      Hablar con David
+    </a>
+    <div class="cta-detail">+57 312 576 6056 · davidh@werock.space · werock.space</div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="ft-logo">
+    <img src="we-rock-v1.png" alt="We Rock" onerror="this.outerHTML='<span style=\'font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)\'>WE ROCK</span>'">
+  </div>
+  <div class="ft-text">
+    Propuesta de Estrategia Digital y Ecommerce · BMC Coffee Market · 2026 · Confidencial<br>
+    We Rock · Firma de crecimiento estratégico · Bogotá, Colombia
+  </div>
+</footer>
+
+
+<script>
+// ── CURSOR ──
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,cx2=0,cy2=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx-4}px,${my-4}px)`;});
+(function a(){cx2+=(mx-cx2)*.18;cy2+=(my-cy2)*.18;cur2.style.transform=`translate(${cx2-19}px,${cy2-19}px)`;requestAnimationFrame(a);})();
+
+// ── PROGRESS ──
+const prog=document.getElementById('prog');
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;prog.style.width=(s/h*100)+'%';});
+
+// ── NAV ──
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+
+// ── FADE IN ──
+const fObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');fObs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>fObs.observe(el));
+
+// ── STAGGER GRIDS ──
+const sgObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');sgObs.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.sg').forEach(el=>sgObs.observe(el));
+
+// ── COUNT-UP NUMÉRICO ──
+const cntObs=new IntersectionObserver(entries=>{entries.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const el=e.target,target=parseInt(el.dataset.target,10),dur=1300,t0=performance.now();
+  function step(t){const p=Math.min((t-t0)/dur,1),eased=1-Math.pow(1-p,3);el.textContent=Math.round(eased*target);if(p<1)requestAnimationFrame(step);else el.textContent=target;}
+  requestAnimationFrame(step);cntObs.unobserve(el);
+});},{threshold:.4});
+document.querySelectorAll('.cnt').forEach(el=>cntObs.observe(el));
+
+// ── GRADIENT CANVAS ──
+(function(){
+  const canvas=document.getElementById('grad-canvas'),ctx=canvas.getContext('2d');let w,h;
+  function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  let gx=.3,gy=.6,tx=.3,ty=.6,ang=0;
+  document.addEventListener('mousemove',e=>{tx=e.clientX/window.innerWidth;ty=e.clientY/window.innerHeight;});
+  function draw(){
+    ctx.clearRect(0,0,w,h);gx+=(tx-gx)*.035;gy+=(ty-gy)*.035;ang+=.006;
+    const g1=ctx.createRadialGradient(gx*w,gy*h,0,gx*w,gy*h,Math.max(w,h)*.55);
+    g1.addColorStop(0,'rgba(232,0,10,.055)');g1.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g1;ctx.fillRect(0,0,w,h);
+    const ox=w*(.5+.45*Math.cos(ang)),oy=h*(.5+.4*Math.sin(ang*.8));
+    const g2=ctx.createRadialGradient(ox,oy,0,ox,oy,Math.max(w,h)*.42);
+    g2.addColorStop(0,'rgba(232,0,10,.03)');g2.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g2;ctx.fillRect(0,0,w,h);
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── NEURAL NET ──
+function initNeuralNet(id,light,neutral,onRed){
+  const cv=document.getElementById(id);if(!cv)return;
+  const cx=cv.getContext('2d');let W,H,VH;
+  function resize(){const s=cv.parentElement;W=cv.width=s.clientWidth||window.innerWidth;VH=window.innerHeight;H=cv.height=s.clientHeight||VH;}
+  resize();window.addEventListener('resize',resize);
+  const COUNT=window.innerWidth<600?55:110,CONNECT=165,M_REP=115,M_ATT=260,M_FREP=.09,M_FATT=.013,P_REP=60,P_FORCE=.022,SIG_SPEED=.026,FIRE_DUR=28,REF_DUR=200,FIRE_PROB=.00065,CASC_PROB=.25;
+  const mouse={x:W*.5,y:VH*.5,active:false};
+  cv.parentElement.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;mouse.active=true;});
+  cv.parentElement.addEventListener('mouseleave',()=>{mouse.active=false;});
+  const pts=Array.from({length:COUNT},()=>{const node=Math.random()<.22,sr=node&&Math.random()<.5;return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.55,vy:(Math.random()-.5)*.55,r:node?Math.random()*2.2+3.2:Math.random()*1.3+.7,node,phase:Math.random()*Math.PI*2,wa:Math.random()*Math.PI*2,ws:node?.004+Math.random()*.003:.0014+Math.random()*.0014,state:sr?'refractory':'idle',fireT:0,refT:sr?Math.floor(Math.random()*REF_DUR):0,arrT:0};});
+  const sigs=[];
+  function fire(fi){const src=pts[fi];if(!src.node||src.state!=='idle')return;src.state='firing';src.fireT=FIRE_DUR;for(let j=0;j<pts.length;j++){if(j===fi||!pts[j].node)continue;const dx=src.x-pts[j].x,dy=src.y-pts[j].y;if(Math.sqrt(dx*dx+dy*dy)<CONNECT&&Math.random()<.38)sigs.push({fi,ti:j,t:0,speed:SIG_SPEED*(.75+Math.random()*.5)});}if(sigs.length>18)sigs.splice(0,sigs.length-18);}
+  function tick(){
+    if(cv.offsetParent===null){requestAnimationFrame(tick);return;}if(!W||!H)resize();cx.clearRect(0,0,W,H);
+    for(let i=0;i<pts.length;i++){const p=pts[i];p.phase+=.02;
+      if(p.node){if(p.state==='firing'){if(--p.fireT<=0){p.state='refractory';p.refT=REF_DUR;}}else if(p.state==='refractory'){if(--p.refT<=0)p.state='idle';}else{let prob=FIRE_PROB;if(mouse.active){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)prob+=FIRE_PROB*2.5*(1-dm/M_ATT);}if(Math.random()<prob)fire(i);}}
+      if(mouse.active){const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);if(d<M_REP&&d>0){const f=(M_REP-d)/M_REP;p.vx+=(dx/d)*f*M_FREP;p.vy+=(dy/d)*f*M_FREP;}else if(d<M_ATT&&d>0){const f=(1-(d-M_REP)/(M_ATT-M_REP));p.vx-=(dx/d)*f*M_FATT;p.vy-=(dy/d)*f*M_FATT;}}
+      const BM=140,BF=.08,nx=p.x/BM,nxr=(W-p.x)/BM,ny=p.y/BM,nyr=(H-p.y)/BM;
+      if(nx<1)p.vx+=BF*(1-nx)**2;if(nxr<1)p.vx-=BF*(1-nxr)**2;if(ny<1)p.vy+=BF*(1-ny)**2;if(nyr<1)p.vy-=BF*(1-nyr)**2;
+      p.wa+=(Math.random()-.5)*.045;p.vx+=Math.cos(p.wa)*p.ws;p.vy+=Math.sin(p.wa)*p.ws;
+      p.vx+=(Math.random()-.5)*.009;p.vy+=(Math.random()-.5)*.009;p.vx*=.97;p.vy*=.97;
+      const spd=Math.sqrt(p.vx*p.vx+p.vy*p.vy);if(spd>1.4){p.vx=p.vx/spd*1.4;p.vy=p.vy/spd*1.4;}
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W||p.y<0||p.y>H){p.x=W*.2+Math.random()*W*.6;p.y=H*.2+Math.random()*H*.6;p.vx*=.1;p.vy*=.1;}}
+    for(let s=sigs.length-1;s>=0;s--){const sig=sigs[s];sig.t+=sig.speed;if(sig.t>=1){pts[sig.ti].arrT=1;if(Math.random()<CASC_PROB)fire(sig.ti);sigs.splice(s,1);}}
+    const ac=new Set();for(const sig of sigs)ac.add(sig.fi<sig.ti?`${sig.fi}_${sig.ti}`:`${sig.ti}_${sig.fi}`);
+    for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){
+      const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<P_REP&&d>0){const f=(P_REP-d)/P_REP*P_FORCE;a.vx+=(dx/d)*f;a.vy+=(dy/d)*f;b.vx-=(dx/d)*f;b.vy-=(dy/d)*f;}
+      if(d<CONNECT){let mb=0;if(mouse.active){const mn=Math.min(Math.sqrt((a.x-mouse.x)**2+(a.y-mouse.y)**2),Math.sqrt((b.x-mouse.x)**2+(b.y-mouse.y)**2));if(mn<M_ATT)mb=(1-mn/M_ATT)*.55;}
+        const ia=ac.has(`${i}_${j}`),base=(1-d/CONNECT)*(a.node||b.node?.62:.30),alpha=Math.min(base+mb+(ia?.5:0),1),lw=(a.node||b.node?1:.45)+mb*.8+(ia?.9:0);
+        cx.strokeStyle=onRed?`rgba(255,255,255,${alpha*.28})`:neutral?`rgba(75,65,60,${alpha*.42})`:light?`rgba(140,0,6,${alpha*.38})`:`rgba(232,0,10,${alpha})`;
+        cx.lineWidth=lw;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke();}}}
+    for(const sig of sigs){const src=pts[sig.fi],dst=pts[sig.ti],STEPS=6,TAIL=.18;
+      for(let k=0;k<STEPS;k++){const fr=k/(STEPS-1),tt=sig.t-TAIL*(1-fr);if(tt<0||tt>1)continue;const px=src.x+(dst.x-src.x)*tt,py=src.y+(dst.y-src.y)*tt,rad=1.2+fr*10,al=.02+fr*.26;const g=cx.createRadialGradient(px,py,0,px,py,rad);g.addColorStop(0,`rgba(255,245,225,${al})`);g.addColorStop(.38,`rgba(255,130,50,${al*.45})`);g.addColorStop(1,'rgba(232,0,10,0)');cx.fillStyle=g;cx.beginPath();cx.arc(px,py,rad,0,Math.PI*2);cx.fill();}
+      const hx=src.x+(dst.x-src.x)*Math.min(sig.t,1),hy=src.y+(dst.y-src.y)*Math.min(sig.t,1);cx.save();cx.shadowBlur=6;cx.shadowColor='rgba(255,210,150,.65)';cx.fillStyle='rgba(255,255,255,.5)';cx.beginPath();cx.arc(hx,hy,1.3,0,Math.PI*2);cx.fill();cx.restore();}
+    for(const p of pts){if(p.arrT<=0)continue;p.arrT-=.033;const pr2=1-Math.max(0,p.arrT),bR=p.r+4+pr2*22,al=p.arrT*.45;if(al<.005)continue;const bg=cx.createRadialGradient(p.x,p.y,p.r*.5,p.x,p.y,bR);bg.addColorStop(0,`rgba(255,220,160,${al*.7})`);bg.addColorStop(.45,`rgba(232,60,10,${al*.5})`);bg.addColorStop(1,'rgba(232,0,10,0)');cx.fillStyle=bg;cx.beginPath();cx.arc(p.x,p.y,bR,0,Math.PI*2);cx.fill();}
+    for(const p of pts){const pr=p.r+(p.node?Math.sin(p.phase)*.9:0);let nm=0;if(mouse.active&&p.node){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)nm=1-dm/M_ATT;}
+      if(p.node){let cb=.88+nm*.12,fb=0;if(p.state==='firing'){const ft=p.fireT/FIRE_DUR;fb=ft;cb=Math.min(cb+ft*.12,1);}else if(p.state==='refractory'){cb*=.6+(1-p.refT/REF_DUR)*.4;}
+        const hR=pr*(8+nm*4+fb*3),hl=cx.createRadialGradient(p.x,p.y,pr*.5,p.x,p.y,hR),hC=onRed?'255,255,255':neutral?'75,65,60':'232,0,10';
+        hl.addColorStop(0,`rgba(${hC},${Math.min((onRed?.14:light||neutral?.08:.22)+nm*.10+fb*.08,onRed?.38:light||neutral?.22:.55)})`);hl.addColorStop(1,`rgba(${hC},0)`);
+        cx.fillStyle=hl;cx.beginPath();cx.arc(p.x,p.y,hR,0,Math.PI*2);cx.fill();
+        cx.save();cx.shadowBlur=10+nm*8+fb*10;cx.shadowColor=onRed?`rgba(255,255,255,${.45+nm*.2})`:neutral?'rgba(75,65,60,.35)':`rgba(232,40,10,${.75+nm*.2})`;cx.fillStyle=onRed?`rgba(255,255,255,${cb*.88})`:neutral?`rgba(75,65,60,${cb*.28})`:`rgba(232,0,10,${cb})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();
+      }else{cx.save();cx.shadowBlur=light?2:4;cx.shadowColor=light?'rgba(0,0,0,.08)':'rgba(255,255,255,.25)';cx.fillStyle=light?`rgba(30,20,20,${.12+Math.sin(p.phase)*.04})`:`rgba(255,255,255,${(onRed?.16:.22)+Math.sin(p.phase)*.08})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();}}
+    requestAnimationFrame(tick);}tick();}
+initNeuralNet('hero-canvas');
+initNeuralNet('cta-canvas');
+</script>
+</body>
+</html>
