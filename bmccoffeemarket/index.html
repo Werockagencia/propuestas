@@ -282,6 +282,57 @@
     .bwm-cta{margin-top:4px;background:var(--bmc-gold);color:var(--bmc-green);font-size:11.5px;font-weight:800;text-align:center;padding:10px;border-radius:6px}
     @media(max-width:640px){.bwm-body{grid-template-columns:1fr}}
 
+    /* ── DEVICE SHOWCASE: laptop + teléfono ── */
+    .device-showcase{--bmc-green:#1F3D2E;--bmc-green2:#2A4F3B;--bmc-gold:#B8935A;display:flex;align-items:flex-end;justify-content:center;gap:28px;margin:8px 0 14px;position:relative;flex-wrap:wrap}
+    .dev-laptop{flex:1 1 560px;max-width:600px;position:relative;z-index:1}
+    .dev-laptop-screen{background:#141414;border-radius:16px 16px 4px 4px;padding:13px 13px 0;box-shadow:0 44px 90px -26px rgba(0,0,0,.42),0 0 0 1px rgba(255,255,255,.05) inset;position:relative}
+    .dev-laptop-cam{position:absolute;top:5px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:#040404;box-shadow:0 0 0 2px rgba(255,255,255,.04)}
+    .dev-laptop-screen .browser-mock{margin-bottom:0;border-radius:5px 5px 0 0;box-shadow:none;border:none}
+    .dev-laptop-base{width:114%;margin-left:-7%;height:15px;background:linear-gradient(180deg,#3d3d3d 0%,#131313 100%);clip-path:polygon(3% 0,97% 0,100% 100%,0% 100%);position:relative}
+    .dev-laptop-base::after{content:'';position:absolute;left:50%;top:0;transform:translateX(-50%);width:60px;height:4px;background:#080808;border-radius:0 0 5px 5px}
+    .dev-laptop-shadow{width:88%;margin:6px auto 0;height:20px;background:radial-gradient(ellipse at center,rgba(0,0,0,.28) 0%,transparent 72%)}
+
+    .dev-phone{width:206px;flex-shrink:0;margin-bottom:0;z-index:2;position:relative}
+    .dev-phone-body{background:#0d0d0d;border-radius:30px;padding:9px;box-shadow:0 34px 64px -14px rgba(0,0,0,.48),0 0 0 1.5px rgba(255,255,255,.06) inset}
+    .dev-phone-notch{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:72px;height:16px;background:#0d0d0d;border-radius:0 0 12px 12px;z-index:6}
+    .dev-phone-screen{background:var(--white);border-radius:22px;overflow:hidden;position:relative}
+    .dps-status{display:flex;justify-content:space-between;align-items:center;padding:11px 16px 3px;font-size:10px;font-weight:800;color:var(--ink)}
+    .dps-status-icons{display:flex;align-items:center;gap:3px}
+    .dps-status-icons svg{width:11px;height:8px}
+    .dps-head{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:var(--bmc-green);margin-top:4px}
+    .dps-brand{display:flex;align-items:center;gap:6px}
+    .dps-brand svg{width:13px;height:15px;color:var(--bmc-gold);flex-shrink:0}
+    .dps-brand span{font-family:Georgia,'Times New Roman',serif;font-size:10.5px;font-weight:700;color:var(--white);line-height:1}
+    .dps-cart{width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center}
+    .dps-cart svg{width:10px;height:10px;color:var(--white)}
+    .dps-tabs{display:flex;gap:6px;padding:10px 14px 2px}
+    .dps-tab{font-size:8.5px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;padding:5px 11px;border-radius:20px;color:var(--ink3);background:var(--lt2)}
+    .dps-tab.on{background:var(--bmc-green);color:var(--white)}
+    .dps-products{display:flex;flex-direction:column;gap:7px;padding:10px 14px 0}
+    .dps-product{display:flex;align-items:center;gap:8px;background:var(--lt2);border:1px solid var(--border);border-radius:9px;padding:6px}
+    .dps-product-img{width:34px;height:34px;border-radius:6px;flex-shrink:0}
+    .dps-product-img.tier-ess{background:linear-gradient(135deg,#7A2036,#4E1520)}
+    .dps-product-img.tier-sig{background:linear-gradient(135deg,#3D6B4A,#1F3D2E)}
+    .dps-product-info{flex:1;min-width:0}
+    .dps-product-name{font-size:9.5px;font-weight:700;color:var(--ink);line-height:1.25}
+    .dps-product-price{font-size:9px;color:var(--bmc-green);font-weight:800;margin-top:1px}
+    .dps-product-add{width:18px;height:18px;border-radius:50%;background:var(--bmc-green);color:var(--white);font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;line-height:1}
+    .dps-config{margin:11px 14px 10px;background:var(--bmc-green2);border-radius:11px;padding:12px 13px}
+    .dps-config-lbl{font-size:8px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:9px;display:block}
+    .dps-config-row{display:flex;justify-content:space-between;font-size:9.5px;color:rgba(255,255,255,.6);margin-bottom:6px}
+    .dps-config-row strong{color:var(--white);font-weight:700}
+    .dps-config-bar{height:4px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden;margin-bottom:9px}
+    .dps-config-fill{width:64%;height:100%;background:var(--bmc-gold);border-radius:3px}
+    .dps-result{background:rgba(184,147,90,.16);border:1px solid rgba(184,147,90,.35);border-radius:8px;padding:8px 10px;font-size:8.5px;color:rgba(255,255,255,.6);margin-bottom:9px}
+    .dps-result strong{display:block;color:var(--white);font-size:13px;font-weight:900;margin-top:1px}
+    .dps-cta{background:var(--bmc-gold);color:var(--bmc-green);text-align:center;font-size:9.5px;font-weight:800;padding:9px;border-radius:7px}
+    .dps-tabbar{display:flex;justify-content:space-around;padding:8px 6px 11px;border-top:1px solid var(--border)}
+    .dps-tabbar-item{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:7px;font-weight:700;color:var(--ink3)}
+    .dps-tabbar-item.on{color:var(--bmc-green)}
+    .dps-tabbar-item svg{width:14px;height:14px}
+    @media(max-width:900px){.device-showcase{flex-direction:column;align-items:center;gap:30px;margin-top:20px}.dev-laptop{max-width:520px;flex:0 0 auto;width:100%}}
+    @media(max-width:480px){.dev-phone{width:172px}}
+
     .diag-flow{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:20px;padding:40px 32px;background:var(--dk);flex-wrap:wrap}
     .diag-flow-pt{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;min-width:150px}
     .diag-flow-num{font-size:clamp(38px,5vw,58px);font-weight:900;color:var(--white);letter-spacing:-2px;line-height:1}
@@ -576,47 +627,110 @@
       </div>
       <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">No es un ecommerce genérico de plantilla. Un solo sitio con dos flujos de conversión distintos: catálogo organizado por las cuatro categorías propias de BMC (Essential, Daily, Signature y Exclusive) con carrito para el café, y un configurador de ahorro para la maquinaria en renting que termina en una solicitud de presupuesto personalizado, la misma lógica del QR del flyer, automatizada y disponible las 24 horas.</p>
 
-      <div class="browser-mock sg fade-in">
-        <div class="browser-bar">
-          <span class="browser-dot r"></span><span class="browser-dot y"></span><span class="browser-dot g"></span>
-          <div class="browser-url">bmccoffeemarket.com</div>
-        </div>
-        <div class="bwm-nav">
-          <div class="bwm-brand">
-            <svg viewBox="0 0 40 46" fill="currentColor"><path d="M20 4C20 4 26 10 26 18C26 24 20 30 20 30C20 30 14 24 14 18C14 10 20 4 20 4Z"/><path d="M20 14C20 14 30 12 34 18C36 22 32 27 26 26C22 25 20 14 20 14Z"/><path d="M20 14C20 14 10 12 6 18C4 22 8 27 14 26C18 25 20 14 20 14Z"/><circle cx="17" cy="34" r="3"/><circle cx="23" cy="34" r="3"/><circle cx="20" cy="39" r="3"/></svg>
-            <div class="bwm-logo">BMC<em>coffee Market</em></div>
-          </div>
-          <div class="bwm-tabs"><span class="on">Café</span><span>Renting</span><span>Contacto</span></div>
-        </div>
-        <div class="bwm-body">
-          <div class="bwm-col">
-            <span class="bwm-label">Catálogo por categoría</span>
-            <div class="bwm-products">
-              <div class="bwm-product">
-                <div class="bwm-product-img tier-ess"><span class="bwm-product-tier">Essential</span></div>
-                <div class="bwm-product-name">Alta rotación 1kg</div>
-                <div class="bwm-product-price">€18,50</div>
+      <div class="device-showcase sg fade-in">
+        <div class="dev-laptop">
+          <div class="dev-laptop-screen">
+            <div class="dev-laptop-cam"></div>
+            <div class="browser-mock">
+              <div class="browser-bar">
+                <span class="browser-dot r"></span><span class="browser-dot y"></span><span class="browser-dot g"></span>
+                <div class="browser-url">bmccoffeemarket.com</div>
               </div>
-              <div class="bwm-product">
-                <div class="bwm-product-img tier-sig"><span class="bwm-product-tier">Signature</span></div>
-                <div class="bwm-product-name">Excelso B2B 1kg</div>
-                <div class="bwm-product-price">€24,00</div>
+              <div class="bwm-nav">
+                <div class="bwm-brand">
+                  <svg viewBox="0 0 40 46" fill="currentColor"><path d="M20 4C20 4 26 10 26 18C26 24 20 30 20 30C20 30 14 24 14 18C14 10 20 4 20 4Z"/><path d="M20 14C20 14 30 12 34 18C36 22 32 27 26 26C22 25 20 14 20 14Z"/><path d="M20 14C20 14 10 12 6 18C4 22 8 27 14 26C18 25 20 14 20 14Z"/><circle cx="17" cy="34" r="3"/><circle cx="23" cy="34" r="3"/><circle cx="20" cy="39" r="3"/></svg>
+                  <div class="bwm-logo">BMC<em>coffee Market</em></div>
+                </div>
+                <div class="bwm-tabs"><span class="on">Café</span><span>Renting</span><span>Contacto</span></div>
+              </div>
+              <div class="bwm-body">
+                <div class="bwm-col">
+                  <span class="bwm-label">Catálogo por categoría</span>
+                  <div class="bwm-products">
+                    <div class="bwm-product">
+                      <div class="bwm-product-img tier-ess"><span class="bwm-product-tier">Essential</span></div>
+                      <div class="bwm-product-name">Alta rotación 1kg</div>
+                      <div class="bwm-product-price">€18,50</div>
+                    </div>
+                    <div class="bwm-product">
+                      <div class="bwm-product-img tier-sig"><span class="bwm-product-tier">Signature</span></div>
+                      <div class="bwm-product-name">Excelso B2B 1kg</div>
+                      <div class="bwm-product-price">€24,00</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bwm-col dark">
+                  <span class="bwm-label light">Configurador de ahorro</span>
+                  <div class="bwm-config">
+                    <div class="bwm-config-row"><span>Cafés al día</span><strong>120</strong></div>
+                    <div class="bwm-config-bar"><div class="bwm-config-fill"></div></div>
+                    <div class="bwm-config-row"><span>Máquina</span><strong>Espressomat</strong></div>
+                    <div class="bwm-result">Ahorro estimado vs. compra<strong>€340 / mes</strong></div>
+                    <div class="bwm-cta">Solicitar presupuesto →</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="bwm-col dark">
-            <span class="bwm-label light">Configurador de ahorro</span>
-            <div class="bwm-config">
-              <div class="bwm-config-row"><span>Cafés al día</span><strong>120</strong></div>
-              <div class="bwm-config-bar"><div class="bwm-config-fill"></div></div>
-              <div class="bwm-config-row"><span>Máquina</span><strong>Espressomat</strong></div>
-              <div class="bwm-result">Ahorro estimado vs. compra<strong>€340 / mes</strong></div>
-              <div class="bwm-cta">Solicitar presupuesto →</div>
+          <div class="dev-laptop-base"></div>
+          <div class="dev-laptop-shadow"></div>
+        </div>
+
+        <div class="dev-phone">
+          <div class="dev-phone-body">
+            <div class="dev-phone-notch"></div>
+            <div class="dev-phone-screen">
+              <div class="dps-status">
+                <span>9:41</span>
+                <div class="dps-status-icons">
+                  <svg viewBox="0 0 16 11" fill="currentColor"><rect x="0" y="6" width="2.4" height="5" rx=".5"/><rect x="4" y="4" width="2.4" height="7" rx=".5"/><rect x="8" y="2" width="2.4" height="9" rx=".5"/><rect x="12" y="0" width="2.4" height="11" rx=".5"/></svg>
+                  <svg viewBox="0 0 20 11" fill="none" stroke="currentColor" stroke-width="1"><rect x=".5" y=".5" width="16" height="10" rx="2.5"/><rect x="2" y="2" width="12" height="7" rx="1" fill="currentColor" stroke="none"/><path d="M18 4v3" stroke-linecap="round"/></svg>
+                </div>
+              </div>
+              <div class="dps-head">
+                <div class="dps-brand">
+                  <svg viewBox="0 0 40 46" fill="currentColor"><path d="M20 4C20 4 26 10 26 18C26 24 20 30 20 30C20 30 14 24 14 18C14 10 20 4 20 4Z"/><path d="M20 14C20 14 30 12 34 18C36 22 32 27 26 26C22 25 20 14 20 14Z"/><path d="M20 14C20 14 10 12 6 18C4 22 8 27 14 26C18 25 20 14 20 14Z"/><circle cx="17" cy="34" r="3"/><circle cx="23" cy="34" r="3"/><circle cx="20" cy="39" r="3"/></svg>
+                  <span>BMC Coffee Market</span>
+                </div>
+                <div class="dps-cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 12.2a2 2 0 002 1.8h7.6a2 2 0 002-1.7L20 8H6"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg></div>
+              </div>
+              <div class="dps-tabs"><span class="dps-tab on">Café</span><span class="dps-tab">Renting</span></div>
+              <div class="dps-products">
+                <div class="dps-product">
+                  <div class="dps-product-img tier-ess"></div>
+                  <div class="dps-product-info">
+                    <div class="dps-product-name">Alta rotación 1kg</div>
+                    <div class="dps-product-price">€18,50</div>
+                  </div>
+                  <div class="dps-product-add">+</div>
+                </div>
+                <div class="dps-product">
+                  <div class="dps-product-img tier-sig"></div>
+                  <div class="dps-product-info">
+                    <div class="dps-product-name">Excelso B2B 1kg</div>
+                    <div class="dps-product-price">€24,00</div>
+                  </div>
+                  <div class="dps-product-add">+</div>
+                </div>
+              </div>
+              <div class="dps-config">
+                <span class="dps-config-lbl">Configurador de ahorro</span>
+                <div class="dps-config-row"><span>Cafés al día</span><strong>120</strong></div>
+                <div class="dps-config-bar"><div class="dps-config-fill"></div></div>
+                <div class="dps-result">Ahorro estimado vs. compra<strong>€340 / mes</strong></div>
+                <div class="dps-cta">Solicitar presupuesto →</div>
+              </div>
+              <div class="dps-tabbar">
+                <div class="dps-tabbar-item on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Inicio</div>
+                <div class="dps-tabbar-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13a2 2 0 012 2c0 4-3 7-7.5 7S4 14 4 10V8z"/><path d="M17 9h1.5a2 2 0 010 4H17"/></svg>Café</div>
+                <div class="dps-tabbar-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>Renting</div>
+                <div class="dps-tabbar-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.4-3.6 4.3-5.5 7.5-5.5s6.1 1.9 7.5 5.5"/></svg>Perfil</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <p style="font-size:12.5px;color:var(--ink3);margin-top:-16px;margin-bottom:28px">Referencia visual del flujo dual del ecommerce, ya con la identidad de marca de BMC: verde, dorado, el símbolo de la hoja de café y las cuatro categorías (Essential, Daily, Signature, Exclusive). Diseño final se define en la etapa de construcción con el catálogo y las reglas de cálculo reales.</p>
+      <p style="font-size:12.5px;color:var(--ink3);margin-top:-4px;margin-bottom:28px">Referencia visual del ecommerce en escritorio y móvil, ya con la identidad de marca de BMC: verde, dorado, el símbolo de la hoja de café y las cuatro categorías (Essential, Daily, Signature, Exclusive). Diseño final se define en la etapa de construcción con el catálogo y las reglas de cálculo reales.</p>
 
       <div class="inv-layout">
         <div class="inv-main corner-fx">
