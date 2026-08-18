@@ -31,6 +31,7 @@
     @media(max-width:768px){.nav-links{display:none}#nav{padding:0 24px}}
 
     .cover{min-height:100vh;background:var(--dk);display:flex;flex-direction:column;justify-content:flex-end;padding:0 64px;position:relative;overflow:hidden}
+    .cover-photo{position:absolute;inset:0;z-index:0;background-image:url(img/hero-beans.jpg);background-size:cover;background-position:center 32%;opacity:.55;filter:saturate(1.15) contrast(1.05)}
     #hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
     .cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px;animation:gd 28s linear infinite;pointer-events:none;z-index:1}
     @keyframes gd{from{background-position:0 0}to{background-position:88px 88px}}
@@ -195,6 +196,8 @@
     .cta-btn svg{width:18px;height:18px}
     .cta-detail{margin-top:28px;font-size:12px;color:rgba(255,255,255,.28);letter-spacing:.06em}
     .cta-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 55% at 50% 50%,rgba(232,0,10,.07) 0%,transparent 70%)}
+    .cta-photo{position:absolute;inset:0;z-index:0;background-image:url(img/roaster-machine.jpg);background-size:cover;background-position:center 60%;opacity:.32;filter:saturate(1.1)}
+    .cta-photo::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(10,10,10,.55) 0%,var(--dk) 92%)}
 
     .draw{stroke-dasharray:120;stroke-dashoffset:120;animation:drawI 1s cubic-bezier(.4,0,.2,1) forwards}
     @keyframes drawI{to{stroke-dashoffset:0}}
@@ -267,8 +270,8 @@
     .bwm-products{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .bwm-product{background:var(--lt2);border:1px solid var(--border);border-radius:8px;padding:10px}
     .bwm-product-img{border-radius:6px;height:52px;margin-bottom:8px;display:flex;align-items:flex-end;padding:6px}
-    .bwm-product-img.tier-ess{background:linear-gradient(135deg,#7A2036,#4E1520)}
-    .bwm-product-img.tier-sig{background:linear-gradient(135deg,#3D6B4A,#1F3D2E)}
+    .bwm-product-img.tier-ess{background:linear-gradient(135deg,rgba(122,32,54,.8),rgba(78,21,32,.88)),url(img/beans-texture.jpg);background-size:cover;background-position:center;background-blend-mode:multiply}
+    .bwm-product-img.tier-sig{background:linear-gradient(135deg,rgba(61,107,74,.8),rgba(31,61,46,.88)),url(img/beans-texture.jpg);background-size:cover;background-position:center;background-blend-mode:multiply}
     .bwm-product-tier{font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9)}
     .bwm-product-name{font-size:11px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:4px}
     .bwm-product-price{font-size:12px;font-weight:900;color:var(--bmc-green)}
@@ -280,6 +283,8 @@
     .bwm-result{background:rgba(184,147,90,.16);border:1px solid rgba(184,147,90,.4);border-radius:8px;padding:12px 14px;font-size:12px;color:rgba(255,255,255,.6);margin-top:6px}
     .bwm-result strong{color:var(--white);font-size:16px;font-weight:900;display:block;margin-top:2px}
     .bwm-cta{margin-top:4px;background:var(--bmc-gold);color:var(--bmc-green);font-size:11.5px;font-weight:800;text-align:center;padding:10px;border-radius:6px}
+    .bwm-machine-shot{background:var(--white);border-radius:8px;padding:8px;text-align:center}
+    .bwm-machine-shot img{height:58px;width:auto}
     @media(max-width:640px){.bwm-body{grid-template-columns:1fr}}
 
     /* ── DEVICE SHOWCASE: laptop + teléfono ── */
@@ -311,8 +316,8 @@
     .dps-products{display:flex;flex-direction:column;gap:7px;padding:10px 14px 0}
     .dps-product{display:flex;align-items:center;gap:8px;background:var(--lt2);border:1px solid var(--border);border-radius:9px;padding:6px}
     .dps-product-img{width:34px;height:34px;border-radius:6px;flex-shrink:0}
-    .dps-product-img.tier-ess{background:linear-gradient(135deg,#7A2036,#4E1520)}
-    .dps-product-img.tier-sig{background:linear-gradient(135deg,#3D6B4A,#1F3D2E)}
+    .dps-product-img.tier-ess{background:linear-gradient(135deg,rgba(122,32,54,.8),rgba(78,21,32,.88)),url(img/beans-texture.jpg);background-size:cover;background-position:center;background-blend-mode:multiply}
+    .dps-product-img.tier-sig{background:linear-gradient(135deg,rgba(61,107,74,.8),rgba(31,61,46,.88)),url(img/beans-texture.jpg);background-size:cover;background-position:center;background-blend-mode:multiply}
     .dps-product-info{flex:1;min-width:0}
     .dps-product-name{font-size:9.5px;font-weight:700;color:var(--ink);line-height:1.25}
     .dps-product-price{font-size:9px;color:var(--bmc-green);font-weight:800;margin-top:1px}
@@ -326,6 +331,8 @@
     .dps-result{background:rgba(184,147,90,.16);border:1px solid rgba(184,147,90,.35);border-radius:8px;padding:8px 10px;font-size:8.5px;color:rgba(255,255,255,.6);margin-bottom:9px}
     .dps-result strong{display:block;color:var(--white);font-size:13px;font-weight:900;margin-top:1px}
     .dps-cta{background:var(--bmc-gold);color:var(--bmc-green);text-align:center;font-size:9.5px;font-weight:800;padding:9px;border-radius:7px}
+    .dps-machine-shot{background:var(--white);border-radius:7px;padding:6px;text-align:center;margin-bottom:9px}
+    .dps-machine-shot img{height:38px;width:auto}
     .dps-tabbar{display:flex;justify-content:space-around;padding:8px 6px 11px;border-top:1px solid var(--border)}
     .dps-tabbar-item{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:7px;font-weight:700;color:var(--ink3)}
     .dps-tabbar-item.on{color:var(--bmc-green)}
@@ -355,6 +362,12 @@
     .frente-mini-val{font-size:26px;font-weight:900;letter-spacing:-1px;color:var(--red);line-height:1}
     .frente-mini-lbl{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-top:5px;line-height:1.35}
     .frente-half.renting .frente-mini-lbl{color:rgba(255,255,255,.4)}
+    .frente-photo{margin:-52px -44px 26px;height:180px;overflow:hidden;position:relative}
+    .frente-photo img{width:100%;height:100%;object-fit:cover;display:block;object-position:center 30%}
+    .frente-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,transparent 40%)}
+    .frente-machines{display:flex;align-items:flex-end;justify-content:center;gap:14px;margin:-6px 0 26px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .frente-machines img{height:104px;width:auto;filter:drop-shadow(0 14px 22px rgba(0,0,0,.55))}
+    @media(max-width:480px){.frente-machines img{height:80px}}
 
     .sec-wm{overflow:hidden;z-index:0}
     .brand-mark{position:absolute;z-index:-1;pointer-events:none;fill:var(--red)}
@@ -423,6 +436,7 @@
   01 · PORTADA
 ════════════════════════════════════════ -->
 <section class="cover">
+  <div class="cover-photo"></div>
   <canvas id="hero-canvas"></canvas>
   <div class="cover-grid"></div>
   <div class="cover-ov"></div>
@@ -543,6 +557,7 @@
   <div class="inner">
     <div class="frentes-split sg fade-in" style="margin-top:52px">
       <div class="frente-half cafe">
+        <div class="frente-photo"><img src="img/hand-grind.jpg" alt="Café molido BMC en portafiltro" loading="lazy"></div>
         <span class="pillar-num">Frente 01 · Café</span>
         <div class="pillar-title">Catálogo con recompra</div>
         <p class="pillar-sub">Ecommerce clásico para el consumo recurrente de café</p>
@@ -567,6 +582,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="6" x2="12" y2="18"/><line x1="6" y1="12" x2="18" y2="12"/></svg>
       </div>
       <div class="frente-half renting">
+        <div class="frente-machines">
+          <img src="img/espressomat.png" alt="Máquina Espressomat" loading="lazy">
+          <img src="img/ascaso.png" alt="Máquina y molino Ascaso" loading="lazy">
+        </div>
         <span class="pillar-num">Frente 02 · Renting</span>
         <div class="pillar-title dk">Configurador de ahorro</div>
         <p class="pillar-sub dk">Una decisión financiera para el negocio del cliente, no un clic de compra</p>
@@ -610,6 +629,7 @@
     <div class="badge-red">Cada servicio, a la carta</div>
     <h2 class="sec-title lt">Ocho servicios independientes.<br>Cada uno con su propio precio.</h2>
     <p class="sec-lead lt">Sin paquete obligatorio, sin necesidad de contratar todo junto. Cada servicio funciona por separado, con su propio alcance y su propia forma de pago.</p>
+    <div class="scope-note" style="margin-top:8px;margin-bottom:28px"><div class="scope-label">Precios netos</div><p>Todos los precios de esta propuesta son netos, sin impuestos. El IVA vigente en España (21%) se añade en la factura correspondiente.</p></div>
 
     <!-- ECOMMERCE DUAL -->
     <div class="svc-block" style="padding-top:0;border-top:none">
@@ -665,6 +685,7 @@
                     <div class="bwm-config-row"><span>Cafés al día</span><strong>120</strong></div>
                     <div class="bwm-config-bar"><div class="bwm-config-fill"></div></div>
                     <div class="bwm-config-row"><span>Máquina</span><strong>Espressomat</strong></div>
+                    <div class="bwm-machine-shot"><img src="img/espressomat.png" alt="Espressomat"></div>
                     <div class="bwm-result">Ahorro estimado vs. compra<strong>€340 / mes</strong></div>
                     <div class="bwm-cta">Solicitar presupuesto →</div>
                   </div>
@@ -717,6 +738,8 @@
                 <span class="dps-config-lbl">Configurador de ahorro</span>
                 <div class="dps-config-row"><span>Cafés al día</span><strong>120</strong></div>
                 <div class="dps-config-bar"><div class="dps-config-fill"></div></div>
+                <div class="dps-config-row"><span>Máquina</span><strong>Espressomat</strong></div>
+                <div class="dps-machine-shot"><img src="img/espressomat.png" alt="Espressomat"></div>
                 <div class="dps-result">Ahorro estimado vs. compra<strong>€340 / mes</strong></div>
                 <div class="dps-cta">Solicitar presupuesto →</div>
               </div>
@@ -741,7 +764,7 @@
             </div>
             <div class="inv-price">
               <div class="inv-amount">€5<span>.</span>760</div>
-              <div class="inv-period">EUR · pago único</div>
+              <div class="inv-period">EUR · pago único + IVA</div>
             </div>
           </div>
           <div class="inv-body">
@@ -776,7 +799,7 @@
           <div class="total-block">
             <span class="total-lbl">Inversión ecommerce dual</span>
             <div class="total-amt">€5.760</div>
-            <div class="total-sub">EUR · pago único · precio fijo</div>
+            <div class="total-sub">EUR · pago único + IVA · precio fijo</div>
           </div>
 
           <div class="entrega-card">
@@ -829,7 +852,7 @@
         <div class="wm-main">
           <span class="sec-label">Fee de gestión mensual</span>
           <div class="wm-price">€420</div>
-          <div class="wm-period">EUR al mes · contrato mes a mes</div>
+          <div class="wm-period">EUR al mes + IVA · contrato mes a mes</div>
           <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Cubre optimización on-page, técnica y de contenido del ecommerce dual. No incluye pauta paga, ese presupuesto se define aparte por canal.</p>
           <div class="quote-box">
             <p>Contratar una persona dedicada a SEO cuesta desde <strong>€2.000 al mes</strong> en salario, sin la curva de aprendizaje del sector. Por €420, We Rock ya trae la experiencia.</p>
@@ -871,7 +894,7 @@
         <div class="wm-main">
           <span class="sec-label">Fee de gestión mensual</span>
           <div class="wm-price">€462</div>
-          <div class="wm-period">EUR al mes · contrato mes a mes</div>
+          <div class="wm-period">EUR al mes + IVA · contrato mes a mes</div>
           <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Este valor cubre solo la gestión. El presupuesto de pauta se define aparte y se paga directo a Google.</p>
         </div>
         <div class="wm-side">
@@ -889,7 +912,7 @@
         <div style="background:var(--white);border:1px solid var(--border);padding:28px 32px;border-top:3px solid var(--red);box-shadow:var(--sh)">
           <span class="sec-label" style="margin-bottom:10px">Fee de gestión We Rock</span>
           <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€462</div>
-          <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago a We Rock</div>
+          <div style="font-size:13px;color:var(--ink3)">EUR al mes + IVA · pago a We Rock</div>
         </div>
         <div style="background:var(--lt);border:1px solid var(--border);padding:28px 32px;border-top:3px solid rgba(232,0,10,.4);box-shadow:var(--sh)">
           <span class="sec-label" style="margin-bottom:10px">Presupuesto de pauta sugerido</span>
@@ -923,7 +946,7 @@
         <div class="wm-main">
           <span class="sec-label">Fee de gestión mensual</span>
           <div class="wm-price">€402</div>
-          <div class="wm-period">EUR al mes · contrato mes a mes</div>
+          <div class="wm-period">EUR al mes + IVA · contrato mes a mes</div>
           <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Fee de gestión, presupuesto de pauta aparte, pago directo a Meta.</p>
         </div>
         <div class="wm-side">
@@ -941,7 +964,7 @@
         <div style="background:var(--white);border:1px solid var(--border);padding:28px 32px;border-top:3px solid var(--red);box-shadow:var(--sh)">
           <span class="sec-label" style="margin-bottom:10px">Fee de gestión We Rock</span>
           <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€402</div>
-          <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago a We Rock</div>
+          <div style="font-size:13px;color:var(--ink3)">EUR al mes + IVA · pago a We Rock</div>
         </div>
         <div style="background:var(--lt);border:1px solid var(--border);padding:28px 32px;border-top:3px solid rgba(232,0,10,.4);box-shadow:var(--sh)">
           <span class="sec-label" style="margin-bottom:10px">Presupuesto de pauta sugerido</span>
@@ -975,7 +998,7 @@
         <div class="wm-main">
           <span class="sec-label">Fee de gestión mensual</span>
           <div class="wm-price">€546</div>
-          <div class="wm-period">EUR al mes · contrato mes a mes</div>
+          <div class="wm-period">EUR al mes + IVA · contrato mes a mes</div>
           <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Fee de gestión, presupuesto de pauta aparte, pago directo a LinkedIn.</p>
         </div>
         <div class="wm-side">
@@ -993,7 +1016,7 @@
         <div style="background:var(--white);border:1px solid var(--border);padding:28px 32px;border-top:3px solid var(--red);box-shadow:var(--sh)">
           <span class="sec-label" style="margin-bottom:10px">Fee de gestión We Rock</span>
           <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€546</div>
-          <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago a We Rock</div>
+          <div style="font-size:13px;color:var(--ink3)">EUR al mes + IVA · pago a We Rock</div>
         </div>
         <div style="background:var(--lt);border:1px solid var(--border);padding:28px 32px;border-top:3px solid rgba(232,0,10,.4);box-shadow:var(--sh)">
           <span class="sec-label" style="margin-bottom:10px">Presupuesto de pauta sugerido</span>
@@ -1027,7 +1050,7 @@
         <div class="wm-main">
           <span class="sec-label">Fee de gestión mensual</span>
           <div class="wm-price">€312</div>
-          <div class="wm-period">EUR al mes · contrato mes a mes</div>
+          <div class="wm-period">EUR al mes + IVA · contrato mes a mes</div>
           <p style="font-size:14px;color:var(--ink2);line-height:1.65">La plataforma de envío (ej. Mailchimp o similar) se contrata aparte según volumen de contactos.</p>
         </div>
         <div class="wm-side">
@@ -1066,7 +1089,7 @@
         <div class="wm-main">
           <span class="sec-label">Fee de gestión mensual</span>
           <div class="wm-price">€504</div>
-          <div class="wm-period">EUR al mes · contrato mes a mes</div>
+          <div class="wm-period">EUR al mes + IVA · contrato mes a mes</div>
           <p style="font-size:14px;color:var(--ink2);line-height:1.65">Calendario, diseño y publicación para Instagram, LinkedIn y Facebook.</p>
         </div>
         <div class="wm-side">
@@ -1103,11 +1126,11 @@
       <div style="background:var(--dk);padding:32px 36px;border-top:3px solid var(--red)">
         <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
           <div style="font-size:clamp(28px,3.6vw,36px);font-weight:900;color:var(--white);letter-spacing:-1.5px">€180</div>
-          <div style="font-size:13px;color:var(--text-dk2)">EUR · implementación, pago único</div>
+          <div style="font-size:13px;color:var(--text-dk2)">EUR · implementación, pago único + IVA</div>
         </div>
         <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:8px">
           <div style="font-size:clamp(22px,2.8vw,28px);font-weight:900;color:var(--white);letter-spacing:-1px">~€82</div>
-          <div style="font-size:13px;color:var(--text-dk2)">EUR / mes, estimado · plan Growth (USD $89)</div>
+          <div style="font-size:13px;color:var(--text-dk2)">EUR / mes, estimado + IVA · plan Growth (USD $89)</div>
         </div>
         <div style="font-size:12px;color:rgba(255,255,255,.35);margin-top:10px">Equivalencia EUR estimada al tipo de cambio de referencia del día. Hasta 75 conversaciones diarias, ~2.250 al mes.</div>
       </div>
@@ -1331,6 +1354,7 @@
   09 · CTA
 ════════════════════════════════════════ -->
 <section class="cta-section cta-cut" id="s-cta">
+  <div class="cta-photo"></div>
   <canvas id="cta-canvas"></canvas>
   <div class="cta-glow"></div>
   <div class="cta-inner">
