@@ -247,34 +247,39 @@
     @keyframes wtyp{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
     .wa-mock-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);background:rgba(232,0,10,.1);border:1px solid rgba(232,0,10,.25);padding:6px 12px;border-radius:20px;margin-top:4px}
 
-    .browser-mock{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:var(--sh2);border:1px solid var(--border);margin-bottom:28px}
+    .browser-mock{--bmc-green:#1F3D2E;--bmc-green2:#2A4F3B;--bmc-gold:#B8935A;background:var(--white);border-radius:14px;overflow:hidden;box-shadow:var(--sh2);border:1px solid var(--border);margin-bottom:28px}
     .browser-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--lt2);border-bottom:1px solid var(--border)}
     .browser-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
     .browser-dot.r{background:#FF5F57}.browser-dot.y{background:#FEBC2E}.browser-dot.g{background:#28C840}
     .browser-url{flex:1;background:var(--white);border-radius:6px;padding:5px 14px;font-size:11px;color:var(--ink3);text-align:center;margin-left:8px;border:1px solid var(--border)}
-    .bwm-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;background:var(--dk);flex-wrap:wrap;gap:10px}
-    .bwm-logo{font-size:13px;font-weight:900;color:var(--white);letter-spacing:-.3px}
-    .bwm-logo span{font-weight:500;color:var(--text-dk2)}
-    .bwm-tabs{display:flex;gap:18px;font-size:11px;font-weight:700;color:var(--text-dk2);text-transform:uppercase;letter-spacing:.05em}
-    .bwm-tabs .on{color:var(--red)}
+    .bwm-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;background:var(--bmc-green);flex-wrap:wrap;gap:10px}
+    .bwm-brand{display:flex;align-items:center;gap:9px}
+    .bwm-brand svg{width:20px;height:23px;color:var(--bmc-gold);flex-shrink:0}
+    .bwm-logo{font-family:Georgia,'Times New Roman',serif;font-size:15px;font-weight:700;color:var(--white);letter-spacing:.01em;line-height:1.05}
+    .bwm-logo em{display:block;font-style:italic;font-weight:400;font-size:9.5px;color:var(--bmc-gold);letter-spacing:.05em;margin-top:1px}
+    .bwm-tabs{display:flex;gap:18px;font-size:11px;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.05em}
+    .bwm-tabs .on{color:var(--bmc-gold)}
     .bwm-body{display:grid;grid-template-columns:1.1fr 1fr}
     .bwm-col{padding:24px}
-    .bwm-col.dark{background:var(--dk2)}
+    .bwm-col.dark{background:var(--bmc-green2)}
     .bwm-label{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;display:block}
-    .bwm-label.light{color:rgba(255,255,255,.4)}
+    .bwm-label.light{color:rgba(255,255,255,.5)}
     .bwm-products{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .bwm-product{background:var(--lt2);border:1px solid var(--border);border-radius:8px;padding:10px}
-    .bwm-product-img{background:linear-gradient(135deg,#D9CBAE,#B89968);border-radius:6px;height:52px;margin-bottom:8px}
+    .bwm-product-img{border-radius:6px;height:52px;margin-bottom:8px;display:flex;align-items:flex-end;padding:6px}
+    .bwm-product-img.tier-ess{background:linear-gradient(135deg,#7A2036,#4E1520)}
+    .bwm-product-img.tier-sig{background:linear-gradient(135deg,#3D6B4A,#1F3D2E)}
+    .bwm-product-tier{font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9)}
     .bwm-product-name{font-size:11px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:4px}
-    .bwm-product-price{font-size:12px;font-weight:900;color:var(--red)}
+    .bwm-product-price{font-size:12px;font-weight:900;color:var(--bmc-green)}
     .bwm-config{display:flex;flex-direction:column;gap:10px}
-    .bwm-config-row{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--text-dk2)}
+    .bwm-config-row{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.6)}
     .bwm-config-row strong{color:var(--white);font-weight:700}
-    .bwm-config-bar{height:5px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden}
-    .bwm-config-fill{width:64%;height:100%;background:var(--red);border-radius:4px}
-    .bwm-result{background:rgba(232,0,10,.12);border:1px solid rgba(232,0,10,.3);border-radius:8px;padding:12px 14px;font-size:12px;color:var(--text-dk2);margin-top:6px}
+    .bwm-config-bar{height:5px;background:rgba(255,255,255,.12);border-radius:4px;overflow:hidden}
+    .bwm-config-fill{width:64%;height:100%;background:var(--bmc-gold);border-radius:4px}
+    .bwm-result{background:rgba(184,147,90,.16);border:1px solid rgba(184,147,90,.4);border-radius:8px;padding:12px 14px;font-size:12px;color:rgba(255,255,255,.6);margin-top:6px}
     .bwm-result strong{color:var(--white);font-size:16px;font-weight:900;display:block;margin-top:2px}
-    .bwm-cta{margin-top:4px;background:var(--red);color:var(--white);font-size:11.5px;font-weight:700;text-align:center;padding:10px;border-radius:6px}
+    .bwm-cta{margin-top:4px;background:var(--bmc-gold);color:var(--bmc-green);font-size:11.5px;font-weight:800;text-align:center;padding:10px;border-radius:6px}
     @media(max-width:640px){.bwm-body{grid-template-columns:1fr}}
 
     .diag-flow{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:20px;padding:40px 32px;background:var(--dk);flex-wrap:wrap}
@@ -383,7 +388,7 @@
       <span class="hl hl3">PARA TODO</span>
       <span class="hl hl4">EL SECTOR HORECA.</span>
     </h1>
-    <p class="cover-hero-lead">Un ecommerce que vende dos cosas distintas de forma distinta: catálogo y carrito para el café, un configurador de ahorro para la maquinaria ESPRESSOMAT y ASCASO en renting. Barcelona y toda España.</p>
+    <p class="cover-hero-lead">Un ecommerce que vende dos cosas distintas de forma distinta: catálogo y carrito para el café, un configurador de ahorro para la maquinaria Espressomat y Ascaso en renting. Barcelona y toda España.</p>
     <div class="cover-hero-meta">
       <span>Propuesta comercial</span>
       <div class="dot"></div>
@@ -414,7 +419,7 @@
     <span class="sec-label">02 · El diagnóstico</span>
     <div class="badge-red">Situación actual</div>
     <h2 class="sec-title lt">Un modelo de negocio sólido.<br>Un sistema digital que todavía no existe.</h2>
-    <p class="sec-lead lt">BMC tiene lo más difícil resuelto: un modelo de renting flexible sin inversión inicial, marcas de calidad (ESPRESSOMAT y ASCASO) y presencia activa en el sector HORECA de Barcelona. Lo que falta no es validar la idea, es construir el sistema digital que la escale.</p>
+    <p class="sec-lead lt">BMC tiene lo más difícil resuelto: un modelo de renting flexible sin inversión inicial, marcas de calidad (Espressomat y Ascaso) y presencia activa en el sector HORECA de Barcelona. Lo que falta no es validar la idea, es construir el sistema digital que la escale.</p>
 
     <div class="prob-grid sg fade-in">
 
@@ -569,7 +574,7 @@
           </div>
         </div>
       </div>
-      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">No es un ecommerce genérico de plantilla. Un solo sitio con dos flujos de conversión distintos: catálogo y carrito para el café, y un configurador de ahorro para la maquinaria en renting que termina en una solicitud de presupuesto personalizado, la misma lógica del QR del flyer, automatizada y disponible las 24 horas.</p>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">No es un ecommerce genérico de plantilla. Un solo sitio con dos flujos de conversión distintos: catálogo organizado por las cuatro categorías propias de BMC (Essential, Daily, Signature y Exclusive) con carrito para el café, y un configurador de ahorro para la maquinaria en renting que termina en una solicitud de presupuesto personalizado, la misma lógica del QR del flyer, automatizada y disponible las 24 horas.</p>
 
       <div class="browser-mock sg fade-in">
         <div class="browser-bar">
@@ -577,22 +582,25 @@
           <div class="browser-url">bmccoffeemarket.com</div>
         </div>
         <div class="bwm-nav">
-          <div class="bwm-logo">BMC <span>Coffee Market</span></div>
+          <div class="bwm-brand">
+            <svg viewBox="0 0 40 46" fill="currentColor"><path d="M20 4C20 4 26 10 26 18C26 24 20 30 20 30C20 30 14 24 14 18C14 10 20 4 20 4Z"/><path d="M20 14C20 14 30 12 34 18C36 22 32 27 26 26C22 25 20 14 20 14Z"/><path d="M20 14C20 14 10 12 6 18C4 22 8 27 14 26C18 25 20 14 20 14Z"/><circle cx="17" cy="34" r="3"/><circle cx="23" cy="34" r="3"/><circle cx="20" cy="39" r="3"/></svg>
+            <div class="bwm-logo">BMC<em>coffee Market</em></div>
+          </div>
           <div class="bwm-tabs"><span class="on">Café</span><span>Renting</span><span>Contacto</span></div>
         </div>
         <div class="bwm-body">
           <div class="bwm-col">
-            <span class="bwm-label">Catálogo de café</span>
+            <span class="bwm-label">Catálogo por categoría</span>
             <div class="bwm-products">
               <div class="bwm-product">
-                <div class="bwm-product-img"></div>
-                <div class="bwm-product-name">Blend Barcelona 1kg</div>
+                <div class="bwm-product-img tier-ess"><span class="bwm-product-tier">Essential</span></div>
+                <div class="bwm-product-name">Alta rotación 1kg</div>
                 <div class="bwm-product-price">€18,50</div>
               </div>
               <div class="bwm-product">
-                <div class="bwm-product-img"></div>
-                <div class="bwm-product-name">Origen Colombia 1kg</div>
-                <div class="bwm-product-price">€21,00</div>
+                <div class="bwm-product-img tier-sig"><span class="bwm-product-tier">Signature</span></div>
+                <div class="bwm-product-name">Excelso B2B 1kg</div>
+                <div class="bwm-product-price">€24,00</div>
               </div>
             </div>
           </div>
@@ -608,7 +616,7 @@
           </div>
         </div>
       </div>
-      <p style="font-size:12.5px;color:var(--ink3);margin-top:-16px;margin-bottom:28px">Referencia visual del flujo dual del ecommerce. Diseño final se define en la etapa de construcción con el catálogo y las reglas de cálculo reales de BMC.</p>
+      <p style="font-size:12.5px;color:var(--ink3);margin-top:-16px;margin-bottom:28px">Referencia visual del flujo dual del ecommerce, ya con la identidad de marca de BMC: verde, dorado, el símbolo de la hoja de café y las cuatro categorías (Essential, Daily, Signature, Exclusive). Diseño final se define en la etapa de construcción con el catálogo y las reglas de cálculo reales.</p>
 
       <div class="inv-layout">
         <div class="inv-main corner-fx">
@@ -618,7 +626,7 @@
               <div class="inv-title">Ecommerce dual</div>
             </div>
             <div class="inv-price">
-              <div class="inv-amount">€4<span>.</span>800</div>
+              <div class="inv-amount">€5<span>.</span>760</div>
               <div class="inv-period">EUR · pago único</div>
             </div>
           </div>
@@ -640,12 +648,12 @@
               <span class="sline-p">Incluido</span>
             </div>
             <div class="sline">
-              <span class="sline-n"><strong>Diseño responsive:</strong> celular, tableta y computador</span>
+              <span class="sline-n"><strong>Diseño responsive:</strong> móvil, tablet y ordenador</span>
               <span class="sline-p">Incluido</span>
             </div>
             <div class="subtotal-bar" style="margin-top:20px">
               <span class="lb">Total ecommerce dual</span>
-              <span class="vl">€4.800 EUR</span>
+              <span class="vl">€5.760 EUR</span>
             </div>
           </div>
         </div>
@@ -653,7 +661,7 @@
         <div class="inv-side">
           <div class="total-block">
             <span class="total-lbl">Inversión ecommerce dual</span>
-            <div class="total-amt">€4.800</div>
+            <div class="total-amt">€5.760</div>
             <div class="total-sub">EUR · pago único · precio fijo</div>
           </div>
 
@@ -706,11 +714,11 @@
       <div class="wm-layout">
         <div class="wm-main">
           <span class="sec-label">Fee de gestión mensual</span>
-          <div class="wm-price">€350</div>
+          <div class="wm-price">€420</div>
           <div class="wm-period">EUR al mes · contrato mes a mes</div>
           <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Cubre optimización on-page, técnica y de contenido del ecommerce dual. No incluye pauta paga, ese presupuesto se define aparte por canal.</p>
           <div class="quote-box">
-            <p>Contratar una persona dedicada a SEO cuesta desde <strong>€2.000 al mes</strong> en salario, sin la curva de aprendizaje del sector. Por €350, We Rock ya trae la experiencia.</p>
+            <p>Contratar una persona dedicada a SEO cuesta desde <strong>€2.000 al mes</strong> en salario, sin la curva de aprendizaje del sector. Por €420, We Rock ya trae la experiencia.</p>
           </div>
         </div>
         <div class="wm-side">
@@ -748,7 +756,7 @@
       <div class="wm-layout">
         <div class="wm-main">
           <span class="sec-label">Fee de gestión mensual</span>
-          <div class="wm-price">€320</div>
+          <div class="wm-price">€462</div>
           <div class="wm-period">EUR al mes · contrato mes a mes</div>
           <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Este valor cubre solo la gestión. El presupuesto de pauta se define aparte y se paga directo a Google.</p>
         </div>
@@ -766,12 +774,12 @@
       <div class="g2 sg fade-in" style="margin-top:20px">
         <div style="background:var(--white);border:1px solid var(--border);padding:28px 32px;border-top:3px solid var(--red);box-shadow:var(--sh)">
           <span class="sec-label" style="margin-bottom:10px">Fee de gestión We Rock</span>
-          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€320</div>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€462</div>
           <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago a We Rock</div>
         </div>
         <div style="background:var(--lt);border:1px solid var(--border);padding:28px 32px;border-top:3px solid rgba(232,0,10,.4);box-shadow:var(--sh)">
           <span class="sec-label" style="margin-bottom:10px">Presupuesto de pauta sugerido</span>
-          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€550</div>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€2.200</div>
           <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago directo a Google</div>
         </div>
       </div>
@@ -800,7 +808,7 @@
       <div class="wm-layout">
         <div class="wm-main">
           <span class="sec-label">Fee de gestión mensual</span>
-          <div class="wm-price">€280</div>
+          <div class="wm-price">€402</div>
           <div class="wm-period">EUR al mes · contrato mes a mes</div>
           <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Fee de gestión, presupuesto de pauta aparte, pago directo a Meta.</p>
         </div>
@@ -818,12 +826,12 @@
       <div class="g2 sg fade-in" style="margin-top:20px">
         <div style="background:var(--white);border:1px solid var(--border);padding:28px 32px;border-top:3px solid var(--red);box-shadow:var(--sh)">
           <span class="sec-label" style="margin-bottom:10px">Fee de gestión We Rock</span>
-          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€280</div>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€402</div>
           <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago a We Rock</div>
         </div>
         <div style="background:var(--lt);border:1px solid var(--border);padding:28px 32px;border-top:3px solid rgba(232,0,10,.4);box-shadow:var(--sh)">
           <span class="sec-label" style="margin-bottom:10px">Presupuesto de pauta sugerido</span>
-          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€450</div>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€1.800</div>
           <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago directo a Meta</div>
         </div>
       </div>
@@ -852,7 +860,7 @@
       <div class="wm-layout">
         <div class="wm-main">
           <span class="sec-label">Fee de gestión mensual</span>
-          <div class="wm-price">€380</div>
+          <div class="wm-price">€546</div>
           <div class="wm-period">EUR al mes · contrato mes a mes</div>
           <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Fee de gestión, presupuesto de pauta aparte, pago directo a LinkedIn.</p>
         </div>
@@ -870,18 +878,18 @@
       <div class="g2 sg fade-in" style="margin-top:20px">
         <div style="background:var(--white);border:1px solid var(--border);padding:28px 32px;border-top:3px solid var(--red);box-shadow:var(--sh)">
           <span class="sec-label" style="margin-bottom:10px">Fee de gestión We Rock</span>
-          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€380</div>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€546</div>
           <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago a We Rock</div>
         </div>
         <div style="background:var(--lt);border:1px solid var(--border);padding:28px 32px;border-top:3px solid rgba(232,0,10,.4);box-shadow:var(--sh)">
           <span class="sec-label" style="margin-bottom:10px">Presupuesto de pauta sugerido</span>
-          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€650</div>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">€2.600</div>
           <div style="font-size:13px;color:var(--ink3)">EUR al mes · pago directo a LinkedIn</div>
         </div>
       </div>
       <div class="scope-note">
         <div class="scope-label">Alcance del servicio</div>
-        <p>El CPC de LinkedIn es más alto que Google o Meta, pero los Lead Gen Forms nativos convierten varias veces más que llevar el mismo tráfico a una landing externa. Los benchmarks de la industria sugieren desde $1.000 USD/mes para salir de la fase de aprendizaje del algoritmo; €650 es un punto de partida conservador para validar el canal antes de escalarlo. Facturación mensual, contrato mes a mes.</p>
+        <p>El costo por clic de LinkedIn es más alto que Google o Meta, pero los Lead Gen Forms nativos convierten varias veces más que llevar el mismo tráfico a una landing externa. €2.600 al mes ya deja a la cuenta cómodamente por encima del mínimo que sugiere la industria para salir de la fase de aprendizaje del algoritmo (desde $1.000 USD/mes), con margen para escalar el canal con datos reales. Facturación mensual, contrato mes a mes.</p>
       </div>
     </div>
 
@@ -904,7 +912,7 @@
       <div class="wm-layout">
         <div class="wm-main">
           <span class="sec-label">Fee de gestión mensual</span>
-          <div class="wm-price">€260</div>
+          <div class="wm-price">€312</div>
           <div class="wm-period">EUR al mes · contrato mes a mes</div>
           <p style="font-size:14px;color:var(--ink2);line-height:1.65">La plataforma de envío (ej. Mailchimp o similar) se contrata aparte según volumen de contactos.</p>
         </div>
@@ -914,7 +922,7 @@
             <li>Secuencia de nutrición para leads de renting sin cerrar</li>
             <li>Newsletter de café para clientes con recompra activa</li>
             <li>Segmentación por frente: café o renting</li>
-            <li>Reporte de apertura, CTR y conversión a solicitud</li>
+            <li>Reporte de aperturas, clics y solicitudes generadas</li>
           </ul>
         </div>
       </div>
@@ -943,7 +951,7 @@
       <div class="wm-layout">
         <div class="wm-main">
           <span class="sec-label">Fee de gestión mensual</span>
-          <div class="wm-price">€420</div>
+          <div class="wm-price">€504</div>
           <div class="wm-period">EUR al mes · contrato mes a mes</div>
           <p style="font-size:14px;color:var(--ink2);line-height:1.65">Calendario, diseño y publicación para Instagram, LinkedIn y Facebook.</p>
         </div>
@@ -980,14 +988,14 @@
 
       <div style="background:var(--dk);padding:32px 36px;border-top:3px solid var(--red)">
         <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
-          <div style="font-size:clamp(28px,3.6vw,36px);font-weight:900;color:var(--white);letter-spacing:-1.5px">€150</div>
+          <div style="font-size:clamp(28px,3.6vw,36px);font-weight:900;color:var(--white);letter-spacing:-1.5px">€180</div>
           <div style="font-size:13px;color:var(--text-dk2)">EUR · implementación, pago único</div>
         </div>
         <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:8px">
-          <div style="font-size:clamp(22px,2.8vw,28px);font-weight:900;color:var(--white);letter-spacing:-1px">USD $89</div>
-          <div style="font-size:13px;color:var(--text-dk2)">/ mes · plan Growth (~€82 EUR/mes, estimado)</div>
+          <div style="font-size:clamp(22px,2.8vw,28px);font-weight:900;color:var(--white);letter-spacing:-1px">~€82</div>
+          <div style="font-size:13px;color:var(--text-dk2)">EUR / mes, estimado · plan Growth (USD $89)</div>
         </div>
-        <div style="font-size:12px;color:rgba(255,255,255,.35);margin-top:10px">Equivalencia EUR estimada al tipo de cambio de referencia del día. Hasta 75 conversaciones diarias, ~22.500 al mes.</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.35);margin-top:10px">Equivalencia EUR estimada al tipo de cambio de referencia del día. Hasta 75 conversaciones diarias, ~2.250 al mes.</div>
       </div>
     </div>
   </div>
@@ -1077,42 +1085,42 @@
     <span class="sec-label">06 · KPIs y proyección de resultados</span>
     <div class="badge-red">Estimado conservador, sector B2B 2026</div>
     <h2 class="sec-title lt">Lo que se mide.<br>Lo que se puede esperar, sin prometer de más.</h2>
-    <p class="sec-lead lt">Proyección basada en benchmarks de la industria para el sector B2B en 2026, no en promesas. Los números reales de la cuenta de BMC se validan y ajustan con datos propios después del primer mes de campaña activa. Nadie en el sector puede garantizar performance de ads antes de tener datos reales.</p>
+    <p class="sec-lead lt">Proyección basada en datos públicos del sector para B2B en 2026, no en promesas. Los números reales de la cuenta de BMC se validan y ajustan con datos propios después del primer mes de campaña activa. Nadie en el sector puede garantizar resultados de publicidad antes de tener datos reales.</p>
 
     <div class="g3 sg fade-in">
       <div class="prob-card">
         <span class="prob-label">Google Ads</span>
-        <div class="prob-title">CTR 2,5%-3,5% · CPC €2-4</div>
-        <p class="prob-text">Tasa de conversión esperada 3%-5%, CPL estimado €90-130. El KPI que más vigilar: CPL y tasa de conversión, no solo clics.</p>
+        <div class="prob-title">Cada contacto cuesta entre €90 y €130</div>
+        <p class="prob-text">Aparece cuando alguien ya está buscando activamente renting o café para su negocio. De cada 100 personas que ven el anuncio, entre 2 y 4 hacen clic; y de quienes hacen clic, entre 3 y 5 de cada 100 dejan sus datos.</p>
       </div>
       <div class="prob-card">
         <span class="prob-label">Meta Ads</span>
-        <div class="prob-title">CTR 0,7%-1,2% · CPC €2-2,5</div>
-        <p class="prob-text">Más orientado a alcance y retargeting que a conversión directa en B2B. El KPI que más vigilar: alcance cualificado y CPL de retargeting.</p>
+        <div class="prob-title">Sirve más para darse a conocer que para vender directo</div>
+        <p class="prob-text">El objetivo aquí es que más negocios del sector conozcan a BMC, y volver a aparecer frente a quien ya visitó el configurador y no completó la solicitud. Genera menos contactos directos que Google o LinkedIn, pero hace que esos dos canales rindan mejor.</p>
       </div>
       <div class="prob-card">
         <span class="prob-label">LinkedIn Ads</span>
-        <div class="prob-title">CTR 0,4%-0,6% · CPC €5-8</div>
-        <p class="prob-text">Con Lead Gen Forms nativos, la conversión sube a 10%-18%, CPL estimado €70-140. El KPI que más vigilar: calidad del lead vía Lead Gen Forms, no el CTR aislado.</p>
+        <div class="prob-title">El más caro por clic, pero el contacto mejor calificado</div>
+        <p class="prob-text">Cada clic cuesta entre €5 y €8, más que en Google o Meta. A cambio, la persona deja sus datos sin salir de LinkedIn, y por eso entre 10 y 18 de cada 100 clics terminan en un contacto real. Cada contacto cuesta entre €70 y €140.</p>
       </div>
     </div>
 
     <div class="wm-layout sg fade-in" style="margin-top:20px">
       <div class="wm-main" style="border-top-color:rgba(232,0,10,.4)">
         <span class="sec-label">Email marketing</span>
-        <div class="wm-price" style="font-size:clamp(30px,4vw,40px)">25%-35%<span class="sl"> apertura</span></div>
-        <div class="wm-period">CTR esperado 2%-4%</div>
-        <p style="font-size:13.5px;color:var(--ink2);line-height:1.65">Apple Mail Privacy Protection y protecciones similares hacen que la tasa de apertura sea un indicador cada vez menos confiable; el CTR y la tasa de conversión a solicitud de presupuesto son las métricas que de verdad importan.</p>
+        <div class="wm-price" style="font-size:clamp(30px,4vw,40px)">1 de 3<span class="sl"> abre el correo</span></div>
+        <div class="wm-period">2 a 4 de cada 100 hacen clic</div>
+        <p style="font-size:13.5px;color:var(--ink2);line-height:1.65">Cada vez es más difícil saber con exactitud cuánta gente abre un correo, porque Apple y otros ya ocultan ese dato. Lo que sí se puede medir con seguridad es cuánta gente hace clic y cuántos de esos terminan pidiendo presupuesto, y esas son las cifras que de verdad importan.</p>
       </div>
       <div class="wm-side">
-        <span class="sec-label">Proyección combinada de leads</span>
-        <div style="font-size:clamp(32px,4vw,42px);font-weight:900;color:var(--ink);letter-spacing:-1.5px;margin:8px 0">10 a 17</div>
-        <p style="font-size:13.5px;color:var(--ink2);line-height:1.7">Leads cualificados por mes, combinando Google, Meta y LinkedIn con la pauta sugerida (€1.650/mes en total). Este es el punto de partida esperado, no el techo: el volumen mejora con la optimización continua mes a mes.</p>
+        <span class="sec-label">Proyección combinada de contactos</span>
+        <div style="font-size:clamp(32px,4vw,42px);font-weight:900;color:var(--ink);letter-spacing:-1.5px;margin:8px 0">34 a 55</div>
+        <p style="font-size:13.5px;color:var(--ink2);line-height:1.7">Contactos calificados por mes, combinando Google, Meta y LinkedIn con el nuevo presupuesto sugerido (€6.600/mes en total, el doble que antes). Al subir el presupuesto no siempre entran el doble de contactos al mismo costo, así que este número ya es una estimación conservadora y no el simple doble del anterior. Es el punto de partida esperado, no el techo: el volumen mejora con la optimización continua mes a mes.</p>
       </div>
     </div>
 
     <div class="kpi-foot">
-      Estimados construidos sobre benchmarks públicos de la industria para campañas B2B en 2026 (Google Ads, Meta Ads y LinkedIn Ads). <strong>No son una garantía de resultados</strong>: son el punto de partida que usamos para fijar expectativas realistas antes de tener datos propios de la cuenta de BMC.
+      Estimados construidos con datos públicos del sector para campañas B2B en 2026 (Google Ads, Meta Ads y LinkedIn Ads). <strong>No son una garantía de resultados</strong>: son el punto de partida que usamos para fijar expectativas realistas antes de tener datos propios de la cuenta de BMC.
     </div>
   </div>
 </section>
