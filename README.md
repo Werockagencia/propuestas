@@ -12,6 +12,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [Prieto Holguín Legal Solutions](https://werockagencia.github.io/propuestas/prietoholguin/)
 - [Pompilio Martínez — Portal Institucional Inteligente](https://werockagencia.github.io/propuestas/pompilioportal/)
 - [Pompilio Martínez — Plataforma de Trazabilidad Escolar](https://werockagencia.github.io/propuestas/pompilioasistencia/)
-- [Pompilio Martínez — Google Workspace y Classroom](https://werockagencia.github.io/propuestas/pompiliogoogleworkspace/)
-- [Pompilio Martínez — Asistencia y PAE, versión WordPress + PWA](https://werockagencia.github.io/propuestas/pompilioasistencialite/)
 - [BMC Coffee Market — Estrategia digital y ecommerce](https://werockagencia.github.io/propuestas/bmccoffeemarket/)
