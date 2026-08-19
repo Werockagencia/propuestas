@@ -440,6 +440,28 @@
     .asist-note-label{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red-h);margin-bottom:6px}
     .asist-note p{font-size:13px;color:var(--text-dk2);line-height:1.7;margin:0}
 
+    /* ── APP DE ASISTENCIA: MOCKUP DE DASHBOARD PAE, TIPO PANTALLA DE APP ── */
+    .pae-mock{background:var(--dk2);border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);max-width:560px}
+    .pae-mock-head{display:flex;align-items:center;gap:12px;padding:16px 20px;background:var(--dk3);border-bottom:1px solid rgba(255,255,255,.06)}
+    .pae-mock-avatar{width:36px;height:36px;border-radius:10px;background:rgba(232,0,10,.15);border:1px solid rgba(232,0,10,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .pae-mock-avatar svg{width:18px;height:18px}
+    .pae-mock-title{font-size:13px;font-weight:700;color:var(--white)}
+    .pae-mock-status{display:flex;align-items:center;gap:6px;font-size:10.5px;color:rgba(255,255,255,.4);margin-top:2px}
+    .pae-mock-status .dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 2s infinite}
+    .pae-mock-body{padding:30px 26px;display:flex;gap:32px;align-items:center;flex-wrap:wrap}
+    .pae-ring{position:relative;width:132px;height:132px;flex-shrink:0}
+    .pae-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+    .pae-ring .ring-bg{fill:none;stroke:rgba(255,255,255,.08);stroke-width:10}
+    .pae-ring .ring-fill{fill:none;stroke:var(--red);stroke-width:10;stroke-linecap:round}
+    .pae-ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .pae-ring-val{font-size:23px;font-weight:900;color:var(--white);letter-spacing:-1px}
+    .pae-ring-sub{font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+    .pae-rows{flex:1;min-width:220px;display:flex;flex-direction:column}
+    .pae-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13px}
+    .pae-row:last-child{border-bottom:none}
+    .pae-row-lbl{color:rgba(255,255,255,.55)}
+    .pae-row-val{font-weight:800;color:var(--white)}
+
     /* ── UPGRADE 3: ANCHO COMPLETO, TIPOGRAFÍA MEGA, MARCA PROTAGONISTA, BLOQUE ROJO ── */
     .fb{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);box-sizing:border-box;padding-left:clamp(24px,6vw,90px);padding-right:clamp(24px,6vw,90px)}
 
@@ -1059,18 +1081,32 @@
 
         <div style="margin-top:28px">
           <span class="sec-label" style="color:var(--red-h)">Mockup ilustrativo del dashboard de cobertura PAE</span>
-          <div class="dash-mock" style="background:var(--dk2);border-color:rgba(255,255,255,.09)">
-            <div class="dash-mock-hd" style="border-color:rgba(255,255,255,.09)">
-              <span class="dash-mock-hd-title" style="color:var(--text-dk2)">Cobertura PAE · Hoy</span>
-              <span class="dash-mock-hd-tag" style="color:var(--red-h)">Datos de ejemplo</span>
+          <div class="pae-mock">
+            <div class="pae-mock-head">
+              <div class="pae-mock-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 5-3 8.5c-1.7-3.5-3-6.8-3-8.5z"/><path d="M12 4.5v2M7 6l1.2 1.6M17 6l-1.2 1.6"/></svg></div>
+              <div>
+                <div class="pae-mock-title">App PAE · I.E.D. Pompilio Martínez</div>
+                <div class="pae-mock-status"><span class="dot"></span>Cobertura en vivo · Datos de ejemplo</div>
+              </div>
             </div>
-            <div class="wr-stats" style="margin-top:0">
-              <div class="wr-stat"><div class="wr-stat-val" style="color:var(--white)">612</div><div class="wr-stat-lbl" style="color:var(--text-dk2)">Estudiantes programados</div></div>
-              <div class="wr-stat"><div class="wr-stat-val" style="color:var(--white)"><span>574</span></div><div class="wr-stat-lbl" style="color:var(--text-dk2)">Presentes hoy</div></div>
-              <div class="wr-stat"><div class="wr-stat-val" style="color:var(--white)"><span>38</span></div><div class="wr-stat-lbl" style="color:var(--text-dk2)">Ausentes hoy</div></div>
-              <div class="wr-stat"><div class="wr-stat-val" style="color:var(--white)">561</div><div class="wr-stat-lbl" style="color:var(--text-dk2)">Complementos entregados</div></div>
-              <div class="wr-stat"><div class="wr-stat-val" style="color:var(--white)"><span>13</span></div><div class="wr-stat-lbl" style="color:var(--text-dk2)">No reclamados</div></div>
-              <div class="wr-stat"><div class="wr-stat-val" style="color:var(--white)"><span>91,7%</span></div><div class="wr-stat-lbl" style="color:var(--text-dk2)">Cobertura del programa</div></div>
+            <div class="pae-mock-body">
+              <div class="pae-ring">
+                <svg viewBox="0 0 120 120">
+                  <circle class="ring-bg" cx="60" cy="60" r="52"/>
+                  <circle class="ring-fill" cx="60" cy="60" r="52" style="stroke-dasharray:327;stroke-dashoffset:27"/>
+                </svg>
+                <div class="pae-ring-label">
+                  <div class="pae-ring-val">91,7%</div>
+                  <div class="pae-ring-sub">Cobertura</div>
+                </div>
+              </div>
+              <div class="pae-rows">
+                <div class="pae-row"><span class="pae-row-lbl">Estudiantes programados</span><span class="pae-row-val">612</span></div>
+                <div class="pae-row"><span class="pae-row-lbl">Presentes hoy</span><span class="pae-row-val">574</span></div>
+                <div class="pae-row"><span class="pae-row-lbl">Ausentes hoy</span><span class="pae-row-val">38</span></div>
+                <div class="pae-row"><span class="pae-row-lbl">Complementos entregados</span><span class="pae-row-val">561</span></div>
+                <div class="pae-row"><span class="pae-row-lbl">No reclamados</span><span class="pae-row-val" style="color:var(--red-h)">13</span></div>
+              </div>
             </div>
           </div>
         </div>
