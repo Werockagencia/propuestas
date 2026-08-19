@@ -461,7 +461,7 @@
   </div>
 
   <div class="cover-bar">
-    <div class="cbs"><div class="cbn" style="color:var(--red)">03</div><div class="cbl">Módulos independientes: asistencia, clase y PAE</div></div>
+    <div class="cbs"><div class="cbn" style="color:var(--red)">03</div><div class="cbl">Módulos independientes: PAE, asistencia y horarios</div></div>
     <div class="cbdv"></div>
     <div class="cbs"><div class="cbn">PWA</div><div class="cbl">React instalable, sin App Store ni Play Store</div></div>
     <div class="cbdv"></div>
@@ -678,10 +678,10 @@
 ════════════════════════════════════════ -->
 <section class="sec sec-lt2 tex-dots sec-cut-top" id="s-modulos">
   <div class="inner">
-    <span class="sec-label">04 · Los tres módulos</span>
+    <span class="sec-label">04 · Los módulos</span>
     <div class="badge-red">Alcance del sistema</div>
-    <h2 class="sec-title lt">Tres controles, en orden de prioridad real.</h2>
-    <p class="sec-lead lt">El sistema se construye en tres módulos conectados entre sí. El primero resuelve la urgencia del rector; los otros dos amplían el control a nivel de clase y al Programa de Alimentación Escolar, cada uno reutilizando la base del anterior.</p>
+    <h2 class="sec-title lt">El PAE al centro. Asistencia y horarios alrededor.</h2>
+    <p class="sec-lead lt">El sistema se construye en módulos conectados entre sí, sobre una misma base técnica (backend, roles y app). El PAE es el módulo protagonista de esta propuesta; Asistencia y Horarios lo complementan y se cotizan por separado, cada uno reutilizando la base del anterior.</p>
 
     <div class="phone-mock-wrap fade-in">
       <div class="phone-mock">
@@ -739,15 +739,20 @@
       <div class="svc-head">
         <div class="svc-marker">
           <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 5-3 8.5c-1.7-3.5-3-6.8-3-8.5z"/><path d="M12 4.5v2M7 6l1.2 1.6M17 6l-1.2 1.6"/></svg>
           </div>
           <div>
-            <span class="svc-tag">Módulo 01 · La prioridad del rector</span>
-            <div class="svc-name">Asistencia diaria y alertas de primera hora</div>
+            <span class="svc-tag">Módulo 01 · Tema central de esta propuesta</span>
+            <div class="svc-name">PAE, huella dactilar y trazabilidad</div>
           </div>
         </div>
       </div>
-      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:700px">El docente titular marca presentes y ausentes al iniciar la jornada. Si un estudiante no queda marcado presente, el sistema genera una alerta automática hacia el acudiente, hacia coordinación y la deja en el registro interno. Este es el módulo que resuelve la urgencia real: saber de inmediato quién no llegó.</p>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:700px;margin-bottom:24px">Cada estudiante se identifica con su huella dactilar, no con un carnet que se puede olvidar, prestar o perder. Al recibir el complemento alimentario, el sistema verifica la huella en el punto de entrega y registra el consumo con fecha, hora y sede. Esto permite cruzar asistencia con PAE, algo que hoy nadie hace de forma sistemática.</p>
+
+      <div class="alert-box" style="margin-top:0">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#E8000A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="5.5" x2="8" y2="9"/><circle cx="8" cy="11" r=".6" fill="#E8000A"/></svg>
+        <p><strong>Ejemplo del cruce que hoy nadie detecta:</strong> un estudiante marcado ausente en la mañana pero que aparece recibiendo el PAE al mediodía es una inconsistencia real. Hoy no hay forma de verla; con el módulo de Asistencia conectado, el sistema la señala sola.</p>
+      </div>
     </div>
 
     <div class="svc-block">
@@ -755,15 +760,15 @@
       <div class="svc-head">
         <div class="svc-marker">
           <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="1.5"/><line x1="3" y1="8.5" x2="21" y2="8.5"/><path d="M7 12h4M7 15h7"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
           </div>
           <div>
-            <span class="svc-tag">Módulo 02 · Extiende el control por clase</span>
-            <div class="svc-name">Asistencia por clase</div>
+            <span class="svc-tag">Módulo 02 · La urgencia del rector</span>
+            <div class="svc-name">Asistencia diaria y por clase</div>
           </div>
         </div>
       </div>
-      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:700px">Cada docente registra presente, ausente, tarde o excusa en cada clase, no solo en la primera hora. Con ese dato acumulado, la institución puede sacar estadísticas de asistencia por materia, por curso, por docente y a nivel institucional, e identificar estudiantes con riesgo de inasistencia recurrente antes de que se vuelva un problema mayor.</p>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:700px">El docente titular marca presentes y ausentes al iniciar la jornada, y cada docente registra presente, ausente, tarde o excusa en cada clase del día. Si un estudiante no queda marcado presente, el sistema genera una alerta automática hacia el acudiente y hacia coordinación. Con el dato acumulado por clase, la institución saca estadísticas por materia, curso y docente, e identifica riesgo de inasistencia recurrente antes de que se vuelva un problema mayor.</p>
     </div>
 
     <div class="svc-block">
@@ -771,20 +776,15 @@
       <div class="svc-head">
         <div class="svc-marker">
           <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="16" rx="2"/><rect x="7" y="6" width="3" height="3"/><rect x="14" y="6" width="3" height="3"/><rect x="7" y="13" width="3" height="3"/><path d="M14 13h3v3h-3z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v3h3M7.5 7.5l1.4 1.4M16.5 7.5l-1.4 1.4M7.5 16.5l1.4-1.4M16.5 16.5l-1.4-1.4"/></svg>
           </div>
           <div>
-            <span class="svc-tag">Módulo 03 · Control del complemento alimentario</span>
-            <div class="svc-name">PAE, QR y trazabilidad</div>
+            <span class="svc-tag">Módulo 03 · Nuevo</span>
+            <div class="svc-name">Horarios de clase</div>
           </div>
         </div>
       </div>
-      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:700px;margin-bottom:24px">Cada estudiante tiene un código QR asociado a su carnet. Al recibir el complemento alimentario, se escanea el QR y el sistema registra el consumo con fecha, hora y sede. Esto permite cruzar asistencia con PAE, algo que hoy nadie hace de forma sistemática.</p>
-
-      <div class="alert-box" style="margin-top:0">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#E8000A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="5.5" x2="8" y2="9"/><circle cx="8" cy="11" r=".6" fill="#E8000A"/></svg>
-        <p><strong>Ejemplo del cruce que hoy nadie detecta:</strong> un estudiante marcado ausente en la mañana pero que aparece recibiendo el PAE al mediodía es una inconsistencia real. Hoy no hay forma de verla; con los dos módulos conectados, el sistema la señala sola.</p>
-      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:700px">Coordinación arma y publica el horario de clases por curso, docente y aula desde el mismo sistema, con validación automática para no cruzar dos clases en la misma franja. Docentes y coordinación lo consultan desde la misma PWA, sin depender de una planilla aparte. Reutiliza la base de cursos, docentes y aulas ya construida en Asistencia.</p>
     </div>
   </div>
 </section>
@@ -818,6 +818,7 @@
         <span class="prob-label">Motor de notificaciones desacoplado</span>
         <div class="prob-title">Correo y WhatsApp hoy; el canal puede cambiar mañana</div>
         <p class="prob-text">Las alertas salen por correo institucional siempre, y por WhatsApp a través de HalconBot como canal adicional. Al ser un componente separado del resto del sistema, si el canal de notificación cambia en el futuro no hay que reconstruir la plataforma completa.</p>
+        <p class="prob-text" style="margin-top:10px"><strong>Validado con el rector:</strong> quitar WhatsApp y dejar solo correo institucional no reduce el desarrollo de forma significativa, porque este motor ya está construido como un componente aparte. Lo que sí se elimina es el costo de HalconBot (implementación $800.000 + USD $89/mes), que es un costo de tercero, no un honorario de We Rock.</p>
       </div>
       <div class="prob-card">
         <div class="icon-wrap">
@@ -861,7 +862,7 @@
         <div class="arch-node" style="width:200px">
           <div class="arch-node-box">
             <div class="arch-node-name">React PWA</div>
-            <div class="arch-node-sub">Docentes · coordinación · punto de escaneo QR del PAE</div>
+            <div class="arch-node-sub">Docentes · coordinación · punto de verificación por huella del PAE</div>
           </div>
         </div>
         <div class="arch-node" style="width:200px">
@@ -882,61 +883,94 @@
 <section class="sec sec-lt sec-wm tex-grid" id="s-inversion">
   <svg class="brand-mark brand-mark--pkg" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
   <div class="inner">
-    <span class="sec-label">06 · Fases de inversión</span>
-    <div class="badge-red">Cada fase, independiente</div>
-    <h2 class="sec-title lt">Dos fases. Cada una se cotiza y se decide por separado.</h2>
-    <p class="sec-lead lt">La Fase 1 es el MVP completo que resuelve la urgencia real del rector: asistencia diaria, asistencia por clase y alertas automáticas, todo en un solo desarrollo. La Fase 2 (PAE) amplía el sistema y solo se activa cuando el colegio confirme que quiere avanzar; corre más rápido porque reutiliza la base construida en la Fase 1.</p>
+    <span class="sec-label">06 · Módulos y precios</span>
+    <div class="badge-red">Cada módulo, independiente</div>
+    <h2 class="sec-title lt">Cuatro módulos. El PAE primero.</h2>
+    <p class="sec-lead lt">La Base es la fundación técnica y se construye una sola vez, sin importar qué módulos se activen después. Sobre ella se cotizan tres módulos independientes — PAE, Asistencia y Horarios — cada uno se confirma y se agenda por separado, en el orden que el colegio prefiera.</p>
 
-    <!-- FASE 1 -->
+    <!-- BASE -->
     <div class="svc-block" style="padding-top:0;border-top:none">
+      <div class="svc-ghost">B</div>
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="7" r="3"/><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M9.5 7h5M7 9.5v5M17 9.5v5M9.5 17h5"/></svg>
+          </div>
+          <div>
+            <span class="svc-tag">Obligatorio · Se construye una sola vez</span>
+            <div class="svc-name">Base: backend, roles e infraestructura</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:700px;margin-bottom:28px">El backend, la base de datos institucional, el sistema de usuarios y roles (docentes, coordinación, administración) y la app React PWA instalable en celular, tablet y computador. Es la fundación técnica sobre la que corren PAE, Asistencia y Horarios: se paga una sola vez, sin importar cuántos de los tres módulos se activen después. Tiempo estimado: 4 semanas.</p>
+
+      <div class="wm-layout">
+        <div class="wm-main">
+          <span class="sec-label">Inversión Base</span>
+          <div class="wm-price">$4<span class="sl">.</span>150<span class="sl">.</span>000</div>
+          <div class="wm-period">COP · pago único</div>
+          <p style="font-size:14px;color:var(--ink2);line-height:1.65">Requerido para activar cualquiera de los tres módulos. No se cobra más de una vez.</p>
+        </div>
+        <div class="wm-side">
+          <span class="sec-label">Qué incluye</span>
+          <ul class="bl">
+            <li>Backend completo: API y base de datos institucional</li>
+            <li>Sistema de usuarios y roles (docentes, coordinación, administración)</li>
+            <li>App React PWA, instalable en celular, tablet y computador</li>
+            <li>Motor de notificaciones: correo institucional siempre activo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- MÓDULO 01 · PAE -->
+    <div class="svc-block">
       <div class="svc-ghost">01</div>
       <div class="svc-head">
         <div class="svc-marker">
           <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 5-3 8.5c-1.7-3.5-3-6.8-3-8.5z"/><path d="M12 4.5v2M7 6l1.2 1.6M17 6l-1.2 1.6"/></svg>
           </div>
           <div>
-            <span class="svc-tag">Fase 1 · Prioridad del rector · Pago único</span>
-            <div class="svc-name">Sistema de asistencia completo</div>
+            <span class="svc-tag">Módulo 01 · Tema central de esta propuesta · Pago único</span>
+            <div class="svc-name">PAE, huella dactilar y trazabilidad</div>
           </div>
         </div>
       </div>
-      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:700px;margin-bottom:28px">El MVP completo que resuelve lo más urgente: saber de inmediato quién no llegó, en el llamado de primera hora y en cada clase del día. Incluye todo el backend, el sistema de usuarios y roles, la app de asistencia, el panel de alertas en tiempo real y la integración con HalconBot para notificar por WhatsApp además de correo.</p>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:700px;margin-bottom:28px">Verificación por huella dactilar en el punto de entrega, registro de consumo por fecha, hora y sede, dashboard de cobertura, cruce automático entre asistencia y PAE (si el módulo Asistencia está activo), y reportes exportables en Excel y PDF para auditorías.</p>
 
       <div class="inv-layout">
         <div class="inv-main">
           <div class="inv-hd">
             <div>
               <span class="inv-lbl">Pago único</span>
-              <div class="inv-title">Fase 1 · Sistema de asistencia completo</div>
+              <div class="inv-title">Módulo 01 · PAE, huella y trazabilidad</div>
             </div>
             <div class="inv-price">
-              <div class="inv-amount">$14<span>.</span>150<span>.</span>000</div>
+              <div class="inv-amount">$5<span>.</span>380<span>.</span>000</div>
               <div class="inv-period">COP · pago único</div>
             </div>
           </div>
           <div class="inv-body">
-            <div class="sline"><span class="sline-n"><strong>Backend completo:</strong> API, base de datos institucional, sistema de usuarios y roles</span><span class="sline-p">Incluido</span></div>
-            <div class="sline"><span class="sline-n"><strong>Motor de notificaciones,</strong> correo institucional + integración con HalconBot para WhatsApp</span><span class="sline-p">Incluido</span></div>
-            <div class="sline"><span class="sline-n"><strong>App React PWA</strong> para el llamado de primera hora, instalable en celular, tablet y computador</span><span class="sline-p">Incluido</span></div>
-            <div class="sline"><span class="sline-n"><strong>Asistencia por clase:</strong> horarios, materias, tardanzas y excusas por curso y docente</span><span class="sline-p">Incluido</span></div>
-            <div class="sline"><span class="sline-n"><strong>Estadísticas</strong> por materia, curso, docente e institución, con identificación de riesgo de inasistencia recurrente</span><span class="sline-p">Incluido</span></div>
-            <div class="sline"><span class="sline-n"><strong>Panel de alertas en tiempo real</strong> para coordinación</span><span class="sline-p">Incluido</span></div>
-            <div class="sline"><span class="sline-n"><strong>Historial y auditoría</strong> de toda la asistencia, diaria y por clase</span><span class="sline-p">Incluido</span></div>
-            <div class="subtotal-bar" style="margin-top:20px"><span class="lb">Total Fase 1</span><span class="vl">$14.150.000 COP</span></div>
+            <div class="sline"><span class="sline-n"><strong>Huella dactilar por estudiante,</strong> enrolamiento inicial y verificación en el punto de entrega</span><span class="sline-p">Incluido</span></div>
+            <div class="sline"><span class="sline-n"><strong>Registro de consumo</strong> por fecha, hora y sede</span><span class="sline-p">Incluido</span></div>
+            <div class="sline"><span class="sline-n"><strong>Dashboard de cobertura</strong> para coordinación</span><span class="sline-p">Incluido</span></div>
+            <div class="sline"><span class="sline-n"><strong>Cruce automático</strong> entre asistencia y PAE, si el módulo Asistencia está activo</span><span class="sline-p">Incluido</span></div>
+            <div class="sline"><span class="sline-n"><strong>Reportes</strong> exportables en Excel y PDF para auditorías</span><span class="sline-p">Incluido</span></div>
+            <div class="subtotal-bar" style="margin-top:20px"><span class="lb">Total Módulo 01</span><span class="vl">$5.380.000 COP</span></div>
           </div>
         </div>
 
         <div class="inv-side">
           <div class="total-block corner-fx">
-            <span class="total-lbl">Inversión Fase 1</span>
-            <div class="total-amt">$14.150.000</div>
+            <span class="total-lbl">Inversión Módulo 01</span>
+            <div class="total-amt">$5.380.000</div>
             <div class="total-sub">COP · pago único · precio fijo</div>
           </div>
           <div class="entrega-card">
             <span class="sec-label">Tiempo de entrega</span>
-            <div style="font-size:clamp(34px,4.5vw,50px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-2px;margin-bottom:8px">12 <span style="font-size:.45em;color:var(--ink3);font-weight:600;letter-spacing:0">semanas</span></div>
-            <p style="font-size:14px;color:var(--ink2);line-height:1.6">Desde la confirmación y la entrega de la base de estudiantes y cursos, hasta el sistema completo funcionando en producción.</p>
+            <div style="font-size:clamp(34px,4.5vw,50px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-2px;margin-bottom:8px">5 <span style="font-size:.45em;color:var(--ink3);font-weight:600;letter-spacing:0">semanas</span></div>
+            <p style="font-size:14px;color:var(--ink2);line-height:1.6">Desde la confirmación y la entrega de la base de estudiantes, sobre la Base ya construida.</p>
           </div>
           <div class="pay-card">
             <span class="sec-label">Forma de pago</span>
@@ -949,42 +983,6 @@
               <div class="pay-text">Transferencia bancaria o Nequi</div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FASE 2 (antes Fase 3) -->
-    <div class="svc-block">
-      <div class="svc-ghost">02</div>
-      <div class="svc-head">
-        <div class="svc-marker">
-          <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="16" rx="2"/><rect x="7" y="6" width="3" height="3"/><rect x="14" y="6" width="3" height="3"/><rect x="7" y="13" width="3" height="3"/><path d="M14 13h3v3h-3z"/></svg>
-          </div>
-          <div>
-            <span class="svc-opt">Se activa cuando el colegio confirme</span>
-            <div class="svc-name">Fase 2 · Módulo PAE, QR y trazabilidad</div>
-          </div>
-        </div>
-      </div>
-      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:700px;margin-bottom:28px">QR por estudiante ligado al carnet, punto de escaneo desde la misma PWA, registro de consumo por fecha, hora y sede, dashboard de cobertura, cruce automático entre asistencia y PAE, y reportes exportables en Excel y PDF para auditorías.</p>
-
-      <div class="wm-layout">
-        <div class="wm-main">
-          <span class="sec-label">Inversión Fase 2</span>
-          <div class="wm-price">$5<span class="sl">.</span>380<span class="sl">.</span>000</div>
-          <div class="wm-period">COP · pago único</div>
-          <p style="font-size:14px;color:var(--ink2);line-height:1.65">Tiempo de entrega estimado: <strong>5 semanas</strong> desde la confirmación, también sobre la base ya construida en la Fase 1.</p>
-        </div>
-        <div class="wm-side">
-          <span class="sec-label">Qué incluye</span>
-          <ul class="bl">
-            <li>QR por estudiante, ligado al carnet</li>
-            <li>Punto de escaneo del PAE, vía la misma PWA</li>
-            <li>Registro de consumo por fecha, hora y sede</li>
-            <li>Cruce automático entre asistencia y PAE, detecta inconsistencias</li>
-            <li>Reportes exportables en Excel y PDF para auditorías</li>
-          </ul>
         </div>
       </div>
 
@@ -1006,9 +1004,85 @@
         </div>
       </div>
 
-      <div class="scope-note">
-        <div class="scope-label">Nota de alcance</div>
-        <p>Esta fase también se activa cuando el colegio confirme, reutilizando la base construida en la Fase 1. Forma de pago: 50% al iniciar y 50% al entregar, por transferencia bancaria o Nequi. A futuro, consumo por día, sede, curso y estudiante, y trazabilidad histórica completa para auditorías.</p>
+      <div class="scope-note" style="margin-top:24px">
+        <div class="scope-label">Por qué huella y no QR</div>
+        <p>Se cambia el mecanismo de verificación de QR a huella dactilar a pedido del colegio, sin subir el precio del módulo: We Rock lo asume como un piloto, con la mira puesta en ofrecer el mismo lector biométrico, ya probado, a otras instituciones más adelante.</p>
+      </div>
+    </div>
+
+    <!-- MÓDULO 02 · ASISTENCIA -->
+    <div class="svc-block">
+      <div class="svc-ghost">02</div>
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          </div>
+          <div>
+            <span class="svc-opt">Se cotiza y se activa por separado</span>
+            <div class="svc-name">Módulo 02 · Asistencia diaria y por clase</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:700px;margin-bottom:28px">Llamado de primera hora, asistencia por clase, alertas automáticas hacia el acudiente y coordinación, y estadísticas por materia, curso y docente. Si el módulo PAE ya está activo, cruza automáticamente asistencia contra PAE.</p>
+
+      <div class="wm-layout">
+        <div class="wm-main">
+          <span class="sec-label">Inversión Módulo 02</span>
+          <div class="wm-price">$8<span class="sl">.</span>300<span class="sl">.</span>000</div>
+          <div class="wm-period">COP · pago único</div>
+          <p style="font-size:14px;color:var(--ink2);line-height:1.65">Tiempo de entrega estimado: <strong>8 semanas</strong> desde la confirmación, sobre la Base ya construida.</p>
+        </div>
+        <div class="wm-side">
+          <span class="sec-label">Qué incluye</span>
+          <ul class="bl">
+            <li>Llamado de primera hora, desde la misma PWA</li>
+            <li>Asistencia por clase: materia, tardanzas y excusas</li>
+            <li>Alertas automáticas hacia el acudiente y coordinación</li>
+            <li>Estadísticas por materia, curso y docente</li>
+            <li>Cruce automático con PAE, si el módulo 01 está activo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- MÓDULO 03 · HORARIOS -->
+    <div class="svc-block">
+      <div class="svc-ghost">03</div>
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v3h3M7.5 7.5l1.4 1.4M16.5 7.5l-1.4 1.4M7.5 16.5l1.4-1.4M16.5 16.5l-1.4-1.4"/></svg>
+          </div>
+          <div>
+            <span class="svc-opt">Módulo nuevo · Se cotiza y se activa por separado</span>
+            <div class="svc-name">Módulo 03 · Horarios de clase</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:700px;margin-bottom:28px">Coordinación arma y publica el horario de clases por curso, docente y aula desde el mismo sistema, con validación automática para no cruzar dos clases en la misma franja horaria. Docentes y coordinación lo consultan desde la misma PWA.</p>
+
+      <div class="wm-layout">
+        <div class="wm-main">
+          <span class="sec-label">Inversión Módulo 03</span>
+          <div class="wm-price">$3<span class="sl">.</span>700<span class="sl">.</span>000</div>
+          <div class="wm-period">COP · pago único</div>
+          <p style="font-size:14px;color:var(--ink2);line-height:1.65">Tiempo de entrega estimado: <strong>4 semanas</strong> desde la confirmación, sobre la Base ya construida.</p>
+        </div>
+        <div class="wm-side">
+          <span class="sec-label">Qué incluye</span>
+          <ul class="bl">
+            <li>Constructor de horarios por curso, docente y aula</li>
+            <li>Validación automática de cruces de horario</li>
+            <li>Consulta del horario desde la misma PWA</li>
+            <li>Reutiliza la base de cursos y docentes de Asistencia</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="scope-note" style="margin-top:24px">
+        <div class="scope-label">Cómo se combinan los módulos</div>
+        <p>Cada módulo se cotiza, se confirma y se agenda por separado, sobre la Base construida una sola vez. Combos de referencia: Base + PAE = $9.530.000 · Base + Asistencia = $12.450.000 · los cuatro juntos = $21.530.000. Forma de pago: 50% al iniciar y 50% al entregar, por transferencia bancaria o Nequi.</p>
       </div>
     </div>
   </div>
@@ -1062,15 +1136,15 @@
 ════════════════════════════════════════ -->
 <section class="sec sec-lt2 tex-glow-bl sec-cut-top" id="s-cronograma">
   <div class="inner">
-    <span class="sec-label">08 · Cronograma por fase</span>
+    <span class="sec-label">08 · Cronograma por módulo</span>
     <h2 class="sec-title lt">De la confirmación al sistema funcionando.</h2>
-    <p class="sec-lead lt">La Fase 1 se agenda en etapas semanales. La Fase 2 (PAE) corre más rápido porque parte del backend, los roles y la app ya construidos.</p>
+    <p class="sec-lead lt">La Base se agenda primero, en etapas semanales. Cada módulo (PAE, Asistencia, Horarios) corre después, en el orden que el colegio confirme, y avanza más rápido porque parte del backend, los roles y la app ya construidos en la Base.</p>
 
     <div class="tl-rail sg fade-in">
       <div class="tl-node">
         <div class="tl-node-dot">01</div>
         <div class="tl-step">
-          <span class="tl-week">Semanas 1 a 3</span>
+          <span class="tl-week">Semana 1</span>
           <div class="tl-title">Backend, base de datos y sistema de roles</div>
           <p class="tl-desc">API institucional, base de datos, usuarios y roles (docente, coordinador, administrador), y estructura de cursos y estudiantes.</p>
         </div>
@@ -1078,45 +1152,31 @@
       <div class="tl-node">
         <div class="tl-node-dot">02</div>
         <div class="tl-step">
-          <span class="tl-week">Semanas 4 a 6</span>
-          <div class="tl-title">App React PWA de primera hora</div>
-          <p class="tl-desc">Construcción de la app instalable para el llamado de asistencia, ajustada a celular, tablet y computador.</p>
+          <span class="tl-week">Semanas 2 y 3</span>
+          <div class="tl-title">App React PWA</div>
+          <p class="tl-desc">Construcción de la app instalable en celular, tablet y computador, y el motor de notificaciones por correo institucional.</p>
         </div>
       </div>
       <div class="tl-node">
         <div class="tl-node-dot">03</div>
         <div class="tl-step">
-          <span class="tl-week">Semanas 7 y 8</span>
-          <div class="tl-title">Asistencia por clase</div>
-          <p class="tl-desc">Horarios, materias, registro por clase, tardanzas y excusas, y las estadísticas por curso, docente e institución.</p>
-        </div>
-      </div>
-      <div class="tl-node">
-        <div class="tl-node-dot">04</div>
-        <div class="tl-step">
-          <span class="tl-week">Semanas 9 a 11</span>
-          <div class="tl-title">Panel de alertas e integración HalconBot</div>
-          <p class="tl-desc">Dashboard de coordinación en tiempo real, motor de notificaciones por correo y conexión con HalconBot para WhatsApp.</p>
-        </div>
-      </div>
-      <div class="tl-node">
-        <div class="tl-node-dot">05</div>
-        <div class="tl-step">
-          <span class="tl-week">Semana 12</span>
-          <div class="tl-title">Pruebas, ajustes y entrega</div>
-          <p class="tl-desc">Pruebas con docentes reales, ajustes finales y puesta en producción del sistema completo de la Fase 1.</p>
+          <span class="tl-week">Semana 4</span>
+          <div class="tl-title">Pruebas, ajustes y entrega de la Base</div>
+          <p class="tl-desc">Pruebas con docentes reales, ajustes finales y puesta en producción de la Base. A partir de aquí arranca cada módulo confirmado.</p>
         </div>
       </div>
     </div>
 
     <div class="wr-stats sg fade-in" style="margin-top:44px">
-      <div class="wr-stat corner-fx"><div class="wr-stat-val"><span>12</span> sem.</div><div class="wr-stat-lbl">Fase 1, desde cero: backend, roles, PWA, asistencia por clase y alertas</div></div>
-      <div class="wr-stat"><div class="wr-stat-val"><span>5</span> sem.</div><div class="wr-stat-lbl">Fase 2 (PAE), una vez confirmada, sobre la base de la Fase 1</div></div>
+      <div class="wr-stat corner-fx"><div class="wr-stat-val"><span>4</span> sem.</div><div class="wr-stat-lbl">Base, desde cero: backend, roles y PWA</div></div>
+      <div class="wr-stat"><div class="wr-stat-val"><span>5</span> sem.</div><div class="wr-stat-lbl">Módulo 01 · PAE, una vez confirmado, sobre la Base</div></div>
+      <div class="wr-stat"><div class="wr-stat-val"><span>8</span> sem.</div><div class="wr-stat-lbl">Módulo 02 · Asistencia, una vez confirmado, sobre la Base</div></div>
+      <div class="wr-stat"><div class="wr-stat-val"><span>4</span> sem.</div><div class="wr-stat-lbl">Módulo 03 · Horarios, una vez confirmado, sobre la Base</div></div>
     </div>
 
     <div class="scope-note" style="margin-top:36px">
-      <div class="scope-label">Cómo se agenda cada fase</div>
-      <p>Cada fase se cotiza, se confirma y se agenda por separado. El cronograma de una fase empieza a correr desde su propia confirmación, no desde el inicio del proyecto.</p>
+      <div class="scope-label">Cómo se agenda cada módulo</div>
+      <p>Cada módulo se cotiza, se confirma y se agenda por separado, en el orden que el colegio prefiera. El cronograma de un módulo empieza a correr desde su propia confirmación, no desde el inicio del proyecto ni desde la entrega de otro módulo.</p>
     </div>
   </div>
 </section>
@@ -1232,7 +1292,7 @@
   <div class="cta-inner">
     <div class="cta-tag">11 · Siguiente paso</div>
     <h2 class="cta-title">LA PRÓXIMA AUSENCIA<br><span class="r">NO PASARÁ</span><br>DESAPERCIBIDA.</h2>
-    <p class="cta-sub">David revisa contigo el alcance de la Fase 1, resuelve dudas sobre el sistema completo y define el plan de arranque en la misma llamada.</p>
+    <p class="cta-sub">David revisa contigo el alcance de cada módulo, resuelve dudas sobre el sistema completo y define el plan de arranque en la misma llamada.</p>
     <a href="https://wa.me/573125766056?text=Hola%20David%2C%20quiero%20hablar%20sobre%20la%20propuesta%20del%20Sistema%20de%20Asistencia%20y%20PAE%20para%20I.E.D.%20Pompilio%20Mart%C3%ADnez." class="cta-btn" target="_blank">
       <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.5A2.5 2.5 0 0114.5 15h-1l-4 2-4-2H4A2.5 2.5 0 011.5 12.5v-7A2.5 2.5 0 014 3h10.5A2.5 2.5 0 0117 5.5v7z"/></svg>
       Hablar con David
