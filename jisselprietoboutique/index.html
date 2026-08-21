@@ -409,6 +409,21 @@
     .lite-desc{font-size:12.5px;color:var(--ink2);line-height:1.55}
     .lite-budget{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-top:16px;padding:11px 13px;background:rgba(232,0,10,.05);border:1px solid rgba(232,0,10,.16)}
     .lite-budget span{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);line-height:1.4}
+
+    /* combo principal: meta ads + contenido */
+    .mkt-badge{display:inline-flex;align-items:center;gap:9px;background:var(--red);color:var(--white);font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:7px 14px;margin-bottom:22px}
+    .mkt-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--white);animation:blink 2s infinite}
+    .mkt-main-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px}
+    @media(max-width:768px){.mkt-main-grid{grid-template-columns:1fr}}
+    .mkt-main-card{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--red);box-shadow:var(--sh2);padding:38px 34px;transition:box-shadow .2s,transform .2s}
+    .mkt-main-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.12);transform:translateY(-2px)}
+    .mkt-main-card .icon-wrap{width:56px;height:56px}
+    .mkt-main-card .icon-wrap svg{width:26px;height:26px}
+    .mkt-main-name{font-size:19px;font-weight:800;color:var(--ink);margin:18px 0 6px;line-height:1.25}
+    .mkt-main-price{font-size:32px;font-weight:900;color:var(--ink);letter-spacing:-1.2px;margin-bottom:3px}
+    .mkt-main-cad{font-size:12px;color:var(--ink3);margin-bottom:16px}
+    .mkt-main-desc{font-size:13.5px;color:var(--ink2);line-height:1.65}
+    .mkt-sub-label{margin:48px 0 20px}
     .lite-budget strong{font-size:14px;font-weight:900;color:var(--red);line-height:1.3;text-align:right;flex-shrink:0}
   </style>
 </head>
@@ -999,33 +1014,43 @@
     <span class="sec-label">05 · Servicios y precios (continuación)</span>
     <div class="badge-red">Fase 2 · Más adelante</div>
     <h2 class="sec-title lt">Marketing digital, mes a mes, por Instagram, Meta y WhatsApp.</h2>
-    <p class="sec-lead lt">Mientras la venta se resuelva por Instagram, Meta y WhatsApp y no por una tienda online, estos cuatro servicios son el marketing digital recurrente: Meta Ads complementado con estrategia de contenido, más fotografía y HalconBot como complementos independientes. Sin permanencia forzada en ninguno.</p>
+    <p class="sec-lead lt">Mientras la venta se resuelva por Instagram, Meta y WhatsApp y no por una tienda online, Meta Ads y contenido son la estrategia principal: el motor que atrae y convierte. Producción audiovisual y HalconBot suman como complementos, sin ser parte de ese combo.</p>
 
-    <div class="lite-grid sg fade-in">
-      <div class="lite-card">
+    <div class="mkt-badge"><span class="mkt-badge-dot"></span>La estrategia principal</div>
+    <div class="mkt-main-grid sg fade-in">
+      <div class="mkt-main-card">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4a1 1 0 001 1h2l7 4V5l-7 4H4a1 1 0 00-1 1z"/><path d="M17 9.3a3.2 3.2 0 010 5.4"/><path d="M19.6 7a6.5 6.5 0 010 10"/></svg></div>
-        <div class="lite-name">Gestión de Meta Ads</div>
-        <div class="lite-price">$850.000</div>
-        <div class="lite-cad">COP al mes · fee de gestión · contrato mes a mes</div>
-        <p class="lite-desc">Instagram y Facebook para llevar tráfico calificado directo a Instagram y WhatsApp: el canal recomendado para vender sin depender todavía de una tienda online.</p>
+        <div class="mkt-main-name">Gestión de Meta Ads</div>
+        <div class="mkt-main-price">$850.000</div>
+        <div class="mkt-main-cad">COP al mes · fee de gestión · contrato mes a mes</div>
+        <p class="mkt-main-desc">Instagram y Facebook para llevar tráfico calificado directo a Instagram y WhatsApp: el canal recomendado para vender sin depender todavía de una tienda online.</p>
         <div class="lite-budget">
           <span>Presupuesto de pauta<br>sugerido, pago directo a Meta</span>
           <strong>$500.000<br>COP/mes</strong>
         </div>
       </div>
-      <div class="lite-card">
+      <div class="mkt-main-card">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="1"/><path d="M3.5 9.5h17"/><path d="M8 3v4M16 3v4"/><path d="M7.5 13h3M7.5 16.5h6"/></svg></div>
-        <div class="lite-name">Estrategia y gestión de contenido</div>
-        <div class="lite-price">$500.000</div>
-        <div class="lite-cad">COP al mes · 8 contenidos · contrato mes a mes</div>
-        <p class="lite-desc">8 piezas de contenido al mes para Instagram y Facebook, pensadas para vender por WhatsApp mientras no haya tienda online: el complemento natural de Meta Ads.</p>
+        <div class="mkt-main-name">Estrategia y gestión de contenido</div>
+        <div class="mkt-main-price">$750.000</div>
+        <div class="mkt-main-cad">COP al mes · 8 contenidos · contrato mes a mes</div>
+        <p class="mkt-main-desc">8 piezas de contenido al mes para Instagram y Facebook, pensadas para vender por WhatsApp mientras no haya tienda online: el complemento natural de Meta Ads.</p>
       </div>
+    </div>
+
+    <div class="mkt-sub-label">
+      <span class="sec-label" style="margin-bottom:8px">Complementos, si quieren sumar</span>
+      <h3 style="font-size:20px;font-weight:800;color:var(--ink);margin-bottom:8px">No son parte del combo principal.</h3>
+      <p style="font-size:14px;color:var(--ink2);max-width:600px;line-height:1.65">Se contratan aparte, en el momento que tenga sentido.</p>
+    </div>
+
+    <div class="lite-grid sg fade-in" style="grid-template-columns:1fr 1fr">
       <div class="lite-card">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="13" r="3.4"/></svg></div>
-        <div class="lite-name">Fotografía de producto</div>
-        <div class="lite-price">$900.000</div>
-        <div class="lite-cad">COP · por sesión</div>
-        <p class="lite-desc">Hasta 20 productos por sesión, listo para tienda y redes. Complemento independiente, no atado al combo de marketing.</p>
+        <div class="lite-name">Producción audiovisual</div>
+        <div class="lite-price">$850.000</div>
+        <div class="lite-cad">COP · pago único por sesión · sugerido cada 2 meses (bimestral)</div>
+        <p class="lite-desc">Fotografía y video de producto en una sola sesión, hasta 20 productos, listo para Instagram y WhatsApp. Complemento independiente, no atado al combo de marketing.</p>
       </div>
       <div class="lite-card">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v10H9l-4 3.5v-3.5H4z"/><circle cx="9" cy="10.3" r=".9" fill="#E8000A" stroke="none"/><circle cx="12" cy="10.3" r=".9" fill="#E8000A" stroke="none"/><circle cx="15" cy="10.3" r=".9" fill="#E8000A" stroke="none"/></svg></div>
