@@ -244,9 +244,17 @@
     .ecom-mock-cats span.on{background:var(--ink);color:var(--white);border-color:var(--ink)}
     .ecom-mock-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
     @media(max-width:640px){.ecom-mock-grid{grid-template-columns:repeat(2,1fr)}}
-    .ecom-mock-card{background:var(--white);padding:16px}
-    .ecom-mock-img{aspect-ratio:1;background:linear-gradient(135deg,var(--lt2),var(--lt3));margin-bottom:12px;position:relative;overflow:hidden}
-    .ecom-mock-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(232,0,10,.08),transparent 60%)}
+    .ecom-mock-card{background:var(--white);padding:16px;transition:transform .25s ease;position:relative}
+    .ecom-mock-card:hover{transform:translateY(-3px)}
+    .ecom-mock-img{aspect-ratio:1;background:radial-gradient(120% 100% at 50% 12%,#FBF9F5 0%,var(--lt2) 55%,var(--lt3) 100%);margin-bottom:12px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--ink3)}
+    .ecom-mock-img::before{content:'';position:absolute;left:50%;bottom:13%;width:56%;height:12%;background:radial-gradient(ellipse at center,rgba(0,0,0,.14),transparent 72%);transform:translateX(-50%)}
+    .ecom-mock-img svg{position:relative;width:42%;height:42%;filter:drop-shadow(0 6px 7px rgba(0,0,0,.1))}
+    .ecom-mock-badge{position:absolute;top:10px;left:10px;background:var(--red);color:var(--white);font-size:8.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:4px 8px;z-index:1}
+    .ecom-mock-wish{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;z-index:1}
+    .ecom-mock-wish svg{width:11px;height:11px;filter:none}
+    .ecom-mock-stars{display:flex;gap:3px;margin:8px 0 2px}
+    .ecom-mock-stars i{width:6px;height:6px;background:rgba(0,0,0,.12);display:block;font-style:normal}
+    .ecom-mock-stars i.on{background:var(--red)}
     .ecom-mock-line{height:7px;background:var(--lt3);margin-bottom:6px}
     .ecom-mock-line.w60{width:62%}
     .ecom-mock-line.w30{width:36%;margin-bottom:0}
@@ -842,10 +850,39 @@
             <span class="on">Todo</span><span>Ropa</span><span>Accesorios</span><span>Skincare</span><span>Maquillaje</span>
           </div>
           <div class="ecom-mock-grid">
-            <div class="ecom-mock-card"><div class="ecom-mock-img"></div><div class="ecom-mock-line w60"></div><div class="ecom-mock-line w30 red"></div></div>
-            <div class="ecom-mock-card"><div class="ecom-mock-img"></div><div class="ecom-mock-line w60"></div><div class="ecom-mock-line w30 red"></div></div>
-            <div class="ecom-mock-card"><div class="ecom-mock-img"></div><div class="ecom-mock-line w60"></div><div class="ecom-mock-line w30 red"></div></div>
-            <div class="ecom-mock-card"><div class="ecom-mock-img"></div><div class="ecom-mock-line w60"></div><div class="ecom-mock-line w30 red"></div></div>
+            <div class="ecom-mock-card">
+              <div class="ecom-mock-img">
+                <span class="ecom-mock-badge">Nuevo</span>
+                <span class="ecom-mock-wish"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-10-9.3C.5 8 2 4.5 5.5 4a5 5 0 016.5 2 5 5 0 016.5-2C22 4.5 23.5 8 22 11.2c-2.5 4.7-10 9.3-10 9.3z"/></svg></span>
+                <svg viewBox="0 0 64 64" fill="currentColor"><path d="M32 6l-9 7-9-3-6 10 7 4v30h34V24l7-4-6-10-9 3-9-7z"/><path fill="#E8000A" opacity=".55" d="M28 14h8l-2 6h-4z"/></svg>
+              </div>
+              <div class="ecom-mock-stars"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+              <div class="ecom-mock-line w60"></div><div class="ecom-mock-line w30 red"></div>
+            </div>
+            <div class="ecom-mock-card">
+              <div class="ecom-mock-img">
+                <span class="ecom-mock-wish"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-10-9.3C.5 8 2 4.5 5.5 4a5 5 0 016.5 2 5 5 0 016.5-2C22 4.5 23.5 8 22 11.2c-2.5 4.7-10 9.3-10 9.3z"/></svg></span>
+                <svg viewBox="0 0 64 64" fill="currentColor"><path d="M14 24h36l3 34H11l3-34z"/><path fill="none" stroke="currentColor" stroke-width="3" d="M22 24v-6a10 10 0 0120 0v6"/></svg>
+              </div>
+              <div class="ecom-mock-stars"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+              <div class="ecom-mock-line w60"></div><div class="ecom-mock-line w30 red"></div>
+            </div>
+            <div class="ecom-mock-card">
+              <div class="ecom-mock-img">
+                <span class="ecom-mock-wish"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-10-9.3C.5 8 2 4.5 5.5 4a5 5 0 016.5 2 5 5 0 016.5-2C22 4.5 23.5 8 22 11.2c-2.5 4.7-10 9.3-10 9.3z"/></svg></span>
+                <svg viewBox="0 0 64 64" fill="currentColor"><rect x="20" y="20" width="24" height="34" rx="4"/><rect x="26" y="10" width="12" height="12"/><rect x="24" y="6" width="16" height="6" rx="2" fill="#E8000A" opacity=".55"/></svg>
+              </div>
+              <div class="ecom-mock-stars"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+              <div class="ecom-mock-line w60"></div><div class="ecom-mock-line w30 red"></div>
+            </div>
+            <div class="ecom-mock-card">
+              <div class="ecom-mock-img">
+                <span class="ecom-mock-wish"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-10-9.3C.5 8 2 4.5 5.5 4a5 5 0 016.5 2 5 5 0 016.5-2C22 4.5 23.5 8 22 11.2c-2.5 4.7-10 9.3-10 9.3z"/></svg></span>
+                <svg viewBox="0 0 64 64" fill="currentColor"><rect x="24" y="30" width="16" height="26" rx="3"/><path fill="#E8000A" opacity=".65" d="M24 30l4-16h8l4 16z"/></svg>
+              </div>
+              <div class="ecom-mock-stars"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+              <div class="ecom-mock-line w60"></div><div class="ecom-mock-line w30 red"></div>
+            </div>
           </div>
         </div>
 
@@ -1067,8 +1104,8 @@
     <span class="sec-label">07 · Por qué We Rock</span>
     <div class="werock-head">
       <div>
-        <h2 class="sec-title lt">No es una plantilla genérica.<br>Es un equipo que construye<br>marcas desde cero.</h2>
-        <p class="sec-lead lt" style="margin-bottom:0">We Rock nació en 2018. La experiencia detrás tiene más de 15 años en estrategia digital para empresas de manufactura, retail, salud, tecnología, educación y servicios profesionales, incluyendo el lanzamiento de marcas de moda y belleza desde el naming hasta la primera venta.</p>
+        <h2 class="sec-title lt">Una marca no se improvisa.<br>Se diseña con sistema,<br>desde el nombre hasta la venta.</h2>
+        <p class="sec-lead lt" style="margin-bottom:0">We Rock nació en 2018 sobre esa idea: el crecimiento no se improvisa, se diseña. Detrás hay más de 15 años de estrategia digital en manufactura, retail, salud, tecnología, educación y servicios profesionales, incluyendo el lanzamiento de marcas de moda y belleza desde el naming hasta la primera venta, siempre con dirección estratégica y no solo ejecución suelta.</p>
       </div>
       <div class="werock-mark-box">
         <img src="we-rock-v1.png" alt="We Rock" style="max-width:78%;max-height:78%;mix-blend-mode:multiply;object-fit:contain" onerror="this.style.display='none'">
