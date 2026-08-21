@@ -221,6 +221,44 @@
     .svc-marker{display:flex;align-items:center;gap:16px;margin-bottom:6px}
     .svc-marker .icon-wrap{margin-bottom:0}
 
+    /* mockup de ecommerce */
+    .ecom-mock-wrap{margin:28px 0 4px}
+    .ecom-mock{background:var(--white);border:1px solid var(--border);box-shadow:var(--sh2);overflow:hidden}
+    .ecom-mock-topbar{display:flex;align-items:center;gap:6px;padding:10px 16px;background:var(--lt2);border-bottom:1px solid var(--border)}
+    .ecom-dot{width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,.14)}
+    .ecom-mock-url{margin-left:10px;background:var(--white);border:1px solid var(--border);border-radius:20px;padding:4px 14px;font-size:11px;color:var(--ink3);max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .ecom-mock-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 28px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+    .ecom-mock-logo{font-size:14px;font-weight:900;letter-spacing:.03em;color:var(--ink)}
+    .ecom-mock-logo span{color:var(--red)}
+    .ecom-mock-menu{display:flex;gap:16px}
+    .ecom-mock-menu i{width:34px;height:7px;background:var(--lt3);display:block;font-style:normal}
+    .ecom-mock-cart{display:flex;align-items:center;gap:7px;background:var(--ink);color:var(--white);padding:7px 14px;font-size:11px;font-weight:700}
+    .ecom-mock-cart svg{width:15px;height:15px}
+    .ecom-mock-hero{background:linear-gradient(135deg,var(--dk),var(--dk3));padding:34px 28px;position:relative;overflow:hidden}
+    .ecom-mock-hero::after{content:'';position:absolute;top:-40%;right:-10%;width:60%;height:180%;background:rgba(232,0,10,.07);transform:rotate(18deg)}
+    .ecom-mock-hero-tag{position:relative;display:inline-block;background:var(--red);color:white;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:5px 12px;margin-bottom:16px}
+    .ecom-mock-hero-bar{position:relative;height:14px;background:rgba(255,255,255,.85);width:58%;margin-bottom:9px}
+    .ecom-mock-hero-bar.sm{height:9px;width:34%;background:rgba(255,255,255,.35);margin-bottom:0}
+    .ecom-mock-cats{display:flex;gap:10px;padding:16px 28px;border-bottom:1px solid var(--border);overflow-x:auto}
+    .ecom-mock-cats span{font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--ink3);padding:6px 14px;border:1px solid var(--border);white-space:nowrap}
+    .ecom-mock-cats span.on{background:var(--ink);color:var(--white);border-color:var(--ink)}
+    .ecom-mock-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+    @media(max-width:640px){.ecom-mock-grid{grid-template-columns:repeat(2,1fr)}}
+    .ecom-mock-card{background:var(--white);padding:16px}
+    .ecom-mock-img{aspect-ratio:1;background:linear-gradient(135deg,var(--lt2),var(--lt3));margin-bottom:12px;position:relative;overflow:hidden}
+    .ecom-mock-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(232,0,10,.08),transparent 60%)}
+    .ecom-mock-line{height:7px;background:var(--lt3);margin-bottom:6px}
+    .ecom-mock-line.w60{width:62%}
+    .ecom-mock-line.w30{width:36%;margin-bottom:0}
+    .ecom-mock-line.red{background:rgba(232,0,10,.35)}
+    .ecom-hl-row{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:2px}
+    @media(max-width:900px){.ecom-hl-row{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.ecom-hl-row{grid-template-columns:1fr}}
+    .ecom-hl{background:var(--lt);border:1px solid var(--border);padding:22px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}
+    .ecom-hl .icon-wrap{width:44px;height:44px;margin-bottom:0}
+    .ecom-hl .icon-wrap svg{width:20px;height:20px}
+    .ecom-hl span{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.35}
+
     /* diagnóstico: flujo 0 -> 1 */
     .diag-flow{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:20px;padding:40px 32px;background:var(--dk);flex-wrap:wrap}
     .diag-flow-pt{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;min-width:150px}
@@ -351,10 +389,12 @@
     .disc-col-lbl{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:block}
 
     /* fase 2, cards compactas */
-    .lite-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:8px}
+    .lite-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:8px}
     @media(max-width:900px){.lite-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:600px){.lite-grid{grid-template-columns:1fr}}
-    .lite-card{background:var(--white);border:1px solid var(--border);padding:26px 24px}
+    .lite-card{background:var(--white);border:1px solid var(--border);padding:26px 24px;transition:box-shadow .2s,transform .2s}
+    .lite-card:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
+    .lite-card .icon-wrap{margin-bottom:18px}
     .lite-name{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3}
     .lite-price{font-size:19px;font-weight:900;color:var(--ink);letter-spacing:-.5px;margin-bottom:2px}
     .lite-cad{font-size:11.5px;color:var(--ink3);margin-bottom:10px}
@@ -776,6 +816,60 @@
       </div>
       <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">Tienda online construida a la medida sobre la identidad ya aprobada, no una plantilla genérica: estructura de categorías para accesorios, ropa, skincare, maquillaje y bisutería, pagos y envíos configurados, lista para que Jissel y Andrés carguen producto y empiecen a vender.</p>
 
+      <div class="ecom-mock-wrap">
+        <div class="ecom-mock" aria-hidden="true">
+          <div class="ecom-mock-topbar">
+            <span class="ecom-dot"></span><span class="ecom-dot"></span><span class="ecom-dot"></span>
+            <div class="ecom-mock-url">jisselprieto.com</div>
+          </div>
+          <div class="ecom-mock-nav">
+            <div class="ecom-mock-logo">JISSEL <span>PRIETO</span></div>
+            <div class="ecom-mock-menu"><i></i><i></i><i></i></div>
+            <div class="ecom-mock-cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8h15l-1.4 10a2 2 0 01-2 1.7H7.9a2 2 0 01-2-1.7L4.5 8z"/><path d="M8.5 8V6.5a3.5 3.5 0 017 0V8"/></svg>
+              2
+            </div>
+          </div>
+          <div class="ecom-mock-hero">
+            <div class="ecom-mock-hero-tag">Nueva colección</div>
+            <div class="ecom-mock-hero-bar"></div>
+            <div class="ecom-mock-hero-bar sm"></div>
+          </div>
+          <div class="ecom-mock-cats">
+            <span class="on">Todo</span><span>Ropa</span><span>Accesorios</span><span>Skincare</span><span>Maquillaje</span>
+          </div>
+          <div class="ecom-mock-grid">
+            <div class="ecom-mock-card"><div class="ecom-mock-img"></div><div class="ecom-mock-line w60"></div><div class="ecom-mock-line w30 red"></div></div>
+            <div class="ecom-mock-card"><div class="ecom-mock-img"></div><div class="ecom-mock-line w60"></div><div class="ecom-mock-line w30 red"></div></div>
+            <div class="ecom-mock-card"><div class="ecom-mock-img"></div><div class="ecom-mock-line w60"></div><div class="ecom-mock-line w30 red"></div></div>
+            <div class="ecom-mock-card"><div class="ecom-mock-img"></div><div class="ecom-mock-line w60"></div><div class="ecom-mock-line w30 red"></div></div>
+          </div>
+        </div>
+
+        <div class="ecom-hl-row">
+          <div class="ecom-hl">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 005.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></div>
+            <span>Desarrollo a la medida</span>
+          </div>
+          <div class="ecom-hl">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="1"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="1"/><rect x="3.5" y="13" width="7.5" height="7.5" rx="1"/><rect x="13" y="13" width="7.5" height="7.5" rx="1"/></svg></div>
+            <span>Categorías por línea de producto</span>
+          </div>
+          <div class="ecom-hl">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="M2.5 9.5h19"/><path d="M6 15h4"/></svg></div>
+            <span>Pagos y envíos configurados</span>
+          </div>
+          <div class="ecom-hl">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h6M5 12h9M5 18h6"/><circle cx="14" cy="6" r="1.6" fill="#E8000A" stroke="none"/><circle cx="17" cy="12" r="1.6" fill="#E8000A" stroke="none"/><circle cx="14" cy="18" r="1.6" fill="#E8000A" stroke="none"/></svg></div>
+            <span>Panel de administración</span>
+          </div>
+          <div class="ecom-hl">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="13" height="9" rx="1"/><rect x="17.5" y="7" width="4" height="10" rx="1"/><path d="M3 16.5h13"/></svg></div>
+            <span>100% responsive</span>
+          </div>
+        </div>
+      </div>
+
       <div class="inv-layout">
         <div class="inv-main">
           <div class="inv-hd">
@@ -869,24 +963,28 @@
 
     <div class="lite-grid sg fade-in">
       <div class="lite-card">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4a1 1 0 001 1h2l7 4V5l-7 4H4a1 1 0 00-1 1z"/><path d="M17 9.3a3.2 3.2 0 010 5.4"/><path d="M19.6 7a6.5 6.5 0 010 10"/></svg></div>
         <div class="lite-name">Gestión de Meta Ads</div>
         <div class="lite-price">$850.000</div>
         <div class="lite-cad">COP al mes · pauta sugerida $500.000/mes aparte</div>
         <p class="lite-desc">Instagram y Facebook para tráfico calificado a la tienda: el canal recomendado para arrancar, menos saturado que otras plataformas para esta categoría.</p>
       </div>
       <div class="lite-card">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="1"/><path d="M3.5 9.5h17"/><path d="M8 3v4M16 3v4"/><path d="M7.5 13h3M7.5 16.5h6"/></svg></div>
         <div class="lite-name">Estrategia y gestión de contenido</div>
         <div class="lite-price">$1.300.000</div>
         <div class="lite-cad">COP al mes · contrato mes a mes</div>
         <p class="lite-desc">Calendario de contenido y publicación gestionada, el complemento natural de Meta Ads.</p>
       </div>
       <div class="lite-card">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="13" r="3.4"/></svg></div>
         <div class="lite-name">Fotografía de producto</div>
         <div class="lite-price">$900.000</div>
         <div class="lite-cad">COP · por sesión</div>
         <p class="lite-desc">Hasta 20 productos por sesión, listo para tienda y redes. Complemento independiente, no atado al combo de marketing.</p>
       </div>
       <div class="lite-card">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v10H9l-4 3.5v-3.5H4z"/><circle cx="9" cy="10.3" r=".9" fill="#E8000A" stroke="none"/><circle cx="12" cy="10.3" r=".9" fill="#E8000A" stroke="none"/><circle cx="15" cy="10.3" r=".9" fill="#E8000A" stroke="none"/></svg></div>
         <div class="lite-name">HalconBot, cierre de ventas 24/7</div>
         <div class="lite-price">USD $49</div>
         <div class="lite-cad">≈ $205.800 COP al mes</div>
