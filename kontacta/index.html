@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propuesta Kontacta &middot; Plataforma + Contenido IA | We Rock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{--red:#E8000A;--red-h:#FF1A22;--dk:#0A0A0A;--dk2:#111111;--dk3:#161616;--lt:#F5F2EB;--lt2:#EDE9DF;--lt3:#E4DFD4;--white:#FFFFFF;--text-dk:#E8E4DC;--text-dk2:#AAAAAA;--ink:#1A1A1A;--ink2:#444444;--ink3:#777777;--border:rgba(0,0,0,.07);--sh:0 2px 12px rgba(0,0,0,.06);--sh2:0 8px 32px rgba(0,0,0,.10)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Barlow',sans-serif;background:var(--white);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;cursor:none}
+    @media(max-width:768px){body{cursor:auto}}
+    #grad-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5}
+    #prog{position:fixed;top:0;left:0;height:3px;background:var(--red);z-index:9997;width:0%;transition:width .1s linear}
+    #cur{width:10px;height:10px;background:white;border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference}
+    #cur2{width:38px;height:38px;border:1.5px solid rgba(255,255,255,.55);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform .22s cubic-bezier(.16,1,.3,1);mix-blend-mode:difference}
+    @media(max-width:768px){#cur,#cur2{display:none}}
+    #nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:62px;background:transparent;border-bottom:1px solid transparent;transition:all .4s ease}
+    #nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.07);box-shadow:0 2px 20px rgba(0,0,0,.06)}
+    .nav-logo{display:flex;align-items:center;gap:10px}
+    .nav-logo .logo-w{height:36px;display:block}
+    .nav-logo .logo-c{height:36px;display:none;mix-blend-mode:multiply}
+    #nav.scrolled .nav-logo .logo-w{display:none}
+    #nav.scrolled .nav-logo .logo-c{display:block}
+    .nav-links{display:flex;gap:28px}
+    .nav-links a{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+    #nav.scrolled .nav-links a{color:var(--ink3)}
+    .nav-links a:hover{color:var(--red)}
+    @media(max-width:768px){.nav-links{display:none}#nav{padding:0 24px}}
+    .cover{min-height:100vh;background:var(--dk);display:flex;flex-direction:column;justify-content:flex-end;padding:0 64px;position:relative;overflow:hidden}
+    #hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
+    .cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px;animation:gd 28s linear infinite;pointer-events:none;z-index:1}
+    @keyframes gd{from{background-position:0 0}to{background-position:88px 88px}}
+    .cover-ov{position:absolute;inset:0;background:linear-gradient(115deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.08) 55%,rgba(0,0,0,.5) 100%);z-index:1}
+    .cover-red-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 75% at 3% 65%,rgba(232,0,10,.14) 0%,transparent 65%);z-index:1;animation:glw 10s ease-in-out infinite alternate}
+    @keyframes glw{0%{opacity:.5;transform:scale(1)}100%{opacity:1;transform:scale(1.08)}}
+    .cover-inner-simple{position:relative;z-index:10;max-width:900px;width:100%;padding:148px 0 44px;margin:0 auto;text-align:center}
+    @media(max-width:768px){.cover{padding:0 24px}.cover-inner-simple{padding:120px 0 36px}}
+    .cover-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;opacity:0;animation:su .7s ease .05s forwards}
+    .cover-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 2s infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+    .cover-eyebrow span{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+    .cover-title{font-size:clamp(44px,5.8vw,86px);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-2.5px;color:var(--white);display:flex;flex-direction:column;gap:.06em;align-items:center}
+    .cover-title .r{color:var(--red)}
+    .hl{display:block;opacity:0;transform:translateY(44px) skewY(2deg);animation:hlIn .82s cubic-bezier(.16,1,.3,1) forwards}
+    .hl1{animation-delay:.08s}.hl2{animation-delay:.22s}.hl3{animation-delay:.36s}.hl4{animation-delay:.50s}
+    @keyframes hlIn{to{opacity:1;transform:translateY(0) skewY(0)}}
+    @keyframes su{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:translateY(0)}}
+    .cover-hero-lead{font-size:clamp(15px,1.7vw,18px);color:var(--text-dk2);max-width:680px;margin:22px auto 0;line-height:1.75;opacity:0;animation:su .9s ease .52s forwards}
+    .cover-hero-meta{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px;flex-wrap:wrap;opacity:0;animation:su .7s ease .68s forwards}
+    .cover-hero-meta span{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+    .cover-hero-meta .dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.15)}
+    .cover-bar{position:relative;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:20px 64px;margin-left:-64px;margin-right:-64px;border-top:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.32);backdrop-filter:blur(16px);opacity:0;animation:su .8s ease .7s forwards}
+    @media(max-width:768px){.cover-bar{padding:20px 24px;margin-left:-24px;margin-right:-24px;flex-wrap:wrap;gap:12px}}
+    .cbs{text-align:center;min-width:80px}.cbn{font-size:22px;font-weight:900;color:var(--white);line-height:1}
+    .cbl{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:3px}
+    .cbdv{width:1px;height:32px;background:rgba(255,255,255,.08)}
+    .cbsc{display:flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+    .scroll-mouse{width:16px;height:26px;border:1.5px solid rgba(255,255,255,.28);border-radius:8px;position:relative;display:flex;justify-content:center;flex-shrink:0}
+    .scroll-wheel{width:2px;height:5px;background:var(--red);border-radius:2px;position:absolute;top:4px;animation:sw 1.9s ease-in-out infinite}
+    @keyframes sw{0%{transform:translateY(0);opacity:1}55%{transform:translateY(9px);opacity:0}56%{transform:translateY(0);opacity:0}100%{transform:translateY(0);opacity:1}}
+    .sec{width:100%;padding:96px 0;position:relative}
+    .sec-white{background:var(--white)}.sec-lt{background:var(--lt)}.sec-lt2{background:var(--lt2)}.sec-dk{background:var(--dk);color:var(--white)}.sec-dk2{background:var(--dk2);color:var(--white)}.sec-dk3{background:var(--dk3);color:var(--white)}
+    .inner{max-width:1100px;margin:0 auto;padding:0 52px}
+    @media(max-width:768px){.inner{padding:0 24px}}
+    .sec-label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:block}
+    .sec-title{font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:18px}
+    .sec-title.dk{color:var(--white)}.sec-title.lt{color:var(--ink)}
+    .sec-lead{font-size:18px;font-weight:400;line-height:1.7;max-width:680px;margin-bottom:52px}
+    .sec-lead.dk{color:var(--text-dk2)}.sec-lead.lt{color:var(--ink2)}
+    .rule{width:44px;height:3px;background:var(--red);margin-bottom:36px;display:block}
+    .sg>*{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+    .sg>*:nth-child(1){transition-delay:.00s}.sg>*:nth-child(2){transition-delay:.10s}.sg>*:nth-child(3){transition-delay:.18s}.sg>*:nth-child(4){transition-delay:.26s}.sg>*:nth-child(5){transition-delay:.34s}.sg>*:nth-child(6){transition-delay:.42s}
+    .sg.vis>*{opacity:1;transform:translateY(0)}
+    .fade-in{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+    .bl{list-style:none;padding:0;margin:0}
+    .bl li{font-size:14px;color:var(--ink2);padding:8px 0 8px 22px;position:relative;border-bottom:1px solid rgba(0,0,0,.05);line-height:1.55}
+    .bl li:last-child{border-bottom:none}
+    .bl li::before{content:'';position:absolute;left:0;top:17px;width:9px;height:2px;background:var(--red)}
+    .bl.dk li{color:var(--text-dk2);border-bottom-color:rgba(255,255,255,.05)}
+    .cl{list-style:none;padding:0;margin:0}
+    .cl li{font-size:14px;color:var(--ink2);padding:10px 0 10px 32px;position:relative;border-bottom:1px solid rgba(0,0,0,.06);line-height:1.5}
+    .cl li:last-child{border-bottom:none}
+    .cl li::before{content:'';position:absolute;left:0;top:13px;width:18px;height:18px;background:rgba(232,0,10,.08);border:1px solid rgba(232,0,10,.25)}
+    .cl li::after{content:'';position:absolute;left:5px;top:18px;width:8px;height:5px;border-left:2px solid var(--red);border-bottom:2px solid var(--red);transform:rotate(-45deg)}
+    .sline{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)}
+    .sline:last-child{border-bottom:none}
+    .sline-n{font-size:14px;color:var(--ink2)}.sline-n strong{color:var(--ink);font-weight:600}
+    .sline-p{font-size:15px;font-weight:700;color:var(--ink)}
+    .subtotal-bar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:rgba(232,0,10,.05);border:1px solid rgba(232,0,10,.15);margin:14px 0}
+    .subtotal-bar .lb{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+    .subtotal-bar .vl{font-size:20px;font-weight:900;color:var(--ink)}
+    .inv-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+    @media(max-width:900px){.inv-layout{grid-template-columns:1fr}}
+    .inv-main{background:var(--white);border:1px solid var(--border);box-shadow:var(--sh2)}
+    .inv-hd{padding:32px 40px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+    .inv-lbl{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px}
+    .inv-title{font-size:18px;font-weight:700;color:var(--ink)}
+    .inv-price{text-align:right;flex-shrink:0}
+    .inv-amount{font-size:42px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-2px}
+    .inv-amount span{color:var(--red)}
+    .inv-period{font-size:11px;color:var(--ink3);margin-top:5px}
+    .inv-body{padding:32px 40px}
+    .inv-side{display:flex;flex-direction:column;gap:20px}
+    .total-block{background:var(--red);padding:44px 36px;text-align:center}
+    .total-lbl{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:8px;display:block}
+    .total-amt{font-size:clamp(34px,5vw,56px);font-weight:900;color:var(--white);line-height:1;letter-spacing:-2px;margin-bottom:8px}
+    .total-sub{font-size:13px;color:rgba(255,255,255,.75)}
+    .alert-box{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:rgba(232,0,10,.05);border:1px solid rgba(232,0,10,.18);border-left:3px solid var(--red)}
+    .alert-box p{font-size:13px;color:var(--ink2);line-height:1.65}
+    .alert-box p strong{color:var(--ink)}
+    .two-col-gap{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:768px){.two-col-gap{grid-template-columns:1fr}}
+    /* AREA CARDS */
+    .area-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:36px}
+    @media(max-width:900px){.area-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:540px){.area-grid{grid-template-columns:1fr}}
+    .area-card{background:var(--dk2);border:1px solid rgba(255,255,255,.05);padding:36px 30px;border-top:2px solid rgba(232,0,10,.28);transition:border-color .25s,background .25s}
+    .area-card:hover{background:rgba(232,0,10,.04);border-top-color:var(--red)}
+    .area-num{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:14px}
+    .area-ico{width:42px;height:42px;background:rgba(232,0,10,.12);border:1px solid rgba(232,0,10,.3);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+    .area-ico svg{width:18px;height:18px}
+    .area-title{font-size:16px;font-weight:800;color:var(--white);margin-bottom:8px;line-height:1.25}
+    .area-desc{font-size:13px;color:var(--text-dk2);line-height:1.6;margin-bottom:14px}
+    .area-tag{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);background:rgba(232,0,10,.1);border:1px solid rgba(232,0,10,.25);padding:3px 8px;display:inline-block}
+    /* STAT ROW */
+    .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+    @media(max-width:768px){.stat-row{grid-template-columns:1fr 1fr}}
+    .stat-item{background:var(--dk2);padding:32px 28px;border-top:2px solid rgba(232,0,10,.22)}
+    .stat-val{font-size:clamp(36px,5vw,56px);font-weight:900;color:var(--white);line-height:1;letter-spacing:-2px;margin-bottom:6px}
+    .stat-val span{color:var(--red)}
+    .stat-lbl{font-size:12px;font-weight:600;color:var(--text-dk2);line-height:1.4}
+    /* TIMELINE IMPL */
+    .timeline-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:36px}
+    @media(max-width:900px){.timeline-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:540px){.timeline-grid{grid-template-columns:1fr}}
+    .tl-step{background:var(--white);border:1px solid var(--border);padding:36px 28px;border-top:3px solid rgba(232,0,10,.18);box-shadow:var(--sh);transition:all .25s;cursor:default}
+    .tl-step:hover{border-top-color:var(--red);box-shadow:var(--sh2)}
+    .tl-step.active{border-top-color:var(--red);background:rgba(232,0,10,.02)}
+    .tl-dot{width:40px;height:40px;background:rgba(232,0,10,.08);border:1.5px solid rgba(232,0,10,.28);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+    .tl-dot span{font-size:10px;font-weight:800;color:var(--red);letter-spacing:.06em}
+    .tl-step.active .tl-dot{background:var(--red)}
+    .tl-step.active .tl-dot span{color:white}
+    .tl-week{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block}
+    .tl-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.25}
+    .tl-desc{font-size:14px;color:var(--ink2);line-height:1.65}
+    /* CTA */
+    .cta-section{background:var(--dk);position:relative;overflow:hidden;padding:120px 48px;text-align:center}
+    #cta-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+    .cta-inner{position:relative;z-index:10;max-width:700px;margin:0 auto}
+    .cta-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);border:1px solid rgba(232,0,10,.35);padding:7px 14px;margin-bottom:36px}
+    .cta-title{font-size:clamp(30px,4.5vw,56px);font-weight:900;text-transform:uppercase;line-height:1;letter-spacing:-1.5px;color:var(--white);margin-bottom:22px}
+    .cta-title .r{color:var(--red)}
+    .cta-sub{font-size:17px;color:var(--text-dk2);max-width:500px;margin:0 auto 48px;line-height:1.65}
+    .cta-btn{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:var(--white);text-decoration:none;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:20px 44px;transition:background .2s,transform .2s}
+    .cta-btn:hover{background:var(--red-h);transform:translateY(-2px)}.cta-btn svg{width:18px;height:18px}
+    .cta-detail{margin-top:28px;font-size:12px;color:rgba(255,255,255,.28);letter-spacing:.06em}
+    .cta-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 55% at 50% 50%,rgba(232,0,10,.07) 0%,transparent 70%)}
+    footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:32px 52px;display:flex;justify-content:space-between;align-items:center}
+    .ft-logo{display:flex;align-items:center;gap:12px}
+    .ft-logo img{height:20px;filter:brightness(0) invert(1);opacity:.45}
+    .ft-logo span{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+    .ft-text{font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.04em;text-align:right;line-height:1.6}
+    @media(max-width:640px){footer{flex-direction:column;gap:16px;text-align:center}.ft-text{text-align:center}}
+    /* PILLAR */
+    .pillar-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    @media(max-width:768px){.pillar-grid{grid-template-columns:1fr}}
+    .pillar{background:var(--white);border:1px solid var(--border);padding:44px 40px;border-top:3px solid var(--red);box-shadow:var(--sh);transition:box-shadow .2s}
+    .pillar:hover{box-shadow:var(--sh2)}
+    .pillar-num{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:14px}
+    .pillar-title{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.2}
+    .pillar-sub{font-size:13px;color:var(--ink3);margin-bottom:22px}
+    /* PRICE CARD */
+    .price-card{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--red);padding:36px 40px;box-shadow:var(--sh2);margin-bottom:28px}
+    .price-hd{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:20px}
+    .price-tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;margin-bottom:10px;background:rgba(232,0,10,.08);color:var(--red);border:1px solid rgba(232,0,10,.22)}
+    .price-name{font-size:19px;font-weight:700;color:var(--ink)}
+    .price-amt{text-align:right}
+    .price-amt .n{font-size:34px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px}
+    .price-amt .n span{color:var(--red)}
+    .price-amt .p{font-size:11px;color:var(--ink3);margin-top:5px}
+  </style>
+</head>
+<body>
+<div id="cur"></div><div id="cur2"></div><div id="prog"></div>
+<canvas id="grad-canvas"></canvas>
+
+<nav id="nav">
+  <div class="nav-logo">
+    <img class="logo-w" src="we-rock.png" alt="We Rock" onerror="this.style.display='none'">
+    <img class="logo-c" src="we-rock-v1.png" alt="We Rock" onerror="this.style.display='none'">
+  </div>
+  <div class="nav-links">
+    <a href="#s-enfoque">Enfoque</a>
+    <a href="#s-estrategia">Estrategia</a>
+    <a href="#s-herramientas">Herramientas IA</a>
+    <a href="#s-roadmap">Roadmap</a>
+    <a href="#s-inversion">Inversi&oacute;n</a>
+    <a href="#s-cta">Hablemos</a>
+  </div>
+</nav>
+
+<!-- 01 PORTADA -->
+<section class="cover">
+  <canvas id="hero-canvas"></canvas>
+  <div class="cover-grid"></div><div class="cover-ov"></div><div class="cover-red-glow"></div>
+  <div class="cover-inner-simple">
+    <div class="cover-eyebrow"><div class="cover-dot"></div><span>Propuesta Ajustada &middot; Kontacta &middot; We Rock</span></div>
+    <h1 class="cover-title">
+      <span class="hl hl1">KONTACTA</span>
+      <span class="hl hl2"><span class="r">M&Aacute;S SIMPLE</span></span>
+      <span class="hl hl3">M&Aacute;S F&Aacute;CIL DE VENDER</span>
+      <span class="hl hl4">DESDE HOY.</span>
+    </h1>
+    <p class="cover-hero-lead">Ajustamos la propuesta para que arrancar sea m&aacute;s simple: un solo producto, la plataforma Kontacta, promovido con una estrategia de contenido narrativo hecho con inteligencia artificial que conecta con la audiencia y lleva tr&aacute;fico real a la plataforma.</p>
+    <div class="cover-hero-meta">
+      <span>Propuesta ajustada</span><div class="dot"></div><span>Septiembre 2026</span><div class="dot"></div><span>Preparado por We Rock</span>
+    </div>
+  </div>
+  <div class="cover-bar">
+    <div class="cbs"><div class="cbn">1</div><div class="cbl">Producto: Kontacta</div></div>
+    <div class="cbdv"></div>
+    <div class="cbs"><div class="cbn">1</div><div class="cbl">Servicio de contenido</div></div>
+    <div class="cbdv"></div>
+    <div class="cbs"><div class="cbn">3</div><div class="cbl">Semanas de implementaci&oacute;n</div></div>
+    <div class="cbdv"></div>
+    <div class="cbs"><div class="cbn">$4.5<span style="color:var(--red)">M</span></div><div class="cbl">Pago &uacute;nico de arranque</div></div>
+    <div class="cbdv"></div>
+    <div class="cbsc"><div class="scroll-mouse"><div class="scroll-wheel"></div></div>Desplazar</div>
+  </div>
+</section>
+
+<!-- 02 QU&Eacute; CAMBIA -->
+<section class="sec sec-white" id="s-enfoque">
+  <div class="inner">
+    <span class="sec-label">02 &middot; Propuesta ajustada &middot; Foco &uacute;nico en la plataforma</span>
+    <h2 class="sec-title lt">Lo simplificamos<br>para que arrancar<br>sea posible hoy.</h2>
+    <p class="sec-lead lt">Revisamos la propuesta y ajustamos el alcance a lo esencial: un solo producto, un solo servicio de contenido y una inversi&oacute;n mensual mucho m&aacute;s liviana. Esto es lo que cambi&oacute; y por qu&eacute; el cambio ayuda.</p>
+    <span class="rule"></span>
+
+    <div class="fade-in" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px">
+
+      <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--red);padding:32px 28px;box-shadow:var(--sh)">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:16px">Ajuste 01 &middot; Alcance</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap">
+          <div style="font-size:14px;font-weight:600;color:var(--ink3);text-decoration:line-through">Ecosistema multi&ndash;segmento</div>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#E8000A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          <div style="font-size:18px;font-weight:900;color:var(--ink)">Solo Kontacta</div>
+        </div>
+        <p style="font-size:13px;color:var(--ink2);line-height:1.65;margin:0">Concentramos todo el esfuerzo en un solo producto: la plataforma Kontacta. Un alcance m&aacute;s claro se ejecuta m&aacute;s r&aacute;pido y muestra resultados desde el primer mes.</p>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--red);padding:32px 28px;box-shadow:var(--sh)">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:16px">Ajuste 02 &middot; Personal Branding</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap">
+          <div style="font-size:14px;font-weight:600;color:var(--ink3);text-decoration:line-through">Posicionamiento personal</div>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#E8000A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          <div style="font-size:18px;font-weight:900;color:var(--ink)">Fuera del alcance</div>
+        </div>
+        <p style="font-size:13px;color:var(--ink2);line-height:1.65;margin:0">El contenido ya no construye la marca personal de un fundador: construye demanda directa para la plataforma. Todo el presupuesto de contenido trabaja para Kontacta.</p>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--red);padding:32px 28px;box-shadow:var(--sh)">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:16px">Ajuste 03 &middot; Producci&oacute;n</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap">
+          <div style="font-size:14px;font-weight:600;color:var(--ink3);text-decoration:line-through">Jornada de grabaci&oacute;n aparte</div>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#E8000A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          <div style="font-size:18px;font-weight:900;color:var(--ink)">Producci&oacute;n con IA</div>
+        </div>
+        <p style="font-size:13px;color:var(--ink2);line-height:1.65;margin:0">Sustituimos la producci&oacute;n audiovisual tradicional por contenido construido con herramientas de inteligencia artificial, incluido dentro del fee mensual, sin costo aparte por jornada.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 03 ESTRATEGIA: STORYTELLING CON IA -->
+<section class="sec sec-dk2" id="s-estrategia">
+  <div class="inner">
+    <span class="sec-label" style="color:var(--red)">03 &middot; Servicio mensual &middot; Contenido con storytelling IA</span>
+    <h2 class="sec-title dk">Una historia real.<br>Contada con IA.<br>Que vende Kontacta.</h2>
+    <p class="sec-lead dk">El coraz&oacute;n del servicio mensual es un formato vigente en este momento: contenido narrativo construido con inteligencia artificial. Tomamos un caso real, la historia de una persona real que refleje el valor del Flexibility Assessment, y la convertimos en contenido que conecta y que convierte.</p>
+
+    <div style="margin-bottom:44px" class="fade-in">
+      <div class="alert-box" style="background:rgba(232,0,10,.06);border-color:rgba(232,0,10,.22)">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#E8000A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><circle cx="9" cy="9" r="7"/><line x1="9" y1="6.5" x2="9" y2="10"/><circle cx="9" cy="12.5" r=".7" fill="#E8000A"/></svg>
+        <p style="color:var(--text-dk2)">Es el formato de contenido m&aacute;s vigente del momento: marcas y consultoras est&aacute;n usando storytelling hecho con IA para conectar emocionalmente con su audiencia, con niveles de producci&oacute;n altos y sin los costos de la producci&oacute;n tradicional.</p>
+      </div>
+    </div>
+
+    <div class="pillar-grid sg fade-in">
+      <div class="pillar">
+        <span class="pillar-num">01 &middot; La base</span>
+        <div class="pillar-title">Historia real</div>
+        <p class="pillar-sub">Cada ciclo de contenido parte de un caso real: un profesional, un equipo o un cliente que vivi&oacute; una transformaci&oacute;n gracias al Flexibility Assessment de Kontacta.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">02 &middot; La producci&oacute;n</span>
+        <div class="pillar-title">Guion y producci&oacute;n con IA</div>
+        <p class="pillar-sub">Guionizamos la historia y la producimos con herramientas de inteligencia artificial (video, voz y avatar), con nivel profesional sin depender de rodajes complejos ni agendas apretadas.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">03 &middot; La distribuci&oacute;n</span>
+        <div class="pillar-title">LinkedIn + Instagram + video corto</div>
+        <p class="pillar-sub">Cada historia se adapta al lenguaje y formato nativo de cada canal: publicaciones en LinkedIn, piezas para Instagram y video corto vertical.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">04 &middot; El cierre</span>
+        <div class="pillar-title">Un camino claro a Kontacta</div>
+        <p class="pillar-sub">Toda pieza termina con un camino directo para conocer o probar la plataforma. Nunca contenido bonito sin destino: cada historia vende.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 HERRAMIENTAS DE IA -->
+<section class="sec sec-dk3" id="s-herramientas">
+  <div class="inner">
+    <span class="sec-label" style="color:var(--red)">04 &middot; Transparencia &middot; Herramientas de IA detr&aacute;s del contenido</span>
+    <h2 class="sec-title dk">Qu&eacute; hay detr&aacute;s<br>del contenido.<br>Sin costos ocultos.</h2>
+    <p class="sec-lead dk">As&iacute; como We Rock cotiza cada servicio de forma clara, tambi&eacute;n queremos que Kontacta vea con claridad qu&eacute; herramientas producen el contenido cada mes. Estos costos de terceros ya est&aacute;n absorbidos dentro del fee mensual.</p>
+
+    <div class="area-grid sg fade-in">
+      <div class="area-card">
+        <div class="area-num">01</div>
+        <div class="area-ico"><svg viewBox="0 0 18 18" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="14" height="11" rx="1.5"/><path d="M6.5 6.5l3.5 2-3.5 2z"/></svg></div>
+        <div class="area-title">Runway<br>(Gen&ndash;4)</div>
+        <p class="area-desc">Generaci&oacute;n y edici&oacute;n de video con inteligencia artificial para las piezas narrativas del mes.</p>
+        <span class="area-tag">$35&ndash;$95 USD/mes</span>
+      </div>
+
+      <div class="area-card">
+        <div class="area-num">02</div>
+        <div class="area-ico"><svg viewBox="0 0 18 18" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v14M5.5 5v8M12.5 5v8M2 7v4M16 7v4"/></svg></div>
+        <div class="area-title">ElevenLabs</div>
+        <p class="area-desc">Narraci&oacute;n y voz con IA para dar voz a la historia cuando no hay grabaci&oacute;n de audio original.</p>
+        <span class="area-tag">$22&ndash;$99 USD/mes</span>
+      </div>
+
+      <div class="area-card">
+        <div class="area-num">03</div>
+        <div class="area-ico"><svg viewBox="0 0 18 18" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="area-title">HeyGen /<br>Synthesia</div>
+        <p class="area-desc">Avatar con IA para representar al protagonista de la historia cuando no hay video real disponible.</p>
+        <span class="area-tag">$29&ndash;$89 USD/mes</span>
+      </div>
+
+      <div class="area-card">
+        <div class="area-num">04</div>
+        <div class="area-ico"><svg viewBox="0 0 18 18" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="14" height="14" rx="1.5"/><circle cx="6.5" cy="6.5" r="1.5"/><path d="M16 11.5l-4-4-7 7"/></svg></div>
+        <div class="area-title">Midjourney /<br>Ideogram</div>
+        <p class="area-desc">Generaci&oacute;n de im&aacute;genes con IA para piezas gr&aacute;ficas de apoyo y miniaturas.</p>
+        <span class="area-tag">$10&ndash;$60 USD/mes</span>
+      </div>
+    </div>
+
+    <div style="margin-top:32px" class="fade-in">
+      <div class="alert-box">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#E8000A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><circle cx="9" cy="9" r="7"/><line x1="9" y1="6.5" x2="9" y2="10"/><circle cx="9" cy="12.5" r=".7" fill="#E8000A"/></svg>
+        <p style="color:var(--text-dk2)">Estos costos de herramientas de IA est&aacute;n <strong style="color:var(--white)">absorbidos por We Rock</strong> dentro del fee mensual de la estrategia de contenidos. No se facturan aparte: es nuestra forma de mostrar con claridad qu&eacute; hay detr&aacute;s de cada pieza de contenido, sin cobros ocultos ni facturas sorpresa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 ROADMAP -->
+<section class="sec sec-white" id="s-roadmap">
+  <div class="inner">
+    <span class="sec-label">05 &middot; Mapa de ruta &middot; C&oacute;mo se ejecuta mes a mes</span>
+    <h2 class="sec-title lt">El camino,<br>ya trazado.</h2>
+    <p class="sec-lead lt">As&iacute; se organiza el servicio de contenido a lo largo del tiempo. Cada etapa construye sobre la anterior, y el servicio en s&iacute; sigue siendo independiente: se contrata y se cancela cuando Kontacta lo decida.</p>
+
+    <div class="timeline-grid fade-in">
+      <div class="tl-step"><div class="tl-dot"><span>01</span></div><span class="tl-week">Semanas 1&ndash;2</span><div class="tl-title">Definici&oacute;n del caso y guion</div><p class="tl-desc">Elegimos junto a Kontacta la historia real que va a protagonizar el contenido del mes y construimos el guion base.</p></div>
+      <div class="tl-step"><div class="tl-dot"><span>02</span></div><span class="tl-week">Semanas 3&ndash;4</span><div class="tl-title">Producci&oacute;n y lanzamiento</div><p class="tl-desc">Producimos el primer lote de contenido con herramientas de IA y lo publicamos en LinkedIn, Instagram y video corto.</p></div>
+      <div class="tl-step"><div class="tl-dot"><span>03</span></div><span class="tl-week">Mes 2</span><div class="tl-title">Medici&oacute;n y ajuste</div><p class="tl-desc">Medimos qu&eacute; formatos y &aacute;ngulos de la historia generan m&aacute;s conexi&oacute;n real y ajustamos el ritmo de publicaci&oacute;n.</p></div>
+      <div class="tl-step active"><div class="tl-dot"><span>04</span></div><span class="tl-week">Mes 3 en adelante</span><div class="tl-title">Ritmo mensual sostenido</div><p class="tl-desc">Mantenemos el ritmo mensual de contenido y evaluamos activar Google Ads si el contenido ya est&aacute; generando demanda calificada.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 IMPLEMENTACI&Oacute;N INICIAL -->
+<section class="sec sec-lt" id="s-implementacion">
+  <div class="inner">
+    <span class="sec-label">06 &middot; Implementaci&oacute;n inicial &middot; Landing + funnel b&aacute;sico</span>
+    <h2 class="sec-title lt">La base digital.<br>Lista en 3 semanas.</h2>
+    <p class="sec-lead lt">Antes de activar el contenido mensual, construimos la puerta de entrada digital: una landing page de Kontacta enfocada en conversi&oacute;n, con un funnel b&aacute;sico que recibe el tr&aacute;fico que genera el contenido.</p>
+
+    <div class="inv-layout fade-in">
+      <div class="inv-main">
+        <div class="inv-hd">
+          <div><span class="inv-lbl">Proyecto &uacute;nico &middot; 1 a 3 semanas</span><div class="inv-title">Landing de Kontacta + funnel b&aacute;sico</div></div>
+          <div class="inv-price"><div class="inv-amount">$4.5<span>M</span></div><div class="inv-period">COP &middot; pago &uacute;nico</div></div>
+        </div>
+        <div class="inv-body">
+          <div class="sline"><div class="sline-n"><strong>Fase 1</strong> &middot; Dise&ntilde;o de la landing y mensaje de venta</div><div class="sline-p">Semana 1</div></div>
+          <div class="sline"><div class="sline-n"><strong>Fase 2</strong> &middot; Desarrollo y configuraci&oacute;n del funnel</div><div class="sline-p">Semana 2</div></div>
+          <div class="sline" style="border:none"><div class="sline-n"><strong>Fase 3</strong> &middot; Integraciones, anal&iacute;tica y lanzamiento</div><div class="sline-p">Semana 3</div></div>
+        </div>
+      </div>
+      <div class="inv-side">
+        <div style="background:var(--white);border:1px solid var(--border);padding:36px;box-shadow:var(--sh)">
+          <span class="inv-lbl">Incluye</span>
+          <ul class="cl">
+            <li>Landing page de Kontacta (una p&aacute;gina, enfocada en conversi&oacute;n)</li>
+            <li>Funnel b&aacute;sico de captaci&oacute;n</li>
+            <li>Integraci&oacute;n de WhatsApp</li>
+            <li>Configuraci&oacute;n de anal&iacute;tica y conversiones</li>
+            <li>SEO on&ndash;page b&aacute;sico</li>
+          </ul>
+        </div>
+        <div class="total-block">
+          <span class="total-lbl">Inversi&oacute;n implementaci&oacute;n</span>
+          <div class="total-amt">$4.500.000</div>
+          <div class="total-sub">COP &middot; pago &uacute;nico &middot; 3 semanas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 INVERSI&Oacute;N -->
+<section class="sec sec-lt2" id="s-inversion">
+  <div class="inner">
+    <span class="sec-label">07 &middot; Inversi&oacute;n &middot; Cada servicio, por separado</span>
+    <h2 class="sec-title lt">Simple de ver.<br>Simple de empezar.</h2>
+    <p class="sec-lead lt">Empezar con Kontacta implica solo dos decisiones claras, y una tercera opcional cuando est&eacute;n listos para invertir en m&aacute;s demanda. Nada de escaleras ni paquetes forzados: cada servicio se contrata y se cancela de forma independiente.</p>
+    <span class="rule"></span>
+
+    <div class="fade-in">
+      <div class="price-card">
+        <div class="price-hd">
+          <div>
+            <span class="price-tag">Servicio mensual</span>
+            <div class="price-name">Estrategia de contenidos IA (Kontacta)</div>
+          </div>
+          <div class="price-amt"><div class="n">$2.800<span>.000</span></div><div class="p">COP / mes &middot; cancelable cuando lo decidan</div></div>
+        </div>
+        <div class="sline"><div class="sline-n">Definici&oacute;n y guion de la historia mensual</div></div>
+        <div class="sline"><div class="sline-n">Producci&oacute;n con herramientas de IA (video, voz, avatar)</div></div>
+        <div class="sline"><div class="sline-n">Distribuci&oacute;n en LinkedIn, Instagram y video corto</div></div>
+        <div class="sline"><div class="sline-n">Cierre con camino directo a Kontacta en cada pieza</div></div>
+        <div class="sline" style="border:none"><div class="sline-n">Reporte mensual de resultados</div></div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-hd">
+          <div>
+            <span class="price-tag">Proyecto &uacute;nico</span>
+            <div class="price-name">Implementaci&oacute;n inicial</div>
+          </div>
+          <div class="price-amt"><div class="n">$4.500<span>.000</span></div><div class="p">COP &middot; pago &uacute;nico</div></div>
+        </div>
+        <div class="sline"><div class="sline-n">Landing page de Kontacta enfocada en conversi&oacute;n</div></div>
+        <div class="sline"><div class="sline-n">Funnel b&aacute;sico de captaci&oacute;n</div></div>
+        <div class="sline" style="border:none"><div class="sline-n">Integraciones (WhatsApp, anal&iacute;tica) y lanzamiento en 3 semanas</div></div>
+      </div>
+
+      <div class="price-card" style="margin-bottom:0">
+        <div class="price-hd">
+          <div>
+            <span class="price-tag">Opcional</span>
+            <div class="price-name">Gesti&oacute;n de Google Ads</div>
+          </div>
+          <div class="price-amt"><div class="n">$850<span>.000</span></div><div class="p">COP / mes &middot; gesti&oacute;n</div></div>
+        </div>
+        <div class="sline"><div class="sline-n">Gesti&oacute;n y optimizaci&oacute;n de campa&ntilde;as</div></div>
+        <div class="sline" style="border:none"><div class="sline-n">Pauta sugerida aparte, desde <strong>$1.000.000</strong> COP/mes (se paga directo a Google)</div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px" class="fade-in">
+      <div class="alert-box">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#E8000A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><circle cx="9" cy="9" r="7"/><line x1="9" y1="6.5" x2="9" y2="10"/><circle cx="9" cy="12.5" r=".7" fill="#E8000A"/></svg>
+        <p><strong>Google Ads es opcional</strong> y se activa cuando el contenido ya est&eacute; validando demanda real. No es obligatorio desde el mes 1: la estrategia de contenidos puede sostenerse sola mientras se decide si sumar pauta.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:20px" class="fade-in">
+      <div class="two-col-gap">
+        <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--red);padding:28px 32px;box-shadow:var(--sh)">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:18px">Forma de trabajo</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ink2)"><svg style="flex-shrink:0;margin-top:2px" width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="#E8000A" stroke-width="1.4" stroke-linecap="round"><polyline points="1.5 4.5 7.5 8.5 13.5 4.5"/><rect x="1.5" y="2.5" width="12" height="10" rx="1.5"/></svg>Transferencia bancaria &middot; PSE</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ink2)"><svg style="flex-shrink:0;margin-top:2px" width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="#E8000A" stroke-width="1.4" stroke-linecap="round"><circle cx="7.5" cy="7.5" r="5.5"/><path d="M7.5 4.5v3l2 2"/></svg>Implementaci&oacute;n: 50% al iniciar, 50% contra entrega</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ink2)"><svg style="flex-shrink:0;margin-top:2px" width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="#E8000A" stroke-width="1.4" stroke-linecap="round"><polyline points="2 10 5.5 7 8 9.5 11.5 5 14.5 7.5"/><polyline points="12.5 7.5 14.5 7.5 14.5 9.5"/></svg>Servicio mensual: facturado mes vencido</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ink2)"><svg style="flex-shrink:0;margin-top:2px" width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="#E8000A" stroke-width="1.4" stroke-linecap="round"><rect x="2" y="1" width="11" height="13" rx="1.5"/><line x1="5" y1="5" x2="10" y2="5"/><line x1="5" y1="8" x2="10" y2="8"/></svg>Cada servicio, independiente y cancelable</div>
+          </div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border);padding:28px 32px;box-shadow:var(--sh)">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px">Sobre los valores</div>
+          <p style="font-size:14px;color:var(--ink2);line-height:1.7;margin:0">Todos los valores son <strong style="color:var(--ink)">netos</strong>. No incluyen IVA, retenci&oacute;n en la fuente ni otros impuestos. Las deducciones que correspondan son responsabilidad del contratante seg&uacute;n la normativa tributaria vigente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 CTA -->
+<section class="cta-section" id="s-cta">
+  <canvas id="cta-canvas"></canvas>
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <div class="cta-tag">08 &middot; Siguiente paso</div>
+    <h2 class="cta-title">KONTACTA<br><span class="r">EMPIEZA</span><br>HOY.</h2>
+    <p class="cta-sub">David revisa el proyecto contigo, resuelve dudas y da inicio en menos de 48 horas.</p>
+    <a href="https://wa.me/573125766056?text=Hola%20David%2C%20quiero%20hablar%20sobre%20la%20propuesta%20Kontacta." class="cta-btn" target="_blank">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.5A2.5 2.5 0 0114.5 15h-1l-4 2-4-2H4A2.5 2.5 0 011.5 12.5v-7A2.5 2.5 0 014 3h10.5A2.5 2.5 0 0117 5.5v7z"/></svg>
+      Hablar con David
+    </a>
+    <div class="cta-detail">+57 312 576 6056 &middot; davidh@werock.space &middot; werock.space</div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-logo">
+    <img src="we-rock-v1.png" alt="We Rock" onerror="this.outerHTML='<span>WE ROCK</span>'">
+    <span>We Rock</span>
+  </div>
+  <div class="ft-text">
+    Propuesta Ajustada &middot; KONTACTA &middot; Plataforma + Contenido Storytelling IA &middot; Septiembre 2026 &middot; Confidencial<br>
+    We Rock &middot; Firma de crecimiento estrat&eacute;gico &middot; Bogot&aacute;, Colombia
+  </div>
+</footer>
+
+<script>
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,cx2=0,cy2=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx-4}px,${my-4}px)`;});
+(function a(){cx2+=(mx-cx2)*.18;cy2+=(my-cy2)*.18;cur2.style.transform=`translate(${cx2-19}px,${cy2-19}px)`;requestAnimationFrame(a);})();
+const prog=document.getElementById('prog');
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;prog.style.width=(s/h*100)+'%';});
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+const fObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');fObs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>fObs.observe(el));
+const sgObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');sgObs.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.sg').forEach(el=>sgObs.observe(el));
+(function(){
+  const canvas=document.getElementById('grad-canvas'),ctx=canvas.getContext('2d');let w,h;
+  function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  let gx=.3,gy=.6,tx=.3,ty=.6,ang=0;
+  document.addEventListener('mousemove',e=>{tx=e.clientX/window.innerWidth;ty=e.clientY/window.innerHeight;});
+  function draw(){ctx.clearRect(0,0,w,h);gx+=(tx-gx)*.035;gy+=(ty-gy)*.035;ang+=.006;const g1=ctx.createRadialGradient(gx*w,gy*h,0,gx*w,gy*h,Math.max(w,h)*.55);g1.addColorStop(0,'rgba(232,0,10,.055)');g1.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g1;ctx.fillRect(0,0,w,h);const ox=w*(.5+.45*Math.cos(ang)),oy=h*(.5+.4*Math.sin(ang*.8));const g2=ctx.createRadialGradient(ox,oy,0,ox,oy,Math.max(w,h)*.42);g2.addColorStop(0,'rgba(232,0,10,.03)');g2.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g2;ctx.fillRect(0,0,w,h);requestAnimationFrame(draw);}draw();})();
+function initNeuralNet(id,light,neutral,onRed){
+  const cv=document.getElementById(id);if(!cv)return;
+  const cx=cv.getContext('2d');let W,H,VH;
+  function resize(){const s=cv.parentElement;W=cv.width=s.clientWidth||window.innerWidth;VH=window.innerHeight;H=cv.height=s.clientHeight||VH;}
+  resize();window.addEventListener('resize',resize);
+  const COUNT=window.innerWidth<600?55:110,CONNECT=165,M_REP=115,M_ATT=260,M_FREP=.09,M_FATT=.013,P_REP=60,P_FORCE=.022,SIG_SPEED=.026,FIRE_DUR=28,REF_DUR=200,FIRE_PROB=.00065,CASC_PROB=.25;
+  const mouse={x:W*.5,y:VH*.5,active:false};
+  cv.parentElement.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;mouse.active=true;});
+  cv.parentElement.addEventListener('mouseleave',()=>{mouse.active=false;});
+  const pts=Array.from({length:COUNT},()=>{const node=Math.random()<.22,sr=node&&Math.random()<.5;return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.55,vy:(Math.random()-.5)*.55,r:node?Math.random()*2.2+3.2:Math.random()*1.3+.7,node,phase:Math.random()*Math.PI*2,wa:Math.random()*Math.PI*2,ws:node?.004+Math.random()*.003:.0014+Math.random()*.0014,state:sr?'refractory':'idle',fireT:0,refT:sr?Math.floor(Math.random()*REF_DUR):0,arrT:0};});
+  const sigs=[];
+  function fire(fi){const src=pts[fi];if(!src.node||src.state!=='idle')return;src.state='firing';src.fireT=FIRE_DUR;for(let j=0;j<pts.length;j++){if(j===fi||!pts[j].node)continue;const dx=src.x-pts[j].x,dy=src.y-pts[j].y;if(Math.sqrt(dx*dx+dy*dy)<CONNECT&&Math.random()<.38)sigs.push({fi,ti:j,t:0,speed:SIG_SPEED*(.75+Math.random()*.5)});}if(sigs.length>18)sigs.splice(0,sigs.length-18);}
+  function tick(){if(cv.offsetParent===null){requestAnimationFrame(tick);return;}if(!W||!H)resize();cx.clearRect(0,0,W,H);for(let i=0;i<pts.length;i++){const p=pts[i];p.phase+=.02;if(p.node){if(p.state==='firing'){if(--p.fireT<=0){p.state='refractory';p.refT=REF_DUR;}}else if(p.state==='refractory'){if(--p.refT<=0)p.state='idle';}else{let prob=FIRE_PROB;if(mouse.active){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)prob+=FIRE_PROB*2.5*(1-dm/M_ATT);}if(Math.random()<prob)fire(i);}}if(mouse.active){const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);if(d<M_REP&&d>0){const f=(M_REP-d)/M_REP;p.vx+=(dx/d)*f*M_FREP;p.vy+=(dy/d)*f*M_FREP;}else if(d<M_ATT&&d>0){const f=(1-(d-M_REP)/(M_ATT-M_REP));p.vx-=(dx/d)*f*M_FATT;p.vy-=(dy/d)*f*M_FATT;}}const BM=140,BF=.08,nx=p.x/BM,nxr=(W-p.x)/BM,ny=p.y/BM,nyr=(H-p.y)/BM;if(nx<1)p.vx+=BF*(1-nx)**2;if(nxr<1)p.vx-=BF*(1-nxr)**2;if(ny<1)p.vy+=BF*(1-ny)**2;if(nyr<1)p.vy-=BF*(1-nyr)**2;p.wa+=(Math.random()-.5)*.045;p.vx+=Math.cos(p.wa)*p.ws;p.vy+=Math.sin(p.wa)*p.ws;p.vx+=(Math.random()-.5)*.009;p.vy+=(Math.random()-.5)*.009;p.vx*=.97;p.vy*=.97;const spd=Math.sqrt(p.vx*p.vx+p.vy*p.vy);if(spd>1.4){p.vx=p.vx/spd*1.4;p.vy=p.vy/spd*1.4;}p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W||p.y<0||p.y>H){p.x=W*.2+Math.random()*W*.6;p.y=H*.2+Math.random()*H*.6;p.vx*=.1;p.vy*=.1;}}for(let s=sigs.length-1;s>=0;s--){const sig=sigs[s];sig.t+=sig.speed;if(sig.t>=1){pts[sig.ti].arrT=1;if(Math.random()<CASC_PROB)fire(sig.ti);sigs.splice(s,1);}}const ac=new Set();for(const sig of sigs)ac.add(sig.fi<sig.ti?`${sig.fi}_${sig.ti}`:`${sig.ti}_${sig.fi}`);for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);if(d<P_REP&&d>0){const f=(P_REP-d)/P_REP*P_FORCE;a.vx+=(dx/d)*f;a.vy+=(dy/d)*f;b.vx-=(dx/d)*f;b.vy-=(dy/d)*f;}if(d<CONNECT){let mb=0;if(mouse.active){const mn=Math.min(Math.sqrt((a.x-mouse.x)**2+(a.y-mouse.y)**2),Math.sqrt((b.x-mouse.x)**2+(b.y-mouse.y)**2));if(mn<M_ATT)mb=(1-mn/M_ATT)*.55;}const ia=ac.has(`${i}_${j}`),base=(1-d/CONNECT)*(a.node||b.node?.62:.30),alpha=Math.min(base+mb+(ia?.5:0),1),lw=(a.node||b.node?1:.45)+mb*.8+(ia?.9:0);cx.strokeStyle=onRed?`rgba(255,255,255,${alpha*.28})`:neutral?`rgba(75,65,60,${alpha*.42})`:light?`rgba(140,0,6,${alpha*.38})`:`rgba(232,0,10,${alpha})`;cx.lineWidth=lw;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke();}}}for(const sig of sigs){const src=pts[sig.fi],dst=pts[sig.ti],STEPS=6,TAIL=.18;for(let k=0;k<STEPS;k++){const fr=k/(STEPS-1),tt=sig.t-TAIL*(1-fr);if(tt<0||tt>1)continue;const px=src.x+(dst.x-src.x)*tt,py=src.y+(dst.y-src.y)*tt,rad=1.2+fr*10,al=.02+fr*.26;const g=cx.createRadialGradient(px,py,0,px,py,rad);g.addColorStop(0,`rgba(255,245,225,${al})`);g.addColorStop(.38,`rgba(255,130,50,${al*.45})`);g.addColorStop(1,'rgba(232,0,10,0)');cx.fillStyle=g;cx.beginPath();cx.arc(px,py,rad,0,Math.PI*2);cx.fill();}const hx=src.x+(dst.x-src.x)*Math.min(sig.t,1),hy=src.y+(dst.y-src.y)*Math.min(sig.t,1);cx.save();cx.shadowBlur=6;cx.shadowColor='rgba(255,210,150,.65)';cx.fillStyle='rgba(255,255,255,.5)';cx.beginPath();cx.arc(hx,hy,1.3,0,Math.PI*2);cx.fill();cx.restore();}for(const p of pts){if(p.arrT<=0)continue;p.arrT-=.033;const pr2=1-Math.max(0,p.arrT),bR=p.r+4+pr2*22,al=p.arrT*.45;if(al<.005)continue;const bg=cx.createRadialGradient(p.x,p.y,p.r*.5,p.x,p.y,bR);bg.addColorStop(0,`rgba(255,220,160,${al*.7})`);bg.addColorStop(.45,`rgba(232,60,10,${al*.5})`);bg.addColorStop(1,'rgba(232,0,10,0)');cx.fillStyle=bg;cx.beginPath();cx.arc(p.x,p.y,bR,0,Math.PI*2);cx.fill();}for(const p of pts){const pr=p.r+(p.node?Math.sin(p.phase)*.9:0);let nm=0;if(mouse.active&&p.node){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)nm=1-dm/M_ATT;}if(p.node){let cb=.88+nm*.12,fb=0;if(p.state==='firing'){const ft=p.fireT/FIRE_DUR;fb=ft;cb=Math.min(cb+ft*.12,1);}else if(p.state==='refractory'){cb*=.6+(1-p.refT/REF_DUR)*.4;}const hR=pr*(8+nm*4+fb*3),hl=cx.createRadialGradient(p.x,p.y,pr*.5,p.x,p.y,hR),hC=onRed?'255,255,255':neutral?'75,65,60':'232,0,10';hl.addColorStop(0,`rgba(${hC},${Math.min((onRed?.14:light||neutral?.08:.22)+nm*.10+fb*.08,onRed?.38:light||neutral?.22:.55)})`);hl.addColorStop(1,`rgba(${hC},0)`);cx.fillStyle=hl;cx.beginPath();cx.arc(p.x,p.y,hR,0,Math.PI*2);cx.fill();cx.save();cx.shadowBlur=10+nm*8+fb*10;cx.shadowColor=onRed?`rgba(255,255,255,${.45+nm*.2})`:neutral?'rgba(75,65,60,.35)':`rgba(232,40,10,${.75+nm*.2})`;cx.fillStyle=onRed?`rgba(255,255,255,${cb*.88})`:neutral?`rgba(75,65,60,${cb*.28})`:`rgba(232,0,10,${cb})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();}else{cx.save();cx.shadowBlur=light?2:4;cx.shadowColor=light?'rgba(0,0,0,.08)':'rgba(255,255,255,.25)';cx.fillStyle=light?`rgba(30,20,20,${.12+Math.sin(p.phase)*.04})`:`rgba(255,255,255,${(onRed?.16:.22)+Math.sin(p.phase)*.08})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();}}requestAnimationFrame(tick);}tick();}
+initNeuralNet('hero-canvas');
+initNeuralNet('cta-canvas');
+</script>
+</body>
+</html>
