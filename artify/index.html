@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Propuesta · Artify · We Rock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E8000A;--red-h:#FF1A22;
+  --dk:#0A0A0A;--dk2:#111111;--dk3:#161616;
+  --lt:#F5F2EB;--lt2:#EDE9DF;--lt3:#E4DFD4;
+  --white:#FFFFFF;--gray:#888888;--gray2:#555555;
+  --text-dk:#E8E4DC;--text-dk2:#AAAAAA;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:var(--dk);color:var(--text-dk);overflow-x:hidden;cursor:none;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;height:auto;display:block;}
+
+#cur{position:fixed;width:8px;height:8px;background:#fff;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;}
+#cur2{position:fixed;width:32px;height:32px;border:1.5px solid rgba(255,255,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .18s,height .18s;mix-blend-mode:difference;}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--red);z-index:10001;width:0;transition:width .1s;}
+#grad-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;}
+
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,backdrop-filter .4s,box-shadow .4s;}
+#nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-shadow:0 2px 24px rgba(0,0,0,.08);}
+.logo-w{height:32px;display:block;}
+.logo-c{height:32px;display:none;mix-blend-mode:multiply;}
+#nav.scrolled .logo-w{display:none;}
+#nav.scrolled .logo-c{display:block;}
+.nav-right{display:flex;align-items:center;gap:32px;}
+.nav-tag{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);transition:color .3s;}
+#nav.scrolled .nav-tag{color:var(--gray);}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--red);color:#fff;font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:2px;transition:background .2s,transform .2s;}
+.nav-cta:hover{background:var(--red-h);transform:translateY(-1px);}
+
+/* COVER */
+.cover{position:relative;min-height:100vh;background:var(--dk);display:flex;flex-direction:column;padding:120px 48px 0;overflow:hidden;z-index:1;}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;}
+.cover-grid{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:linear-gradient(rgba(232,0,10,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(232,0,10,.04) 1px,transparent 1px);background-size:80px 80px;animation:grid-drift 18s linear infinite;}
+@keyframes grid-drift{from{transform:translate(0,0);}to{transform:translate(80px,80px);}}
+.cover-glow{position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse at 70% 40%,rgba(232,0,10,.05) 0%,transparent 65%);pointer-events:none;}
+.cover-content{position:relative;z-index:4;max-width:1180px;margin:0 auto;width:100%;}
+.cover-label{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);}
+.cover-label::before{content:'';display:block;width:28px;height:2px;background:var(--red);}
+.cover-title{font-size:clamp(44px,5.5vw,84px);font-weight:900;line-height:1.0;color:var(--white);letter-spacing:-.02em;margin-bottom:48px;}
+.cover-title .red{color:var(--red);}
+.client-block{display:flex;align-items:center;gap:22px;margin-bottom:80px;}
+.client-line{width:3px;height:48px;background:var(--red);flex-shrink:0;}
+.client-name{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dk2);line-height:1.6;}
+.client-sub{font-size:13px;color:var(--gray);margin-top:2px;}
+.cover-bar{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.07);position:relative;z-index:4;margin-top:auto;}
+.cover-bar-item{padding:28px 32px;border-right:1px solid rgba(255,255,255,.07);}
+.cover-bar-item:last-child{border-right:none;}
+.cbn{font-size:38px;font-weight:900;color:var(--white);line-height:1;margin-bottom:4px;}
+.cbn span{color:var(--red);}
+.cbl{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dk2);}
+
+/* SECTIONS */
+.sec{padding:96px 48px;position:relative;}
+.sec-inner{max-width:1180px;margin:0 auto;}
+.sec-dk{background:var(--dk);}
+.sec-dk2{background:var(--dk2);}
+.sec-lt{background:var(--lt);}
+.sec-lt2{background:var(--lt2);}
+.sec-white{background:var(--white);}
+
+.sec-label{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);}
+.sec-label::before{content:'';display:block;width:24px;height:2px;background:var(--red);}
+.sec-label-dk{color:var(--text-dk2);}
+.sec-label-dk::before{background:var(--text-dk2);}
+.sec-title{font-size:clamp(36px,4.5vw,62px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px;}
+.sec-title-dk{color:var(--white);}
+.sec-title-lt{color:var(--dk);}
+.sec-lead{font-size:20px;font-weight:400;line-height:1.6;max-width:640px;}
+.sec-lead-dk{color:var(--text-dk2);}
+.sec-lead-lt{color:var(--gray2);}
+
+/* LAYOUTS */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.four-col{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+
+/* BADGE */
+.badge{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;margin-bottom:18px;}
+
+/* CARDS */
+.card-lt{background:var(--white);padding:36px 32px;border-top:3px solid var(--red);}
+.card-dk{background:var(--dk3);padding:36px 32px;border-top:3px solid var(--red);}
+.card-num{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:14px;}
+.card-ico{width:44px;height:44px;margin-bottom:18px;}
+.card-ico svg{width:100%;height:100%;}
+.card-title-lt{font-size:20px;font-weight:700;color:var(--dk);margin-bottom:10px;line-height:1.3;}
+.card-title-dk{font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.3;}
+.card-desc-lt{font-size:15px;color:var(--gray2);line-height:1.65;}
+.card-desc-dk{font-size:15px;color:var(--text-dk2);line-height:1.65;}
+
+/* BULLET LIST */
+.bullet-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.bullet-list li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;}
+.bullet-list li::before{content:'';display:block;width:6px;height:6px;background:var(--red);border-radius:50%;flex-shrink:0;margin-top:7px;}
+.bl-lt li{color:var(--gray2);}
+.bl-dk li{color:var(--text-dk2);}
+
+/* PROD GRID (diagnóstico / producción) */
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px;}
+.prod-item{background:var(--dk3);padding:32px 28px;}
+.prod-n{font-size:48px;font-weight:900;color:rgba(232,0,10,.15);line-height:1;margin-bottom:12px;}
+.prod-title{font-size:17px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.prod-desc{font-size:14px;color:var(--text-dk2);line-height:1.6;}
+
+/* PIEZAS COUNTER */
+.piezas-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:40px;}
+.pieza-box{background:var(--dk3);padding:24px 22px;border-top:3px solid var(--red);}
+.pieza-n{font-size:32px;font-weight:900;color:var(--white);line-height:1;margin-bottom:4px;}
+.pieza-n span{color:var(--red);}
+.pieza-l{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dk2);}
+
+/* PACKAGES */
+.pkg-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.pkg{padding:40px 32px;position:relative;}
+.pkg-lt{background:var(--white);}
+.pkg-dk{background:var(--dk);border:2px solid var(--red);}
+.pkg-rec-badge{position:absolute;top:0;right:0;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;}
+.pkg-name{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;}
+.pkg-name-lt{color:var(--gray2);}
+.pkg-name-dk{color:var(--text-dk2);}
+.pkg-price{line-height:1;margin-bottom:4px;}
+.pkg-price-lt{font-size:42px;font-weight:900;color:var(--dk);}
+.pkg-price-dk{font-size:42px;font-weight:900;color:var(--white);}
+.pkg-mo{font-size:14px;font-weight:600;}
+.pkg-prods{font-size:13px;font-weight:700;color:var(--red);margin-bottom:24px;margin-top:6px;}
+.pkg-impl{font-size:12px;color:var(--gray2);margin-bottom:2px;}
+.pkg-impl-dk{font-size:12px;color:var(--text-dk2);margin-bottom:2px;}
+.pkg-div{height:1px;margin-bottom:22px;}
+.pkg-div-lt{background:rgba(0,0,0,.08);}
+.pkg-div-dk{background:rgba(255,255,255,.1);}
+.pkg-sub{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;}
+.pkg-sub-lt{color:var(--gray);}
+.pkg-sub-dk{color:var(--text-dk2);}
+.pkg-list{display:flex;flex-direction:column;gap:9px;}
+.pkg-row{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.5;}
+.pkg-row-lt{color:var(--gray2);}
+.pkg-row-dk{color:var(--text-dk2);}
+.pkg-row::before{content:'';display:block;width:5px;height:5px;background:var(--red);border-radius:50%;flex-shrink:0;margin-top:7px;}
+
+/* STAT ROW */
+.stat-row{display:flex;gap:48px;align-items:flex-end;flex-wrap:wrap;margin-top:32px;margin-bottom:32px;}
+.stat-big{font-size:72px;font-weight:900;line-height:1;color:var(--dk);}
+.stat-big span{color:var(--red);}
+.stat-big-lt{color:var(--white);}
+.stat-label{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray2);margin-top:4px;}
+.stat-label-lt{color:var(--text-dk2);}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.step{padding:40px 32px;background:var(--dk3);position:relative;overflow:hidden;}
+.step-n{font-size:80px;font-weight:900;color:rgba(232,0,10,.12);line-height:1;position:absolute;top:16px;right:24px;}
+.step-title{font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px;}
+.step-desc{font-size:15px;color:var(--text-dk2);line-height:1.65;}
+
+/* PRICE NOTE */
+.price-note{padding:24px 28px;background:var(--lt2);border-left:3px solid rgba(0,0,0,.1);font-size:14px;color:var(--gray2);line-height:1.65;margin-top:24px;}
+.price-note strong{color:var(--dk);}
+.price-note-dk{padding:24px 28px;background:var(--dk3);border-left:3px solid var(--red);font-size:14px;color:var(--text-dk2);line-height:1.65;margin-top:24px;}
+.price-note-dk strong{color:var(--white);}
+
+/* TABLES */
+.wr-table{width:100%;border-collapse:collapse;margin-top:8px;}
+.wr-table th{text-align:left;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red);padding:14px 18px;border-bottom:2px solid rgba(0,0,0,.1);}
+.wr-table td{font-size:14px;color:var(--gray2);padding:16px 18px;border-bottom:1px solid rgba(0,0,0,.07);line-height:1.5;vertical-align:top;}
+.wr-table tr:last-child td{border-bottom:none;}
+.wr-table td strong{color:var(--dk);}
+.wr-table-dk th{color:var(--red);border-bottom:2px solid rgba(255,255,255,.1);}
+.wr-table-dk td{color:var(--text-dk2);border-bottom:1px solid rgba(255,255,255,.07);}
+.wr-table-dk td strong{color:var(--white);}
+
+/* CTA */
+.cta-sec{background:var(--dk);padding:96px 48px;position:relative;overflow:hidden;text-align:center;}
+#cta-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+.cta-inner{position:relative;z-index:2;max-width:680px;margin:0 auto;}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;padding:18px 40px;background:var(--red);color:#fff;font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;transition:background .2s,transform .2s;margin-top:40px;}
+.cta-btn:hover{background:var(--red-h);transform:translateY(-2px);}
+
+footer{background:var(--lt);padding:48px 48px;border-top:1px solid var(--lt3);}
+.footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+.footer-logo img{height:26px;mix-blend-mode:multiply;}
+.footer-copy{font-size:12px;color:var(--gray);}
+.footer-right{font-size:12px;color:var(--gray);text-align:right;}
+
+@media(max-width:960px){
+  .two-col{grid-template-columns:1fr;gap:48px;}
+  .three-col,.four-col,.prod-grid,.steps,.pkg-wrap,.piezas-row{grid-template-columns:1fr 1fr;}
+  .cover-bar{grid-template-columns:1fr 1fr;}
+  .cover-bar-item:nth-child(2){border-right:none;}
+  .nav-tag{display:none;}
+  .wr-table{font-size:13px;}
+  .wr-table th,.wr-table td{padding:12px 10px;}
+}
+@media(max-width:640px){
+  .sec{padding:64px 20px;}
+  .cover{padding:100px 20px 0;}
+  #nav{padding:0 20px;height:64px;}
+  .cover-title{font-size:clamp(38px,9vw,56px);}
+  .cover-bar{grid-template-columns:1fr 1fr;}
+  .three-col,.four-col,.prod-grid,.steps,.pkg-wrap,.piezas-row{grid-template-columns:1fr;}
+  .stat-big{font-size:48px;}
+  .stat-row{gap:32px;}
+  footer{padding:40px 20px;}
+  .footer-inner{flex-direction:column;text-align:center;}
+  .footer-right{text-align:center;}
+  .pkg{padding:28px 20px;}
+  .wr-table{display:block;overflow-x:auto;white-space:nowrap;}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur2"></div>
+<div id="prog"></div>
+<canvas id="grad-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+  <div style="display:flex;align-items:center;">
+    <img class="logo-w" src="we-rock.png" alt="We Rock" onerror="this.style.display='none'">
+    <img class="logo-c" src="we-rock-v1.png" alt="We Rock" onerror="this.style.display='none'">
+  </div>
+  <div class="nav-right">
+    <span class="nav-tag">Ecosistema digital de ventas · 2026</span>
+    <a class="nav-cta" href="https://wa.me/573125766056?text=Hola%20David%2C%20vi%20la%20propuesta%20de%20Artify%20y%20quiero%20avanzar" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Hablar con David
+    </a>
+  </div>
+</nav>
+
+<!-- 01 · COVER -->
+<section class="cover">
+  <canvas id="hero-canvas"></canvas>
+  <div class="cover-grid" aria-hidden="true"></div>
+  <div class="cover-glow" aria-hidden="true"></div>
+  <div class="cover-content">
+    <div class="cover-label">Propuesta comercial · Ecosistema digital de ventas y marca personal</div>
+    <h1 class="cover-title">
+      ARTIFY<br>
+      ARTE HECHO A MANO,<br>
+      <span class="red">LISTO PARA VENDER</span><br>
+      TODOS LOS DÍAS.
+    </h1>
+    <div class="client-block">
+      <div class="client-line"></div>
+      <div>
+        <div class="client-name">Artify · Piezas decorativas en madera, hechas a mano, una por una</div>
+        <div class="client-sub">Ecosistema digital de marketing, ventas, automatización e inteligencia artificial</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-bar">
+    <div class="cover-bar-item">
+      <div class="cbn"><span>800</span></div>
+      <div class="cbl">Piezas a vender al año (meta)</div>
+    </div>
+    <div class="cover-bar-item">
+      <div class="cbn">$75<span>–120</span></div>
+      <div class="cbl">Ticket promedio en USD por pieza</div>
+    </div>
+    <div class="cover-bar-item">
+      <div class="cbn"><span>100</span>%</div>
+      <div class="cbl">Piezas únicas, hechas a mano</div>
+    </div>
+    <div class="cover-bar-item">
+      <div class="cbn">35<span>–45</span></div>
+      <div class="cbl">Edad del público objetivo: madres</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · EL CONTEXTO -->
+<section class="sec sec-lt">
+  <div class="sec-inner">
+    <div class="two-col">
+      <div>
+        <div class="badge">El contexto</div>
+        <h2 class="sec-title sec-title-lt">Cada pieza es irrepetible. El sistema que las vende no puede ser improvisado.</h2>
+        <p class="sec-lead sec-lead-lt" style="margin-bottom:28px;">
+          Artify tiene algo que muy pocas marcas de decoración pueden ofrecer: piezas artesanales sobre madera, talladas y pintadas a mano, donde no existen dos iguales. La línea de animales y diseños para habitaciones infantiles tiene un valor emocional y decorativo que conecta de inmediato con madres que quieren algo único para el espacio de sus hijos.
+        </p>
+        <p style="font-size:15px;color:var(--gray2);line-height:1.7;">
+          El reto no es el producto: es la distribución. Hoy esas piezas dependen de ferias, encargos directos y recomendaciones, un canal limitado por geografía y por el tiempo disponible de la artista. Para llegar a la meta de 800 piezas al año, Artify necesita un sistema digital que trabaje todos los días, así la artista esté en el taller, en una feria o descansando.
+        </p>
+      </div>
+      <div style="padding-top:4px;">
+        <p style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:18px;">El público que ya está buscando esto</p>
+        <ul class="bullet-list bl-lt">
+          <li>Mujeres entre 35 y 45 años, madres con hijos pequeños</li>
+          <li>Familias de ingresos medios altos y altos</li>
+          <li>Personas que valoran lo exclusivo, lo hecho a mano y el diseño con intención</li>
+          <li>Compradores impulsivos que responden a estímulos visuales y emocionales fuertes</li>
+          <li>Personas activamente interesadas en decoración infantil premium</li>
+        </ul>
+        <div class="price-note" style="margin-top:28px;">
+          <strong>El punto de partida:</strong> ese público ya existe en redes sociales, ya sigue cuentas de decoración infantil y ya compra productos artesanales en línea. Lo que falta es el sistema que lo encuentre, lo enamore y lo convierta en cliente.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · DIAGNÓSTICO -->
+<section class="sec sec-dk2">
+  <div class="sec-inner">
+    <div style="max-width:620px;margin-bottom:0;">
+      <div class="sec-label sec-label-dk">Diagnóstico</div>
+      <h2 class="sec-title sec-title-dk">Hoy, cada venta depende de que alguien encuentre a Artify por casualidad.</h2>
+      <p class="sec-lead sec-lead-dk">Esto es lo que falta para que las piezas se vendan solas, todos los días, sin depender de la presencia física de la artista.</p>
+    </div>
+
+    <div class="prod-grid">
+      <div class="prod-item">
+        <div class="prod-n">01</div>
+        <div class="prod-title">Sin canal de venta digital</div>
+        <div class="prod-desc">Las ventas dependen de ferias, encargos por WhatsApp y voz a voz. Cada venta requiere presencia física o seguimiento manual.</div>
+      </div>
+      <div class="prod-item">
+        <div class="prod-n">02</div>
+        <div class="prod-title">Sin landing de conversión</div>
+        <div class="prod-desc">No existe una página diseñada para contar la historia de Artify y llevar al visitante directo a la compra.</div>
+      </div>
+      <div class="prod-item">
+        <div class="prod-n">03</div>
+        <div class="prod-title">Sin catálogo organizado</div>
+        <div class="prod-desc">Las piezas se muestran de forma dispersa en redes sociales, sin un catálogo navegable por colección, tamaño o precio.</div>
+      </div>
+      <div class="prod-item">
+        <div class="prod-n">04</div>
+        <div class="prod-title">Sin pasarela de pagos</div>
+        <div class="prod-desc">El proceso de pago es manual, por transferencia. Eso frena justo al comprador impulsivo que más responde a este producto.</div>
+      </div>
+      <div class="prod-item">
+        <div class="prod-n">05</div>
+        <div class="prod-title">Sin datos de comportamiento</div>
+        <div class="prod-desc">No hay Pixel, Analytics ni seguimiento. No se sabe quién visita los perfiles, qué pieza genera más interés ni por qué alguien no compra.</div>
+      </div>
+      <div class="prod-item">
+        <div class="prod-n">06</div>
+        <div class="prod-title">Sin sistema de seguimiento</div>
+        <div class="prod-desc">Las personas que preguntan por una pieza y no compran de inmediato se pierden, sin un CRM ni una automatización que las recupere.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · OBJETIVOS DEL PROYECTO -->
+<section class="sec sec-white">
+  <div class="sec-inner">
+    <div style="text-align:center;max-width:680px;margin:0 auto 52px;">
+      <div class="badge">Objetivos del proyecto</div>
+      <h2 class="sec-title sec-title-lt">Un ecosistema digital con seis funciones, trabajando juntas.</h2>
+      <p class="sec-lead sec-lead-lt" style="margin:0 auto;">No son seis proyectos separados: son seis piezas de un mismo sistema, diseñado para que las 800 piezas del año encuentren comprador.</p>
+    </div>
+
+    <div class="four-col">
+      <div class="card-lt">
+        <div class="card-num">01</div>
+        <div class="card-ico"><svg viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="16" stroke="#E8000A" stroke-width="1.5"/><circle cx="22" cy="22" r="9" stroke="#E8000A" stroke-width="1.5"/><circle cx="22" cy="22" r="2" fill="#E8000A"/></svg></div>
+        <div class="card-title-lt">Tráfico calificado</div>
+        <div class="card-desc-lt">Atraer cada día a más madres de 35 a 45 años interesadas en decoración infantil premium, no a cualquier visitante.</div>
+      </div>
+      <div class="card-lt">
+        <div class="card-num">02</div>
+        <div class="card-ico"><svg viewBox="0 0 44 44" fill="none"><path d="M8 10h28l-4 14H12L8 10z" stroke="#E8000A" stroke-width="1.5" stroke-linejoin="round"/><path d="M16 30a2 2 0 100 4 2 2 0 000-4zM30 30a2 2 0 100 4 2 2 0 000-4z" stroke="#E8000A" stroke-width="1.5"/></svg></div>
+        <div class="card-title-lt">Captura de leads</div>
+        <div class="card-desc-lt">Convertir visitas e interacciones en contactos reales: nombre, WhatsApp y la pieza que les interesó.</div>
+      </div>
+      <div class="card-lt">
+        <div class="card-num">03</div>
+        <div class="card-ico"><svg viewBox="0 0 44 44" fill="none"><rect x="9" y="14" width="26" height="22" rx="2" stroke="#E8000A" stroke-width="1.5"/><path d="M15 14V10a7 7 0 0114 0v4" stroke="#E8000A" stroke-width="1.5"/></svg></div>
+        <div class="card-title-lt">Ventas online</div>
+        <div class="card-desc-lt">Que cada pieza pueda venderse y pagarse en línea, sin que la artista tenga que cerrar la venta a mano.</div>
+      </div>
+      <div class="card-lt">
+        <div class="card-num">04</div>
+        <div class="card-ico"><svg viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="6" stroke="#E8000A" stroke-width="1.5"/><path d="M22 8v4M22 32v4M36 22h-4M12 22H8M31.6 12.4l-2.8 2.8M15.2 28.8l-2.8 2.8M31.6 31.6l-2.8-2.8M15.2 15.2l-2.8-2.8" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="card-title-lt">Automatización de procesos</div>
+        <div class="card-desc-lt">Que el seguimiento, la respuesta y la clasificación de cada cliente potencial ocurran sin intervención manual.</div>
+      </div>
+      <div class="card-lt">
+        <div class="card-num">05</div>
+        <div class="card-ico"><svg viewBox="0 0 44 44" fill="none"><path d="M22 6l4.5 9.2 10.1 1.5-7.3 7.1 1.7 10.1L22 29l-9 4.9 1.7-10.1-7.3-7.1 10.1-1.5L22 6z" stroke="#E8000A" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <div class="card-title-lt">Marca personal</div>
+        <div class="card-desc-lt">Posicionar a la artista como la persona detrás de cada pieza: su proceso, su historia y su criterio creativo.</div>
+      </div>
+      <div class="card-lt">
+        <div class="card-num">06</div>
+        <div class="card-ico"><svg viewBox="0 0 44 44" fill="none"><path d="M8 32V22M17 32V14M26 32V18M35 32V8" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round"/><path d="M8 32h27" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="card-title-lt">Escalar las ventas</div>
+        <div class="card-desc-lt">Pasar de un volumen limitado por la disponibilidad de la artista a un volumen sostenido de 800 piezas al año.</div>
+      </div>
+      <div class="card-lt" style="grid-column:span 2;display:flex;flex-direction:column;justify-content:center;background:var(--dk);border-top:3px solid var(--red);">
+        <div class="card-title-dk" style="font-size:24px;">La inversión se organiza en cuatro frentes.</div>
+        <div class="card-desc-dk">Tienda en línea, marketing digital, inteligencia artificial y producción audiovisual mensual. Cada uno se contrata por separado, según lo que Artify necesite.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · INVERSIÓN INICIAL: TIENDA EN LÍNEA -->
+<section class="sec sec-lt2">
+  <div class="sec-inner">
+    <div style="max-width:680px;margin-bottom:40px;">
+      <div class="badge">01 · Inversión inicial</div>
+      <h2 class="sec-title sec-title-lt">La tienda en línea y todo el ecosistema digital de Artify, listos desde el día uno.</h2>
+      <p class="sec-lead sec-lead-lt">Es el punto de partida: catálogo por colección, pasarela de pagos y envíos integrados, branding inicial, estrategia de contenidos y configuración de todo el ecosistema digital de Artify. Una sola inversión, sin mensualidades de plataforma ni dependencia de terceros.</p>
+    </div>
+
+    <table class="wr-table">
+      <thead>
+        <tr>
+          <th>Ítem</th>
+          <th>Detalle</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Construcción de la tienda en línea (WordPress)</strong></td>
+          <td>Catálogo por colección, tamaño y precio; pasarela de pagos; checkout; integración logística de envíos; diseño con identidad de marca</td>
+          <td><strong>$4.200.000</strong><br>pago único</td>
+        </tr>
+        <tr>
+          <td>Branding inicial</td>
+          <td>Ajuste de identidad visual: logo, paleta de colores, tipografías y aplicaciones para tienda, redes y empaques</td>
+          <td>Incluido</td>
+        </tr>
+        <tr>
+          <td>Estrategia de contenidos inicial</td>
+          <td>Pilares de contenido, tono de marca y calendario base para los primeros meses de publicaciones</td>
+          <td>Incluido</td>
+        </tr>
+        <tr>
+          <td>Creación del ecosistema digital</td>
+          <td>Configuración de Instagram, Facebook, WhatsApp Business, Google Business Profile, Meta Pixel y Google Analytics</td>
+          <td>Incluido</td>
+        </tr>
+        <tr>
+          <td><strong>Total inversión inicial</strong></td>
+          <td>Pago único</td>
+          <td><strong>$4.200.000</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="price-note" style="margin-top:24px;">
+      <strong>Importante:</strong> al terminar esta etapa, Artify queda con una tienda propia, su ecosistema digital configurado y su marca lista para operar, sin comisiones por venta de plataformas externas.<br><br>
+      <strong>Hosting y dominio:</strong> van por cuenta de Artify, directo con el proveedor, con un costo aproximado de $200.000 COP el primer año. We Rock acompaña la contratación pero el pago no hace parte de esta inversión.
+    </div>
+  </div>
+</section>
+
+<!-- 06 · MARKETING DIGITAL -->
+<section class="sec sec-white">
+  <div class="sec-inner">
+    <div style="max-width:680px;margin-bottom:40px;">
+      <div class="badge">02 · Marketing digital</div>
+      <h2 class="sec-title sec-title-lt">Meta Ads y Google Ads, cada uno por separado.</h2>
+      <p class="sec-lead sec-lead-lt">Dos canales, dos administraciones independientes. Artify decide con cuál arrancar y cuándo sumar el segundo.</p>
+    </div>
+
+    <div class="pkg-wrap">
+      <div class="pkg pkg-lt">
+        <div class="pkg-name pkg-name-lt">Meta Ads</div>
+        <div class="pkg-price pkg-price-lt">$1.200.000<span class="pkg-mo" style="color:var(--gray2);">/mes</span></div>
+        <div class="pkg-prods">Instagram y Facebook · incluye 8 contenidos al mes</div>
+        <div class="pkg-div pkg-div-lt"></div>
+        <div class="pkg-list">
+          <div class="pkg-row pkg-row-lt">Configuración y gestión de campañas de conversión</div>
+          <div class="pkg-row pkg-row-lt">Segmentación de audiencias: madres de 35 a 45 años</div>
+          <div class="pkg-row pkg-row-lt">8 piezas creativas al mes hechas específicamente para probar y optimizar las campañas: cortos e imágenes de anuncio</div>
+          <div class="pkg-row pkg-row-lt">Optimización semanal de presupuesto</div>
+        </div>
+      </div>
+      <div class="pkg pkg-lt">
+        <div class="pkg-name pkg-name-lt">Google Ads</div>
+        <div class="pkg-price pkg-price-lt">$800.000<span class="pkg-mo" style="color:var(--gray2);">/mes</span></div>
+        <div class="pkg-prods">Búsqueda y Shopping</div>
+        <div class="pkg-div pkg-div-lt"></div>
+        <div class="pkg-list">
+          <div class="pkg-row pkg-row-lt">Configuración y gestión de campañas de Búsqueda y Shopping</div>
+          <div class="pkg-row pkg-row-lt">Captura de personas que ya buscan decoración infantil en madera</div>
+          <div class="pkg-row pkg-row-lt">Optimización de palabras clave y catálogo de productos</div>
+          <div class="pkg-row pkg-row-lt">Optimización semanal de presupuesto</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-note" style="margin-top:24px;">
+      <strong>Presupuesto de pauta:</strong> es un concepto distinto al fee de gestión anterior; es el dinero que se paga directo a Meta y Google para mostrar los anuncios. Como referencia, We Rock recomienda un mínimo real para arrancar de $800.000 COP/mes combinado entre las dos plataformas (aproximadamente $500.000 en Meta y $300.000 en Google), un valor que escala hasta $1.500.000 o $2.500.000 COP/mes una vez el canal empiece a validar resultados.
+    </div>
+
+    <div class="price-note" style="margin-top:16px;">
+      <strong>Sobre el contenido de ambas líneas:</strong> la producción audiovisual mensual alimenta el catálogo, la tienda y los perfiles orgánicos; los 8 contenidos incluidos en Meta Ads son piezas creativas hechas específicamente para probar y optimizar las campañas pagas, un material distinto y complementario al anterior.
+    </div>
+  </div>
+</section>
+
+<!-- 07 · INTELIGENCIA ARTIFICIAL: HALCONBOT -->
+<section class="sec sec-dk">
+  <div class="sec-inner">
+    <div style="max-width:680px;margin-bottom:40px;">
+      <div class="sec-label sec-label-dk">03 · Inteligencia artificial</div>
+      <h2 class="sec-title sec-title-dk">HalconBot atiende cada mensaje, así la artista esté en el taller.</h2>
+      <p class="sec-lead sec-lead-dk">HalconBot es el asistente de atención comercial de We Rock. Responde por WhatsApp y por el sitio web: preguntas sobre piezas, precios, tiempos de entrega y envíos. Clasifica cada conversación y solo avisa a Artify cuando hace falta su criterio.</p>
+    </div>
+
+    <div class="pkg-wrap">
+      <div class="pkg pkg-lt">
+        <div class="pkg-name pkg-name-lt">Plan Base</div>
+        <div class="pkg-price pkg-price-lt">$129<span class="pkg-mo" style="color:var(--gray2);">USD/mes</span></div>
+        <div class="pkg-prods">Hasta 200 usuarios/día · 86.000 conversaciones/mes</div>
+        <div class="pkg-div pkg-div-lt"></div>
+        <div class="pkg-list">
+          <div class="pkg-row pkg-row-lt">Respuesta automática en WhatsApp e Instagram</div>
+          <div class="pkg-row pkg-row-lt">Clasificación de leads por etiquetas</div>
+          <div class="pkg-row pkg-row-lt">Catálogo de productos integrado al chat</div>
+          <div class="pkg-row pkg-row-lt">Escalamiento a la artista con historial completo</div>
+        </div>
+      </div>
+      <div class="pkg pkg-dk" style="position:relative;">
+        <div class="pkg-rec-badge">Recomendado</div>
+        <div class="pkg-name pkg-name-dk">Plan Recomendado</div>
+        <div class="pkg-price pkg-price-dk">$239<span class="pkg-mo" style="color:var(--text-dk2);">USD/mes</span></div>
+        <div class="pkg-prods">Hasta 400 usuarios/día · 172.500 conversaciones/mes</div>
+        <div class="pkg-div pkg-div-dk"></div>
+        <div class="pkg-list">
+          <div class="pkg-row pkg-row-dk">Todo lo del Plan Base</div>
+          <div class="pkg-row pkg-row-dk">Mayor volumen de conversaciones simultáneas</div>
+          <div class="pkg-row pkg-row-dk">Seguimiento automático de carritos abandonados</div>
+          <div class="pkg-row pkg-row-dk">Reportes de comportamiento de clientes integrados al CRM</div>
+        </div>
+      </div>
+    </div>
+    <div class="price-note-dk">
+      <strong>Recomendación:</strong> empezar con el Plan Base. El cambio al Plan Recomendado se hace en cualquier momento, cuando el volumen de conversaciones lo pida.
+    </div>
+  </div>
+</section>
+
+<!-- 08 · PRODUCCIÓN AUDIOVISUAL MENSUAL -->
+<section class="sec sec-lt2">
+  <div class="sec-inner">
+    <div style="max-width:680px;margin-bottom:0;">
+      <div class="badge">04 · Producción audiovisual mensual</div>
+      <h2 class="sec-title sec-title-lt">Una sesión al mes. Ocho piezas listas para publicar y vender.</h2>
+      <p class="sec-lead sec-lead-lt">Cada sesión registra el proceso real: cómo se talla, se pinta y se termina cada pieza. De ahí salen fotos de producto, videos del proceso y contenido directo de venta.</p>
+    </div>
+
+    <div class="piezas-row">
+      <div class="pieza-box">
+        <div class="pieza-n">1</div>
+        <div class="pieza-l">Sesión de grabación y fotografía al mes, en el taller</div>
+      </div>
+      <div class="pieza-box">
+        <div class="pieza-n">3</div>
+        <div class="pieza-l">Videos cortos del proceso: cómo se hace cada pieza</div>
+      </div>
+      <div class="pieza-box">
+        <div class="pieza-n">2</div>
+        <div class="pieza-l">Fotografías de producto, listas para catálogo y anuncios</div>
+      </div>
+      <div class="pieza-box">
+        <div class="pieza-n">2</div>
+        <div class="pieza-l">Piezas de venta: historias, lanzamientos y ofertas</div>
+      </div>
+    </div>
+
+    <div class="price-note" style="margin-top:24px;">
+      <strong>Total: 8 contenidos por mes</strong>, en formato de historia de vida: el taller, las manos de la artista, el proceso de fabricación y el resultado final. Material pensado para publicar en redes, alimentar la tienda y el catálogo.
+    </div>
+
+    <div style="margin-top:32px;">
+      <div class="pkg pkg-dk" style="max-width:420px;">
+        <div class="pkg-name pkg-name-dk">Producción audiovisual</div>
+        <div class="pkg-price pkg-price-dk">$950.000<span class="pkg-mo" style="color:var(--text-dk2);">/mes</span></div>
+        <div class="pkg-prods">1 sesión mensual · 8 piezas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 · RESUMEN DE INVERSIÓN -->
+<section class="sec sec-white">
+  <div class="sec-inner">
+    <div style="max-width:680px;margin-bottom:40px;">
+      <div class="badge">Resumen</div>
+      <h2 class="sec-title sec-title-lt">Cuatro líneas, cuatro decisiones independientes.</h2>
+      <p class="sec-lead sec-lead-lt">Así se ve la inversión completa si Artify activa los cuatro frentes desde el primer mes.</p>
+    </div>
+
+    <table class="wr-table">
+      <thead>
+        <tr>
+          <th>Línea de inversión</th>
+          <th>Tipo</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>01 · Tienda en línea y ecosistema digital</strong> (WordPress + branding y contenidos iniciales)</td>
+          <td>Pago único</td>
+          <td><strong>$4.200.000</strong></td>
+        </tr>
+        <tr>
+          <td><strong>02 · Marketing digital</strong> (Meta Ads + Google Ads)</td>
+          <td>$1.200.000 + $800.000</td>
+          <td><strong>$2.000.000/mes</strong></td>
+        </tr>
+        <tr>
+          <td><strong>03 · Inteligencia artificial</strong> (HalconBot Plan Base)</td>
+          <td>Atención comercial</td>
+          <td><strong>$129 USD/mes</strong></td>
+        </tr>
+        <tr>
+          <td><strong>04 · Producción audiovisual</strong> (1 sesión, 8 piezas)</td>
+          <td>Mensual</td>
+          <td><strong>$950.000/mes</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="price-note" style="margin-top:24px;">
+      <strong>Hosting y dominio:</strong> a cargo de Artify, directo con el proveedor, aproximadamente $200.000 COP el primer año. No hacen parte de las líneas anteriores.<br><br>
+      <strong>Presupuesto de pauta</strong> (Meta Ads + Google Ads): independiente de las líneas anteriores, se paga directo a las plataformas. Mínimo real para arrancar de $800.000 COP/mes combinado, un valor que escala hasta $1.500.000 o $2.500.000 COP/mes conforme el canal valida resultados.<br><br>
+      <strong>Forma de pago:</strong> tienda en línea, 50% para iniciar y 50% contra entrega. Las líneas mensuales se facturan los primeros 5 días hábiles de cada mes, por transferencia bancaria, Nequi o Daviplata.<br><br>
+      <strong>Compromiso mínimo:</strong> 3 meses en marketing digital, IA y producción audiovisual. A partir del cuarto mes, cada línea es mensual y se ajusta o cancela con 15 días de aviso.
+    </div>
+  </div>
+</section>
+
+<!-- 12 · POR QUÉ WE ROCK -->
+<section class="sec sec-lt">
+  <div class="sec-inner">
+    <div class="two-col">
+      <div>
+        <div class="badge">Por qué We Rock</div>
+        <h2 class="sec-title sec-title-lt">Más de 15 años construyendo sistemas que venden.</h2>
+        <div class="stat-row">
+          <div>
+            <div class="stat-big"><span>+</span>50</div>
+            <div class="stat-label">Marcas y empresas</div>
+          </div>
+          <div>
+            <div class="stat-big">4.9<span>★</span></div>
+            <div class="stat-label">Calificación Google</div>
+          </div>
+          <div>
+            <div class="stat-big">2018</div>
+            <div class="stat-label">Fundación We Rock</div>
+          </div>
+        </div>
+      </div>
+      <div style="padding-top:8px;">
+        <p style="font-size:15px;color:var(--gray2);line-height:1.7;margin-bottom:20px;">
+          We Rock no es una agencia. Es una firma de crecimiento estratégico fundada en Bogotá en 2018. No construimos sitios ni publicamos contenido por separado: diseñamos y operamos sistemas completos donde marca, ventas, datos e inteligencia artificial trabajan juntos.
+        </p>
+        <p style="font-size:15px;color:var(--gray2);line-height:1.7;margin-bottom:20px;">
+          Entendemos el comercio electrónico de productos físicos hechos a mano: el ticket, la logística de envío, la temporalidad y la importancia de transmitir que cada pieza es única. Sabemos qué formatos y qué ganchos generan resultados con audiencias de madres compradoras.
+        </p>
+        <p style="font-size:15px;color:var(--gray2);line-height:1.7;">
+          Y porque We Rock construyó HalconBot, el módulo de inteligencia artificial no es un agregado de un tercero: es parte del mismo sistema, diseñado para conversar exactamente como Artify lo necesita.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · CTA -->
+<section class="cta-sec">
+  <canvas id="cta-canvas"></canvas>
+  <div class="cta-inner">
+    <div class="sec-label" style="justify-content:center;margin-bottom:24px;">Siguiente paso</div>
+    <h2 class="sec-title sec-title-dk" style="text-align:center;">
+      800 piezas al año<br>empiezan con<br><span style="color:var(--red);">un sistema, no con suerte.</span>
+    </h2>
+    <p style="font-size:17px;color:var(--text-dk2);text-align:center;margin-top:16px;line-height:1.65;max-width:520px;margin-left:auto;margin-right:auto;">
+      Escríbele a David directamente. Revisamos juntos qué líneas activar primero y definimos la fecha de arranque del proyecto.
+    </p>
+    <a class="cta-btn" href="https://wa.me/573125766056?text=Hola%20David%2C%20vi%20la%20propuesta%20de%20Artify%20y%20quiero%20avanzar%20con%20el%20plan%20que%20más%20le%20conviene%20a%20la%20marca" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Hablar con David
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div style="display:flex;align-items:center;gap:20px;">
+      <div class="footer-logo"><img src="we-rock-v1.png" alt="We Rock" onerror="this.style.display='none'"></div>
+      <span class="footer-copy">Propuesta preparada por We Rock · Bogotá, Colombia · 2026</span>
+    </div>
+    <div class="footer-right">davidh@werock.space &nbsp;·&nbsp; +57 312 576 6056 &nbsp;·&nbsp; werock.space</div>
+  </div>
+</footer>
+
+<script>
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let lx=0,ly=0;
+document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';lx+=(e.clientX-lx)*.12;ly+=(e.clientY-ly)*.12;cur2.style.left=lx+'px';cur2.style.top=ly+'px';});
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{cur2.style.width='52px';cur2.style.height='52px';});el.addEventListener('mouseleave',()=>{cur2.style.width='32px';cur2.style.height='32px';});});
+(function loop(){lx+=(parseFloat(cur.style.left||0)-lx)*.1;ly+=(parseFloat(cur.style.top||0)-ly)*.1;cur2.style.left=lx+'px';cur2.style.top=ly+'px';requestAnimationFrame(loop);})();
+const prog=document.getElementById('prog');
+window.addEventListener('scroll',()=>{const p=window.scrollY/(document.body.scrollHeight-window.innerHeight);prog.style.width=(p*100)+'%';},{passive:true});
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+const canvas=document.getElementById('grad-canvas'),ctx=canvas.getContext('2d');let w,h;
+function resizeCanvas(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}resizeCanvas();window.addEventListener('resize',resizeCanvas);
+let gMx=.3,gMy=.6,tMx=.3,tMy=.6,angle=0;
+document.addEventListener('mousemove',e=>{tMx=e.clientX/window.innerWidth;tMy=e.clientY/window.innerHeight;});
+function drawGrad(){ctx.clearRect(0,0,w,h);gMx+=(tMx-gMx)*.035;gMy+=(tMy-gMy)*.035;angle+=.006;const g1=ctx.createRadialGradient(gMx*w,gMy*h,0,gMx*w,gMy*h,Math.max(w,h)*.55);g1.addColorStop(0,'rgba(232,0,10,.09)');g1.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g1;ctx.fillRect(0,0,w,h);const ox=w*(.5+.45*Math.cos(angle)),oy=h*(.5+.4*Math.sin(angle*.8));const g2=ctx.createRadialGradient(ox,oy,0,ox,oy,Math.max(w,h)*.42);g2.addColorStop(0,'rgba(232,0,10,.055)');g2.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g2;ctx.fillRect(0,0,w,h);requestAnimationFrame(drawGrad);}drawGrad();
+function initNeuralNet(canvasId,light,neutral,onRed){const cv=document.getElementById(canvasId);if(!cv)return;const cx=cv.getContext('2d');let W,H,VH;function resize(){const sec=cv.parentElement;W=cv.width=sec.clientWidth||window.innerWidth;VH=window.innerHeight;H=cv.height=sec.clientHeight||VH;}resize();window.addEventListener('resize',resize);const COUNT=window.innerWidth<600?55:110,CONNECT=165,M_REP=115,M_ATT=260,M_FREP=.09,M_FATT=.013,P_REP=60,P_FORCE=.022,SIG_SPEED=.026,FIRE_DUR=28,REF_DUR=200,FIRE_PROB=.00065,CASC_PROB=.25;const mouse={x:W*.5,y:VH*.5,active:false};cv.parentElement.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;mouse.active=true;});cv.parentElement.addEventListener('mouseleave',()=>{mouse.active=false;});const pts=Array.from({length:COUNT},()=>{const node=Math.random()<.22,startRef=node&&Math.random()<.5;return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.55,vy:(Math.random()-.5)*.55,r:node?Math.random()*2.2+3.2:Math.random()*1.3+.7,node,phase:Math.random()*Math.PI*2,wangle:Math.random()*Math.PI*2,wspeed:node?.004+Math.random()*.003:.0014+Math.random()*.0014,state:startRef?'refractory':'idle',fireT:0,refT:startRef?Math.floor(Math.random()*REF_DUR):0,arrivalT:0};});const signals=[];function fireNode(fi){const src=pts[fi];if(!src.node||src.state!=='idle')return;src.state='firing';src.fireT=FIRE_DUR;for(let j=0;j<pts.length;j++){if(j===fi||!pts[j].node)continue;const dx=src.x-pts[j].x,dy=src.y-pts[j].y;if(Math.sqrt(dx*dx+dy*dy)<CONNECT&&Math.random()<.38){signals.push({fi,ti:j,t:0,speed:SIG_SPEED*(.75+Math.random()*.5)});}}if(signals.length>18)signals.splice(0,signals.length-18);}function tick(){if(cv.offsetParent===null){requestAnimationFrame(tick);return;}if(!W||!H)resize();cx.clearRect(0,0,W,H);for(let i=0;i<pts.length;i++){const p=pts[i];p.phase+=.02;if(p.node){if(p.state==='firing'){if(--p.fireT<=0){p.state='refractory';p.refT=REF_DUR;}}else if(p.state==='refractory'){if(--p.refT<=0)p.state='idle';}else{let prob=FIRE_PROB;if(mouse.active){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)prob+=FIRE_PROB*2.5*(1-dm/M_ATT);}if(Math.random()<prob)fireNode(i);}}if(mouse.active){const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);if(d<M_REP&&d>0){const f=(M_REP-d)/M_REP;p.vx+=(dx/d)*f*M_FREP;p.vy+=(dy/d)*f*M_FREP;}else if(d<M_ATT&&d>0){const f=(1-(d-M_REP)/(M_ATT-M_REP));p.vx-=(dx/d)*f*M_FATT;p.vy-=(dy/d)*f*M_FATT;}}const BM=140,BF=.08,nx=p.x/BM,nxr=(W-p.x)/BM,ny=p.y/BM,nyr=(H-p.y)/BM;if(nx<1)p.vx+=BF*(1-nx)*(1-nx);if(nxr<1)p.vx-=BF*(1-nxr)*(1-nxr);if(ny<1)p.vy+=BF*(1-ny)*(1-ny);if(nyr<1)p.vy-=BF*(1-nyr)*(1-nyr);p.wangle+=(Math.random()-.5)*.045;p.vx+=Math.cos(p.wangle)*p.wspeed;p.vy+=Math.sin(p.wangle)*p.wspeed;p.vx+=(Math.random()-.5)*.009;p.vy+=(Math.random()-.5)*.009;p.vx*=.97;p.vy*=.97;const spd=Math.sqrt(p.vx*p.vx+p.vy*p.vy);if(spd>1.4){p.vx=p.vx/spd*1.4;p.vy=p.vy/spd*1.4;}p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W||p.y<0||p.y>H){p.x=W*.2+Math.random()*W*.6;p.y=H*.2+Math.random()*H*.6;p.vx*=.1;p.vy*=.1;}}for(let s=signals.length-1;s>=0;s--){const sig=signals[s];sig.t+=sig.speed;if(sig.t>=1){pts[sig.ti].arrivalT=1;if(Math.random()<CASC_PROB)fireNode(sig.ti);signals.splice(s,1);}}const activeCon=new Set();for(const sig of signals)activeCon.add(sig.fi<sig.ti?`${sig.fi}_${sig.ti}`:`${sig.ti}_${sig.fi}`);for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);if(d<P_REP&&d>0){const f=(P_REP-d)/P_REP*P_FORCE;a.vx+=(dx/d)*f;a.vy+=(dy/d)*f;b.vx-=(dx/d)*f;b.vy-=(dy/d)*f;}if(d<CONNECT){let mBoost=0;if(mouse.active){const nearest=Math.min(Math.sqrt((a.x-mouse.x)**2+(a.y-mouse.y)**2),Math.sqrt((b.x-mouse.x)**2+(b.y-mouse.y)**2));if(nearest<M_ATT)mBoost=(1-nearest/M_ATT)*.55;}const isActive=activeCon.has(`${i}_${j}`),base=(1-d/CONNECT)*(a.node||b.node?.62:.30),alpha=Math.min(base+mBoost+(isActive?.5:0),1),lw=(a.node||b.node?1:.45)+mBoost*.8+(isActive?.9:0);cx.strokeStyle=onRed?`rgba(255,255,255,${alpha*.28})`:neutral?`rgba(75,65,60,${alpha*.42})`:light?`rgba(140,0,6,${alpha*.38})`:`rgba(232,0,10,${alpha})`;cx.lineWidth=lw;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke();}}}for(const sig of signals){const src=pts[sig.fi],dst=pts[sig.ti],STEPS=6,TAIL=.18;for(let k=0;k<STEPS;k++){const frac=k/(STEPS-1),tt=sig.t-TAIL*(1-frac);if(tt<0||tt>1)continue;const px=src.x+(dst.x-src.x)*tt,py=src.y+(dst.y-src.y)*tt,rad=1.2+frac*10,alpha=.02+frac*.26,g=cx.createRadialGradient(px,py,0,px,py,rad);g.addColorStop(0,`rgba(255,245,225,${alpha})`);g.addColorStop(.38,`rgba(255,130,50,${alpha*.45})`);g.addColorStop(1,'rgba(232,0,10,0)');cx.fillStyle=g;cx.beginPath();cx.arc(px,py,rad,0,Math.PI*2);cx.fill();}const hx=src.x+(dst.x-src.x)*Math.min(sig.t,1),hy=src.y+(dst.y-src.y)*Math.min(sig.t,1);cx.save();cx.shadowBlur=6;cx.shadowColor='rgba(255,210,150,.65)';cx.fillStyle='rgba(255,255,255,.5)';cx.beginPath();cx.arc(hx,hy,1.3,0,Math.PI*2);cx.fill();cx.restore();}for(const p of pts){if(p.arrivalT<=0)continue;p.arrivalT-=.033;const prog2=1-Math.max(0,p.arrivalT),bR=p.r+4+prog2*22,alpha=p.arrivalT*.45;if(alpha<.005)continue;const bg=cx.createRadialGradient(p.x,p.y,p.r*.5,p.x,p.y,bR);bg.addColorStop(0,`rgba(255,220,160,${alpha*.7})`);bg.addColorStop(.45,`rgba(232,60,10,${alpha*.5})`);bg.addColorStop(1,'rgba(232,0,10,0)');cx.fillStyle=bg;cx.beginPath();cx.arc(p.x,p.y,bR,0,Math.PI*2);cx.fill();}for(const p of pts){const pr=p.r+(p.node?Math.sin(p.phase)*.9:0);let nearMouse=0;if(mouse.active&&p.node){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)nearMouse=1-dm/M_ATT;}if(p.node){let coreBright=.88+nearMouse*.12,fireBoost=0;if(p.state==='firing'){const ft=p.fireT/FIRE_DUR;fireBoost=ft;coreBright=Math.min(coreBright+ft*.12,1);}else if(p.state==='refractory'){const rec=1-p.refT/REF_DUR;coreBright*=.6+rec*.4;}const haloR=pr*(8+nearMouse*4+fireBoost*3),hl=cx.createRadialGradient(p.x,p.y,pr*.5,p.x,p.y,haloR),haloC=onRed?'255,255,255':neutral?'75,65,60':'232,0,10';hl.addColorStop(0,`rgba(${haloC},${Math.min((onRed?.14:light||neutral?.08:.22)+nearMouse*.10+fireBoost*.08,onRed?.38:light||neutral?.22:.55)})`);hl.addColorStop(1,`rgba(${haloC},0)`);cx.fillStyle=hl;cx.beginPath();cx.arc(p.x,p.y,haloR,0,Math.PI*2);cx.fill();cx.save();cx.shadowBlur=10+nearMouse*8+fireBoost*10;cx.shadowColor=onRed?`rgba(255,255,255,${.45+nearMouse*.2})`:neutral?'rgba(75,65,60,.35)':`rgba(232,40,10,${.75+nearMouse*.2})`;cx.fillStyle=onRed?`rgba(255,255,255,${coreBright*.88})`:neutral?`rgba(75,65,60,${coreBright*.28})`:`rgba(232,0,10,${coreBright})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();}else{cx.save();cx.shadowBlur=light?2:4;cx.shadowColor=light?'rgba(0,0,0,.08)':'rgba(255,255,255,.25)';cx.fillStyle=light?`rgba(30,20,20,${.12+Math.sin(p.phase)*.04})`:`rgba(255,255,255,${(onRed?.16:.22)+Math.sin(p.phase)*.08})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();}}requestAnimationFrame(tick);}tick();}
+initNeuralNet('hero-canvas');
+initNeuralNet('cta-canvas');
+</script>
+</body>
+</html>
