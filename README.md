@@ -14,5 +14,5 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [Pompilio Martínez — Portal Institucional Inteligente](https://werockagencia.github.io/propuestas/pompilioportal/)
 - [Pompilio Martínez — Plataforma de Trazabilidad Escolar](https://werockagencia.github.io/propuestas/pompilioasistencia/)
 - [BMC Coffee Market — Estrategia digital y ecommerce](https://werockagencia.github.io/propuestas/bmccoffeemarket/)
-- [Artify — Ecosistema digital de ventas](https://werockagencia.github.io/propuestas/artify/)
+- [Esperanza Arcila — Auditoría, corrección y continuidad digital](https://werockagencia.github.io/propuestas/esperanzaarcila/)
 - [Kontacta — Plataforma + Contenido Storytelling IA](https://werockagencia.github.io/propuestas/kontacta/)
