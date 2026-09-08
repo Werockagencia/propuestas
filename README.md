@@ -18,3 +18,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [Flexibility (Kontacta) — Plataforma + Contenido Storytelling IA](https://werockagencia.github.io/propuestas/flexibility/)
 - [CUN — HalconBot para Marketing y Atención Automatizada](https://werockagencia.github.io/propuestas/cun/)
 - [Barbra — Sistema de Marca (Naming, Identidad y Sitio Web)](https://werockagencia.github.io/propuestas/barbra/)
+- [NovaHost — Marketing Digital (Google Ads + Meta Ads + HalconBot)](https://werockagencia.github.io/propuestas/novahost/)

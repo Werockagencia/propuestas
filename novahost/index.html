@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propuesta de Marketing Digital — NovaHost | We Rock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{--red:#E8000A;--red-h:#FF1A22;--dk:#0A0A0A;--dk2:#111111;--dk3:#161616;--lt:#F5F2EB;--lt2:#EDE9DF;--lt3:#E4DFD4;--white:#FFFFFF;--gray:#888888;--gray2:#555555;--text-dk:#E8E4DC;--text-dk2:#AAAAAA;--ink:#1A1A1A;--ink2:#444444;--ink3:#777777;--border:rgba(0,0,0,.07);--sh:0 2px 12px rgba(0,0,0,.06);--sh2:0 8px 32px rgba(0,0,0,.10);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Barlow',sans-serif;background:var(--white);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;cursor:none;overflow-x:hidden}
+    @media(max-width:768px){body{cursor:auto}}
+
+    #grad-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.5}
+    #prog{position:fixed;top:0;left:0;height:3px;background:var(--red);z-index:9997;width:0%;transition:width .1s linear}
+    #cur{width:10px;height:10px;background:white;border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference}
+    #cur2{width:38px;height:38px;border:1.5px solid rgba(255,255,255,.55);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform .22s cubic-bezier(.16,1,.3,1);mix-blend-mode:difference}
+    @media(max-width:768px){#cur,#cur2{display:none}}
+
+    #nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:62px;background:transparent;border-bottom:1px solid transparent;transition:all .4s ease}
+    #nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.07);box-shadow:0 2px 20px rgba(0,0,0,.06)}
+    .nav-logo{display:flex;align-items:center;gap:10px}
+    .nav-logo .logo-w{height:36px;display:block}
+    .nav-logo .logo-c{height:36px;display:none;mix-blend-mode:multiply}
+    #nav.scrolled .nav-logo .logo-w{display:none}
+    #nav.scrolled .nav-logo .logo-c{display:block}
+    .nav-links{display:flex;gap:28px}
+    .nav-links a{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+    #nav.scrolled .nav-links a{color:var(--ink3)}
+    .nav-links a:hover{color:var(--red)}
+    @media(max-width:768px){.nav-links{display:none}#nav{padding:0 24px}}
+
+    .cover{min-height:100vh;background:var(--dk);display:flex;flex-direction:column;justify-content:flex-end;padding:0 64px;position:relative;overflow:hidden}
+    #hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
+    .cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px;animation:gd 28s linear infinite;pointer-events:none;z-index:1}
+    @keyframes gd{from{background-position:0 0}to{background-position:88px 88px}}
+    .cover-ov{position:absolute;inset:0;background:linear-gradient(115deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.08) 55%,rgba(0,0,0,.5) 100%);z-index:1}
+    .cover-red-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 75% at 3% 65%,rgba(232,0,10,.14) 0%,transparent 65%);z-index:1;animation:glw 10s ease-in-out infinite alternate}
+    @keyframes glw{0%{opacity:.5;transform:scale(1)}100%{opacity:1;transform:scale(1.08)}}
+    .cover-inner-simple{position:relative;z-index:10;max-width:820px;width:100%;padding:148px 0 44px;margin:0 auto;text-align:center}
+    @media(max-width:768px){.cover{padding:0 24px}.cover-inner-simple{padding:120px 0 36px}}
+    .cover-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;opacity:0;animation:su .7s ease .05s forwards}
+    .cover-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 2s infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+    .cover-eyebrow span{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+    .cover-title{font-size:clamp(38px,5vw,74px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-2.2px;color:var(--white);display:flex;flex-direction:column;gap:.06em;align-items:center}
+    .cover-title .r{color:var(--red)}
+    .hl{display:block;opacity:0;transform:translateY(44px) skewY(2deg);animation:hlIn .82s cubic-bezier(.16,1,.3,1) forwards}
+    .hl1{animation-delay:.08s}.hl2{animation-delay:.22s}.hl3{animation-delay:.36s}.hl4{animation-delay:.50s}
+    @keyframes hlIn{to{opacity:1;transform:translateY(0) skewY(0)}}
+    @keyframes su{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:translateY(0)}}
+    .cover-hero-lead{font-size:clamp(15px,1.7vw,18px);color:var(--text-dk2);max-width:620px;margin:22px auto 0;line-height:1.75;opacity:0;animation:su .9s ease .52s forwards}
+    .cover-hero-meta{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px;flex-wrap:wrap;opacity:0;animation:su .7s ease .68s forwards}
+    .cover-hero-meta span{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.22)}
+    .cover-hero-meta .dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.15)}
+    .cover-bar{position:relative;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:20px 64px;margin-left:-64px;margin-right:-64px;border-top:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.32);backdrop-filter:blur(16px);opacity:0;animation:su .8s ease .7s forwards}
+    @media(max-width:768px){.cover-bar{padding:20px 24px;margin-left:-24px;margin-right:-24px;flex-wrap:wrap;gap:16px}}
+    .cbs{text-align:center;min-width:80px}
+    .cbn{font-size:22px;font-weight:900;color:var(--white);line-height:1}
+    .cbl{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:3px}
+    .cbdv{width:1px;height:32px;background:rgba(255,255,255,.08)}
+    .cbsc{display:flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+    .scroll-mouse{width:16px;height:26px;border:1.5px solid rgba(255,255,255,.28);border-radius:8px;position:relative;display:flex;justify-content:center;flex-shrink:0}
+    .scroll-wheel{width:2px;height:5px;background:var(--red);border-radius:2px;position:absolute;top:4px;animation:sw 1.9s ease-in-out infinite}
+    @keyframes sw{0%{transform:translateY(0);opacity:1}55%{transform:translateY(9px);opacity:0}56%{transform:translateY(0);opacity:0}100%{transform:translateY(0);opacity:1}}
+
+    .sec{width:100%;padding:96px 0;position:relative}
+    .sec-white{background:var(--white);color:var(--ink)}
+    .sec-lt{background:var(--lt);color:var(--ink)}
+    .sec-lt2{background:var(--lt2);color:var(--ink)}
+    .sec-dk{background:var(--dk);color:var(--white)}
+    .inner{max-width:1100px;margin:0 auto;padding:0 52px}
+    @media(max-width:768px){.inner{padding:0 24px}}
+    .sec-label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:block}
+    .sec-title{font-size:clamp(30px,4vw,52px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:18px}
+    .sec-title.dk{color:var(--white)}.sec-title.lt{color:var(--ink)}
+    .sec-lead{font-size:18px;font-weight:400;line-height:1.7;max-width:700px;margin-bottom:44px}
+    .sec-lead.dk{color:var(--text-dk2)}.sec-lead.lt{color:var(--ink2)}
+    .rule{width:44px;height:3px;background:var(--red);margin-bottom:36px;display:block}
+    .badge-red{display:inline-block;background:var(--red);color:white;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;margin-bottom:16px}
+
+    .sg>*{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+    .sg>*:nth-child(1){transition-delay:.00s}.sg>*:nth-child(2){transition-delay:.10s}
+    .sg>*:nth-child(3){transition-delay:.18s}.sg>*:nth-child(4){transition-delay:.26s}
+    .sg>*:nth-child(5){transition-delay:.34s}.sg>*:nth-child(6){transition-delay:.42s}
+    .sg>*:nth-child(7){transition-delay:.50s}
+    .sg.vis>*{opacity:1;transform:translateY(0)}
+    .fade-in{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+
+    .g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+    @media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.g2,.g3{grid-template-columns:1fr}}
+
+    .prob-grid{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:auto auto;gap:20px}
+    .prob-grid .prob-card:first-child{grid-row:1/3;display:flex;flex-direction:column;justify-content:center}
+    @media(max-width:900px){.prob-grid{grid-template-columns:1fr}.prob-grid .prob-card:first-child{grid-row:auto}}
+    .prob-card{background:var(--white);border:1px solid var(--border);padding:32px 28px;box-shadow:var(--sh);transition:box-shadow .2s,transform .2s;cursor:default}
+    .prob-card:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
+    .prob-card:hover .prob-bar{width:100%}
+    .prob-bar{width:40px;height:2px;background:var(--red);margin-bottom:16px;transition:width .3s ease}
+    .prob-label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block}
+    .prob-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3}
+    .prob-text{font-size:14.5px;color:var(--ink2);line-height:1.65}
+
+    .diag-flow{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:20px;padding:40px 32px;background:var(--dk);flex-wrap:wrap}
+    .diag-flow-pt{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;min-width:150px}
+    .diag-flow-num{font-size:clamp(38px,5vw,58px);font-weight:900;color:var(--white);letter-spacing:-2px;line-height:1}
+    .diag-flow-pt.end .diag-flow-num{color:var(--red)}
+    .diag-flow-lbl{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.4);max-width:170px;line-height:1.45}
+    .diag-flow-line{flex:1;min-width:90px;height:2px;background:linear-gradient(90deg,rgba(255,255,255,.15),var(--red));position:relative}
+    .diag-flow-line::after{content:'';position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid var(--red)}
+
+    .frentes-split{display:grid;grid-template-columns:1fr 1fr;position:relative;margin-top:8px}
+    @media(max-width:768px){.frentes-split{grid-template-columns:1fr}}
+    .frente-half{padding:52px 44px;position:relative}
+    .frente-half.civil{background:var(--lt2);border:1px solid var(--border)}
+    .frente-half.migra{background:var(--dk)}
+    .frente-divider{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:0 8px 26px rgba(232,0,10,.4)}
+    .frente-divider svg{width:22px;height:22px}
+    @media(max-width:768px){.frente-divider{position:relative;left:50%;top:auto;transform:translate(-50%,-50%);margin-bottom:-28px}}
+    .frente-mini-stats{display:flex;gap:2px;margin-top:28px}
+    .frente-mini-stat{flex:1;padding:16px 14px;background:rgba(0,0,0,.03)}
+    .frente-half.migra .frente-mini-stat{background:rgba(255,255,255,.05)}
+    .frente-mini-val{font-size:26px;font-weight:900;letter-spacing:-1px;color:var(--red);line-height:1}
+    .frente-mini-lbl{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-top:5px;line-height:1.35}
+    .frente-half.migra .frente-mini-lbl{color:rgba(255,255,255,.4)}
+
+    .icon-wrap{width:48px;height:48px;background:rgba(232,0,10,.08);border:1px solid rgba(232,0,10,.22);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+    .icon-wrap svg{width:24px;height:24px;overflow:visible}
+    .icon-wrap--lg{width:66px;height:66px;border-radius:50%}
+    .icon-wrap--lg svg{width:32px;height:32px;stroke-width:2.1}
+
+    .svc-block{padding:44px 0;border-top:1px solid var(--border);position:relative}
+    .svc-block:first-of-type{border-top:none;padding-top:0}
+    .svc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+    .svc-name{font-size:22px;font-weight:800;color:var(--ink);line-height:1.2}
+    .svc-tag{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:6px}
+    .svc-opt{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red);border:1px solid rgba(232,0,10,.3);padding:4px 10px;margin-bottom:10px}
+    .svc-ghost{position:absolute;top:-6px;right:0;font-size:84px;font-weight:900;color:rgba(232,0,10,.06);line-height:1;letter-spacing:-4px;pointer-events:none;user-select:none}
+    @media(max-width:768px){.svc-ghost{display:none}}
+    .svc-marker{display:flex;align-items:center;gap:16px;margin-bottom:6px}
+    .svc-marker .icon-wrap{margin-bottom:0}
+
+    .wm-layout{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    @media(max-width:900px){.wm-layout{grid-template-columns:1fr}}
+    .wm-main{background:var(--white);border:1px solid var(--border);padding:52px 48px;border-top:3px solid var(--red);box-shadow:var(--sh2)}
+    .wm-price{font-size:clamp(44px,6vw,66px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-3px;margin-bottom:6px}
+    .wm-price .sl{color:var(--red)}
+    .wm-period{font-size:14px;font-weight:600;color:var(--ink2);margin-bottom:10px}
+    .wm-note{font-size:12px;color:var(--ink3);background:var(--lt);padding:10px 14px;border-left:2px solid var(--red);margin-bottom:26px}
+    .wm-side{background:var(--lt);border:1px solid var(--border);padding:44px 40px}
+    .quote-box{border-left:3px solid var(--red);padding:14px 20px;background:var(--lt2);margin:22px 0}
+    .quote-box p{font-size:13.5px;color:var(--ink2);line-height:1.7;font-style:italic}
+    .quote-box p strong{color:var(--ink);font-style:normal}
+
+    .plan-ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:28px}
+    @media(max-width:1000px){.plan-ladder{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:640px){.plan-ladder{grid-template-columns:1fr 1fr}}
+    @media(max-width:420px){.plan-ladder{grid-template-columns:1fr}}
+    .plan-card{background:var(--white);border:1px solid var(--border);border-top:3px solid rgba(0,0,0,.08);padding:24px 20px;position:relative}
+    .plan-card.active{border-top:3px solid var(--red);box-shadow:var(--sh2)}
+    .plan-card-badge{display:inline-block;background:var(--red);color:white;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:4px 9px;margin-bottom:14px}
+    .plan-card-name{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px}
+    .plan-card-price{font-size:20px;font-weight:900;color:var(--ink);letter-spacing:-.5px;margin-bottom:2px}
+    .plan-card-price span{font-size:11px;font-weight:600;color:var(--ink3)}
+    .plan-card-cap{font-size:12px;color:var(--ink2);line-height:1.55;margin-top:8px}
+
+    .pillar-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    @media(max-width:768px){.pillar-grid{grid-template-columns:1fr}}
+    .pillar{background:var(--white);border:1px solid var(--border);padding:44px 40px;border-top:3px solid var(--red);box-shadow:var(--sh);transition:box-shadow .2s}
+    .pillar:hover{box-shadow:var(--sh2)}
+    .pillar-num{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:14px}
+    .pillar-title{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.2}
+    .pillar-title.dk{color:var(--white)}
+    .pillar-sub{font-size:13px;color:var(--ink3);margin-bottom:22px}
+    .pillar-sub.dk{color:var(--text-dk2)}
+
+    .tl-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:60px;position:relative}
+    @media(max-width:900px){.tl-rail{grid-template-columns:1fr 1fr}}
+    @media(max-width:540px){.tl-rail{grid-template-columns:1fr}}
+    .tl-rail::before{content:'';position:absolute;top:20px;left:12.5%;right:12.5%;height:2px;background:rgba(232,0,10,.22);z-index:0}
+    @media(max-width:900px){.tl-rail::before{display:none}}
+    .tl-node{position:relative;display:flex;flex-direction:column;align-items:center}
+    .tl-node-dot{width:40px;height:40px;border-radius:50%;background:var(--red);color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-bottom:20px;position:relative;z-index:2;box-shadow:0 0 0 6px var(--lt2)}
+    .tl-step{background:var(--white);border:1px solid var(--border);padding:32px 26px;border-top:3px solid rgba(232,0,10,.18);box-shadow:var(--sh);transition:all .25s;cursor:default;width:100%}
+    .tl-step:hover{border-top-color:var(--red);box-shadow:var(--sh2)}
+    .tl-week{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block}
+    .tl-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.25}
+    .tl-desc{font-size:14px;color:var(--ink2);line-height:1.65}
+
+    .compare-panel{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:8px}
+    @media(max-width:768px){.compare-panel{grid-template-columns:1fr}}
+    .compare-col{padding:40px 36px}
+    .compare-col.before{background:var(--lt2)}
+    .compare-col.after{background:var(--dk)}
+    .compare-lbl{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px;display:block}
+    .compare-col.before .compare-lbl{color:var(--ink3)}
+    .compare-col.after .compare-lbl{color:var(--red)}
+    .compare-list{list-style:none;padding:0;margin:0}
+    .compare-list li{font-size:14.5px;line-height:1.7;padding:11px 0 11px 30px;position:relative;border-bottom:1px solid rgba(0,0,0,.06)}
+    .compare-col.after .compare-list li{border-bottom:1px solid rgba(255,255,255,.07)}
+    .compare-list li:last-child{border-bottom:none}
+    .compare-col.before .compare-list li{color:var(--ink2)}
+    .compare-col.after .compare-list li{color:var(--text-dk2)}
+    .compare-list.before li::before{content:'−';position:absolute;left:2px;top:8px;font-size:18px;font-weight:700;color:var(--ink3);line-height:1}
+    .compare-list.after li::before{content:'+';position:absolute;left:2px;top:8px;font-size:18px;font-weight:700;color:var(--red);line-height:1}
+
+    .wr-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:36px 0 0}
+    @media(max-width:768px){.wr-stats{grid-template-columns:1fr}}
+    .wr-stat{background:var(--white);border:1px solid var(--border);padding:28px 36px;box-shadow:var(--sh)}
+    .wr-stat-val{font-size:clamp(36px,4.5vw,52px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-2px;margin-bottom:6px}
+    .wr-stat-val span{color:var(--red)}
+    .wr-stat-lbl{font-size:12px;font-weight:600;color:var(--ink3);line-height:1.4}
+
+    .bl{list-style:none;padding:0;margin:0}
+    .bl li{font-size:14px;color:var(--ink2);padding:8px 0 8px 22px;position:relative;border-bottom:1px solid rgba(0,0,0,.05);line-height:1.55}
+    .bl li:last-child{border-bottom:none}
+    .bl li::before{content:'';position:absolute;left:0;top:17px;width:9px;height:2px;background:var(--red)}
+    .bl.dk li{color:var(--text-dk2);border-bottom:1px solid rgba(255,255,255,.04)}
+    .cl{list-style:none;padding:0;margin:0}
+    .cl li{font-size:14px;color:var(--ink2);padding:10px 0 10px 32px;position:relative;border-bottom:1px solid rgba(0,0,0,.06);line-height:1.5}
+    .cl li:last-child{border-bottom:none}
+    .cl li::before{content:'';position:absolute;left:0;top:13px;width:18px;height:18px;background:rgba(232,0,10,.08);border:1px solid rgba(232,0,10,.25)}
+    .cl li::after{content:'';position:absolute;left:5px;top:18px;width:8px;height:5px;border-left:2px solid var(--red);border-bottom:2px solid var(--red);transform:rotate(-45deg)}
+
+    .wa-mock{background:var(--dk2);border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35);max-width:380px;border:1px solid rgba(255,255,255,.08)}
+    .wa-mock-head{display:flex;align-items:center;gap:12px;padding:16px 20px;background:var(--dk3);border-bottom:1px solid rgba(255,255,255,.06)}
+    .wa-mock-avatar{width:36px;height:36px;border-radius:50%;background:rgba(232,0,10,.15);border:1px solid rgba(232,0,10,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .wa-mock-avatar svg{width:18px;height:18px}
+    .wa-mock-name{font-size:13px;font-weight:700;color:var(--white)}
+    .wa-mock-status{display:flex;align-items:center;gap:6px;font-size:10.5px;color:rgba(255,255,255,.35);margin-top:2px}
+    .wa-mock-status .dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 2s infinite}
+    .wa-mock-body{padding:22px 20px;display:flex;flex-direction:column;gap:12px;min-height:250px}
+    .wa-bubble{max-width:80%;padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.5}
+    .wa-bubble.in{align-self:flex-start;background:var(--dk3);color:var(--text-dk);border-bottom-left-radius:4px}
+    .wa-bubble.out{align-self:flex-end;background:var(--red);color:white;border-bottom-right-radius:4px}
+    .wa-typing{align-self:flex-start;display:flex;gap:4px;background:var(--dk3);padding:12px 16px;border-radius:14px;border-bottom-left-radius:4px}
+    .wa-typing span{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4);animation:wtyp 1.2s infinite ease-in-out}
+    .wa-typing span:nth-child(2){animation-delay:.15s}.wa-typing span:nth-child(3){animation-delay:.3s}
+    @keyframes wtyp{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+    .wa-mock-tag{align-self:center;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);background:rgba(232,0,10,.1);border:1px solid rgba(232,0,10,.25);padding:6px 12px;border-radius:20px;margin-top:4px}
+
+    .pkg-block{background:var(--dk);width:100vw;position:relative;margin:16px calc(50% - 50vw) 0;padding:64px clamp(24px,6vw,90px);overflow:hidden;z-index:0}
+    @media(max-width:640px){.pkg-block{padding:40px 24px}}
+    .pkg-badge{display:inline-flex;align-items:center;gap:9px;background:var(--red);color:white;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:7px 14px;margin-bottom:22px}
+    .pkg-badge-dot{width:6px;height:6px;border-radius:50%;background:white;animation:blink 2s infinite}
+    .pkg-title{font-size:clamp(26px,3.4vw,38px);font-weight:900;color:var(--white);line-height:1.2;letter-spacing:-1px;margin-bottom:14px}
+    .pkg-title .r{color:var(--red)}
+    .pkg-lead{font-size:15px;color:var(--text-dk2);line-height:1.75;max-width:660px;margin-bottom:10px}
+    .pkg-note{font-size:12.5px;color:rgba(255,255,255,.35);margin-bottom:40px}
+
+    .pkg-flow{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;padding:34px 20px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);margin-bottom:40px}
+    .pkg-node{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;width:118px}
+    .pkg-node .icon-wrap{margin-bottom:0}
+    .pkg-node-name{font-size:12px;font-weight:700;color:var(--white);letter-spacing:.01em;line-height:1.3}
+    .pkg-op{font-size:24px;font-weight:300;color:rgba(255,255,255,.28)}
+    .pkg-result{display:flex;flex-direction:column;align-items:center;gap:6px;padding-left:6px;width:150px}
+    .pkg-result-val{font-size:13.5px;font-weight:800;color:var(--red);letter-spacing:.01em;line-height:1.3}
+    .pkg-result-lbl{font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.12em;margin-top:2px}
+
+    .pkg-items{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px}
+    @media(max-width:900px){.pkg-items{grid-template-columns:1fr}}
+    .pkg-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:26px 24px}
+    .pkg-item-lbl{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block}
+    .pkg-item-price{font-size:22px;font-weight:900;color:var(--white);letter-spacing:-.5px;margin-bottom:4px}
+    .pkg-item-cad{font-size:12px;color:rgba(255,255,255,.4);line-height:1.5}
+
+    .pkg-pay{margin-top:28px;padding:22px 26px;background:rgba(232,0,10,.06);border:1px solid rgba(232,0,10,.2);border-left:3px solid var(--red)}
+    .pkg-pay-lbl{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block}
+    .pkg-pay p{font-size:13.5px;color:rgba(255,255,255,.72);line-height:1.85;margin-bottom:8px}
+    .pkg-pay p:last-child{margin-bottom:0}
+    .pkg-pay p strong{color:white}
+
+    .pkg-time{margin-top:44px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+    @media(max-width:768px){.pkg-time{grid-template-columns:1fr;gap:24px}}
+    .pkg-weeks-big{font-size:clamp(48px,6.5vw,68px);font-weight:900;color:var(--white);letter-spacing:-2.5px;line-height:1;white-space:nowrap}
+    .pkg-weeks-big span{color:var(--red)}
+    .pkg-weeks-lbl{font-size:12px;color:rgba(255,255,255,.4);margin-top:6px;max-width:200px;line-height:1.5}
+    .pkg-time-lbl{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px}
+    .pkg-track-row{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+    .pkg-track-lbl{width:118px;flex-shrink:0;font-size:12px;font-weight:700;color:var(--white)}
+    .pkg-track-bar{flex:1;height:8px;background:rgba(255,255,255,.06);position:relative;overflow:hidden;border-radius:4px}
+    .pkg-track-fill{position:absolute;inset:0;background:var(--red);width:0%;border-radius:4px;animation:fillBar 1.4s ease forwards}
+    .pkg-track-fill.delay{animation-delay:.25s}
+    .pkg-track-fill.delay2{animation-delay:.45s}
+    @keyframes fillBar{to{width:100%}}
+    .pkg-converge{font-size:13px;color:rgba(255,255,255,.55);margin-top:6px}
+    .pkg-converge strong{color:var(--red)}
+
+    .pkg-cta-row{margin-top:44px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+
+    .cta-btn{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:var(--white);text-decoration:none;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:20px 44px;transition:background .2s,transform .2s}
+    .cta-btn:hover{background:var(--red-h);transform:translateY(-2px)}
+    .cta-btn svg{width:18px;height:18px}
+
+    .cta-section{background:var(--dk);position:relative;overflow:hidden;padding:120px 48px;text-align:center}
+    #cta-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+    .cta-inner{position:relative;z-index:10;max-width:700px;margin:0 auto}
+    .cta-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);border:1px solid rgba(232,0,10,.35);padding:7px 14px;margin-bottom:36px}
+    .cta-title{font-size:clamp(28px,4.2vw,50px);font-weight:900;text-transform:uppercase;line-height:1.05;letter-spacing:-1.5px;color:var(--white);margin-bottom:22px}
+    .cta-title .r{color:var(--red)}
+    .cta-sub{font-size:17px;color:var(--text-dk2);max-width:520px;margin:0 auto 48px;line-height:1.65}
+    .cta-detail{margin-top:28px;font-size:12px;color:rgba(255,255,255,.28);letter-spacing:.06em}
+    .cta-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 55% at 50% 50%,rgba(232,0,10,.07) 0%,transparent 70%)}
+
+    footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:32px 52px;display:flex;justify-content:space-between;align-items:center}
+    .ft-logo{display:flex;align-items:center;gap:12px}
+    .ft-logo img{height:20px;filter:brightness(0) invert(1);opacity:.45}
+    .ft-logo span{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+    .ft-text{font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.04em;text-align:right;line-height:1.6}
+    @media(max-width:640px){footer{flex-direction:column;gap:16px;text-align:center}.ft-text{text-align:center}}
+
+    .alert-box{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:rgba(232,0,10,.05);border:1px solid rgba(232,0,10,.18);border-left:3px solid var(--red);margin-top:24px}
+    .alert-box p{font-size:13px;color:var(--ink2);line-height:1.65}
+    .alert-box p strong{color:var(--ink)}
+
+    .scope-note{margin-top:32px;padding:20px 28px;border-left:3px solid rgba(0,0,0,.12);background:var(--lt2)}
+    .scope-note .scope-label{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+    .scope-note p{font-size:13px;color:var(--ink2);line-height:1.7;margin:0}
+
+    .sec-wm{overflow:hidden;z-index:0}
+    .brand-mark{position:absolute;z-index:-1;pointer-events:none;fill:var(--red)}
+    .brand-mark--diag{width:240px;height:336px;top:8px;right:-46px;opacity:.045;transform:rotate(16deg)}
+    .brand-mark--pkg{width:300px;height:420px;top:-70px;right:-50px;opacity:.06;transform:rotate(9deg)}
+    @media(max-width:768px){.brand-mark{display:none}}
+
+    .tex-grid{background-image:linear-gradient(rgba(0,0,0,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.02) 1px,transparent 1px);background-size:58px 58px}
+    .tex-dots{background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1.6px);background-size:24px 24px}
+    .tex-glow-tr{background-image:radial-gradient(ellipse 60% 65% at 96% 0%,rgba(232,0,10,.035) 0%,transparent 60%)}
+    .tex-glow-bl{background-image:radial-gradient(ellipse 55% 60% at 0% 100%,rgba(232,0,10,.03) 0%,transparent 60%)}
+
+    .sec-cut-top{clip-path:polygon(0 34px,100% 0,100% 100%,0 100%);margin-top:-34px;padding-top:130px}
+    @media(max-width:768px){.sec-cut-top{clip-path:polygon(0 18px,100% 0,100% 100%,0 100%);margin-top:-18px;padding-top:114px}}
+    .cta-cut{clip-path:polygon(0 0,100% 46px,100% 100%,0 100%);margin-top:-46px;padding-top:166px}
+    @media(max-width:768px){.cta-cut{clip-path:polygon(0 0,100% 24px,100% 100%,0 100%);margin-top:-24px;padding-top:144px}}
+
+    .corner-fx{position:relative}
+    .corner-fx::before,.corner-fx::after{content:'';position:absolute;width:20px;height:20px;pointer-events:none;opacity:.6}
+    .corner-fx::before{top:16px;left:16px;border-top:2px solid var(--red);border-left:2px solid var(--red)}
+    .corner-fx::after{bottom:16px;right:16px;border-bottom:2px solid var(--red);border-right:2px solid var(--red)}
+
+    .fb{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);box-sizing:border-box;padding-left:clamp(24px,6vw,90px);padding-right:clamp(24px,6vw,90px)}
+    .mega-wrap{margin-top:6px}
+    .mega-title{font-size:clamp(60px,9vw,140px);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-.03em;color:var(--ink)}
+    .mega-sub{display:block;font-size:clamp(16px,1.7vw,21px);font-weight:500;text-transform:none;letter-spacing:0;color:var(--ink2);margin-top:26px;max-width:640px;line-height:1.65}
+    @media(max-width:768px){.mega-title{font-size:clamp(42px,13vw,64px)}}
+
+    .werock-head{display:grid;grid-template-columns:1.3fr .8fr;gap:44px;align-items:center}
+    @media(max-width:900px){.werock-head{grid-template-columns:1fr}}
+    .werock-mark-box{position:relative;height:260px;display:flex;align-items:center;justify-content:center}
+    @media(max-width:900px){.werock-mark-box{display:none}}
+  </style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur2"></div>
+<div id="prog"></div>
+<canvas id="grad-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <img class="logo-w" src="we-rock.png" alt="We Rock" onerror="this.style.display='none'">
+    <img class="logo-c" src="we-rock-v1.png" alt="We Rock" onerror="this.style.display='none'">
+  </div>
+  <div class="nav-links">
+    <a href="#s-diagnostico">Diagnóstico</a>
+    <a href="#s-canales">Los dos canales</a>
+    <a href="#s-servicios">Servicios y precios</a>
+    <a href="#s-cta">Hablemos</a>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+  01 · PORTADA
+════════════════════════════════════════ -->
+<section class="cover">
+  <canvas id="hero-canvas"></canvas>
+  <div class="cover-grid"></div>
+  <div class="cover-ov"></div>
+  <div class="cover-red-glow"></div>
+
+  <div class="cover-inner-simple">
+    <div class="cover-eyebrow">
+      <div class="cover-dot"></div>
+      <span>Propuesta de Marketing Digital · We Rock</span>
+    </div>
+    <h1 class="cover-title">
+      <span class="hl hl1">NOVAHOST</span>
+      <span class="hl hl2">GOOGLE Y <span class="r">META</span></span>
+      <span class="hl hl3">EMPIEZA A CAPTAR</span>
+      <span class="hl hl4">HOY.</span>
+    </h1>
+    <p class="cover-hero-lead">Un sistema de captación paga para hosting especializado, Moodle e IOMAD, WordPress, Open Journal Systems y Webflow: búsqueda de alta intención en Google, reconocimiento y retargeting en Meta, y HalconBot calificando cada conversación 24/7 en los cinco países donde ya opera NovaHost.</p>
+    <div class="cover-hero-meta">
+      <span>Propuesta comercial</span>
+      <div class="dot"></div>
+      <span>Septiembre 2026</span>
+      <div class="dot"></div>
+      <span>Preparado por We Rock</span>
+    </div>
+  </div>
+
+  <div class="cover-bar">
+    <div class="cbs"><div class="cbn" style="color:var(--red)">2</div><div class="cbl">Canales de pauta: Google + Meta</div></div>
+    <div class="cbdv"></div>
+    <div class="cbs"><div class="cbn">5</div><div class="cbl">Países atendidos hoy por NovaHost</div></div>
+    <div class="cbdv"></div>
+    <div class="cbs"><div class="cbn">24/7</div><div class="cbl">Calificación de leads con HalconBot</div></div>
+    <div class="cbdv"></div>
+    <div class="cbsc"><div class="scroll-mouse"><div class="scroll-wheel"></div></div>Desplazar</div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  02 · EL DIAGNÓSTICO
+════════════════════════════════════════ -->
+<section class="sec sec-lt sec-wm tex-grid" id="s-diagnostico">
+  <svg class="brand-mark brand-mark--diag" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="inner">
+    <span class="sec-label">02 · El diagnóstico</span>
+    <div class="badge-red">Situación actual</div>
+    <h2 class="sec-title lt">Un producto sólido.<br>Cero captación paga.</h2>
+    <p class="sec-lead lt">NovaHost ya tiene 50+ sitios alojados, 5 años de experiencia y 99,9% de uptime garantizado en cinco países. Lo que falta no es corregir el producto, es construir el sistema de captación que lo lleve a más clientes cada mes: hoy todo el crecimiento depende de referidos y tráfico orgánico. Nunca se ha invertido en Google Ads ni en Meta Ads.</p>
+
+    <div class="prob-grid sg fade-in">
+
+      <div class="prob-card">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>
+        </div>
+        <div class="prob-bar"></div>
+        <span class="prob-label">Cinco servicios, un solo mensaje</span>
+        <div class="prob-title">Moodle/IOMAD, WordPress, OJS, Webflow y SEO compiten por la misma campaña</div>
+        <p class="prob-text">Cada línea de servicio tiene su propio público: coordinadores académicos buscan hosting para Moodle, editores de revistas buscan OJS, negocios buscan WordPress o Webflow. Una sola campaña genérica de "hosting" no le habla a ninguno de los cinco con la intención correcta.</p>
+      </div>
+
+      <div class="prob-card">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        </div>
+        <div class="prob-bar"></div>
+        <span class="prob-label">Cinco países, un horario</span>
+        <div class="prob-title">Soporte de lunes a viernes, 8:00am a 6:00pm COT</div>
+        <p class="prob-text">España está entre 6 y 7 horas adelante de Colombia: un lead que escribe en su mañana llega a NovaHost en plena madrugada. Lo mismo pasa con consultas de fin de semana desde cualquiera de los cinco países atendidos.</p>
+      </div>
+
+      <div class="prob-card">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r=".8" fill="#E8000A"/></svg>
+        </div>
+        <div class="prob-bar"></div>
+        <span class="prob-label">Sin pauta previa</span>
+        <div class="prob-title">Nunca se ha invertido un peso en Google o Meta</div>
+        <p class="prob-text">No hay campañas activas ni datos históricos que corregir. Cualquier presupuesto que se invierta empieza a generar aprendizaje desde el primer día, sin errores previos que limpiar.</p>
+      </div>
+
+    </div>
+
+    <div class="diag-flow sg fade-in">
+      <div class="diag-flow-pt">
+        <div class="diag-flow-num">0</div>
+        <div class="diag-flow-lbl">Canales de pauta activos hasta hoy</div>
+      </div>
+      <div class="diag-flow-line"></div>
+      <div class="diag-flow-pt end">
+        <div class="diag-flow-num">2</div>
+        <div class="diag-flow-lbl">Canales funcionando con HalconBot calificando cada lead</div>
+      </div>
+    </div>
+
+    <div class="scope-note" style="margin-top:36px">
+      <div class="scope-label">El objetivo del sistema</div>
+      <p>Activar Google Ads y Meta Ads como los dos canales de captación paga de NovaHost, con <strong>HalconBot calificando cada conversación entrante</strong> en los cinco países que ya atiende la compañía, sin ampliar el equipo de soporte actual.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  03 · LOS DOS CANALES
+════════════════════════════════════════ -->
+<section class="sec sec-white tex-glow-tr" id="s-canales">
+  <div class="inner">
+    <span class="sec-label">03 · Los dos canales</span>
+    <div class="badge-red">Estrategia de canales</div>
+  </div>
+
+  <div class="mega-wrap fb">
+    <h2 class="mega-title fade-in">DOS CANALES.<br>UN SOLO SISTEMA<br>DE CAPTACIÓN.</h2>
+    <p class="mega-sub">El mismo estándar en los dos frentes de pauta: Google captura la intención cuando el cliente ya está buscando, Meta construye reconocimiento antes de que busque y recupera a quien visitó el sitio sin escribir.</p>
+  </div>
+
+  <div class="inner">
+    <div class="frentes-split sg fade-in" style="margin-top:52px">
+      <div class="frente-half civil">
+        <span class="pillar-num">Canal 01 · Google Ads</span>
+        <div class="pillar-title">Búsqueda de alta intención</div>
+        <p class="pillar-sub">Quien ya sabe qué necesita y lo está buscando activamente</p>
+        <ul class="bl">
+          <li>"Hosting Moodle Colombia", "hosting IOMAD", "migración WordPress", "hosting revista OJS": palabras clave de compra directa</li>
+          <li>Cinco líneas de servicio, cinco grupos de anuncios independientes</li>
+          <li>Segmentación por país: Colombia, Argentina, Costa Rica, España y México</li>
+          <li>El canal de mayor intención de compra de los dos</li>
+        </ul>
+        <div class="frente-mini-stats">
+          <div class="frente-mini-stat">
+            <div class="frente-mini-val">5</div>
+            <div class="frente-mini-lbl">Líneas de servicio a targetear por separado</div>
+          </div>
+          <div class="frente-mini-stat">
+            <div class="frente-mini-val">01</div>
+            <div class="frente-mini-lbl">Canal de mayor intención de compra</div>
+          </div>
+        </div>
+      </div>
+      <div class="frente-divider">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="6" x2="12" y2="18"/><line x1="6" y1="12" x2="18" y2="12"/></svg>
+      </div>
+      <div class="frente-half migra">
+        <span class="pillar-num">Canal 02 · Meta Ads</span>
+        <div class="pillar-title dk">Reconocimiento y retargeting</div>
+        <p class="pillar-sub dk">Construye marca antes de que el cliente busque, y recupera al que ya visitó</p>
+        <ul class="bl dk">
+          <li>Instagram y Facebook para llegar a coordinadores de TI y equipos académicos</li>
+          <li>Retargeting de quien visitó el sitio sin dejar datos</li>
+          <li>Segmentación por interés, cargo y país</li>
+          <li>Segundo motor de captación, complementario a la búsqueda activa</li>
+        </ul>
+        <div class="frente-mini-stats">
+          <div class="frente-mini-stat">
+            <div class="frente-mini-val">5</div>
+            <div class="frente-mini-lbl">Países donde ya opera NovaHost</div>
+          </div>
+          <div class="frente-mini-stat">
+            <div class="frente-mini-val">02</div>
+            <div class="frente-mini-lbl">Complemento a la búsqueda activa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:44px;padding:28px 36px;background:var(--lt);border-left:3px solid var(--red)">
+      <p style="font-size:14.5px;color:var(--ink2);line-height:1.75">Los dos canales no compiten por el mismo momento del cliente: se complementan en el mismo recorrido, quien ve un anuncio en Instagram hoy puede buscar "hosting Moodle" en Google la próxima semana.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  04 · SERVICIOS Y PRECIOS
+════════════════════════════════════════ -->
+<section class="sec sec-lt2 tex-dots sec-cut-top" id="s-servicios">
+  <div class="inner">
+    <span class="sec-label">04 · Servicios y precios</span>
+    <div class="badge-red">Recomendación de We Rock</div>
+    <h2 class="sec-title lt">Así recomendamos empezar.</h2>
+    <p class="sec-lead lt">Los dos canales de pauta activos desde el primer mes, con HalconBot calificando cada conversación que entra por WhatsApp. Cada servicio también se puede contratar por separado, con su propio precio y su propia forma de pago; el detalle de cada uno está más abajo.</p>
+
+    <!-- ═══ PAQUETE SUGERIDO PARA ARRANCAR ═══ -->
+    <div class="pkg-block sg fade-in corner-fx">
+      <svg class="brand-mark brand-mark--pkg" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+      <div class="pkg-badge"><span class="pkg-badge-dot"></span>Recomendado para empezar</div>
+      <h3 class="pkg-title">Paquete sugerido para arrancar.<br>Los dos canales y la calificación, <span class="r">resueltos de una vez.</span></h3>
+      <p class="pkg-lead">La combinación de tres servicios que We Rock recomienda para arrancar: gestión de Google Ads, gestión de Meta Ads y HalconBot. Pensada para activar todo el sistema de captación de una vez, no por partes.</p>
+      <p class="pkg-note">Es una sugerencia, no una obligación. Esta propuesta sigue siendo 100% a la carta: cada uno de los tres servicios se puede contratar por separado, en el orden y el momento que tenga sentido para NovaHost.</p>
+
+      <div class="pkg-flow">
+        <div class="pkg-node">
+          <div class="icon-wrap icon-wrap--lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6.2"/><line x1="14.6" y1="14.6" x2="20.5" y2="20.5"/><path d="M7 11l1.8-2 1.8 1.4L13.5 6.8"/></svg>
+          </div>
+          <div class="pkg-node-name">Google Ads</div>
+        </div>
+        <div class="pkg-op">+</div>
+        <div class="pkg-node">
+          <div class="icon-wrap icon-wrap--lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4a1 1 0 001 1h2l7 4V5L6 9H4a1 1 0 00-1 1z"/><path d="M14.5 8a5.2 5.2 0 010 8"/></svg>
+          </div>
+          <div class="pkg-node-name">Meta Ads</div>
+        </div>
+        <div class="pkg-op">+</div>
+        <div class="pkg-node">
+          <div class="icon-wrap icon-wrap--lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="12" rx="2.5"/><path d="M8.5 17l-1 3 4.2-3"/><circle cx="9" cy="11" r="1" fill="#E8000A"/><circle cx="15" cy="11" r="1" fill="#E8000A"/></svg>
+          </div>
+          <div class="pkg-node-name">HalconBot</div>
+        </div>
+        <div class="pkg-op">=</div>
+        <div class="pkg-result">
+          <div class="pkg-result-val">Captación en 2 canales + calificación automática</div>
+          <div class="pkg-result-lbl">Activo en 1 semana</div>
+        </div>
+      </div>
+
+      <div class="pkg-items">
+        <div class="pkg-item">
+          <span class="pkg-item-lbl">Google Ads</span>
+          <div class="pkg-item-price">$850.000 + $700.000</div>
+          <div class="pkg-item-cad">COP al mes · fee de gestión + presupuesto de pauta<br>pauta paga mes adelantado</div>
+        </div>
+        <div class="pkg-item">
+          <span class="pkg-item-lbl">Meta Ads</span>
+          <div class="pkg-item-price">$850.000 + $400.000</div>
+          <div class="pkg-item-cad">COP al mes · fee de gestión + presupuesto de pauta<br>pauta paga mes adelantado</div>
+        </div>
+        <div class="pkg-item">
+          <span class="pkg-item-lbl">HalconBot</span>
+          <div class="pkg-item-price">USD $49</div>
+          <div class="pkg-item-cad">≈ $205.800 COP al mes · Plan Starter<br>paga mes adelantado</div>
+        </div>
+      </div>
+
+      <div class="pkg-pay">
+        <span class="pkg-pay-lbl">Forma de pago del paquete</span>
+        <p><strong>Presupuesto de pauta de Google Ads y Meta Ads:</strong> se facturan mes adelantado, es decir, se pagan antes de que corra el mes, directo a cada plataforma.</p>
+        <p><strong>Fee de gestión de Google Ads y Meta Ads:</strong> facturación mensual estándar, contrato mes a mes (detalle completo en cada servicio, más abajo).</p>
+        <p><strong>HalconBot:</strong> suscripción mensual de USD $49, factura mes adelantado.</p>
+      </div>
+
+      <div class="pkg-time">
+        <div>
+          <div class="pkg-weeks-big"><span>1</span> semana</div>
+          <div class="pkg-weeks-lbl">Google Ads, Meta Ads y HalconBot configurados y conectados en paralelo, no uno después del otro</div>
+        </div>
+        <div>
+          <span class="pkg-time-lbl">Por qué es rápido</span>
+          <div class="pkg-track-row">
+            <span class="pkg-track-lbl">Google Ads</span>
+            <div class="pkg-track-bar"><div class="pkg-track-fill"></div></div>
+          </div>
+          <div class="pkg-track-row">
+            <span class="pkg-track-lbl">Meta Ads</span>
+            <div class="pkg-track-bar"><div class="pkg-track-fill delay"></div></div>
+          </div>
+          <div class="pkg-track-row">
+            <span class="pkg-track-lbl">HalconBot</span>
+            <div class="pkg-track-bar"><div class="pkg-track-fill delay2"></div></div>
+          </div>
+          <p class="pkg-converge">No hay que construir un sitio nuevo antes de arrancar: los tres servicios se configuran sobre lo que NovaHost ya tiene. <strong>Los dos canales y la calificación quedan activos en la misma semana</strong>, no en semanas sucesivas.</p>
+        </div>
+      </div>
+
+      <div class="pkg-cta-row">
+        <a href="https://wa.me/573125766056?text=Hola%20David%2C%20quiero%20hablar%20sobre%20el%20paquete%20sugerido%20para%20arrancar%20(Google%20Ads%20%2B%20Meta%20Ads%20%2B%20HalconBot)%20para%20NovaHost." class="cta-btn" target="_blank">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.5A2.5 2.5 0 0114.5 15h-1l-4 2-4-2H4A2.5 2.5 0 011.5 12.5v-7A2.5 2.5 0 014 3h10.5A2.5 2.5 0 0117 5.5v7z"/></svg>
+          Hablar con David sobre el paquete
+        </a>
+        <span style="font-size:12px;color:rgba(255,255,255,.35)">Cada servicio se sigue pudiendo contratar por separado</span>
+      </div>
+    </div>
+
+    <div style="margin:64px 0 36px">
+      <span class="sec-label" style="margin-bottom:8px">¿Prefieres armar tu propio plan?</span>
+      <h3 style="font-size:22px;font-weight:800;color:var(--ink);margin-bottom:8px">Cada servicio, también por separado.</h3>
+      <p style="font-size:15px;color:var(--ink2);max-width:600px;line-height:1.7">Mismo precio, mismo alcance, sin necesidad de llevar los tres juntos.</p>
+    </div>
+
+    <!-- GOOGLE ADS -->
+    <div class="svc-block" style="padding-top:0;border-top:none">
+      <div class="svc-ghost">01</div>
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6.2"/><line x1="14.6" y1="14.6" x2="20.5" y2="20.5"/><path d="M7 11l1.8-2 1.8 1.4L13.5 6.8"/></svg>
+          </div>
+          <div>
+            <span class="svc-tag">Servicio 01 · Gestión mensual</span>
+            <div class="svc-name">Gestión de Google Ads</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">Búsquedas de alta intención por cada línea de servicio: hosting para Moodle e IOMAD, WordPress, Open Journal Systems, Webflow y SEO técnico. We Rock diseña, opera y ajusta la campaña mes a mes, con métricas separadas por línea de negocio.</p>
+
+      <div class="wm-layout">
+        <div class="wm-main">
+          <span class="sec-label">Fee de gestión mensual</span>
+          <div class="wm-price">$850<span class="sl">.</span>000</div>
+          <div class="wm-period">COP al mes · contrato mes a mes</div>
+          <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Este valor cubre solo la gestión. El presupuesto de pauta se define aparte y se paga directo a Google.</p>
+          <div class="quote-box">
+            <p>Contratar una persona dedicada a Google Ads cuesta desde <strong>$1.500.000 al mes</strong> en salario, sin la curva de aprendizaje. Por $850.000, We Rock ya trae la experiencia.</p>
+          </div>
+        </div>
+        <div class="wm-side">
+          <span class="sec-label">Qué incluye cada mes</span>
+          <ul class="cl">
+            <li>Configuración y optimización de la cuenta</li>
+            <li>Palabras clave de alta intención por línea de servicio: Moodle/IOMAD, WordPress, OJS, Webflow y SEO</li>
+            <li>Segmentación por país: Colombia, Argentina, Costa Rica, España y México</li>
+            <li>Reporte mensual de resultados en lenguaje claro</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="g2 sg fade-in" style="margin-top:20px">
+        <div style="background:var(--white);border:1px solid var(--border);padding:28px 32px;border-top:3px solid var(--red);box-shadow:var(--sh)">
+          <span class="sec-label" style="margin-bottom:10px">Fee de gestión We Rock</span>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">$850.000</div>
+          <div style="font-size:13px;color:var(--ink3)">COP al mes · pago a We Rock</div>
+        </div>
+        <div style="background:var(--lt);border:1px solid var(--border);padding:28px 32px;border-top:3px solid rgba(232,0,10,.4);box-shadow:var(--sh)">
+          <span class="sec-label" style="margin-bottom:10px">Presupuesto de pauta sugerido</span>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">$700.000</div>
+          <div style="font-size:13px;color:var(--ink3)">COP al mes · pago directo a Google</div>
+        </div>
+      </div>
+      <div class="scope-note">
+        <div class="scope-label">Alcance del servicio</div>
+        <p>El fee es independiente del presupuesto de pauta, que se paga directo a Google y se ajusta cada mes según resultados. Facturación mensual, contrato mes a mes, sin permanencia forzada.</p>
+      </div>
+    </div>
+
+    <!-- META ADS -->
+    <div class="svc-block">
+      <div class="svc-ghost">02</div>
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4a1 1 0 001 1h2l7 4V5L6 9H4a1 1 0 00-1 1z"/><path d="M14.5 8a5.2 5.2 0 010 8"/></svg>
+          </div>
+          <div>
+            <span class="svc-tag">Servicio 02 · Gestión mensual</span>
+            <div class="svc-name">Gestión de Meta Ads</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">Instagram y Facebook para construir reconocimiento de marca entre equipos de TI, coordinadores académicos y editores de revistas científicas, y para recuperar con retargeting a quien visitó el sitio sin escribir. Un complemento a la búsqueda activa de Google Ads.</p>
+
+      <div class="wm-layout">
+        <div class="wm-main">
+          <span class="sec-label">Fee de gestión mensual</span>
+          <div class="wm-price">$850<span class="sl">.</span>000</div>
+          <div class="wm-period">COP al mes · contrato mes a mes</div>
+          <p style="font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:16px">Este valor cubre solo la gestión. El presupuesto de pauta se define aparte y se paga directo a Meta.</p>
+        </div>
+        <div class="wm-side">
+          <span class="sec-label">Qué incluye cada mes</span>
+          <ul class="cl">
+            <li>Creativos ajustados a cada línea de servicio</li>
+            <li>Segmentación por interés, cargo y país</li>
+            <li>Retargeting de visitantes del sitio que no dejaron datos</li>
+            <li>Reporte mensual de resultados en lenguaje claro</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="g2 sg fade-in" style="margin-top:20px">
+        <div style="background:var(--white);border:1px solid var(--border);padding:28px 32px;border-top:3px solid var(--red);box-shadow:var(--sh)">
+          <span class="sec-label" style="margin-bottom:10px">Fee de gestión We Rock</span>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">$850.000</div>
+          <div style="font-size:13px;color:var(--ink3)">COP al mes · pago a We Rock</div>
+        </div>
+        <div style="background:var(--lt);border:1px solid var(--border);padding:28px 32px;border-top:3px solid rgba(232,0,10,.4);box-shadow:var(--sh)">
+          <span class="sec-label" style="margin-bottom:10px">Presupuesto de pauta sugerido</span>
+          <div style="font-size:clamp(26px,3.2vw,34px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px;margin-bottom:6px">$400.000</div>
+          <div style="font-size:13px;color:var(--ink3)">COP al mes · pago directo a Meta</div>
+        </div>
+      </div>
+      <div class="scope-note">
+        <div class="scope-label">Alcance del servicio</div>
+        <p>El fee es independiente del presupuesto de pauta, que se paga directo a Meta y se ajusta cada mes según resultados. Facturación mensual, contrato mes a mes, sin permanencia forzada.</p>
+      </div>
+    </div>
+
+    <!-- HALCONBOT -->
+    <div class="svc-block">
+      <div class="svc-ghost">03</div>
+      <div class="svc-head">
+        <div class="svc-marker">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="12" rx="2.5"/><path d="M8.5 17l-1 3 4.2-3"/><circle cx="9" cy="11" r="1" fill="#E8000A"/><circle cx="15" cy="11" r="1" fill="#E8000A"/></svg>
+          </div>
+          <div>
+            <span class="svc-opt">Complemento opcional</span>
+            <div class="svc-name">HalconBot, calificación 24/7 en WhatsApp</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:660px;margin-bottom:28px">Recibe cada mensaje que llega al WhatsApp de NovaHost, identifica qué servicio necesita la persona (hosting Moodle/IOMAD, WordPress, OJS, Webflow, SEO o desarrollo a medida) y entrega al equipo comercial solo los leads listos para hablar. Cubre el horario fuera de la atención actual (lunes a viernes, 8:00am a 6:00pm COT) y los husos horarios de España y el resto de países atendidos. No depende de ningún otro servicio de esta propuesta.</p>
+
+      <div class="wm-layout">
+        <div style="background:var(--dk);padding:36px 40px;border-top:3px solid var(--red);display:flex;flex-direction:column;justify-content:center">
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+            <div style="font-size:clamp(30px,4vw,40px);font-weight:900;color:var(--white);letter-spacing:-1.5px">$49</div>
+            <div style="font-size:13px;color:var(--text-dk2)">USD / mes · Plan Starter</div>
+          </div>
+          <div style="font-size:13px;color:rgba(255,255,255,.4);margin-top:6px">Aprox. $205.800 COP / mes, estimado con TRM de referencia $4.200 COP/USD. Valor sujeto a la tasa de cambio del día de facturación.</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.28);margin-top:8px">Hasta 6.000 conversaciones al mes (~20 clientes atendidos por día), suficiente para el volumen de un WhatsApp que hoy atiende todo manualmente en horario de oficina.</div>
+        </div>
+
+        <div class="wa-mock sg fade-in" style="margin:0 auto">
+          <div class="wa-mock-head">
+            <div class="wa-mock-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="12" rx="2.5"/><path d="M8.5 17l-1 3 4.2-3"/><circle cx="9" cy="11" r="1" fill="#E8000A"/><circle cx="15" cy="11" r="1" fill="#E8000A"/></svg>
+            </div>
+            <div>
+              <div class="wa-mock-name">HalconBot · NovaHost</div>
+              <div class="wa-mock-status"><span class="dot"></span>Calificando en vivo</div>
+            </div>
+          </div>
+          <div class="wa-mock-body sg fade-in">
+            <div class="wa-bubble in">Hola, vi el anuncio. Necesito hosting para un Moodle institucional con unos 800 usuarios.</div>
+            <div class="wa-bubble out">Claro, soy el asistente de NovaHost. ¿Es una implementación nueva o una migración desde otro proveedor?</div>
+            <div class="wa-bubble in">Es migración, el hosting actual se cae seguido.</div>
+            <div class="wa-bubble out">Entendido, calificas para revisión prioritaria. Te conecto ahora con el equipo técnico.</div>
+            <div class="wa-typing"><span></span><span></span><span></span></div>
+            <div class="wa-mock-tag">Lead calificado → enviado al equipo comercial</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin:44px 0 8px">
+        <span class="sec-label" style="margin-bottom:8px">Siguientes niveles, si el volumen lo requiere</span>
+        <p style="font-size:14px;color:var(--ink2);max-width:620px;line-height:1.7">NovaHost puede empezar en Starter y escalar sin perder configuración ni historial del agente, a medida que crezca el número real de conversaciones generadas por los dos canales.</p>
+      </div>
+      <div class="plan-ladder sg fade-in">
+        <div class="plan-card">
+          <div class="plan-card-name">Launch</div>
+          <div class="plan-card-price">$29 <span>USD/mes</span></div>
+          <div class="plan-card-cap">Hasta 3.000 conversaciones/mes<br>(~10 clientes atendidos por día)</div>
+        </div>
+        <div class="plan-card active">
+          <span class="plan-card-badge">Punto de partida</span>
+          <div class="plan-card-name">Starter</div>
+          <div class="plan-card-price">$49 <span>USD/mes</span></div>
+          <div class="plan-card-cap">Hasta 6.000 conversaciones/mes<br>(~20 clientes atendidos por día)</div>
+        </div>
+        <div class="plan-card">
+          <div class="plan-card-name">Growth</div>
+          <div class="plan-card-price">$89 <span>USD/mes</span></div>
+          <div class="plan-card-cap">Hasta 22.500 conversaciones/mes<br>(~75 clientes atendidos por día)</div>
+        </div>
+        <div class="plan-card">
+          <div class="plan-card-name">Business</div>
+          <div class="plan-card-price">$139 <span>USD/mes</span></div>
+          <div class="plan-card-cap">Hasta 60.000 conversaciones/mes<br>(~200 clientes atendidos por día)</div>
+        </div>
+        <div class="plan-card">
+          <div class="plan-card-name">Profesional</div>
+          <div class="plan-card-price">$249 <span>USD/mes</span></div>
+          <div class="plan-card-cap">Hasta 120.000 conversaciones/mes<br>(~400 clientes atendidos por día)</div>
+        </div>
+      </div>
+
+      <div class="scope-note" style="margin-top:36px">
+        <div class="scope-label">Costos de mensajería, definidos por Meta</div>
+        <p>Los costos de mensajes y plantillas enviados mediante WhatsApp Business Platform los define y cobra directamente Meta, según sus tarifas oficiales. HalconBot no adiciona una comisión sobre ese costo de mensajería.</p>
+      </div>
+    </div>
+
+    <!-- AUTOMATIZACIÓN AVANZADA -->
+    <div class="scope-note" style="margin-top:44px">
+      <div class="scope-label">Cuando la operación lo requiera</div>
+      <p>CRM de seguimiento, agenda automática y email marketing con remarketing: disponible cuando el volumen de leads lo justifique, cotización personalizada directo con David.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  05 · CRONOGRAMA
+════════════════════════════════════════ -->
+<section class="sec sec-lt2 tex-glow-bl" id="s-cronograma">
+  <div class="inner">
+    <span class="sec-label">05 · Cronograma</span>
+    <h2 class="sec-title lt">De la confirmación<br>al primer lead calificado.</h2>
+    <p class="sec-lead lt">Sin sitio nuevo que construir: los servicios mensuales se activan apenas se confirman, sobre lo que NovaHost ya tiene hoy.</p>
+
+    <div class="tl-rail sg fade-in">
+      <div class="tl-node">
+        <div class="tl-node-dot">01</div>
+        <div class="tl-step">
+          <span class="tl-week">Semana 1</span>
+          <div class="tl-title">Auditoría y configuración de cuentas</div>
+          <p class="tl-desc">Auditoría de Google Ads Manager y Meta Business (o creación si no existen), definición de públicos, palabras clave y segmentación por línea de servicio y por país.</p>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-node-dot">02</div>
+        <div class="tl-step">
+          <span class="tl-week">Semana 1, en paralelo</span>
+          <div class="tl-title">Configuración de HalconBot</div>
+          <p class="tl-desc">Diseño del flujo de calificación por línea de servicio (Moodle/IOMAD, WordPress, OJS, Webflow, SEO), mientras se preparan las campañas de Google y Meta.</p>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-node-dot">03</div>
+        <div class="tl-step">
+          <span class="tl-week">Semana 2</span>
+          <div class="tl-title">Lanzamiento de campañas</div>
+          <p class="tl-desc">Activación de Google Ads y Meta Ads, HalconBot conectado al WhatsApp de NovaHost. Facturación mensual desde el primer mes activo.</p>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-node-dot">04</div>
+        <div class="tl-step">
+          <span class="tl-week">Desde el mes 1</span>
+          <div class="tl-title">Optimización continua</div>
+          <p class="tl-desc">Ajustes semanales de puja, audiencias y creativos en los dos canales. Reporte mensual de resultados en lenguaje claro.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scope-note" style="margin-top:36px">
+      <div class="scope-label">El paquete sugerido corre distinto</div>
+      <p>Quien arranca con el paquete sugerido (Google Ads + Meta Ads + HalconBot) tiene un cronograma de <strong>1 semana</strong>, no 2: los tres servicios se configuran en paralelo desde el primer día. Ver detalle en la sección de servicios y precios.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  06 · POR QUÉ WE ROCK
+════════════════════════════════════════ -->
+<section class="sec sec-lt" id="s-werock">
+  <div class="inner">
+    <span class="sec-label">06 · Por qué We Rock</span>
+    <div class="werock-head">
+      <div>
+        <h2 class="sec-title lt">No es una plantilla genérica.<br>Es un equipo que opera<br>tu crecimiento digital.</h2>
+        <p class="sec-lead lt" style="margin-bottom:0">We Rock nació en 2018. La experiencia detrás tiene más de 15 años en estrategia digital para empresas de manufactura, retail, salud, tecnología, educación y servicios profesionales, incluyendo negocios de tecnología y software con clientes en varios países.</p>
+      </div>
+      <div class="werock-mark-box">
+        <img src="we-rock-v1.png" alt="We Rock" style="max-width:78%;max-height:78%;mix-blend-mode:multiply;object-fit:contain" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <div class="compare-panel sg fade-in" style="margin-top:48px">
+      <div class="compare-col before">
+        <span class="compare-lbl">Sin sistema</span>
+        <ul class="compare-list before">
+          <li>Todo el crecimiento depende de referidos y tráfico orgánico</li>
+          <li>Cinco líneas de servicio, sin mensaje diferenciado para cada una</li>
+          <li>Leads que llegan fuera del horario de atención esperan hasta el día siguiente</li>
+          <li>Cero historial de pauta, cero datos para decidir presupuesto</li>
+        </ul>
+      </div>
+      <div class="compare-col after">
+        <span class="compare-lbl">Con We Rock</span>
+        <ul class="compare-list after">
+          <li>Google Ads y Meta Ads activos y midiendo desde el primer mes</li>
+          <li>Cada línea de servicio con su propia palabra clave, su propio público y su propio mensaje</li>
+          <li>HalconBot calificando 24/7, sin importar el país ni el huso horario del lead</li>
+          <li>Reportes mensuales claros para decidir con datos reales</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wr-stats sg fade-in" style="margin-top:2px">
+      <div class="wr-stat corner-fx">
+        <div class="wr-stat-val"><span class="cnt" data-target="15">0</span><span>+</span></div>
+        <div class="wr-stat-lbl">Años de experiencia del fundador en estrategia digital</div>
+      </div>
+      <div class="wr-stat">
+        <div class="wr-stat-val"><span class="cnt" data-target="2018">0</span></div>
+        <div class="wr-stat-lbl">Año de fundación de We Rock · Bogotá, Colombia</div>
+      </div>
+      <div class="wr-stat">
+        <div class="wr-stat-val"><span class="cnt" data-target="3">0</span></div>
+        <div class="wr-stat-lbl">Servicios independientes, cada uno con su propio precio</div>
+      </div>
+    </div>
+
+    <div class="pillar-grid sg fade-in" style="margin-top:20px">
+      <div class="pillar">
+        <span class="pillar-num">Un solo equipo, dos canales</span>
+        <div class="pillar-title">El mismo equipo diseña las campañas y configura la calificación</div>
+        <p class="pillar-sub">Sin fricción entre quien maneja Google, quien maneja Meta y quien opera HalconBot</p>
+        <ul class="bl">
+          <li>Los tres servicios se coordinan bajo la misma estrategia de captación</li>
+          <li>Los creativos de Meta y las palabras clave de Google hablan el mismo idioma por línea de servicio</li>
+          <li>Ajustes a las campañas y a HalconBot se coordinan en un solo canal</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">Trato directo</span>
+        <div class="pillar-title">Un canal directo con David, sin intermediarios</div>
+        <p class="pillar-sub">Comunicación clara y respuesta rápida por WhatsApp</p>
+        <ul class="bl">
+          <li>Reportes mensuales en lenguaje simple, sin jerga técnica</li>
+          <li>Ajustes a la estrategia según lo que realmente esté funcionando</li>
+          <li>Contratos mes a mes en los servicios recurrentes: sin permanencia forzada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  07 · CTA
+════════════════════════════════════════ -->
+<section class="cta-section cta-cut" id="s-cta">
+  <canvas id="cta-canvas"></canvas>
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <div class="cta-tag">07 · Siguiente paso</div>
+    <h2 class="cta-title">EL SIGUIENTE<br><span class="r">CLIENTE</span><br>YA TE BUSCA.</h2>
+    <p class="cta-sub">David revisa contigo qué canal tiene más sentido para empezar, resuelve dudas sobre HalconBot y arma el plan de trabajo en la misma llamada.</p>
+    <a href="https://wa.me/573125766056?text=Hola%20David%2C%20quiero%20hablar%20sobre%20la%20propuesta%20de%20Marketing%20Digital%20para%20NovaHost." class="cta-btn" target="_blank">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.5A2.5 2.5 0 0114.5 15h-1l-4 2-4-2H4A2.5 2.5 0 011.5 12.5v-7A2.5 2.5 0 014 3h10.5A2.5 2.5 0 0117 5.5v7z"/></svg>
+      Hablar con David
+    </a>
+    <div class="cta-detail">+57 312 576 6056 · davidh@werock.space · werock.space</div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="ft-logo">
+    <img src="we-rock-v1.png" alt="We Rock" onerror="this.outerHTML='<span style=\'font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)\'>WE ROCK</span>'">
+  </div>
+  <div class="ft-text">
+    Propuesta de Marketing Digital · NovaHost · 2026 · Confidencial<br>
+    We Rock · Firma de crecimiento estratégico · Bogotá, Colombia
+  </div>
+</footer>
+
+
+<script>
+// ── CURSOR ──
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,cx2=0,cy2=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx-4}px,${my-4}px)`;});
+(function a(){cx2+=(mx-cx2)*.18;cy2+=(my-cy2)*.18;cur2.style.transform=`translate(${cx2-19}px,${cy2-19}px)`;requestAnimationFrame(a);})();
+
+// ── PROGRESS ──
+const prog=document.getElementById('prog');
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;prog.style.width=(s/h*100)+'%';});
+
+// ── NAV ──
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+
+// ── FADE IN ──
+const fObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');fObs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>fObs.observe(el));
+
+// ── STAGGER GRIDS ──
+const sgObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');sgObs.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.sg').forEach(el=>sgObs.observe(el));
+
+// ── COUNT-UP NUMÉRICO ──
+const cntObs=new IntersectionObserver(entries=>{entries.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const el=e.target,target=parseInt(el.dataset.target,10),dur=1300,t0=performance.now();
+  function step(t){const p=Math.min((t-t0)/dur,1),eased=1-Math.pow(1-p,3);el.textContent=Math.round(eased*target);if(p<1)requestAnimationFrame(step);else el.textContent=target;}
+  requestAnimationFrame(step);cntObs.unobserve(el);
+});},{threshold:.4});
+document.querySelectorAll('.cnt').forEach(el=>cntObs.observe(el));
+
+// ── GRADIENT CANVAS ──
+(function(){
+  const canvas=document.getElementById('grad-canvas'),ctx=canvas.getContext('2d');let w,h;
+  function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  let gx=.3,gy=.6,tx=.3,ty=.6,ang=0;
+  document.addEventListener('mousemove',e=>{tx=e.clientX/window.innerWidth;ty=e.clientY/window.innerHeight;});
+  function draw(){
+    ctx.clearRect(0,0,w,h);gx+=(tx-gx)*.035;gy+=(ty-gy)*.035;ang+=.006;
+    const g1=ctx.createRadialGradient(gx*w,gy*h,0,gx*w,gy*h,Math.max(w,h)*.55);
+    g1.addColorStop(0,'rgba(232,0,10,.055)');g1.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g1;ctx.fillRect(0,0,w,h);
+    const ox=w*(.5+.45*Math.cos(ang)),oy=h*(.5+.4*Math.sin(ang*.8));
+    const g2=ctx.createRadialGradient(ox,oy,0,ox,oy,Math.max(w,h)*.42);
+    g2.addColorStop(0,'rgba(232,0,10,.03)');g2.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g2;ctx.fillRect(0,0,w,h);
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── NEURAL NET ──
+function initNeuralNet(id,light,neutral,onRed){
+  const cv=document.getElementById(id);if(!cv)return;
+  const cx=cv.getContext('2d');let W,H,VH;
+  function resize(){const s=cv.parentElement;W=cv.width=s.clientWidth||window.innerWidth;VH=window.innerHeight;H=cv.height=s.clientHeight||VH;}
+  resize();window.addEventListener('resize',resize);
+  const COUNT=window.innerWidth<600?55:110,CONNECT=165,M_REP=115,M_ATT=260,M_FREP=.09,M_FATT=.013,P_REP=60,P_FORCE=.022,SIG_SPEED=.026,FIRE_DUR=28,REF_DUR=200,FIRE_PROB=.00065,CASC_PROB=.25;
+  const mouse={x:W*.5,y:VH*.5,active:false};
+  cv.parentElement.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;mouse.active=true;});
+  cv.parentElement.addEventListener('mouseleave',()=>{mouse.active=false;});
+  const pts=Array.from({length:COUNT},()=>{const node=Math.random()<.22,sr=node&&Math.random()<.5;return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.55,vy:(Math.random()-.5)*.55,r:node?Math.random()*2.2+3.2:Math.random()*1.3+.7,node,phase:Math.random()*Math.PI*2,wa:Math.random()*Math.PI*2,ws:node?.004+Math.random()*.003:.0014+Math.random()*.0014,state:sr?'refractory':'idle',fireT:0,refT:sr?Math.floor(Math.random()*REF_DUR):0,arrT:0};});
+  const sigs=[];
+  function fire(fi){const src=pts[fi];if(!src.node||src.state!=='idle')return;src.state='firing';src.fireT=FIRE_DUR;for(let j=0;j<pts.length;j++){if(j===fi||!pts[j].node)continue;const dx=src.x-pts[j].x,dy=src.y-pts[j].y;if(Math.sqrt(dx*dx+dy*dy)<CONNECT&&Math.random()<.38)sigs.push({fi,ti:j,t:0,speed:SIG_SPEED*(.75+Math.random()*.5)});}if(sigs.length>18)sigs.splice(0,sigs.length-18);}
+  function tick(){
+    if(cv.offsetParent===null){requestAnimationFrame(tick);return;}if(!W||!H)resize();cx.clearRect(0,0,W,H);
+    for(let i=0;i<pts.length;i++){const p=pts[i];p.phase+=.02;
+      if(p.node){if(p.state==='firing'){if(--p.fireT<=0){p.state='refractory';p.refT=REF_DUR;}}else if(p.state==='refractory'){if(--p.refT<=0)p.state='idle';}else{let prob=FIRE_PROB;if(mouse.active){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)prob+=FIRE_PROB*2.5*(1-dm/M_ATT);}if(Math.random()<prob)fire(i);}}
+      if(mouse.active){const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);if(d<M_REP&&d>0){const f=(M_REP-d)/M_REP;p.vx+=(dx/d)*f*M_FREP;p.vy+=(dy/d)*f*M_FREP;}else if(d<M_ATT&&d>0){const f=(1-(d-M_REP)/(M_ATT-M_REP));p.vx-=(dx/d)*f*M_FATT;p.vy-=(dy/d)*f*M_FATT;}}
+      const BM=140,BF=.08,nx=p.x/BM,nxr=(W-p.x)/BM,ny=p.y/BM,nyr=(H-p.y)/BM;
+      if(nx<1)p.vx+=BF*(1-nx)**2;if(nxr<1)p.vx-=BF*(1-nxr)**2;if(ny<1)p.vy+=BF*(1-ny)**2;if(nyr<1)p.vy-=BF*(1-nyr)**2;
+      p.wa+=(Math.random()-.5)*.045;p.vx+=Math.cos(p.wa)*p.ws;p.vy+=Math.sin(p.wa)*p.ws;
+      p.vx+=(Math.random()-.5)*.009;p.vy+=(Math.random()-.5)*.009;p.vx*=.97;p.vy*=.97;
+      const spd=Math.sqrt(p.vx*p.vx+p.vy*p.vy);if(spd>1.4){p.vx=p.vx/spd*1.4;p.vy=p.vy/spd*1.4;}
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W||p.y<0||p.y>H){p.x=W*.2+Math.random()*W*.6;p.y=H*.2+Math.random()*H*.6;p.vx*=.1;p.vy*=.1;}}
+    for(let s=sigs.length-1;s>=0;s--){const sig=sigs[s];sig.t+=sig.speed;if(sig.t>=1){pts[sig.ti].arrT=1;if(Math.random()<CASC_PROB)fire(sig.ti);sigs.splice(s,1);}}
+    const ac=new Set();for(const sig of sigs)ac.add(sig.fi<sig.ti?`${sig.fi}_${sig.ti}`:`${sig.ti}_${sig.fi}`);
+    for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){
+      const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<P_REP&&d>0){const f=(P_REP-d)/P_REP*P_FORCE;a.vx+=(dx/d)*f;a.vy+=(dy/d)*f;b.vx-=(dx/d)*f;b.vy-=(dy/d)*f;}
+      if(d<CONNECT){let mb=0;if(mouse.active){const mn=Math.min(Math.sqrt((a.x-mouse.x)**2+(a.y-mouse.y)**2),Math.sqrt((b.x-mouse.x)**2+(b.y-mouse.y)**2));if(mn<M_ATT)mb=(1-mn/M_ATT)*.55;}
+        const ia=ac.has(`${i}_${j}`),base=(1-d/CONNECT)*(a.node||b.node?.62:.30),alpha=Math.min(base+mb+(ia?.5:0),1),lw=(a.node||b.node?1:.45)+mb*.8+(ia?.9:0);
+        cx.strokeStyle=onRed?`rgba(255,255,255,${alpha*.28})`:neutral?`rgba(75,65,60,${alpha*.42})`:light?`rgba(140,0,6,${alpha*.38})`:`rgba(232,0,10,${alpha})`;
+        cx.lineWidth=lw;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke();}}}
+    for(const sig of sigs){const src=pts[sig.fi],dst=pts[sig.ti],STEPS=6,TAIL=.18;
+      for(let k=0;k<STEPS;k++){const fr=k/(STEPS-1),tt=sig.t-TAIL*(1-fr);if(tt<0||tt>1)continue;const px=src.x+(dst.x-src.x)*tt,py=src.y+(dst.y-src.y)*tt,rad=1.2+fr*10,al=.02+fr*.26;const g=cx.createRadialGradient(px,py,0,px,py,rad);g.addColorStop(0,`rgba(255,245,225,${al})`);g.addColorStop(.38,`rgba(255,130,50,${al*.45})`);g.addColorStop(1,'rgba(232,0,10,0)');cx.fillStyle=g;cx.beginPath();cx.arc(px,py,rad,0,Math.PI*2);cx.fill();}
+      const hx=src.x+(dst.x-src.x)*Math.min(sig.t,1),hy=src.y+(dst.y-src.y)*Math.min(sig.t,1);cx.save();cx.shadowBlur=6;cx.shadowColor='rgba(255,210,150,.65)';cx.fillStyle='rgba(255,255,255,.5)';cx.beginPath();cx.arc(hx,hy,1.3,0,Math.PI*2);cx.fill();cx.restore();}
+    for(const p of pts){if(p.arrT<=0)continue;p.arrT-=.033;const pr2=1-Math.max(0,p.arrT),bR=p.r+4+pr2*22,al=p.arrT*.45;if(al<.005)continue;const bg=cx.createRadialGradient(p.x,p.y,p.r*.5,p.x,p.y,bR);bg.addColorStop(0,`rgba(255,220,160,${al*.7})`);bg.addColorStop(.45,`rgba(232,60,10,${al*.5})`);bg.addColorStop(1,'rgba(232,0,10,0)');cx.fillStyle=bg;cx.beginPath();cx.arc(p.x,p.y,bR,0,Math.PI*2);cx.fill();}
+    for(const p of pts){const pr=p.r+(p.node?Math.sin(p.phase)*.9:0);let nm=0;if(mouse.active&&p.node){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)nm=1-dm/M_ATT;}
+      if(p.node){let cb=.88+nm*.12,fb=0;if(p.state==='firing'){const ft=p.fireT/FIRE_DUR;fb=ft;cb=Math.min(cb+ft*.12,1);}else if(p.state==='refractory'){cb*=.6+(1-p.refT/REF_DUR)*.4;}
+        const hR=pr*(8+nm*4+fb*3),hl=cx.createRadialGradient(p.x,p.y,pr*.5,p.x,p.y,hR),hC=onRed?'255,255,255':neutral?'75,65,60':'232,0,10';
+        hl.addColorStop(0,`rgba(${hC},${Math.min((onRed?.14:light||neutral?.08:.22)+nm*.10+fb*.08,onRed?.38:light||neutral?.22:.55)})`);hl.addColorStop(1,`rgba(${hC},0)`);
+        cx.fillStyle=hl;cx.beginPath();cx.arc(p.x,p.y,hR,0,Math.PI*2);cx.fill();
+        cx.save();cx.shadowBlur=10+nm*8+fb*10;cx.shadowColor=onRed?`rgba(255,255,255,${.45+nm*.2})`:neutral?'rgba(75,65,60,.35)':`rgba(232,40,10,${.75+nm*.2})`;cx.fillStyle=onRed?`rgba(255,255,255,${cb*.88})`:neutral?`rgba(75,65,60,${cb*.28})`:`rgba(232,0,10,${cb})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();
+      }else{cx.save();cx.shadowBlur=light?2:4;cx.shadowColor=light?'rgba(0,0,0,.08)':'rgba(255,255,255,.25)';cx.fillStyle=light?`rgba(30,20,20,${.12+Math.sin(p.phase)*.04})`:`rgba(255,255,255,${(onRed?.16:.22)+Math.sin(p.phase)*.08})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();}}
+    requestAnimationFrame(tick);}tick();}
+initNeuralNet('hero-canvas');
+initNeuralNet('cta-canvas');
+</script>
+</body>
+</html>
