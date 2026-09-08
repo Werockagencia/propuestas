@@ -16,3 +16,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [BMC Coffee Market — Estrategia digital y ecommerce](https://werockagencia.github.io/propuestas/bmccoffeemarket/)
 - [Esperanza Arcila — Auditoría, corrección y continuidad digital](https://werockagencia.github.io/propuestas/esperanzaarcila/)
 - [Flexibility (Kontacta) — Plataforma + Contenido Storytelling IA](https://werockagencia.github.io/propuestas/flexibility/)
+- [CUN — HalconBot para Marketing y Atención Automatizada](https://werockagencia.github.io/propuestas/cun/)
