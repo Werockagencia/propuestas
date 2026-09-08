@@ -126,6 +126,17 @@
     .quote-box p{font-size:13.5px;color:var(--ink2);line-height:1.7;font-style:italic}
     .quote-box p strong{color:var(--ink);font-style:normal}
 
+    .plan-ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:28px}
+    @media(max-width:900px){.plan-ladder{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.plan-ladder{grid-template-columns:1fr}}
+    .plan-card{background:var(--white);border:1px solid var(--border);border-top:3px solid rgba(0,0,0,.08);padding:26px 22px;position:relative}
+    .plan-card.active{border-top:3px solid var(--red);box-shadow:var(--sh2)}
+    .plan-card-badge{display:inline-block;background:var(--red);color:white;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:4px 9px;margin-bottom:14px}
+    .plan-card-name{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px}
+    .plan-card-price{font-size:22px;font-weight:900;color:var(--ink);letter-spacing:-.5px;margin-bottom:2px}
+    .plan-card-price span{font-size:12px;font-weight:600;color:var(--ink3)}
+    .plan-card-cap{font-size:12.5px;color:var(--ink2);line-height:1.55;margin-top:8px}
+
     .cta-section{background:var(--dk);position:relative;overflow:hidden;padding:120px 48px;text-align:center}
     #cta-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
     .cta-inner{position:relative;z-index:10;max-width:700px;margin:0 auto}
@@ -329,7 +340,7 @@
   </div>
 
   <div class="cover-bar">
-    <div class="cbs"><div class="cbn" style="color:var(--red)">22.500</div><div class="cbl">Conversaciones al mes, plan Growth</div></div>
+    <div class="cbs"><div class="cbn" style="color:var(--red)">6.000</div><div class="cbl">Conversaciones al mes, plan Starter</div></div>
     <div class="cbdv"></div>
     <div class="cbs"><div class="cbn">24/7</div><div class="cbl">Atención automatizada por WhatsApp</div></div>
     <div class="cbdv"></div>
@@ -524,26 +535,54 @@
 <section class="sec sec-lt tex-glow-tr sec-cut-top" id="s-plan">
   <div class="inner">
     <span class="sec-label">05 · Plan recomendado</span>
-    <div class="badge-red">Plan Growth</div>
-    <h2 class="sec-title lt">Growth: hasta 22.500 conversaciones al mes.</h2>
-    <p class="sec-lead lt">Con una estimación de aproximadamente 90.000 mensajes mensuales, es importante diferenciar los mensajes de campaña de las conversaciones realmente atendidas por el bot. El consumo del plan depende principalmente de las conversaciones e interacciones generadas con los estudiantes.</p>
+    <div class="badge-red">Plan Starter</div>
+    <h2 class="sec-title lt">Starter: hasta 6.000 conversaciones al mes.</h2>
+    <p class="sec-lead lt">El volumen estimado de CUN es de aproximadamente 90.000 mensajes mensuales, pero la mayoría corresponden a campañas masivas, no a conversaciones reales con el bot. Por eso se recomienda iniciar en el plan Starter y escalar según el número de conversaciones que se generen: el consumo del plan depende de las conversaciones, no del total de mensajes enviados.</p>
 
     <div class="wm-layout">
       <div class="wm-main">
-        <span class="sec-label" style="margin-bottom:10px">Capacidad del plan</span>
-        <div class="wm-price">22<span class="sl">.</span>500</div>
-        <div class="wm-period">Conversaciones al mes</div>
-        <div class="wm-note">Estimado de referencia: ~90.000 mensajes mensuales entre campañas y conversaciones. El consumo real del plan depende de las conversaciones, no del total de mensajes enviados.</div>
-        <p style="font-size:14px;color:var(--ink2);line-height:1.65">Se recomienda iniciar con Growth para el volumen actual estimado de CUN.</p>
+        <span class="sec-label" style="margin-bottom:10px">Plan recomendado para empezar</span>
+        <div class="wm-price">$49</div>
+        <div class="wm-period">USD / mes · Plan Starter</div>
+        <div class="wm-note">Aprox. $205.800 COP al mes, estimado con TRM de referencia $4.200 COP/USD. Valor sujeto a la tasa de cambio del día de facturación.</div>
+        <p style="font-size:14px;color:var(--ink2);line-height:1.65"><strong>Hasta 6.000 conversaciones al mes</strong> (~20 clientes atendidos por día). Es posible que debamos escalar de plan según el número real de conversaciones que genere CUN.</p>
       </div>
       <div class="wm-side">
         <span class="sec-label">Qué considerar</span>
         <ul class="cl">
-          <li>El plan Growth cubre hasta 22.500 conversaciones mensuales</li>
-          <li>Los mensajes de campaña se distinguen de las conversaciones atendidas por el bot</li>
-          <li>Si el volumen real de conversaciones crece por encima de Growth, es posible escalar al plan Business</li>
+          <li>El plan Starter cubre hasta 6.000 conversaciones mensuales (~20 clientes atendidos por día)</li>
+          <li>Los mensajes de campaña son independientes del conteo de conversaciones del plan</li>
+          <li>Si el volumen real de conversaciones supera ese límite, se recomienda escalar al siguiente plan disponible</li>
           <li>El escalamiento no implica perder configuración ni historial del agente</li>
         </ul>
+      </div>
+    </div>
+
+    <div style="margin:44px 0 8px">
+      <span class="sec-label" style="margin-bottom:8px">Siguientes niveles, si el volumen lo requiere</span>
+      <p style="font-size:14px;color:var(--ink2);max-width:620px;line-height:1.7">CUN puede empezar en Starter y escalar sin perder configuración ni historial del agente, a medida que crezca el número real de conversaciones generadas.</p>
+    </div>
+    <div class="plan-ladder sg fade-in">
+      <div class="plan-card active">
+        <span class="plan-card-badge">Punto de partida</span>
+        <div class="plan-card-name">Starter</div>
+        <div class="plan-card-price">$49 <span>USD/mes</span></div>
+        <div class="plan-card-cap">Hasta 6.000 conversaciones/mes<br>(~20 clientes atendidos por día)</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-name">Growth</div>
+        <div class="plan-card-price">$89 <span>USD/mes</span></div>
+        <div class="plan-card-cap">Hasta 22.500 conversaciones/mes<br>(~75 clientes atendidos por día)</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-name">Business</div>
+        <div class="plan-card-price">$139 <span>USD/mes</span></div>
+        <div class="plan-card-cap">Hasta 60.000 conversaciones/mes<br>(~200 clientes atendidos por día)</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-name">Profesional</div>
+        <div class="plan-card-price">$249 <span>USD/mes</span></div>
+        <div class="plan-card-cap">Hasta 120.000 conversaciones/mes<br>(~400 clientes atendidos por día)</div>
       </div>
     </div>
 
@@ -580,7 +619,7 @@
 
   <div class="pkg-block sg fade-in corner-fx">
     <svg class="brand-mark brand-mark--pkg" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
-    <div class="pkg-badge"><span class="pkg-badge-dot"></span>Plan Growth recomendado</div>
+    <div class="pkg-badge"><span class="pkg-badge-dot"></span>Plan Starter recomendado</div>
     <h3 class="pkg-title">Un pago único de arranque.<br>Después, solo la suscripción <span class="r">y la mensajería de Meta.</span></h3>
     <p class="pkg-lead">La implementación cubre la configuración y adecuación de campañas inteligentes para CUN. Desde el segundo mes, CUN paga únicamente la suscripción de HalconBot más el consumo de mensajería, cobrado directo por Meta.</p>
 
@@ -596,7 +635,7 @@
         <div class="icon-wrap icon-wrap--lg">
           <svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0113.5-5.8M20 12a8 8 0 01-13.5 5.8"/><path d="M17 3v4h-4M7 21v-4h4"/></svg>
         </div>
-        <div class="pkg-node-name">Suscripción Growth</div>
+        <div class="pkg-node-name">Suscripción Starter</div>
       </div>
       <div class="pkg-op">+</div>
       <div class="pkg-node">
@@ -620,8 +659,8 @@
       </div>
       <div class="pkg-item">
         <span class="pkg-item-lbl">Suscripción HalconBot</span>
-        <div class="pkg-item-price">$338.200</div>
-        <div class="pkg-item-cad">COP al mes<br>Plan Growth · hasta 22.500 conversaciones</div>
+        <div class="pkg-item-price">$49 USD</div>
+        <div class="pkg-item-cad">Al mes · ≈ $205.800 COP (TRM ref. $4.200)<br>Plan Starter · hasta 6.000 conversaciones</div>
       </div>
       <div class="pkg-item">
         <span class="pkg-item-lbl">Mensajería WhatsApp</span>
@@ -633,7 +672,8 @@
     <div class="pkg-pay">
       <span class="pkg-pay-lbl">Cómo se paga</span>
       <p><strong>Implementación:</strong> pago único inicial de $300.000, correspondiente a la configuración y adecuación del servicio.</p>
-      <p><strong>Desde el segundo mes:</strong> CUN paga únicamente la suscripción mensual de $338.200 (plan Growth), más los costos de mensajería cobrados directamente por Meta según el consumo.</p>
+      <p><strong>Desde el segundo mes:</strong> CUN paga únicamente la suscripción mensual de $49 USD (≈ $205.800 COP, plan Starter), más los costos de mensajería cobrados directamente por Meta según el consumo.</p>
+      <p><strong>Escalamiento:</strong> si el número de conversaciones generadas supera la capacidad de Starter, es posible escalar a Growth, Business o Profesional sin perder configuración ni historial del agente.</p>
     </div>
 
     <div class="pkg-cta-row">
@@ -641,7 +681,7 @@
         <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.5A2.5 2.5 0 0114.5 15h-1l-4 2-4-2H4A2.5 2.5 0 011.5 12.5v-7A2.5 2.5 0 014 3h10.5A2.5 2.5 0 0117 5.5v7z"/></svg>
         Hablar con David sobre esta cotización
       </a>
-      <span style="font-size:12px;color:rgba(255,255,255,.35)">Escalamiento a plan Business disponible si el volumen lo requiere</span>
+      <span style="font-size:12px;color:rgba(255,255,255,.35)">Escalamiento a Growth, Business o Profesional disponible según el volumen real de conversaciones</span>
     </div>
   </div>
 </section>
@@ -754,7 +794,7 @@
   <div class="cta-inner">
     <div class="cta-tag">09 · Siguiente paso</div>
     <h2 class="cta-title">TU AGENTE <span class="r">HALCONBOT</span><br>EMPIEZA AQUÍ.</h2>
-    <p class="cta-sub">David revisa contigo el volumen inicial, resuelve dudas sobre el plan Growth y define contigo el cronograma de configuración para CUN.</p>
+    <p class="cta-sub">David revisa contigo el volumen inicial, resuelve dudas sobre el plan Starter y su posible escalamiento, y define contigo el cronograma de configuración para CUN.</p>
     <a href="https://wa.me/573125766056?text=Hola%20David%2C%20quiero%20hablar%20sobre%20la%20cotizaci%C3%B3n%20de%20HalconBot%20para%20CUN." class="cta-btn" target="_blank">
       <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.5A2.5 2.5 0 0114.5 15h-1l-4 2-4-2H4A2.5 2.5 0 011.5 12.5v-7A2.5 2.5 0 014 3h10.5A2.5 2.5 0 0117 5.5v7z"/></svg>
       Hablar con David
