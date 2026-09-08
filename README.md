@@ -17,3 +17,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [Esperanza Arcila — Auditoría, corrección y continuidad digital](https://werockagencia.github.io/propuestas/esperanzaarcila/)
 - [Flexibility (Kontacta) — Plataforma + Contenido Storytelling IA](https://werockagencia.github.io/propuestas/flexibility/)
 - [CUN — HalconBot para Marketing y Atención Automatizada](https://werockagencia.github.io/propuestas/cun/)
+- [Barbra — Sistema de Marca (Naming, Identidad y Sitio Web)](https://werockagencia.github.io/propuestas/barbra/)
