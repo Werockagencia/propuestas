@@ -20,4 +20,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [Barbra — Sistema de Marca (Naming, Identidad y Sitio Web)](https://werockagencia.github.io/propuestas/barbra/)
 - [NovaHost — Marketing Digital (Google Ads + Meta Ads + HalconBot)](https://werockagencia.github.io/propuestas/novahost/)
 - [Daniel Mojica — Marketing Digital (Landing + Google Ads + Meta Ads + HalconBot)](https://werockagencia.github.io/propuestas/danielmojica/)
-- [Servicio AEO para Agencias (White Label)](https://werockagencia.github.io/propuestas/aeo/)
+- [Visibilidad en IA (AEO) — Servicio We Rock](https://werockagencia.github.io/propuestas/aeo/)
