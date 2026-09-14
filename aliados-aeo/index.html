@@ -2,240 +2,427 @@
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{
-    --red:#E8000A;--red-h:#FF1A22;--dk:#0A0A0A;--dk2:#111111;--dk3:#161616;
+    --red:#E8000A;--red-h:#FF1A22;
+    --dk:#0A0A0A;--dk2:#111111;--dk3:#161616;
     --lt:#F5F2EB;--lt2:#EDE9DF;--white:#FFFFFF;
-    --tx-dh:#FFFFFF;--tx-db:#C8C4BC;--tx-ds:#9E9890;
+    --tx-dh:#FFFFFF;--tx-db:#C8C4BC;--tx-ds:#9E9890;--tx-dm:#686460;
     --tx-lh:#0F0E0C;--tx-lb:#2A2826;--tx-ls:#484440;--tx-lm:#686460;
-    --bd-d:rgba(255,255,255,.08);--bd-l:rgba(0,0,0,.09);
+    --bd-d:rgba(255,255,255,.08);--bd-l:rgba(0,0,0,.09);--bd-r:rgba(232,0,10,.28);
     --F:'Barlow','Helvetica Neue',Helvetica,Arial,sans-serif;
   }
   html{scroll-behavior:smooth}
-  body{background:var(--lt);color:var(--tx-lh);font-family:var(--F);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
-  a{color:var(--red)}
-  .wrap{max-width:900px;margin:0 auto;padding:0 32px}
-  @media(max-width:640px){.wrap{padding:0 20px}}
+  body{background:var(--dk);color:var(--tx-dh);font-family:var(--F);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none}
+  @media(max-width:768px){body{cursor:auto}}
+  a{color:inherit}
 
-  .cover{background:var(--dk);color:#fff;padding:72px 0 40px}
-  .cover .tag{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:24px}
-  .cover .tag::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--red)}
-  .cover h1{font-size:clamp(32px,5vw,52px);font-weight:900;text-transform:uppercase;line-height:1.02;letter-spacing:-1.5px;margin-bottom:18px}
-  .cover h1 .r{color:var(--red)}
-  .cover p{font-size:17px;color:var(--tx-db);max-width:640px;line-height:1.7}
-  .cover-bar{display:flex;gap:2px;margin-top:36px;border-top:1px solid var(--bd-d);padding-top:24px}
-  .cbs{flex:1}
-  .cbn{font-size:22px;font-weight:900}
-  .cbn .r{color:var(--red)}
-  .cbl{font-size:11px;color:var(--tx-ds);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
+  /* CURSOR / PROGRESS / GRAD */
+  #cur{width:9px;height:9px;background:var(--red);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:exclusion}
+  #cur2{width:40px;height:40px;border:1.5px solid rgba(232,0,10,.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform .22s cubic-bezier(.16,1,.3,1)}
+  @media(max-width:768px){#cur,#cur2{display:none}}
+  #prog{position:fixed;top:0;left:0;height:3px;background:var(--red);z-index:9997;width:0%;transition:width .1s linear}
+  #grad-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5}
 
-  section{padding:56px 0;border-bottom:1px solid var(--bd-l)}
-  .sec-dk{background:var(--dk2);color:#fff;border-bottom:1px solid var(--bd-d)}
-  .sec-dk .lbl{color:var(--red)}
-  .lbl{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:14px}
-  h2{font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.02em;margin-bottom:14px;line-height:1.15}
-  .lead{font-size:16.5px;color:var(--tx-ls);max-width:680px;margin-bottom:8px}
-  .sec-dk .lead{color:var(--tx-db)}
+  section{position:relative;overflow:hidden}
+  .sec-pad{padding:88px 0}
+  @media(max-width:768px){.sec-pad{padding:60px 0}}
+  .wrap{max-width:920px;margin:0 auto;padding:0 40px;position:relative;z-index:2}
+  @media(max-width:640px){.wrap{padding:0 22px}}
+  .sec-dk{background:var(--dk)}
+  .sec-dk2{background:var(--dk2)}
+  .sec-dk3{background:var(--dk3)}
+  .sec-lt{background:var(--lt);color:var(--tx-lh)}
+  .sec-lt2{background:var(--lt2);color:var(--tx-lh)}
 
-  .badge{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px;margin-bottom:14px}
+  /* brand watermark + texture, per We Rock house standard */
+  .brand-mark{position:absolute;z-index:0;pointer-events:none;fill:var(--red)}
+  .brand-mark--a{width:300px;height:420px;top:-90px;right:-60px;opacity:.05;transform:rotate(11deg)}
+  .brand-mark--b{width:260px;height:364px;bottom:-80px;left:-50px;opacity:.045;transform:rotate(-14deg)}
+  @media(max-width:768px){.brand-mark{display:none}}
+  .tex-grid{background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:58px 58px}
+  .tex-dots{background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1.6px);background-size:24px 24px}
+  .tex-glow{background-image:radial-gradient(ellipse 60% 60% at 92% 0%,rgba(232,0,10,.08) 0%,transparent 60%)}
+  .sec-cut{clip-path:polygon(0 30px,100% 0,100% 100%,0 100%);margin-top:-30px;padding-top:118px}
+  @media(max-width:768px){.sec-cut{clip-path:polygon(0 16px,100% 0,100% 100%,0 100%);margin-top:-16px;padding-top:96px}}
+
+  .lbl{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+  .lbl::before{content:'';width:22px;height:2px;background:var(--red)}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:6px 14px;margin-bottom:16px}
+  .badge-dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:blink 2s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+  h2{font-weight:900;text-transform:uppercase;line-height:.98;letter-spacing:-1.2px;position:relative;padding-bottom:18px;margin-bottom:16px;font-size:clamp(26px,3.6vw,44px)}
+  h2::after{content:'';position:absolute;bottom:0;left:0;width:44px;height:3px;background:var(--red)}
+  h2 .r{color:var(--red)}
+  .sec-dk h2,.sec-dk2 h2,.sec-dk3 h2{color:#fff}
+  .sec-lt h2,.sec-lt2 h2{color:var(--tx-lh)}
+  .lead{font-size:17px;line-height:1.75;max-width:680px}
+  .sec-dk .lead,.sec-dk2 .lead,.sec-dk3 .lead{color:var(--tx-db)}
+  .sec-lt .lead,.sec-lt2 .lead{color:var(--tx-ls)}
+
+  /* REVEALS */
+  .rv{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .rv.in{opacity:1;transform:translateY(0)}
+  .hl{display:block;opacity:0;transform:translateY(38px) skewY(2deg);animation:hlIn .82s cubic-bezier(.16,1,.3,1) forwards}
+  .hl1{animation-delay:.08s}.hl2{animation-delay:.22s}.hl3{animation-delay:.36s}
+  @keyframes hlIn{to{opacity:1;transform:translateY(0) skewY(0)}}
+  @keyframes su{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes glw{0%{opacity:.5;transform:scale(1)}100%{opacity:1;transform:scale(1.08)}}
+  @keyframes gd{from{background-position:0 0}to{background-position:88px 88px}}
+
+  /* HERO */
+  .s-hero{min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 40px;background:var(--dk)}
+  #hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:64px 64px;animation:gd 28s linear infinite;z-index:1}
+  .hero-ov{position:absolute;inset:0;background:linear-gradient(110deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.08) 55%,rgba(0,0,0,.4) 100%);z-index:1}
+  .hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 75% at 4% 55%,rgba(232,0,10,.18) 0%,transparent 65%);z-index:1;animation:glw 10s ease-in-out infinite alternate}
+  .hero-inner{position:relative;z-index:10;max-width:920px;margin:0 auto;width:100%;padding:150px 0 44px}
+  @media(max-width:768px){.s-hero{padding:0 22px}.hero-inner{padding:116px 0 32px}}
+  .h-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;opacity:0;animation:su .7s ease .05s forwards}
+  .h-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 2s infinite}
+  .h-eyebrow span{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--red)}
+  .h-title{font-size:clamp(34px,5.6vw,68px);font-weight:900;text-transform:uppercase;line-height:.96;letter-spacing:-2px;color:#fff}
+  .h-title .r{color:var(--red)}
+  .h-sub{font-size:clamp(16px,1.7vw,19px);color:var(--tx-db);max-width:640px;margin:22px 0 0;line-height:1.7;opacity:0;animation:su .9s ease .5s forwards}
+  .h-sub strong{color:#fff;font-weight:800}
+  .hero-bar{position:relative;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:22px 40px;margin-left:-40px;margin-right:-40px;border-top:1px solid var(--bd-d);background:rgba(0,0,0,.4);backdrop-filter:blur(16px);opacity:0;animation:su .8s ease .74s forwards;max-width:920px;margin-left:auto;margin-right:auto}
+  .hero-bar-wrap{max-width:920px;margin:0 auto;padding:0 40px}
+  @media(max-width:768px){.hero-bar{padding:18px 22px;flex-wrap:wrap;gap:14px}}
+  .hbs{text-align:center;min-width:90px}
+  .hbn{font-size:22px;font-weight:900;color:#fff;line-height:1}
+  .hbl{font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.36);margin-top:3px}
+  .hbdv{width:1px;height:34px;background:var(--bd-d)}
 
   ul.bl{list-style:none;margin-top:18px}
-  ul.bl li{font-size:15px;color:var(--tx-ls);padding:9px 0 9px 22px;position:relative;border-bottom:1px solid var(--bd-l);line-height:1.6}
+  ul.bl li{font-size:15px;padding:11px 0 11px 24px;position:relative;border-bottom:1px solid var(--bd-d);line-height:1.65}
   ul.bl li:last-child{border-bottom:none}
-  ul.bl li::before{content:'';position:absolute;left:0;top:17px;width:8px;height:2px;background:var(--red)}
-  .sec-dk ul.bl li{color:var(--tx-db);border-bottom-color:var(--bd-d)}
+  ul.bl li::before{content:'';position:absolute;left:0;top:19px;width:9px;height:2px;background:var(--red)}
+  .sec-lt ul.bl li,.sec-lt2 ul.bl li{color:var(--tx-ls);border-bottom-color:var(--bd-l)}
+  .sec-dk ul.bl li,.sec-dk2 ul.bl li,.sec-dk3 ul.bl li{color:var(--tx-db)}
+  ul.bl li strong{color:#fff}
+  .sec-lt ul.bl li strong,.sec-lt2 ul.bl li strong{color:var(--tx-lh)}
 
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
-  @media(max-width:680px){.grid2{grid-template-columns:1fr}}
+  /* SVC LIST (5 frentes) */
+  .svc-list{border-top:1px solid var(--bd-d);margin-top:8px}
+  .svc-item{display:grid;grid-template-columns:46px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--bd-d);transition:padding-left .3s,border-color .3s}
+  .svc-item:hover{padding-left:8px;border-color:var(--bd-r)}
+  .svc-n{font-size:10px;font-weight:800;letter-spacing:2.5px;color:var(--red);font-style:italic;padding-top:3px}
+  .svc-name{font-size:clamp(15.5px,1.4vw,17.5px);font-weight:800;color:#fff;margin-bottom:5px}
+  .svc-desc{font-size:14px;color:var(--tx-ds);line-height:1.68}
 
-  /* timeline */
-  .tl{margin-top:28px;display:flex;flex-direction:column;gap:2px}
-  .tl-step{display:grid;grid-template-columns:110px 1fr;gap:20px;background:var(--dk3);padding:20px 24px;align-items:start}
-  .tl-when{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
-  .tl-title{font-size:15.5px;font-weight:700;color:#fff;margin-bottom:5px}
-  .tl-desc{font-size:13.5px;color:var(--tx-db);line-height:1.6}
+  /* RED STAT BAND */
+  .stat-band{background:var(--red);display:flex;align-items:center;gap:26px;padding:34px 40px;flex-wrap:wrap;position:relative;overflow:hidden}
+  .stat-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 90% at 0% 50%,rgba(0,0,0,.16),transparent 70%)}
+  .stat-band-num{position:relative;font-size:clamp(46px,6.4vw,78px);font-weight:900;color:#fff;line-height:1;letter-spacing:-3px;flex-shrink:0}
+  .stat-band-text{position:relative;font-size:clamp(14.5px,1.5vw,18px);font-weight:600;color:#fff;max-width:480px;line-height:1.45}
+
+  /* TIMELINE */
+  .tl{margin-top:8px;display:flex;flex-direction:column;gap:2px}
+  .tl-step{display:grid;grid-template-columns:118px 1fr;gap:22px;background:var(--dk3);padding:22px 26px;align-items:start;border-left:2px solid transparent;transition:border-color .25s,background .25s}
+  .tl-step:hover{border-left-color:var(--red);background:#1a1a1a}
+  .tl-when{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+  .tl-title{font-size:15.5px;font-weight:800;color:#fff;margin-bottom:5px}
+  .tl-desc{font-size:13.5px;color:var(--tx-ds);line-height:1.6}
   @media(max-width:560px){.tl-step{grid-template-columns:1fr}}
 
-  /* pricing */
-  .price-card{background:var(--white);border:1px solid var(--bd-l);box-shadow:0 2px 12px rgba(0,0,0,.05);margin-top:24px}
-  .price-hd{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 28px;border-bottom:2px solid var(--red);flex-wrap:wrap}
-  .price-name{font-size:16px;font-weight:800;color:var(--tx-lh)}
-  .price-tag{font-size:11px;color:var(--tx-lm);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
-  .price-body{padding:24px 28px}
-  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--bd-l);gap:16px;flex-wrap:wrap}
+  /* PRICE CARDS */
+  .corner-fx{position:relative}
+  .corner-fx::before,.corner-fx::after{content:'';position:absolute;width:20px;height:20px;pointer-events:none;opacity:.75;z-index:2}
+  .corner-fx::before{top:-1px;left:-1px;border-top:2px solid var(--red);border-left:2px solid var(--red)}
+  .corner-fx::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--red);border-right:2px solid var(--red)}
+
+  .price-card{background:var(--dk3);border:1px solid var(--bd-d);margin-top:26px;position:relative}
+  .price-hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:26px 30px;border-bottom:2px solid var(--red);flex-wrap:wrap}
+  .price-name{font-size:18px;font-weight:800;color:#fff}
+  .price-tag{font-size:11px;color:var(--tx-ds);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+  .price-body{padding:26px 30px}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--bd-d);gap:16px;flex-wrap:wrap}
   .price-row:last-child{border-bottom:none}
-  .price-row .k{font-size:14px;color:var(--tx-ls)}
-  .price-row .v{font-size:17px;font-weight:800;color:var(--tx-lh);white-space:nowrap}
-  .price-row.hi .v{color:var(--red)}
-  .price-row.floor{background:rgba(232,0,10,.045);margin:0 -28px;padding:13px 28px}
-  .margin-note{margin-top:18px;padding:14px 18px;background:var(--lt2);border-left:3px solid var(--red);font-size:13.5px;color:var(--tx-ls);line-height:1.65}
-  .margin-note strong{color:var(--tx-lh)}
+  .price-row .k{font-size:14px;color:var(--tx-db)}
+  .price-row .v{font-size:18px;font-weight:900;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .price-row.floor{background:rgba(232,0,10,.07);margin:0 -30px;padding:14px 30px}
+  .price-row.floor .v{color:var(--red)}
+  .price-row.hi .v{color:var(--red);font-size:20px;text-shadow:0 0 24px rgba(232,0,10,.5)}
+  .margin-note{margin-top:20px;padding:16px 20px;background:rgba(255,255,255,.03);border-left:3px solid var(--red);font-size:13.5px;color:var(--tx-db);line-height:1.7}
+  .margin-note strong{color:#fff}
+  .margin-note.bench{border-left-color:var(--tx-dm);background:rgba(255,255,255,.02)}
 
-  .vol-table{width:100%;border-collapse:collapse;margin-top:20px;font-size:14px}
-  .vol-table th{text-align:left;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tx-lm);padding:10px 14px;border-bottom:2px solid var(--bd-l)}
-  .vol-table td{padding:12px 14px;border-bottom:1px solid var(--bd-l)}
-  .vol-table td.v{font-weight:800;color:var(--red)}
+  .vol-table{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+  .vol-table th{text-align:left;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tx-lm);padding:11px 16px;border-bottom:2px solid var(--bd-l)}
+  .vol-table td{padding:13px 16px;border-bottom:1px solid var(--bd-l)}
+  .vol-table td.v{font-weight:900;color:var(--red);font-variant-numeric:tabular-nums}
 
-  .talk{background:var(--white);border-left:3px solid var(--red);padding:18px 22px;margin-top:16px;box-shadow:0 1px 6px rgba(0,0,0,.04)}
-  .talk .q{font-size:13px;font-weight:800;color:var(--tx-lm);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
-  .talk .a{font-size:15px;color:var(--tx-ls);line-height:1.7;font-style:italic}
+  .talk{background:var(--dk3);border-left:3px solid var(--red);padding:20px 24px;margin-top:18px;position:relative}
+  .talk::before{content:'"';position:absolute;top:-14px;left:16px;font-size:70px;font-weight:900;color:rgba(232,0,10,.1);line-height:1}
+  .talk .q{position:relative;font-size:12.5px;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px}
+  .talk .a{position:relative;font-size:15px;color:var(--tx-db);line-height:1.75}
 
-  footer{padding:40px 0;text-align:center}
-  footer p{font-size:12.5px;color:var(--tx-lm)}
+  footer{padding:56px 0;text-align:center;background:var(--dk);border-top:1px solid var(--bd-d)}
+  footer .wm{font-size:11px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+  footer p{font-size:12.5px;color:var(--tx-dm)}
 </style>
 
-<div class="cover">
-  <div class="wrap">
-    <div class="tag">Uso interno · Guía de aliados</div>
-    <h1>Cómo vender <span class="r">AEO</span><br>y saber qué cobrar.</h1>
-    <p>Esta guía es para ti, no para tus prospectos: trae el mismo argumento de venta que usa We Rock públicamente, más los tiempos de implementación y las tarifas de aliados para que sepas exactamente desde dónde cobrar sin perder margen.</p>
-    <div class="cover-bar">
-      <div class="cbs"><div class="cbn"><span class="r">$1.400.000</span></div><div class="cbl">Tu costo mensual por cliente (lo que factura We Rock)</div></div>
-      <div class="cbs"><div class="cbn">3 <span class="r">meses</span></div><div class="cbl">Permanencia mínima recomendada al cliente</div></div>
-      <div class="cbs"><div class="cbn">60–90 <span class="r">días</span></div><div class="cbl">Cuando aparecen las primeras menciones</div></div>
-    </div>
+<div id="cur"></div>
+<div id="cur2"></div>
+<div id="prog"></div>
+<canvas id="grad-canvas"></canvas>
+
+<!-- HERO -->
+<section class="s-hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-grid"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="h-eyebrow"><div class="h-dot"></div><span>Uso interno · Guía de aliados · We Rock</span></div>
+    <h1 class="h-title">
+      <span class="hl hl1">CÓMO VENDER AEO</span>
+      <span class="hl hl2">Y SABER <span class="r">QUÉ COBRAR.</span></span>
+    </h1>
+    <p class="h-sub">Esta guía es para ti, no para tus prospectos: trae el mismo argumento que usa We Rock públicamente, los tiempos de implementación, y las tarifas de aliados para que sepas exactamente <strong>desde dónde cobrar sin perder margen.</strong></p>
   </div>
-</div>
-
-<div class="wrap">
-
-<section>
-  <span class="lbl">01 · El argumento, resumido</span>
-  <h2>Google ya no es la única puerta.</h2>
-  <p class="lead">ChatGPT, Perplexity y las Búsquedas con IA de Google ya responden preguntas de compra sin que el usuario visite ningún sitio. Si la marca de tu prospecto no es la fuente que la IA cita o recomienda, es invisible ahí, aunque su SEO esté impecable. AEO (AI Engine Optimization) es la disciplina que construye esa visibilidad.</p>
-  <ul class="bl">
-    <li><strong>Zero-click:</strong> la IA responde y el usuario no hace clic a ningún sitio, sin importar cuánto se invierta en SEO clásico.</li>
-    <li><strong>Ventana abierta:</strong> campo nuevo, de 2024 en adelante. Quien construya autoridad ahora entra con ventaja real.</li>
-    <li><strong>No reemplaza el marketing del cliente:</strong> se suma como la capa que asegura que su marca también exista dentro de las respuestas de IA.</li>
-  </ul>
-</section>
-
-<section>
-  <span class="lbl">02 · A quién se lo vendes</span>
-  <h2>No es para cualquiera. Eso es lo que lo hace fácil de vender.</h2>
-  <p class="lead">Es para empresas que ya construyeron algo y no quieren perder terreno, no para quien busca un truco de posicionamiento.</p>
-  <ul class="bl">
-    <li>Ya tienen presencia digital establecida (sitio, contenido, SEO) y quieren que la IA también los recomiende.</li>
-    <li>Entienden la marca como inversión estratégica, no como gasto operativo.</li>
-    <li>Quieren estar en la conversación antes de que sea obvio para toda su competencia.</li>
-  </ul>
-</section>
-
-<section class="sec-dk">
-  <div class="badge">Qué incluye</div>
-  <h2>Cinco frentes. Una sola dirección.</h2>
-  <p class="lead">No son piezas sueltas de contenido: es un sistema coordinado para construir a la marca del cliente como fuente confiable.</p>
-  <ul class="bl">
-    <li><strong>01 · Auditoría de Visibilidad en IA</strong> — probamos preguntas reales en ChatGPT, Perplexity, Gemini y AI Overviews; medimos si la marca aparece, cómo la describen y quién aparece en su lugar.</li>
-    <li><strong>02 · Entity SEO</strong> — schema markup, datos consistentes en Wikidata y directorios, corrección de información contradictoria.</li>
-    <li><strong>03 · Contenido optimizado para extracción</strong> — definiciones directas, comparativas y datos propios, pensados para que la IA los cite.</li>
-    <li><strong>04 · Autoridad en fuentes externas</strong> — reseñas, foros del sector y relaciones digitales con medios: las fuentes que una IA realmente confía.</li>
-    <li><strong>05 · Monitoreo mensual</strong> — mismo set de prompts cada mes, avance real frente a la competencia, ajuste según lo que mueve la aguja.</li>
-  </ul>
-</section>
-
-<section>
-  <span class="lbl">03 · Cómo se implementa</span>
-  <h2>Las etapas, para explicarle al cliente qué esperar y cuándo.</h2>
-  <p class="lead">Esto es lo que más preguntan los prospectos: "¿cuándo se ve algo?". Úsalo tal cual.</p>
-  <div class="tl">
-    <div class="tl-step">
-      <div class="tl-when">Semana 1–2</div>
-      <div><div class="tl-title">Diagnóstico y arquitectura</div><div class="tl-desc">Auditoría de visibilidad, set de prompts de prueba definido, mapeo de schema/Wikidata/directorios.</div></div>
+  <div class="hero-bar-wrap">
+    <div class="hero-bar">
+      <div class="hbs"><div class="hbn" style="color:var(--red)">$1.4M</div><div class="hbl">Tu costo mensual, tarifa We Rock</div></div>
+      <div class="hbdv"></div>
+      <div class="hbs"><div class="hbn">3 meses</div><div class="hbl">Permanencia mínima recomendada</div></div>
+      <div class="hbdv"></div>
+      <div class="hbs"><div class="hbn">60–90<span style="color:var(--red)">d</span></div><div class="hbl">Primeras menciones reales</div></div>
     </div>
-    <div class="tl-step">
-      <div class="tl-when">Mes 1</div>
-      <div><div class="tl-title">Entity SEO + primer contenido</div><div class="tl-desc">Se corrige la identidad de marca ante la IA y arranca el contenido optimizado para extracción.</div></div>
-    </div>
-    <div class="tl-step">
-      <div class="tl-when">Mes 2</div>
-      <div><div class="tl-title">Autoridad externa</div><div class="tl-desc">Reseñas, foros y relaciones con medios; el contenido propio sigue en producción.</div></div>
-    </div>
-    <div class="tl-step">
-      <div class="tl-when">Día 60–90</div>
-      <div><div class="tl-title">Primeras menciones</div><div class="tl-desc">Empiezan a aparecer los primeros indicadores reales de mención en los motores de IA.</div></div>
-    </div>
-    <div class="tl-step">
-      <div class="tl-when">Mes 3–6</div>
-      <div><div class="tl-title">Tendencia consolidada</div><div class="tl-desc">Monitoreo mensual sostenido; la tendencia clara frente a la competencia ya es visible en el reporte.</div></div>
-    </div>
-  </div>
-  <div class="margin-note" style="margin-top:24px">No se promete: posiciones garantizadas, un número exacto de clientes nuevos, ni resultados en semanas. Es una disciplina de mediano plazo, igual que lo fue el SEO en sus primeros años. Dilo así de frente, vende más confianza que ocultarlo.</div>
-</section>
-
-<section class="sec-dk">
-  <div class="badge">04 · Precios de aliados</div>
-  <h2>De aquí para arriba es tuyo.</h2>
-  <p class="lead">Esto es lo que We Rock te factura a ti. Tú decides el precio final al cliente; todo lo que cobres por encima es tu margen. No hay letra chica.</p>
-
-  <div class="price-card">
-    <div class="price-hd">
-      <div><div class="price-name">Auditoría de Visibilidad en IA</div><div class="price-tag">Punto de entrada · pago único por cliente</div></div>
-    </div>
-    <div class="price-body">
-      <div class="price-row floor"><span class="k">Tu costo (tarifa We Rock)</span><span class="v">$600.000</span></div>
-      <div class="price-row"><span class="k">Mínimo recomendado al cliente</span><span class="v">$600.000</span></div>
-      <div class="price-row hi"><span class="k">Rango competitivo sugerido</span><span class="v">$700.000 – $900.000</span></div>
-      <div class="margin-note">Puedes cobrarla al costo o casi al costo como gancho para abrir la conversación: donde de verdad ganas es en la ejecución mensual de abajo. Entregado en máximo 5 días hábiles.</div>
-    </div>
-  </div>
-
-  <div class="price-card">
-    <div class="price-hd">
-      <div><div class="price-name">Ejecución AEO completa</div><div class="price-tag">Recurrente · mensual, por cliente</div></div>
-    </div>
-    <div class="price-body">
-      <div class="price-row floor"><span class="k">Tu costo (tarifa We Rock)</span><span class="v">$1.400.000 / mes</span></div>
-      <div class="price-row"><span class="k">Mínimo para no perder margen</span><span class="v">$1.800.000 / mes</span></div>
-      <div class="price-row hi"><span class="k">Rango competitivo sugerido</span><span class="v">$1.800.000 – $3.000.000 / mes</span></div>
-      <div class="margin-note"><strong>Nunca cobres menos de $1.800.000/mes:</strong> por debajo de eso tu margen se vuelve demasiado ajustado para que valga la pena el tiempo de gestionar al cliente. Entre $1.800.000 y $3.000.000 sigues siendo competitiva y te quedas con $400.000–$1.600.000 de margen por cliente, cada mes, sin operar tú la ejecución. Ajusta dentro del rango según el tamaño y el presupuesto real del cliente.</div>
-      <div class="margin-note" style="border-left-color:var(--tx-lm);background:var(--lt)"><strong>Referencia de mercado (EE. UU./internacional, 2026):</strong> retainers de AEO/GEO de entrada arrancan en US$1.000–2.500/mes y el rango medio típico es US$2.000–8.000/mes. Incluso el techo de este rango sugerido (~US$715/mes) queda por debajo del piso internacional de entrada — hay espacio real para subir en clientes con más presupuesto, no solo para sostener este rango.</div>
-    </div>
-  </div>
-
-  <table class="vol-table">
-    <thead><tr><th>Clientes gestionados a la vez</th><th>Tu costo por cliente</th></tr></thead>
-    <tbody>
-      <tr><td>1 – 4 clientes</td><td class="v">$1.400.000 / mes</td></tr>
-      <tr><td>5 – 9 clientes</td><td class="v">$1.260.000 / mes (–10%)</td></tr>
-      <tr><td>10 o más clientes</td><td class="v">$1.190.000 / mes (–15%)</td></tr>
-    </tbody>
-  </table>
-  <p style="font-size:13px;color:var(--tx-db);margin-top:12px">A más volumen, más margen: el precio al cliente lo sigues definiendo tú, así que el descuento por volumen es margen extra directo para ti, no algo que tengas que trasladarle.</p>
-</section>
-
-<section>
-  <span class="lbl">05 · Cómo se reparte el trabajo</span>
-  <h2>Tú vendes y mantienes la relación. We Rock ejecuta detrás de escena.</h2>
-  <ul class="bl">
-    <li>We Rock hace el trabajo real: auditoría, entity SEO, contenido, autoridad externa y monitoreo mensual.</li>
-    <li>El reporte mensual llega en lenguaje simple, listo para que lo reenvíes al cliente con tu propia marca.</li>
-    <li>We Rock no contacta directamente al cliente final, salvo que tú lo pidas explícitamente para una reunión conjunta.</li>
-    <li>Contrato mes a mes con We Rock: sin permanencia forzada de tu lado, aunque a tu cliente le recomiendes los 3 meses mínimos para ver resultados reales.</li>
-  </ul>
-</section>
-
-<section>
-  <span class="lbl">06 · Respuestas rápidas para objeciones</span>
-  <h2>Lo que te van a preguntar.</h2>
-  <div class="talk">
-    <div class="q">"¿Y si no funciona?"</div>
-    <div class="a">No prometemos posiciones garantizadas ni un número de clientes nuevos. Prometemos medir, mes a mes, si la marca aparece más y mejor citada que su competencia en las mismas preguntas. Eso sí lo puedes mostrar en el reporte.</div>
-  </div>
-  <div class="talk">
-    <div class="q">"¿En qué se diferencia del SEO que ya hacemos?"</div>
-    <div class="a">El SEO compite por un lugar en una lista de diez resultados. AEO trabaja para que una IA lo cite como la respuesta directa. Comparten la base, pero el objetivo es distinto.</div>
-  </div>
-  <div class="talk">
-    <div class="q">"¿Por qué 3 meses mínimo?"</div>
-    <div class="a">Construir autoridad de marca frente a un motor de IA toma tiempo real: en 3 meses se diseña, se implementa y se ajusta según los primeros datos.</div>
   </div>
 </section>
 
-</div>
+<!-- 01 · EL ARGUMENTO -->
+<section class="sec-dk2 sec-pad tex-grid">
+  <svg class="brand-mark brand-mark--a" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="wrap rv">
+    <div class="lbl">01 · El argumento, resumido</div>
+    <h2>Google ya no es<br>la única <span class="r">puerta.</span></h2>
+    <p class="lead">ChatGPT, Perplexity y las Búsquedas con IA de Google ya responden preguntas de compra sin que el usuario visite ningún sitio. Si la marca de tu prospecto no es la fuente que la IA cita o recomienda, es invisible ahí, aunque su SEO esté impecable. AEO (AI Engine Optimization) es la disciplina que construye esa visibilidad.</p>
+    <ul class="bl">
+      <li><strong>Zero-click:</strong> la IA responde y el usuario no hace clic a ningún sitio, sin importar cuánto se invierta en SEO clásico.</li>
+      <li><strong>Ventana abierta:</strong> campo nuevo, de 2024 en adelante. Quien construya autoridad ahora entra con ventaja real.</li>
+      <li><strong>No reemplaza el marketing del cliente:</strong> se suma como la capa que asegura que su marca también exista dentro de las respuestas de IA.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 02 · PARA QUIÉN -->
+<section class="sec-dk sec-pad sec-cut">
+  <div class="wrap rv">
+    <div class="lbl">02 · A quién se lo vendes</div>
+    <h2>No es para cualquiera.<br>Eso lo hace <span class="r">fácil de vender.</span></h2>
+    <p class="lead">Es para empresas que ya construyeron algo y no quieren perder terreno, no para quien busca un truco de posicionamiento.</p>
+    <ul class="bl">
+      <li>Ya tienen presencia digital establecida (sitio, contenido, SEO) y quieren que la IA también los recomiende.</li>
+      <li>Entienden la marca como inversión estratégica, no como gasto operativo.</li>
+      <li>Quieren estar en la conversación antes de que sea obvio para toda su competencia.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 03 · QUÉ INCLUYE -->
+<section class="sec-dk2 sec-pad">
+  <div class="wrap rv">
+    <div class="badge"><span class="badge-dot"></span>Qué incluye</div>
+    <h2>Cinco frentes.<br>Una sola <span class="r">dirección.</span></h2>
+    <p class="lead">No son piezas sueltas de contenido: es un sistema coordinado para construir a la marca del cliente como fuente confiable.</p>
+    <div class="svc-list">
+      <div class="svc-item"><span class="svc-n">01</span><div><div class="svc-name">Auditoría de Visibilidad en IA</div><div class="svc-desc">Probamos preguntas reales en ChatGPT, Perplexity, Gemini y AI Overviews; medimos si la marca aparece, cómo la describen y quién aparece en su lugar.</div></div></div>
+      <div class="svc-item"><span class="svc-n">02</span><div><div class="svc-name">Entity SEO</div><div class="svc-desc">Schema markup, datos consistentes en Wikidata y directorios, corrección de información contradictoria.</div></div></div>
+      <div class="svc-item"><span class="svc-n">03</span><div><div class="svc-name">Contenido optimizado para extracción</div><div class="svc-desc">Definiciones directas, comparativas y datos propios, pensados para que la IA los cite.</div></div></div>
+      <div class="svc-item"><span class="svc-n">04</span><div><div class="svc-name">Autoridad en fuentes externas</div><div class="svc-desc">Reseñas, foros del sector y relaciones digitales con medios: las fuentes que una IA realmente confía.</div></div></div>
+      <div class="svc-item"><span class="svc-n">05</span><div><div class="svc-name">Monitoreo mensual</div><div class="svc-desc">Mismo set de prompts cada mes, avance real frente a la competencia, ajuste según lo que mueve la aguja.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · IMPLEMENTACIÓN -->
+<section class="sec-dk sec-pad sec-cut">
+  <div class="wrap rv">
+    <div class="lbl">03 · Cómo se implementa</div>
+    <h2>Las etapas, para que<br>expliques qué <span class="r">esperar y cuándo.</span></h2>
+    <p class="lead">Esto es lo que más preguntan los prospectos: "¿cuándo se ve algo?". Úsalo tal cual.</p>
+  </div>
+  <div class="wrap" style="margin-top:36px">
+    <div class="tl rv">
+      <div class="tl-step"><div class="tl-when">Semana 1–2</div><div><div class="tl-title">Diagnóstico y arquitectura</div><div class="tl-desc">Auditoría de visibilidad, set de prompts de prueba definido, mapeo de schema/Wikidata/directorios.</div></div></div>
+      <div class="tl-step"><div class="tl-when">Mes 1</div><div><div class="tl-title">Entity SEO + primer contenido</div><div class="tl-desc">Se corrige la identidad de marca ante la IA y arranca el contenido optimizado para extracción.</div></div></div>
+      <div class="tl-step"><div class="tl-when">Mes 2</div><div><div class="tl-title">Autoridad externa</div><div class="tl-desc">Reseñas, foros y relaciones con medios; el contenido propio sigue en producción.</div></div></div>
+      <div class="tl-step"><div class="tl-when">Día 60–90</div><div><div class="tl-title">Primeras menciones</div><div class="tl-desc">Empiezan a aparecer los primeros indicadores reales de mención en los motores de IA.</div></div></div>
+      <div class="tl-step"><div class="tl-when">Mes 3–6</div><div><div class="tl-title">Tendencia consolidada</div><div class="tl-desc">Monitoreo mensual sostenido; la tendencia clara frente a la competencia ya es visible en el reporte.</div></div></div>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:22px">
+    <div class="margin-note rv">No se promete: posiciones garantizadas, un número exacto de clientes nuevos, ni resultados en semanas. Es una disciplina de mediano plazo, igual que lo fue el SEO en sus primeros años. Dilo así de frente, vende más confianza que ocultarlo.</div>
+  </div>
+</section>
+
+<!-- 05 · PRECIOS -->
+<section class="sec-dk2 sec-pad tex-glow">
+  <svg class="brand-mark brand-mark--a" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="wrap rv">
+    <div class="badge"><span class="badge-dot"></span>Precios We Rock · 04</div>
+    <h2>De aquí para arriba,<br><span class="r">es tuyo.</span></h2>
+    <p class="lead">Esto es lo que We Rock te factura a ti. Tú decides el precio final al cliente; todo lo que cobres por encima es tu margen. No hay letra chica.</p>
+
+    <div class="price-card corner-fx">
+      <div class="price-hd">
+        <div><div class="price-name">Auditoría de Visibilidad en IA</div><div class="price-tag">Punto de entrada · pago único por cliente</div></div>
+      </div>
+      <div class="price-body">
+        <div class="price-row floor"><span class="k">Tu costo (tarifa We Rock)</span><span class="v">$600.000</span></div>
+        <div class="price-row"><span class="k">Mínimo recomendado al cliente</span><span class="v">$600.000</span></div>
+        <div class="price-row hi"><span class="k">Rango competitivo sugerido</span><span class="v">$700.000 – $900.000</span></div>
+        <div class="margin-note">Puedes cobrarla al costo o casi al costo como gancho para abrir la conversación: donde de verdad ganas es en la ejecución mensual de abajo. Entregado en máximo 5 días hábiles.</div>
+      </div>
+    </div>
+
+    <div class="price-card corner-fx">
+      <div class="price-hd">
+        <div><div class="price-name">Ejecución AEO completa</div><div class="price-tag">Recurrente · mensual, por cliente</div></div>
+      </div>
+      <div class="price-body">
+        <div class="price-row floor"><span class="k">Tu costo (tarifa We Rock)</span><span class="v">$1.400.000 / mes</span></div>
+        <div class="price-row"><span class="k">Mínimo para no perder margen</span><span class="v">$1.800.000 / mes</span></div>
+        <div class="price-row hi"><span class="k">Rango competitivo sugerido</span><span class="v">$1.800.000 – $3.000.000 / mes</span></div>
+        <div class="margin-note"><strong>Nunca cobres menos de $1.800.000/mes:</strong> por debajo de eso tu margen se vuelve demasiado ajustado para que valga la pena el tiempo de gestionar al cliente. Entre $1.800.000 y $3.000.000 sigues siendo competitiva y te quedas con $400.000–$1.600.000 de margen por cliente, cada mes, sin operar tú la ejecución. Ajusta dentro del rango según el tamaño y el presupuesto real del cliente.</div>
+        <div class="margin-note bench"><strong>Referencia de mercado (EE. UU./internacional, 2026):</strong> retainers de AEO/GEO de entrada arrancan en US$1.000–2.500/mes y el rango medio típico es US$2.000–8.000/mes. Incluso el techo de este rango sugerido (~US$715/mes) queda por debajo del piso internacional de entrada — hay espacio real para subir en clientes con más presupuesto, no solo para sostener este rango.</div>
+      </div>
+    </div>
+
+    <table class="vol-table" style="background:var(--dk3);padding:4px">
+      <thead><tr><th style="color:var(--tx-dm)">Clientes gestionados a la vez</th><th style="color:var(--tx-dm)">Tu costo por cliente</th></tr></thead>
+      <tbody style="color:var(--tx-db)">
+        <tr><td style="border-bottom-color:var(--bd-d)">1 – 4 clientes</td><td class="v" style="border-bottom-color:var(--bd-d)">$1.400.000 / mes</td></tr>
+        <tr><td style="border-bottom-color:var(--bd-d)">5 – 9 clientes</td><td class="v" style="border-bottom-color:var(--bd-d)">$1.260.000 / mes (–10%)</td></tr>
+        <tr><td style="border-bottom-color:var(--bd-d)">10 o más clientes</td><td class="v" style="border-bottom-color:var(--bd-d)">$1.190.000 / mes (–15%)</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--tx-dm);margin-top:14px">A más volumen, más margen: el precio al cliente lo sigues definiendo tú, así que el descuento por volumen es margen extra directo para ti, no algo que tengas que trasladarle.</p>
+  </div>
+</section>
+
+<!-- 06 · REPARTO DEL TRABAJO -->
+<section class="sec-dk sec-pad sec-cut">
+  <div class="wrap rv">
+    <div class="lbl">05 · Cómo se reparte el trabajo</div>
+    <h2>Tú vendes. We Rock<br>ejecuta <span class="r">detrás de escena.</span></h2>
+    <ul class="bl">
+      <li>We Rock hace el trabajo real: auditoría, entity SEO, contenido, autoridad externa y monitoreo mensual.</li>
+      <li>El reporte mensual llega en lenguaje simple, listo para que lo reenvíes al cliente con tu propia marca.</li>
+      <li>We Rock no contacta directamente al cliente final, salvo que tú lo pidas explícitamente para una reunión conjunta.</li>
+      <li>Contrato mes a mes con We Rock: sin permanencia forzada de tu lado, aunque a tu cliente le recomiendes los 3 meses mínimos para ver resultados reales.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 07 · OBJECIONES -->
+<section class="sec-dk2 sec-pad">
+  <div class="wrap rv">
+    <div class="lbl">06 · Respuestas rápidas para objeciones</div>
+    <h2>Lo que te van<br>a <span class="r">preguntar.</span></h2>
+    <div class="talk">
+      <div class="q">"¿Y si no funciona?"</div>
+      <div class="a">No prometemos posiciones garantizadas ni un número de clientes nuevos. Prometemos medir, mes a mes, si la marca aparece más y mejor citada que su competencia en las mismas preguntas. Eso sí lo puedes mostrar en el reporte.</div>
+    </div>
+    <div class="talk">
+      <div class="q">"¿En qué se diferencia del SEO que ya hacemos?"</div>
+      <div class="a">El SEO compite por un lugar en una lista de diez resultados. AEO trabaja para que una IA lo cite como la respuesta directa. Comparten la base, pero el objetivo es distinto.</div>
+    </div>
+    <div class="talk">
+      <div class="q">"¿Por qué 3 meses mínimo?"</div>
+      <div class="a">Construir autoridad de marca frente a un motor de IA toma tiempo real: en 3 meses se diseña, se implementa y se ajusta según los primeros datos.</div>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <p>Documento interno de referencia para aliados comerciales de We Rock · No compartir con clientes finales · Bogotá, Colombia</p>
+  <div class="wm">We Rock</div>
+  <p>Documento interno de referencia para aliados comerciales · No compartir con clientes finales · Bogotá, Colombia</p>
 </footer>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+
+<script>
+// CURSOR
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,cx2=0,cy2=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx-4}px,${my-4}px)`;});
+(function a(){cx2+=(mx-cx2)*.18;cy2+=(my-cy2)*.18;cur2.style.transform=`translate(${cx2-19}px,${cy2-19}px)`;requestAnimationFrame(a);})();
+
+// PROGRESS
+const prog=document.getElementById('prog');
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;prog.style.width=(s/h*100)+'%';});
+
+// REVEALS
+const elObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>elObs.observe(el));
+
+// GRADIENT CANVAS
+(function(){
+  const canvas=document.getElementById('grad-canvas'),ctx=canvas.getContext('2d');let w,h;
+  function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  let gx=.3,gy=.6,tx=.3,ty=.6,ang=0;
+  document.addEventListener('mousemove',e=>{tx=e.clientX/window.innerWidth;ty=e.clientY/window.innerHeight;});
+  function draw(){
+    ctx.clearRect(0,0,w,h);gx+=(tx-gx)*.035;gy+=(ty-gy)*.035;ang+=.006;
+    const g1=ctx.createRadialGradient(gx*w,gy*h,0,gx*w,gy*h,Math.max(w,h)*.55);
+    g1.addColorStop(0,'rgba(232,0,10,.055)');g1.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g1;ctx.fillRect(0,0,w,h);
+    const ox=w*(.5+.45*Math.cos(ang)),oy=h*(.5+.4*Math.sin(ang*.8));
+    const g2=ctx.createRadialGradient(ox,oy,0,ox,oy,Math.max(w,h)*.42);
+    g2.addColorStop(0,'rgba(232,0,10,.03)');g2.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g2;ctx.fillRect(0,0,w,h);
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// NEURAL NET (hero)
+function initNeuralNet(id){
+  const cv=document.getElementById(id);if(!cv)return;
+  const cx=cv.getContext('2d');let W,H,VH;
+  function resize(){const s=cv.parentElement;W=cv.width=s.clientWidth||window.innerWidth;VH=window.innerHeight;H=cv.height=s.clientHeight||VH;}
+  resize();window.addEventListener('resize',resize);
+  const COUNT=window.innerWidth<600?55:110,CONNECT=165,M_REP=115,M_ATT=260,M_FREP=.09,M_FATT=.013,P_REP=60,P_FORCE=.022,SIG_SPEED=.026,FIRE_DUR=28,REF_DUR=200,FIRE_PROB=.00065,CASC_PROB=.25;
+  const mouse={x:W*.5,y:VH*.5,active:false};
+  cv.parentElement.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;mouse.active=true;});
+  cv.parentElement.addEventListener('mouseleave',()=>{mouse.active=false;});
+  const pts=Array.from({length:COUNT},()=>{const node=Math.random()<.22,sr=node&&Math.random()<.5;return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.55,vy:(Math.random()-.5)*.55,r:node?Math.random()*2.2+3.2:Math.random()*1.3+.7,node,phase:Math.random()*Math.PI*2,wa:Math.random()*Math.PI*2,ws:node?.004+Math.random()*.003:.0014+Math.random()*.0014,state:sr?'refractory':'idle',fireT:0,refT:sr?Math.floor(Math.random()*REF_DUR):0,arrT:0};});
+  const sigs=[];
+  function fire(fi){const src=pts[fi];if(!src.node||src.state!=='idle')return;src.state='firing';src.fireT=FIRE_DUR;for(let j=0;j<pts.length;j++){if(j===fi||!pts[j].node)continue;const dx=src.x-pts[j].x,dy=src.y-pts[j].y;if(Math.sqrt(dx*dx+dy*dy)<CONNECT&&Math.random()<.38)sigs.push({fi,ti:j,t:0,speed:SIG_SPEED*(.75+Math.random()*.5)});}if(sigs.length>18)sigs.splice(0,sigs.length-18);}
+  function tick(){
+    if(cv.offsetParent===null){requestAnimationFrame(tick);return;}if(!W||!H)resize();cx.clearRect(0,0,W,H);
+    for(let i=0;i<pts.length;i++){const p=pts[i];p.phase+=.02;
+      if(p.node){if(p.state==='firing'){if(--p.fireT<=0){p.state='refractory';p.refT=REF_DUR;}}else if(p.state==='refractory'){if(--p.refT<=0)p.state='idle';}else{let prob=FIRE_PROB;if(mouse.active){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)prob+=FIRE_PROB*2.5*(1-dm/M_ATT);}if(Math.random()<prob)fire(i);}}
+      if(mouse.active){const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);if(d<M_REP&&d>0){const f=(M_REP-d)/M_REP;p.vx+=(dx/d)*f*M_FREP;p.vy+=(dy/d)*f*M_FREP;}else if(d<M_ATT&&d>0){const f=(1-(d-M_REP)/(M_ATT-M_REP));p.vx-=(dx/d)*f*M_FATT;p.vy-=(dy/d)*f*M_FATT;}}
+      const BM=140,BF=.08,nx=p.x/BM,nxr=(W-p.x)/BM,ny=p.y/BM,nyr=(H-p.y)/BM;
+      if(nx<1)p.vx+=BF*(1-nx)**2;if(nxr<1)p.vx-=BF*(1-nxr)**2;if(ny<1)p.vy+=BF*(1-ny)**2;if(nyr<1)p.vy-=BF*(1-nyr)**2;
+      p.wa+=(Math.random()-.5)*.045;p.vx+=Math.cos(p.wa)*p.ws;p.vy+=Math.sin(p.wa)*p.ws;
+      p.vx+=(Math.random()-.5)*.009;p.vy+=(Math.random()-.5)*.009;p.vx*=.97;p.vy*=.97;
+      const spd=Math.sqrt(p.vx*p.vx+p.vy*p.vy);if(spd>1.4){p.vx=p.vx/spd*1.4;p.vy=p.vy/spd*1.4;}
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W||p.y<0||p.y>H){p.x=W*.2+Math.random()*W*.6;p.y=H*.2+Math.random()*H*.6;p.vx*=.1;p.vy*=.1;}}
+    for(let s=sigs.length-1;s>=0;s--){const sig=sigs[s];sig.t+=sig.speed;if(sig.t>=1){pts[sig.ti].arrT=1;if(Math.random()<CASC_PROB)fire(sig.ti);sigs.splice(s,1);}}
+    const ac=new Set();for(const sig of sigs)ac.add(sig.fi<sig.ti?`${sig.fi}_${sig.ti}`:`${sig.ti}_${sig.fi}`);
+    for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){
+      const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<P_REP&&d>0){const f=(P_REP-d)/P_REP*P_FORCE;a.vx+=(dx/d)*f;a.vy+=(dy/d)*f;b.vx-=(dx/d)*f;b.vy-=(dy/d)*f;}
+      if(d<CONNECT){let mb=0;if(mouse.active){const mn=Math.min(Math.sqrt((a.x-mouse.x)**2+(a.y-mouse.y)**2),Math.sqrt((b.x-mouse.x)**2+(b.y-mouse.y)**2));if(mn<M_ATT)mb=(1-mn/M_ATT)*.55;}
+        const ia=ac.has(`${i}_${j}`),base=(1-d/CONNECT)*(a.node||b.node?.62:.30),alpha=Math.min(base+mb+(ia?.5:0),1),lw=(a.node||b.node?1:.45)+mb*.8+(ia?.9:0);
+        cx.strokeStyle=`rgba(232,0,10,${alpha})`;cx.lineWidth=lw;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke();}}}
+    for(const sig of sigs){const src=pts[sig.fi],dst=pts[sig.ti],STEPS=6,TAIL=.18;
+      for(let k=0;k<STEPS;k++){const fr=k/(STEPS-1),tt=sig.t-TAIL*(1-fr);if(tt<0||tt>1)continue;const px=src.x+(dst.x-src.x)*tt,py=src.y+(dst.y-src.y)*tt,rad=1.2+fr*10,al=.02+fr*.26;const g=cx.createRadialGradient(px,py,0,px,py,rad);g.addColorStop(0,`rgba(255,245,225,${al})`);g.addColorStop(.38,`rgba(255,130,50,${al*.45})`);g.addColorStop(1,'rgba(232,0,10,0)');cx.fillStyle=g;cx.beginPath();cx.arc(px,py,rad,0,Math.PI*2);cx.fill();}
+      const hx=src.x+(dst.x-src.x)*Math.min(sig.t,1),hy=src.y+(dst.y-src.y)*Math.min(sig.t,1);cx.save();cx.shadowBlur=6;cx.shadowColor='rgba(255,210,150,.65)';cx.fillStyle='rgba(255,255,255,.5)';cx.beginPath();cx.arc(hx,hy,1.3,0,Math.PI*2);cx.fill();cx.restore();}
+    for(const p of pts){if(p.arrT<=0)continue;p.arrT-=.033;const pr2=1-Math.max(0,p.arrT),bR=p.r+4+pr2*22,al=p.arrT*.45;if(al<.005)continue;const bg=cx.createRadialGradient(p.x,p.y,p.r*.5,p.x,p.y,bR);bg.addColorStop(0,`rgba(255,220,160,${al*.7})`);bg.addColorStop(.45,`rgba(232,60,10,${al*.5})`);bg.addColorStop(1,'rgba(232,0,10,0)');cx.fillStyle=bg;cx.beginPath();cx.arc(p.x,p.y,bR,0,Math.PI*2);cx.fill();}
+    for(const p of pts){const pr=p.r+(p.node?Math.sin(p.phase)*.9:0);let nm=0;if(mouse.active&&p.node){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)nm=1-dm/M_ATT;}
+      if(p.node){let cb=.88+nm*.12,fb=0;if(p.state==='firing'){const ft=p.fireT/FIRE_DUR;fb=ft;cb=Math.min(cb+ft*.12,1);}else if(p.state==='refractory'){cb*=.6+(1-p.refT/REF_DUR)*.4;}
+        const hR=pr*(8+nm*4+fb*3),hl=cx.createRadialGradient(p.x,p.y,pr*.5,p.x,p.y,hR);
+        hl.addColorStop(0,`rgba(232,0,10,${Math.min(.22+nm*.10+fb*.08,.55)})`);hl.addColorStop(1,'rgba(232,0,10,0)');
+        cx.fillStyle=hl;cx.beginPath();cx.arc(p.x,p.y,hR,0,Math.PI*2);cx.fill();
+        cx.save();cx.shadowBlur=10+nm*8+fb*10;cx.shadowColor=`rgba(232,40,10,${.75+nm*.2})`;cx.fillStyle=`rgba(232,0,10,${cb})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();
+      }else{cx.save();cx.shadowBlur=4;cx.shadowColor='rgba(255,255,255,.25)';cx.fillStyle=`rgba(255,255,255,${.22+Math.sin(p.phase)*.08})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();}}
+    requestAnimationFrame(tick);}tick();}
+initNeuralNet('hero-canvas');
+</script>
