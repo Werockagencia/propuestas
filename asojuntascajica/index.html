@@ -13,6 +13,10 @@
     html{scroll-behavior:smooth}
     body{font-family:'Barlow',sans-serif;background:var(--white);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;cursor:none;overflow-x:hidden}
     @media(max-width:768px){body{cursor:auto}}
+    a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+    [id]{scroll-margin-top:80px}
+    .inner{position:relative;z-index:2}
+    .cover-title,.sec-title,.cta-title,.mega-title{text-wrap:balance}
 
     #grad-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.5}
     #prog{position:fixed;top:0;left:0;height:3px;background:var(--red);z-index:9997;width:0%;transition:width .1s linear}
@@ -90,6 +94,8 @@
     .sg.vis>*{opacity:1;transform:translateY(0)}
     .fade-in{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
     .fade-in.visible{opacity:1;transform:translateY(0)}
+    .reveal-3d{opacity:0;transform:perspective(1200px) rotateX(10deg) translateY(50px) scale(.94);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+    .reveal-3d.visible{opacity:1;transform:perspective(1200px) rotateX(0deg) translateY(0) scale(1)}
 
     .g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
     .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
@@ -151,8 +157,9 @@
     .compare-list.before li::before{content:'−';position:absolute;left:2px;top:8px;font-size:18px;font-weight:700;color:var(--ink3);line-height:1}
     .compare-list.after li::before{content:'+';position:absolute;left:2px;top:8px;font-size:18px;font-weight:700;color:var(--red);line-height:1}
 
-    .icon-wrap{width:48px;height:48px;background:rgba(232,0,10,.08);border:1px solid rgba(232,0,10,.22);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+    .icon-wrap{width:48px;height:48px;background:rgba(232,0,10,.08);border:1px solid rgba(232,0,10,.22);display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .25s}
     .icon-wrap svg{width:24px;height:24px;overflow:visible}
+    .prob-card:hover .icon-wrap,.pillar:hover .icon-wrap,.opt-card:hover .opt-icon{transform:scale(1.1) rotate(-6deg);background:rgba(232,0,10,.14)}
 
     .scope-note{margin-top:32px;padding:20px 28px;border-left:3px solid rgba(0,0,0,.12);background:var(--lt2)}
     .scope-note .scope-label{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
@@ -186,24 +193,65 @@
     .mega-sub{display:block;font-size:clamp(16px,1.7vw,21px);font-weight:500;text-transform:none;letter-spacing:0;color:var(--ink2);margin-top:26px;max-width:640px;line-height:1.65}
     @media(max-width:768px){.mega-title{font-size:clamp(38px,12vw,58px)}}
 
-    /* ── 03 · MAPA DEL SITIO ── */
+    /* ── 03 · MAPA DEL SITIO (árbol animado) ── */
     .sm-root-wrap{text-align:center;margin-bottom:0}
-    .sm-root{display:inline-block;background:var(--dk);color:#fff;padding:16px 38px;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
-    .sm-stem{width:2px;height:32px;background:rgba(232,0,10,.35);margin:0 auto}
-    .sm-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-    @media(max-width:900px){.sm-grid{grid-template-columns:1fr 1fr}}
+    .sm-root{display:inline-block;background:var(--dk);color:#fff;padding:16px 38px;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;box-shadow:var(--sh2)}
+    .sm-stem{width:2px;height:32px;background:rgba(232,0,10,.35);margin:0 auto;transform-origin:top;transform:scaleY(0);transition:transform .5s ease .15s}
+    .sm-diagram.vis .sm-stem{transform:scaleY(1)}
+    .sm-tree{position:relative;margin-top:0}
+    .sm-tree::before{content:'';position:absolute;top:0;left:10%;right:10%;height:2px;background:rgba(232,0,10,.3);transform:scaleX(0);transform-origin:center;transition:transform .6s ease .35s}
+    .sm-diagram.vis .sm-tree::before{transform:scaleX(1)}
+    .sm-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;padding-top:32px}
+    @media(max-width:900px){.sm-grid{grid-template-columns:1fr 1fr}.sm-tree::before{display:none}}
     @media(max-width:560px){.sm-grid{grid-template-columns:1fr}}
-    .sm-node{background:var(--white);border:1px solid var(--border);box-shadow:var(--sh);padding:22px 16px;text-align:center;font-size:13px;font-weight:700;color:var(--ink);line-height:1.35}
+    .sm-node{position:relative;background:var(--white);border:1px solid var(--border);box-shadow:var(--sh);padding:22px 16px;text-align:center;font-size:13px;font-weight:700;color:var(--ink);line-height:1.35;transition:transform .25s ease,box-shadow .25s ease}
+    .sm-node:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+    .sm-node::before{content:'';position:absolute;top:-32px;left:50%;width:2px;height:32px;background:rgba(232,0,10,.3);transform:translateX(-50%) scaleY(0);transform-origin:top;transition:transform .5s ease}
+    @media(max-width:900px){.sm-node::before{display:none}}
+    .sm-diagram.vis .sm-node:nth-child(1)::before{transition-delay:.4s;transform:translateX(-50%) scaleY(1)}
+    .sm-diagram.vis .sm-node:nth-child(2)::before{transition-delay:.46s;transform:translateX(-50%) scaleY(1)}
+    .sm-diagram.vis .sm-node:nth-child(3)::before{transition-delay:.52s;transform:translateX(-50%) scaleY(1)}
+    .sm-diagram.vis .sm-node:nth-child(4)::before{transition-delay:.58s;transform:translateX(-50%) scaleY(1)}
+    .sm-diagram.vis .sm-node:nth-child(5)::before{transition-delay:.64s;transform:translateX(-50%) scaleY(1)}
     .sm-node.hl{background:var(--red);color:#fff;border-color:var(--red)}
     .sm-callout{margin-top:22px;background:var(--dk);color:#fff;padding:30px 36px}
     .sm-callout .lbl{color:var(--red);font-weight:800;font-size:11px;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:10px}
     .sm-callout p{font-size:14px;color:var(--text-dk2);line-height:1.75}
 
-    /* ── 04 · WIREFRAMES (browser mock) ── */
-    .bmock{background:var(--white);border:1px solid var(--border);box-shadow:var(--sh2);overflow:hidden}
-    .bmock-top{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--lt2);border-bottom:1px solid var(--border)}
-    .bmock-dot{width:7px;height:7px;border-radius:50%;background:rgba(0,0,0,.15)}
-    .bmock-url{flex:1;margin-left:8px;background:var(--white);border:1px solid var(--border);border-radius:20px;padding:3px 12px;font-size:10.5px;color:var(--ink3);text-align:center}
+    /* ── 04 · WIREFRAMES — dispositivos realistas (CSS puro) ── */
+    .dv-toggle{display:inline-flex;background:var(--lt2);border-radius:30px;padding:4px;gap:2px;margin-bottom:32px;border:1px solid var(--border)}
+    .dv-tab{border:none;background:none;padding:9px 22px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);border-radius:24px;cursor:pointer;transition:background .25s,color .25s}
+    .dv-tab.active{background:var(--dk);color:#fff}
+    .dv-tab:hover:not(.active){color:var(--ink)}
+    .dv-tab:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+    .dv-stage{position:relative;min-height:480px}
+    @media(max-width:640px){.dv-stage{min-height:560px}}
+    .dv-pane{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .45s ease,transform .45s ease;transform:scale(.98);pointer-events:none}
+    .dv-pane.active{opacity:1;visibility:visible;transform:scale(1);pointer-events:auto;position:relative}
+
+    .tilt-stage{perspective:1400px}
+    .tilt{transition:transform .5s cubic-bezier(.16,1,.3,1);will-change:transform}
+
+    .device-browser{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08),0 30px 60px -22px rgba(0,0,0,.4);transform-style:preserve-3d}
+    .device-browser-bar{display:flex;align-items:center;gap:14px;padding:11px 16px;background:linear-gradient(#f7f7f5,#e9e8e4);border-bottom:1px solid rgba(0,0,0,.08)}
+    .db-dots{display:flex;gap:7px;flex-shrink:0}
+    .db-dots span{width:11px;height:11px;border-radius:50%;display:block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+    .db-dot-r{background:#FF5F57}.db-dot-y{background:#FFBD2E}.db-dot-g{background:#28C840}
+    .db-url{flex:1;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:6px;padding:5px 14px;font-size:11px;color:var(--ink3);display:flex;align-items:center;gap:6px;justify-content:center}
+    .db-url svg{width:10px;height:10px;flex-shrink:0;opacity:.5}
+    .device-browser-screen{position:relative}
+    .device-browser--sm .device-browser-bar{padding:8px 12px;gap:10px}
+    .device-browser--sm .db-dots span{width:8px;height:8px}
+    .device-browser--sm .db-url{font-size:9.5px;padding:3px 10px}
+
+    .device-phone-wrap{display:flex;flex-direction:column;align-items:center}
+    .device-phone{width:240px;background:linear-gradient(155deg,#2b2b2b,#0a0a0a);border-radius:42px;padding:10px;box-shadow:0 1px 2px rgba(0,0,0,.15),0 30px 55px -18px rgba(0,0,0,.5);position:relative;transform-style:preserve-3d}
+    .device-phone::before{content:'';position:absolute;inset:0;border-radius:42px;padding:1px;background:linear-gradient(160deg,rgba(255,255,255,.35),rgba(255,255,255,0) 45%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+    .device-phone-screen{background:var(--white);border-radius:32px;overflow:hidden;position:relative;min-height:420px}
+    .device-phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:80px;height:22px;background:#0a0a0a;border-radius:14px;z-index:5}
+    .device-phone-home{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);width:96px;height:4px;background:rgba(0,0,0,.5);border-radius:3px;z-index:5}
+    .device-phone-shadow{width:64%;height:22px;margin:16px auto 0;background:radial-gradient(ellipse at center,rgba(0,0,0,.28),transparent 72%);filter:blur(3px)}
+
     .bmock-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px}
     .bmock-logo{font-size:12px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:8px}
     .bmock-logo-mark{width:20px;height:20px;background:var(--dk);border-radius:50%;flex-shrink:0}
@@ -215,27 +263,30 @@
     .bmock-hero{background:var(--dk);padding:34px 26px;color:#fff}
     .bmock-hero h4{font-size:16px;font-weight:800;margin-bottom:6px;line-height:1.25}
     .bmock-hero p{font-size:11px;color:var(--text-dk2);margin-bottom:14px}
-    .bmock-hero .b{display:inline-block;background:var(--red);color:#fff;font-size:9.5px;font-weight:800;padding:7px 14px;border-radius:3px;text-transform:uppercase}
+    .bmock-hero .b{display:inline-block;background:var(--red);color:#fff;font-size:9.5px;font-weight:800;padding:7px 14px;border-radius:3px;text-transform:uppercase;transition:background .2s}
     .bmock-body{padding:20px 22px}
     .bmock-cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:16px}
-    .bmock-cards3 div{background:rgba(0,0,0,.02);border:1px solid var(--border);padding:12px 14px;font-size:10px;color:var(--ink2)}
+    .bmock-cards3 div{background:rgba(0,0,0,.02);border:1px solid var(--border);padding:12px 14px;font-size:10px;color:var(--ink2);transition:background .2s}
+    .bmock-cards3 div:hover{background:rgba(232,0,10,.05)}
     .bmock-cards3 div b{display:block;font-size:11px;color:var(--ink);margin-bottom:2px}
-    .bmock-caption{text-align:center;font-size:12px;font-weight:700;color:var(--ink2);margin-top:14px;letter-spacing:.02em}
-
-    .bmock-phone{max-width:220px;margin:0 auto;border:8px solid var(--ink);border-radius:26px;overflow:hidden;background:var(--white)}
-    .bmock-phone-top{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;font-size:10.5px;font-weight:800;color:var(--ink)}
-    .bmock-phone-hero{background:var(--dk);height:70px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
-    .bmock-phone-list div{padding:11px 14px;border:1px solid var(--border);margin:6px 10px;font-size:10px;color:var(--ink2);background:rgba(0,0,0,.015)}
-    .bmock-phone-tabs{display:flex;justify-content:space-around;padding:10px 0;background:var(--dk);margin-top:6px}
-    .bmock-phone-tabs span{width:14px;height:14px;border-radius:3px;background:rgba(255,255,255,.25)}
+    .bmock-caption{text-align:center;font-size:12px;font-weight:700;color:var(--ink2);margin-top:16px;letter-spacing:.02em}
+    .bmock-phone-hero{background:var(--dk);height:64px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-top:32px}
+    .bmock-phone-list{padding:10px 16px 0}
+    .bmock-phone-list div{padding:12px 14px;border:1px solid var(--border);margin-bottom:8px;font-size:10.5px;color:var(--ink2);background:rgba(0,0,0,.015);transition:background .2s}
+    .bmock-phone-list div:hover{background:rgba(232,0,10,.05)}
+    .bmock-phone-tabbar{display:flex;justify-content:space-around;padding:12px 0 0}
+    .bmock-phone-tabbar span{width:16px;height:16px;border-radius:4px;background:rgba(0,0,0,.12)}
+    .bmock-phone-tabbar span.on{background:var(--red)}
 
     .cal-mini{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-top:12px}
-    .cal-mini span{text-align:center;font-size:9.5px;padding:7px 0;color:var(--ink2);background:rgba(0,0,0,.02)}
+    .cal-mini span{text-align:center;font-size:9.5px;padding:7px 0;color:var(--ink2);background:rgba(0,0,0,.02);transition:transform .2s}
     .cal-mini span.hd{font-weight:800;color:var(--ink3);background:none}
-    .cal-mini span.on{background:var(--dk);color:#fff;border-radius:50%;font-weight:800}
+    .cal-mini span.on{background:var(--dk);color:#fff;border-radius:50%;font-weight:800;animation:calPulse 2.4s ease-in-out infinite}
+    @keyframes calPulse{0%,100%{box-shadow:0 0 0 0 rgba(232,0,10,.4)}50%{box-shadow:0 0 0 4px rgba(232,0,10,0)}}
 
     .jac-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:14px}
-    .jac-mini div{background:var(--dk);color:#fff;text-align:center;padding:14px 6px;font-size:9px;font-weight:700}
+    .jac-mini div{background:var(--dk);color:#fff;text-align:center;padding:14px 6px;font-size:9px;font-weight:700;transition:transform .2s,background .2s}
+    .jac-mini div:hover{transform:translateY(-3px);background:#1a1a1a}
     .jac-mini div .av{width:20px;height:20px;border-radius:50%;background:rgba(232,0,10,.85);margin:0 auto 7px}
 
     /* ── 05 · ANTES DE PUBLICAR ── */
@@ -250,8 +301,12 @@
     .phase-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
     @media(max-width:900px){.phase-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:560px){.phase-grid{grid-template-columns:1fr}}
-    .phase-card{background:var(--red);padding:32px 24px;color:#fff}
-    .phase-num{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--red);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;margin-bottom:18px}
+    .phase-card{background:var(--red);padding:32px 24px;color:#fff;position:relative;transition:transform .3s ease,box-shadow .3s ease;z-index:1}
+    .phase-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.4);z-index:2}
+    .phase-card:not(:last-child)::after{content:'';position:absolute;top:50%;right:-11px;transform:translateY(-50%);width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:9px solid var(--dk);z-index:3}
+    @media(max-width:900px){.phase-card:not(:last-child)::after{display:none}}
+    .phase-num{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--red);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;margin-bottom:18px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+    .phase-card:hover .phase-num{transform:scale(1.15) rotate(-8deg)}
     .phase-title{font-size:15px;font-weight:800;margin-bottom:4px}
     .phase-time{font-size:11px;font-weight:700;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
     .phase-desc{font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.6}
@@ -259,8 +314,11 @@
     /* ── 07 · INVERSIÓN ── */
     .opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
     @media(max-width:768px){.opt-grid{grid-template-columns:1fr}}
-    .opt-card{background:var(--dk);padding:44px 40px;border-top:3px solid rgba(232,0,10,.4)}
+    .opt-card{background:var(--dk);padding:44px 40px;border-top:3px solid rgba(232,0,10,.4);position:relative;transition:transform .3s ease,box-shadow .3s ease}
+    .opt-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,.35)}
     .opt-card.reco{border-top:3px solid var(--red)}
+    .opt-or{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;letter-spacing:.05em;box-shadow:0 8px 22px rgba(232,0,10,.4);z-index:5}
+    @media(max-width:768px){.opt-or{display:none}}
     .opt-badge{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px;margin-bottom:18px}
     .opt-icon{width:52px;height:52px;border-radius:50%;background:rgba(232,0,10,.12);border:1px solid rgba(232,0,10,.3);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
     .opt-title{font-size:19px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3}
@@ -287,14 +345,26 @@
     .ft-logo img{height:20px;filter:brightness(0) invert(1);opacity:.45}
     .ft-text{font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.04em;text-align:right;line-height:1.6}
     @media(max-width:640px){footer{flex-direction:column;gap:16px;text-align:center}.ft-text{text-align:center}}
+
+    /* ── TEXTURA DE GRANO SUTIL EN SECCIONES OSCURAS ── */
+    .noise-overlay::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.035;mix-blend-mode:overlay;z-index:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+    /* ── prefers-reduced-motion: apagar movimiento decorativo ── */
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+      html{scroll-behavior:auto}
+      .fade-in,.sg>*,.reveal-3d{opacity:1!important;transform:none!important}
+      .tilt{transform:none!important}
+      #cur,#cur2,.cover-grid,.cover-red-glow{display:none}
+    }
   </style>
 </head>
 <body>
 
-<div id="cur"></div>
-<div id="cur2"></div>
-<div id="prog"></div>
-<canvas id="grad-canvas"></canvas>
+<div id="cur" aria-hidden="true"></div>
+<div id="cur2" aria-hidden="true"></div>
+<div id="prog" aria-hidden="true"></div>
+<canvas id="grad-canvas" aria-hidden="true"></canvas>
 
 <!-- NAV -->
 <nav id="nav">
@@ -316,7 +386,7 @@
   01 · PORTADA
 ════════════════════════════════════════ -->
 <section class="cover">
-  <canvas id="hero-canvas"></canvas>
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="cover-grid"></div>
   <div class="cover-ov"></div>
   <div class="cover-red-glow"></div>
@@ -404,42 +474,42 @@
 
     <div class="prob-grid sg fade-in">
       <div class="prob-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
+        <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
         <div class="prob-bar"></div>
         <span class="prob-label">Identidad propia</span>
         <div class="prob-title">Identidad y visibilidad propias</div>
         <p class="prob-text">Un dominio y una casa digital que hablan en nombre de la comunidad, no de un tercero.</p>
       </div>
       <div class="prob-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4a1 1 0 001 1h2l7 4V5L7 9H5a1 1 0 00-1 1z"/><path d="M14.5 8a5.2 5.2 0 010 8"/></svg></div>
+        <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4a1 1 0 001 1h2l7 4V5L7 9H5a1 1 0 00-1 1z"/><path d="M14.5 8a5.2 5.2 0 010 8"/></svg></div>
         <div class="prob-bar"></div>
         <span class="prob-label">Rendición de cuentas</span>
         <div class="prob-title">Transparencia y rendición de cuentas</div>
         <p class="prob-text">Noticias, actas y avances visibles para cualquier vecino, en cualquier momento.</p>
       </div>
       <div class="prob-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5"/><path d="M15 14c2.5 0 4.5 1.8 4.5 4.2"/></svg></div>
+        <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5"/><path d="M15 14c2.5 0 4.5 1.8 4.5 4.2"/></svg></div>
         <div class="prob-bar"></div>
         <span class="prob-label">28 juntas visibles</span>
         <div class="prob-title">Las 28 juntas, finalmente visibles</div>
         <p class="prob-text">Cada JAC con su propia página: su gente, su historia y sus redes.</p>
       </div>
       <div class="prob-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M4 9h16M8 3v4M16 3v4"/></svg></div>
+        <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M4 9h16M8 3v4M16 3v4"/></svg></div>
         <div class="prob-bar"></div>
         <span class="prob-label">Convocatoria</span>
         <div class="prob-title">Gestión y convocatoria</div>
         <p class="prob-text">Calendario de actividades y blog que mantienen viva la participación comunal.</p>
       </div>
       <div class="prob-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V6l7-3z"/></svg></div>
+        <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V6l7-3z"/></svg></div>
         <div class="prob-bar"></div>
         <span class="prob-label">Un activo permanente</span>
         <div class="prob-title">Un activo que permanece</div>
         <p class="prob-text">El dominio y el contenido son de Asojuntas; no dependen de un algoritmo ni de un tercero.</p>
       </div>
       <div class="prob-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M9 19V5M14 19v-7M19 19v-4"/></svg></div>
+        <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M9 19V5M14 19v-7M19 19v-4"/></svg></div>
         <div class="prob-bar"></div>
         <span class="prob-label">Escalable</span>
         <div class="prob-title">Base para crecer</div>
@@ -459,14 +529,16 @@
     <h2 class="sec-title lt">Mapa del sitio: asojuntascajica.com</h2>
     <p class="sec-lead lt">Cinco secciones principales, y dentro de la última, una biblioteca completa: una micro-página por cada una de las 28 Juntas de Acción Comunal.</p>
 
-    <div class="sm-root-wrap"><div class="sm-root">Home · con slider principal</div></div>
-    <div class="sm-stem"></div>
-    <div class="sm-grid sg fade-in">
-      <div class="sm-node">¿Qué es Asojuntas?</div>
-      <div class="sm-node">Miembros / Junta directiva</div>
-      <div class="sm-node">Blog · Noticias</div>
-      <div class="sm-node">Calendario de actividades</div>
-      <div class="sm-node hl">Conoce nuestras JAC (biblioteca)</div>
+    <div class="sm-diagram sg fade-in">
+      <div class="sm-root-wrap"><div class="sm-root">Home · con slider principal</div></div>
+      <div class="sm-stem"></div>
+      <div class="sm-grid sm-tree">
+        <div class="sm-node">¿Qué es Asojuntas?</div>
+        <div class="sm-node">Miembros / Junta directiva</div>
+        <div class="sm-node">Blog · Noticias</div>
+        <div class="sm-node">Calendario de actividades</div>
+        <div class="sm-node hl">Conoce nuestras JAC (biblioteca)</div>
+      </div>
     </div>
 
     <div class="sm-callout fade-in">
@@ -486,71 +558,93 @@
     <h2 class="sec-title lt">Así se ve cada sección del sitio.</h2>
     <p class="sec-lead lt">Wireframes de arquitectura y contenido, con la identidad visual de We Rock: mobile-first, navegación simplificada y tarjetas grandes y legibles.</p>
 
-    <!-- HOME ESCRITORIO -->
-    <div class="bmock sg fade-in">
-      <div class="bmock-top"><span class="bmock-dot"></span><span class="bmock-dot"></span><span class="bmock-dot"></span><span class="bmock-url">asojuntascajica.com</span></div>
-      <div class="bmock-nav">
-        <div class="bmock-logo"><span class="bmock-logo-mark"></span>Asojuntas Cajicá</div>
-        <div class="bmock-links"><span class="on">Inicio</span><span>Quiénes somos</span><span>Miembros</span><span>Blog</span><span>Calendario</span><span>Nuestras Juntas</span></div>
-        <span class="bmock-cta-mini">Contacto</span>
-      </div>
-      <div class="bmock-hero">
-        <h4>Fortaleciendo el tejido comunal de Cajicá</h4>
-        <p>28 Juntas de Acción Comunal, una sola voz</p>
-        <span class="b">Conócenos</span>
-      </div>
-      <div class="bmock-body">
-        <div class="bmock-cards3">
-          <div><b>¿Qué es Asojuntas?</b>Ver más →</div>
-          <div><b>Junta directiva</b>Ver más →</div>
-          <div><b>Últimas noticias</b>Ver más →</div>
-        </div>
-      </div>
+    <!-- HOME: TOGGLE ESCRITORIO / MOBILE -->
+    <div class="dv-toggle" role="group" aria-label="Cambiar vista del sitio">
+      <button type="button" class="dv-tab active" data-view="desktop" aria-pressed="true">Escritorio</button>
+      <button type="button" class="dv-tab" data-view="mobile" aria-pressed="false">Mobile</button>
     </div>
-    <div class="bmock-caption">Home · escritorio</div>
-
-    <div class="g2" style="margin-top:44px;align-items:start">
-      <!-- HOME MOBILE -->
-      <div>
-        <div class="bmock-phone">
-          <div class="bmock-phone-top"><span>☰ Asojuntas</span><span>⌕</span></div>
-          <div class="bmock-phone-hero">Slider</div>
-          <div class="bmock-phone-list">
-            <div>¿Qué es Asojuntas?</div>
-            <div>Junta directiva</div>
-            <div>Últimas noticias</div>
-            <div>Calendario</div>
+    <div class="dv-stage">
+      <div class="dv-pane active" data-pane="desktop">
+        <div class="tilt-stage">
+          <div class="device-browser tilt reveal-3d">
+            <div class="device-browser-bar">
+              <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
+              <div class="db-url"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="10" width="14" height="9" rx="1.5"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>asojuntascajica.com</div>
+            </div>
+            <div class="device-browser-screen">
+              <div class="bmock-nav">
+                <div class="bmock-logo"><span class="bmock-logo-mark" aria-hidden="true"></span>Asojuntas Cajicá</div>
+                <div class="bmock-links"><span class="on">Inicio</span><span>Quiénes somos</span><span>Miembros</span><span>Blog</span><span>Calendario</span><span>Nuestras Juntas</span></div>
+                <span class="bmock-cta-mini">Contacto</span>
+              </div>
+              <div class="bmock-hero">
+                <h4>Fortaleciendo el tejido comunal de Cajicá</h4>
+                <p>28 Juntas de Acción Comunal, una sola voz</p>
+                <span class="b">Conócenos</span>
+              </div>
+              <div class="bmock-body">
+                <div class="bmock-cards3">
+                  <div><b>¿Qué es Asojuntas?</b>Ver más →</div>
+                  <div><b>Junta directiva</b>Ver más →</div>
+                  <div><b>Últimas noticias</b>Ver más →</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="bmock-phone-tabs"><span></span><span></span><span></span><span></span></div>
         </div>
-        <div class="bmock-caption">Home · mobile</div>
+        <div class="bmock-caption">Home · escritorio</div>
       </div>
 
-      <!-- PRINCIPIOS DE DISEÑO -->
-      <div>
-        <div class="pillar" style="padding:32px 28px">
-          <span class="pillar-num">Principios de diseño moderno</span>
-          <ul class="bl" style="margin-top:6px">
-            <li><strong style="color:var(--ink)">Mobile-first:</strong> el diseño se construye primero para pantallas pequeñas</li>
-            <li><strong style="color:var(--ink)">Navegación simplificada:</strong> menú tipo hamburguesa, una sola acción principal por pantalla</li>
-            <li><strong style="color:var(--ink)">Tarjetas y tipografía grandes:</strong> contenido legible, con jerarquía clara</li>
-            <li><strong style="color:var(--ink)">Scroll vertical fluido:</strong> todo en una sola columna, sin menús que no quepan</li>
-          </ul>
+      <div class="dv-pane" data-pane="mobile">
+        <div class="g2" style="align-items:start">
+          <div class="device-phone-wrap">
+            <div class="tilt-stage">
+              <div class="device-phone tilt reveal-3d">
+                <div class="device-phone-notch" aria-hidden="true"></div>
+                <div class="device-phone-screen">
+                  <div class="bmock-phone-hero">Slider</div>
+                  <div class="bmock-phone-list">
+                    <div>¿Qué es Asojuntas?</div>
+                    <div>Junta directiva</div>
+                    <div>Últimas noticias</div>
+                    <div>Calendario</div>
+                  </div>
+                  <div class="bmock-phone-tabbar" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></div>
+                  <div class="device-phone-home" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+            <div class="device-phone-shadow" aria-hidden="true"></div>
+            <div class="bmock-caption">Home · mobile</div>
+          </div>
+
+          <div class="pillar" style="padding:32px 28px">
+            <span class="pillar-num">Principios de diseño moderno</span>
+            <ul class="bl" style="margin-top:6px">
+              <li><strong style="color:var(--ink)">Mobile-first:</strong> el diseño se construye primero para pantallas pequeñas</li>
+              <li><strong style="color:var(--ink)">Navegación simplificada:</strong> menú tipo hamburguesa, una sola acción principal por pantalla</li>
+              <li><strong style="color:var(--ink)">Tarjetas y tipografía grandes:</strong> contenido legible, con jerarquía clara</li>
+              <li><strong style="color:var(--ink)">Scroll vertical fluido:</strong> todo en una sola columna, sin menús que no quepan</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="g3" style="margin-top:44px;align-items:start">
+    <div class="g3 tilt-stage" style="margin-top:56px;align-items:start">
       <!-- QUIENES SOMOS -->
       <div>
-        <div class="bmock">
-          <div class="bmock-top"><span class="bmock-dot"></span><span class="bmock-dot"></span><span class="bmock-dot"></span><span class="bmock-url">/quienes-somos</span></div>
-          <div class="bmock-nav" style="padding:10px 16px"><div class="bmock-logo" style="font-size:10px"><span class="bmock-logo-mark" style="width:14px;height:14px"></span>Asojuntas</div></div>
-          <div style="background:var(--dk);color:#fff;padding:14px 18px;font-size:12px;font-weight:800">Quiénes somos</div>
-          <div style="padding:16px 18px">
-            <div style="background:var(--lt3);height:44px;margin-bottom:10px"></div>
-            <p style="font-size:10px;color:var(--ink2);margin-bottom:10px">Historia y misión de Asojuntas</p>
-            <div style="display:flex;gap:6px">
+        <div class="device-browser device-browser--sm tilt reveal-3d">
+          <div class="device-browser-bar">
+            <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
+            <div class="db-url">/quienes-somos</div>
+          </div>
+          <div class="device-browser-screen">
+            <div class="bmock-nav" style="padding:10px 16px"><div class="bmock-logo" style="font-size:10px"><span class="bmock-logo-mark" style="width:14px;height:14px" aria-hidden="true"></span>Asojuntas</div></div>
+            <div style="background:var(--dk);color:#fff;padding:14px 18px;font-size:12px;font-weight:800">Quiénes somos</div>
+            <div style="padding:16px 18px">
+              <div style="background:var(--lt3);height:44px;margin-bottom:10px"></div>
+              <p style="font-size:10px;color:var(--ink2);margin-bottom:10px">Historia y misión de Asojuntas</p>
               <div class="jac-mini" style="grid-template-columns:repeat(5,1fr);margin-top:0"><div style="padding:8px 2px"><div class="av" style="width:14px;height:14px;margin-bottom:4px"></div></div><div style="padding:8px 2px"><div class="av" style="width:14px;height:14px;margin-bottom:4px"></div></div><div style="padding:8px 2px"><div class="av" style="width:14px;height:14px;margin-bottom:4px"></div></div><div style="padding:8px 2px"><div class="av" style="width:14px;height:14px;margin-bottom:4px"></div></div><div style="padding:8px 2px"><div class="av" style="width:14px;height:14px;margin-bottom:4px"></div></div></div>
             </div>
           </div>
@@ -560,16 +654,21 @@
 
       <!-- BLOG -->
       <div>
-        <div class="bmock">
-          <div class="bmock-top"><span class="bmock-dot"></span><span class="bmock-dot"></span><span class="bmock-dot"></span><span class="bmock-url">/noticias</span></div>
-          <div class="bmock-nav" style="padding:10px 16px"><div class="bmock-logo" style="font-size:10px"><span class="bmock-logo-mark" style="width:14px;height:14px"></span>Asojuntas</div></div>
-          <div style="padding:14px 18px">
-            <div style="font-size:11px;font-weight:800;color:var(--ink);margin-bottom:10px">Noticias</div>
-            <div class="bmock-cards3" style="grid-template-columns:1fr 1fr">
-              <div><div style="background:var(--lt3);height:26px;margin-bottom:6px"></div><b>Mejoras parque Santa Cruz</b></div>
-              <div><div style="background:var(--lt3);height:26px;margin-bottom:6px"></div><b>Reunión general</b></div>
-              <div><div style="background:var(--lt3);height:26px;margin-bottom:6px"></div><b>Convenio vías veredales</b></div>
-              <div><div style="background:var(--lt3);height:26px;margin-bottom:6px"></div><b>Capacitación del riesgo</b></div>
+        <div class="device-browser device-browser--sm tilt reveal-3d">
+          <div class="device-browser-bar">
+            <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
+            <div class="db-url">/noticias</div>
+          </div>
+          <div class="device-browser-screen">
+            <div class="bmock-nav" style="padding:10px 16px"><div class="bmock-logo" style="font-size:10px"><span class="bmock-logo-mark" style="width:14px;height:14px" aria-hidden="true"></span>Asojuntas</div></div>
+            <div style="padding:14px 18px">
+              <div style="font-size:11px;font-weight:800;color:var(--ink);margin-bottom:10px">Noticias</div>
+              <div class="bmock-cards3" style="grid-template-columns:1fr 1fr">
+                <div><div style="background:var(--lt3);height:26px;margin-bottom:6px"></div><b>Mejoras parque Santa Cruz</b></div>
+                <div><div style="background:var(--lt3);height:26px;margin-bottom:6px"></div><b>Reunión general</b></div>
+                <div><div style="background:var(--lt3);height:26px;margin-bottom:6px"></div><b>Convenio vías veredales</b></div>
+                <div><div style="background:var(--lt3);height:26px;margin-bottom:6px"></div><b>Capacitación del riesgo</b></div>
+              </div>
             </div>
           </div>
         </div>
@@ -578,15 +677,20 @@
 
       <!-- CALENDARIO -->
       <div>
-        <div class="bmock">
-          <div class="bmock-top"><span class="bmock-dot"></span><span class="bmock-dot"></span><span class="bmock-dot"></span><span class="bmock-url">/calendario</span></div>
-          <div class="bmock-nav" style="padding:10px 16px"><div class="bmock-logo" style="font-size:10px"><span class="bmock-logo-mark" style="width:14px;height:14px"></span>Asojuntas</div></div>
-          <div style="padding:14px 18px">
-            <div style="font-size:11px;font-weight:800;color:var(--ink);margin-bottom:4px">Calendario de actividades</div>
-            <div class="cal-mini">
-              <span class="hd">L</span><span class="hd">M</span><span class="hd">X</span><span class="hd">J</span><span class="hd">V</span><span class="hd">S</span><span class="hd">D</span>
-              <span>1</span><span>2</span><span class="on">3</span><span>4</span><span>5</span><span>6</span><span>7</span>
-              <span>8</span><span class="on">9</span><span>10</span><span>11</span><span>12</span><span>13</span><span class="on">14</span>
+        <div class="device-browser device-browser--sm tilt reveal-3d">
+          <div class="device-browser-bar">
+            <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
+            <div class="db-url">/calendario</div>
+          </div>
+          <div class="device-browser-screen">
+            <div class="bmock-nav" style="padding:10px 16px"><div class="bmock-logo" style="font-size:10px"><span class="bmock-logo-mark" style="width:14px;height:14px" aria-hidden="true"></span>Asojuntas</div></div>
+            <div style="padding:14px 18px">
+              <div style="font-size:11px;font-weight:800;color:var(--ink);margin-bottom:4px">Calendario de actividades</div>
+              <div class="cal-mini">
+                <span class="hd">L</span><span class="hd">M</span><span class="hd">X</span><span class="hd">J</span><span class="hd">V</span><span class="hd">S</span><span class="hd">D</span>
+                <span>1</span><span>2</span><span class="on">3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                <span>8</span><span class="on">9</span><span>10</span><span>11</span><span>12</span><span>13</span><span class="on">14</span>
+              </div>
             </div>
           </div>
         </div>
@@ -595,27 +699,32 @@
     </div>
 
     <!-- NUESTRAS JUNTAS -->
-    <div style="margin-top:44px">
-      <div class="bmock">
-        <div class="bmock-top"><span class="bmock-dot"></span><span class="bmock-dot"></span><span class="bmock-dot"></span><span class="bmock-url">asojuntascajica.com/nuestras-juntas</span></div>
-        <div class="bmock-nav">
-          <div class="bmock-logo"><span class="bmock-logo-mark"></span>Asojuntas Cajicá</div>
-          <div class="bmock-links"><span>Inicio</span><span>Quiénes somos</span><span>Miembros</span><span>Blog</span><span>Calendario</span><span class="on">Nuestras Juntas</span></div>
-          <span class="bmock-cta-mini">Contacto</span>
+    <div class="tilt-stage" style="margin-top:44px">
+      <div class="device-browser tilt reveal-3d">
+        <div class="device-browser-bar">
+          <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
+          <div class="db-url"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="10" width="14" height="9" rx="1.5"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>asojuntascajica.com/nuestras-juntas</div>
         </div>
-        <div class="bmock-body">
-          <div style="font-size:11px;color:var(--ink3);margin-bottom:6px">Buscar junta... · Filtrar por vereda, barrio o sector</div>
-          <div class="jac-mini">
-            <div><div class="av"></div>JAC 20 de Julio</div>
-            <div><div class="av"></div>JAC Calahorra</div>
-            <div><div class="av"></div>JAC Canelón</div>
-            <div><div class="av"></div>JAC Centro</div>
-            <div><div class="av"></div>JAC Chuntame</div>
-            <div><div class="av"></div>JAC El Prado</div>
-            <div><div class="av"></div>JAC Gran Colombia</div>
-            <div><div class="av"></div>JAC La Florida</div>
+        <div class="device-browser-screen">
+          <div class="bmock-nav">
+            <div class="bmock-logo"><span class="bmock-logo-mark" aria-hidden="true"></span>Asojuntas Cajicá</div>
+            <div class="bmock-links"><span>Inicio</span><span>Quiénes somos</span><span>Miembros</span><span>Blog</span><span>Calendario</span><span class="on">Nuestras Juntas</span></div>
+            <span class="bmock-cta-mini">Contacto</span>
           </div>
-          <p style="font-size:10.5px;color:var(--red);font-style:italic;margin-top:10px">… y así hasta completar las 28 juntas, en orden alfabético</p>
+          <div class="bmock-body">
+            <div style="font-size:11px;color:var(--ink3);margin-bottom:6px">Buscar junta… · Filtrar por vereda, barrio o sector</div>
+            <div class="jac-mini">
+              <div><div class="av"></div>JAC 20 de Julio</div>
+              <div><div class="av"></div>JAC Calahorra</div>
+              <div><div class="av"></div>JAC Canelón</div>
+              <div><div class="av"></div>JAC Centro</div>
+              <div><div class="av"></div>JAC Chuntame</div>
+              <div><div class="av"></div>JAC El Prado</div>
+              <div><div class="av"></div>JAC Gran Colombia</div>
+              <div><div class="av"></div>JAC La Florida</div>
+            </div>
+            <p style="font-size:10.5px;color:var(--red);font-style:italic;margin-top:10px">… y así hasta completar las 28 juntas, en orden alfabético</p>
+          </div>
         </div>
       </div>
       <div class="bmock-caption">Conoce nuestras Juntas de Acción Comunal</div>
@@ -643,11 +752,11 @@
     <div class="g2" style="margin-top:20px">
       <div class="time-card">
         <span class="sec-label" style="margin-bottom:8px">Si Asojuntas entrega la información completa</span>
-        <div class="time-num">20 días hábiles</div>
+        <div class="time-num"><span class="cnt" data-target="20">0</span> días hábiles</div>
       </div>
       <div class="time-card hl">
         <span class="sec-label" style="margin-bottom:8px">Si We Rock realiza el levantamiento y la fotografía</span>
-        <div class="time-num">30 días hábiles</div>
+        <div class="time-num"><span class="cnt" data-target="30">0</span> días hábiles</div>
       </div>
     </div>
   </div>
@@ -657,7 +766,7 @@
 <!-- ════════════════════════════════════════
   07 · PLAN DE TRABAJO PROPUESTO
 ════════════════════════════════════════ -->
-<section class="sec sec-dk" id="s-plan">
+<section class="sec sec-dk noise-overlay" id="s-plan">
   <div class="inner">
     <span class="sec-label">06 · Ejecución e inversión</span>
     <h2 class="sec-title dk">Plan de trabajo propuesto.</h2>
@@ -711,31 +820,34 @@
     <h2 class="sec-title lt">Dos formas de llegar al mismo sitio.</h2>
     <p class="sec-lead lt">Diseño, desarrollo y puesta en marcha de asojuntascajica.com: incluye las 28 páginas de junta, blog, calendario y biblioteca. El dominio y el hosting se cotizan y contratan por separado, con el proveedor que Asojuntas elija.</p>
 
-    <div class="opt-grid sg fade-in">
-      <div class="opt-card corner-fx">
-        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div>
-        <div class="opt-title">Asojuntas entrega la información</div>
-        <p class="opt-desc">Asojuntas aporta el listado de las 28 juntas, fotos, historias y redes sociales ya listas para publicar.</p>
-        <div class="opt-price">$3.289.000</div>
-        <div class="opt-period">COP</div>
-        <div class="opt-time">Plazo de entrega: 20 días hábiles</div>
+    <div style="position:relative">
+      <div class="opt-grid sg fade-in">
+        <div class="opt-card corner-fx">
+          <div class="opt-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div>
+          <div class="opt-title">Asojuntas entrega la información</div>
+          <p class="opt-desc">Asojuntas aporta el listado de las 28 juntas, fotos, historias y redes sociales ya listas para publicar.</p>
+          <div class="opt-price">$<span class="cnt" data-target="3289000" data-format="cop">0</span></div>
+          <div class="opt-period">COP</div>
+          <div class="opt-time">Plazo de entrega: 20 días hábiles</div>
+        </div>
+        <div class="opt-card reco corner-fx">
+          <div class="opt-badge">Recomendado</div>
+          <div class="opt-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.6-2.5h4.8L16 7"/><circle cx="12" cy="13.5" r="3.4"/></svg></div>
+          <div class="opt-title">We Rock realiza investigación y fotografía profesional</div>
+          <p class="opt-desc">Incluye el levantamiento de información de las 28 juntas y una sesión de fotografía publicitaria propia.</p>
+          <div class="opt-price">$<span class="cnt" data-target="4300000" data-format="cop">0</span></div>
+          <div class="opt-period">COP</div>
+          <div class="opt-time">Plazo de entrega: 30 días hábiles</div>
+        </div>
       </div>
-      <div class="opt-card reco corner-fx">
-        <div class="opt-badge">Recomendado</div>
-        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.6-2.5h4.8L16 7"/><circle cx="12" cy="13.5" r="3.4"/></svg></div>
-        <div class="opt-title">We Rock realiza investigación y fotografía profesional</div>
-        <p class="opt-desc">Incluye el levantamiento de información de las 28 juntas y una sesión de fotografía publicitaria propia.</p>
-        <div class="opt-price">$4.300.000</div>
-        <div class="opt-period">COP</div>
-        <div class="opt-time">Plazo de entrega: 30 días hábiles</div>
-      </div>
+      <div class="opt-or" aria-hidden="true">O</div>
     </div>
 
     <p style="font-size:12.5px;color:var(--ink3);font-style:italic;margin-top:24px;line-height:1.7">El dominio asojuntascajica.com y el hosting se cotizan y contratan por separado, según el proveedor elegido. Precios en pesos colombianos, vigentes para esta propuesta.</p>
 
     <div style="margin-top:36px">
       <a href="https://wa.me/573125766056?text=Hola%20David%2C%20quiero%20hablar%20sobre%20la%20inversi%C3%B3n%20de%20la%20propuesta%20web%20para%20Asojuntas%20Cajic%C3%A1." class="cta-btn" target="_blank" style="background:var(--ink)">
-        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.5A2.5 2.5 0 0114.5 15h-1l-4 2-4-2H4A2.5 2.5 0 011.5 12.5v-7A2.5 2.5 0 014 3h10.5A2.5 2.5 0 0117 5.5v7z"/></svg>
+        <svg aria-hidden="true" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.5A2.5 2.5 0 0114.5 15h-1l-4 2-4-2H4A2.5 2.5 0 011.5 12.5v-7A2.5 2.5 0 014 3h10.5A2.5 2.5 0 0117 5.5v7z"/></svg>
         Hablar con David sobre la inversión
       </a>
     </div>
@@ -817,15 +929,15 @@
 <!-- ════════════════════════════════════════
   10 · CTA / PRÓXIMOS PASOS
 ════════════════════════════════════════ -->
-<section class="cta-section cta-cut" id="s-cta">
-  <canvas id="cta-canvas"></canvas>
+<section class="cta-section cta-cut noise-overlay" id="s-cta">
+  <canvas id="cta-canvas" aria-hidden="true"></canvas>
   <div class="cta-glow"></div>
   <div class="cta-inner">
     <div class="cta-tag">09 · Próximos pasos</div>
     <h2 class="cta-title">TU COMUNIDAD<br>YA TIENE VOZ.<br><span class="r">DALE UN SITIO.</span></h2>
     <p class="cta-sub">David revisa contigo qué opción de entrega tiene más sentido (que Asojuntas entregue la información o que We Rock haga el levantamiento y la fotografía) y arma el plan de trabajo en la misma llamada.</p>
     <a href="https://wa.me/573125766056?text=Hola%20David%2C%20quiero%20hablar%20sobre%20la%20propuesta%20de%20dise%C3%B1o%20y%20desarrollo%20web%20para%20Asojuntas%20Cajic%C3%A1." class="cta-btn" target="_blank">
-      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.5A2.5 2.5 0 0114.5 15h-1l-4 2-4-2H4A2.5 2.5 0 011.5 12.5v-7A2.5 2.5 0 014 3h10.5A2.5 2.5 0 0117 5.5v7z"/></svg>
+      <svg aria-hidden="true" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.5A2.5 2.5 0 0114.5 15h-1l-4 2-4-2H4A2.5 2.5 0 011.5 12.5v-7A2.5 2.5 0 014 3h10.5A2.5 2.5 0 0117 5.5v7z"/></svg>
       Hablar con David
     </a>
     <div class="cta-detail">+57 312 576 6056 · davidh@werock.space · werock.space</div>
@@ -846,10 +958,12 @@
 
 <script>
 // ── CURSOR ──
-const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
-let mx=0,my=0,cx2=0,cy2=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx-4}px,${my-4}px)`;});
-(function a(){cx2+=(mx-cx2)*.18;cy2+=(my-cy2)*.18;cur2.style.transform=`translate(${cx2-19}px,${cy2-19}px)`;requestAnimationFrame(a);})();
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+  let mx=0,my=0,cx2=0,cy2=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx-4}px,${my-4}px)`;});
+  (function a(){cx2+=(mx-cx2)*.18;cy2+=(my-cy2)*.18;cur2.style.transform=`translate(${cx2-19}px,${cy2-19}px)`;requestAnimationFrame(a);})();
+}
 
 // ── PROGRESS ──
 const prog=document.getElementById('prog');
@@ -861,23 +975,47 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scro
 
 // ── FADE IN ──
 const fObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');fObs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.fade-in').forEach(el=>fObs.observe(el));
+document.querySelectorAll('.fade-in, .reveal-3d').forEach(el=>fObs.observe(el));
 
 // ── STAGGER GRIDS ──
 const sgObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');sgObs.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.sg').forEach(el=>sgObs.observe(el));
 
-// ── COUNT-UP NUMÉRICO ──
+// ── COUNT-UP NUMÉRICO (soporta formato COP con separador de miles) ──
 const cntObs=new IntersectionObserver(entries=>{entries.forEach(e=>{
   if(!e.isIntersecting)return;
-  const el=e.target,target=parseInt(el.dataset.target,10),dur=1300,t0=performance.now();
-  function step(t){const p=Math.min((t-t0)/dur,1),eased=1-Math.pow(1-p,3);el.textContent=Math.round(eased*target);if(p<1)requestAnimationFrame(step);else el.textContent=target;}
+  const el=e.target,target=parseInt(el.dataset.target,10),dur=1300,t0=performance.now(),fmt=el.dataset.format==='cop';
+  function step(t){const p=Math.min((t-t0)/dur,1),eased=1-Math.pow(1-p,3),val=Math.round(eased*target);el.textContent=fmt?val.toLocaleString('es-CO'):val;if(p<1)requestAnimationFrame(step);else el.textContent=fmt?target.toLocaleString('es-CO'):target;}
   requestAnimationFrame(step);cntObs.unobserve(el);
 });},{threshold:.4});
 document.querySelectorAll('.cnt').forEach(el=>cntObs.observe(el));
 
+// ── TOGGLE ESCRITORIO / MOBILE (wireframes) ──
+document.querySelectorAll('.dv-toggle').forEach(tg=>{
+  tg.addEventListener('click',e=>{
+    const btn=e.target.closest('.dv-tab');if(!btn)return;
+    tg.querySelectorAll('.dv-tab').forEach(b=>{const on=b===btn;b.classList.toggle('active',on);b.setAttribute('aria-pressed',on?'true':'false');});
+    const stage=tg.nextElementSibling;
+    stage.querySelectorAll('.dv-pane').forEach(p=>p.classList.toggle('active',p.dataset.pane===btn.dataset.view));
+  });
+});
+
+// ── TILT 3D EN MOCKUPS (deshabilitado si el usuario prefiere menos movimiento) ──
+const prefersReducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!prefersReducedMotion){
+  document.querySelectorAll('.tilt').forEach(el=>{
+    let raf=null;
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
+      if(raf)cancelAnimationFrame(raf);
+      raf=requestAnimationFrame(()=>{el.style.transform=`perspective(1200px) rotateX(${(-py*7).toFixed(2)}deg) rotateY(${(px*9).toFixed(2)}deg)`;});
+    });
+    el.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);el.style.transform='perspective(1200px) rotateX(0deg) rotateY(0deg)';});
+  });
+}
+
 // ── GRADIENT CANVAS ──
-(function(){
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)(function(){
   const canvas=document.getElementById('grad-canvas'),ctx=canvas.getContext('2d');let w,h;
   function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}
   resize();window.addEventListener('resize',resize);
@@ -941,8 +1079,10 @@ function initNeuralNet(id,light,neutral,onRed){
         cx.save();cx.shadowBlur=10+nm*8+fb*10;cx.shadowColor=onRed?`rgba(255,255,255,${.45+nm*.2})`:neutral?'rgba(75,65,60,.35)':`rgba(232,40,10,${.75+nm*.2})`;cx.fillStyle=onRed?`rgba(255,255,255,${cb*.88})`:neutral?`rgba(75,65,60,${cb*.28})`:`rgba(232,0,10,${cb})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();
       }else{cx.save();cx.shadowBlur=light?2:4;cx.shadowColor=light?'rgba(0,0,0,.08)':'rgba(255,255,255,.25)';cx.fillStyle=light?`rgba(30,20,20,${.12+Math.sin(p.phase)*.04})`:`rgba(255,255,255,${(onRed?.16:.22)+Math.sin(p.phase)*.08})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();}}
     requestAnimationFrame(tick);}tick();}
-initNeuralNet('hero-canvas');
-initNeuralNet('cta-canvas');
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  initNeuralNet('hero-canvas');
+  initNeuralNet('cta-canvas');
+}
 </script>
 </body>
 </html>
