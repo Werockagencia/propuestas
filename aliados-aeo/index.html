@@ -1,0 +1,241 @@
+<title>Guía de Aliados AEO</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --red:#E8000A;--red-h:#FF1A22;--dk:#0A0A0A;--dk2:#111111;--dk3:#161616;
+    --lt:#F5F2EB;--lt2:#EDE9DF;--white:#FFFFFF;
+    --tx-dh:#FFFFFF;--tx-db:#C8C4BC;--tx-ds:#9E9890;
+    --tx-lh:#0F0E0C;--tx-lb:#2A2826;--tx-ls:#484440;--tx-lm:#686460;
+    --bd-d:rgba(255,255,255,.08);--bd-l:rgba(0,0,0,.09);
+    --F:'Barlow','Helvetica Neue',Helvetica,Arial,sans-serif;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--lt);color:var(--tx-lh);font-family:var(--F);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--red)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 32px}
+  @media(max-width:640px){.wrap{padding:0 20px}}
+
+  .cover{background:var(--dk);color:#fff;padding:72px 0 40px}
+  .cover .tag{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:24px}
+  .cover .tag::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--red)}
+  .cover h1{font-size:clamp(32px,5vw,52px);font-weight:900;text-transform:uppercase;line-height:1.02;letter-spacing:-1.5px;margin-bottom:18px}
+  .cover h1 .r{color:var(--red)}
+  .cover p{font-size:17px;color:var(--tx-db);max-width:640px;line-height:1.7}
+  .cover-bar{display:flex;gap:2px;margin-top:36px;border-top:1px solid var(--bd-d);padding-top:24px}
+  .cbs{flex:1}
+  .cbn{font-size:22px;font-weight:900}
+  .cbn .r{color:var(--red)}
+  .cbl{font-size:11px;color:var(--tx-ds);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
+
+  section{padding:56px 0;border-bottom:1px solid var(--bd-l)}
+  .sec-dk{background:var(--dk2);color:#fff;border-bottom:1px solid var(--bd-d)}
+  .sec-dk .lbl{color:var(--red)}
+  .lbl{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:14px}
+  h2{font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.02em;margin-bottom:14px;line-height:1.15}
+  .lead{font-size:16.5px;color:var(--tx-ls);max-width:680px;margin-bottom:8px}
+  .sec-dk .lead{color:var(--tx-db)}
+
+  .badge{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px;margin-bottom:14px}
+
+  ul.bl{list-style:none;margin-top:18px}
+  ul.bl li{font-size:15px;color:var(--tx-ls);padding:9px 0 9px 22px;position:relative;border-bottom:1px solid var(--bd-l);line-height:1.6}
+  ul.bl li:last-child{border-bottom:none}
+  ul.bl li::before{content:'';position:absolute;left:0;top:17px;width:8px;height:2px;background:var(--red)}
+  .sec-dk ul.bl li{color:var(--tx-db);border-bottom-color:var(--bd-d)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+  @media(max-width:680px){.grid2{grid-template-columns:1fr}}
+
+  /* timeline */
+  .tl{margin-top:28px;display:flex;flex-direction:column;gap:2px}
+  .tl-step{display:grid;grid-template-columns:110px 1fr;gap:20px;background:var(--dk3);padding:20px 24px;align-items:start}
+  .tl-when{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+  .tl-title{font-size:15.5px;font-weight:700;color:#fff;margin-bottom:5px}
+  .tl-desc{font-size:13.5px;color:var(--tx-db);line-height:1.6}
+  @media(max-width:560px){.tl-step{grid-template-columns:1fr}}
+
+  /* pricing */
+  .price-card{background:var(--white);border:1px solid var(--bd-l);box-shadow:0 2px 12px rgba(0,0,0,.05);margin-top:24px}
+  .price-hd{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 28px;border-bottom:2px solid var(--red);flex-wrap:wrap}
+  .price-name{font-size:16px;font-weight:800;color:var(--tx-lh)}
+  .price-tag{font-size:11px;color:var(--tx-lm);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+  .price-body{padding:24px 28px}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--bd-l);gap:16px;flex-wrap:wrap}
+  .price-row:last-child{border-bottom:none}
+  .price-row .k{font-size:14px;color:var(--tx-ls)}
+  .price-row .v{font-size:17px;font-weight:800;color:var(--tx-lh);white-space:nowrap}
+  .price-row.hi .v{color:var(--red)}
+  .price-row.floor{background:rgba(232,0,10,.045);margin:0 -28px;padding:13px 28px}
+  .margin-note{margin-top:18px;padding:14px 18px;background:var(--lt2);border-left:3px solid var(--red);font-size:13.5px;color:var(--tx-ls);line-height:1.65}
+  .margin-note strong{color:var(--tx-lh)}
+
+  .vol-table{width:100%;border-collapse:collapse;margin-top:20px;font-size:14px}
+  .vol-table th{text-align:left;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tx-lm);padding:10px 14px;border-bottom:2px solid var(--bd-l)}
+  .vol-table td{padding:12px 14px;border-bottom:1px solid var(--bd-l)}
+  .vol-table td.v{font-weight:800;color:var(--red)}
+
+  .talk{background:var(--white);border-left:3px solid var(--red);padding:18px 22px;margin-top:16px;box-shadow:0 1px 6px rgba(0,0,0,.04)}
+  .talk .q{font-size:13px;font-weight:800;color:var(--tx-lm);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+  .talk .a{font-size:15px;color:var(--tx-ls);line-height:1.7;font-style:italic}
+
+  footer{padding:40px 0;text-align:center}
+  footer p{font-size:12.5px;color:var(--tx-lm)}
+</style>
+
+<div class="cover">
+  <div class="wrap">
+    <div class="tag">Uso interno · Guía de aliados</div>
+    <h1>Cómo vender <span class="r">AEO</span><br>y saber qué cobrar.</h1>
+    <p>Esta guía es para ti, no para tus prospectos: trae el mismo argumento de venta que usa We Rock públicamente, más los tiempos de implementación y las tarifas de aliados para que sepas exactamente desde dónde cobrar sin perder margen.</p>
+    <div class="cover-bar">
+      <div class="cbs"><div class="cbn"><span class="r">$1.400.000</span></div><div class="cbl">Tu costo mensual por cliente (lo que factura We Rock)</div></div>
+      <div class="cbs"><div class="cbn">3 <span class="r">meses</span></div><div class="cbl">Permanencia mínima recomendada al cliente</div></div>
+      <div class="cbs"><div class="cbn">60–90 <span class="r">días</span></div><div class="cbl">Cuando aparecen las primeras menciones</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<section>
+  <span class="lbl">01 · El argumento, resumido</span>
+  <h2>Google ya no es la única puerta.</h2>
+  <p class="lead">ChatGPT, Perplexity y las Búsquedas con IA de Google ya responden preguntas de compra sin que el usuario visite ningún sitio. Si la marca de tu prospecto no es la fuente que la IA cita o recomienda, es invisible ahí, aunque su SEO esté impecable. AEO (AI Engine Optimization) es la disciplina que construye esa visibilidad.</p>
+  <ul class="bl">
+    <li><strong>Zero-click:</strong> la IA responde y el usuario no hace clic a ningún sitio, sin importar cuánto se invierta en SEO clásico.</li>
+    <li><strong>Ventana abierta:</strong> campo nuevo, de 2024 en adelante. Quien construya autoridad ahora entra con ventaja real.</li>
+    <li><strong>No reemplaza el marketing del cliente:</strong> se suma como la capa que asegura que su marca también exista dentro de las respuestas de IA.</li>
+  </ul>
+</section>
+
+<section>
+  <span class="lbl">02 · A quién se lo vendes</span>
+  <h2>No es para cualquiera. Eso es lo que lo hace fácil de vender.</h2>
+  <p class="lead">Es para empresas que ya construyeron algo y no quieren perder terreno, no para quien busca un truco de posicionamiento.</p>
+  <ul class="bl">
+    <li>Ya tienen presencia digital establecida (sitio, contenido, SEO) y quieren que la IA también los recomiende.</li>
+    <li>Entienden la marca como inversión estratégica, no como gasto operativo.</li>
+    <li>Quieren estar en la conversación antes de que sea obvio para toda su competencia.</li>
+  </ul>
+</section>
+
+<section class="sec-dk">
+  <div class="badge">Qué incluye</div>
+  <h2>Cinco frentes. Una sola dirección.</h2>
+  <p class="lead">No son piezas sueltas de contenido: es un sistema coordinado para construir a la marca del cliente como fuente confiable.</p>
+  <ul class="bl">
+    <li><strong>01 · Auditoría de Visibilidad en IA</strong> — probamos preguntas reales en ChatGPT, Perplexity, Gemini y AI Overviews; medimos si la marca aparece, cómo la describen y quién aparece en su lugar.</li>
+    <li><strong>02 · Entity SEO</strong> — schema markup, datos consistentes en Wikidata y directorios, corrección de información contradictoria.</li>
+    <li><strong>03 · Contenido optimizado para extracción</strong> — definiciones directas, comparativas y datos propios, pensados para que la IA los cite.</li>
+    <li><strong>04 · Autoridad en fuentes externas</strong> — reseñas, foros del sector y relaciones digitales con medios: las fuentes que una IA realmente confía.</li>
+    <li><strong>05 · Monitoreo mensual</strong> — mismo set de prompts cada mes, avance real frente a la competencia, ajuste según lo que mueve la aguja.</li>
+  </ul>
+</section>
+
+<section>
+  <span class="lbl">03 · Cómo se implementa</span>
+  <h2>Las etapas, para explicarle al cliente qué esperar y cuándo.</h2>
+  <p class="lead">Esto es lo que más preguntan los prospectos: "¿cuándo se ve algo?". Úsalo tal cual.</p>
+  <div class="tl">
+    <div class="tl-step">
+      <div class="tl-when">Semana 1–2</div>
+      <div><div class="tl-title">Diagnóstico y arquitectura</div><div class="tl-desc">Auditoría de visibilidad, set de prompts de prueba definido, mapeo de schema/Wikidata/directorios.</div></div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-when">Mes 1</div>
+      <div><div class="tl-title">Entity SEO + primer contenido</div><div class="tl-desc">Se corrige la identidad de marca ante la IA y arranca el contenido optimizado para extracción.</div></div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-when">Mes 2</div>
+      <div><div class="tl-title">Autoridad externa</div><div class="tl-desc">Reseñas, foros y relaciones con medios; el contenido propio sigue en producción.</div></div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-when">Día 60–90</div>
+      <div><div class="tl-title">Primeras menciones</div><div class="tl-desc">Empiezan a aparecer los primeros indicadores reales de mención en los motores de IA.</div></div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-when">Mes 3–6</div>
+      <div><div class="tl-title">Tendencia consolidada</div><div class="tl-desc">Monitoreo mensual sostenido; la tendencia clara frente a la competencia ya es visible en el reporte.</div></div>
+    </div>
+  </div>
+  <div class="margin-note" style="margin-top:24px">No se promete: posiciones garantizadas, un número exacto de clientes nuevos, ni resultados en semanas. Es una disciplina de mediano plazo, igual que lo fue el SEO en sus primeros años. Dilo así de frente, vende más confianza que ocultarlo.</div>
+</section>
+
+<section class="sec-dk">
+  <div class="badge">04 · Precios de aliados</div>
+  <h2>De aquí para arriba es tuyo.</h2>
+  <p class="lead">Esto es lo que We Rock te factura a ti. Tú decides el precio final al cliente; todo lo que cobres por encima es tu margen. No hay letra chica.</p>
+
+  <div class="price-card">
+    <div class="price-hd">
+      <div><div class="price-name">Auditoría de Visibilidad en IA</div><div class="price-tag">Punto de entrada · pago único por cliente</div></div>
+    </div>
+    <div class="price-body">
+      <div class="price-row floor"><span class="k">Tu costo (tarifa We Rock)</span><span class="v">$600.000</span></div>
+      <div class="price-row"><span class="k">Mínimo recomendado al cliente</span><span class="v">$600.000</span></div>
+      <div class="price-row hi"><span class="k">Rango competitivo sugerido</span><span class="v">$700.000 – $900.000</span></div>
+      <div class="margin-note">Puedes cobrarla al costo o casi al costo como gancho para abrir la conversación: donde de verdad ganas es en la ejecución mensual de abajo. Entregado en máximo 5 días hábiles.</div>
+    </div>
+  </div>
+
+  <div class="price-card">
+    <div class="price-hd">
+      <div><div class="price-name">Ejecución AEO completa</div><div class="price-tag">Recurrente · mensual, por cliente</div></div>
+    </div>
+    <div class="price-body">
+      <div class="price-row floor"><span class="k">Tu costo (tarifa We Rock)</span><span class="v">$1.400.000 / mes</span></div>
+      <div class="price-row"><span class="k">Mínimo para no perder margen</span><span class="v">$1.800.000 / mes</span></div>
+      <div class="price-row hi"><span class="k">Rango competitivo sugerido</span><span class="v">$1.800.000 – $3.000.000 / mes</span></div>
+      <div class="margin-note"><strong>Nunca cobres menos de $1.800.000/mes:</strong> por debajo de eso tu margen se vuelve demasiado ajustado para que valga la pena el tiempo de gestionar al cliente. Entre $1.800.000 y $3.000.000 sigues siendo competitiva y te quedas con $400.000–$1.600.000 de margen por cliente, cada mes, sin operar tú la ejecución. Ajusta dentro del rango según el tamaño y el presupuesto real del cliente.</div>
+      <div class="margin-note" style="border-left-color:var(--tx-lm);background:var(--lt)"><strong>Referencia de mercado (EE. UU./internacional, 2026):</strong> retainers de AEO/GEO de entrada arrancan en US$1.000–2.500/mes y el rango medio típico es US$2.000–8.000/mes. Incluso el techo de este rango sugerido (~US$715/mes) queda por debajo del piso internacional de entrada — hay espacio real para subir en clientes con más presupuesto, no solo para sostener este rango.</div>
+    </div>
+  </div>
+
+  <table class="vol-table">
+    <thead><tr><th>Clientes gestionados a la vez</th><th>Tu costo por cliente</th></tr></thead>
+    <tbody>
+      <tr><td>1 – 4 clientes</td><td class="v">$1.400.000 / mes</td></tr>
+      <tr><td>5 – 9 clientes</td><td class="v">$1.260.000 / mes (–10%)</td></tr>
+      <tr><td>10 o más clientes</td><td class="v">$1.190.000 / mes (–15%)</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:13px;color:var(--tx-db);margin-top:12px">A más volumen, más margen: el precio al cliente lo sigues definiendo tú, así que el descuento por volumen es margen extra directo para ti, no algo que tengas que trasladarle.</p>
+</section>
+
+<section>
+  <span class="lbl">05 · Cómo se reparte el trabajo</span>
+  <h2>Tú vendes y mantienes la relación. We Rock ejecuta detrás de escena.</h2>
+  <ul class="bl">
+    <li>We Rock hace el trabajo real: auditoría, entity SEO, contenido, autoridad externa y monitoreo mensual.</li>
+    <li>El reporte mensual llega en lenguaje simple, listo para que lo reenvíes al cliente con tu propia marca.</li>
+    <li>We Rock no contacta directamente al cliente final, salvo que tú lo pidas explícitamente para una reunión conjunta.</li>
+    <li>Contrato mes a mes con We Rock: sin permanencia forzada de tu lado, aunque a tu cliente le recomiendes los 3 meses mínimos para ver resultados reales.</li>
+  </ul>
+</section>
+
+<section>
+  <span class="lbl">06 · Respuestas rápidas para objeciones</span>
+  <h2>Lo que te van a preguntar.</h2>
+  <div class="talk">
+    <div class="q">"¿Y si no funciona?"</div>
+    <div class="a">No prometemos posiciones garantizadas ni un número de clientes nuevos. Prometemos medir, mes a mes, si la marca aparece más y mejor citada que su competencia en las mismas preguntas. Eso sí lo puedes mostrar en el reporte.</div>
+  </div>
+  <div class="talk">
+    <div class="q">"¿En qué se diferencia del SEO que ya hacemos?"</div>
+    <div class="a">El SEO compite por un lugar en una lista de diez resultados. AEO trabaja para que una IA lo cite como la respuesta directa. Comparten la base, pero el objetivo es distinto.</div>
+  </div>
+  <div class="talk">
+    <div class="q">"¿Por qué 3 meses mínimo?"</div>
+    <div class="a">Construir autoridad de marca frente a un motor de IA toma tiempo real: en 3 meses se diseña, se implementa y se ajusta según los primeros datos.</div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <p>Documento interno de referencia para aliados comerciales de We Rock · No compartir con clientes finales · Bogotá, Colombia</p>
+</footer>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
