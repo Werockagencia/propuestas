@@ -220,6 +220,15 @@
     .mk-card .mk-phase{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block}
     .mk-card .mk-countries{font-size:19px;font-weight:800;color:var(--ink);line-height:1.35;margin-bottom:10px}
 
+    /* ── PRESUPUESTO DE PAUTA POR ETAPA ── */
+    .budget-list{list-style:none;padding:0;margin:16px 0 0}
+    .budget-list li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:13.5px;color:var(--ink2)}
+    .budget-list li.optional{color:var(--ink3);font-style:italic}
+    .budget-list li strong{color:var(--ink);font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+    .budget-total-row{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,0,0,.12)}
+    .budget-total-lbl{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+    .budget-total-val{font-size:23px;font-weight:900;color:var(--ink);font-variant-numeric:tabular-nums}
+
     .fb{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);box-sizing:border-box;padding-left:clamp(24px,6vw,90px);padding-right:clamp(24px,6vw,90px)}
     .mega-wrap{margin-top:6px}
     .mega-title{font-size:clamp(52px,8vw,120px);font-weight:900;text-transform:uppercase;line-height:.94;letter-spacing:-.03em;color:var(--ink)}
@@ -947,7 +956,57 @@
       </div>
     </div>
 
-    <p style="font-size:12.5px;color:var(--ink3);font-style:italic;margin-top:32px;line-height:1.7">Precios en pesos colombianos, vigentes para esta propuesta. TRM de referencia para HalconBot: $4.200. El presupuesto de pauta publicitaria en Google y Meta es adicional a la gestión y arranca en Colombia; al escalar a cada país nuevo de la hoja de ruta, se cotiza el presupuesto correspondiente.</p>
+    <div style="margin-top:64px">
+      <span class="sec-label">Presupuesto de pauta sugerido, por etapa</span>
+      <h3 style="font-size:22px;font-weight:800;color:var(--ink);margin-bottom:10px">Lo que se invierte en las plataformas, no en We Rock.</h3>
+      <p class="prob-text" style="max-width:700px;margin-bottom:28px">Esto es el presupuesto que ABS Industrial paga directamente a Google, Meta y LinkedIn por mostrar los anuncios; es aparte de la gestión que cobra We Rock (ya cotizada arriba). LinkedIn Ads es opcional: útil para llegar directo a compradores institucionales (alcaldías, gobernaciones, cadenas) y a decisores técnicos, se activa según el caso y el presupuesto disponible.</p>
+
+      <div class="g3 sg fade-in">
+        <div class="prob-card" style="border-top:3px solid var(--red)">
+          <span class="prob-label">Fase 1 · Colombia</span>
+          <div class="prob-title">Presupuesto de pauta sugerido</div>
+          <ul class="budget-list">
+            <li><span>Google Ads</span><strong>$800.000</strong></li>
+            <li><span>Meta Ads</span><strong>$500.000</strong></li>
+            <li class="optional"><span>LinkedIn Ads (opcional)</span><strong>$600.000</strong></li>
+          </ul>
+          <div class="budget-total-row">
+            <span class="budget-total-lbl">Total/mes</span>
+            <span class="budget-total-val">$1.900.000</span>
+          </div>
+        </div>
+        <div class="prob-card" style="border-top:3px solid var(--red)">
+          <span class="prob-label">Fase 2 · Centroamérica</span>
+          <div class="prob-title">Presupuesto de pauta sugerido</div>
+          <ul class="budget-list">
+            <li><span>Google Ads</span><strong>$1.600.000</strong></li>
+            <li><span>Meta Ads</span><strong>$900.000</strong></li>
+            <li class="optional"><span>LinkedIn Ads (opcional)</span><strong>$1.200.000</strong></li>
+          </ul>
+          <div class="budget-total-row">
+            <span class="budget-total-lbl">Total/mes</span>
+            <span class="budget-total-val">$3.700.000</span>
+          </div>
+        </div>
+        <div class="prob-card" style="border-top:3px solid var(--red)">
+          <span class="prob-label">Fase 3 · Perú y México</span>
+          <div class="prob-title">Presupuesto de pauta sugerido</div>
+          <ul class="budget-list">
+            <li><span>Google Ads</span><strong>$1.400.000</strong></li>
+            <li><span>Meta Ads</span><strong>$800.000</strong></li>
+            <li class="optional"><span>LinkedIn Ads (opcional)</span><strong>$1.000.000</strong></li>
+          </ul>
+          <div class="budget-total-row">
+            <span class="budget-total-lbl">Total/mes</span>
+            <span class="budget-total-val">$3.200.000</span>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:12.5px;color:var(--ink3);margin-top:20px;line-height:1.7">Si se activa solo Google + Meta, sin LinkedIn, el presupuesto baja a $1.300.000/mes en Fase 1, $2.500.000/mes en Fase 2 y $2.200.000/mes en Fase 3. Son cifras sugeridas para empezar, ajustables hacia arriba o abajo según los resultados reales de cada etapa; no son un mínimo obligatorio.</p>
+    </div>
+
+    <p style="font-size:12.5px;color:var(--ink3);font-style:italic;margin-top:32px;line-height:1.7">Precios en pesos colombianos, vigentes para esta propuesta. TRM de referencia para HalconBot: $4.200. El presupuesto de pauta publicitaria (Google, Meta y, si se activa, LinkedIn) es adicional a la gestión y arranca en Colombia; al escalar a cada país nuevo de la hoja de ruta, se cotiza el presupuesto correspondiente.</p>
   </div>
 </section>
 
