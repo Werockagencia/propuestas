@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propuesta de Marketing y Expansión Internacional — ABS Industrial | We Rock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{--red:#E8000A;--red-h:#FF1A22;--dk:#0A0A0A;--dk2:#111111;--dk3:#161616;--lt:#F5F2EB;--lt2:#EDE9DF;--lt3:#E4DFD4;--white:#FFFFFF;--gray:#888888;--gray2:#555555;--text-dk:#E8E4DC;--text-dk2:#AAAAAA;--ink:#1A1A1A;--ink2:#444444;--ink3:#777777;--border:rgba(0,0,0,.07);--sh:0 2px 12px rgba(0,0,0,.06);--sh2:0 8px 32px rgba(0,0,0,.10);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Barlow',sans-serif;background:var(--white);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;cursor:none;overflow-x:hidden}
+    @media(max-width:768px){body{cursor:auto}}
+    a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+    [id]{scroll-margin-top:80px}
+    .inner{position:relative;z-index:2}
+    .cover-title,.sec-title,.cta-title,.mega-title{text-wrap:balance}
+
+    #grad-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.5}
+    #prog{position:fixed;top:0;left:0;height:3px;background:var(--red);z-index:9997;width:0%;transition:width .1s linear}
+    #cur{width:10px;height:10px;background:white;border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference}
+    #cur2{width:38px;height:38px;border:1.5px solid rgba(255,255,255,.55);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform .22s cubic-bezier(.16,1,.3,1);mix-blend-mode:difference}
+    @media(max-width:768px){#cur,#cur2{display:none}}
+
+    #nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:62px;background:transparent;border-bottom:1px solid transparent;transition:all .4s ease}
+    #nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.07);box-shadow:0 2px 20px rgba(0,0,0,.06)}
+    .nav-logo{display:flex;align-items:center;gap:10px}
+    .nav-logo .logo-w{height:36px;display:block}
+    .nav-logo .logo-c{height:36px;display:none;mix-blend-mode:multiply}
+    #nav.scrolled .nav-logo .logo-w{display:none}
+    #nav.scrolled .nav-logo .logo-c{display:block}
+    .nav-links{display:flex;gap:28px}
+    .nav-links a{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+    #nav.scrolled .nav-links a{color:var(--ink3)}
+    .nav-links a:hover{color:var(--red)}
+    @media(max-width:768px){.nav-links{display:none}#nav{padding:0 24px}}
+
+    .cover{min-height:100vh;background:var(--dk);display:flex;flex-direction:column;justify-content:flex-end;padding:0 64px;position:relative;overflow:hidden}
+    #hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
+    .cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px;animation:gd 28s linear infinite;pointer-events:none;z-index:1}
+    @keyframes gd{from{background-position:0 0}to{background-position:88px 88px}}
+    .cover-ov{position:absolute;inset:0;background:linear-gradient(115deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.08) 55%,rgba(0,0,0,.5) 100%);z-index:1}
+    .cover-red-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 75% at 3% 65%,rgba(232,0,10,.14) 0%,transparent 65%);z-index:1;animation:glw 10s ease-in-out infinite alternate}
+    @keyframes glw{0%{opacity:.5;transform:scale(1)}100%{opacity:1;transform:scale(1.08)}}
+    .cover-inner-simple{position:relative;z-index:10;max-width:860px;width:100%;padding:148px 0 44px;margin:0 auto;text-align:center}
+    @media(max-width:768px){.cover{padding:0 24px}.cover-inner-simple{padding:120px 0 36px}}
+    .cover-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;opacity:0;animation:su .7s ease .05s forwards}
+    .cover-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 2s infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+    .cover-eyebrow span{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+    .cover-title{font-size:clamp(36px,5vw,70px);font-weight:900;text-transform:uppercase;line-height:.98;letter-spacing:-2.2px;color:var(--white);display:flex;flex-direction:column;gap:.06em;align-items:center}
+    .cover-title .r{color:var(--red)}
+    .hl{display:block;opacity:0;transform:translateY(44px) skewY(2deg);animation:hlIn .82s cubic-bezier(.16,1,.3,1) forwards}
+    .hl1{animation-delay:.08s}.hl2{animation-delay:.22s}.hl3{animation-delay:.36s}.hl4{animation-delay:.50s}
+    @keyframes hlIn{to{opacity:1;transform:translateY(0) skewY(0)}}
+    @keyframes su{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:translateY(0)}}
+    .cover-hero-lead{font-size:clamp(15px,1.7vw,18px);color:var(--text-dk2);max-width:660px;margin:22px auto 0;line-height:1.75;opacity:0;animation:su .9s ease .52s forwards}
+    .cover-hero-meta{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px;flex-wrap:wrap;opacity:0;animation:su .7s ease .68s forwards}
+    .cover-hero-meta span{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.22)}
+    .cover-hero-meta .dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.15)}
+    .cover-bar{position:relative;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:20px 64px;margin-left:-64px;margin-right:-64px;border-top:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.32);backdrop-filter:blur(16px);opacity:0;animation:su .8s ease .7s forwards}
+    @media(max-width:768px){.cover-bar{padding:20px 24px;margin-left:-24px;margin-right:-24px;flex-wrap:wrap;gap:16px}}
+    .cbs{text-align:center;min-width:80px}
+    .cbn{font-size:22px;font-weight:900;color:var(--white);line-height:1}
+    .cbl{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:3px}
+    .cbdv{width:1px;height:32px;background:rgba(255,255,255,.08)}
+    .cbsc{display:flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+    .scroll-mouse{width:16px;height:26px;border:1.5px solid rgba(255,255,255,.28);border-radius:8px;position:relative;display:flex;justify-content:center;flex-shrink:0}
+    .scroll-wheel{width:2px;height:5px;background:var(--red);border-radius:2px;position:absolute;top:4px;animation:sw 1.9s ease-in-out infinite}
+    @keyframes sw{0%{transform:translateY(0);opacity:1}55%{transform:translateY(9px);opacity:0}56%{transform:translateY(0);opacity:0}100%{transform:translateY(0);opacity:1}}
+
+    .sec{width:100%;padding:96px 0;position:relative}
+    .sec-white{background:var(--white);color:var(--ink)}
+    .sec-lt{background:var(--lt);color:var(--ink)}
+    .sec-lt2{background:var(--lt2);color:var(--ink)}
+    .sec-dk{background:var(--dk);color:var(--white)}
+    .inner{max-width:1100px;margin:0 auto;padding:0 52px}
+    @media(max-width:768px){.inner{padding:0 24px}}
+    .sec-label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:block}
+    .sec-title{font-size:clamp(30px,4vw,52px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:18px}
+    .sec-title.dk{color:var(--white)}.sec-title.lt{color:var(--ink)}
+    .sec-lead{font-size:18px;font-weight:400;line-height:1.7;max-width:700px;margin-bottom:44px}
+    .sec-lead.dk{color:var(--text-dk2)}.sec-lead.lt{color:var(--ink2)}
+    .rule{width:44px;height:3px;background:var(--red);margin-bottom:36px;display:block}
+    .badge-red{display:inline-block;background:var(--red);color:white;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;margin-bottom:16px}
+
+    .sg>*{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+    .sg>*:nth-child(1){transition-delay:.00s}.sg>*:nth-child(2){transition-delay:.10s}
+    .sg>*:nth-child(3){transition-delay:.18s}.sg>*:nth-child(4){transition-delay:.26s}
+    .sg>*:nth-child(5){transition-delay:.34s}.sg>*:nth-child(6){transition-delay:.42s}
+    .sg>*:nth-child(7){transition-delay:.50s}
+    .sg.vis>*{opacity:1;transform:translateY(0)}
+    .fade-in{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+    .reveal-3d{opacity:0;transform:perspective(1200px) rotateX(10deg) translateY(50px) scale(.94);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+    .reveal-3d.visible{opacity:1;transform:perspective(1200px) rotateX(0deg) translateY(0) scale(1)}
+
+    .g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+    .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    @media(max-width:900px){.g3{grid-template-columns:1fr 1fr}.g4{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+    .prob-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+    @media(max-width:900px){.prob-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.prob-grid{grid-template-columns:1fr}}
+    .prob-card{background:var(--white);border:1px solid var(--border);padding:32px 28px;box-shadow:var(--sh);transition:box-shadow .2s,transform .2s;cursor:default}
+    .prob-card:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
+    .prob-card:hover .prob-bar{width:100%}
+    .prob-bar{width:40px;height:2px;background:var(--red);margin-bottom:16px;transition:width .3s ease}
+    .prob-label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block}
+    .prob-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3}
+    .prob-text{font-size:14.5px;color:var(--ink2);line-height:1.65}
+
+    .bl{list-style:none;padding:0;margin:0}
+    .bl li{font-size:14px;color:var(--ink2);padding:8px 0 8px 22px;position:relative;border-bottom:1px solid rgba(0,0,0,.05);line-height:1.55}
+    .bl li:last-child{border-bottom:none}
+    .bl li::before{content:'';position:absolute;left:0;top:17px;width:9px;height:2px;background:var(--red)}
+    .bl.dk li{color:var(--text-dk2);border-bottom:1px solid rgba(255,255,255,.04)}
+    .cl{list-style:none;padding:0;margin:0}
+    .cl li{font-size:14px;color:var(--ink2);padding:10px 0 10px 32px;position:relative;border-bottom:1px solid rgba(0,0,0,.06);line-height:1.5}
+    .cl li:last-child{border-bottom:none}
+    .cl li::before{content:'';position:absolute;left:0;top:13px;width:18px;height:18px;background:rgba(232,0,10,.08);border:1px solid rgba(232,0,10,.25)}
+    .cl li::after{content:'';position:absolute;left:5px;top:18px;width:8px;height:5px;border-left:2px solid var(--red);border-bottom:2px solid var(--red);transform:rotate(-45deg)}
+    .cl.on-dk li{color:var(--text-dk2);border-bottom:1px solid rgba(255,255,255,.09)}
+    .cl.on-dk li::before{background:rgba(232,0,10,.16);border:1px solid rgba(232,0,10,.4)}
+
+    .pillar-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    @media(max-width:768px){.pillar-grid{grid-template-columns:1fr}}
+    .pillar{background:var(--white);border:1px solid var(--border);padding:44px 40px;border-top:3px solid var(--red);box-shadow:var(--sh);transition:box-shadow .2s}
+    .pillar:hover{box-shadow:var(--sh2)}
+    .pillar-num{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:14px}
+    .pillar-title{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.2}
+    .pillar-sub{font-size:13px;color:var(--ink3);margin-bottom:22px}
+
+    .wr-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:36px 0 0}
+    @media(max-width:768px){.wr-stats{grid-template-columns:1fr}}
+    .wr-stat{background:var(--white);border:1px solid var(--border);padding:28px 36px;box-shadow:var(--sh)}
+    .wr-stat-val{font-size:clamp(36px,4.5vw,52px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-2px;margin-bottom:6px}
+    .wr-stat-val span{color:var(--red)}
+    .wr-stat-lbl{font-size:12px;font-weight:600;color:var(--ink3);line-height:1.4}
+
+    .compare-panel{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:8px}
+    @media(max-width:768px){.compare-panel{grid-template-columns:1fr}}
+    .compare-col{padding:40px 36px}
+    .compare-col.before{background:var(--lt2)}
+    .compare-col.after{background:var(--dk)}
+    .compare-lbl{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px;display:block}
+    .compare-col.before .compare-lbl{color:var(--ink3)}
+    .compare-col.after .compare-lbl{color:var(--red)}
+    .compare-list{list-style:none;padding:0;margin:0}
+    .compare-list li{font-size:14.5px;line-height:1.7;padding:11px 0 11px 30px;position:relative;border-bottom:1px solid rgba(0,0,0,.06)}
+    .compare-col.after .compare-list li{border-bottom:1px solid rgba(255,255,255,.07)}
+    .compare-list li:last-child{border-bottom:none}
+    .compare-col.before .compare-list li{color:var(--ink2)}
+    .compare-col.after .compare-list li{color:var(--text-dk2)}
+    .compare-list.before li::before{content:'−';position:absolute;left:2px;top:8px;font-size:18px;font-weight:700;color:var(--ink3);line-height:1}
+    .compare-list.after li::before{content:'+';position:absolute;left:2px;top:8px;font-size:18px;font-weight:700;color:var(--red);line-height:1}
+
+    .icon-wrap{width:48px;height:48px;background:rgba(232,0,10,.08);border:1px solid rgba(232,0,10,.22);display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .25s}
+    .icon-wrap svg{width:24px;height:24px;overflow:visible}
+    .prob-card:hover .icon-wrap,.pillar:hover .icon-wrap,.opt-card:hover .opt-icon{transform:scale(1.1) rotate(-6deg);background:rgba(232,0,10,.14)}
+
+    .scope-note{margin-top:32px;padding:20px 28px;border-left:3px solid rgba(0,0,0,.12);background:var(--lt2)}
+    .scope-note .scope-label{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+    .scope-note p{font-size:13px;color:var(--ink2);line-height:1.7;margin:0}
+    .alert-box{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:rgba(232,0,10,.05);border:1px solid rgba(232,0,10,.18);border-left:3px solid var(--red);margin-top:24px}
+    .alert-box p{font-size:13px;color:var(--ink2);line-height:1.65}
+    .alert-box p strong{color:var(--ink)}
+
+    /* ── MARCA DE AGUA / TEXTURAS / CORTES (estándar We Rock) ── */
+    .sec-wm{overflow:hidden;z-index:0}
+    .brand-mark{position:absolute;z-index:-1;pointer-events:none;fill:var(--red)}
+    .brand-mark--diag{width:240px;height:336px;top:8px;right:-46px;opacity:.045;transform:rotate(16deg)}
+    .brand-mark--pkg{width:300px;height:420px;top:-70px;right:-50px;opacity:.06;transform:rotate(9deg)}
+    @media(max-width:768px){.brand-mark{display:none}}
+    .tex-grid{background-image:linear-gradient(rgba(0,0,0,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.02) 1px,transparent 1px);background-size:58px 58px}
+    .tex-dots{background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1.6px);background-size:24px 24px}
+    .tex-glow-tr{background-image:radial-gradient(ellipse 60% 65% at 96% 0%,rgba(232,0,10,.035) 0%,transparent 60%)}
+    .tex-glow-bl{background-image:radial-gradient(ellipse 55% 60% at 0% 100%,rgba(232,0,10,.03) 0%,transparent 60%)}
+    .sec-cut-top{clip-path:polygon(0 34px,100% 0,100% 100%,0 100%);margin-top:-34px;padding-top:130px}
+    @media(max-width:768px){.sec-cut-top{clip-path:polygon(0 18px,100% 0,100% 100%,0 100%);margin-top:-18px;padding-top:114px}}
+    .cta-cut{clip-path:polygon(0 0,100% 46px,100% 100%,0 100%);margin-top:-46px;padding-top:166px}
+    @media(max-width:768px){.cta-cut{clip-path:polygon(0 0,100% 24px,100% 100%,0 100%);margin-top:-24px;padding-top:144px}}
+    .corner-fx{position:relative}
+    .corner-fx::before,.corner-fx::after{content:'';position:absolute;width:20px;height:20px;pointer-events:none;opacity:.6}
+    .corner-fx::before{top:16px;left:16px;border-top:2px solid var(--red);border-left:2px solid var(--red)}
+    .corner-fx::after{bottom:16px;right:16px;border-bottom:2px solid var(--red);border-right:2px solid var(--red)}
+
+    /* ── ÍTEMS DE INVERSIÓN INDIVIDUALES ── */
+    .svc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+    @media(max-width:900px){.svc-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.svc-grid{grid-template-columns:1fr}}
+    .svc-card{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--red);padding:32px 28px;box-shadow:var(--sh);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+    .svc-card:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
+    .svc-card.optional{border-top:3px solid var(--ink3)}
+    .svc-title{font-size:16px;font-weight:800;color:var(--ink);margin:4px 0 8px;line-height:1.3}
+    .svc-text{font-size:13.5px;color:var(--ink2);line-height:1.65;flex-grow:1}
+    .svc-price-row{margin-top:20px;padding-top:18px;border-top:1px solid rgba(0,0,0,.07);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+    .svc-price{font-size:24px;font-weight:900;color:var(--ink);letter-spacing:-.5px}
+    .svc-period{font-size:11.5px;color:var(--ink3);font-weight:600}
+
+    /* ── PAQUETE SUGERIDO ── */
+    .pkg-block{background:var(--dk);color:#fff;padding:52px 48px;position:relative;overflow:hidden}
+    @media(max-width:640px){.pkg-block{padding:40px 28px}}
+    .pkg-title{font-size:clamp(22px,3vw,30px);font-weight:800;margin-bottom:16px;max-width:620px;line-height:1.2}
+    .pkg-desc{font-size:14.5px;color:var(--text-dk2);line-height:1.75;max-width:620px;margin-bottom:32px}
+    .pkg-items{max-width:640px}
+    .pkg-items li{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}
+    .pkg-items li strong{white-space:nowrap;color:#fff;font-weight:800;font-size:14.5px}
+    .pkg-note{display:block;font-size:11.5px;color:var(--text-dk2);margin-top:3px;font-weight:400}
+    .pkg-total{margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;max-width:640px}
+    .pkg-total-lbl{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-dk2)}
+    .pkg-total-val{font-size:clamp(28px,3.4vw,36px);font-weight:900;color:#fff;letter-spacing:-1px}
+    .pkg-foot{font-size:12px;color:var(--text-dk2);line-height:1.75;margin-top:14px;max-width:640px}
+
+    /* ── MERCADOS ── */
+    .mk-card .mk-phase{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block}
+    .mk-card .mk-countries{font-size:19px;font-weight:800;color:var(--ink);line-height:1.35;margin-bottom:10px}
+
+    .fb{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);box-sizing:border-box;padding-left:clamp(24px,6vw,90px);padding-right:clamp(24px,6vw,90px)}
+    .mega-wrap{margin-top:6px}
+    .mega-title{font-size:clamp(52px,8vw,120px);font-weight:900;text-transform:uppercase;line-height:.94;letter-spacing:-.03em;color:var(--ink)}
+    .mega-sub{display:block;font-size:clamp(16px,1.7vw,21px);font-weight:500;text-transform:none;letter-spacing:0;color:var(--ink2);margin-top:26px;max-width:640px;line-height:1.65}
+    @media(max-width:768px){.mega-title{font-size:clamp(38px,12vw,58px)}}
+
+    /* ── WIREFRAMES — dispositivos realistas (CSS puro) ── */
+    .dv-toggle{display:inline-flex;background:var(--lt2);border-radius:30px;padding:4px;gap:2px;margin-bottom:32px;border:1px solid var(--border)}
+    .dv-tab{border:none;background:none;padding:9px 22px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);border-radius:24px;cursor:pointer;transition:background .25s,color .25s}
+    .dv-tab.active{background:var(--dk);color:#fff}
+    .dv-tab:hover:not(.active){color:var(--ink)}
+    .dv-tab:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+    .dv-stage{position:relative;min-height:480px}
+    @media(max-width:640px){.dv-stage{min-height:560px}}
+    .dv-pane{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .45s ease,transform .45s ease;transform:scale(.98);pointer-events:none}
+    .dv-pane.active{opacity:1;visibility:visible;transform:scale(1);pointer-events:auto;position:relative}
+
+    .tilt-stage{perspective:1400px}
+    .tilt{transition:transform .5s cubic-bezier(.16,1,.3,1);will-change:transform}
+
+    .device-browser{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08),0 30px 60px -22px rgba(0,0,0,.4);transform-style:preserve-3d}
+    .device-browser-bar{display:flex;align-items:center;gap:14px;padding:11px 16px;background:linear-gradient(#f7f7f5,#e9e8e4);border-bottom:1px solid rgba(0,0,0,.08)}
+    .db-dots{display:flex;gap:7px;flex-shrink:0}
+    .db-dots span{width:11px;height:11px;border-radius:50%;display:block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+    .db-dot-r{background:#FF5F57}.db-dot-y{background:#FFBD2E}.db-dot-g{background:#28C840}
+    .db-url{flex:1;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:6px;padding:5px 14px;font-size:11px;color:var(--ink3);display:flex;align-items:center;gap:6px;justify-content:center}
+    .db-url svg{width:10px;height:10px;flex-shrink:0;opacity:.5}
+    .device-browser-screen{position:relative}
+    .device-browser--sm .device-browser-bar{padding:8px 12px;gap:10px}
+    .device-browser--sm .db-dots span{width:8px;height:8px}
+    .device-browser--sm .db-url{font-size:9.5px;padding:3px 10px}
+    .device-browser--home{max-width:680px;margin:0 auto}
+    .bmock-quicklinks{background:var(--red);color:#fff;text-align:center;padding:13px 18px;font-size:10.5px;font-weight:700;letter-spacing:.02em}
+    .bmock-quicklinks span{margin:0 8px;white-space:nowrap}
+    .bmock-footer-mini{background:var(--dk);color:rgba(255,255,255,.45);text-align:center;padding:16px 18px;font-size:10px;letter-spacing:.05em}
+
+    .device-phone-wrap{display:flex;flex-direction:column;align-items:center}
+    .device-phone{width:240px;background:linear-gradient(155deg,#2b2b2b,#0a0a0a);border-radius:42px;padding:10px;box-shadow:0 1px 2px rgba(0,0,0,.15),0 30px 55px -18px rgba(0,0,0,.5);position:relative;transform-style:preserve-3d}
+    .device-phone::before{content:'';position:absolute;inset:0;border-radius:42px;padding:1px;background:linear-gradient(160deg,rgba(255,255,255,.35),rgba(255,255,255,0) 45%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+    .device-phone-screen{background:var(--white);border-radius:32px;overflow:hidden;position:relative;min-height:420px}
+    .device-phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:80px;height:22px;background:#0a0a0a;border-radius:14px;z-index:5}
+    .device-phone-home{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);width:96px;height:4px;background:rgba(0,0,0,.5);border-radius:3px;z-index:5}
+    .device-phone-shadow{width:64%;height:22px;margin:16px auto 0;background:radial-gradient(ellipse at center,rgba(0,0,0,.28),transparent 72%);filter:blur(3px)}
+
+    .bmock-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px}
+    .bmock-logo{font-size:12px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:8px}
+    .bmock-logo-mark{width:20px;height:20px;background:var(--dk);border-radius:50%;flex-shrink:0}
+    .bmock-links{display:flex;gap:13px;flex-wrap:wrap}
+    .bmock-links span{font-size:9.5px;color:var(--ink3);font-weight:600}
+    .bmock-links span.on{color:var(--ink);position:relative}
+    .bmock-links span.on::after{content:'';position:absolute;left:0;right:0;bottom:-13px;height:2px;background:var(--red)}
+    .bmock-cta-mini{background:var(--red);color:#fff;font-size:9.5px;font-weight:800;padding:5px 12px;border-radius:3px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+    .bmock-hero{background:var(--dk);padding:34px 26px;color:#fff}
+    .bmock-hero h4{font-size:16px;font-weight:800;margin-bottom:6px;line-height:1.25}
+    .bmock-hero p{font-size:11px;color:var(--text-dk2);margin-bottom:14px}
+    .bmock-hero .b{display:inline-block;background:var(--red);color:#fff;font-size:9.5px;font-weight:800;padding:7px 14px;border-radius:3px;text-transform:uppercase;transition:background .2s}
+    .bmock-body{padding:20px 22px}
+    .bmock-cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:16px}
+    .bmock-cards3 div{background:rgba(0,0,0,.02);border:1px solid var(--border);padding:12px 14px;font-size:10px;color:var(--ink2);transition:background .2s}
+    .bmock-cards3 div:hover{background:rgba(232,0,10,.05)}
+    .bmock-cards3 div b{display:block;font-size:11px;color:var(--ink);margin-bottom:2px}
+    .bmock-caption{text-align:center;font-size:12px;font-weight:700;color:var(--ink2);margin-top:16px;letter-spacing:.02em}
+    .bmock-phone-hero{background:var(--dk);height:64px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-top:32px}
+    .bmock-phone-list{padding:10px 16px 0}
+    .bmock-phone-list div{padding:12px 14px;border:1px solid var(--border);margin-bottom:8px;font-size:10.5px;color:var(--ink2);background:rgba(0,0,0,.015);transition:background .2s}
+    .bmock-phone-list div:hover{background:rgba(232,0,10,.05)}
+    .bmock-phone-tabbar{display:flex;justify-content:space-around;padding:12px 0 0}
+    .bmock-phone-tabbar span{width:16px;height:16px;border-radius:4px;background:rgba(0,0,0,.12)}
+    .bmock-phone-tabbar span.on{background:var(--red)}
+
+    .bmock-spec-list div{padding:9px 0;border-bottom:1px solid var(--border);font-size:10px;color:var(--ink2);display:flex;justify-content:space-between}
+    .bmock-spec-list div b{color:var(--ink);font-weight:700}
+    .bmock-quote-field{background:rgba(0,0,0,.02);border:1px solid var(--border);border-radius:4px;padding:8px 12px;font-size:10px;color:var(--ink3);margin-bottom:8px}
+
+    .wa-chat{background:#e9ddce;padding:14px 12px 16px;min-height:300px}
+    .wa-bubble{background:#fff;border-radius:8px;padding:9px 12px;font-size:10.5px;color:var(--ink2);line-height:1.5;box-shadow:0 1px 2px rgba(0,0,0,.08);margin-bottom:8px;max-width:86%}
+    .wa-bubble.out{background:#d9fdd3;margin-left:auto}
+    .wa-bubble b{color:var(--ink);display:block;font-size:10px;margin-bottom:2px}
+    .wa-head{background:var(--dk);color:#fff;padding:14px 16px;font-size:11px;font-weight:700;display:flex;align-items:center;gap:8px}
+    .wa-head .dotgreen{width:7px;height:7px;border-radius:50%;background:#28C840;flex-shrink:0}
+
+    /* ── PLAN DE TRABAJO ── */
+    .phase-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+    @media(max-width:900px){.phase-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.phase-grid{grid-template-columns:1fr}}
+    .phase-card{background:var(--red);padding:32px 24px;color:#fff;position:relative;transition:transform .3s ease,box-shadow .3s ease;z-index:1}
+    .phase-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.4);z-index:2}
+    .phase-card:not(:last-child)::after{content:'';position:absolute;top:50%;right:-11px;transform:translateY(-50%);width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:9px solid var(--dk);z-index:3}
+    @media(max-width:900px){.phase-card:not(:last-child)::after{display:none}}
+    .phase-num{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--red);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;margin-bottom:18px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+    .phase-card:hover .phase-num{transform:scale(1.15) rotate(-8deg)}
+    .phase-title{font-size:15px;font-weight:800;margin-bottom:4px}
+    .phase-time{font-size:11px;font-weight:700;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+    .phase-desc{font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.6}
+
+    .cta-section{background:var(--dk);position:relative;overflow:hidden;padding:120px 48px;text-align:center}
+    #cta-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+    .cta-inner{position:relative;z-index:10;max-width:700px;margin:0 auto}
+    .cta-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);border:1px solid rgba(232,0,10,.35);padding:7px 14px;margin-bottom:36px}
+    .cta-title{font-size:clamp(28px,4.2vw,50px);font-weight:900;text-transform:uppercase;line-height:1.05;letter-spacing:-1.5px;color:var(--white);margin-bottom:22px}
+    .cta-title .r{color:var(--red)}
+    .cta-sub{font-size:17px;color:var(--text-dk2);max-width:560px;margin:0 auto 48px;line-height:1.65}
+    .cta-btn{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:var(--white);text-decoration:none;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:20px 44px;transition:background .2s,transform .2s}
+    .cta-btn:hover{background:var(--red-h);transform:translateY(-2px)}
+    .cta-btn svg{width:18px;height:18px}
+    .cta-detail{margin-top:28px;font-size:12px;color:rgba(255,255,255,.28);letter-spacing:.06em}
+    .cta-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 55% at 50% 50%,rgba(232,0,10,.07) 0%,transparent 70%)}
+
+    footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:32px 52px;display:flex;justify-content:space-between;align-items:center}
+    .ft-logo{display:flex;align-items:center;gap:12px}
+    .ft-logo img{height:20px;filter:brightness(0) invert(1);opacity:.45}
+    .ft-text{font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.04em;text-align:right;line-height:1.6}
+    @media(max-width:640px){footer{flex-direction:column;gap:16px;text-align:center}.ft-text{text-align:center}}
+
+    /* ── TEXTURA DE GRANO SUTIL EN SECCIONES OSCURAS ── */
+    .noise-overlay::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.035;mix-blend-mode:overlay;z-index:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+    /* ── prefers-reduced-motion: apagar movimiento decorativo ── */
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+      html{scroll-behavior:auto}
+      .fade-in,.sg>*,.reveal-3d{opacity:1!important;transform:none!important}
+      .tilt{transform:none!important}
+      #cur,#cur2,.cover-grid,.cover-red-glow{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<div id="cur" aria-hidden="true"></div>
+<div id="cur2" aria-hidden="true"></div>
+<div id="prog" aria-hidden="true"></div>
+<canvas id="grad-canvas" aria-hidden="true"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <img class="logo-w" src="we-rock.png" alt="We Rock" onerror="this.style.display='none'">
+    <img class="logo-c" src="we-rock-v1.png" alt="We Rock" onerror="this.style.display='none'">
+  </div>
+  <div class="nav-links">
+    <a href="#s-propuesta">La propuesta</a>
+    <a href="#s-mercados">Mercados</a>
+    <a href="#s-como-funciona">Cómo funciona</a>
+    <a href="#s-inversion">Inversión</a>
+    <a href="#s-cta">Hablemos</a>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+  01 · PORTADA
+════════════════════════════════════════ -->
+<section class="cover">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="cover-grid"></div>
+  <div class="cover-ov"></div>
+  <div class="cover-red-glow"></div>
+
+  <div class="cover-inner-simple">
+    <div class="cover-eyebrow">
+      <div class="cover-dot"></div>
+      <span>Propuesta de marketing y expansión internacional · We Rock</span>
+    </div>
+    <h1 class="cover-title">
+      <span class="hl hl1">ABS INDUSTRIAL</span>
+      <span class="hl hl2">38 AÑOS DE <span class="r">EXPERIENCIA</span></span>
+      <span class="hl hl3">LISTOS PARA CENTROAMÉRICA</span>
+      <span class="hl hl4">EN SERIO.</span>
+    </h1>
+    <p class="cover-hero-lead">Sistema de adquisición B2B internacional para posicionar lavadoras de papa, deshidratadoras de frutas y hortalizas, trenes de cepillos, secadoras y clasificadoras en Guatemala, Honduras, Panamá y Costa Rica, antes de escalar a Perú, México y nuevos mercados.</p>
+    <div class="cover-hero-meta">
+      <span>Propuesta comercial</span>
+      <div class="dot"></div>
+      <span>Septiembre 2026</span>
+      <div class="dot"></div>
+      <span>Preparado por We Rock</span>
+    </div>
+  </div>
+
+  <div class="cover-bar">
+    <div class="cbs"><div class="cbn" style="color:var(--red)">38</div><div class="cbl">Años de trayectoria e historia</div></div>
+    <div class="cbdv"></div>
+    <div class="cbs"><div class="cbn">6</div><div class="cbl">Países en la hoja de ruta de expansión</div></div>
+    <div class="cbdv"></div>
+    <div class="cbs"><div class="cbn">5</div><div class="cbl">Líneas de producto industrial</div></div>
+    <div class="cbdv"></div>
+    <div class="cbsc"><div class="scroll-mouse"><div class="scroll-wheel"></div></div>Desplazar</div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  02 · LA PROPUESTA (DIAGNÓSTICO)
+════════════════════════════════════════ -->
+<section class="sec sec-lt sec-wm tex-grid" id="s-propuesta">
+  <svg class="brand-mark brand-mark--diag" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="inner">
+    <span class="sec-label">01 · La propuesta</span>
+    <div class="badge-red">Diagnóstico</div>
+    <h2 class="sec-title lt">38 años de trayectoria.<br>Cero sistema que los multiplique.</h2>
+    <p class="sec-lead lt">ABS Industrial es pionera en su categoría en Colombia: gran parte de la competencia actual nació de personal propio o de familiares que se retiraron para competir. Esa historia es un activo enorme, pero hoy casi todo el crecimiento depende del voz a voz y de una participación anual en Agroexpo. Para entrar a un país nuevo, sin oficina y sin contactos, eso no alcanza.</p>
+  </div>
+
+  <div class="inner">
+    <div class="compare-panel sg fade-in corner-fx">
+      <div class="compare-col before">
+        <span class="compare-lbl">Hoy</span>
+        <ul class="compare-list before">
+          <li>Casi todos los clientes llegan por voz a voz o referidos, sin un sistema que lo multiplique</li>
+          <li>No existe pauta digital estructurada; la única acción de visibilidad ha sido Agroexpo</li>
+          <li>Instagram, Facebook y el sitio web no comunican con claridad las 5 líneas de producto</li>
+          <li>No hay forma de pedir una cotización en minutos ni de saber qué país responde mejor</li>
+          <li>La competencia, nacida de la propia casa, ocupa espacio digital que ABS Industrial aún no reclama</li>
+        </ul>
+      </div>
+      <div class="compare-col after">
+        <span class="compare-lbl">La oportunidad</span>
+        <ul class="compare-list after">
+          <li>Un sistema de generación de demanda que multiplica el voz a voz en cada país objetivo</li>
+          <li>Campañas segmentadas por país y por línea de producto, con 38 años de trayectoria como argumento central</li>
+          <li>Una landing de cotización clara, lista para intermediarios, comercializadoras y entidades públicas</li>
+          <li>Cotizaciones que llegan directo a WhatsApp, sin importar el huso horario del comprador</li>
+          <li>Reportes por país y por producto para decidir con datos dónde invertir más presupuesto</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  03 · POR QUÉ AHORA
+════════════════════════════════════════ -->
+<section class="sec sec-white" id="s-porque">
+  <div class="inner">
+    <span class="sec-label">02 · Por qué ahora</span>
+    <h2 class="sec-title lt">Seis razones, un mismo sistema.</h2>
+    <p class="sec-lead lt">Cada punto resuelve algo puntual, pero todos apuntan al mismo lugar: que la trayectoria de 38 años de ABS Industrial trabaje también en internet, no solo en el voz a voz.</p>
+
+    <div class="prob-grid sg fade-in">
+      <div class="prob-card">
+        <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.4 5.2 5.6.6-4.2 3.8 1.2 5.6-4.6-2.8-4.6 2.8 1.2-5.6-4.2-3.8 5.6-.6z"/></svg></div>
+        <div class="prob-bar"></div>
+        <span class="prob-label">Pioneros, no seguidores</span>
+        <div class="prob-title">38 años que nadie más puede decir</div>
+        <p class="prob-text">La competencia nació de gente que trabajó con ABS Industrial. La empresa es el origen, no una alternativa más; esa historia debe verse primero en cada país nuevo.</p>
+      </div>
+      <div class="prob-card">
+        <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M3 19c0-3 2-5 4-5s4 2 4 5M13 19c0-3 2-5 4-5s4 2 4 5"/></svg></div>
+        <div class="prob-bar"></div>
+        <span class="prob-label">Fuera del voz a voz</span>
+        <div class="prob-title">El referido no escala solo</div>
+        <p class="prob-text">El voz a voz funciona en Colombia; en un país nuevo, sin contactos previos, hace falta un sistema que genere ese primer contacto.</p>
+      </div>
+      <div class="prob-card">
+        <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="1"/><path d="M8 9V6a4 4 0 018 0v3M12 13v3"/></svg></div>
+        <div class="prob-bar"></div>
+        <span class="prob-label">Clientes institucionales</span>
+        <div class="prob-title">Alcaldías y gobernaciones buscan en internet</div>
+        <p class="prob-text">Antes de llamar, un comprador público o una cadena de supermercados revisa el sitio y las redes; hoy esa primera impresión es limitada.</p>
+      </div>
+      <div class="prob-card">
+        <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-10.8A7 7 0 0112 3a7 7 0 017 7.2C19 15.8 12 21 12 21z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+        <div class="prob-bar"></div>
+        <span class="prob-label">Sin oficina local</span>
+        <div class="prob-title">Entrar a un país sin pisarlo primero</div>
+        <p class="prob-text">La pauta digital permite validar demanda real en Guatemala, Honduras, Panamá y Costa Rica antes de invertir en presencia física.</p>
+      </div>
+      <div class="prob-card">
+        <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg></div>
+        <div class="prob-bar"></div>
+        <span class="prob-label">Ciclo de venta técnico</span>
+        <div class="prob-title">Una máquina industrial no se compra en un clic</div>
+        <p class="prob-text">El contenido técnico y comercial acompaña una decisión de compra larga, hasta que el comprador está listo para cotizar.</p>
+      </div>
+      <div class="prob-card">
+        <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M4 9h16M8 3v4M16 3v4"/></svg></div>
+        <div class="prob-bar"></div>
+        <span class="prob-label">Más allá de una feria al año</span>
+        <div class="prob-title">Agroexpo funciona; necesita compañía todo el año</div>
+        <p class="prob-text">Participar en ferias como Agroexpo sigue siendo valioso; un sistema digital activo sostiene ese interés el resto del año, en cada país.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  04 · MERCADOS OBJETIVO
+════════════════════════════════════════ -->
+<section class="sec sec-lt2 tex-dots" id="s-mercados">
+  <div class="inner">
+    <span class="sec-label">03 · Mercados objetivo</span>
+    <h2 class="sec-title lt">Centroamérica primero. El mundo después.</h2>
+    <p class="sec-lead lt">En vez de repartir el presupuesto entre seis países a la vez, la hoja de ruta valida la demanda real en Centroamérica primero, y solo entonces reinvierte lo aprendido en los siguientes mercados.</p>
+
+    <div class="g3 sg fade-in">
+      <div class="prob-card mk-card">
+        <span class="mk-phase">Fase 1 · Ahora</span>
+        <div class="mk-countries">Guatemala, Honduras, Panamá y Costa Rica</div>
+        <p class="prob-text">Los 4 países donde arranca el piloto de pauta digital, validando demanda real antes de comprometer más presupuesto.</p>
+      </div>
+      <div class="prob-card mk-card">
+        <span class="mk-phase">Fase 2 · Siguiente</span>
+        <div class="mk-countries">Perú y México</div>
+        <p class="prob-text">Una vez el piloto muestre resultados por país y por producto, se replica el mismo sistema en estos dos mercados.</p>
+      </div>
+      <div class="prob-card mk-card">
+        <span class="mk-phase">Fase 3 · Visión</span>
+        <div class="mk-countries">Europa y otros mercados internacionales</div>
+        <p class="prob-text">El horizonte de largo plazo de ABS Industrial, sostenido por el mismo sistema de generación de demanda.</p>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-top:32px;align-items:start">
+      <div class="pillar" style="padding:32px 28px">
+        <span class="pillar-num">Cliente objetivo</span>
+        <ul class="bl" style="margin-top:6px">
+          <li>Productores y comercializadores de papa</li>
+          <li>Intermediarios de líneas de postcosecha</li>
+          <li>Cadenas de supermercados</li>
+          <li>Alcaldías, gobernaciones y entidades públicas</li>
+        </ul>
+      </div>
+      <div class="pillar" style="padding:32px 28px">
+        <span class="pillar-num">Competencia identificada</span>
+        <ul class="bl" style="margin-top:6px">
+          <li><strong style="color:var(--ink)">Droma Ingeniería</strong> · dromaingenieria.com</li>
+          <li><strong style="color:var(--ink)">SPK Ingeniería</strong> · spkingenieria.com.co</li>
+        </ul>
+        <p class="prob-text" style="margin-top:14px">Ambas compiten con el mismo conocimiento técnico que ABS Industrial ayudó a formar; ninguna tiene 38 años de trayectoria. Esa diferencia va al frente en cada campaña.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  05 · CÓMO FUNCIONA EL SISTEMA
+════════════════════════════════════════ -->
+<section class="sec sec-white sec-wm" id="s-como-funciona">
+  <svg class="brand-mark brand-mark--diag" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="inner">
+    <span class="sec-label">04 · Cómo funciona</span>
+    <h2 class="sec-title lt">Un sistema de adquisición B2B internacional, no solo redes sociales.</h2>
+    <p class="sec-lead lt">Seis piezas que trabajan juntas: estrategia, contenido, pauta segmentada por país, una landing hecha para cotizar y seguimiento de cada oportunidad hasta que se convierte en negocio.</p>
+
+    <div class="pillar-grid sg fade-in">
+      <div class="pillar">
+        <span class="pillar-num">01 · Dirección</span>
+        <div class="pillar-title">Estrategia y Dirección de Expansión Internacional</div>
+        <p class="pillar-sub">El mapa de decisiones detrás de cada país</p>
+        <ul class="bl">
+          <li>Prioriza país y producto según demanda real, no supuestos</li>
+          <li>Define metas trimestrales y presupuesto por mercado</li>
+          <li>Entrega reportes en lenguaje simple, sin jerga técnica</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">02 · Conversión</span>
+        <div class="pillar-title">Landing de Cotización Multi-producto</div>
+        <p class="pillar-sub">Un solo lugar para las 5 líneas de producto</p>
+        <ul class="bl">
+          <li>Presenta lavadoras, deshidratadoras, trenes de cepillos, secadoras y clasificadoras</li>
+          <li>Formulario de cotización directo, bilingüe español e inglés</li>
+          <li>Botón de WhatsApp siempre visible, listo para intermediarios y entidades públicas</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">03 · Alcance</span>
+        <div class="pillar-title">Pauta Digital Internacional (Google + Meta)</div>
+        <p class="pillar-sub">Campañas segmentadas, país por país</p>
+        <ul class="bl">
+          <li>Google Ads captura intención de búsqueda real en cada mercado</li>
+          <li>Meta Ads sostiene reconocimiento de marca y retargeting con casos y contenido técnico</li>
+          <li>Primero en modo piloto en Centroamérica; presupuesto ajustable según resultados</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">04 · Autoridad</span>
+        <div class="pillar-title">Contenido técnico y comercial</div>
+        <p class="pillar-sub">La experiencia de 38 años, traducida a contenido</p>
+        <ul class="bl">
+          <li>Casos de uso, procesos y especificaciones por línea de producto</li>
+          <li>Testimoniales y trayectoria como argumento frente a competencia más joven</li>
+          <li>Alimenta LinkedIn, Instagram y Facebook con el mismo mensaje en todos los países</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">05 · Producción</span>
+        <div class="pillar-title">Producción audiovisual modular</div>
+        <p class="pillar-sub">Material real de planta y de campo</p>
+        <ul class="bl">
+          <li>Sesiones de grabación cotizadas por sesión, según necesidad</li>
+          <li>Alimenta redes, campañas de pauta y fichas técnicas de producto</li>
+          <li>Viáticos y desplazamientos fuera de la ciudad base se cotizan aparte</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">06 · Seguimiento</span>
+        <div class="pillar-title">Seguimiento y calificación de leads</div>
+        <p class="pillar-sub">Ninguna cotización se pierde por huso horario</p>
+        <ul class="bl">
+          <li>Cada cotización llega directo a WhatsApp, con país y producto identificados</li>
+          <li>HalconBot, opcional, responde y califica 24/7 mientras el equipo comercial no está disponible</li>
+          <li>Reportes de leads por país, para decidir dónde subir presupuesto</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  06 · WIREFRAMES DE LA PROPUESTA
+════════════════════════════════════════ -->
+<section class="sec sec-lt" id="s-wireframes">
+  <div class="inner">
+    <span class="sec-label">05 · Wireframes de la propuesta</span>
+    <h2 class="sec-title lt">Así se ve la landing de cotización.</h2>
+    <p class="sec-lead lt">Wireframes de arquitectura y contenido, con la identidad visual de We Rock: mobile-first, cotización en pocos pasos y las 5 líneas de producto siempre visibles.</p>
+
+    <!-- HOME: TOGGLE ESCRITORIO / MOBILE -->
+    <div class="dv-toggle" role="group" aria-label="Cambiar vista del sitio">
+      <button type="button" class="dv-tab active" data-view="desktop" aria-pressed="true">Escritorio</button>
+      <button type="button" class="dv-tab" data-view="mobile" aria-pressed="false">Mobile</button>
+    </div>
+    <div class="dv-stage">
+      <div class="dv-pane active" data-pane="desktop">
+        <div class="tilt-stage">
+          <div class="device-browser device-browser--home tilt reveal-3d">
+            <div class="device-browser-bar">
+              <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
+              <div class="db-url"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="10" width="14" height="9" rx="1.5"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>absindustrial.com.co</div>
+            </div>
+            <div class="device-browser-screen">
+              <div class="bmock-nav">
+                <div class="bmock-logo"><span class="bmock-logo-mark" aria-hidden="true"></span>ABS Industrial</div>
+                <div class="bmock-links"><span class="on">Inicio</span><span>Productos</span><span>Nosotros</span><span>Casos</span><span>Cotizar</span></div>
+                <span class="bmock-cta-mini">Cotizar ahora</span>
+              </div>
+              <div class="bmock-hero">
+                <h4>38 años fabricando soluciones para el campo</h4>
+                <p>Lavadoras, deshidratadoras y líneas de postcosecha, listas para Centroamérica</p>
+                <span class="b">Cotiza tu proyecto</span>
+              </div>
+              <div class="bmock-body">
+                <div class="bmock-cards3">
+                  <div><b>Lavadoras de papa</b>Ver ficha →</div>
+                  <div><b>Deshidratadoras</b>Ver ficha →</div>
+                  <div><b>Trenes de cepillos</b>Ver ficha →</div>
+                </div>
+              </div>
+              <div class="bmock-quicklinks"><span>Secadoras</span>·<span>Clasificadoras</span>·<span>Casos de éxito</span>·<span>Cotización en minutos</span></div>
+              <div class="bmock-footer-mini">Colombia · Centroamérica · WhatsApp directo</div>
+            </div>
+          </div>
+        </div>
+        <div class="bmock-caption">Home · escritorio</div>
+      </div>
+
+      <div class="dv-pane" data-pane="mobile">
+        <div class="g2" style="align-items:start">
+          <div class="device-phone-wrap">
+            <div class="tilt-stage">
+              <div class="device-phone tilt reveal-3d">
+                <div class="device-phone-notch" aria-hidden="true"></div>
+                <div class="device-phone-screen">
+                  <div class="bmock-phone-hero">38 años en el campo</div>
+                  <div class="bmock-phone-list">
+                    <div>Productos</div>
+                    <div>Casos de éxito</div>
+                    <div>Cotizar ahora</div>
+                    <div>Contacto por WhatsApp</div>
+                  </div>
+                  <div class="bmock-phone-tabbar" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></div>
+                  <div class="device-phone-home" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+            <div class="device-phone-shadow" aria-hidden="true"></div>
+            <div class="bmock-caption">Home · mobile</div>
+          </div>
+
+          <div class="pillar" style="padding:32px 28px">
+            <span class="pillar-num">Principios de diseño para compradores industriales</span>
+            <ul class="bl" style="margin-top:6px">
+              <li><strong style="color:var(--ink)">Mobile-first:</strong> muchos compradores revisan desde el celular, entre visitas de campo</li>
+              <li><strong style="color:var(--ink)">Cotización corta:</strong> pocos campos, país y producto identificados desde el primer clic</li>
+              <li><strong style="color:var(--ink)">WhatsApp siempre visible:</strong> el canal donde realmente se cierra el negocio</li>
+              <li><strong style="color:var(--ink)">Fichas técnicas descargables:</strong> el comprador técnico necesita specs, no solo fotos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="g3 tilt-stage" style="margin-top:56px;align-items:start">
+      <!-- FICHA DE PRODUCTO -->
+      <div>
+        <div class="device-browser device-browser--sm tilt reveal-3d">
+          <div class="device-browser-bar">
+            <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
+            <div class="db-url">/productos/lavadoras-de-papa</div>
+          </div>
+          <div class="device-browser-screen">
+            <div class="bmock-nav" style="padding:10px 16px"><div class="bmock-logo" style="font-size:10px"><span class="bmock-logo-mark" style="width:14px;height:14px" aria-hidden="true"></span>ABS Industrial</div></div>
+            <div style="background:var(--dk);color:#fff;padding:14px 18px;font-size:12px;font-weight:800">Lavadora de papa industrial</div>
+            <div style="padding:16px 18px">
+              <div style="background:var(--lt3);height:44px;margin-bottom:10px"></div>
+              <div class="bmock-spec-list">
+                <div>Capacidad<b>Según línea</b></div>
+                <div>Material<b>Acero inoxidable</b></div>
+                <div>Aplicación<b>Postcosecha de papa</b></div>
+              </div>
+              <div class="bmock-cta-mini" style="display:inline-block;margin-top:12px">Cotizar esta línea</div>
+            </div>
+          </div>
+        </div>
+        <div class="bmock-caption">Ficha técnica de producto</div>
+      </div>
+
+      <!-- CASOS DE ÉXITO -->
+      <div>
+        <div class="device-browser device-browser--sm tilt reveal-3d">
+          <div class="device-browser-bar">
+            <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
+            <div class="db-url">/casos-de-exito</div>
+          </div>
+          <div class="device-browser-screen">
+            <div class="bmock-nav" style="padding:10px 16px"><div class="bmock-logo" style="font-size:10px"><span class="bmock-logo-mark" style="width:14px;height:14px" aria-hidden="true"></span>ABS Industrial</div></div>
+            <div style="padding:14px 18px">
+              <div style="font-size:11px;font-weight:800;color:var(--ink);margin-bottom:10px">Casos de éxito</div>
+              <div class="bmock-cards3" style="grid-template-columns:1fr 1fr">
+                <div><div style="background:var(--lt3);height:26px;margin-bottom:6px"></div><b>Planta en Boyacá</b></div>
+                <div><div style="background:var(--lt3);height:26px;margin-bottom:6px"></div><b>Línea de postcosecha</b></div>
+                <div><div style="background:var(--lt3);height:26px;margin-bottom:6px"></div><b>Cadena de supermercados</b></div>
+                <div><div style="background:var(--lt3);height:26px;margin-bottom:6px"></div><b>38 años de proyectos</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bmock-caption">Casos de éxito, con filtro por producto</div>
+      </div>
+
+      <!-- FORMULARIO DE COTIZACIÓN -->
+      <div>
+        <div class="device-browser device-browser--sm tilt reveal-3d">
+          <div class="device-browser-bar">
+            <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
+            <div class="db-url">/cotizar</div>
+          </div>
+          <div class="device-browser-screen">
+            <div class="bmock-nav" style="padding:10px 16px"><div class="bmock-logo" style="font-size:10px"><span class="bmock-logo-mark" style="width:14px;height:14px" aria-hidden="true"></span>ABS Industrial</div></div>
+            <div style="padding:14px 18px">
+              <div style="font-size:11px;font-weight:800;color:var(--ink);margin-bottom:10px">Cotiza tu proyecto</div>
+              <div class="bmock-quote-field">País: Guatemala</div>
+              <div class="bmock-quote-field">Producto: Deshidratadora</div>
+              <div class="bmock-quote-field">WhatsApp de contacto</div>
+              <div class="bmock-cta-mini" style="display:inline-block;margin-top:6px">Enviar cotización</div>
+            </div>
+          </div>
+        </div>
+        <div class="bmock-caption">Formulario de cotización por país</div>
+      </div>
+    </div>
+
+    <!-- MOCKUP WHATSAPP -->
+    <div class="tilt-stage" style="margin-top:56px;display:flex;justify-content:center">
+      <div class="device-phone-wrap">
+        <div class="device-phone tilt reveal-3d">
+          <div class="device-phone-notch" aria-hidden="true"></div>
+          <div class="device-phone-screen">
+            <div class="wa-head"><span class="dotgreen"></span>Cotizaciones ABS Industrial</div>
+            <div class="wa-chat">
+              <div class="wa-bubble"><b>Nueva cotización</b>País: Guatemala · Producto: Trenes de cepillos</div>
+              <div class="wa-bubble out">Recibido, en 24h te contactamos con el detalle técnico y precio.</div>
+              <div class="wa-bubble"><b>Nueva cotización</b>País: Costa Rica · Producto: Deshidratadora</div>
+            </div>
+            <div class="device-phone-home" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="device-phone-shadow" aria-hidden="true"></div>
+        <div class="bmock-caption">Cotizaciones que llegan directo a WhatsApp, sin importar el país</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  07 · PLAN DE TRABAJO PROPUESTO
+════════════════════════════════════════ -->
+<section class="sec sec-dk noise-overlay sec-cut-top" id="s-plan">
+  <div class="inner">
+    <span class="sec-label">06 · Ejecución</span>
+    <h2 class="sec-title dk">Plan de trabajo propuesto.</h2>
+    <p class="sec-lead dk">El piloto en Centroamérica queda en marcha en los primeros 90 días; a partir de ahí, la optimización y el escalamiento son continuos.</p>
+  </div>
+
+  <div class="inner">
+    <div class="phase-grid sg fade-in">
+      <div class="phase-card">
+        <div class="phase-num">1</div>
+        <div class="phase-title">Diagnóstico y validación</div>
+        <div class="phase-time">2 sem.</div>
+        <p class="phase-desc">Auditoría del sitio y redes actuales, research de competencia, prioridad de país y producto</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">2</div>
+        <div class="phase-title">Landing y contenido base</div>
+        <div class="phase-time">3 a 4 sem.</div>
+        <p class="phase-desc">Landing de cotización multi-producto, banco de contenido inicial y primera sesión audiovisual</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">3</div>
+        <div class="phase-title">Piloto Centroamérica</div>
+        <div class="phase-time">4 sem.</div>
+        <p class="phase-desc">Lanzamiento de campañas Google y Meta en Guatemala, Honduras, Panamá y Costa Rica</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">4</div>
+        <div class="phase-title">Optimización</div>
+        <div class="phase-time">Continuo</div>
+        <p class="phase-desc">Ajuste de presupuesto por país y producto según cotizaciones reales, no supuestos</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">5</div>
+        <div class="phase-title">Escalamiento</div>
+        <div class="phase-time">Desde mes 3</div>
+        <p class="phase-desc">Expansión a Perú, México y nuevos mercados con el mismo sistema ya validado</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  08 · INVERSIÓN
+════════════════════════════════════════ -->
+<section class="sec sec-white sec-wm" id="s-inversion">
+  <svg class="brand-mark brand-mark--pkg" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="inner">
+    <span class="sec-label">07 · Inversión</span>
+    <h2 class="sec-title lt">Empieza con el piloto, o arma tu propio plan.</h2>
+    <p class="sec-lead lt">La mayoría de clientes arrancan con el piloto de Centroamérica completo. Si ABS Industrial prefiere avanzar por partes, cada servicio también se contrata por separado.</p>
+
+    <div class="pkg-block corner-fx">
+      <div class="badge-red">Recomendado para arrancar</div>
+      <h3 class="pkg-title">Piloto Centroamérica: valida el mercado en 90 días</h3>
+      <p class="pkg-desc">Landing de cotización, dirección estratégica y pauta digital en Guatemala, Honduras, Panamá y Costa Rica, para llegar a la próxima Agroexpo con resultados reales que mostrar, no solo con la intención de participar.</p>
+      <ul class="cl on-dk pkg-items">
+        <li><span>Landing de Cotización Multi-producto<span class="pkg-note">Pago único</span></span><strong>$3.400.000</strong></li>
+        <li><span>Dirección Estratégica de Expansión Internacional<span class="pkg-note">3 meses · $1.700.000/mes</span></span><strong>$5.100.000</strong></li>
+        <li><span>Gestión de Google Ads Internacional<span class="pkg-note">3 meses · $950.000/mes</span></span><strong>$2.850.000</strong></li>
+        <li><span>Gestión de Meta Ads Internacional<span class="pkg-note">3 meses · $850.000/mes</span></span><strong>$2.550.000</strong></li>
+      </ul>
+      <div class="pkg-total">
+        <span class="pkg-total-lbl">Total piloto · 90 días</span>
+        <span class="pkg-total-val">$13.900.000</span>
+      </div>
+      <p class="pkg-foot">Presupuesto de pauta publicitaria (lo que se invierte directamente en anuncios en Google y Meta) se cotiza aparte: sugerido desde $1.800.000/mes, repartido entre los 4 países piloto. Precios en pesos colombianos, vigentes para esta propuesta.</p>
+      <div style="margin-top:32px">
+        <a href="https://wa.me/573125766056?text=Hola%20David%2C%20quiero%20hablar%20sobre%20el%20piloto%20Centroam%C3%A9rica%20para%20ABS%20Industrial." class="cta-btn" target="_blank">
+          <svg aria-hidden="true" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.5A2.5 2.5 0 0114.5 15h-1l-4 2-4-2H4A2.5 2.5 0 011.5 12.5v-7A2.5 2.5 0 014 3h10.5A2.5 2.5 0 0117 5.5v7z"/></svg>
+          Hablar con David sobre el piloto
+        </a>
+      </div>
+    </div>
+
+    <div style="margin-top:64px">
+      <span class="sec-label">¿Prefieres armar tu propio plan?</span>
+      <h3 style="font-size:22px;font-weight:800;color:var(--ink);margin-bottom:28px">Cada servicio, por separado.</h3>
+
+      <div class="svc-grid sg fade-in">
+        <div class="svc-card">
+          <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.6-2.5h4.8L16 7"/><circle cx="12" cy="13.5" r="3.4"/></svg></div>
+          <div class="svc-title">Landing de Cotización Multi-producto</div>
+          <p class="svc-text">Catálogo de las 5 líneas de producto, formulario de cotización por país e integración directa con WhatsApp, bilingüe español e inglés.</p>
+          <div class="svc-price-row"><span class="svc-price">$3.400.000</span><span class="svc-period">Pago único</span></div>
+        </div>
+        <div class="svc-card">
+          <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M9 19V5M14 19v-7M19 19v-4"/></svg></div>
+          <div class="svc-title">Dirección Estratégica de Expansión Internacional</div>
+          <p class="svc-text">Prioridad de país y producto, metas trimestrales, presupuesto de pauta y reportes mensuales en lenguaje simple.</p>
+          <div class="svc-price-row"><span class="svc-price">$1.700.000</span><span class="svc-period">COP/mes</span></div>
+        </div>
+        <div class="svc-card">
+          <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.5-4.5"/></svg></div>
+          <div class="svc-title">Gestión de Google Ads Internacional</div>
+          <p class="svc-text">Campañas de búsqueda segmentadas por país; captura la intención de compra de quien ya está buscando una solución.</p>
+          <div class="svc-price-row"><span class="svc-price">$950.000</span><span class="svc-period">COP/mes gestión</span></div>
+          <p style="font-size:11.5px;color:var(--ink3);margin-top:8px">Pauta sugerida aparte: desde $1.200.000/mes</p>
+        </div>
+        <div class="svc-card">
+          <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+          <div class="svc-title">Gestión de Meta Ads Internacional</div>
+          <p class="svc-text">Campañas en Instagram y Facebook para reconocimiento de marca y retargeting, con casos y contenido técnico.</p>
+          <div class="svc-price-row"><span class="svc-price">$850.000</span><span class="svc-period">COP/mes gestión</span></div>
+          <p style="font-size:11.5px;color:var(--ink3);margin-top:8px">Pauta sugerida aparte: desde $600.000/mes</p>
+        </div>
+        <div class="svc-card">
+          <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h10"/></svg></div>
+          <div class="svc-title">Contenido y Gestión de Redes B2B</div>
+          <p class="svc-text">Contenido técnico y comercial para LinkedIn, Instagram y Facebook, con la trayectoria de 38 años como eje narrativo.</p>
+          <div class="svc-price-row"><span class="svc-price">$1.300.000</span><span class="svc-period">COP/mes</span></div>
+        </div>
+        <div class="svc-card">
+          <div class="icon-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="13" height="10" rx="1.5"/><path d="M16 10l5-3v10l-5-3"/></svg></div>
+          <div class="svc-title">Producción Audiovisual</div>
+          <p class="svc-text">Sesión de grabación en planta o en campo, para alimentar redes, campañas de pauta y fichas de producto.</p>
+          <div class="svc-price-row"><span class="svc-price">$1.700.000</span><span class="svc-period">Por sesión</span></div>
+          <p style="font-size:11.5px;color:var(--ink3);margin-top:8px">No incluye viáticos ni desplazamientos fuera de Bogotá; se cotizan aparte según ubicación</p>
+        </div>
+        <div class="svc-card optional">
+          <div class="icon-wrap" style="background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12)"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="13" rx="2"/><path d="M9 6V4h6v2M9 13h.01M15 13h.01"/></svg></div>
+          <span class="prob-label" style="color:var(--ink3)">Opcional</span>
+          <div class="svc-title">HalconBot IA</div>
+          <p class="svc-text">Responde y califica cotizaciones 24/7 por WhatsApp; útil cuando el comprador está en otro huso horario de Centroamérica.</p>
+          <div class="svc-price-row"><span class="svc-price">USD $49</span><span class="svc-period">/mes (≈$205.800 COP)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:12.5px;color:var(--ink3);font-style:italic;margin-top:32px;line-height:1.7">Precios en pesos colombianos, vigentes para esta propuesta. TRM de referencia para HalconBot: $4.200. El presupuesto de pauta publicitaria en Google y Meta es adicional a la gestión y se cotiza según los países y productos priorizados.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  09 · POR QUÉ WE ROCK
+════════════════════════════════════════ -->
+<section class="sec sec-lt2 tex-glow-bl" id="s-werock">
+  <div class="inner">
+    <span class="sec-label">08 · Por qué We Rock</span>
+    <h2 class="sec-title lt">No es manejo de redes sociales.<br>Es un sistema de adquisición construido para exportar.</h2>
+    <p class="sec-lead lt" style="margin-bottom:0">We Rock nació en 2018. La experiencia detrás tiene más de 15 años en estrategia digital, aplicada aquí a un reto particular: llevar 38 años de trayectoria industrial a compradores que aún no conocen a ABS Industrial, en países donde la empresa nunca ha tenido oficina.</p>
+
+    <div class="compare-panel sg fade-in" style="margin-top:48px">
+      <div class="compare-col before">
+        <span class="compare-lbl">Sin sistema digital</span>
+        <ul class="compare-list before">
+          <li>El crecimiento depende de quién conoce a quién</li>
+          <li>Agroexpo es la única ventana de visibilidad, una vez al año</li>
+          <li>No hay forma de saber qué país o producto genera más interés real</li>
+          <li>La competencia, más joven, ocupa el espacio digital primero</li>
+        </ul>
+      </div>
+      <div class="compare-col after">
+        <span class="compare-lbl">Con We Rock</span>
+        <ul class="compare-list after">
+          <li>Un sistema que trabaja todos los días, en varios países a la vez</li>
+          <li>Cotizaciones que llegan solas, identificadas por país y producto</li>
+          <li>Reportes claros para decidir dónde invertir el siguiente peso</li>
+          <li>38 años de trayectoria, convertidos en el argumento central de cada campaña</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wr-stats sg fade-in" style="margin-top:2px">
+      <div class="wr-stat corner-fx">
+        <div class="wr-stat-val"><span class="cnt" data-target="15">0</span><span>+</span></div>
+        <div class="wr-stat-lbl">Años de experiencia del fundador en estrategia digital</div>
+      </div>
+      <div class="wr-stat">
+        <div class="wr-stat-val"><span class="cnt" data-target="2018">0</span></div>
+        <div class="wr-stat-lbl">Año de fundación de We Rock · Bogotá, Colombia</div>
+      </div>
+      <div class="wr-stat">
+        <div class="wr-stat-val"><span class="cnt" data-target="38">0</span></div>
+        <div class="wr-stat-lbl">Años de trayectoria de ABS Industrial, el activo central de la estrategia</div>
+      </div>
+    </div>
+
+    <div class="pillar-grid sg fade-in" style="margin-top:20px">
+      <div class="pillar">
+        <span class="pillar-num">Un solo equipo, de punta a punta</span>
+        <div class="pillar-title">El mismo equipo diseña, produce y gestiona la pauta</div>
+        <p class="pillar-sub">Sin fricción entre quien diseña y quien opera campañas</p>
+        <ul class="bl">
+          <li>La landing, el contenido y la pauta hablan el mismo idioma desde el inicio</li>
+          <li>Un solo interlocutor durante todo el proyecto, de principio a fin</li>
+          <li>Ajustes rápidos cuando un país o producto responde mejor de lo esperado</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">Trato directo</span>
+        <div class="pillar-title">Un canal directo con David, sin intermediarios</div>
+        <p class="pillar-sub">Comunicación clara y respuesta rápida</p>
+        <ul class="bl">
+          <li>Reportes de avance en lenguaje simple, por país y por producto</li>
+          <li>Ajustes según lo que ABS Industrial vea en cada cotización recibida</li>
+          <li>Acompañamiento en la decisión de próxima participación en Agroexpo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+  10 · CTA / PRÓXIMOS PASOS
+════════════════════════════════════════ -->
+<section class="cta-section cta-cut noise-overlay" id="s-cta">
+  <canvas id="cta-canvas" aria-hidden="true"></canvas>
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <div class="cta-tag">09 · Próximos pasos</div>
+    <h2 class="cta-title">38 AÑOS DE HISTORIA.<br>HORA DE LLEVARLOS<br><span class="r">A CENTROAMÉRICA.</span></h2>
+    <p class="cta-sub">David revisa contigo el piloto de Centroamérica, resuelve dudas sobre precios y presupuesto de pauta, y arma el plan de arranque en la misma llamada.</p>
+    <a href="https://wa.me/573125766056?text=Hola%20David%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20propuesta%20de%20marketing%20internacional%20para%20ABS%20Industrial." class="cta-btn" target="_blank">
+      <svg aria-hidden="true" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.5A2.5 2.5 0 0114.5 15h-1l-4 2-4-2H4A2.5 2.5 0 011.5 12.5v-7A2.5 2.5 0 014 3h10.5A2.5 2.5 0 0117 5.5v7z"/></svg>
+      Hablar con David
+    </a>
+    <div class="cta-detail">+57 312 576 6056 · werock.space</div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="ft-logo">
+    <img src="we-rock-v1.png" alt="We Rock" onerror="this.outerHTML='<span style=\'font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)\'>WE ROCK</span>'">
+  </div>
+  <div class="ft-text">
+    Propuesta de Marketing y Expansión Internacional · ABS Industrial · 2026 · Confidencial<br>
+    We Rock · Firma de crecimiento estratégico · Bogotá, Colombia
+  </div>
+</footer>
+
+
+<script>
+// ── CURSOR ──
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+  let mx=0,my=0,cx2=0,cy2=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx-4}px,${my-4}px)`;});
+  (function a(){cx2+=(mx-cx2)*.18;cy2+=(my-cy2)*.18;cur2.style.transform=`translate(${cx2-19}px,${cy2-19}px)`;requestAnimationFrame(a);})();
+}
+
+// ── PROGRESS ──
+const prog=document.getElementById('prog');
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;prog.style.width=(s/h*100)+'%';});
+
+// ── NAV ──
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+
+// ── FADE IN ──
+const fObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');fObs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-in, .reveal-3d').forEach(el=>fObs.observe(el));
+
+// ── STAGGER GRIDS ──
+const sgObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');sgObs.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.sg').forEach(el=>sgObs.observe(el));
+
+// ── COUNT-UP NUMÉRICO (soporta formato COP con separador de miles) ──
+const cntObs=new IntersectionObserver(entries=>{entries.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const el=e.target,target=parseInt(el.dataset.target,10),dur=1300,t0=performance.now(),fmt=el.dataset.format==='cop';
+  function step(t){const p=Math.min((t-t0)/dur,1),eased=1-Math.pow(1-p,3),val=Math.round(eased*target);el.textContent=fmt?val.toLocaleString('es-CO'):val;if(p<1)requestAnimationFrame(step);else el.textContent=fmt?target.toLocaleString('es-CO'):target;}
+  requestAnimationFrame(step);cntObs.unobserve(el);
+});},{threshold:.4});
+document.querySelectorAll('.cnt').forEach(el=>cntObs.observe(el));
+
+// ── TOGGLE ESCRITORIO / MOBILE (wireframes) ──
+document.querySelectorAll('.dv-toggle').forEach(tg=>{
+  tg.addEventListener('click',e=>{
+    const btn=e.target.closest('.dv-tab');if(!btn)return;
+    tg.querySelectorAll('.dv-tab').forEach(b=>{const on=b===btn;b.classList.toggle('active',on);b.setAttribute('aria-pressed',on?'true':'false');});
+    const stage=tg.nextElementSibling;
+    stage.querySelectorAll('.dv-pane').forEach(p=>p.classList.toggle('active',p.dataset.pane===btn.dataset.view));
+  });
+});
+
+// ── TILT 3D EN MOCKUPS (deshabilitado si el usuario prefiere menos movimiento) ──
+const prefersReducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!prefersReducedMotion){
+  document.querySelectorAll('.tilt').forEach(el=>{
+    let raf=null;
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
+      if(raf)cancelAnimationFrame(raf);
+      raf=requestAnimationFrame(()=>{el.style.transform=`perspective(1200px) rotateX(${(-py*7).toFixed(2)}deg) rotateY(${(px*9).toFixed(2)}deg)`;});
+    });
+    el.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);el.style.transform='perspective(1200px) rotateX(0deg) rotateY(0deg)';});
+  });
+}
+
+// ── GRADIENT CANVAS ──
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)(function(){
+  const canvas=document.getElementById('grad-canvas'),ctx=canvas.getContext('2d');let w,h;
+  function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  let gx=.3,gy=.6,tx=.3,ty=.6,ang=0;
+  document.addEventListener('mousemove',e=>{tx=e.clientX/window.innerWidth;ty=e.clientY/window.innerHeight;});
+  function draw(){
+    ctx.clearRect(0,0,w,h);gx+=(tx-gx)*.035;gy+=(ty-gy)*.035;ang+=.006;
+    const g1=ctx.createRadialGradient(gx*w,gy*h,0,gx*w,gy*h,Math.max(w,h)*.55);
+    g1.addColorStop(0,'rgba(232,0,10,.055)');g1.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g1;ctx.fillRect(0,0,w,h);
+    const ox=w*(.5+.45*Math.cos(ang)),oy=h*(.5+.4*Math.sin(ang*.8));
+    const g2=ctx.createRadialGradient(ox,oy,0,ox,oy,Math.max(w,h)*.42);
+    g2.addColorStop(0,'rgba(232,0,10,.03)');g2.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g2;ctx.fillRect(0,0,w,h);
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── NEURAL NET ──
+function initNeuralNet(id,light,neutral,onRed){
+  const cv=document.getElementById(id);if(!cv)return;
+  const cx=cv.getContext('2d');let W,H,VH;
+  function resize(){const s=cv.parentElement;W=cv.width=s.clientWidth||window.innerWidth;VH=window.innerHeight;H=cv.height=s.clientHeight||VH;}
+  resize();window.addEventListener('resize',resize);
+  const COUNT=window.innerWidth<600?55:110,CONNECT=165,M_REP=115,M_ATT=260,M_FREP=.09,M_FATT=.013,P_REP=60,P_FORCE=.022,SIG_SPEED=.026,FIRE_DUR=28,REF_DUR=200,FIRE_PROB=.00065,CASC_PROB=.25;
+  const mouse={x:W*.5,y:VH*.5,active:false};
+  cv.parentElement.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;mouse.active=true;});
+  cv.parentElement.addEventListener('mouseleave',()=>{mouse.active=false;});
+  const pts=Array.from({length:COUNT},()=>{const node=Math.random()<.22,sr=node&&Math.random()<.5;return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.55,vy:(Math.random()-.5)*.55,r:node?Math.random()*2.2+3.2:Math.random()*1.3+.7,node,phase:Math.random()*Math.PI*2,wa:Math.random()*Math.PI*2,ws:node?.004+Math.random()*.003:.0014+Math.random()*.0014,state:sr?'refractory':'idle',fireT:0,refT:sr?Math.floor(Math.random()*REF_DUR):0,arrT:0};});
+  const sigs=[];
+  function fire(fi){const src=pts[fi];if(!src.node||src.state!=='idle')return;src.state='firing';src.fireT=FIRE_DUR;for(let j=0;j<pts.length;j++){if(j===fi||!pts[j].node)continue;const dx=src.x-pts[j].x,dy=src.y-pts[j].y;if(Math.sqrt(dx*dx+dy*dy)<CONNECT&&Math.random()<.38)sigs.push({fi,ti:j,t:0,speed:SIG_SPEED*(.75+Math.random()*.5)});}if(sigs.length>18)sigs.splice(0,sigs.length-18);}
+  function tick(){
+    if(cv.offsetParent===null){requestAnimationFrame(tick);return;}if(!W||!H)resize();cx.clearRect(0,0,W,H);
+    for(let i=0;i<pts.length;i++){const p=pts[i];p.phase+=.02;
+      if(p.node){if(p.state==='firing'){if(--p.fireT<=0){p.state='refractory';p.refT=REF_DUR;}}else if(p.state==='refractory'){if(--p.refT<=0)p.state='idle';}else{let prob=FIRE_PROB;if(mouse.active){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)prob+=FIRE_PROB*2.5*(1-dm/M_ATT);}if(Math.random()<prob)fire(i);}}
+      if(mouse.active){const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);if(d<M_REP&&d>0){const f=(M_REP-d)/M_REP;p.vx+=(dx/d)*f*M_FREP;p.vy+=(dy/d)*f*M_FREP;}else if(d<M_ATT&&d>0){const f=(1-(d-M_REP)/(M_ATT-M_REP));p.vx-=(dx/d)*f*M_FATT;p.vy-=(dy/d)*f*M_FATT;}}
+      const BM=140,BF=.08,nx=p.x/BM,nxr=(W-p.x)/BM,ny=p.y/BM,nyr=(H-p.y)/BM;
+      if(nx<1)p.vx+=BF*(1-nx)**2;if(nxr<1)p.vx-=BF*(1-nxr)**2;if(ny<1)p.vy+=BF*(1-ny)**2;if(nyr<1)p.vy-=BF*(1-nyr)**2;
+      p.wa+=(Math.random()-.5)*.045;p.vx+=Math.cos(p.wa)*p.ws;p.vy+=Math.sin(p.wa)*p.ws;
+      p.vx+=(Math.random()-.5)*.009;p.vy+=(Math.random()-.5)*.009;p.vx*=.97;p.vy*=.97;
+      const spd=Math.sqrt(p.vx*p.vx+p.vy*p.vy);if(spd>1.4){p.vx=p.vx/spd*1.4;p.vy=p.vy/spd*1.4;}
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W||p.y<0||p.y>H){p.x=W*.2+Math.random()*W*.6;p.y=H*.2+Math.random()*H*.6;p.vx*=.1;p.vy*=.1;}}
+    for(let s=sigs.length-1;s>=0;s--){const sig=sigs[s];sig.t+=sig.speed;if(sig.t>=1){pts[sig.ti].arrT=1;if(Math.random()<CASC_PROB)fire(sig.ti);sigs.splice(s,1);}}
+    const ac=new Set();for(const sig of sigs)ac.add(sig.fi<sig.ti?`${sig.fi}_${sig.ti}`:`${sig.ti}_${sig.fi}`);
+    for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){
+      const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<P_REP&&d>0){const f=(P_REP-d)/P_REP*P_FORCE;a.vx+=(dx/d)*f;a.vy+=(dy/d)*f;b.vx-=(dx/d)*f;b.vy-=(dy/d)*f;}
+      if(d<CONNECT){let mb=0;if(mouse.active){const mn=Math.min(Math.sqrt((a.x-mouse.x)**2+(a.y-mouse.y)**2),Math.sqrt((b.x-mouse.x)**2+(b.y-mouse.y)**2));if(mn<M_ATT)mb=(1-mn/M_ATT)*.55;}
+        const ia=ac.has(`${i}_${j}`),base=(1-d/CONNECT)*(a.node||b.node?.62:.30),alpha=Math.min(base+mb+(ia?.5:0),1),lw=(a.node||b.node?1:.45)+mb*.8+(ia?.9:0);
+        cx.strokeStyle=onRed?`rgba(255,255,255,${alpha*.28})`:neutral?`rgba(75,65,60,${alpha*.42})`:light?`rgba(140,0,6,${alpha*.38})`:`rgba(232,0,10,${alpha})`;
+        cx.lineWidth=lw;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke();}}}
+    for(const sig of sigs){const src=pts[sig.fi],dst=pts[sig.ti],STEPS=6,TAIL=.18;
+      for(let k=0;k<STEPS;k++){const fr=k/(STEPS-1),tt=sig.t-TAIL*(1-fr);if(tt<0||tt>1)continue;const px=src.x+(dst.x-src.x)*tt,py=src.y+(dst.y-src.y)*tt,rad=1.2+fr*10,al=.02+fr*.26;const g=cx.createRadialGradient(px,py,0,px,py,rad);g.addColorStop(0,`rgba(255,245,225,${al})`);g.addColorStop(.38,`rgba(255,130,50,${al*.45})`);g.addColorStop(1,'rgba(232,0,10,0)');cx.fillStyle=g;cx.beginPath();cx.arc(px,py,rad,0,Math.PI*2);cx.fill();}
+      const hx=src.x+(dst.x-src.x)*Math.min(sig.t,1),hy=src.y+(dst.y-src.y)*Math.min(sig.t,1);cx.save();cx.shadowBlur=6;cx.shadowColor='rgba(255,210,150,.65)';cx.fillStyle='rgba(255,255,255,.5)';cx.beginPath();cx.arc(hx,hy,1.3,0,Math.PI*2);cx.fill();cx.restore();}
+    for(const p of pts){if(p.arrT<=0)continue;p.arrT-=.033;const pr2=1-Math.max(0,p.arrT),bR=p.r+4+pr2*22,al=p.arrT*.45;if(al<.005)continue;const bg=cx.createRadialGradient(p.x,p.y,p.r*.5,p.x,p.y,bR);bg.addColorStop(0,`rgba(255,220,160,${al*.7})`);bg.addColorStop(.45,`rgba(232,60,10,${al*.5})`);bg.addColorStop(1,'rgba(232,0,10,0)');cx.fillStyle=bg;cx.beginPath();cx.arc(p.x,p.y,bR,0,Math.PI*2);cx.fill();}
+    for(const p of pts){const pr=p.r+(p.node?Math.sin(p.phase)*.9:0);let nm=0;if(mouse.active&&p.node){const dm=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);if(dm<M_ATT)nm=1-dm/M_ATT;}
+      if(p.node){let cb=.88+nm*.12,fb=0;if(p.state==='firing'){const ft=p.fireT/FIRE_DUR;fb=ft;cb=Math.min(cb+ft*.12,1);}else if(p.state==='refractory'){cb*=.6+(1-p.refT/REF_DUR)*.4;}
+        const hR=pr*(8+nm*4+fb*3),hl=cx.createRadialGradient(p.x,p.y,pr*.5,p.x,p.y,hR),hC=onRed?'255,255,255':neutral?'75,65,60':'232,0,10';
+        hl.addColorStop(0,`rgba(${hC},${Math.min((onRed?.14:light||neutral?.08:.22)+nm*.10+fb*.08,onRed?.38:light||neutral?.22:.55)})`);hl.addColorStop(1,`rgba(${hC},0)`);
+        cx.fillStyle=hl;cx.beginPath();cx.arc(p.x,p.y,hR,0,Math.PI*2);cx.fill();
+        cx.save();cx.shadowBlur=10+nm*8+fb*10;cx.shadowColor=onRed?`rgba(255,255,255,${.45+nm*.2})`:neutral?'rgba(75,65,60,.35)':`rgba(232,40,10,${.75+nm*.2})`;cx.fillStyle=onRed?`rgba(255,255,255,${cb*.88})`:neutral?`rgba(75,65,60,${cb*.28})`:`rgba(232,0,10,${cb})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();
+      }else{cx.save();cx.shadowBlur=light?2:4;cx.shadowColor=light?'rgba(0,0,0,.08)':'rgba(255,255,255,.25)';cx.fillStyle=light?`rgba(30,20,20,${.12+Math.sin(p.phase)*.04})`:`rgba(255,255,255,${(onRed?.16:.22)+Math.sin(p.phase)*.08})`;cx.beginPath();cx.arc(p.x,p.y,pr,0,Math.PI*2);cx.fill();cx.restore();}}
+    requestAnimationFrame(tick);}tick();}
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  initNeuralNet('hero-canvas');
+  initNeuralNet('cta-canvas');
+}
+</script>
+</body>
+</html>

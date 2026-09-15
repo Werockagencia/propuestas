@@ -22,3 +22,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [Daniel Mojica — Marketing Digital (Landing + Google Ads + Meta Ads + HalconBot)](https://werockagencia.github.io/propuestas/danielmojica/)
 - [Visibilidad en IA (AEO) — Servicio We Rock](https://werockagencia.github.io/propuestas/aeo/)
 - [Asojuntas Cajicá — Diseño y Desarrollo Web](https://werockagencia.github.io/propuestas/asojuntascajica/)
+- [ABS Industrial — Marketing y Expansión Internacional](https://werockagencia.github.io/propuestas/absindustrial/)
