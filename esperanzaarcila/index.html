@@ -181,6 +181,7 @@ img{max-width:100%;height:auto;display:block;}
 .gantt-cell:nth-child(6){grid-column:6;}
 .gantt-bar{grid-row:1;border-radius:3px;display:flex;align-items:center;justify-content:center;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.02em;text-align:center;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .gantt-bar.opt{background:rgba(232,0,10,.08);border:1.5px dashed rgba(232,0,10,.55);color:var(--red);}
+.gantt-bar.pay{background:var(--white);color:var(--dk);border:1.5px solid var(--red);font-weight:900;font-variant-numeric:tabular-nums;}
 .gantt-dot{grid-row:1;width:12px;height:12px;border-radius:50%;background:var(--red);justify-self:center;align-self:center;box-shadow:0 0 0 4px rgba(232,0,10,.18);}
 @media(max-width:640px){.gantt-row{grid-template-columns:140px 1fr;gap:10px;}.gantt-label{font-size:11px;}}
 
@@ -475,8 +476,8 @@ footer{background:var(--lt);padding:48px 48px;border-top:1px solid var(--lt3);}
         </tr>
         <tr>
           <td><strong>Total auditoría y puesta a punto del sitio web</strong></td>
-          <td>Pago único</td>
-          <td><strong>$1.650.000</strong></td>
+          <td>50% al iniciar (semana 1) · 50% al entregar (semana 3)</td>
+          <td><strong>$1.250.000</strong></td>
         </tr>
       </tbody>
     </table>
@@ -625,8 +626,8 @@ footer{background:var(--lt);padding:48px 48px;border-top:1px solid var(--lt3);}
       <tbody>
         <tr>
           <td><strong>01 · Auditoría técnica y puesta a punto</strong> del sitio web (corrección de la tienda ya construida)</td>
-          <td>Pago único</td>
-          <td><strong>$1.650.000</strong></td>
+          <td>50% al iniciar (semana 1) · 50% al entregar (semana 3)</td>
+          <td><strong>$1.250.000</strong></td>
         </tr>
         <tr>
           <td><strong>02 · Contenidos</strong> (4 piezas de contenido al mes)</td>
@@ -654,7 +655,7 @@ footer{background:var(--lt);padding:48px 48px;border-top:1px solid var(--lt3);}
     <div class="price-note" style="margin-top:24px;">
       <strong>Hosting y dominio:</strong> ya están activos con el proveedor actual de Esperanza Arcila; no hacen parte de estas líneas.<br><br>
       <strong>Presupuesto de pauta</strong> (Meta Ads): independiente de la línea de Campañas, se paga directo a la plataforma. Mínimo real para arrancar de $600.000 COP/mes, un valor que se ajusta conforme el canal valida resultados.<br><br>
-      <strong>Forma de pago:</strong> auditoría y puesta a punto, 100% al iniciar, por ser un trabajo puntual de pocas semanas. Las líneas mensuales se facturan los primeros 5 días hábiles de cada mes, por transferencia bancaria, Nequi o Daviplata.<br><br>
+      <strong>Forma de pago:</strong> auditoría y puesta a punto, 50% al iniciar en la semana 1 ($625.000) y 50% al entregar la tienda corregida en la semana 3 ($625.000). Las líneas mensuales se facturan los primeros 5 días hábiles de cada mes, por transferencia bancaria, Nequi o Daviplata.<br><br>
       <strong>Compromiso mínimo:</strong> 3 meses en Contenidos y Campañas, el tiempo real que toma que la pauta se optimice. A partir del cuarto mes, cada línea se ajusta o cancela con 15 días de aviso.
     </div>
   </div>
@@ -737,6 +738,14 @@ footer{background:var(--lt);padding:48px 48px;border-top:1px solid var(--lt3);}
           </div>
         </div>
         <div class="gantt-row">
+          <div class="gantt-label">Pago auditoría y puesta a punto</div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-bar pay" style="grid-column:1/2" title="Semana 1 · 50% al iniciar">$625.000</div>
+            <div class="gantt-bar pay" style="grid-column:3/4" title="Semana 3 · 50% al entregar">$625.000</div>
+          </div>
+        </div>
+        <div class="gantt-row">
           <div class="gantt-label">Primera sesión audiovisual</div>
           <div class="gantt-track">
             <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
@@ -768,6 +777,7 @@ footer{background:var(--lt);padding:48px 48px;border-top:1px solid var(--lt3);}
     </div>
 
     <div class="price-note-dk" style="margin-top:24px;">
+      <strong>Pago de la auditoría y puesta a punto:</strong> semana 1, 50% al iniciar ($625.000) · semana 3, 50% al entregar la tienda corregida ($625.000). Sin pagos pendientes de esa línea después de la semana 3.<br><br>
       <strong>Ágil de entrada:</strong> la auditoría y la corrección técnica no dependen de aprobar antes las líneas mensuales; arrancan apenas se confirma el proyecto, en paralelo a la organización del primer calendario de contenido.
     </div>
   </div>
