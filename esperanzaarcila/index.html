@@ -163,6 +163,27 @@ img{max-width:100%;height:auto;display:block;}
 .step-title{font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px;}
 .step-desc{font-size:15px;color:var(--text-dk2);line-height:1.65;}
 
+/* GANTT / CRONOGRAMA TIPO CALENDARIO */
+.gantt{min-width:640px;}
+.gantt-row{display:grid;grid-template-columns:200px 1fr;gap:18px;align-items:center;padding:9px 0;}
+.gantt-row-head{padding-bottom:14px;}
+.gantt-row+.gantt-row{border-top:1px solid rgba(255,255,255,.06);}
+.gantt-label{font-size:12px;font-weight:700;color:var(--white);letter-spacing:.01em;}
+.gantt-cols{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;}
+.gantt-cols span{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dk2);text-align:center;}
+.gantt-track{display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:1fr;gap:6px;height:34px;}
+.gantt-cell{background:rgba(255,255,255,.04);border-radius:3px;grid-row:1;}
+.gantt-cell:nth-child(1){grid-column:1;}
+.gantt-cell:nth-child(2){grid-column:2;}
+.gantt-cell:nth-child(3){grid-column:3;}
+.gantt-cell:nth-child(4){grid-column:4;}
+.gantt-cell:nth-child(5){grid-column:5;}
+.gantt-cell:nth-child(6){grid-column:6;}
+.gantt-bar{grid-row:1;border-radius:3px;display:flex;align-items:center;justify-content:center;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.02em;text-align:center;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.gantt-bar.opt{background:rgba(232,0,10,.08);border:1.5px dashed rgba(232,0,10,.55);color:var(--red);}
+.gantt-dot{grid-row:1;width:12px;height:12px;border-radius:50%;background:var(--red);justify-self:center;align-self:center;box-shadow:0 0 0 4px rgba(232,0,10,.18);}
+@media(max-width:640px){.gantt-row{grid-template-columns:140px 1fr;gap:10px;}.gantt-label{font-size:11px;}}
+
 /* PRICE NOTE */
 .price-note{padding:24px 28px;background:var(--lt2);border-left:3px solid rgba(0,0,0,.1);font-size:14px;color:var(--gray2);line-height:1.65;margin-top:24px;}
 .price-note strong{color:var(--dk);}
@@ -693,21 +714,56 @@ footer{background:var(--lt);padding:48px 48px;border-top:1px solid var(--lt3);}
       </div>
     </div>
 
-    <div class="steps" style="margin-top:12px;">
-      <div class="step">
-        <div class="step-n">01</div>
-        <div class="step-title">Semana 1 · Diagnóstico y corrección</div>
-        <div class="step-desc">Auditoría técnica completa, corrección del carrito roto y de los demás errores críticos, e instalación de Google Analytics 4 y Search Console.</div>
-      </div>
-      <div class="step">
-        <div class="step-n">02</div>
-        <div class="step-title">Semanas 2 y 3 · Puesta a punto y arranque</div>
-        <div class="step-desc">Colección navegable, conexión visible del ecosistema de marca, primera sesión audiovisual y montaje de las primeras campañas en Meta.</div>
-      </div>
-      <div class="step">
-        <div class="step-n">03</div>
-        <div class="step-title">Mes 1 en adelante · Operación continua</div>
-        <div class="step-desc">Contenido semanal, optimización constante de campañas y reporte mensual de resultados. HalconBot queda listo para activarse cuando el volumen de mensajes lo pida.</div>
+    <div style="overflow-x:auto;margin-top:20px;">
+      <div class="gantt">
+        <div class="gantt-row gantt-row-head">
+          <div class="gantt-label"></div>
+          <div class="gantt-cols">
+            <span>Sem 1</span><span>Sem 2</span><span>Sem 3</span><span>Sem 4</span><span>Mes 2</span><span>Mes 3+</span>
+          </div>
+        </div>
+        <div class="gantt-row">
+          <div class="gantt-label">Auditoría y corrección técnica</div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-bar" style="grid-column:1/2">Sem 1</div>
+          </div>
+        </div>
+        <div class="gantt-row">
+          <div class="gantt-label">Puesta a punto de la tienda</div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-bar" style="grid-column:2/4">Sem 2-3</div>
+          </div>
+        </div>
+        <div class="gantt-row">
+          <div class="gantt-label">Primera sesión audiovisual</div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-dot" style="grid-column:3/4" title="Semana 3"></div>
+          </div>
+        </div>
+        <div class="gantt-row">
+          <div class="gantt-label">Contenido (semanal)</div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-bar" style="grid-column:3/7">Desde sem. 3, sin pausa</div>
+          </div>
+        </div>
+        <div class="gantt-row">
+          <div class="gantt-label">Campañas en Meta</div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-bar" style="grid-column:3/7">Desde sem. 3, sin pausa</div>
+          </div>
+        </div>
+        <div class="gantt-row">
+          <div class="gantt-label">HalconBot (opcional)</div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-bar opt" style="grid-column:1/7">Activable cuando se necesite</div>
+          </div>
+        </div>
       </div>
     </div>
 
