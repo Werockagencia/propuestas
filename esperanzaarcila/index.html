@@ -181,7 +181,10 @@ img{max-width:100%;height:auto;display:block;}
 .gantt-cell:nth-child(6){grid-column:6;}
 .gantt-bar{grid-row:1;border-radius:3px;display:flex;align-items:center;justify-content:center;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.02em;text-align:center;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .gantt-bar.opt{background:rgba(232,0,10,.08);border:1.5px dashed rgba(232,0,10,.55);color:var(--red);}
-.gantt-bar.pay{background:var(--white);color:var(--dk);border:1.5px solid var(--red);font-weight:900;font-variant-numeric:tabular-nums;}
+.gantt-track.tall{height:auto;min-height:82px;}
+.gantt-bar.pay{background:var(--white);color:var(--dk);border:1.5px solid var(--red);font-variant-numeric:tabular-nums;flex-direction:column;justify-content:center;gap:4px;white-space:normal;overflow:visible;text-overflow:clip;padding:10px 6px;text-align:center;}
+.gantt-bar.pay .amt{font-size:13px;font-weight:900;line-height:1;}
+.gantt-bar.pay .brk{font-size:9px;font-weight:600;color:var(--gray2);line-height:1.35;text-transform:none;letter-spacing:0;}
 .gantt-dot{grid-row:1;width:12px;height:12px;border-radius:50%;background:var(--red);justify-self:center;align-self:center;box-shadow:0 0 0 4px rgba(232,0,10,.18);}
 @media(max-width:640px){.gantt-row{grid-template-columns:140px 1fr;gap:10px;}.gantt-label{font-size:11px;}}
 
@@ -738,17 +741,6 @@ footer{background:var(--lt);padding:48px 48px;border-top:1px solid var(--lt3);}
           </div>
         </div>
         <div class="gantt-row">
-          <div class="gantt-label">Pagos por período</div>
-          <div class="gantt-track">
-            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
-            <div class="gantt-bar pay" style="grid-column:1/2" title="Semana 1 · 50% inicial de la auditoría">$625.000</div>
-            <div class="gantt-bar pay" style="grid-column:2/3" title="Semana 2 · 50% final de la auditoría, al entregar la tienda corregida">$625.000</div>
-            <div class="gantt-bar pay" style="grid-column:3/4" title="Semana 3 · primera sesión audiovisual ($850.000) + primer mes de contenido ($550.000) + primer mes de campañas ($400.000)">$1.800.000</div>
-            <div class="gantt-bar pay" style="grid-column:5/6" title="Mes 2 · contenido + campañas">$950.000/mes</div>
-            <div class="gantt-bar pay" style="grid-column:6/7" title="Mes 3 en adelante · contenido + campañas, más la sesión audiovisual cada 2 meses">$950.000/mes</div>
-          </div>
-        </div>
-        <div class="gantt-row">
           <div class="gantt-label">Primera sesión audiovisual</div>
           <div class="gantt-track">
             <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
@@ -774,6 +766,32 @@ footer{background:var(--lt);padding:48px 48px;border-top:1px solid var(--lt3);}
           <div class="gantt-track">
             <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
             <div class="gantt-bar opt" style="grid-column:1/7">Activable cuando se necesite</div>
+          </div>
+        </div>
+        <div class="gantt-row">
+          <div class="gantt-label">Pagos por período</div>
+          <div class="gantt-track tall">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-bar pay" style="grid-column:1/2">
+              <span class="amt">$625.000</span>
+              <span class="brk">50% inicial<br>auditoría</span>
+            </div>
+            <div class="gantt-bar pay" style="grid-column:2/3">
+              <span class="amt">$625.000</span>
+              <span class="brk">50% final<br>auditoría</span>
+            </div>
+            <div class="gantt-bar pay" style="grid-column:3/4">
+              <span class="amt">$1.800.000</span>
+              <span class="brk">Prod. AV $850k<br>Contenido $550k<br>Campañas $400k</span>
+            </div>
+            <div class="gantt-bar pay" style="grid-column:5/6">
+              <span class="amt">$950.000</span>
+              <span class="brk">Contenido<br>+ Campañas</span>
+            </div>
+            <div class="gantt-bar pay" style="grid-column:6/7">
+              <span class="amt">$950.000</span>
+              <span class="brk">Contenido<br>+ Campañas</span>
+            </div>
           </div>
         </div>
       </div>
