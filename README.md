@@ -24,3 +24,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [Asojuntas Cajicá — Diseño y Desarrollo Web](https://werockagencia.github.io/propuestas/asojuntascajica/)
 - [ABS Industrial — Marketing y Expansión Internacional](https://werockagencia.github.io/propuestas/absindustrial/)
 - [Tirano Fajardo Abogados — Estrategia híbrida (Google Ads Familia + LinkedIn Ads Insolvencia)](https://werockagencia.github.io/propuestas/tiranofajardo/)
+- [Pet Empire Mobile Grooming — Sitio WordPress + MoeGo, Contenido, Google Ads y Meta Ads (USD semanal)](https://werockagencia.github.io/propuestas/petempire/)
