@@ -23,3 +23,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [Visibilidad en IA (AEO) — Servicio We Rock](https://werockagencia.github.io/propuestas/aeo/)
 - [Asojuntas Cajicá — Diseño y Desarrollo Web](https://werockagencia.github.io/propuestas/asojuntascajica/)
 - [ABS Industrial — Marketing y Expansión Internacional](https://werockagencia.github.io/propuestas/absindustrial/)
+- [Tirano Fajardo Abogados — Estrategia híbrida (Google Ads Familia + LinkedIn Ads Insolvencia)](https://werockagencia.github.io/propuestas/tiranofajardo/)
