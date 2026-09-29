@@ -444,6 +444,13 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 .bench .tag{font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;background:var(--red);color:#fff}
 .bench article.fail .tag{background:rgba(255,255,255,.18)}
 
+.bench-btn{align-self:flex-start;margin-top:12px;display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.28);padding:9px 14px;transition:background .3s,border-color .3s,transform .35s var(--bounce)}
+.bench-btn:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px)}
+.bench-btn svg{width:11px;height:11px;transition:transform .3s}
+.bench-btn:hover svg{transform:translate(2px,-2px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(min-width:769px) and (max-height:1000px){.bench-btn{margin-top:8px;padding:6px 11px;font-size:10px}}
+
 /* ecosistema */
 .eco{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:34px;background:rgba(0,0,0,.08);position:relative}
 .eco article{background:#fff;padding:22px 20px 20px;position:relative;transition:transform .35s var(--ease),box-shadow .35s}
@@ -791,14 +798,14 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
       <span class="ln"><span style="--d:2" class="r">carga pesada</span></span>
       <span class="ln"><span style="--d:3">ya tiene dueño.</span></span>
     </h1>
-    <p class="cover-lead rv" style="--d:5">Una plataforma con marca propia para <b>cotizar, despachar y rastrear cada viaje</b>, y el marketing que la llena de <b>clientes y conductores</b>. We Rock lo construye a costo y gana a futuro, solo si Safe Trip gana. <b>Nos asociamos.</b></p>
+    <p class="cover-lead rv" style="--d:5">Una plataforma con marca propia para <b>cotizar, despachar y rastrear cada viaje</b>, y el marketing que la llena de <b>clientes y conductores</b>. We Rock aporta la mitad del desarrollo y gana a futuro, solo si Safe Trip gana. <b>Nos asociamos.</b></p>
     <div class="cover-hint rv" style="--d:6"><kbd>↓</kbd> <kbd>→</kbd> para avanzar · <kbd>F</kbd> pantalla completa</div>
   </div>
   <div class="cover-bar rv" style="--d:7">
     <div><b>151<i>M</i></b><span>Toneladas movidas en 2025</span></div>
     <div><b>6 <i>años</i></b><span>Operando Safe Trip</span></div>
     <div><b>24<i>/</i>7</b><span>Monitoreo satelital</span></div>
-    <div><b>A <i>costo</i></b><span>Desarrollo y marketing sin margen</span></div>
+    <div><b>50<i>/</i>50</b><span>We Rock aporta la mitad del desarrollo</span></div>
   </div>
 </section>
 
@@ -943,12 +950,12 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
     <div class="lbl rv" style="--d:0">05 · Benchmark</div>
     <h2 class="h2 rv" style="--d:1;color:#fff">Lo que ya funcionó en el mundo.<br><em>Y lo que no.</em></h2>
     <div class="bench">
-      <article class="rv" style="--d:2"><div class="who"><b>Uber Freight</b><span>EE. UU.</span></div><p class="fact">Paga al transportista en <strong>2 días hábiles</strong> tras aprobar la prueba de entrega. El pago rápido es su principal gancho con la red.</p><div class="lesson">Pagar rápido y sin pelear fideliza a los mejores conductores.</div></article>
-      <article class="rv" style="--d:3"><div class="who"><b>BlackBuck</b><span>India</span></div><p class="fact">Plataforma usada por cerca del <strong>27,5% de los camioneros</strong> de India. Rentable a nivel operativo y en bolsa desde 2024, gana con peajes, combustible y telemática.</p><div class="lesson">La plata grande está en los servicios a la red, no solo en el flete.</div></article>
-      <article class="rv" style="--d:4"><div class="who"><b>Fretebras</b><span>Brasil</span></div><p class="fact">Recibe unas <strong>20.000 cargas al día</strong>. Los conductores entran gratis y las empresas pagan una suscripción mensual.</p><div class="lesson">La herramienta también se puede vender a otras transportadoras.</div></article>
-      <article class="rv" style="--d:5"><div class="who"><b>Nuvocargo</b><span>México</span></div><p class="fact">Combina operación de carga con <strong>pago al transportista en 48 horas</strong>, seguro de carga y financiación.</p><div class="lesson">Pagos y finanzas dentro de la app: el cliente y el conductor no se van.</div></article>
-      <article class="rv" style="--d:6"><div class="who"><b>Liftit y bolsas locales</b><span>Colombia</span></div><p class="fact">Liftit levantó <strong>US$16,5 millones</strong> en última milla. En carga pesada hay bolsas abiertas como Cárgalo, Rodar o Wiggo que conectan, pero no operan.</p><div class="lesson">Safe Trip no compite como bolsa: compite como operador habilitado.</div></article>
-      <article class="fail rv" style="--d:7"><div class="who"><b>Convoy</b><span class="tag">Cerró en 2023</span></div><p class="fact">Llegó a valer <strong>US$3.800 millones</strong> como marketplace digital sin operación propia. Cerró cuando cayeron las tarifas y se acabó la caja.</p><div class="lesson">Nunca subsidiar fletes ni depender de capital: crecer sobre una operación real y rentable.</div></article>
+      <article class="rv" style="--d:2"><div class="who"><b>Uber Freight</b><span>EE. UU.</span></div><p class="fact">Paga al transportista en <strong>2 días hábiles</strong> tras aprobar la prueba de entrega. El pago rápido es su principal gancho con la red.</p><div class="lesson">Pagar rápido y sin pelear fideliza a los mejores conductores.</div><a class="bench-btn" href="https://www.uberfreight.com/" target="_blank" rel="noopener">Ver sitio <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2h6v6M10 2L3 9"/></svg><span class="sr"> Uber Freight (se abre en otra pestaña)</span></a></article>
+      <article class="rv" style="--d:3"><div class="who"><b>BlackBuck</b><span>India</span></div><p class="fact">Plataforma usada por cerca del <strong>27,5% de los camioneros</strong> de India. Rentable a nivel operativo y en bolsa desde 2024, gana con peajes, combustible y telemática.</p><div class="lesson">La plata grande está en los servicios a la red, no solo en el flete.</div><a class="bench-btn" href="https://blackbuck.com/" target="_blank" rel="noopener">Ver sitio <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2h6v6M10 2L3 9"/></svg><span class="sr"> BlackBuck (se abre en otra pestaña)</span></a></article>
+      <article class="rv" style="--d:4"><div class="who"><b>Fretebras</b><span>Brasil</span></div><p class="fact">Recibe unas <strong>20.000 cargas al día</strong>. Los conductores entran gratis y las empresas pagan una suscripción mensual.</p><div class="lesson">La herramienta también se puede vender a otras transportadoras.</div><a class="bench-btn" href="https://www.fretebras.com.br/" target="_blank" rel="noopener">Ver sitio <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2h6v6M10 2L3 9"/></svg><span class="sr"> Fretebras (se abre en otra pestaña)</span></a></article>
+      <article class="rv" style="--d:5"><div class="who"><b>Nuvocargo</b><span>México</span></div><p class="fact">Combina operación de carga con <strong>pago al transportista en 48 horas</strong>, seguro de carga y financiación.</p><div class="lesson">Pagos y finanzas dentro de la app: el cliente y el conductor no se van.</div><a class="bench-btn" href="https://www.nuvocargo.com/" target="_blank" rel="noopener">Ver sitio <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2h6v6M10 2L3 9"/></svg><span class="sr"> Nuvocargo (se abre en otra pestaña)</span></a></article>
+      <article class="rv" style="--d:6"><div class="who"><b>Liftit y bolsas locales</b><span>Colombia</span></div><p class="fact">Liftit levantó <strong>US$16,5 millones</strong> en última milla. En carga pesada hay bolsas abiertas como Cárgalo, Rodar o Wiggo que conectan, pero no operan.</p><div class="lesson">Safe Trip no compite como bolsa: compite como operador habilitado.</div><a class="bench-btn" href="https://liftit.co/" target="_blank" rel="noopener">Ver sitio <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2h6v6M10 2L3 9"/></svg><span class="sr"> Liftit y bolsas locales (se abre en otra pestaña)</span></a></article>
+      <article class="fail rv" style="--d:7"><div class="who"><b>Convoy</b><span class="tag">Cerró en 2023</span></div><p class="fact">Llegó a valer <strong>US$3.800 millones</strong> como marketplace digital sin operación propia. Cerró cuando cayeron las tarifas y se acabó la caja.</p><div class="lesson">Nunca subsidiar fletes ni depender de capital: crecer sobre una operación real y rentable.</div><a class="bench-btn" href="https://www.cnbc.com/2023/10/19/bezos-backed-freight-firm-convoy-shuts-down-read-ceo-memo-here.html" target="_blank" rel="noopener">Leer el caso <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2h6v6M10 2L3 9"/></svg><span class="sr"> Convoy (se abre en otra pestaña)</span></a></article>
     </div>
     <p class="src rv" style="--d:8">Fuentes: Uber Freight (términos Quick Pay), prospecto de salida a bolsa de BlackBuck (Zinka Logistics, 2024), Fretebras, Nuvocargo, Semana y CNBC.</p>
   </div>
@@ -1319,7 +1326,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
         <div class="sub">al mes · <b id="outY">$126.000.000</b> al año</div>
         <div class="calc-kpis">
           <div><b id="outT">3,5</b><span>viajes de regreso llenados cada mes</span></div>
-          <div><b id="outP">2,8×</b><span>lo que cuesta al mes operar la plataforma y el marketing</span></div>
+          <div><b id="outP">4,7 meses</b><span>para recuperar lo que Safe Trip pone en la plataforma</span></div>
         </div>
       </div>
     </div>
@@ -1337,7 +1344,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
       <div class="mk-side rv" style="--d:3">
         <div class="mk-head"><h3>Trae la carga</h3><span>Búsqueda constante de viajes</span></div>
         <p>Gerentes de logística y compras de alimentos, farma y manufactura.</p>
-        <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v6M8 7v.5M12 16v-4a2 2 0 014 0v4M12 10v6"/></svg></div><div><b>LinkedIn Ads <small style="display:inline;font-size:10px;color:var(--red);font-weight:800;letter-spacing:.1em">ETAPA 2</small></b><small>Segmentado por cargo, industria y ciudad: llegamos directo a quien decide qué transportadora contratar.</small></div></div>
+        <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v6M8 7v.5M12 16v-4a2 2 0 014 0v4M12 10v6"/></svg></div><div><b>LinkedIn Ads</b><small>Segmentado por cargo, industria y ciudad: llegamos directo a quien decide qué transportadora contratar.</small></div></div>
         <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div><div><b>Google Ads</b><small>Aparecer cuando alguien busca hoy "transporte refrigerado Bogotá Barranquilla" y quiere cotizar ya.</small></div></div>
         <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div><div><b>SEO y AEO</b><small>Que Google y los asistentes de IA como ChatGPT recomienden a Safe Trip en carga refrigerada.</small></div></div>
         <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h8"/></svg></div><div><b>Contenido B2B y email</b><small>Casos de cadena de frío, indicadores del sector y novedades de la plataforma para la base de clientes.</small></div></div>
@@ -1383,7 +1390,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
           <li>Motor de pagos: cobros por link, anticipos, saldos y plazos</li>
           <li>Cumplidos digitales: fotos, firma y soportes</li>
         </ul>
-        <div class="price"><b>$19.200.000</b><small>A costo, sin margen<br>Tarifa comercial $32.000.000</small></div>
+        <div class="price"><b>$48.000.000</b><small>50% Safe Trip · valor $96.000.000<br>We Rock aporta el otro 50%</small></div>
       </article>
       <article class="phase rv" style="--d:4">
         <div class="ghost-num" aria-hidden="true">2</div>
@@ -1397,7 +1404,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
           <li>Pago automático por lote bancario o Bre-B y factoring por RADIAN</li>
           <li>Reportes automáticos para clientes</li>
         </ul>
-        <div class="price"><b>Desde $8.400.000</b><small>A costo, se define<br>al cierre de la Fase 1</small></div>
+        <div class="price"><b>Desde $20.000.000</b><small>50% Safe Trip · valor desde $40.000.000<br>We Rock aporta el otro 50%</small></div>
       </article>
       <article class="phase rv" style="--d:5">
         <div class="ghost-num" aria-hidden="true">3</div>
@@ -1410,7 +1417,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
           <li>Apps nativas en App Store y Google Play</li>
           <li>Convenios de combustible, llantas y seguros para la red</li><li>Tarifas sugeridas con inteligencia artificial</li>
         </ul>
-        <div class="price"><b>A costo</b><small>Según alcance, proveedores<br>y volumen real</small></div>
+        <div class="price"><b>50 / 50</b><small>Según alcance, proveedores<br>y volumen real</small></div>
       </article>
     </div>
   </div>
@@ -1419,37 +1426,37 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 11 INVERSIÓN ================= -->
 <section class="slide lt tex-grid" data-title="Inversión" id="s-inversion">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">17 · Inversión a costo</div>
-    <h2 class="h2 rv" style="--d:1">Todo a costo, sin margen. <em>Ganamos después.</em></h2>
-    <p class="lead rv fit-short" style="--d:2">We Rock cobra solo lo que le cuesta su equipo: desarrollo, soporte y la estrategia completa de marketing para conseguir carga y conductores. Los proveedores externos se pagan directo, sin intermediación.</p>
+    <div class="lbl rv" style="--d:0">17 · Inversión</div>
+    <h2 class="h2 rv" style="--d:1">We Rock pone más. <em>Ganamos después.</em></h2>
+    <p class="lead rv fit-short" style="--d:2">La plataforma vale $96.000.000 y se paga mitad y mitad: Safe Trip cubre el 50% y We Rock aporta el otro 50%, más la Dirección Estratégica™. El marketing se cobra a costo operativo (equipo, herramientas y administración) y la pauta se paga directo a cada plataforma.</p>
     <div class="pkg-block corner-fx rv-3d" style="--d:3">
       <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
       <div class="pkg-head">
-        <div><span class="badge">Alianza · precio a costo</span><h3>Safe Trip Connect · Primeros 4 meses</h3></div>
-        <p>Frente a la tarifa comercial, Safe Trip se ahorra <b style="color:#fff">$17.780.000</b>. Ese margen al que renuncia We Rock es su inversión en la alianza.</p>
+        <div><span class="badge">Alianza · plan de lanzamiento</span><h3>Safe Trip Connect · Primeros 4 meses</h3></div>
+        <p>En la plataforma, We Rock aporta <b style="color:#fff">$56.200.000</b> y Safe Trip <b style="color:#fff">$49.800.000</b>. El aporte de We Rock no se cobra: se recupera solo si la alianza genera negocio.</p>
       </div>
       <div class="inv-table-wrap">
         <table class="inv-table">
           <thead><tr><th>Rubro</th><th>Mes 1</th><th>Mes 2</th><th>Mes 3</th><th>Mes 4</th><th>Total</th></tr></thead>
           <tbody>
-            <tr class="grp"><td colspan="6">We Rock · a costo, sin margen</td></tr>
-            <tr><td>Desarrollo plataforma Fase 1<span class="rubro-note">Cinco frentes · hitos 40 / 30 / 30</span></td><td>$7.680.000</td><td>$5.760.000</td><td>$5.760.000</td><td class="dash">—</td><td>$19.200.000</td></tr>
-            <tr><td>Soporte y evolución<span class="rubro-note">Desde el lanzamiento</span></td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td>$1.080.000</td><td>$1.080.000</td></tr>
-            <tr><td>Contenido y producción audiovisual<span class="rubro-note">Redes, blog y sesión de flota</span></td><td class="dash">—</td><td>$1.710.000</td><td>$780.000</td><td>$780.000</td><td>$3.270.000</td></tr>
-            <tr><td>Búsqueda de carga · Google Ads<span class="rubro-note">Gestión de campañas</span></td><td class="dash">—</td><td class="dash">—</td><td>$660.000</td><td>$660.000</td><td>$1.320.000</td></tr>
-            <tr><td>Búsqueda de conductores · Meta Ads<span class="rubro-note">Pre-registro desde el mes 2</span></td><td class="dash">—</td><td>$600.000</td><td>$600.000</td><td>$600.000</td><td>$1.800.000</td></tr>
-            <tr class="subtotal"><td>Subtotal We Rock a costo</td><td>$7.680.000</td><td>$8.070.000</td><td>$7.800.000</td><td>$3.120.000</td><td>$26.670.000</td></tr>
-            <tr class="aporte"><td>Tarifa comercial de referencia<span class="rubro-note">Lo que costaría sin alianza</span></td><td>$12.800.000</td><td>$13.450.000</td><td>$13.000.000</td><td>$5.200.000</td><td>$44.450.000</td></tr>
-            <tr class="grp"><td colspan="6">Proveedores externos · Safe Trip paga directo</td></tr>
+            <tr class="grp"><td colspan="6">Plataforma · mitad y mitad</td></tr>
+            <tr><td>Desarrollo Fase 1 · 50% Safe Trip<span class="rubro-note">Valor $96.000.000 · cinco frentes · hitos 40 / 30 / 30</span></td><td>$19.200.000</td><td>$14.400.000</td><td>$14.400.000</td><td class="dash">—</td><td>$48.000.000</td></tr>
+            <tr><td>Soporte y evolución · 50% Safe Trip<span class="rubro-note">Valor $3.600.000 al mes</span></td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td>$1.800.000</td><td>$1.800.000</td></tr>
+            <tr class="aporte"><td>Aporte de We Rock · no se cobra<span class="rubro-note">50% del desarrollo y soporte + Dirección Estratégica™</span></td><td>$20.800.000</td><td>$16.000.000</td><td>$16.000.000</td><td>$3.400.000</td><td>$56.200.000</td></tr>
+            <tr class="grp"><td colspan="6">Marketing · We Rock a costo operativo</td></tr>
+            <tr><td>Contenido y producción audiovisual<span class="rubro-note">Redes, blog y sesión de flota</span></td><td class="dash">—</td><td>$2.280.000</td><td>$1.040.000</td><td>$1.040.000</td><td>$4.360.000</td></tr>
+            <tr><td>Gestión de campañas<span class="rubro-note">Google (carga), Meta (conductores) y LinkedIn (gerentes)</span></td><td class="dash">—</td><td>$800.000</td><td>$2.440.000</td><td>$2.440.000</td><td>$5.680.000</td></tr>
+            <tr class="subtotal"><td>Subtotal que Safe Trip paga a We Rock</td><td>$19.200.000</td><td>$17.480.000</td><td>$17.880.000</td><td>$5.280.000</td><td>$59.840.000</td></tr>
+            <tr class="grp"><td colspan="6">Proveedores y pauta · Safe Trip paga directo</td></tr>
             <tr><td>Infraestructura de la app<span class="rubro-note">Servidores, mapas, WhatsApp API, validación de identidad y licencias · estimado</span></td><td>$400.000</td><td>$550.000</td><td>$750.000</td><td>$750.000</td><td>$2.450.000</td></tr>
-            <tr><td>Pauta Google Ads y Meta Ads<span class="rubro-note">Sugerida, ajustable</span></td><td class="dash">—</td><td>$600.000</td><td>$1.800.000</td><td>$1.800.000</td><td>$4.200.000</td></tr>
             <tr><td>Logística de producción<span class="rubro-note">Transporte y locaciones</span></td><td class="dash">—</td><td>$350.000</td><td class="dash">—</td><td class="dash">—</td><td>$350.000</td></tr>
-            <tr class="subtotal"><td>Subtotal proveedores</td><td>$400.000</td><td>$1.500.000</td><td>$2.550.000</td><td>$2.550.000</td><td>$7.000.000</td></tr>
-            <tr class="total"><td>Total mes a mes · Safe Trip</td><td>$8.080.000</td><td>$9.570.000</td><td>$10.350.000</td><td>$5.670.000</td><td>$33.670.000</td></tr>
+            <tr><td>Pauta de lanzamiento<span class="rubro-note">Al mes: Google $4.000.000 · Meta $2.500.000 · LinkedIn $2.500.000</span></td><td class="dash">—</td><td>$1.500.000</td><td>$9.000.000</td><td>$9.000.000</td><td>$19.500.000</td></tr>
+            <tr class="subtotal"><td>Subtotal proveedores y pauta</td><td>$400.000</td><td>$2.400.000</td><td>$9.750.000</td><td>$9.750.000</td><td>$22.300.000</td></tr>
+            <tr class="total"><td>Total mes a mes · Safe Trip</td><td>$19.600.000</td><td>$19.880.000</td><td>$27.630.000</td><td>$15.030.000</td><td>$82.140.000</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="pkg-note">Pesos colombianos, antes de IVA. Proveedores estimados, pagados contra su factura; la pasarela cobra su comisión por transacción. LinkedIn Ads entra en etapa 2 a $570.000 al mes más pauta.</p>
+      <p class="pkg-note">Pesos colombianos, antes de IVA. Proveedores estimados, pagados contra su factura; la pasarela cobra su comisión por transacción. La pauta de lanzamiento se optimiza cada semana según el costo por cliente y por conductor conseguido.</p>
     </div>
   </div>
 </section>
@@ -1463,28 +1470,28 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
       <article class="ally-col rv" style="--d:2">
         <span class="badge" style="background:var(--dk)">We Rock pone</span>
         <ul>
-          <li><span><b>Desarrollo y soporte a costo:</b> 40% por debajo de su tarifa comercial</span></li>
-          <li><span><b>Marketing completo a costo:</b> búsqueda constante de carga y de conductores</span></li>
-          <li><span><b>Dirección Estratégica™:</b> comité mensual con la gerencia</span></li>
+          <li><span><b>La mitad de la plataforma:</b> aporta el 50% del desarrollo y el soporte</span></li>
+          <li><span><b>Marketing completo a costo operativo:</b> búsqueda constante de carga y de conductores</span></li>
+          <li><span><b>Dirección Estratégica™ sin costo:</b> comité mensual con la gerencia</span></li>
           <li><span><b>El producto:</b> diseño, código y evolución de la plataforma</span></li>
         </ul>
-        <div class="ally-foot">Margen al que renuncia: <b>$17.780.000</b> en 4 meses</div>
+        <div class="ally-foot">Aporte a la plataforma: <b>$56.200.000</b> en 4 meses</div>
       </article>
       <article class="ally-col rv" style="--d:3">
         <span class="badge" style="background:var(--dk)">Safe Trip pone</span>
         <ul>
           <li><span><b>La operación:</b> habilitación, flota, red de terceros y clientes</span></li>
-          <li><span><b>Los costos a precio real:</b> equipo a costo y proveedores directos</span></li>
+          <li><span><b>La otra mitad del desarrollo</b>, el marketing a costo operativo y la pauta</span></li>
           <li><span><b>Conocimiento del negocio:</b> tarifas, rutas y procesos</span></li>
           <li><span><b>Un responsable interno</b> para validar y adoptar la herramienta</span></li>
         </ul>
-        <div class="ally-foot">Inversión a costo: <b>$33.670.000</b> en 4 meses</div>
+        <div class="ally-foot">Aporte a la plataforma: <b>$49.800.000</b> · marketing, pauta y proveedores: <b>$32.340.000</b></div>
       </article>
       <article class="ally-col win corner-fx rv" style="--d:4">
         <span class="badge">A futuro · lo que gana We Rock</span>
         <div class="opt"><b>10% de la utilidad de los viajes nuevos</b><small>Solo retornos llenados y clientes que lleguen por la plataforma o el marketing, durante 36 meses por cliente. Nunca sobre los clientes actuales. Si un viaje no deja utilidad, no hay pago. El panel de gerencia lo liquida solo, cada mes.</small></div>
         <div class="opt"><b>60/40 en Safe Trip Connect como producto</b><small>Una sociedad nueva, con marca neutra, para licenciar la plataforma a otras transportadoras. Safe Trip recibe el 40% y la usa gratis para siempre.</small></div>
-        <div class="opt"><b>Tope y salida justos</b><small>Cuando We Rock recupere 3 veces el margen al que renunció, su porcentaje baja a la mitad. Safe Trip puede recomprar la participación en cualquier momento.</small></div>
+        <div class="opt"><b>Tope y salida justos</b><small>Cuando We Rock recupere 3 veces su aporte, su porcentaje baja a la mitad. Safe Trip puede recomprar la participación en cualquier momento.</small></div>
       </article>
     </div>
     <div class="rules rv" style="--d:5">
@@ -1501,7 +1508,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
     <div>
       <div class="lbl rv" style="--d:0">19 · Por qué We Rock</div>
       <h2 class="h2 rv" style="--d:1;color:#fff">Esto no es una app.<br>Es un <em>negocio completo.</em></h2>
-      <p class="lead rv" style="--d:2">Una plataforma sin clientes no sirve, y una campaña sin plataforma se queda en una llamada más. We Rock construye la tecnología, trae el tráfico y ordena el proceso comercial. Trabajamos a costo porque creemos en el negocio: si Safe Trip crece, crecemos juntos.</p>
+      <p class="lead rv" style="--d:2">Una plataforma sin clientes no sirve, y una campaña sin plataforma se queda en una llamada más. We Rock construye la tecnología, trae el tráfico y ordena el proceso comercial. Ponemos la mitad del desarrollo porque creemos en el negocio: si Safe Trip crece, crecemos juntos.</p>
       <div class="pillars3">
         <div class="rv" style="--d:3"><small>Infraestructura digital™</small><span>La plataforma, el portal y la app</span></div>
         <div class="rv" style="--d:4"><small>Arquitectura de crecimiento™</small><span>Google, LinkedIn, Meta, SEO y contenido</span></div>
@@ -1621,7 +1628,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   // Calculadora de retornos
   const $ = id => document.getElementById(id);
   const cop = v => '$'+Math.round(v).toLocaleString('es-CO');
-  const COSTO_MES = 5670000; // costo mensual a costo desde el lanzamiento (ver tabla de inversión, mes 4)
+  const APORTE_ST = 49800000; // aporte de Safe Trip a la plataforma en la tabla de inversión
   function calc(){
     const V=+$('cV').value, E=+$('cE').value, R=+$('cR').value, F=+$('cF').value;
     [$('cV'),$('cE'),$('cR'),$('cF')].forEach(r=>r.style.setProperty('--p',((r.value-r.min)/(r.max-r.min)*100)+'%'));
@@ -1630,7 +1637,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
     $('outM').textContent = cop(m);
     $('outY').textContent = cop(m*12);
     $('outT').textContent = trips.toLocaleString('es-CO',{maximumFractionDigits:1});
-    $('outP').textContent = (m/COSTO_MES).toLocaleString('es-CO',{maximumFractionDigits:1})+'×';
+    $('outP').textContent = m>0 ? (APORTE_ST/m).toLocaleString('es-CO',{maximumFractionDigits:1})+' meses' : '—';
   }
   ['cV','cE','cR','cF'].forEach(id=>$(id).addEventListener('input',calc));
   calc();
