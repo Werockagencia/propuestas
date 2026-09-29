@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universidad Científica · Propuesta We Rock</title>
+<meta name="description" content="Propuesta de We Rock para la Universidad Científica Internacional (Costa Rica): marca, sitio web, campus virtual, matrícula en línea, CRM con HalconBot y equipo comercial para las primeras matrículas.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E8000A;--red-h:#FF1A22;
+  --dk:#0A0A0A;--dk2:#111111;--dk3:#161616;
+  --lt:#F5F2EB;--lt2:#EDE9DF;--lt3:#E4DFD4;
+  --white:#fff;--gray:#888;--gray2:#555;
+  --text-dk:#E8E4DC;--text-dk2:#AAAAAA;
+  --ink:#0A0A0A;--ink2:#3a3a3a;--ink3:#777;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --bounce:cubic-bezier(.34,1.56,.64,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth;background:var(--dk)}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--dk);color:var(--text-dk);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(max-width:900px),(max-height:620px){html{scroll-snap-type:y proximity}}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* ============ CHROME DEL DECK ============ */
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--red);z-index:100;transition:width .5s var(--ease)}
+.deck-top{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:18px 34px;pointer-events:none;transition:background .4s,backdrop-filter .4s}
+.deck-top > *{pointer-events:auto}
+.deck-top .logo{height:32px;display:block}
+.deck-top .logo-c{display:none;mix-blend-mode:multiply}
+body.on-light .deck-top .logo-w{display:none}
+body.on-light .deck-top .logo-c{display:block}
+.deck-meta{display:flex;align-items:center;gap:18px;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dk2);transition:color .4s}
+body.on-light .deck-meta{color:var(--ink3)}
+.fs-btn{background:none;border:1px solid rgba(255,255,255,.22);color:inherit;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;transition:border-color .3s,transform .3s var(--bounce)}
+.fs-btn:hover{border-color:var(--red);transform:scale(1.08)}
+body.on-light .fs-btn{border-color:rgba(0,0,0,.18)}
+.fs-btn svg{width:15px;height:15px}
+
+.dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:11px}
+.dots button{width:10px;height:10px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:transparent;padding:0;position:relative;transition:all .35s var(--ease)}
+body.on-light .dots button{border-color:rgba(0,0,0,.28)}
+.dots button.act{background:var(--red);border-color:var(--red);transform:scale(1.35)}
+.dots button span{position:absolute;right:22px;top:50%;transform:translate(8px,-50%);white-space:nowrap;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--dk);padding:5px 10px;opacity:0;pointer-events:none;transition:all .3s var(--ease)}
+.dots button:hover span,.dots button:focus-visible span{opacity:1;transform:translate(0,-50%)}
+
+.counter{position:fixed;left:34px;bottom:26px;z-index:90;font-size:11px;font-weight:800;letter-spacing:.2em;color:var(--text-dk2);font-variant-numeric:tabular-nums;transition:color .4s}
+.counter b{color:var(--red);font-size:15px}
+body.on-light .counter{color:var(--ink3)}
+.nav-arrows{position:fixed;right:30px;bottom:24px;z-index:90;display:flex;gap:8px}
+.nav-arrows button{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#fff;display:grid;place-items:center;backdrop-filter:blur(8px);transition:background .3s,transform .3s var(--bounce)}
+.nav-arrows button:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px)}
+body.on-light .nav-arrows button{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.16);color:var(--ink)}
+body.on-light .nav-arrows button:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.nav-arrows svg{width:16px;height:16px}
+
+#cur,#cur2{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;mix-blend-mode:difference;display:none}
+#cur{width:7px;height:7px;background:#fff;margin:-3.5px 0 0 -3.5px}
+#cur2{width:34px;height:34px;border:1px solid rgba(255,255,255,.6);margin:-17px 0 0 -17px;transition:width .25s,height .25s,margin .25s}
+#cur2.big{width:56px;height:56px;margin:-28px 0 0 -28px}
+
+/* ============ SLIDES BASE ============ */
+.slide{position:relative;min-height:100vh;min-height:100svh;scroll-snap-align:start;display:flex;align-items:center;overflow:hidden;padding:110px 90px 96px}
+.slide.dk{background:var(--dk);color:var(--text-dk)}
+.slide.dk2{background:var(--dk2);color:var(--text-dk)}
+.slide.lt{background:var(--lt);color:var(--ink)}
+.slide.lt2{background:var(--lt2);color:var(--ink)}
+.inner{width:100%;max-width:1240px;margin:0 auto;position:relative;z-index:2}
+.lbl{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:22px}
+.lbl::before{content:'';width:28px;height:2px;background:var(--red)}
+.h2{font-size:clamp(30px,min(4.4vw,7.2vh),64px);font-weight:800;line-height:1.02;letter-spacing:-.02em;margin-bottom:22px}
+.h2 em{font-style:normal;color:var(--red)}
+.lead{font-size:clamp(16px,1.45vw,20px);line-height:1.55;max-width:680px;color:var(--ink2)}
+.dk .lead,.dk2 .lead{color:var(--text-dk2)}
+.badge{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px}
+.src{font-size:11px;color:var(--ink3);margin-top:22px;letter-spacing:.02em}
+.dk .src,.dk2 .src{color:rgba(255,255,255,.35)}
+
+/* revelado por slide */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0) * 110ms)}
+.slide.on .rv{opacity:1;transform:none}
+.rv-3d{opacity:0;transform:perspective(1200px) rotateX(12deg) translateY(60px) scale(.93);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0) * 110ms)}
+.slide.on .rv-3d{opacity:1;transform:perspective(1200px) rotateX(0) translateY(0) scale(1)}
+
+/* texturas y marca */
+.tex-grid{background-image:linear-gradient(rgba(0,0,0,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.025) 1px,transparent 1px);background-size:58px 58px}
+.tex-dots{background-image:radial-gradient(rgba(0,0,0,.05) 1px,transparent 1.6px);background-size:24px 24px}
+.tex-grid-dk{background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);background-size:64px 64px}
+.glow-tr::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 100% 0%,rgba(232,0,10,.16),transparent 62%);pointer-events:none}
+.glow-bl::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 0% 100%,rgba(232,0,10,.13),transparent 62%);pointer-events:none}
+.noise::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.brand-mark{position:absolute;z-index:1;pointer-events:none;fill:var(--red)}
+.ghost-num{position:absolute;font-weight:900;line-height:.8;letter-spacing:-.05em;pointer-events:none;z-index:1;user-select:none}
+.dk .ghost-num,.dk2 .ghost-num{color:rgba(255,255,255,.035)}
+.lt .ghost-num,.lt2 .ghost-num{color:rgba(0,0,0,.04)}
+.corner-fx{position:relative}
+.corner-fx::before,.corner-fx::after{content:'';position:absolute;width:22px;height:22px;pointer-events:none;opacity:.7;z-index:3}
+.corner-fx::before{top:16px;left:16px;border-top:2px solid var(--red);border-left:2px solid var(--red)}
+.corner-fx::after{bottom:16px;right:16px;border-bottom:2px solid var(--red);border-right:2px solid var(--red)}
+
+/* ============ 01 PORTADA ============ */
+.cover{padding-top:120px}
+#routes{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.cover::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(10,10,10,.96) 0%,rgba(10,10,10,.82) 38%,rgba(10,10,10,.1) 70%,transparent 100%)}
+.cover .inner{z-index:3}
+.cover-kicker{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:30px;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--text-dk2)}
+.cover-kicker .x{color:var(--red);font-size:16px}
+.cover-title{font-size:clamp(42px,min(6.6vw,10vh),104px);font-weight:900;line-height:.9;letter-spacing:-.035em;text-transform:uppercase;color:#fff;max-width:900px}
+.cover-title .r{color:var(--red)}
+.cover-title .ln{display:block;overflow:hidden}
+.cover-title .ln > span{display:inline-block;transform:translateY(105%);transition:transform 1.1s var(--ease);transition-delay:calc(var(--d) * 120ms + 150ms)}
+.slide.on .cover-title .ln > span{transform:none}
+.cover-lead{font-size:clamp(17px,1.5vw,21px);line-height:1.5;color:var(--text-dk2);max-width:560px;margin-top:30px}
+.cover-lead b{color:#fff;font-weight:600}
+.cover-bar{position:absolute;left:0;right:0;bottom:0;z-index:3;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.1);background:rgba(10,10,10,.55);backdrop-filter:blur(10px);padding:0 130px 0 90px}
+body.at-cover .counter{opacity:0}
+.counter{transition:color .4s,opacity .4s}
+.cover-bar div{padding:22px 34px;border-right:1px solid rgba(255,255,255,.08)}
+.cover-bar div:last-child{border-right:none}
+.cover-bar b{display:block;font-size:26px;font-weight:900;color:#fff;letter-spacing:-.02em}
+.cover-bar b i{font-style:normal;color:var(--red)}
+.cover-bar span{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dk2)}
+.cover-hint{display:inline-flex;align-items:center;gap:10px;margin-top:40px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.cover-hint kbd{font-family:inherit;border:1px solid rgba(255,255,255,.25);border-radius:4px;padding:3px 7px;font-size:10px;color:#fff}
+
+/* ============ 02 MERCADO ============ */
+.stat-row{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:2px;margin:46px 0 34px;background:rgba(0,0,0,.08)}
+.stat{background:var(--lt);padding:34px 32px 30px;position:relative}
+.stat:first-child{background:var(--dk);color:#fff}
+.stat .n{font-size:clamp(54px,6.4vw,96px);font-weight:900;letter-spacing:-.045em;line-height:.9;font-variant-numeric:tabular-nums}
+.stat .n i{font-style:normal;color:var(--red)}
+.stat .t{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-top:14px}
+.stat .s{font-size:14px;color:var(--ink3);margin-top:6px}
+.stat:first-child .s{color:var(--text-dk2)}
+.stat .up{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:12px;font-weight:800;color:#fff;background:var(--red);padding:5px 10px}
+.punch{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;max-width:980px}
+.punch-bar{width:4px;height:100%;min-height:80px;background:var(--red)}
+.punch p{font-size:clamp(20px,2vw,28px);line-height:1.35;font-weight:500;color:var(--ink)}
+.punch p b{font-weight:800}
+
+/* ============ 03 FUGAS ============ */
+.leaks{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:44px;background:rgba(255,255,255,.06)}
+.leak{background:var(--dk2);padding:30px 24px 32px;position:relative;transition:background .4s,transform .4s var(--ease)}
+.leak:hover{background:#1a1a1a;transform:translateY(-6px)}
+.leak .k{font-size:44px;font-weight:900;color:rgba(255,255,255,.08);line-height:1;margin-bottom:18px;letter-spacing:-.04em}
+.leak .ic{width:44px;height:44px;margin-bottom:18px;transition:transform .45s var(--bounce)}
+.leak:hover .ic{transform:scale(1.12) rotate(-6deg)}
+.leak h3{font-size:19px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.15}
+.leak p{font-size:14px;line-height:1.55;color:var(--text-dk2)}
+.leak.hot{background:var(--red)}
+.leak.hot:hover{background:var(--red-h)}
+.leak.hot .ic{stroke:#fff}
+.leak.hot p{color:rgba(255,255,255,.88)}
+.leak.hot .k{color:rgba(255,255,255,.22)}
+.leak .tag{position:absolute;top:18px;right:18px;font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;background:#fff;color:var(--red);padding:4px 8px}
+.note-dk{margin-top:26px;font-size:13px;color:rgba(255,255,255,.4);border-left:3px solid rgba(255,255,255,.14);padding:6px 0 6px 14px}
+
+/* ============ 04 LA IDEA ============ */
+.idea-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:center}
+.idea-list{list-style:none;margin-top:30px;display:grid;gap:16px}
+.idea-list li{display:grid;grid-template-columns:34px 1fr;gap:14px;font-size:16px;line-height:1.5;color:var(--text-dk2)}
+.idea-list li b{color:#fff;font-weight:700}
+.idea-list li svg{width:30px;height:30px;margin-top:-2px}
+.hub{position:relative;aspect-ratio:1/1;max-width:560px;width:100%;margin-left:auto}
+.hub svg.links{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.hub-node{position:absolute;transform:translate(-50%,-50%);text-align:center;width:170px}
+.hub-node .dot{width:74px;height:74px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;background:var(--dk3);border:1px solid rgba(255,255,255,.14);transition:transform .45s var(--bounce),border-color .3s}
+.hub-node:hover .dot{transform:scale(1.1);border-color:var(--red)}
+.hub-node .dot svg{width:32px;height:32px}
+.hub-node b{display:block;font-size:14px;font-weight:800;color:#fff;letter-spacing:.02em}
+.hub-node small{display:block;font-size:12px;color:var(--text-dk2);margin-top:3px;line-height:1.35}
+.hub-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:190px;height:190px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff2a31,var(--red) 55%,#9d0007);display:grid;place-items:center;text-align:center;box-shadow:0 0 0 14px rgba(232,0,10,.1),0 0 0 30px rgba(232,0,10,.05),0 30px 80px -20px rgba(232,0,10,.7);z-index:2}
+.hub-core::before{content:'';position:absolute;inset:-30px;border-radius:50%;border:1px dashed rgba(232,0,10,.45);animation:spin 26s linear infinite}
+.hub-core b{font-size:22px;font-weight:900;color:#fff;line-height:1;letter-spacing:-.01em}
+.hub-core small{display:block;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.flow-dash{stroke-dasharray:4 9;animation:flow 1.6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-26}}
+/* ============ DISPOSITIVOS ============ */
+.device-browser{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08),0 40px 70px -26px rgba(0,0,0,.45);transform-style:preserve-3d;transition:transform .2s ease-out;color:var(--ink)}
+.device-browser-bar{display:flex;align-items:center;gap:14px;padding:10px 16px;background:linear-gradient(#f7f7f5,#e9e8e4);border-bottom:1px solid rgba(0,0,0,.08)}
+.db-dots{display:flex;gap:7px}
+.db-dots span{width:11px;height:11px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.db-dot-r{background:#FF5F57}.db-dot-y{background:#FFBD2E}.db-dot-g{background:#28C840}
+.db-url{flex:1;max-width:360px;margin:0 auto;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:6px;padding:5px 14px;font-size:11px;color:var(--ink3);display:flex;align-items:center;gap:6px;justify-content:center}
+.db-url svg{width:10px;height:10px}
+.device-phone{width:268px;background:linear-gradient(155deg,#2b2b2b,#0a0a0a);border-radius:44px;padding:10px;box-shadow:0 1px 2px rgba(0,0,0,.15),0 40px 65px -20px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.08);position:relative;transition:transform .2s ease-out}
+.device-phone-screen{background:#f4f3ef;border-radius:35px;overflow:hidden;position:relative;height:540px;color:var(--ink)}
+.device-phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:84px;height:23px;background:#0a0a0a;border-radius:14px;z-index:5}
+.device-phone-home{position:absolute;bottom:9px;left:50%;transform:translateX(-50%);width:96px;height:4px;background:rgba(0,0,0,.45);border-radius:3px;z-index:5}
+.device-phone-shadow{width:64%;height:22px;margin:18px auto 0;background:radial-gradient(ellipse at center,rgba(0,0,0,.35),transparent 72%);filter:blur(3px)}
+.pf-grid{display:grid;grid-template-columns:1.55fr .75fr;gap:56px;align-items:center}
+.feat-list{list-style:none;display:grid;gap:14px;margin-top:26px}
+.feat-list li{display:grid;grid-template-columns:28px 1fr;gap:12px;font-size:15.5px;line-height:1.5;color:var(--ink2)}
+.dk .feat-list li,.dk2 .feat-list li{color:var(--text-dk2)}
+.feat-list li b{color:var(--ink);font-weight:800}
+.dk .feat-list li b,.dk2 .feat-list li b{color:#fff}
+.feat-list svg{width:24px;height:24px;margin-top:1px}
+.mock-cap{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.dk .mock-cap,.dk2 .mock-cap{color:rgba(255,255,255,.4)}
+.mock-cap::before{content:'';width:18px;height:1px;background:currentColor}
+.ops-grid{display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:center}
+.ops-stack{display:grid;grid-template-columns:268px 1fr;gap:34px;align-items:center}
+/* ============ 07 JOURNEY ============ */
+.journey{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:56px;position:relative}
+.journey::before{content:'';position:absolute;top:30px;left:8%;right:8%;height:2px;background:rgba(0,0,0,.1)}
+.journey::after{content:'';position:absolute;top:30px;left:8%;right:8%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform 2.2s var(--ease) .3s}
+.slide.on .journey::after{transform:scaleX(1)}
+.j-step{position:relative;z-index:2;padding:0 14px;text-align:center}
+.j-dot{width:62px;height:62px;border-radius:50%;margin:0 auto 22px;background:var(--lt2);border:2px solid rgba(0,0,0,.12);display:grid;place-items:center;transition:all .5s var(--ease);transition-delay:calc(var(--d) * 320ms + 300ms)}
+.slide.on .j-dot{background:#fff;border-color:var(--red);box-shadow:0 12px 28px -12px rgba(232,0,10,.55)}
+.j-dot svg{width:26px;height:26px}
+.j-n{font-size:10px;font-weight:800;letter-spacing:.2em;color:var(--red);margin-bottom:6px}
+.j-step h3{font-size:19px;font-weight:800;margin-bottom:8px}
+.j-step p{font-size:13.5px;line-height:1.5;color:var(--ink2)}
+.j-who{display:inline-block;margin-top:12px;font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);border:1px solid rgba(0,0,0,.14);padding:3px 8px}
+
+/* ============ 08 RETORNOS ============ */
+.calc{display:grid;grid-template-columns:1fr 1.05fr;gap:2px;margin-top:40px;background:rgba(255,255,255,.07)}
+.calc-in{background:var(--dk2);padding:34px 36px;display:grid;gap:26px}
+.field label{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dk2);margin-bottom:12px}
+.field label output{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.01em;text-transform:none;font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:3px;background:linear-gradient(90deg,var(--red) var(--p,50%),rgba(255,255,255,.14) var(--p,50%));outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:5px solid var(--red);box-shadow:0 4px 14px rgba(232,0,10,.5);transition:transform .2s var(--bounce)}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#fff;border:5px solid var(--red)}
+input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
+.calc-out{background:var(--red);padding:38px 40px;color:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.calc-out .brand-mark{width:260px;height:360px;right:-60px;bottom:-80px;opacity:.12;fill:#fff;transform:rotate(10deg)}
+.calc-out small{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);position:relative;z-index:2}
+.calc-out .big{font-size:clamp(46px,5.4vw,78px);font-weight:900;letter-spacing:-.04em;line-height:1;margin:10px 0 6px;font-variant-numeric:tabular-nums;position:relative;z-index:2}
+.calc-out .sub{font-size:16px;color:rgba(255,255,255,.9);position:relative;z-index:2}
+.calc-out .sub b{font-weight:900}
+.calc-kpis{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:28px;background:rgba(255,255,255,.2);position:relative;z-index:2}
+.calc-kpis div{background:#c90009;padding:16px 18px}
+.calc-kpis b{display:block;font-size:26px;font-weight:900;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.calc-kpis span{font-size:11.5px;color:rgba(255,255,255,.85);line-height:1.35;display:block;margin-top:2px}
+
+/* ============ 09 MARKETING ============ */
+.mk-split{display:grid;grid-template-columns:1fr 150px 1fr;gap:0;margin-top:44px;align-items:stretch}
+.mk-side{background:#fff;padding:30px 30px 26px;position:relative;box-shadow:0 20px 50px -34px rgba(0,0,0,.35)}
+.mk-side.supply{background:var(--dk);color:#fff}
+.mk-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:6px}
+.mk-head h3{font-size:24px;font-weight:900;letter-spacing:-.01em}
+.mk-head span{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.mk-side > p{font-size:14px;color:var(--ink3);margin-bottom:18px}
+.mk-side.supply > p{color:var(--text-dk2)}
+.ch{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:13px 0;border-top:1px solid rgba(0,0,0,.08)}
+.supply .ch{border-top-color:rgba(255,255,255,.1)}
+.ch-ic{width:40px;height:40px;border-radius:10px;background:#fde8e9;display:grid;place-items:center;transition:transform .45s var(--bounce)}
+.supply .ch-ic{background:rgba(232,0,10,.16)}
+.ch:hover .ch-ic{transform:scale(1.1) rotate(-6deg)}
+.ch-ic svg{width:21px;height:21px}
+.ch b{display:block;font-size:15px;font-weight:800}
+.ch small{display:block;font-size:13px;line-height:1.45;color:var(--ink3);margin-top:2px}
+.supply .ch small{color:var(--text-dk2)}
+.mk-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative}
+.mk-mid::before{content:'';position:absolute;top:8%;bottom:8%;left:50%;width:2px;background:repeating-linear-gradient(var(--red) 0 8px,transparent 8px 16px);opacity:.5}
+.mk-core{position:relative;z-index:2;width:112px;height:112px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;text-align:center;font-weight:900;font-size:13px;line-height:1.1;box-shadow:0 0 0 10px rgba(232,0,10,.12),0 24px 44px -18px rgba(232,0,10,.8)}
+.mk-core small{display:block;font-size:8.5px;letter-spacing:.18em;font-weight:800;opacity:.85;margin-top:4px}
+.mk-arrow{position:relative;z-index:2;background:var(--lt);font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);padding:4px 6px;text-align:center}
+.mk-foot{margin-top:2px;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;background:var(--lt3);padding:20px 26px}
+.mk-foot svg{width:34px;height:34px}
+.mk-foot p{font-size:15px;line-height:1.5;color:var(--ink2)}
+.mk-foot p b{color:var(--ink)}
+
+/* ============ 10 ROADMAP ============ */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:46px;background:rgba(255,255,255,.07)}
+.phase{background:var(--dk2);padding:32px 30px 30px;position:relative;transition:background .4s;display:flex;flex-direction:column}
+.phase .price{margin-top:auto!important}
+.phase ul{margin-bottom:22px}
+.phase:hover{background:#181818}
+.phase.main{background:linear-gradient(160deg,#1c0405,var(--dk2) 60%);box-shadow:inset 0 3px 0 var(--red)}
+.phase .when{font-size:10.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.phase h3{font-size:26px;font-weight:900;color:#fff;margin:10px 0 4px;letter-spacing:-.01em}
+.phase .sub{font-size:14px;color:var(--text-dk2);margin-bottom:18px}
+.phase ul{list-style:none;display:grid;gap:9px}
+.phase li{display:grid;grid-template-columns:16px 1fr;gap:10px;font-size:14px;line-height:1.45;color:var(--text-dk)}
+.phase li::before{content:'';width:7px;height:7px;background:var(--red);margin-top:7px;transform:rotate(45deg)}
+.phase .price{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.phase .price b{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.phase .price small{font-size:11px;color:var(--text-dk2);text-align:right}
+.phase .ghost-num{font-size:150px;right:14px;top:6px}
+
+/* ============ 11 INVERSIÓN ============ */
+.pkg-block{background:var(--dk);color:#fff;padding:40px 46px 36px;margin:30px -46px 0;position:relative;overflow:hidden}
+.pkg-block .brand-mark{width:300px;height:420px;top:-80px;right:-60px;opacity:.06;transform:rotate(9deg);z-index:0}
+.pkg-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:22px;position:relative;z-index:2;flex-wrap:wrap}
+.pkg-head h3{font-size:28px;font-weight:900;letter-spacing:-.01em;margin-top:12px}
+.pkg-head p{font-size:14px;color:var(--text-dk2);max-width:420px}
+.inv-table-wrap{overflow-x:auto;position:relative;z-index:2}
+.inv-table{width:100%;min-width:760px;border-collapse:collapse}
+.inv-table th,.inv-table td{padding:11px 14px;text-align:right;font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.inv-table th:first-child,.inv-table td:first-child{text-align:left;white-space:normal}
+.inv-table thead th{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dk2);border-bottom:2px solid rgba(255,255,255,.2);padding-bottom:12px}
+.inv-table tbody td{color:var(--text-dk2);border-bottom:1px solid rgba(255,255,255,.08)}
+.inv-table tbody td:first-child{color:#fff;font-weight:600}
+.inv-table tbody td.dash{color:rgba(255,255,255,.22)}
+.inv-table .rubro-note{display:block;font-size:10.5px;color:rgba(255,255,255,.38);font-weight:400;margin-top:2px}
+.inv-table tr.subtotal td{font-weight:800;color:#fff;background:rgba(255,255,255,.04)}
+.inv-table tr.total td{font-weight:900;color:#fff;font-size:15.5px;border-bottom:none;border-top:2px solid var(--red);padding-top:16px}
+.inv-table tr.total td:first-child{color:var(--red)}
+.inv-table tr.grp td{font-size:9.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red);padding-top:18px;border-bottom:none}
+.inv-table tr.aporte td:not(:first-child):not(.dash){color:rgba(255,255,255,.4);text-decoration:line-through;text-decoration-color:rgba(232,0,10,.7);text-decoration-thickness:1.5px}
+.inv-table tr.aporte-sub td{color:rgba(255,255,255,.55)!important;font-weight:700!important}
+.inv-table tr.aporte-sub td:first-child{color:#fff!important}
+.pkg-note{margin-top:18px;font-size:12.5px;color:rgba(255,255,255,.45);position:relative;z-index:2;line-height:1.55}
+
+/* ============ 12 SERVICIOS + MODELOS ============ */
+.models{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:34px;background:rgba(0,0,0,.08)}
+.model{background:#fff;padding:30px 32px;position:relative}
+.model.b{background:var(--dk);color:#fff}
+.model .badge{margin-bottom:14px}
+.model h3{font-size:24px;font-weight:900;letter-spacing:-.01em}
+.model p{font-size:14.5px;line-height:1.55;color:var(--ink2);margin:8px 0 16px}
+.model.b p{color:var(--text-dk2)}
+.model .amt{font-size:32px;font-weight:900;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.model .amt small{font-size:13px;font-weight:600;color:var(--ink3);letter-spacing:0}
+.model.b .amt small{color:var(--text-dk2)}
+.model .plus{font-size:15px;font-weight:700;margin-top:6px}
+.model .plus span{color:var(--red)}
+.svc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:2px;background:rgba(0,0,0,.08)}
+.svc-card{background:var(--lt);padding:18px 18px 16px;border-top:3px solid var(--red);transition:transform .35s var(--ease),background .3s}
+.svc-card:hover{transform:translateY(-4px);background:#fff}
+.svc-card.optional{border-top-color:#bbb}
+.svc-card small{display:block;font-size:9.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.svc-card b{display:block;font-size:14.5px;font-weight:800;margin:6px 0 8px;line-height:1.2}
+.svc-card .p{font-size:17px;font-weight:900;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.svc-card .p i{font-style:normal;font-size:11px;font-weight:600;color:var(--ink3)}
+.svc-title{margin-top:30px;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);display:flex;align-items:center;gap:12px}
+.svc-title::after{content:'';flex:1;height:1px;background:rgba(0,0,0,.12)}
+/* por qué ahora */
+.law{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:36px;background:rgba(255,255,255,.07)}
+.law article{background:var(--dk3);padding:26px 24px 24px;position:relative;transition:background .3s}
+.law article:hover{background:#1c1c1c}
+.law .big{font-size:clamp(38px,min(4vw,7vh),58px);font-weight:900;color:var(--red);letter-spacing:-.04em;line-height:1}
+.law h3{font-size:17px;font-weight:800;color:#fff;margin:12px 0 8px}
+.law p{font-size:13.5px;line-height:1.5;color:var(--text-dk2)}
+.law .fix{display:block;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);font-size:12.5px;font-weight:700;color:#fff}
+.law .fix::before{content:'→ ';color:var(--red)}
+
+/* benchmark */
+.bench{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px;background:rgba(255,255,255,.07)}
+.bench article{background:var(--dk2);padding:22px 24px 20px;display:flex;flex-direction:column;transition:background .3s}
+.bench article:hover{background:#181818}
+.bench .who{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.bench .who b{font-size:20px;font-weight:900;color:#fff;letter-spacing:-.01em}
+.bench .who span{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--text-dk2)}
+.bench .fact{font-size:13.5px;line-height:1.5;color:var(--text-dk2);margin:8px 0 12px}
+.bench .fact strong{color:#fff}
+.bench .lesson{margin-top:auto;font-size:13px;font-weight:700;color:#fff;padding:10px 12px;background:rgba(232,0,10,.1);border-left:3px solid var(--red)}
+.bench article.fail .lesson{background:rgba(255,255,255,.04);border-left-color:rgba(255,255,255,.3)}
+.bench .tag{font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;background:var(--red);color:#fff}
+.bench article.fail .tag{background:rgba(255,255,255,.18)}
+
+.bench-btn{align-self:flex-start;margin-top:12px;display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.28);padding:9px 14px;transition:background .3s,border-color .3s,transform .35s var(--bounce)}
+.bench-btn:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px)}
+.bench-btn svg{width:11px;height:11px;transition:transform .3s}
+.bench-btn:hover svg{transform:translate(2px,-2px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(min-width:769px) and (max-height:1000px){.bench-btn{margin-top:8px;padding:6px 11px;font-size:10px}}
+
+/* ecosistema */
+.eco{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:34px;background:rgba(0,0,0,.08);position:relative}
+.eco article{background:#fff;padding:22px 20px 20px;position:relative;transition:transform .35s var(--ease),box-shadow .35s}
+.eco article:hover{transform:translateY(-6px);box-shadow:0 24px 40px -26px rgba(0,0,0,.4);z-index:2}
+.eco article.money{background:var(--dk);color:#fff}
+.eco .ic{width:46px;height:46px;border-radius:12px;background:#fde8e9;display:grid;place-items:center;margin-bottom:14px;transition:transform .45s var(--bounce)}
+.eco article:hover .ic{transform:scale(1.1) rotate(-6deg)}
+.eco .money .ic{background:rgba(232,0,10,.2)}
+.eco .ic svg{width:24px;height:24px}
+.eco small{font-size:9.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.eco h3{font-size:18px;font-weight:900;margin:4px 0 10px;letter-spacing:-.01em}
+.eco ul{list-style:none;display:grid;gap:7px}
+.eco li{font-size:13px;line-height:1.4;color:var(--ink2);padding-left:14px;position:relative}
+.eco li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:2px;background:var(--red)}
+.eco .money li{color:var(--text-dk2)}
+/* riesgos */
+.risk{width:100%;border-collapse:collapse;margin-top:28px;background:#fff}
+.risk th{text-align:left;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--dk);padding:11px 16px}
+.risk td{padding:11px 16px;font-size:13.5px;line-height:1.45;border-bottom:1px solid #ecebe6;vertical-align:top;color:var(--ink2)}
+.risk td:first-child{font-weight:800;color:var(--ink);width:26%}
+.risk td:first-child small{display:block;font-weight:600;font-size:11.5px;color:var(--ink3);margin-top:2px}
+.risk tr:hover td{background:#fbfaf7}
+.lvl{display:inline-block;margin-right:8px;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:3px 7px;margin-bottom:4px}
+.lvl.h{background:var(--red);color:#fff}
+.lvl.m{background:var(--dk);color:#fff}
+@media(max-width:1024px){.law,.bench{grid-template-columns:1fr 1fr}.eco{grid-template-columns:1fr 1fr}.pay{grid-template-columns:1fr}.pay-mid{padding:16px 0}.pay-mid::before{display:none}}
+@media(max-width:768px){.law,.bench,.eco{grid-template-columns:1fr}.risk td:first-child{width:auto}.hook{grid-template-columns:1fr}}
+@media(min-width:769px) and (max-height:1000px){.law{margin-top:22px}.law article{padding:18px 18px 16px}.law p{font-size:12.5px}.bench{margin-top:20px}.bench article{padding:16px 18px 14px}.bench .fact{font-size:12.5px;margin:6px 0 8px}.bench .lesson{font-size:12px;padding:8px 10px}.eco{margin-top:20px}.eco article{padding:16px 16px 14px}.eco .ic{width:38px;height:38px;margin-bottom:10px}.eco li{font-size:12.5px}.pay{margin-top:18px}.flow{padding:16px 20px}.flow li{font-size:12.5px}.flow ol{gap:8px}.flow > p{font-size:16px;margin-bottom:10px}.hook{padding:12px 18px}.hook b{font-size:24px}.risk{margin-top:16px}.risk td{padding:7px 14px;font-size:12.5px}.risk th{padding:8px 14px}}
+/* alianza */
+.ally{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:2px;margin-top:30px;background:rgba(0,0,0,.08)}
+.ally-col{background:#fff;padding:26px 26px 22px;display:flex;flex-direction:column}
+.ally-col .badge{align-self:flex-start;margin-bottom:16px}
+.ally-col ul{list-style:none;display:grid;gap:11px;margin-bottom:18px}
+.ally-col li{display:grid;grid-template-columns:14px 1fr;gap:10px;font-size:14.5px;line-height:1.45;color:var(--ink2)}
+.ally-col li::before{content:'';width:7px;height:7px;background:var(--red);margin-top:7px;transform:rotate(45deg)}
+.ally-col li b{color:var(--ink)}
+.ally-foot{margin-top:auto;padding-top:14px;border-top:1px solid rgba(0,0,0,.1);font-size:13px;color:var(--ink3)}
+.ally-foot b{color:var(--ink);font-size:17px;font-weight:900;font-variant-numeric:tabular-nums}
+.ally-col.win{background:var(--dk);color:#fff}
+.ally-col.win p{font-size:14.5px;line-height:1.5;color:var(--text-dk2);margin-bottom:14px}
+.opt{border:1px solid rgba(255,255,255,.12);padding:14px 16px;margin-top:8px;transition:border-color .3s,background .3s}
+.opt:hover{border-color:var(--red);background:rgba(232,0,10,.06)}
+.opt b{display:block;font-size:14.5px;font-weight:800;color:#fff}
+.opt small{display:block;font-size:13px;line-height:1.45;color:var(--text-dk2);margin-top:4px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2px;background:rgba(0,0,0,.08)}
+.rules div{background:var(--lt3);padding:16px 22px}
+.rules b{display:block;font-size:14px;font-weight:800}
+.rules span{font-size:13px;color:var(--ink2)}
+@media(max-width:1024px){.ally{grid-template-columns:1fr}.rules{grid-template-columns:1fr}}
+@media(min-width:769px) and (max-height:1000px){.ally{margin-top:18px}.ally-col{padding:18px 22px 16px}.ally-col ul{gap:7px;margin-bottom:12px}.ally-col li,.ally-col.win p{font-size:13.5px}.opt{padding:10px 14px}.opt small{font-size:12.5px}.rules div{padding:11px 18px}}
+
+/* ============ 13 POR QUÉ WE ROCK ============ */
+.why{display:grid;grid-template-columns:1fr 1.15fr;gap:70px;align-items:center}
+.why-stats{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,.07)}
+.why-stats div{background:var(--dk2);padding:26px 26px 24px}
+.why-stats b{display:block;font-size:44px;font-weight:900;letter-spacing:-.04em;color:#fff;line-height:1}
+.why-stats b i{font-style:normal;color:var(--red)}
+.why-stats span{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dk2);margin-top:8px}
+.why-stats p{font-size:13px;color:rgba(255,255,255,.5);margin-top:6px;line-height:1.45}
+.pillars3{display:grid;gap:2px;margin-top:28px}
+.pillars3 div{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,.1)}
+.pillars3 small{font-size:10px;font-weight:800;letter-spacing:.2em;color:var(--red);text-transform:uppercase;width:130px}
+.pillars3 span{font-size:15px;color:var(--text-dk)}
+
+/* ============ 14 CIERRE ============ */
+.close{text-align:left}
+.close-title{font-size:clamp(48px,7vw,112px);font-weight:900;line-height:.9;letter-spacing:-.04em;text-transform:uppercase;color:#fff}
+.close-title .r{color:var(--red)}
+.next{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:46px 0 40px;background:rgba(255,255,255,.08);max-width:1040px}
+.next div{background:rgba(17,17,17,.85);padding:24px 24px 22px;backdrop-filter:blur(6px)}
+.next b{display:block;font-size:12px;font-weight:800;letter-spacing:.18em;color:var(--red);margin-bottom:8px}
+.next h3{font-size:18px;font-weight:800;color:#fff;margin-bottom:6px}
+.next p{font-size:14px;color:var(--text-dk2);line-height:1.5}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:26px}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:#fff;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:.04em;padding:18px 30px;transition:background .3s,transform .35s var(--bounce),box-shadow .3s}
+.cta-btn:hover{background:var(--red-h);transform:translateY(-3px);box-shadow:0 18px 40px -14px rgba(232,0,10,.8)}
+.cta-btn svg{width:20px;height:20px}
+.contact{font-size:14px;color:var(--text-dk2);line-height:1.7}
+.contact b{color:#fff}
+.close .brand-mark{width:520px;height:720px;right:-80px;top:50%;transform:translateY(-50%) rotate(9deg);opacity:.07}
+.foot-logo{height:30px;margin-top:40px;opacity:.8}
+/* ============ RESPONSIVE ============ */
+@media(max-width:1200px){
+  .leaks{grid-template-columns:repeat(3,1fr)}
+  .svc-grid{grid-template-columns:repeat(3,1fr)}
+  .ops-grid{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:1024px){
+  .slide{padding:100px 40px 90px}
+  .idea-grid,.pf-grid,.why{grid-template-columns:1fr;gap:44px}
+  .hub{margin:0 auto}
+  .journey{grid-template-columns:repeat(3,1fr);row-gap:40px}
+  .journey::before,.journey::after{display:none}
+  .calc{grid-template-columns:1fr}
+  .mk-split{grid-template-columns:1fr;gap:2px}
+  .mk-mid{flex-direction:row;padding:18px 0}
+  .mk-mid::before{display:none}
+  .phases{grid-template-columns:1fr}
+  .pkg-block{margin-left:-40px;margin-right:-40px;padding:34px 40px}
+  .dots{display:none}
+}
+@media(max-width:768px){
+  .slide{padding:92px 20px 88px;min-height:auto}
+  .slide.cover{min-height:100vh;min-height:100svh}
+  .deck-top{padding:14px 18px;background:rgba(10,10,10,.7);backdrop-filter:blur(12px)}
+  body.on-light .deck-top{background:rgba(245,242,235,.85)}
+  .deck-meta .hide-m{display:none}
+  .counter{left:18px;bottom:18px}
+  .nav-arrows{right:16px;bottom:14px}
+  .cover::after{background:linear-gradient(180deg,rgba(10,10,10,.5),rgba(10,10,10,.92) 55%)}
+  .cover-bar{grid-template-columns:1fr 1fr;position:relative;margin-top:40px}
+  .cover{flex-direction:column;justify-content:center;padding-bottom:0}
+  .cover .inner{margin-top:auto}
+  .cover-bar div{padding:16px 18px}
+  .cover-bar b{font-size:20px}
+  .cover-hint{display:none}
+  .stat-row{grid-template-columns:1fr}
+  .leaks{grid-template-columns:1fr}
+  .journey{grid-template-columns:1fr 1fr;row-gap:32px}
+  .j-step{padding:0 6px}
+  .app{grid-template-columns:1fr;height:auto}
+  .app-map{height:220px}
+  .disp{grid-template-columns:1fr;height:auto}
+  .disp-r{height:180px}
+  .ops-stack{grid-template-columns:1fr;justify-items:center}
+  .models{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .pkg-block{margin-left:-20px;margin-right:-20px;padding:30px 20px}
+  .why-stats b{font-size:34px}
+  .next{grid-template-columns:1fr}
+  .mk-foot{grid-template-columns:1fr}
+  .brand-mark{display:none}
+  .ghost-num{display:none}
+  .hub-node{width:120px}
+  .hub-node .dot{width:56px;height:56px}
+  .hub-core{width:140px;height:140px}
+  .hub-core b{font-size:17px}
+  .calc-in,.calc-out{padding:26px 22px}
+  /* ajustes móviles */
+  .cover-bar{padding:0;margin:40px -20px 0;width:auto;align-self:stretch}
+  .pf-grid>*,.why>*,.idea-grid>*,.cond-grid>*,.ops-grid>*{min-width:0}
+  .adm{height:auto;padding:10px}
+  .adm-top .seg{display:none}
+  .adm-kpi{grid-template-columns:1fr 1fr}
+  .adm-body{grid-template-columns:1fr}
+  .cars th:nth-child(4),.cars td:nth-child(4){display:none}
+  .cars td{font-size:10px;padding:5px 3px}
+  .why-stats{grid-template-columns:1fr 1fr}
+  .why-stats b{font-size:26px}
+  .why-stats div{padding:18px 16px}
+  .db-url{font-size:9.5px;padding:4px 8px}
+  .mk-mid{flex-direction:column}
+  .split-legend{gap:8px;font-size:10.5px}
+  .liq{padding:18px 16px}
+  .liq-rows div{font-size:12.5px}
+  .tiers article{grid-template-columns:56px 1fr}
+}
+/* Pantallas bajas (portátiles al presentar) */
+@media(min-width:769px) and (max-height:1000px){
+  .slide{padding-top:86px;padding-bottom:70px}
+  .cover{padding-top:80px;padding-bottom:110px}
+  .cover-kicker{margin-bottom:20px}
+  .cover-lead{margin-top:20px;font-size:17px}
+  .cover-hint{margin-top:22px}
+  .cover-bar div{padding:14px 30px}
+  .cover-bar b{font-size:22px}
+  .lbl{margin-bottom:14px}
+  .h2{margin-bottom:14px}
+  .lead{font-size:16px}
+  .stat-row{margin:28px 0 24px}
+  .stat{padding:24px 26px 22px}
+  .stat .n{font-size:clamp(46px,9vh,80px)}
+  .leaks{margin-top:28px}
+  .leak{padding:22px 20px 24px}
+  .leak .k{font-size:34px;margin-bottom:10px}
+  .leak .ic{width:38px;height:38px;margin-bottom:12px}
+  .journey{margin-top:36px}
+  .calc{margin-top:24px}
+  .calc-in{padding:26px 30px;gap:18px}
+  .calc-out{padding:28px 34px}
+  .mk-split{margin-top:26px}
+  .mk-side{padding:22px 24px 18px}
+  .ch{padding:9px 0}
+  .ch small{font-size:12.5px}
+  .phases{margin-top:28px}
+  .phase{padding:24px 24px 22px}
+  .phase li{font-size:13.5px}
+  .phase .price{margin-top:14px;padding-top:12px}
+  .pkg-block{padding:28px 40px 24px;margin-top:18px}
+  .inv-table th,.inv-table td{padding:7px 12px;font-size:12.5px}
+  .inv-table .rubro-note{display:inline;margin-left:8px}
+  .inv-table tr.grp td{padding-top:10px}
+  .models{margin-top:22px}
+  .model{padding:22px 26px}
+  .svc-title{margin-top:20px}
+  .next{margin:28px 0 26px}
+  .app{height:360px}
+  .device-phone-screen{height:480px}
+  .drv{gap:9px}
+  .disp{height:290px}
+  .idea-list{margin-top:18px;gap:12px}
+  .hub{max-width:min(560px,66vh)}
+  .why-stats div{padding:20px 22px}
+  .why-stats b{font-size:38px}
+  .fit-short{display:none}
+  .ops-stack{margin-top:18px!important;grid-template-columns:220px 1fr}
+  .ops-stack .device-phone{transform-origin:top left;zoom:.8}
+  .ops-stack .device-phone-shadow{display:none}
+  .ops-stack .feat-list{margin-top:16px}
+  .ops-stack .feat-list{grid-template-columns:repeat(4,1fr)!important;gap:10px 18px!important}
+  .ops-stack .feat-list li{font-size:13px;grid-template-columns:20px 1fr;gap:8px}
+  .ops-stack .feat-list svg{width:18px;height:18px}
+  .mk-side > p{display:none}
+  .mk-head{margin-bottom:8px}
+  .mk-foot{padding:14px 22px}
+  .svc-card{padding:12px 16px 12px}
+  .svc-card b{margin:3px 0 4px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.rv-3d,.cover-title .ln > span{opacity:1!important;transform:none!important}
+  .journey::after{transform:scaleX(1)}
+}
+
+
+/* ============ COMPONENTES EDUCACIÓN (UCI / UNINTE) ============ */
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+
+/* punto de partida: listo vs por construir */
+.cap{display:grid;grid-template-columns:1fr 1.7fr;gap:2px;margin-top:32px;background:rgba(0,0,0,.08)}
+.cap-col{background:#fff;padding:24px 28px 22px}
+.cap-col.todo{background:var(--dk);color:#fff;position:relative;overflow:hidden}
+.cap-col h3{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.cap-col h3 span{font-size:10px;color:var(--red)}
+.cap-col.todo h3{color:#fff}
+.cap-list{list-style:none;display:grid}
+.todo .cap-list{grid-template-columns:1fr 1fr;column-gap:28px}
+.cap-list li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;padding:10px 0;border-top:1px solid rgba(0,0,0,.07);font-size:14px;line-height:1.4;color:var(--ink2)}
+.cap-list li b{display:block;color:var(--ink);font-weight:800;font-size:14.5px}
+.todo .cap-list li{border-top-color:rgba(255,255,255,.1);color:var(--text-dk2)}
+.todo .cap-list li b{color:#fff}
+.cap-list .ck{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#e7f4ea;color:#1f7a34;margin-top:1px}
+.cap-list .ck.no{background:rgba(232,0,10,.18);color:#fff}
+.cap-list .ck.half{background:#fff3d6;color:#9a6a00}
+.cap-list .ck svg{width:12px;height:12px}
+.cap-note{margin-top:2px;background:var(--lt3);padding:14px 24px;font-size:14px;color:var(--ink2);display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center}
+.cap-note b{color:var(--ink)}
+.cap-note svg{width:26px;height:26px}
+
+/* escalera: curso libre a carrera */
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:end;height:360px;position:relative}
+.step{position:relative;background:var(--dk3);border:1px solid rgba(255,255,255,.1);padding:18px 16px;display:flex;flex-direction:column;justify-content:flex-end;height:calc(var(--h) * 1%);transform-origin:bottom;transition:transform 1s var(--ease),background .3s,border-color .3s;transition-delay:calc(var(--d) * 140ms + 200ms)}
+.slide:not(.on) .step{transform:scaleY(.2)}
+.step:hover{background:#1c1c1c;border-color:var(--red)}
+.step.top{background:linear-gradient(170deg,#ff2a31,var(--red) 55%,#9d0007);border-color:var(--red)}
+.step small{font-size:9.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.step.top small{color:rgba(255,255,255,.85)}
+.step b{display:block;font-size:17px;font-weight:900;color:#fff;margin:6px 0 4px;line-height:1.1}
+.step span{font-size:12.5px;line-height:1.4;color:var(--text-dk2)}
+.step.top span{color:rgba(255,255,255,.9)}
+.step .pr{margin-bottom:auto;padding-bottom:10px;font-size:22px;font-weight:900;color:#fff;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.step .pr i{font-style:normal;font-size:10px;font-weight:700;color:var(--text-dk2);letter-spacing:.06em;display:block}
+.step.top .pr i{color:rgba(255,255,255,.8)}
+.ladder-arrow{position:absolute;left:4%;right:4%;top:0;height:100%;pointer-events:none}
+
+/* hoja de marca */
+.brand-sheet{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:auto auto;gap:2px;background:rgba(0,0,0,.08);margin-top:28px}
+.bs-logo{grid-row:span 2;background:var(--bc,#12355B);color:#fff;padding:36px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;min-height:340px}
+.bs-logo::after{content:'';position:absolute;right:-90px;bottom:-90px;width:300px;height:300px;border-radius:50%;border:1px solid rgba(255,255,255,.12);box-shadow:0 0 0 40px rgba(255,255,255,.03),0 0 0 80px rgba(255,255,255,.02)}
+.bs-logo small{font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.bs-mark{display:flex;align-items:center;gap:18px;position:relative;z-index:2}
+.bs-mark svg{width:92px;height:92px;flex:none}
+.bs-mark b{display:block;font-size:44px;font-weight:900;letter-spacing:.04em;line-height:.9}
+.bs-mark span{display:block;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:8px;line-height:1.5}
+.orbit{transform-origin:46px 46px;animation:spin 18s linear infinite}
+.bs-cell{background:#fff;padding:22px 24px}
+.bs-cell h4{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.sw{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.sw div{height:74px;border-radius:6px;padding:8px;display:flex;flex-direction:column;justify-content:flex-end;font-size:9.5px;font-weight:700;line-height:1.3;transition:transform .35s var(--bounce)}
+.sw div:hover{transform:translateY(-4px)}
+.type-spec b{display:block;font-size:34px;font-weight:900;letter-spacing:-.02em;line-height:1}
+.type-spec p{font-size:13px;color:var(--ink2);margin-top:6px}
+.apps{display:flex;gap:10px;margin-top:14px;align-items:center}
+.apps .av{width:46px;height:46px;border-radius:50%;background:var(--bc,#12355B);display:grid;place-items:center}
+.apps .av svg{width:28px;height:28px}
+.apps .card{flex:1;height:46px;border-radius:6px;background:var(--lt);border-left:4px solid var(--ba,#E0A526);display:flex;flex-direction:column;justify-content:center;padding:0 12px;font-size:10px;color:var(--ink3)}
+.apps .card b{font-size:12px;color:var(--ink)}
+
+/* sitio web de ejemplo */
+.site{background:#fff;font-size:11px;color:#0f1b2b;height:410px;overflow:hidden;position:relative}
+.site-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid #eef0f3}
+.site-logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:13px;letter-spacing:.04em;color:var(--bc,#12355B)}
+.site-logo svg{width:24px;height:24px}
+.site-nav ul{display:flex;gap:16px;list-style:none;font-weight:700;color:#55606e;font-size:10.5px}
+.site-nav .btn{background:var(--ba,#E0A526);color:#0f1b2b;font-weight:800;padding:7px 12px;border-radius:6px;font-size:10.5px}
+.site-hero{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;padding:22px 20px 16px;background:linear-gradient(120deg,var(--bc,#12355B),var(--bc2,#1d4f86));color:#fff;position:relative;overflow:hidden}
+.site-hero small{font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ba,#E0A526)}
+.site-hero h4{font-size:22px;font-weight:900;line-height:1.05;margin:8px 0;letter-spacing:-.01em}
+.site-hero p{font-size:11px;color:rgba(255,255,255,.8);line-height:1.45}
+.site-cta{display:flex;gap:8px;margin-top:12px}
+.site-cta span{padding:8px 12px;border-radius:6px;font-weight:800;font-size:10.5px}
+.site-cta .p{background:var(--ba,#E0A526);color:#0f1b2b}
+.site-cta .s{border:1px solid rgba(255,255,255,.4)}
+.site-photo{border-radius:10px;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.25),transparent 60%),linear-gradient(160deg,#3b6aa3,#0d2544);position:relative;overflow:hidden;min-height:130px}
+.site-photo svg{position:absolute;inset:0;width:100%;height:100%}
+.site-photo .tag{position:absolute;left:10px;bottom:10px;background:#fff;color:#0f1b2b;border-radius:8px;padding:6px 9px;font-size:9.5px;font-weight:800;box-shadow:0 8px 20px -8px rgba(0,0,0,.4)}
+.site-photo .tag i{font-style:normal;color:#1f7a34}
+.site-sec{padding:14px 20px}
+.site-sec h5{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#55606e;margin-bottom:9px;display:flex;justify-content:space-between}
+.site-sec h5 span{color:var(--bc,#12355B)}
+.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.course{border:1px solid #eef0f3;border-radius:8px;padding:9px 10px;transition:transform .3s var(--ease),box-shadow .3s}
+.course:hover{transform:translateY(-3px);box-shadow:0 10px 20px -12px rgba(0,0,0,.3)}
+.course .cc{height:6px;border-radius:3px;margin-bottom:8px}
+.course b{display:block;font-size:11px;font-weight:800;line-height:1.2}
+.course small{display:block;color:#7a8594;font-size:9.5px;margin-top:3px}
+.course .pp{display:flex;justify-content:space-between;align-items:center;margin-top:7px;font-weight:900;font-size:12px}
+.course .pp em{font-style:normal;font-size:9px;font-weight:800;background:#eef3fa;color:var(--bc,#12355B);padding:2px 6px;border-radius:4px}
+.sedes{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.sedes span{font-size:11.5px;font-weight:700;padding:6px 11px;border:1px solid rgba(0,0,0,.14);background:#fff;transition:all .3s}
+.sedes span.m{background:var(--dk);color:#fff;border-color:var(--dk)}
+.sedes span:hover{border-color:var(--red);color:var(--red)}
+.sedes span.m:hover{color:#fff;background:var(--red);border-color:var(--red)}
+
+/* campus virtual */
+.lms{display:grid;grid-template-columns:170px 1fr;font-size:11px;background:#f6f7f9;color:#0f1b2b}
+.lms-side{background:var(--bc,#12355B);color:#fff;padding:14px 12px;display:flex;flex-direction:column;gap:4px}
+.lms-side .site-logo{color:#fff;margin-bottom:10px}
+.lms-side span{padding:7px 9px;border-radius:6px;font-weight:700;color:rgba(255,255,255,.7);font-size:10.5px}
+.lms-side span.a{background:rgba(255,255,255,.14);color:#fff}
+.lms-main{padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.lms-top{display:flex;justify-content:space-between;align-items:center}
+.lms-top b{font-size:14px;font-weight:900}
+.lms-top small{display:block;color:#7a8594;font-size:10px;font-weight:600}
+.lms-card{background:#fff;border:1px solid #e8ebef;border-radius:10px;padding:10px 12px}
+.prog{height:6px;border-radius:4px;background:#e8ebef;overflow:hidden;margin-top:6px}
+.prog i{display:block;height:100%;background:var(--ba,#E0A526);width:var(--w);transform-origin:left;transition:transform 1.4s var(--ease) .5s}
+.slide:not(.on) .prog i{transform:scaleX(0)}
+.mods{display:grid;gap:6px}
+.mod{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:center;background:#fff;border:1px solid #e8ebef;border-radius:8px;padding:7px 10px}
+.mod i{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:10px;font-weight:900;background:#e7f4ea;color:#1f7a34}
+.mod.now{border-color:var(--ba,#E0A526);background:#fffaf0}
+.mod.now i{background:var(--ba,#E0A526);color:#fff}
+.mod.lock{opacity:.55}
+.mod.lock i{background:#eef0f3;color:#7a8594}
+.mod small{color:#7a8594;font-size:9.5px;font-weight:700}
+.cert{display:flex;gap:10px;align-items:center;background:#0f1b2b;color:#fff;border-radius:10px;padding:10px 12px}
+.cert svg{width:28px;height:28px;flex:none}
+.cert b{font-size:11px}
+.cert small{display:block;color:rgba(255,255,255,.6);font-size:9.5px}
+
+/* matrícula en el celular */
+.enr{padding:46px 14px 14px;display:flex;flex-direction:column;gap:10px;height:100%;background:#f6f7f9;color:#0f1b2b}
+.enr-top{display:flex;justify-content:space-between;align-items:center}
+.enr-top b{font-size:15px;font-weight:900}
+.enr-top small{display:block;font-size:10px;color:#7a8594;font-weight:600}
+.enr-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.enr-steps i{height:4px;border-radius:3px;background:#dfe3e8}
+.enr-steps i.ok{background:var(--bc,#12355B)}
+.enr-steps i.now{background:var(--ba,#E0A526)}
+.enr-card{background:#fff;border-radius:14px;padding:12px;border:1px solid #e8ebef}
+.enr-card h6{font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#7a8594;margin-bottom:8px}
+.enr-row{display:flex;justify-content:space-between;align-items:center;font-size:11px;padding:5px 0;border-bottom:1px solid #f0f2f5}
+.enr-row:last-child{border-bottom:none}
+.enr-row b{font-weight:800}
+.enr-doc{display:flex;align-items:center;gap:8px;font-size:10.5px;font-weight:700;padding:6px 0}
+.enr-doc i{width:18px;height:18px;border-radius:50%;background:#e7f4ea;color:#1f7a34;display:grid;place-items:center;font-style:normal;font-size:10px}
+.pay-opts{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pay-opts span{border:1.5px solid #e1e5ea;border-radius:10px;padding:9px 8px;font-size:10.5px;font-weight:800;text-align:center}
+.pay-opts span.a{border-color:var(--bc,#12355B);background:#eef3fa;color:var(--bc,#12355B)}
+.enr-btn{margin-top:auto;background:var(--bc,#12355B);color:#fff;border-radius:14px;padding:13px;text-align:center;font-weight:800;font-size:12.5px;animation:glowBlue 2.4s ease-in-out infinite}
+@keyframes glowBlue{50%{box-shadow:0 0 0 6px rgba(18,53,91,.15)}}
+
+/* WhatsApp con HalconBot */
+.wa{height:100%;display:flex;flex-direction:column;background:#ECE5DD;color:#111}
+.wa-head{background:#075E54;color:#fff;padding:40px 12px 10px;display:flex;align-items:center;gap:9px}
+.wa-head .av{width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center;flex:none}
+.wa-head .av svg{width:20px;height:20px}
+.wa-head b{font-size:12.5px;display:block}
+.wa-head small{font-size:9.5px;color:rgba(255,255,255,.75)}
+.wa-body{flex:1;padding:10px 9px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;overflow:hidden;background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1.4px);background-size:14px 14px}
+.bub{max-width:84%;padding:7px 9px 5px;border-radius:9px;font-size:10.5px;line-height:1.4;box-shadow:0 1px .5px rgba(0,0,0,.13);position:relative;opacity:0;transform:translateY(8px) scale(.97);transition:opacity .5s var(--ease),transform .5s var(--ease);transition-delay:calc(var(--d) * 650ms + 500ms)}
+.slide.on .bub{opacity:1;transform:none}
+.bub.in{background:#fff;align-self:flex-start;border-top-left-radius:2px}
+.bub.out{background:#DCF8C6;align-self:flex-end;border-top-right-radius:2px}
+.bub small{display:block;text-align:right;font-size:8.5px;color:#8a8a8a;margin-top:2px}
+.bub b{font-weight:800}
+.bub .opts{display:grid;gap:4px;margin-top:6px}
+.bub .opts span{display:block;text-align:center;color:#128C7E;font-weight:800;border-top:1px solid #eee;padding-top:4px}
+.bot-tag{display:inline-block;font-size:8px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:#fde8e9;color:var(--red);padding:1px 5px;border-radius:3px;margin-bottom:3px}
+.wa-foot{display:flex;gap:6px;align-items:center;padding:7px 8px 22px;background:#f0f0f0}
+.wa-foot span{flex:1;background:#fff;border-radius:18px;padding:7px 12px;font-size:10px;color:#999}
+.wa-foot i{width:28px;height:28px;border-radius:50%;background:#128C7E;flex:none}
+
+/* CRM: embudo */
+.pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:12px;background:#f6f7f9;height:300px;font-size:10.5px;color:#0f1b2b}
+.pcol{background:#eceff3;border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pcol h6{display:flex;justify-content:space-between;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#55606e;margin-bottom:2px}
+.pcol h6 em{font-style:normal;background:#fff;border-radius:10px;padding:0 6px;color:#0f1b2b}
+.pcard{background:#fff;border-radius:7px;padding:7px 8px;border-left:3px solid #c9d1da;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.pcard b{display:block;font-size:10.5px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pcard small{display:block;color:#7a8594;font-size:9px;margin-top:2px}
+.pcard.hot{border-left-color:var(--red)}
+.pcard.won{border-left-color:#1f9a4a}
+.pcard .tg{display:inline-block;margin-top:4px;font-size:8px;font-weight:800;padding:1px 5px;border-radius:3px;background:#fde8e9;color:var(--red)}
+.pcard .tg.g{background:#e7f4ea;color:#1f7a34}
+.pcard .tg.b{background:#eef3fa;color:#1b5e95}
+.pcard.mv{animation:moveCard 6s var(--ease) infinite}
+@keyframes moveCard{0%,35%{transform:none;opacity:1}45%{transform:translateX(30px);opacity:0}55%{transform:translateX(-30px);opacity:0}65%,100%{transform:none;opacity:1}}
+
+/* alternativas A/B */
+.alt{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:30px;background:rgba(0,0,0,.08)}
+.alt article{background:#fff;padding:26px 28px 24px;display:flex;flex-direction:column;position:relative}
+.alt article.rec{background:var(--dk);color:#fff}
+.alt .badge{align-self:flex-start;margin-bottom:14px}
+.alt .ab{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
+.alt .rec .ab{color:var(--text-dk2)}
+.alt h3{font-size:24px;font-weight:900;letter-spacing:-.01em;margin:4px 0 8px}
+.alt p{font-size:14.5px;line-height:1.5;color:var(--ink2);margin-bottom:14px}
+.alt .rec p{color:var(--text-dk2)}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:16px}
+.pc h4{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;color:#1f7a34}
+.pc div+div h4{color:var(--red)}
+.rec .pc h4{color:#5fd17a}
+.rec .pc div+div h4{color:#ff6a70}
+.pc ul{list-style:none;display:grid;gap:6px}
+.pc li{font-size:13px;line-height:1.4;color:var(--ink2);padding-left:14px;position:relative}
+.rec .pc li{color:var(--text-dk2)}
+.pc li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:2px;background:currentColor;opacity:.6}
+.alt .foot{margin-top:auto;padding-top:14px;border-top:1px solid rgba(0,0,0,.1);display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:12.5px;color:var(--ink3)}
+.alt .rec .foot{border-top-color:rgba(255,255,255,.12);color:var(--text-dk2)}
+.alt .foot b{font-size:20px;font-weight:900;color:var(--ink);font-variant-numeric:tabular-nums}
+.alt .rec .foot b{color:#fff}
+
+/* financiación */
+.fin-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:48px;align-items:center;margin-top:26px}
+.quota{background:var(--red);color:#fff;padding:30px 32px;position:relative;overflow:hidden}
+.quota small{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.quota .big{font-size:clamp(52px,6vw,86px);font-weight:900;letter-spacing:-.04em;line-height:1;margin:8px 0 4px;font-variant-numeric:tabular-nums}
+.quota .big i{font-style:normal;font-size:.35em;letter-spacing:0;font-weight:700}
+.quota p{font-size:14.5px;color:rgba(255,255,255,.9);line-height:1.5}
+.quota dl{display:grid;grid-template-columns:1fr auto;gap:6px 14px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.25);font-size:13.5px;font-variant-numeric:tabular-nums}
+.quota dd{font-weight:900;text-align:right}
+.allies{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(0,0,0,.08)}
+.allies article{background:#fff;padding:16px 18px;transition:transform .35s var(--ease),box-shadow .35s}
+.allies article:hover{transform:translateY(-4px);box-shadow:0 20px 34px -24px rgba(0,0,0,.4);z-index:2;position:relative}
+.allies small{font-size:9.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.allies b{display:block;font-size:16px;font-weight:900;margin:3px 0 5px}
+.allies p{font-size:12.5px;line-height:1.45;color:var(--ink2)}
+
+/* dos formas de trabajar */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:30px;background:rgba(0,0,0,.08)}
+.two article{background:#fff;padding:26px 28px}
+.two article.b{background:var(--dk);color:#fff}
+.two h3{font-size:22px;font-weight:900;margin:12px 0 6px}
+.two p{font-size:14px;line-height:1.5;color:var(--ink2)}
+.two .b p{color:var(--text-dk2)}
+.two dl{display:grid;grid-template-columns:1fr auto;gap:8px 16px;margin-top:16px;font-size:14px;font-variant-numeric:tabular-nums}
+.two dt{color:var(--ink2)}
+.two .b dt{color:var(--text-dk2)}
+.two dd{font-weight:900;text-align:right}
+
+.mt0{margin-top:0!important}
+
+@media(max-width:1024px){
+  .cap{grid-template-columns:1fr}
+  .brand-sheet{grid-template-columns:1fr}
+  .bs-logo{grid-row:auto;min-height:260px}
+  .fin-grid{grid-template-columns:1fr;gap:28px}
+  .ladder{height:320px}
+}
+@media(max-width:768px){
+  .todo .cap-list{grid-template-columns:1fr}
+  .ladder{grid-template-columns:1fr 1fr;height:auto;align-items:stretch}
+  .step{height:auto;min-height:150px}
+  .slide:not(.on) .step{transform:none}
+  .alt,.two{grid-template-columns:1fr}
+  .pc{grid-template-columns:1fr;gap:12px}
+  .allies{grid-template-columns:1fr}
+  .site{height:auto}
+  .site-nav ul{display:none}
+  .site-hero{grid-template-columns:1fr}
+  .site-photo{min-height:110px}
+  .courses{grid-template-columns:1fr 1fr}
+  .courses .course:nth-child(3){display:none}
+  .lms{grid-template-columns:1fr;height:auto}
+  .lms-side{flex-direction:row;flex-wrap:wrap;padding:10px}
+  .lms-side .site-logo{width:100%;margin-bottom:4px}
+  .lms-side span{padding:5px 7px;font-size:9.5px}
+  .pipe{grid-template-columns:1fr 1fr;height:auto}
+  .bs-logo{padding:26px 22px}
+  .bs-mark svg{width:66px;height:66px}
+  .bs-mark b{font-size:34px}
+  .sw{grid-template-columns:repeat(2,1fr)}
+  .quota{padding:24px 22px}
+  .fin-grid>*,.cap>*,.brand-sheet>*{min-width:0}
+}
+@media(min-width:769px) and (max-height:1000px){
+  .cap{margin-top:18px}
+  .cap-col{padding:16px 22px 14px}
+  .cap-list li{padding:7px 0;font-size:13px}
+  .cap-note{padding:10px 20px;font-size:13px}
+  .ladder{height:min(300px,34vh)}
+  .brand-sheet{margin-top:16px}
+  .bs-logo{min-height:290px;padding:28px}
+  .bs-cell{padding:14px 18px}
+  .sw div{height:56px}
+  .site{height:360px}
+  .site-hero{padding:16px 20px 12px}
+  .site-hero h4{font-size:19px}
+  .pipe{height:260px}
+  .alt{margin-top:18px}
+  .alt article{padding:18px 22px 16px}
+  .alt p{font-size:13.5px;margin-bottom:10px}
+  .pc li{font-size:12.5px}
+  .fin-grid{margin-top:14px}
+  .quota{padding:22px 26px}
+  .allies article{padding:11px 16px}
+  .allies p{font-size:12px}
+  .two{margin-top:18px}
+  .two article{padding:18px 24px}
+}
+@media(prefers-reduced-motion:reduce){
+  .bub{opacity:1!important;transform:none!important}
+  .slide:not(.on) .step,.slide:not(.on) .prog i{transform:none}
+}
+
+/* chips de estado */
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;letter-spacing:.06em;padding:4px 9px;border-radius:20px;background:#eef7ef;color:#1f7a34;white-space:nowrap}
+.chip .pulse{width:7px;height:7px;border-radius:50%;background:currentColor;animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 currentColor}70%{box-shadow:0 0 0 6px transparent}100%{box-shadow:0 0 0 0 transparent}}
+@media(min-width:769px) and (max-height:1000px){.lms-main{gap:7px;padding:12px 14px}.mod{padding:5px 10px}.inv-table th,.inv-table td{padding:6px 12px}}
+
+.feat-2{grid-template-columns:1fr 1fr;gap:10px 22px!important}
+@media(max-width:768px){.feat-2{grid-template-columns:1fr}.txt-first{order:-1}}
+
+/* formulario de captación en la landing */
+.lead-form{background:#fff;color:#0f1b2b;border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:6px;box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
+.lead-form b{font-size:11.5px;font-weight:900;margin-bottom:2px}
+.lead-form span{border:1px solid #e1e5ea;border-radius:6px;padding:6px 8px;font-size:9.5px;color:#7a8594}
+.lead-form span.sel{color:#0f1b2b;font-weight:700}
+.lead-form i{font-style:normal;background:var(--ba);color:#0f1b2b;font-weight:800;font-size:10.5px;text-align:center;border-radius:6px;padding:8px;margin-top:2px}
+
+/* tabla de riesgos y alternativas en celular */
+@media(max-width:768px){
+  .risk thead{display:none}
+  .risk,.risk tbody,.risk tr,.risk td{display:block;width:100%!important}
+  .risk tr{border-bottom:3px solid var(--lt2)}
+  .risk td{border-bottom:none;padding:6px 16px}
+  .risk td:first-child{padding-top:14px}
+  .risk td:last-child{padding-bottom:14px}
+  .risk td:nth-child(2)::before{content:"Qué pasa: ";font-weight:800;color:var(--ink)}
+  .risk td:nth-child(3)::before{content:"Cómo lo manejamos: ";font-weight:800;color:var(--red)}
+  .alt .foot{flex-wrap:wrap}
+  .alt .foot b{white-space:nowrap}
+}
+
+:root{--bc:#12355B;--bc2:#1D4F86;--ba:#E0A526}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="uci-mark" viewBox="0 0 92 92"><circle cx="46" cy="46" r="29" fill="none" stroke="currentColor" stroke-width="4"/><path d="M35 31v15a11 11 0 0022 0V31" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><ellipse cx="46" cy="46" rx="44" ry="15" transform="rotate(-25 46 46)" fill="none" stroke="#E0A526" stroke-width="2.4"/><circle cx="84" cy="30" r="4.5" fill="#E0A526"/></symbol>
+  <symbol id="ico-ext" viewBox="0 0 12 12"><path d="M4 2h6v6M10 2L3 9" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="ico-ok" viewBox="0 0 12 12"><path d="M2.5 6.5l2.3 2.3L9.5 3.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ico-plus" viewBox="0 0 12 12"><path d="M6 2.5v7M2.5 6h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="ico-half" viewBox="0 0 12 12"><path d="M3 6h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<div id="cur" aria-hidden="true"></div><div id="cur2" aria-hidden="true"></div>
+<div id="prog" aria-hidden="true"></div>
+
+<header class="deck-top">
+  <div>
+    <img class="logo logo-w" src="we-rock.png" alt="We Rock" onerror="this.style.display='none'">
+    <img class="logo logo-c" src="we-rock-v1.png" alt="We Rock" onerror="this.style.display='none'">
+  </div>
+  <div class="deck-meta">
+    <span class="hide-m">Propuesta para la Universidad Científica Internacional</span>
+    <button class="fs-btn" id="fsBtn" aria-label="Pantalla completa" title="Pantalla completa (F)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+    </button>
+  </div>
+</header>
+
+<nav class="dots" id="dots" aria-label="Diapositivas"></nav>
+<div class="counter" aria-live="polite"><b id="cNow">01</b> / <span id="cAll">19</span></div>
+<div class="nav-arrows">
+  <button id="prevBtn" aria-label="Diapositiva anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg></button>
+  <button id="nextBtn" aria-label="Diapositiva siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+</div>
+
+<main id="deck">
+
+<!-- ================= PORTADA ================= -->
+<section class="slide dk cover noise" data-title="Portada" id="s-portada">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="inner">
+    <div class="cover-kicker rv" style="--d:0">
+      <span>Universidad Científica Internacional</span><span class="x">×</span><span>We Rock</span><span style="opacity:.5">· Propuesta · Septiembre 2026</span>
+    </div>
+    <h1 class="cover-title">
+      <span class="ln"><span style="--d:0">La UCI sale</span></span>
+      <span class="ln"><span style="--d:1" class="r">del papel</span></span>
+      <span class="ln"><span style="--d:2">y abre sus</span></span>
+      <span class="ln"><span style="--d:3">aulas.</span></span>
+    </h1>
+    <p class="cover-lead rv" style="--d:5">Marca, sitio web, campus virtual, matrícula en línea y un equipo comercial que llena los cursos. Todo lo que hace falta para pasar de <b>tener permisos</b> a <b>tener estudiantes</b>: primero en San José y, en modalidad virtual, en todo Costa Rica.</p>
+    <div class="cover-hint rv" style="--d:6"><kbd>↓</kbd> <kbd>→</kbd> para avanzar · <kbd>F</kbd> pantalla completa</div>
+  </div>
+  <div class="cover-bar rv" style="--d:7">
+    <div><b>3</b><span>Programas aprobados</span></div>
+    <div><b>250</b><span>Matrículas meta · cursos libres</span></div>
+    <div><b>30<i>/</i>40</b><span>Primera cohorte universitaria</span></div>
+    <div><b><i>&lt;</i>US$200</b><span>Precio de entrada</span></div>
+  </div>
+</section>
+
+<!-- ================= 01 MERCADO ================= -->
+<section class="slide lt tex-grid" data-title="El mercado" id="s-mercado">
+  <div class="ghost-num" style="font-size:420px;right:-30px;bottom:-60px" aria-hidden="true">01</div>
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">01 · El mercado</div>
+    <h2 class="h2 rv" style="--d:1">Costa Rica sí estudia en universidades privadas.<br><em>La pregunta es en cuál.</em></h2>
+    <div class="stat-row">
+      <div class="stat rv" style="--d:2">
+        <div class="n"><span class="cnt" data-to="254566" data-format="es">0</span></div>
+        <div class="t">Estudiantes en universidades privadas</div>
+        <div class="s">Matrícula de 2023. El doble que las cinco universidades públicas juntas.</div>
+        <div class="up">2× la matrícula pública</div>
+      </div>
+      <div class="stat rv" style="--d:3">
+        <div class="n"><span class="cnt" data-to="53">0</span></div>
+        <div class="t">Universidades privadas</div>
+        <div class="s">El 83% de todas las universidades del país compiten por el mismo estudiante.</div>
+      </div>
+      <div class="stat rv" style="--d:4">
+        <div class="n"><span class="cnt" data-to="7">0</span></div>
+        <div class="t">Provincias, un solo campus</div>
+        <div class="s">En modalidad virtual, la UCI puede atender a todo el país desde el primer día.</div>
+      </div>
+    </div>
+    <div class="punch rv" style="--d:5">
+      <div class="punch-bar"></div>
+      <p>Con 53 opciones, nadie elige una universidad que no aparece en Google, que no contesta el WhatsApp o que no deja pagar en línea. <b>La UCI no compite por tener permisos: compite por ser la más fácil de elegir.</b></p>
+    </div>
+    <p class="src rv" style="--d:6">Fuentes: La Nación con datos de matrícula 2023; CONESUP; Programa Estado de la Nación.</p>
+  </div>
+</section>
+
+<!-- ================= 02 PUNTO DE PARTIDA ================= -->
+<section class="slide lt2 tex-dots" data-title="Punto de partida" id="s-partida">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">02 · Punto de partida</div>
+    <h2 class="h2 rv" style="--d:1">Lo difícil ya está hecho.<br><em>Falta todo lo que se ve.</em></h2>
+    <div class="cap">
+      <article class="cap-col rv" style="--d:2">
+        <h3>Ya lo tiene la UCI <span>Listo</span></h3>
+        <ul class="cap-list">
+          <li><i class="ck"><svg aria-hidden="true"><use href="#ico-ok"/></svg></i><span><b>Permisos y registros</b>Constituida y autorizada para operar.</span></li>
+          <li><i class="ck"><svg aria-hidden="true"><use href="#ico-ok"/></svg></i><span><b>Programas aprobados</b>Administración de Empresas, Contabilidad y Educación I y II ciclo.</span></li>
+          <li><i class="ck"><svg aria-hidden="true"><use href="#ico-ok"/></svg></i><span><b>Cuerpo docente</b>Profesores listos para dictar.</span></li>
+          <li><i class="ck half"><svg aria-hidden="true"><use href="#ico-half"/></svg></i><span><b>Matrícula prestada</b>Hoy usa el sistema de un aliado. Funciona, pero no es propio.</span></li>
+        </ul>
+      </article>
+      <article class="cap-col todo rv" style="--d:3">
+        <h3>Lo construye We Rock <span>Desde cero</span></h3>
+        <ul class="cap-list">
+          <li><i class="ck no"><svg aria-hidden="true"><use href="#ico-plus"/></svg></i><span><b>Marca y manual</b>Nombre de uso, logotipo e identidad.</span></li>
+          <li><i class="ck no"><svg aria-hidden="true"><use href="#ico-plus"/></svg></i><span><b>Sitio web</b>Cursos, carreras y sedes virtuales.</span></li>
+          <li><i class="ck no"><svg aria-hidden="true"><use href="#ico-plus"/></svg></i><span><b>Redes propias</b>Canales nuevos, sin mezclar la otra marca.</span></li>
+          <li><i class="ck no"><svg aria-hidden="true"><use href="#ico-plus"/></svg></i><span><b>Campus virtual</b>Portal educativo tipo Moodle con marca UCI.</span></li>
+          <li><i class="ck no"><svg aria-hidden="true"><use href="#ico-plus"/></svg></i><span><b>Matrícula en línea</b>Sistema propio con pago incluido.</span></li>
+          <li><i class="ck no"><svg aria-hidden="true"><use href="#ico-plus"/></svg></i><span><b>CRM + HalconBot</b>Cada interesado registrado y atendido.</span></li>
+          <li><i class="ck no"><svg aria-hidden="true"><use href="#ico-plus"/></svg></i><span><b>Asesor comercial</b>Una persona de We Rock que cierra matrículas.</span></li>
+          <li><i class="ck no"><svg aria-hidden="true"><use href="#ico-plus"/></svg></i><span><b>Contenido y pauta</b>El tráfico que alimenta todo lo anterior.</span></li>
+        </ul>
+      </article>
+    </div>
+    <div class="cap-note rv" style="--d:4">
+      <svg viewBox="0 0 26 26" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="13" r="10"/><path d="M13 8v6M13 17.5v.5"/></svg>
+      <p>Las redes que existen hoy pertenecen a otra marca. <b>Creamos canales nuevos para la UCI</b> y dejamos intactos los que ya funcionan para su dueño.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 LA SIGLA ================= -->
+<section class="slide dk2 noise glow-tr" data-title="Antes de imprimir" id="s-sigla">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">03 · Antes de imprimir un solo logo</div>
+    <h2 class="h2 rv" style="--d:1;color:#fff">La sigla UCI ya tiene dueño en Costa Rica.<br><em>Mejor saberlo hoy que después de pautar.</em></h2>
+    <p class="lead rv" style="--d:2">En la investigación encontramos a la Universidad para la Cooperación Internacional: también se presenta como UCI, también es virtual y también está en San José. Lanzar con la misma sigla es pagar publicidad que puede terminar en el sitio de otra universidad.</p>
+    <div class="law">
+      <article class="rv" style="--d:3"><div class="big">1994</div><h3>La otra UCI</h3><p>Opera desde 1994 en Barrio Escalante, 100% virtual, con posgrados y educación continua. Usa los dominios uci.ac.cr y uci.cr.</p><span class="fix">Ellos ya ganan la búsqueda "UCI"</span></article>
+      <article class="rv" style="--d:4"><div class="big">Google</div><h3>Búsquedas cruzadas</h3><p>Quien escriba "UCI virtual Costa Rica" encuentra primero a una institución con más de 30 años de posicionamiento.</p><span class="fix">Palabras clave propias, no la sigla</span></article>
+      <article class="rv" style="--d:5"><div class="big">Pauta</div><h3>Plata que se fuga</h3><p>Anuncios, reseñas y menciones pueden terminar sumando reputación a la otra marca, o al revés.</p><span class="fix">Un nombre de uso inconfundible</span></article>
+      <article class="rv" style="--d:6"><div class="big">Científica</div><h3>Nuestra recomendación</h3><p>Conservar la razón social y comunicar con un nombre de uso propio: <b style="color:#fff">Científica</b>, Universidad Científica Internacional.</p><span class="fix">Lo validamos en el taller de marca</span></article>
+    </div>
+    <p class="src rv" style="--d:7">Fuentes: uci.ac.cr y universidades.cr. Hallazgo informativo; el uso del nombre y la sigla se valida con el asesor legal de la universidad.</p>
+  </div>
+</section>
+
+<!-- ================= 04 ESTRATEGIA ================= -->
+<section class="slide dk tex-grid-dk glow-bl noise" data-title="La estrategia" id="s-idea">
+  <div class="inner idea-grid">
+    <div>
+      <div class="lbl rv" style="--d:0">04 · La estrategia</div>
+      <h2 class="h2 rv" style="--d:1;color:#fff">Entrar por los cursos libres.<br><em>Quedarse por la carrera.</em></h2>
+      <p class="lead rv" style="--d:2">El temor tiene razón: vender una carrera universitaria sin marca ni trayectoria es lento y caro. Por eso la puerta de entrada son los cursos libres, cortos y de menos de US$200. Pero todo dice universidad desde el primer día.</p>
+      <ul class="idea-list">
+        <li class="rv" style="--d:3"><svg viewBox="0 0 32 32" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l12-6 12 6-12 6z"/><path d="M9 14.5V21c0 2 3 4 7 4s7-2 7-4v-6.5M28 12v7"/></svg><span><b>La universidad siempre visible.</b> El curso es la puerta, pero el respaldo, los programas aprobados y los docentes aparecen en cada pieza.</span></li>
+        <li class="rv" style="--d:4"><svg viewBox="0 0 32 32" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 9v14M12 12.5c0-1.5 1.8-2.5 4-2.5s4 1 4 2.8c0 4-8 2.2-8 6.2 0 1.8 1.8 3 4 3s4-1 4-2.5"/></svg><span><b>Ingresos desde el primer cuatrimestre.</b> 250 matrículas en cursos libres financian el arranque sin esperar a la primera cohorte.</span></li>
+        <li class="rv" style="--d:5"><svg viewBox="0 0 32 32" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 22l7-7 5 5 12-12"/><path d="M21 8h7v7"/></svg><span><b>La primera cohorte sale de casa.</b> Quien ya estudió con la UCI, conoce el campus y pagó en línea es el candidato natural para los 30 a 40 cupos universitarios.</span></li>
+      </ul>
+    </div>
+    <div class="rv-3d" style="--d:3">
+      <div class="ladder" role="img" aria-label="Escalera del estudiante: curso libre, certificado, bachillerato universitario y posgrado">
+        <div class="step" style="--h:44;--d:0"><div class="pr">US$89<i>desde · ejemplo</i></div><small>Paso 1</small><b>Curso libre</b><span>4 a 8 semanas, 100% virtual</span></div>
+        <div class="step" style="--h:56;--d:1"><div class="pr">QR<i>verificable</i></div><small>Paso 2</small><b>Certificado UCI</b><span>Con el sello de la universidad</span></div>
+        <div class="step" style="--h:78;--d:2"><div class="pr">3<i>carreras aprobadas</i></div><small>Paso 3</small><b>Bachillerato universitario</b><span>Administración, Contabilidad y Educación</span></div>
+        <div class="step top" style="--h:100;--d:3"><div class="pr">+<i>siguiente nivel</i></div><small>Paso 4</small><b>Posgrado</b><span>Cuando la UCI habilite su oferta de maestría</span></div>
+      </div>
+      <div class="mock-cap">El valor de cada estudiante crece con cada paso</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 BENCHMARK ================= -->
+<section class="slide dk2 tex-grid-dk noise glow-tr" data-title="Benchmark" id="s-benchmark">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">05 · Benchmark</div>
+    <h2 class="h2 rv" style="--d:1;color:#fff">Lo que ya funcionó en educación virtual.<br><em>Y lo que no.</em></h2>
+    <div class="bench">
+      <article class="rv" style="--d:2"><div class="who"><b>Coursera</b><span>EE. UU.</span></div><p class="fact">Empezó con <strong>cursos abiertos</strong> y hoy vende certificados profesionales y títulos completos junto a universidades.</p><div class="lesson">El curso corto es la puerta; el título es el negocio.</div><a class="bench-btn" href="https://www.coursera.org/degrees" target="_blank" rel="noopener">Ver sitio <svg aria-hidden="true"><use href="#ico-ext"/></svg><span class="sr"> Coursera (se abre en otra pestaña)</span></a></article>
+      <article class="rv" style="--d:3"><div class="who"><b>Platzi</b><span>Colombia</span></div><p class="fact">Construyó su marca regalando <strong>contenido educativo en redes</strong> y convirtiendo esa audiencia en suscriptores.</p><div class="lesson">Enseñar gratis en redes es la pauta más barata.</div><a class="bench-btn" href="https://platzi.com/" target="_blank" rel="noopener">Ver sitio <svg aria-hidden="true"><use href="#ico-ext"/></svg><span class="sr"> Platzi (se abre en otra pestaña)</span></a></article>
+      <article class="rv" style="--d:4"><div class="who"><b>Crehana</b><span>Perú</span></div><p class="fact">Cursos cortos y prácticos con <strong>certificado</strong>, pensados para conseguir trabajo o ascender.</p><div class="lesson">Se vende la salida laboral, no la materia.</div><a class="bench-btn" href="https://www.crehana.com/" target="_blank" rel="noopener">Ver sitio <svg aria-hidden="true"><use href="#ico-ext"/></svg><span class="sr"> Crehana (se abre en otra pestaña)</span></a></article>
+      <article class="rv" style="--d:5"><div class="who"><b>UNED</b><span>Costa Rica</span></div><p class="fact">Universidad a distancia desde <strong>1977</strong>, con centros universitarios repartidos por todo el país.</p><div class="lesson">Estar "cerca" en cada provincia genera confianza, aunque se estudie en línea.</div><a class="bench-btn" href="https://www.uned.ac.cr/" target="_blank" rel="noopener">Ver sitio <svg aria-hidden="true"><use href="#ico-ext"/></svg><span class="sr"> UNED (se abre en otra pestaña)</span></a></article>
+      <article class="rv" style="--d:6"><div class="who"><b>U. San Marcos</b><span>Costa Rica</span></div><p class="fact">Universidad privada costarricense con <strong>oferta virtual y presencial</strong> que compite por el mismo bachiller.</p><div class="lesson">Lo virtual ya no diferencia: la experiencia de matrícula y la respuesta rápida sí.</div><a class="bench-btn" href="https://www.usanmarcos.ac.cr/" target="_blank" rel="noopener">Ver sitio <svg aria-hidden="true"><use href="#ico-ext"/></svg><span class="sr"> Universidad San Marcos (se abre en otra pestaña)</span></a></article>
+      <article class="fail rv" style="--d:7"><div class="who"><b>2U y edX</b><span class="tag">Quiebra en 2024</span></div><p class="fact">Compró edX por <strong>US$800 millones</strong> en 2021, se endeudó para crecer y en 2024 se acogió al Capítulo 11.</p><div class="lesson">Crecer con caja propia y pauta medida, no con deuda ni promesas.</div><a class="bench-btn" href="https://www.thecrimson.com/article/2024/7/27/2u-bankruptcy-harvard-mit-edx/" target="_blank" rel="noopener">Leer el caso <svg aria-hidden="true"><use href="#ico-ext"/></svg><span class="sr"> 2U y edX (se abre en otra pestaña)</span></a></article>
+    </div>
+    <p class="src rv" style="--d:8">Fuentes: sitios oficiales de cada institución y The Harvard Crimson (julio de 2024).</p>
+  </div>
+</section>
+
+<!-- ================= 06 EL SISTEMA ================= -->
+<section class="slide lt tex-dots" data-title="El sistema completo" id="s-sistema">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">06 · El sistema completo</div>
+    <h2 class="h2 rv" style="--d:1">Cinco piezas que trabajan juntas.<br><em>Una sola universidad.</em></h2>
+    <div class="eco">
+      <article class="rv" style="--d:2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="11" ry="4" transform="rotate(-25 12 12)"/></svg></div><small>01 · Identidad</small><h3>Marca y manual</h3><ul><li>Nombre de uso y logotipo</li><li>Paleta, tipografía y tono</li><li>Plantillas de redes y certificados</li></ul></article>
+      <article class="rv" style="--d:3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8M12 18v3"/></svg></div><small>02 · Vitrina</small><h3>Sitio web</h3><ul><li>Catálogo de cursos con precio</li><li>Carreras y respaldo legal</li><li>Sedes virtuales por provincia</li></ul></article>
+      <article class="rv" style="--d:4"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l9-3 9 3-9 3z"/><path d="M6 8v6c0 1.5 2.7 3 6 3s6-1.5 6-3V8"/></svg></div><small>03 · Aula</small><h3>Campus virtual</h3><ul><li>Moodle con marca propia</li><li>Clases, tareas y evaluaciones</li><li>Certificados automáticos con QR</li></ul></article>
+      <article class="rv" style="--d:5"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div><small>04 · Caja</small><h3>Matrícula en línea</h3><ul><li>Formulario por pasos y documentos</li><li>Pago con SINPE Móvil o tarjeta</li><li>Alta automática en el campus</li></ul></article>
+      <article class="money rv" style="--d:6"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 10h6M9 13h4"/></svg></div><small>05 · Ventas</small><h3>CRM, HalconBot y asesor</h3><ul><li>WhatsApp con IA las 24 horas</li><li>Cada interesado con seguimiento</li><li>Un asesor de We Rock que cierra</li></ul></article>
+    </div>
+    <p class="src rv" style="--d:7">Cada pieza se cotiza por separado: la UCI puede empezar por las que necesite primero.</p>
+  </div>
+</section>
+
+<!-- ================= 07 IDENTIDAD ================= -->
+<section class="slide lt2 tex-grid" data-title="Identidad" id="s-marca">
+  <div class="inner pf-grid">
+    <div>
+      <div class="brand-sheet rv-3d mt0" style="--d:1">
+        <div class="bs-logo">
+          <small>Dirección de marca · propuesta</small>
+          <div class="bs-mark">
+            <svg viewBox="0 0 92 92" aria-hidden="true" style="color:#fff"><circle cx="46" cy="46" r="29" fill="none" stroke="currentColor" stroke-width="4"/><path d="M35 31v15a11 11 0 0022 0V31" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><g class="orbit"><ellipse cx="46" cy="46" rx="44" ry="15" transform="rotate(-25 46 46)" fill="none" stroke="#E0A526" stroke-width="2.4"/><circle cx="84" cy="30" r="4.5" fill="#E0A526"/></g></svg>
+            <div><b>Científica</b><span>Universidad Científica<br>Internacional · Costa Rica</span></div>
+          </div>
+          <small style="color:rgba(255,255,255,.45)">Autorizada para operar en Costa Rica · 100% virtual</small>
+        </div>
+        <div class="bs-cell">
+          <h4>Paleta</h4>
+          <div class="sw">
+            <div style="background:#12355B;color:#fff">Azul UCI<br>#12355B</div>
+            <div style="background:#1D4F86;color:#fff">Azul aula<br>#1D4F86</div>
+            <div style="background:#E0A526;color:#0f1b2b">Oro académico<br>#E0A526</div>
+            <div style="background:#F4F1EA;color:#0f1b2b;border:1px solid #e3ded2">Marfil<br>#F4F1EA</div>
+          </div>
+        </div>
+        <div class="bs-cell">
+          <h4>Aplicaciones</h4>
+          <div class="type-spec"><b>Aa Científica</b><p>Una serif con autoridad para títulos y una sans clara para leer en el celular.</p></div>
+          <div class="apps"><div class="av"><svg style="color:#fff" aria-hidden="true"><use href="#uci-mark"/></svg></div><div class="card"><b>Certificado de aprobación</b>Curso libre · código QR</div></div>
+        </div>
+      </div>
+      <div class="mock-cap">Dirección ilustrativa · el manual final sale del taller de marca</div>
+    </div>
+    <div class="txt-first">
+      <div class="lbl rv" style="--d:0">07 · Identidad</div>
+      <h2 class="h2 rv" style="--d:2;font-size:clamp(30px,3.2vw,46px)">Una marca que se vea universidad <em>desde el primer vistazo.</em></h2>
+      <ul class="feat-list">
+        <li class="rv" style="--d:3"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg><span><b>Seria sin ser vieja:</b> azul institucional y oro académico, pensados para un público de 18 a 30 años.</span></li>
+        <li class="rv" style="--d:4"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg><span><b>Manual completo:</b> logotipo y variaciones, paleta, tipografías, tono de voz, papelería, plantillas de redes, certificados y diplomas.</span></li>
+        <li class="rv" style="--d:5"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1016 0 8 8 0 00-16 0zM12 8v4l3 2"/></svg><span><b>Dos rondas de ajustes</b> y todos los archivos editables quedan en poder de la universidad.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 08 SITIO WEB ================= -->
+<section class="slide lt tex-dots" data-title="Sitio web" id="s-web">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">08 · Sitio web</div>
+    <div class="pf-grid">
+      <div>
+        <div class="device-browser tilt rv-3d" style="--d:1">
+          <div class="device-browser-bar">
+            <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
+            <div class="db-url"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 014 0v1.5"/></svg>ucientifica.ac.cr/cursos</div>
+          </div>
+          <div class="site">
+            <div class="site-nav">
+              <div class="site-logo"><svg aria-hidden="true"><use href="#uci-mark"/></svg>CIENTÍFICA</div>
+              <ul><li>Cursos libres</li><li>Carreras</li><li>Sedes virtuales</li><li>Campus</li></ul>
+              <span class="btn">Matricúlate</span>
+            </div>
+            <div class="site-hero">
+              <div>
+                <small>Matrícula abierta · Cuatrimestre I</small>
+                <h4>Aprende hoy.<br>Gradúate con una universidad.</h4>
+                <p>Cursos libres 100% virtuales con certificado de la Universidad Científica Internacional.</p>
+                <div class="site-cta"><span class="p">Ver cursos</span><span class="s">Conocer las carreras</span></div>
+              </div>
+              <div class="site-photo">
+                <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="100" cy="58" r="22" fill="rgba(255,255,255,.18)"/><path d="M52 140c4-30 24-46 48-46s44 16 48 46z" fill="rgba(255,255,255,.14)"/><rect x="118" y="86" width="56" height="36" rx="4" fill="rgba(255,255,255,.22)"/><rect x="122" y="90" width="48" height="26" rx="2" fill="rgba(224,165,38,.5)"/></svg>
+                <div class="tag"><i>●</i> 1.240 estudiantes en línea</div>
+              </div>
+            </div>
+            <div class="site-sec">
+              <h5>Cursos libres más buscados <span>Ver los 12 →</span></h5>
+              <div class="courses">
+                <div class="course"><div class="cc" style="background:#12355B"></div><b>Excel para contabilidad</b><small>6 semanas · virtual</small><div class="pp">US$119<em>Certificado</em></div></div>
+                <div class="course"><div class="cc" style="background:#E0A526"></div><b>Atención al cliente y ventas</b><small>4 semanas · virtual</small><div class="pp">US$89<em>Certificado</em></div></div>
+                <div class="course"><div class="cc" style="background:#1D4F86"></div><b>Herramientas digitales docentes</b><small>8 semanas · virtual</small><div class="pp">US$149<em>Certificado</em></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mock-cap">Vista ilustrativa · cursos, precios y cifras de ejemplo</div>
+      </div>
+      <div>
+        <h2 class="h2 rv" style="--d:2;font-size:clamp(30px,3.2vw,46px)">El sitio que <em>vende los cursos</em> y respalda la carrera.</h2>
+        <ul class="feat-list">
+          <li class="rv" style="--d:3"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><span><b>Catálogo con botón de matrícula:</b> precio, duración y fecha de inicio a la vista.</span></li>
+          <li class="rv" style="--d:4"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg><span><b>La universidad detrás:</b> programas aprobados, docentes y respaldo legal en cada página.</span></li>
+          <li class="rv" style="--d:5"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.5 7-12a7 7 0 00-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span><b>Sedes virtuales:</b> una página por provincia para aparecer en búsquedas locales, con San José como sede principal.</span></li>
+        </ul>
+        <div class="sedes rv" style="--d:6"><span class="m">San José</span><span>Alajuela</span><span>Heredia</span><span>Cartago</span><span>Puntarenas</span><span>Guanacaste</span><span>Limón</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 09 CAMPUS + MATRÍCULA ================= -->
+<section class="slide dk noise glow-tr" data-title="Campus y matrícula" id="s-campus">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">09 · Campus virtual y matrícula</div>
+    <h2 class="h2 rv" style="--d:1;color:#fff;max-width:1100px">Se matricula desde el celular.<br><em>Al minuto ya está en su aula.</em></h2>
+    <div class="ops-grid" style="margin-top:26px">
+      <div class="rv-3d" style="--d:2">
+        <div class="device-phone tilt">
+          <div class="device-phone-notch"></div>
+          <div class="device-phone-screen">
+            <div class="enr">
+              <div class="enr-top"><div><b>Matrícula</b><small>Paso 3 de 4 · Pago</small></div><svg width="28" height="28" style="color:#12355B" aria-hidden="true"><use href="#uci-mark"/></svg></div>
+              <div class="enr-steps"><i class="ok"></i><i class="ok"></i><i class="now"></i><i></i></div>
+              <div class="enr-card">
+                <h6>Tu curso</h6>
+                <div class="enr-row"><span>Excel para contabilidad</span><b>US$119</b></div>
+                <div class="enr-row"><span>Inicio</span><b>13 de enero</b></div>
+                <div class="enr-row"><span>Modalidad</span><b>Virtual</b></div>
+              </div>
+              <div class="enr-card">
+                <h6>Documentos</h6>
+                <div class="enr-doc"><i>✓</i>Cédula de identidad</div>
+                <div class="enr-doc"><i>✓</i>Título de bachillerato</div>
+              </div>
+              <div class="enr-card">
+                <h6>¿Cómo pagas?</h6>
+                <div class="pay-opts"><span class="a">SINPE Móvil</span><span>Tarjeta</span></div>
+              </div>
+              <div class="enr-btn">Pagar y entrar al campus</div>
+            </div>
+          </div>
+          <div class="device-phone-home"></div>
+        </div>
+        <div class="device-phone-shadow"></div>
+      </div>
+      <div class="rv-3d" style="--d:3;min-width:0">
+        <div class="device-browser tilt">
+          <div class="device-browser-bar">
+            <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
+            <div class="db-url"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 014 0v1.5"/></svg>campus.ucientifica.ac.cr</div>
+          </div>
+          <div class="lms">
+            <div class="lms-side">
+              <div class="site-logo"><svg aria-hidden="true"><use href="#uci-mark"/></svg>CAMPUS</div>
+              <span class="a">Mis cursos</span><span>Calendario</span><span>Calificaciones</span><span>Certificados</span><span>Mensajes</span>
+            </div>
+            <div class="lms-main">
+              <div class="lms-top"><div><b>Excel para contabilidad</b><small>Prof. Laura Mora · Semana 3 de 6</small></div><span class="chip"><span class="pulse"></span>Clase en vivo 7:00 p.m.</span></div>
+              <div class="lms-card"><small style="font-size:10px;color:#7a8594;font-weight:700">Tu avance</small><div class="prog"><i style="--w:52%"></i></div></div>
+              <div class="mods">
+                <div class="mod"><i>✓</i><b>Fórmulas y referencias</b><small>Aprobado 96</small></div>
+                <div class="mod"><i>✓</i><b>Tablas dinámicas</b><small>Aprobado 91</small></div>
+                <div class="mod now"><i>3</i><b>Estados financieros en Excel</b><small>Entrega viernes</small></div>
+                <div class="mod lock"><i>4</i><b>Proyecto final</b><small>Semana 5</small></div>
+              </div>
+              <div class="cert"><svg viewBox="0 0 28 28" fill="none" stroke="#E0A526" stroke-width="1.6" aria-hidden="true"><circle cx="14" cy="11" r="7"/><path d="M10 17l-2 9 6-3 6 3-2-9"/></svg><div><b>Certificado con QR al aprobar</b><small>Y una invitación para seguir con la carrera</small></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="mock-cap">Vistas ilustrativas · nombres y datos de ejemplo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 10 VENTAS ================= -->
+<section class="slide lt tex-grid" data-title="Ventas con HalconBot" id="s-ventas">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">10 · Sistema comercial</div>
+    <div class="ops-stack" style="margin-top:6px">
+      <div class="rv-3d" style="--d:1">
+        <div class="device-phone tilt">
+          <div class="device-phone-notch"></div>
+          <div class="device-phone-screen">
+            <div class="wa">
+              <div class="wa-head"><div class="av"><svg style="color:#12355B" aria-hidden="true"><use href="#uci-mark"/></svg></div><div><b>Científica · Admisiones</b><small>en línea</small></div></div>
+              <div class="wa-body">
+                <div class="bub out" style="--d:0">Hola, vi el curso de Excel. ¿Cuánto cuesta y cuándo empieza?<small>7:42 p.m.</small></div>
+                <div class="bub in" style="--d:1"><span class="bot-tag">HalconBot</span><br>¡Hola! El curso cuesta <b>US$119</b>, empieza el <b>13 de enero</b> y es 100% virtual con certificado de la universidad.<small>7:42 p.m.</small></div>
+                <div class="bub in" style="--d:2">¿Te guardo un cupo? Puedes pagar con SINPE Móvil.<div class="opts"><span>Sí, quiero matricularme</span><span>Hablar con un asesor</span></div><small>7:42 p.m.</small></div>
+                <div class="bub out" style="--d:3">Hablar con un asesor<small>7:43 p.m.</small></div>
+                <div class="bub in" style="--d:4">Listo. Andrea, tu asesora, te escribe en unos minutos.<small>7:43 p.m.</small></div>
+              </div>
+              <div class="wa-foot"><span>Mensaje</span><i></i></div>
+            </div>
+          </div>
+          <div class="device-phone-home"></div>
+        </div>
+      </div>
+      <div style="min-width:0">
+        <h2 class="h2 rv" style="--d:2;font-size:clamp(28px,3vw,44px)">Nadie se queda sin respuesta.<br><em>Nadie se queda sin seguimiento.</em></h2>
+        <div class="device-browser tilt rv-3d" style="--d:3;margin-top:14px">
+          <div class="device-browser-bar">
+            <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
+            <div class="db-url">CRM · Admisiones Científica</div>
+          </div>
+          <div class="pipe">
+            <div class="pcol"><h6>Nuevos <em>48</em></h6><div class="pcard hot"><b>María Solís</b><small>Excel · Meta Ads</small><span class="tg">Hoy</span></div><div class="pcard"><b>José Quirós</b><small>Ventas · Google</small></div><div class="pcard mv"><b>Daniela Rojas</b><small>Docentes · TikTok</small></div></div>
+            <div class="pcol"><h6>Asesor <em>21</em></h6><div class="pcard"><b>Kevin Araya</b><small>Llamada 3:00 p.m.</small><span class="tg b">Andrea</span></div><div class="pcard"><b>Sofía Mena</b><small>Pidió plan de pagos</small></div></div>
+            <div class="pcol"><h6>Pago pendiente <em>9</em></h6><div class="pcard hot"><b>Luis Vargas</b><small>Link de SINPE enviado</small><span class="tg">Recordatorio</span></div></div>
+            <div class="pcol"><h6>Matriculados <em>63</em></h6><div class="pcard won"><b>Ana Jiménez</b><small>Excel · US$119</small><span class="tg g">Pagado</span></div><div class="pcard won"><b>Carlos Brenes</b><small>Ventas · US$89</small><span class="tg g">Pagado</span></div></div>
+          </div>
+        </div>
+        <ul class="feat-list feat-2">
+          <li class="rv" style="--d:4"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><span><b>HalconBot 24/7:</b> precios, fechas y requisitos por WhatsApp en segundos.</span></li>
+          <li class="rv" style="--d:5"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg><span><b>Asesor de We Rock:</b> llama, resuelve dudas y acompaña hasta el pago.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 11 RECORRIDO ================= -->
+<section class="slide lt2 tex-grid" data-title="Recorrido del estudiante" id="s-viaje">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">11 · Recorrido del estudiante</div>
+    <h2 class="h2 rv" style="--d:1">Del anuncio al aula,<br><em>sin una sola fila.</em></h2>
+    <div class="journey">
+      <div class="j-step rv" style="--d:1"><div class="j-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M10 18h4"/></svg></div><div class="j-n">01</div><h3>Ve el anuncio</h3><p>En Instagram, TikTok o buscando "curso virtual" en Google.</p><span class="j-who">Marketing</span></div>
+      <div class="j-step rv" style="--d:2"><div class="j-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/></svg></div><div class="j-n">02</div><h3>Escribe</h3><p>HalconBot responde precio, fechas y requisitos al instante.</p><span class="j-who">HalconBot</span></div>
+      <div class="j-step rv" style="--d:3"><div class="j-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></div><div class="j-n">03</div><h3>Habla con alguien</h3><p>El asesor llama, resuelve dudas y recomienda el curso.</p><span class="j-who">Asesor</span></div>
+      <div class="j-step rv" style="--d:4"><div class="j-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></svg></div><div class="j-n">04</div><h3>Se matricula</h3><p>Sube documentos y paga con SINPE Móvil o tarjeta.</p><span class="j-who">Matrícula</span></div>
+      <div class="j-step rv" style="--d:5"><div class="j-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l9-3 9 3-9 3z"/><path d="M6 8v6c0 1.5 2.7 3 6 3s6-1.5 6-3V8"/></svg></div><div class="j-n">05</div><h3>Estudia</h3><p>Entra al campus, aprueba y recibe su certificado con QR.</p><span class="j-who">Campus</span></div>
+      <div class="j-step rv" style="--d:6"><div class="j-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l7-7 4 4 7-9"/><path d="M17 8h5v5"/></svg></div><div class="j-n">06</div><h3>Sigue la carrera</h3><p>Recibe la invitación al bachillerato con un beneficio por continuidad.</p><span class="j-who">CRM</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 12 CALCULADORA ================= -->
+<section class="slide dk tex-grid-dk noise" data-title="La meta en números" id="s-calc">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">12 · La meta en números</div>
+    <h2 class="h2 rv" style="--d:1;color:#fff">¿Cuánto hace falta para llegar a <em>250 matrículas?</em></h2>
+    <p class="lead rv fit-short" style="--d:2">Mueva los controles. Los valores iniciales son supuestos conservadores para Costa Rica y se ajustan con los datos reales desde la primera semana de pauta.</p>
+    <div class="calc rv-3d" style="--d:3">
+      <div class="calc-in">
+        <div class="field"><label for="cA">Pauta mensual <output id="oA">US$1.500</output></label><input type="range" id="cA" min="300" max="4000" step="100" value="1500"></div>
+        <div class="field"><label for="cB">Costo por interesado <output id="oB">US$2,5</output></label><input type="range" id="cB" min="1" max="8" step=".5" value="2.5"></div>
+        <div class="field"><label for="cC">Interesados que se matriculan <output id="oC">12%</output></label><input type="range" id="cC" min="3" max="25" step="1" value="12"></div>
+        <div class="field"><label for="cD">Precio promedio del curso <output id="oD">US$120</output></label><input type="range" id="cD" min="40" max="200" step="5" value="120"></div>
+      </div>
+      <div class="calc-out">
+        <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+        <small>Matrículas en el cuatrimestre</small>
+        <div class="big" id="outN">0</div>
+        <div class="sub">Ingresos por cursos libres: <b id="outI">US$0</b></div>
+        <div class="calc-kpis">
+          <div><b id="outCac">US$0</b><span>Costo de pauta por matrícula</span></div>
+          <div><b id="outU">0</b><span>Candidatos a la carrera si el 10% continúa</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="note-dk rv" style="--d:4">Cifras de ejemplo, no una promesa. El cuatrimestre se calcula con 4 meses de pauta; no incluye matrículas por referidos ni orgánicas.</p>
+  </div>
+</section>
+
+<!-- ================= 13 MARKETING ================= -->
+<section class="slide lt tex-dots" data-title="Marketing digital" id="s-marketing">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">13 · Marketing digital</div>
+    <h2 class="h2 rv" style="--d:1">Dos velocidades.<br><em>Una sola marca.</em></h2>
+    <p class="lead rv fit-short" style="--d:2">Los cursos libres se venden rápido y pagan el arranque. La universidad se construye con confianza, contenido y los estudiantes que ya pasaron por un curso.</p>
+    <div class="mk-split">
+      <div class="mk-side rv" style="--d:3">
+        <div class="mk-head"><h3>Cursos libres</h3><span>Venta rápida</span></div>
+        <p>Bachilleres de 18 a 30 años que quieren trabajar o mejorar su empleo.</p>
+        <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7v.5"/></svg></div><div><b>Meta Ads y TikTok</b><small>Videos cortos con docentes reales y el curso en 15 segundos. Directo al WhatsApp.</small></div></div>
+        <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div><div><b>Google Ads</b><small>Aparecer cuando alguien busca "curso de contabilidad virtual Costa Rica".</small></div></div>
+        <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 10h6M9 13h4"/></svg></div><div><b>WhatsApp + HalconBot</b><small>Respuesta inmediata y recordatorios de pago para que ningún interesado se enfríe.</small></div></div>
+      </div>
+      <div class="mk-mid rv" style="--d:4">
+        <span class="mk-arrow">Rápido →</span>
+        <div class="mk-core"><div>Científica<small>MATRÍCULA</small></div></div>
+        <span class="mk-arrow">← Confianza</span>
+      </div>
+      <div class="mk-side supply rv" style="--d:5">
+        <div class="mk-head"><h3>Universidad</h3><span>Confianza a largo plazo</span></div>
+        <p>La primera cohorte de bachillerato: 30 a 40 estudiantes en el segundo cuatrimestre.</p>
+        <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div><div><b>SEO, AEO y sedes virtuales</b><small>Que Google y ChatGPT recomienden la Científica en cada provincia.</small></div></div>
+        <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h8"/></svg></div><div><b>Email y WhatsApp a egresados</b><small>Cada estudiante de curso libre recibe la ruta a la carrera con su beneficio.</small></div></div>
+        <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M2 20c0-3.5 2.5-6 6-6s6 2.5 6 6M14 20c0-2.5 1.2-4.5 3.5-4.5S21 17.5 21 20"/></svg></div><div><b>Charlas en colegios y empresas</b><small>Orientación vocacional virtual para quinto año y convenios de capacitación.</small></div></div>
+      </div>
+    </div>
+    <div class="mk-foot rv" style="--d:6">
+      <svg viewBox="0 0 34 34" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="20" height="16" rx="2"/><path d="M23 15l8-4v12l-8-4"/></svg>
+      <p><b>Redes nuevas desde cero:</b> Instagram, Facebook, TikTok, YouTube, LinkedIn y perfil de Google, con clases de muestra de los docentes como contenido principal.</p>
+      <span class="badge">Transversal</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 14 HOJA DE RUTA ================= -->
+<section class="slide dk2 noise glow-bl" data-title="Hoja de ruta" id="s-ruta">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">14 · Hoja de ruta</div>
+    <h2 class="h2 rv" style="--d:1;color:#fff">Seis semanas para abrir.<br><em>Dos cuatrimestres para despegar.</em></h2>
+    <div class="phases">
+      <article class="phase main rv" style="--d:3">
+        <div class="ghost-num" aria-hidden="true">1</div>
+        <div class="when">Fase 1 · Semanas 1 a 6</div>
+        <h3>Fundación</h3>
+        <p class="sub">Todo lo que se ve, listo para vender.</p>
+        <ul>
+          <li>Taller de marca, nombre de uso y manual</li>
+          <li>Redes nuevas creadas y con contenido de expectativa</li>
+          <li>Sitio web con catálogo y sedes virtuales</li>
+          <li>Campus virtual con los primeros cursos cargados</li>
+          <li>Matrícula en línea con pago</li>
+          <li>CRM y HalconBot conectados al WhatsApp</li>
+        </ul>
+        <div class="price"><b>US$11.200</b><small>Implementación<br>por hitos 50 / 30 / 20</small></div>
+      </article>
+      <article class="phase rv" style="--d:4">
+        <div class="ghost-num" aria-hidden="true">2</div>
+        <div class="when">Fase 2 · Primer cuatrimestre</div>
+        <h3>Cursos libres</h3>
+        <p class="sub">Ventas rápidas que financian el arranque.</p>
+        <ul>
+          <li>Lanzamiento con pauta en Meta, TikTok y Google</li>
+          <li>Asesor comercial de We Rock atendiendo interesados</li>
+          <li>Reporte semanal: costo por matrícula y ventas</li>
+          <li>Meta: 250 matrículas</li>
+        </ul>
+        <div class="price"><b>US$2.630</b><small>Al mes, servicios de We Rock<br>más la pauta</small></div>
+      </article>
+      <article class="phase rv" style="--d:5">
+        <div class="ghost-num" aria-hidden="true">3</div>
+        <div class="when">Fase 3 · Segundo cuatrimestre</div>
+        <h3>Primera cohorte</h3>
+        <p class="sub">La universidad sale a la luz.</p>
+        <ul>
+          <li>Campaña de carrera a egresados de los cursos libres</li>
+          <li>Admisiones para bachillerato con acompañamiento</li>
+          <li>Nuevos cursos según lo que más se vendió</li>
+          <li>Meta: 30 a 40 estudiantes universitarios</li>
+        </ul>
+        <div class="price"><b>Mismo equipo</b><small>Sin nueva implementación<br>la pauta se ajusta a la meta</small></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 15 INVERSIÓN ================= -->
+<section class="slide lt tex-grid" data-title="Inversión" id="s-inversion">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">15 · Inversión</div>
+    <h2 class="h2 rv" style="--d:1">De cero a vender, <em>en cuatro meses.</em></h2>
+    <p class="lead rv fit-short" style="--d:2">Con la meta de 250 matrículas a un precio promedio de US$120, el primer cuatrimestre factura cerca de US$30.000 en cursos libres, antes de sumar un solo estudiante universitario.</p>
+    <div class="pkg-block corner-fx rv-3d" style="--d:3">
+      <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+      <div class="pkg-head">
+        <div><span class="badge">Plan de lanzamiento recomendado</span><h3>Universidad Científica · Primeros 4 meses</h3></div>
+        <p>La implementación se paga por hitos. Los servicios mensuales arrancan cuando hay algo que vender, y la pauta se paga directo a cada plataforma.</p>
+      </div>
+      <div class="inv-table-wrap">
+        <table class="inv-table">
+          <thead><tr><th>Rubro</th><th>Mes 1</th><th>Mes 2</th><th>Mes 3</th><th>Mes 4</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr class="grp"><td colspan="6">We Rock</td></tr>
+            <tr><td>Implementación<span class="rubro-note">Marca, sitio web, campus, matrícula, CRM y HalconBot · hitos 50 / 30 / 20</span></td><td>US$5.600</td><td>US$3.360</td><td>US$2.240</td><td class="dash">—</td><td>US$11.200</td></tr>
+            <tr><td>Contenido y redes<span class="rubro-note">Creación de canales, calendario y producción</span></td><td>US$950</td><td>US$950</td><td>US$950</td><td>US$950</td><td>US$3.800</td></tr>
+            <tr><td>Gestión de pauta<span class="rubro-note">Meta, TikTok y Google</span></td><td class="dash">—</td><td>US$550</td><td>US$550</td><td>US$550</td><td>US$1.650</td></tr>
+            <tr><td>Asesor comercial<span class="rubro-note">Más bono por matrícula cerrada</span></td><td class="dash">—</td><td>US$850</td><td>US$850</td><td>US$850</td><td>US$2.550</td></tr>
+            <tr><td>Soporte técnico<span class="rubro-note">Sitio, campus y matrícula</span></td><td class="dash">—</td><td class="dash">—</td><td>US$280</td><td>US$280</td><td>US$560</td></tr>
+            <tr class="subtotal"><td>Subtotal We Rock</td><td>US$6.550</td><td>US$5.710</td><td>US$4.870</td><td>US$2.630</td><td>US$19.760</td></tr>
+            <tr class="grp"><td colspan="6">Proveedores y pauta · la UCI paga directo</td></tr>
+            <tr><td>Servidores, dominio y correo<span class="rubro-note">Sitio y campus · estimado</span></td><td>US$75</td><td>US$75</td><td>US$75</td><td>US$75</td><td>US$300</td></tr>
+            <tr><td>Plan HalconBot Growth<span class="rubro-note">Hasta 22.500 conversaciones al mes</span></td><td class="dash">—</td><td>US$89</td><td>US$89</td><td>US$89</td><td>US$267</td></tr>
+            <tr><td>Pauta<span class="rubro-note">Preventa en el mes 2 y lanzamiento</span></td><td class="dash">—</td><td>US$600</td><td>US$1.500</td><td>US$1.500</td><td>US$3.600</td></tr>
+            <tr class="subtotal"><td>Subtotal proveedores y pauta</td><td>US$75</td><td>US$764</td><td>US$1.664</td><td>US$1.664</td><td>US$4.167</td></tr>
+            <tr class="total"><td>Total mes a mes</td><td>US$6.625</td><td>US$6.474</td><td>US$6.534</td><td>US$4.294</td><td>US$23.927</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pkg-note">Dólares estadounidenses, antes de impuestos. Bono del asesor: US$5 por matrícula de curso libre y US$30 por estudiante universitario. Proveedores estimados y pagados contra su factura; la pasarela de pago cobra su comisión por transacción.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 16 SERVICIOS ================= -->
+<section class="slide lt2 tex-dots" data-title="Cada pieza por separado" id="s-servicios">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">16 · Cada pieza por separado</div>
+    <h2 class="h2 rv" style="--d:1">El plan es una sugerencia.<br><em>La UCI elige por dónde empezar.</em></h2>
+    <div class="svc-title rv" style="--d:2">Implementación · pago único</div>
+    <div class="svc-grid rv" style="--d:3">
+      <div class="svc-card"><small>Identidad</small><b>Marca y manual de marca</b><div class="p">US$1.600</div></div>
+      <div class="svc-card"><small>Vitrina</small><b>Sitio web con sedes virtuales</b><div class="p">US$2.400</div></div>
+      <div class="svc-card"><small>Aula</small><b>Campus virtual tipo Moodle</b><div class="p">US$3.200</div></div>
+      <div class="svc-card"><small>Caja</small><b>Matrícula en línea con pago</b><div class="p">US$2.800</div></div>
+      <div class="svc-card"><small>Ventas</small><b>CRM + HalconBot</b><div class="p">US$1.200 <i>+ plan desde US$49/mes</i></div></div>
+    </div>
+    <div class="svc-title rv" style="--d:4">Operación · mensual</div>
+    <div class="svc-grid rv" style="--d:5">
+      <div class="svc-card"><small>Marketing</small><b>Contenido y redes</b><div class="p">US$950 <i>/ mes</i></div></div>
+      <div class="svc-card"><small>Marketing</small><b>Gestión de pauta</b><div class="p">US$550 <i>/ mes</i></div></div>
+      <div class="svc-card"><small>Comercial</small><b>Asesor de admisiones</b><div class="p">US$850 <i>/ mes + bono</i></div></div>
+      <div class="svc-card"><small>Tecnología</small><b>Soporte técnico</b><div class="p">US$280 <i>/ mes</i></div></div>
+      <div class="svc-card optional"><small>Opcional</small><b>Jornada de producción audiovisual</b><div class="p">US$900 <i>/ jornada</i></div></div>
+    </div>
+    <p class="src rv" style="--d:6">Contratar un asesor comercial de planta en Costa Rica implica salario, cargas sociales y aguinaldo; el asesor de We Rock llega capacitado, con CRM y reportes incluidos.</p>
+  </div>
+</section>
+
+<!-- ================= 17 POR QUÉ WE ROCK ================= -->
+<section class="slide dk tex-grid-dk noise glow-tr" data-title="Por qué We Rock" id="s-werock">
+  <div class="inner why">
+    <div>
+      <div class="lbl rv" style="--d:0">17 · Por qué We Rock</div>
+      <h2 class="h2 rv" style="--d:1;color:#fff">No es un sitio web.<br>Es una <em>universidad funcionando.</em></h2>
+      <p class="lead rv" style="--d:2">Un campus sin estudiantes no sirve, y una campaña sin matrícula en línea se pierde en el WhatsApp. We Rock construye la tecnología, trae el tráfico y pone a una persona a cerrar matrículas. Un solo equipo responsable del resultado.</p>
+      <div class="pillars3">
+        <div class="rv" style="--d:3"><small>Infraestructura digital™</small><span>Marca, sitio, campus y matrícula</span></div>
+        <div class="rv" style="--d:4"><small>Arquitectura de crecimiento™</small><span>Meta, TikTok, Google, SEO y contenido</span></div>
+        <div class="rv" style="--d:5"><small>Sistemas de conversión™</small><span>WhatsApp, HalconBot, CRM y asesor</span></div>
+      </div>
+    </div>
+    <div class="why-stats rv-3d" style="--d:3">
+      <div><b>15<i>+</i></b><span>Años de experiencia</span><p>Del fundador en estrategia digital. We Rock opera desde 2018.</p></div>
+      <div><b>Oro</b><span>MUSE Creative Awards</span><p>Diseño y desarrollo web accesible, reconocimiento internacional.</p></div>
+      <div><b>+190<i>%</i></b><span>Tasa de cierre</span><p>Servicios financieros: CRM, agentes con IA y call center digital integrados.</p></div>
+      <div><b>−68<i>%</i></b><span>Tiempo de respuesta</span><p>Primer contacto automatizado: de horas a minutos, 24/7.</p></div>
+      <div><b>3,4<i>×</i></b><span>Ventas con HalconBot</span><p>Vanity Nail Bar pasó de $7M a $24M COP al mes sin contratar vendedores.</p></div>
+      <div><b>4.9<i>★</i></b><span>Google Reviews</span><p>Clientes reales de educación, legal, salud y servicios.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 18 CIERRE ================= -->
+<section class="slide dk close noise glow-bl" data-title="Siguiente paso" id="s-cierre">
+  <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">18 · Siguiente paso</div>
+    <h2 class="close-title rv" style="--d:1">¿Abrimos<br>la <span class="r">primera matrícula?</span></h2>
+    <div class="next">
+      <div class="rv" style="--d:2"><b>01</b><h3>El listado de cursos</h3><p>La UCI nos comparte los cursos libres, sus precios y los docentes que los dictan.</p></div>
+      <div class="rv" style="--d:3"><b>02</b><h3>Taller de marca</h3><p>Dos horas para decidir el nombre de uso, el tono y la dirección visual.</p></div>
+      <div class="rv" style="--d:4"><b>03</b><h3>Seis semanas y abrimos</h3><p>Marca, sitio, campus y matrícula listos para recibir al primer estudiante.</p></div>
+    </div>
+    <div class="cta-row rv" style="--d:5">
+      <a class="cta-btn" href="https://wa.me/573125766056?text=Hola%20David,%20hablemos%20de%20la%20propuesta%20para%20la%20Universidad%20Cient%C3%ADfica%20Internacional" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.4-1.5-5.2C2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.3-18.1C18.1 1.5 15.1.2 12 .2 5.5.2.2 5.5.2 12c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.6c1.7.9 3.7 1.4 5.6 1.4 6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.3z"/></svg>
+        Hablar con David
+      </a>
+      <div class="contact"><b>David Higuera</b> · Fundador y Director Estratégico<br>+57 312 576 6056 · davidh@werock.space · werock.space</div>
+    </div>
+    <img class="foot-logo rv" style="--d:6" src="we-rock.png" alt="We Rock" onerror="this.style.display='none'">
+  </div>
+</section>
+
+</main>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = id => document.getElementById(id);
+  const usd = v => 'US$' + Math.round(v).toLocaleString('es-CO');
+  const slides = [...document.querySelectorAll('.slide')];
+  const dotsEl = $('dots');
+  const cNow = $('cNow');
+  $('cAll').textContent = String(slides.length).padStart(2,'0');
+  let cur = 0;
+
+  slides.forEach((s,i)=>{
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', (i+1)+'. '+s.dataset.title);
+    b.innerHTML = '<span>'+String(i+1).padStart(2,'0')+' · '+s.dataset.title+'</span>';
+    b.addEventListener('click',()=>go(i));
+    dotsEl.appendChild(b);
+  });
+  const dots = [...dotsEl.children];
+
+  function go(i){
+    i = Math.max(0, Math.min(slides.length-1, i));
+    slides[i].scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+  }
+  function setActive(i){
+    cur = i;
+    dots.forEach((d,k)=>d.classList.toggle('act', k===i));
+    cNow.textContent = String(i+1).padStart(2,'0');
+    $('prog').style.width = ((i+1)/slides.length*100)+'%';
+    const s = slides[i];
+    document.body.classList.toggle('on-light', s.classList.contains('lt') || s.classList.contains('lt2'));
+    document.body.classList.toggle('at-cover', i===0);
+  }
+
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('on');
+        if(e.intersectionRatio >= .5 || e.target.offsetHeight > innerHeight) setActive(slides.indexOf(e.target));
+        e.target.querySelectorAll('.cnt:not(.done)').forEach(countUp);
+      }
+    });
+  },{threshold:[.2,.5]});
+  slides.forEach(s=>io.observe(s));
+
+  addEventListener('keydown',e=>{
+    if(e.target.tagName==='INPUT' || e.metaKey || e.ctrlKey || e.altKey) return;
+    const k = e.key;
+    if(['ArrowDown','ArrowRight','PageDown',' '].includes(k)){e.preventDefault();go(cur+1);}
+    else if(['ArrowUp','ArrowLeft','PageUp'].includes(k)){e.preventDefault();go(cur-1);}
+    else if(k==='Home'){e.preventDefault();go(0);}
+    else if(k==='End'){e.preventDefault();go(slides.length-1);}
+    else if(k==='f' || k==='F'){toggleFs();}
+  });
+  $('nextBtn').addEventListener('click',()=>go(cur+1));
+  $('prevBtn').addEventListener('click',()=>go(cur-1));
+  function toggleFs(){
+    if(!document.fullscreenElement){ document.documentElement.requestFullscreen && document.documentElement.requestFullscreen().catch(()=>{}); }
+    else { document.exitFullscreen && document.exitFullscreen(); }
+  }
+  $('fsBtn').addEventListener('click',toggleFs);
+
+  function countUp(el){
+    el.classList.add('done');
+    const to = +el.dataset.to, fmt = el.dataset.format==='es', dec = +(el.dataset.dec||0);
+    const out = v => dec ? v.toLocaleString('es-CO',{minimumFractionDigits:dec,maximumFractionDigits:dec}) : (fmt ? Math.round(v).toLocaleString('es-CO') : Math.round(v));
+    if(reduce){ el.textContent = out(to); return; }
+    const t0 = performance.now(), dur = 1600;
+    (function tick(t){
+      const p = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-p,3);
+      el.textContent = out(to*e);
+      if(p<1) requestAnimationFrame(tick);
+    })(t0);
+  }
+
+  function bindCalc(ids, fn){
+    const els = ids.map($);
+    const run = ()=>{ els.forEach(r=>r.style.setProperty('--p',((r.value-r.min)/(r.max-r.min)*100)+'%')); fn(...els.map(r=>+r.value)); };
+    els.forEach(r=>r.addEventListener('input',run));
+    run();
+  }
+
+  if(!reduce && matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.tilt').forEach(el=>{
+      let raf=null;
+      el.addEventListener('mousemove',e=>{
+        const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
+        if(raf)cancelAnimationFrame(raf);
+        raf=requestAnimationFrame(()=>{el.style.transform=`perspective(1200px) rotateX(${(-py*6).toFixed(2)}deg) rotateY(${(px*8).toFixed(2)}deg)`;});
+      });
+      el.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);el.style.transform='perspective(1200px) rotateX(0) rotateY(0)';});
+    });
+    const c1=$('cur'),c2=$('cur2'); c1.style.display=c2.style.display='block';
+    let x=0,y=0,x2=0,y2=0;
+    addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY;c1.style.transform=`translate(${x}px,${y}px)`;});
+    (function loop(){x2+=(x-x2)*.18;y2+=(y-y2)*.18;c2.style.transform=`translate(${x2}px,${y2}px)`;requestAnimationFrame(loop);})();
+    document.querySelectorAll('a,button,input,.leak,.ch,.svc-card,.course,.allies article').forEach(el=>{
+      el.addEventListener('mouseenter',()=>c2.classList.add('big'));
+      el.addEventListener('mouseleave',()=>c2.classList.remove('big'));
+    });
+  }
+  if(reduce){ document.querySelectorAll('svg').forEach(s=>s.pauseAnimations && s.pauseAnimations()); }
+
+  // Portada: red de nodos que confluyen en un centro (estudiantes que llegan a la universidad)
+  function coverNet(cfg){
+    const cv = $('net'), ctx = cv.getContext('2d');
+    let W,H,DPR,pulses=[];
+    const P = n => { const c=cfg.nodes[n], m=innerWidth<769; const b = m ? cfg.boxM : cfg.box; return [(b[0]+c[0]*b[2])*W, (b[1]+c[1]*b[3])*H]; };
+    function size(){DPR=Math.min(devicePixelRatio||1,2);W=cv.offsetWidth;H=cv.offsetHeight;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
+    function spawn(){const e=cfg.edges[Math.random()*cfg.edges.length|0];pulses.push({a:e[0],b:e[1],t:0,s:.003+Math.random()*.004});}
+    size(); addEventListener('resize',size);
+    for(let i=0;i<cfg.count;i++){spawn();pulses[i].t=Math.random();}
+    function curve(A,B,bend){const mx=(A[0]+B[0])/2,my=(A[1]+B[1])/2,dx=B[0]-A[0],dy=B[1]-A[1];return [mx-dy*bend,my+dx*bend];}
+    function pt(A,C,B,t){const u=1-t;return [u*u*A[0]+2*u*t*C[0]+t*t*B[0],u*u*A[1]+2*u*t*C[1]+t*t*B[1]];}
+    function draw(time){
+      ctx.clearRect(0,0,W,H);
+      cfg.edges.forEach(([a,b,bd])=>{const A=P(a),B=P(b),C=curve(A,B,bd||.12);ctx.strokeStyle=bd?'rgba(255,255,255,.14)':'rgba(255,255,255,.08)';ctx.lineWidth=1;if(bd)ctx.setLineDash([3,6]);ctx.beginPath();ctx.moveTo(A[0],A[1]);ctx.quadraticCurveTo(C[0],C[1],B[0],B[1]);ctx.stroke();ctx.setLineDash([]);});
+      pulses.forEach(p=>{
+        const e=cfg.edges.find(x=>x[0]===p.a&&x[1]===p.b), A=P(p.a),B=P(p.b),C=curve(A,B,(e&&e[2])||.12);
+        const h=pt(A,C,B,p.t), tl=pt(A,C,B,Math.max(0,p.t-.14));
+        const g=ctx.createLinearGradient(tl[0],tl[1],h[0],h[1]);g.addColorStop(0,'rgba(232,0,10,0)');g.addColorStop(1,'rgba(232,0,10,.95)');
+        ctx.strokeStyle=g;ctx.lineWidth=2;ctx.beginPath();
+        for(let k=0;k<=8;k++){const q=pt(A,C,B,Math.max(0,p.t-.14)+(p.t-Math.max(0,p.t-.14))*k/8);k?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]);}
+        ctx.stroke();
+        ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(h[0],h[1],2.2,0,7);ctx.fill();
+        if(!reduce) p.t+=p.s;
+      });
+      pulses=pulses.filter(p=>p.t<1); while(pulses.length<cfg.count) spawn();
+      ctx.font='600 10px Barlow, sans-serif';ctx.textBaseline='middle';
+      Object.keys(cfg.nodes).forEach(n=>{
+        const [x,y]=P(n), big=n===cfg.hub, far=cfg.far&&cfg.far.includes(n);
+        const pulse = reduce?0:(Math.sin(time/600+x)*.5+.5);
+        ctx.fillStyle='rgba(232,0,10,'+(.12+pulse*.12)+')';ctx.beginPath();ctx.arc(x,y,big?16+pulse*4:far?11:7+pulse*3,0,7);ctx.fill();
+        ctx.fillStyle=big||far?'#E8000A':'#fff';ctx.beginPath();ctx.arc(x,y,big?5:far?4:3,0,7);ctx.fill();
+        ctx.fillStyle='rgba(255,255,255,'+(big||far?.92:.5)+')';ctx.fillText(n.toUpperCase(),x+11,y);
+      });
+      if(!reduce) requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  }
+
+  // Calculadora: meta de 250 matrículas en el cuatrimestre
+  bindCalc(['cA','cB','cC','cD'], (A,B,C,D)=>{
+    $('oA').textContent = usd(A);
+    $('oB').textContent = 'US$' + B.toLocaleString('es-CO',{maximumFractionDigits:1});
+    $('oC').textContent = C + '%';
+    $('oD').textContent = usd(D);
+    const perMonth = A / B * C / 100, n = Math.round(perMonth * 4);
+    $('outN').textContent = n.toLocaleString('es-CO');
+    $('outI').textContent = usd(n * D);
+    $('outCac').textContent = perMonth > 0 ? usd(A / perMonth) : '—';
+    $('outU').textContent = Math.round(n * .1);
+    $('outN').style.color = n >= 250 ? '#fff' : 'rgba(255,255,255,.75)';
+  });
+
+  // Portada: estudiantes de todo el país llegando a la sede principal en San José
+  coverNet({
+    hub:'San José', count:12,
+    box:[.52,.12,.42,.72], boxM:[.06,.12,.84,.46],
+    nodes:{
+      'San José':[.55,.43],'Alajuela':[.43,.35],'Heredia':[.57,.29],'Cartago':[.66,.51],
+      'Liberia':[.13,.12],'Nicoya':[.12,.34],'Puntarenas':[.3,.44],'San Carlos':[.42,.2],
+      'Limón':[.88,.38],'Pérez Zeledón':[.66,.7],'Golfito':[.83,.92]
+    },
+    edges:[['Liberia','San José'],['Nicoya','San José'],['Puntarenas','San José'],['San Carlos','San José'],['Alajuela','San José'],['Heredia','San José'],['Cartago','San José'],['Limón','San José'],['Pérez Zeledón','San José'],['Golfito','San José']]
+  });
+
+})();
+</script>
+</body>
+</html>
