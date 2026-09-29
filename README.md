@@ -25,4 +25,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [ABS Industrial — Marketing y Expansión Internacional](https://werockagencia.github.io/propuestas/absindustrial/)
 - [Tirano Fajardo Abogados — Estrategia híbrida (Google Ads Familia + LinkedIn Ads Insolvencia)](https://werockagencia.github.io/propuestas/tiranofajardo/)
 - [Pet Empire Mobile Grooming — Sitio WordPress + MoeGo, Contenido, Google Ads y Meta Ads (USD semanal)](https://werockagencia.github.io/propuestas/petempire/)
-- [Safe Trip — Safe Trip Connect: plataforma de carga + marketing digital (presentación)](https://werockagencia.github.io/propuestas/safetrip/)
+- [Safe Trip — Alianza Safe Trip Connect: plataforma de carga + marketing digital (presentación)](https://werockagencia.github.io/propuestas/safetrip/)
