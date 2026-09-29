@@ -420,6 +420,156 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 .svc-title{margin-top:30px;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);display:flex;align-items:center;gap:12px}
 .svc-title::after{content:'';flex:1;height:1px;background:rgba(0,0,0,.12)}
 
+/* por qué ahora */
+.law{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:36px;background:rgba(255,255,255,.07)}
+.law article{background:var(--dk3);padding:26px 24px 24px;position:relative;transition:background .3s}
+.law article:hover{background:#1c1c1c}
+.law .big{font-size:clamp(38px,min(4vw,7vh),58px);font-weight:900;color:var(--red);letter-spacing:-.04em;line-height:1}
+.law h3{font-size:17px;font-weight:800;color:#fff;margin:12px 0 8px}
+.law p{font-size:13.5px;line-height:1.5;color:var(--text-dk2)}
+.law .fix{display:block;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);font-size:12.5px;font-weight:700;color:#fff}
+.law .fix::before{content:'→ ';color:var(--red)}
+
+/* benchmark */
+.bench{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px;background:rgba(255,255,255,.07)}
+.bench article{background:var(--dk2);padding:22px 24px 20px;display:flex;flex-direction:column;transition:background .3s}
+.bench article:hover{background:#181818}
+.bench .who{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.bench .who b{font-size:20px;font-weight:900;color:#fff;letter-spacing:-.01em}
+.bench .who span{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--text-dk2)}
+.bench .fact{font-size:13.5px;line-height:1.5;color:var(--text-dk2);margin:8px 0 12px}
+.bench .fact strong{color:#fff}
+.bench .lesson{margin-top:auto;font-size:13px;font-weight:700;color:#fff;padding:10px 12px;background:rgba(232,0,10,.1);border-left:3px solid var(--red)}
+.bench article.fail .lesson{background:rgba(255,255,255,.04);border-left-color:rgba(255,255,255,.3)}
+.bench .tag{font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;background:var(--red);color:#fff}
+.bench article.fail .tag{background:rgba(255,255,255,.18)}
+
+/* ecosistema */
+.eco{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:34px;background:rgba(0,0,0,.08);position:relative}
+.eco article{background:#fff;padding:22px 20px 20px;position:relative;transition:transform .35s var(--ease),box-shadow .35s}
+.eco article:hover{transform:translateY(-6px);box-shadow:0 24px 40px -26px rgba(0,0,0,.4);z-index:2}
+.eco article.money{background:var(--dk);color:#fff}
+.eco .ic{width:46px;height:46px;border-radius:12px;background:#fde8e9;display:grid;place-items:center;margin-bottom:14px;transition:transform .45s var(--bounce)}
+.eco article:hover .ic{transform:scale(1.1) rotate(-6deg)}
+.eco .money .ic{background:rgba(232,0,10,.2)}
+.eco .ic svg{width:24px;height:24px}
+.eco small{font-size:9.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.eco h3{font-size:18px;font-weight:900;margin:4px 0 10px;letter-spacing:-.01em}
+.eco ul{list-style:none;display:grid;gap:7px}
+.eco li{font-size:13px;line-height:1.4;color:var(--ink2);padding-left:14px;position:relative}
+.eco li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:2px;background:var(--red)}
+.eco .money li{color:var(--text-dk2)}
+
+/* pagos */
+.pay{display:grid;grid-template-columns:1fr 150px 1fr;gap:0;margin-top:32px;align-items:stretch}
+.flow{background:var(--dk2);padding:24px 26px;border-top:3px solid var(--red)}
+.flow.out{border-top-color:#fff}
+.flow h3{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.flow.out h3{color:#fff}
+.flow > p{font-size:19px;font-weight:800;color:#fff;margin-bottom:16px;line-height:1.2}
+.flow ol{list-style:none;display:grid;gap:12px;counter-reset:f}
+.flow li{counter-increment:f;display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:13.5px;line-height:1.45;color:var(--text-dk2)}
+.flow li::before{content:counter(f);width:24px;height:24px;border-radius:50%;border:1.5px solid var(--red);color:#fff;display:grid;place-items:center;font-size:11px;font-weight:800}
+.flow li b{color:#fff}
+.pay-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative}
+.pay-mid::before{content:'';position:absolute;left:0;right:0;top:50%;height:2px;background:repeating-linear-gradient(90deg,var(--red) 0 8px,transparent 8px 16px);opacity:.6}
+.pay-core{position:relative;z-index:2;width:118px;height:118px;border-radius:50%;background:var(--red);display:grid;place-items:center;text-align:center;color:#fff;font-weight:900;font-size:13px;line-height:1.15;box-shadow:0 0 0 10px rgba(232,0,10,.14),0 24px 44px -18px rgba(232,0,10,.8)}
+.pay-core small{display:block;font-size:8.5px;letter-spacing:.16em;font-weight:800;opacity:.85;margin-top:4px}
+.rails{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;align-items:center}
+.rails span{font-size:11px;font-weight:800;letter-spacing:.06em;color:#fff;border:1px solid rgba(255,255,255,.18);padding:6px 11px}
+.rails span.k{border-color:var(--red);background:rgba(232,0,10,.12)}
+.rails em{font-style:normal;font-size:11px;color:var(--text-dk2);margin-right:4px}
+.hook{margin-top:16px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:var(--red);padding:16px 22px}
+.hook b{font-size:30px;font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1}
+.hook p{font-size:14px;color:rgba(255,255,255,.92);line-height:1.45}
+
+/* riesgos */
+.risk{width:100%;border-collapse:collapse;margin-top:28px;background:#fff}
+.risk th{text-align:left;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--dk);padding:11px 16px}
+.risk td{padding:11px 16px;font-size:13.5px;line-height:1.45;border-bottom:1px solid #ecebe6;vertical-align:top;color:var(--ink2)}
+.risk td:first-child{font-weight:800;color:var(--ink);width:26%}
+.risk td:first-child small{display:block;font-weight:600;font-size:11.5px;color:var(--ink3);margin-top:2px}
+.risk tr:hover td{background:#fbfaf7}
+.lvl{display:inline-block;margin-right:8px;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:3px 7px;margin-bottom:4px}
+.lvl.h{background:var(--red);color:#fff}
+.lvl.m{background:var(--dk);color:#fff}
+@media(max-width:1024px){.law,.bench{grid-template-columns:1fr 1fr}.eco{grid-template-columns:1fr 1fr}.pay{grid-template-columns:1fr}.pay-mid{padding:16px 0}.pay-mid::before{display:none}}
+@media(max-width:768px){.law,.bench,.eco{grid-template-columns:1fr}.risk td:first-child{width:auto}.hook{grid-template-columns:1fr}}
+@media(min-width:769px) and (max-height:1000px){.law{margin-top:22px}.law article{padding:18px 18px 16px}.law p{font-size:12.5px}.bench{margin-top:20px}.bench article{padding:16px 18px 14px}.bench .fact{font-size:12.5px;margin:6px 0 8px}.bench .lesson{font-size:12px;padding:8px 10px}.eco{margin-top:20px}.eco article{padding:16px 16px 14px}.eco .ic{width:38px;height:38px;margin-bottom:10px}.eco li{font-size:12.5px}.pay{margin-top:18px}.flow{padding:16px 20px}.flow li{font-size:12.5px}.flow ol{gap:8px}.flow > p{font-size:16px;margin-bottom:10px}.hook{padding:12px 18px}.hook b{font-size:24px}.risk{margin-top:16px}.risk td{padding:7px 14px;font-size:12.5px}.risk th{padding:8px 14px}}
+
+/* reparto conductor */
+.cond-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;margin-top:26px}
+.liq{background:#fff;padding:24px 26px;box-shadow:0 30px 60px -34px rgba(0,0,0,.45);border-top:3px solid var(--red)}
+.liq-head small{display:block;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.liq-head b{display:block;font-size:20px;font-weight:900;margin-top:4px;letter-spacing:-.01em}
+.split{display:flex;height:16px;margin:18px 0 8px;gap:2px}
+.split i{display:block;width:calc(var(--w) * 1%);min-width:6px;transform-origin:left;transition:transform 1.2s var(--ease) .4s}
+.slide:not(.on) .split i{transform:scaleX(0)}
+.s-own{background:var(--dk)}.s-st{background:var(--red)}.s-wr{background:#f39a9e}
+.split-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:11.5px;font-weight:700;color:var(--ink2)}
+.split-legend span{display:inline-flex;align-items:center;gap:6px}
+.split-legend i{width:10px;height:10px;display:inline-block}
+.liq-rows{margin-top:16px;display:grid;gap:2px;font-variant-numeric:tabular-nums}
+.liq-rows div{display:flex;justify-content:space-between;padding:7px 0;font-size:14px;border-bottom:1px solid #f0eee8}
+.liq-rows span{color:var(--ink2)}
+.liq-rows b{font-weight:800}
+.liq-rows .neg b{color:var(--ink3)}
+.liq-rows .sum{border-top:2px solid var(--ink);border-bottom:none;padding-top:10px}
+.liq-rows .sum b{font-size:19px;font-weight:900;color:var(--red)}
+.liq-rows .sub{padding-left:14px;font-size:13px}
+.liq-note{margin-top:12px;font-size:12px;line-height:1.5;color:var(--ink3);background:var(--lt);padding:10px 12px;border-left:3px solid var(--red)}
+.tiers{display:grid;gap:2px;margin-top:18px;background:rgba(0,0,0,.08)}
+.tiers article{background:#fff;padding:14px 18px;display:grid;grid-template-columns:70px 1fr;column-gap:14px;align-items:start}
+.tiers .tn{grid-row:span 2;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;padding:6px 0;text-align:center;background:var(--lt3);color:var(--ink)}
+.tiers h3{font-size:15px;font-weight:800}
+.tiers p{font-size:13px;line-height:1.45;color:var(--ink2)}
+.tiers .gold{background:var(--dk)}
+.tiers .gold .tn{background:var(--red);color:#fff}
+.tiers .gold h3{color:#fff}.tiers .gold p{color:var(--text-dk2)}
+@media(max-width:1024px){.cond-grid{grid-template-columns:1fr;gap:28px}}
+@media(min-width:769px) and (max-height:1000px){.cond-grid{margin-top:14px}.liq{padding:16px 20px}.liq-rows div{padding:5px 0;font-size:13px}.split{margin:12px 0 6px}.tiers article{padding:10px 14px}.liq-note{font-size:11.5px;padding:8px 10px}}
+
+/* panel de gerencia */
+.adm{display:grid;grid-template-rows:auto auto 1fr;gap:10px;padding:14px;background:#fbfaf7;font-size:11px;height:400px}
+.adm-top{display:flex;justify-content:space-between;align-items:center}
+.adm-top b{font-size:14px;font-weight:900}
+.adm-top small{display:block;font-size:10px;color:var(--ink3);font-weight:600}
+.seg{display:flex;background:#eceae3;border-radius:7px;padding:2px}
+.seg span{padding:4px 10px;border-radius:5px;font-weight:700;font-size:10px;color:var(--ink3)}
+.seg span.a{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.adm-kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.adm-kpi div{background:#fff;border:1px solid #ecebe6;border-radius:8px;padding:8px 10px}
+.adm-kpi small{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
+.adm-kpi b{display:block;font-size:16px;font-weight:900;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-top:2px}
+.adm-kpi .hl{background:var(--dk);border-color:var(--dk);color:#fff}
+.adm-kpi .hl small{color:rgba(255,255,255,.6)}
+.adm-kpi .hl b{color:#fff}
+.adm-kpi .hl i{font-style:normal;color:#5fd17a;font-size:10px;font-weight:800;margin-left:4px}
+.adm-body{display:grid;grid-template-columns:1.35fr 1fr;gap:10px;min-height:0}
+.adm-card{background:#fff;border:1px solid #ecebe6;border-radius:8px;padding:10px 12px;min-height:0}
+.adm-card h4{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.cars{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.cars th{font-size:8.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-align:right;padding:3px 4px;border-bottom:1px solid #ecebe6}
+.cars th:first-child,.cars td:first-child{text-align:left}
+.cars td{padding:6px 4px;text-align:right;border-bottom:1px solid #f2f1ec;font-size:10.5px}
+.cars td b{font-weight:800}
+.cars td small{display:block;font-size:8.5px;color:var(--ink3)}
+.cars .ut{font-weight:900}
+.mbar{display:flex;align-items:center;gap:5px;justify-content:flex-end}
+.mbar i{display:block;height:5px;border-radius:3px;background:var(--dk);width:calc(var(--m) * 1.1px)}
+.mbar.low i{background:var(--red)}
+.cars tr.warn td{background:#fff6f6}
+.warn-tag{display:inline-block;font-size:8px;font-weight:800;color:var(--red);background:#fde8e9;padding:1px 5px;border-radius:3px;margin-top:2px}
+.wf{display:grid;gap:4px;font-variant-numeric:tabular-nums}
+.wf div{display:flex;justify-content:space-between;font-size:10.5px;padding:2px 0}
+.wf div span{color:var(--ink2)}
+.wf div.neg b{color:var(--ink2);font-weight:700}
+.wf div.tot{border-top:2px solid var(--ink);margin-top:4px;padding-top:6px}
+.wf div.tot b{font-size:15px;font-weight:900;color:var(--red)}
+.wf div.first b{font-weight:900}
+.spark{margin-top:8px}
+.spark svg{width:100%;height:40px;display:block}
+
 /* alianza */
 .ally{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:2px;margin-top:30px;background:rgba(0,0,0,.08)}
 .ally-col{background:#fff;padding:26px 26px 22px;display:flex;flex-direction:column}
@@ -441,7 +591,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 .rules b{display:block;font-size:14px;font-weight:800}
 .rules span{font-size:13px;color:var(--ink2)}
 @media(max-width:1024px){.ally{grid-template-columns:1fr}.rules{grid-template-columns:1fr}}
-@media(min-width:769px) and (max-height:860px){.ally{margin-top:18px}.ally-col{padding:18px 22px 16px}.ally-col ul{gap:7px;margin-bottom:12px}.ally-col li,.ally-col.win p{font-size:13.5px}.opt{padding:10px 14px}.opt small{font-size:12.5px}.rules div{padding:11px 18px}}
+@media(min-width:769px) and (max-height:1000px){.ally{margin-top:18px}.ally-col{padding:18px 22px 16px}.ally-col ul{gap:7px;margin-bottom:12px}.ally-col li,.ally-col.win p{font-size:13.5px}.opt{padding:10px 14px}.opt small{font-size:12.5px}.rules div{padding:11px 18px}}
 
 /* ============ 13 POR QUÉ WE ROCK ============ */
 .why{display:grid;grid-template-columns:1fr 1.15fr;gap:70px;align-items:center}
@@ -533,7 +683,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   .calc-in,.calc-out{padding:26px 22px}
 }
 /* Pantallas bajas (portátiles al presentar) */
-@media(min-width:769px) and (max-height:860px){
+@media(min-width:769px) and (max-height:1000px){
   .slide{padding-top:86px;padding-bottom:70px}
   .cover{padding-top:80px;padding-bottom:110px}
   .cover-kicker{margin-bottom:20px}
@@ -641,14 +791,14 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
       <span class="ln"><span style="--d:2" class="r">carga pesada</span></span>
       <span class="ln"><span style="--d:3">ya tiene dueño.</span></span>
     </h1>
-    <p class="cover-lead rv" style="--d:5">Una plataforma con marca propia para <b>cotizar, despachar y rastrear cada viaje</b>, y el marketing que la llena de <b>clientes y conductores</b>. We Rock pone el equipo; Safe Trip, la operación. <b>Nos asociamos.</b></p>
+    <p class="cover-lead rv" style="--d:5">Una plataforma con marca propia para <b>cotizar, despachar y rastrear cada viaje</b>, y el marketing que la llena de <b>clientes y conductores</b>. We Rock lo construye a costo y gana a futuro, solo si Safe Trip gana. <b>Nos asociamos.</b></p>
     <div class="cover-hint rv" style="--d:6"><kbd>↓</kbd> <kbd>→</kbd> para avanzar · <kbd>F</kbd> pantalla completa</div>
   </div>
   <div class="cover-bar rv" style="--d:7">
     <div><b>151<i>M</i></b><span>Toneladas movidas en 2025</span></div>
     <div><b>6 <i>años</i></b><span>Operando Safe Trip</span></div>
     <div><b>24<i>/</i>7</b><span>Monitoreo satelital</span></div>
-    <div><b>$0 <i>en desarrollo</i></b><span>Aporte de We Rock</span></div>
+    <div><b>A <i>costo</i></b><span>Desarrollo y marketing sin margen</span></div>
   </div>
 </section>
 
@@ -684,10 +834,26 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   </div>
 </section>
 
+<!-- ================= 02B POR QUÉ AHORA ================= -->
+<section class="slide dk2 noise glow-tr" data-title="Por qué ahora" id="s-ahora">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">02 · Por qué ahora</div>
+    <h2 class="h2 rv" style="--d:1;color:#fff">El Decreto 1017 obliga a digitalizarse.<br><em>Safe Trip puede convertirlo en ventaja.</em></h2>
+    <p class="lead rv" style="--d:2">Desde el 22 de septiembre de 2025 cambiaron las reglas del transporte de carga. Lo que para la mayoría es carga administrativa, en Safe Trip Connect sale automático.</p>
+    <div class="law">
+      <article class="rv" style="--d:3"><div class="big">5 días</div><h3>Para pagarle al propietario</h3><p>El pago del flete al dueño del vehículo tiene plazo máximo, aunque el cliente todavía no le haya pagado a la empresa.</p><span class="fix">Motor de pagos con alertas de plazo</span></article>
+      <article class="rv" style="--d:4"><div class="big">SICE-TAC</div><h3>Deja de ser referencia</h3><p>El RNDC bloquea el manifiesto si el flete pactado queda por debajo del costo mínimo eficiente de la ruta.</p><span class="fix">Cotizador que nunca cotiza por debajo</span></article>
+      <article class="rv" style="--d:5"><div class="big">Tiempos</div><h3>Llegada, cargue y salida</h3><p>Los tiempos logísticos se reportan y las demoras en cargue y descargue tienen consecuencias.</p><span class="fix">Geocercas que registran todo solas</span></article>
+      <article class="rv" style="--d:6"><div class="big">Título</div><h3>El manifiesto sirve para cobrar</h3><p>El manifiesto cumplido adquiere mérito ejecutivo: con buena evidencia, la cartera se cobra con respaldo legal.</p><span class="fix">Cumplidos digitales con foto, GPS y firma</span></article>
+    </div>
+    <p class="src rv" style="--d:7">Fuente: Decreto 1017 de 2025 del Ministerio de Transporte y Resolución 20263040015655 de 2026. Resumen informativo: la aplicación exacta la validamos con el asesor jurídico de Safe Trip.</p>
+  </div>
+</section>
+
 <!-- ================= 03 FUGAS ================= -->
 <section class="slide dk tex-grid-dk glow-bl noise" data-title="Las fugas" id="s-fugas">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">02 · Lo que hoy cuesta plata</div>
+    <div class="lbl rv" style="--d:0">03 · Lo que hoy cuesta plata</div>
     <h2 class="h2 rv" style="--d:1;color:#fff">Cinco fugas que no aparecen<br>en el <em>estado de resultados.</em></h2>
     <div class="leaks">
       <article class="leak hot rv" style="--d:2">
@@ -730,7 +896,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <section class="slide dk2 glow-tr noise" data-title="La idea" id="s-idea">
   <div class="inner idea-grid">
     <div>
-      <div class="lbl rv" style="--d:0">03 · La idea</div>
+      <div class="lbl rv" style="--d:0">04 · La idea</div>
       <h2 class="h2 rv" style="--d:1;color:#fff">No competir con las apps de carga.<br><em>Ser la app.</em></h2>
       <p class="lead rv" style="--d:2">Uber funciona porque controla la experiencia de los dos lados. Safe Trip ya tiene lo que las apps de carga tienen que salir a comprar: habilitación, certificaciones y una red de vehículos que confía en ella.</p>
       <ul class="idea-list">
@@ -771,10 +937,63 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   </div>
 </section>
 
+<!-- ================= 04B BENCHMARK ================= -->
+<section class="slide dk tex-grid-dk noise glow-bl" data-title="Benchmark" id="s-benchmark">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">05 · Benchmark</div>
+    <h2 class="h2 rv" style="--d:1;color:#fff">Lo que ya funcionó en el mundo.<br><em>Y lo que no.</em></h2>
+    <div class="bench">
+      <article class="rv" style="--d:2"><div class="who"><b>Uber Freight</b><span>EE. UU.</span></div><p class="fact">Paga al transportista en <strong>2 días hábiles</strong> tras aprobar la prueba de entrega. El pago rápido es su principal gancho con la red.</p><div class="lesson">Pagar rápido y sin pelear fideliza a los mejores conductores.</div></article>
+      <article class="rv" style="--d:3"><div class="who"><b>BlackBuck</b><span>India</span></div><p class="fact">Plataforma usada por cerca del <strong>27,5% de los camioneros</strong> de India. Rentable a nivel operativo y en bolsa desde 2024, gana con peajes, combustible y telemática.</p><div class="lesson">La plata grande está en los servicios a la red, no solo en el flete.</div></article>
+      <article class="rv" style="--d:4"><div class="who"><b>Fretebras</b><span>Brasil</span></div><p class="fact">Recibe unas <strong>20.000 cargas al día</strong>. Los conductores entran gratis y las empresas pagan una suscripción mensual.</p><div class="lesson">La herramienta también se puede vender a otras transportadoras.</div></article>
+      <article class="rv" style="--d:5"><div class="who"><b>Nuvocargo</b><span>México</span></div><p class="fact">Combina operación de carga con <strong>pago al transportista en 48 horas</strong>, seguro de carga y financiación.</p><div class="lesson">Pagos y finanzas dentro de la app: el cliente y el conductor no se van.</div></article>
+      <article class="rv" style="--d:6"><div class="who"><b>Liftit y bolsas locales</b><span>Colombia</span></div><p class="fact">Liftit levantó <strong>US$16,5 millones</strong> en última milla. En carga pesada hay bolsas abiertas como Cárgalo, Rodar o Wiggo que conectan, pero no operan.</p><div class="lesson">Safe Trip no compite como bolsa: compite como operador habilitado.</div></article>
+      <article class="fail rv" style="--d:7"><div class="who"><b>Convoy</b><span class="tag">Cerró en 2023</span></div><p class="fact">Llegó a valer <strong>US$3.800 millones</strong> como marketplace digital sin operación propia. Cerró cuando cayeron las tarifas y se acabó la caja.</p><div class="lesson">Nunca subsidiar fletes ni depender de capital: crecer sobre una operación real y rentable.</div></article>
+    </div>
+    <p class="src rv" style="--d:8">Fuentes: Uber Freight (términos Quick Pay), prospecto de salida a bolsa de BlackBuck (Zinka Logistics, 2024), Fretebras, Nuvocargo, Semana y CNBC.</p>
+  </div>
+</section>
+
+<!-- ================= 04C ECOSISTEMA ================= -->
+<section class="slide lt tex-dots" data-title="Los cinco frentes" id="s-ecosistema">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">06 · La plataforma completa</div>
+    <h2 class="h2 rv" style="--d:1">Cinco frentes. <em>Una sola plataforma.</em></h2>
+    <p class="lead rv" style="--d:2">Cada persona que toca un viaje tiene su propia herramienta, y todas leen la misma información en tiempo real.</p>
+    <div class="eco">
+      <article class="rv" style="--d:3">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l6 4V9l6 4V4h6v17z"/></svg></div>
+        <small>Web</small><h3>Cliente</h3>
+        <ul><li>Cotiza y reserva en minutos</li><li>Rastreo y temperatura en vivo</li><li>Cumplidos, facturas y pagos</li><li>Varios usuarios por empresa</li></ul>
+      </article>
+      <article class="rv" style="--d:4">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+        <small>App</small><h3>Conductor y propietario</h3>
+        <ul><li>Registro con validación de identidad</li><li>Ofertas de viaje y retornos</li><li>Fotos, gastos y botón de pánico</li><li>"Mis pagos" con fecha comprometida</li></ul>
+      </article>
+      <article class="rv" style="--d:5">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+        <small>Operación</small><h3>Despacho</h3>
+        <ul><li>Asignación a flota propia o terceros</li><li>Mapa, geocercas y alertas</li><li>Documentos y vencimientos</li><li>Tiempos logísticos automáticos</li></ul>
+      </article>
+      <article class="rv" style="--d:6">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></div>
+        <small>Dueño</small><h3>Gerencia</h3>
+        <ul><li>Utilidad por carro, viaje y ruta</li><li>Flujo de caja y cartera</li><li>Cumplimiento del Decreto 1017</li><li>Liquidación de la alianza</li></ul>
+      </article>
+      <article class="money rv" style="--d:7">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><circle cx="12" cy="12.5" r="2.5"/><path d="M6 9.5v.5M18 15v.5"/></svg></div>
+        <small>Finanzas</small><h3>Motor de pagos</h3>
+        <ul><li>Cobro al cliente por link y factura</li><li>Anticipos y saldos al propietario</li><li>Conciliación y retenciones</li><li>Liquidez con factoring</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ================= 05 PORTAL CLIENTE ================= -->
 <section class="slide lt tex-dots" data-title="Portal del cliente" id="s-portal">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">04 · La plataforma · Para el cliente</div>
+    <div class="lbl rv" style="--d:0">07 · La plataforma · Para el cliente</div>
     <div class="pf-grid">
       <div>
         <div class="device-browser tilt rv-3d" style="--d:1">
@@ -840,7 +1059,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 06 CONDUCTOR + DESPACHO ================= -->
 <section class="slide dk noise glow-tr" data-title="Conductor y despacho" id="s-ops">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">05 · La plataforma · Para la operación</div>
+    <div class="lbl rv" style="--d:0">08 · La plataforma · Para la operación</div>
     <h2 class="h2 rv" style="--d:1;color:#fff;max-width:1100px">El conductor acepta viajes como en Uber.<br><em>Despacho lo ve todo en un mapa.</em></h2>
     <div class="ops-stack" style="margin-top:34px">
       <div class="rv-3d" style="--d:2">
@@ -906,11 +1125,168 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   </div>
 </section>
 
+<!-- ================= 06B PANEL DE GERENCIA ================= -->
+<section class="slide lt tex-grid" data-title="Panel de gerencia" id="s-gerencia">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">09 · La plataforma · Para la gerencia</div>
+    <div class="pf-grid">
+      <div>
+        <div class="device-browser tilt rv-3d" style="--d:1">
+          <div class="device-browser-bar">
+            <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
+            <div class="db-url"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 014 0v1.5"/></svg>connect.safetripsas.com/gerencia</div>
+          </div>
+          <div class="adm">
+            <div class="adm-top">
+              <div><b>Panel de gerencia</b><small>Hoy, 28 de septiembre · Actualizado hace 2 min</small></div>
+              <div class="seg"><span class="a">Hoy</span><span>Semana</span><span>Mes</span></div>
+            </div>
+            <div class="adm-kpi">
+              <div><small>Facturado hoy</small><b>$18.450.000</b></div>
+              <div><small>Costos del día</small><b>$12.120.000</b></div>
+              <div class="hl"><small>Utilidad del día</small><b>$6.330.000<i>↑ 8%</i></b></div>
+              <div><small>Margen</small><b>34,3%</b></div>
+            </div>
+            <div class="adm-body">
+              <div class="adm-card">
+                <h4>Utilidad por carro · septiembre</h4>
+                <table class="cars">
+                  <thead><tr><th>Carro</th><th>Viajes</th><th>Facturado</th><th>Costos</th><th>Utilidad</th><th>Margen</th></tr></thead>
+                  <tbody>
+                    <tr><td><b>XKT 482</b><small>Propio</small></td><td>9</td><td>$58,2M</td><td>$36,1M</td><td class="ut">$22,1M</td><td><div class="mbar" style="--m:38"><i></i>38%</div></td></tr>
+                    <tr><td><b>TSM 219</b><small>Propio</small></td><td>8</td><td>$49,6M</td><td>$33,9M</td><td class="ut">$15,7M</td><td><div class="mbar" style="--m:32"><i></i>32%</div></td></tr>
+                    <tr><td><b>WDN 731</b><small>Tercero</small></td><td>11</td><td>$61,4M</td><td>$53,8M</td><td class="ut">$7,6M</td><td><div class="mbar" style="--m:12"><i></i>12%</div></td></tr>
+                    <tr class="warn"><td><b>SKL 055</b><small>Propio</small><span class="warn-tag">ACPM +18%</span></td><td>6</td><td>$34,8M</td><td>$29,3M</td><td class="ut">$5,5M</td><td><div class="mbar low" style="--m:16"><i></i>16%</div></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="adm-card">
+                <h4>Viaje ST-1042 · Bogotá → Cartagena</h4>
+                <div class="wf">
+                  <div class="first"><span>Flete</span><b>$6.850.000</b></div>
+                  <div class="neg"><span>ACPM</span><b>−$2.140.000</b></div>
+                  <div class="neg"><span>Peajes</span><b>−$486.000</b></div>
+                  <div class="neg"><span>Conductor</span><b>−$650.000</b></div>
+                  <div class="neg"><span>Viáticos</span><b>−$180.000</b></div>
+                  <div class="neg"><span>Llantas y mantenimiento</span><b>−$320.000</b></div>
+                  <div class="tot"><span>Le quedó al carro</span><b>$3.074.000</b></div>
+                </div>
+                <div class="spark"><svg viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 L14 26 L28 28 L42 20 L56 23 L70 17 L84 21 L98 14 L112 18 L126 11 L140 15 L154 9 L168 12 L182 6 L200 8 L200 40 L0 40Z" fill="rgba(232,0,10,.08)"/><path d="M0 30 L14 26 L28 28 L42 20 L56 23 L70 17 L84 21 L98 14 L112 18 L126 11 L140 15 L154 9 L168 12 L182 6 L200 8" fill="none" stroke="#E8000A" stroke-width="2"/></svg></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mock-cap">Vista ilustrativa del panel · datos de ejemplo</div>
+      </div>
+      <div>
+        <h2 class="h2 rv" style="--d:2;font-size:clamp(28px,min(3.1vw,6vh),44px)">El gerente sabe cada día <em>cuánto le deja cada carro.</em></h2>
+        <ul class="feat-list">
+          <li class="rv" style="--d:3"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg><span><b>Utilidad por carro y por viaje,</b> después de ACPM, peajes, conductor y mantenimiento.</span></li>
+          <li class="rv" style="--d:4"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span><b>Costos que se registran solos:</b> el conductor fotografía tanqueos, peajes y gastos desde la app.</span></li>
+          <li class="rv" style="--d:5"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg><span><b>Alertas de rentabilidad</b> cuando un carro o una ruta cae por debajo del margen esperado.</span></li>
+          <li class="rv" style="--d:6"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span><b>El negocio completo en una pantalla:</b> facturación, cartera, flota propia frente a terceros y retornos.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06C PAGOS ================= -->
+<section class="slide dk noise glow-tr" data-title="Motor de pagos" id="s-pagos">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">10 · Motor de pagos</div>
+    <h2 class="h2 rv" style="--d:1;color:#fff">La plata entra y sale<br><em>sin perseguir a nadie.</em></h2>
+    <div class="pay">
+      <div class="flow rv" style="--d:2">
+        <h3>Entra · del cliente</h3>
+        <p>Cobro según el riesgo de cada cliente</p>
+        <ol>
+          <li><span><b>Cliente nuevo o pequeño:</b> paga al reservar por link (PSE, Bre-B o tarjeta).</span></li>
+          <li><span><b>Cliente corporativo:</b> cupo de crédito aprobado y factura electrónica al cumplido.</span></li>
+          <li><span><b>Recordatorios automáticos</b> y bloqueo de nuevas reservas si hay mora.</span></li>
+          <li><span><b>Si un cliente se demora,</b> la factura se convierte en liquidez con factoring por RADIAN.</span></li>
+        </ol>
+      </div>
+      <div class="pay-mid rv" style="--d:3"><div class="pay-core"><div>Safe Trip<br>Connect<small>CONCILIA</small></div></div></div>
+      <div class="flow out rv" style="--d:4">
+        <h3>Sale · al propietario</h3>
+        <p>Pago puntual, siempre a la cuenta validada</p>
+        <ol>
+          <li><span><b>Anticipo al cargar</b> para ACPM y peajes, con porcentaje configurable.</span></li>
+          <li><span><b>Saldo al aprobar el cumplido digital</b> (fotos, GPS y firma), dentro del plazo legal.</span></li>
+          <li><span><b>Pago por lote bancario o Bre-B</b> a la cuenta del propietario registrado.</span></li>
+          <li><span><b>Descuentos y retenciones</b> calculados solos; el conductor ve cada peso en la app.</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="rails rv" style="--d:5"><em>Medios:</em><span class="k">Bre-B</span><span>PSE</span><span>Transferencia</span><span>Tarjeta</span><span>Factura electrónica DIAN</span><span>Factoring RADIAN</span></div>
+    <div class="hook rv" style="--d:6"><b>Pago en 48 h</b><p>La meta: pagarle al conductor en 48 horas tras el cumplido, como Uber Freight y Nuvocargo. Es el imán para tener la mejor red de terceros del país, y el motor de pagos lo hace posible.</p></div>
+  </div>
+</section>
+
+<!-- ================= 06E REPARTO CONDUCTOR ================= -->
+<section class="slide lt tex-dots" data-title="Lo que gana el conductor" id="s-conductor">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">11 · Lo que gana el conductor</div>
+    <h2 class="h2 rv" style="--d:1">Cada viaje, <em>cada peso a la vista.</em></h2>
+    <div class="cond-grid">
+      <div class="rv-3d" style="--d:2">
+        <div class="liq">
+          <div class="liq-head"><small>Liquidación del viaje ST-1045 · Tercero vinculado</small><b>Barranquilla → Bogotá · Retorno</b></div>
+          <div class="split" aria-label="Reparto del flete: 88% propietario, 10,8% Safe Trip, 1,2% We Rock">
+            <i style="--w:88" class="s-own"></i><i style="--w:10.8" class="s-st"></i><i style="--w:1.2" class="s-wr"></i>
+          </div>
+          <div class="split-legend"><span><i class="s-own"></i>Propietario 88%</span><span><i class="s-st"></i>Safe Trip 10,8%</span><span><i class="s-wr"></i>We Rock 1,2%</span></div>
+          <div class="liq-rows">
+            <div><span>Flete cobrado al cliente</span><b>$4.200.000</b></div>
+            <div class="neg"><span>Margen de Safe Trip (12%, de ejemplo)</span><b>−$504.000</b></div>
+            <div class="sum"><span>Valor a pagar al propietario</span><b>$3.696.000</b></div>
+            <div class="sub"><span>Anticipo al cargar (50%)</span><b>$1.848.000</b></div>
+            <div class="sub neg"><span>Retención en la fuente (1%)</span><b>−$36.960</b></div>
+            <div class="sub"><span>Saldo al aprobar el cumplido</span><b>$1.811.040</b></div>
+          </div>
+          <p class="liq-note">De los $504.000 de Safe Trip, la alianza reparte el 10% a We Rock ($50.400) solo porque es un viaje nuevo que trajo la plataforma. El valor al propietario nunca baja del mínimo SICE-TAC.</p>
+        </div>
+      </div>
+      <div>
+        <p class="lead rv" style="--d:3;margin-bottom:18px">Al vincularse, el conductor sabe cuánto gana antes de aceptar, cuándo le pagan y por qué. Y entre mejor trabaja, mejores viajes recibe.</p>
+        <div class="tiers">
+          <article class="rv" style="--d:4"><span class="tn">Base</span><h3>Al vincularse</h3><p>Ofertas de viaje en la app, liquidación clara y pago dentro del plazo legal.</p></article>
+          <article class="rv" style="--d:5"><span class="tn">Plata</span><h3>10 viajes sin novedad</h3><p>Prioridad en retornos y pago en 48 horas tras el cumplido.</p></article>
+          <article class="gold rv" style="--d:6"><span class="tn">Oro</span><h3>30 viajes y calificación 4,8+</h3><p>Primera opción en rutas fijas, bono por cada conductor referido y convenios de combustible y llantas.</p></article>
+        </div>
+        <p class="src rv" style="--d:7">Flota propia: los conductores de planta ven en la app su bonificación por cumplimiento y ahorro de ACPM. Porcentajes y niveles de ejemplo; los define Safe Trip. La retención se aplica según la norma tributaria vigente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06D RIESGOS ================= -->
+<section class="slide lt2 tex-grid" data-title="Riesgos controlados" id="s-riesgos">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">12 · Riesgos</div>
+    <h2 class="h2 rv" style="--d:1">Cada riesgo del negocio <em>tiene un control.</em></h2>
+    <table class="risk rv-3d" style="--d:2">
+      <thead><tr><th>Riesgo</th><th>Cómo lo controla la plataforma</th></tr></thead>
+      <tbody>
+        <tr><td><span class="lvl h">Alto</span>Suplantación del conductor<small>Robo de carga con identidad falsa</small></td><td>Validación de identidad con selfie y documento, consulta de antecedentes y licencia antes de habilitar; sin validación no hay ofertas de viaje.</td></tr>
+        <tr><td><span class="lvl h">Alto</span>El cliente no paga a tiempo<small>Y al propietario hay que pagarle en 5 días</small></td><td>Prepago para clientes nuevos, cupos de crédito con bloqueo por mora, manifiesto cumplido como título de cobro y factoring por RADIAN para no sacar caja propia.</td></tr>
+        <tr><td><span class="lvl h">Alto</span>Fraude en pagos<small>Cuentas cambiadas o cumplidos falsos</small></td><td>Pago solo a la cuenta validada del propietario, cambios de cuenta con doble verificación, doble aprobación en pagos grandes y cumplidos con foto georreferenciada.</td></tr>
+        <tr><td><span class="lvl m">Medio</span>Robo o desvío en ruta</td><td>Geocercas, alertas por desvío o parada larga, botón de pánico y conexión con el monitoreo satelital 24/7 que ya tiene Safe Trip.</td></tr>
+        <tr><td><span class="lvl m">Medio</span>Pérdida de la cadena de frío</td><td>Registro de temperatura por viaje con alertas, y evidencia completa para reclamaciones y auditorías del INVIMA.</td></tr>
+        <tr><td><span class="lvl m">Medio</span>Sanciones regulatorias</td><td>Cotizador que respeta el SICE-TAC, tiempos logísticos registrados solos y plazos de pago vigilados. Multas de hasta 20 salarios mínimos que se evitan.</td></tr>
+        <tr><td><span class="lvl m">Medio</span>Que los conductores no la usen</td><td>App liviana que funciona con poca señal, WhatsApp como canal de apoyo, pago rápido como incentivo y acompañamiento en el lanzamiento.</td></tr>
+        <tr><td><span class="lvl m">Medio</span>Datos personales</td><td>Autorizaciones de tratamiento de datos (Ley 1581), accesos por rol y registro de quién ve y cambia qué.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <!-- ================= 07 CÓMO FUNCIONA ================= -->
 <section class="slide lt2 tex-grid" data-title="Un viaje paso a paso" id="s-viaje">
-  <div class="ghost-num" style="font-size:380px;left:-40px;top:-40px" aria-hidden="true">06</div>
+  <div class="ghost-num" style="font-size:380px;left:-40px;top:-40px" aria-hidden="true">13</div>
   <div class="inner">
-    <div class="lbl rv" style="--d:0">06 · Un viaje, de punta a punta</div>
+    <div class="lbl rv" style="--d:0">13 · Un viaje, de punta a punta</div>
     <h2 class="h2 rv" style="--d:1">Seis pasos. <em>Cero llamadas</em> de seguimiento.</h2>
     <div class="journey">
       <div class="j-step rv" style="--d:1"><div class="j-dot" style="--d:0"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><div class="j-n">PASO 01</div><h3>Cotiza</h3><p>Origen, destino y tipo de carga. Tarifa al instante.</p><span class="j-who">Cliente</span></div>
@@ -926,7 +1302,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 08 RETORNOS ================= -->
 <section class="slide dk tex-grid-dk noise" data-title="Fletes de retorno" id="s-retornos">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">07 · El módulo que paga la operación</div>
+    <div class="lbl rv" style="--d:0">14 · El módulo que paga la operación</div>
     <h2 class="h2 rv" style="--d:1;color:#fff">Cada camión que vuelve vacío<br>es <em>plata que ya se gastó.</em></h2>
     <p class="lead rv" style="--d:2">La bolsa de fletes de retorno publica las rutas de regreso para que otras empresas las llenen con descuento. Mueve las barras con los números reales de Safe Trip.</p>
     <div class="calc rv-3d" style="--d:3">
@@ -943,7 +1319,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
         <div class="sub">al mes · <b id="outY">$126.000.000</b> al año</div>
         <div class="calc-kpis">
           <div><b id="outT">3,5</b><span>viajes de regreso llenados cada mes</span></div>
-          <div><b id="outP">2,8×</b><span>lo que cuesta al mes operar la plataforma y pautar</span></div>
+          <div><b id="outP">2,8×</b><span>lo que cuesta al mes operar la plataforma y el marketing</span></div>
         </div>
       </div>
     </div>
@@ -954,14 +1330,14 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 09 MARKETING ================= -->
 <section class="slide lt tex-dots" data-title="Marketing digital" id="s-marketing">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">08 · Marketing digital</div>
+    <div class="lbl rv" style="--d:0">15 · Marketing digital</div>
     <h2 class="h2 rv" style="--d:1">Una plataforma sin tráfico<br>es un <em>parqueadero vacío.</em></h2>
     <p class="lead rv fit-short" style="--d:2">Como Uber, hay que llenar los dos lados al mismo tiempo. Cada canal tiene un trabajo distinto: unos traen carga, otros traen camiones.</p>
     <div class="mk-split">
       <div class="mk-side rv" style="--d:3">
-        <div class="mk-head"><h3>Trae la carga</h3><span>Demanda</span></div>
+        <div class="mk-head"><h3>Trae la carga</h3><span>Búsqueda constante de viajes</span></div>
         <p>Gerentes de logística y compras de alimentos, farma y manufactura.</p>
-        <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v6M8 7v.5M12 16v-4a2 2 0 014 0v4M12 10v6"/></svg></div><div><b>LinkedIn Ads</b><small>Segmentado por cargo, industria y ciudad: llegamos directo a quien decide qué transportadora contratar.</small></div></div>
+        <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v6M8 7v.5M12 16v-4a2 2 0 014 0v4M12 10v6"/></svg></div><div><b>LinkedIn Ads <small style="display:inline;font-size:10px;color:var(--red);font-weight:800;letter-spacing:.1em">ETAPA 2</small></b><small>Segmentado por cargo, industria y ciudad: llegamos directo a quien decide qué transportadora contratar.</small></div></div>
         <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div><div><b>Google Ads</b><small>Aparecer cuando alguien busca hoy "transporte refrigerado Bogotá Barranquilla" y quiere cotizar ya.</small></div></div>
         <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div><div><b>SEO y AEO</b><small>Que Google y los asistentes de IA como ChatGPT recomienden a Safe Trip en carga refrigerada.</small></div></div>
         <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h8"/></svg></div><div><b>Contenido B2B y email</b><small>Casos de cadena de frío, indicadores del sector y novedades de la plataforma para la base de clientes.</small></div></div>
@@ -972,7 +1348,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
         <span class="mk-arrow">← Camiones</span>
       </div>
       <div class="mk-side supply rv" style="--d:5">
-        <div class="mk-head"><h3>Trae los camiones</h3><span>Oferta</span></div>
+        <div class="mk-head"><h3>Trae los camiones</h3><span>Búsqueda constante de conductores</span></div>
         <p>Conductores y propietarios de vehículos que buscan viajes fijos.</p>
         <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7v.5"/></svg></div><div><b>Meta Ads</b><small>Facebook e Instagram: donde están los propietarios de vehículos. Campañas de registro a la red Safe Trip.</small></div></div>
         <div class="ch"><div class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 10h6M9 13h4"/></svg></div><div><b>WhatsApp automatizado + HalconBot</b><small>Registro, validación de documentos y ofertas de viaje por WhatsApp, 24/7, sin cargar al equipo.</small></div></div>
@@ -990,7 +1366,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 10 ROADMAP ================= -->
 <section class="slide dk2 noise glow-bl" data-title="Hoja de ruta" id="s-ruta">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">09 · Hoja de ruta</div>
+    <div class="lbl rv" style="--d:0">16 · Hoja de ruta</div>
     <h2 class="h2 rv" style="--d:1;color:#fff">Primero funciona. <em>Después escala.</em></h2>
     <p class="lead rv" style="--d:2">Arrancamos con lo que genera ingresos desde el primer mes y dejamos las integraciones pesadas para cuando la plataforma ya esté moviendo viajes.</p>
     <div class="phases">
@@ -1000,14 +1376,14 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
         <h3>Lanzamiento</h3>
         <p class="sub">La operación completa, en digital.</p>
         <ul>
-          <li>Portal del cliente con cotizador por ruta y tipo de carga</li>
-          <li>Centro de despacho y mapa de flota</li>
-          <li>App del conductor instalable desde el navegador, sin tiendas</li>
+          <li>Portal del cliente con cotizador que respeta el SICE-TAC</li>
+          <li>Centro de despacho, geocercas y tiempos logísticos</li><li>Panel de gerencia: utilidad por carro y por viaje</li>
+          <li>App del conductor con validación de identidad, sin tiendas</li>
           <li>Rastreo en vivo desde el celular del conductor</li>
-          <li>Avisos por WhatsApp y correo en cada etapa</li>
+          <li>Motor de pagos: cobros por link, anticipos, saldos y plazos</li>
           <li>Cumplidos digitales: fotos, firma y soportes</li>
         </ul>
-        <div class="price"><b>Aporte We Rock</b><small>Mano de obra sin costo<br>Safe Trip cubre infraestructura</small></div>
+        <div class="price"><b>$19.200.000</b><small>A costo, sin margen<br>Tarifa comercial $32.000.000</small></div>
       </article>
       <article class="phase rv" style="--d:4">
         <div class="ghost-num" aria-hidden="true">2</div>
@@ -1018,10 +1394,10 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
           <li>Bolsa de fletes de retorno abierta a nuevos clientes</li>
           <li>Registro y validación de conductores y vehículos terceros</li>
           <li>Alertas de vencimiento de SOAT, tecnomecánica y licencias</li>
-          <li>Pagos y anticipos por pasarela</li>
+          <li>Pago automático por lote bancario o Bre-B y factoring por RADIAN</li>
           <li>Reportes automáticos para clientes</li>
         </ul>
-        <div class="price"><b>Aporte We Rock</b><small>Mano de obra sin costo<br>Safe Trip cubre comisiones de pasarela</small></div>
+        <div class="price"><b>Desde $8.400.000</b><small>A costo, se define<br>al cierre de la Fase 1</small></div>
       </article>
       <article class="phase rv" style="--d:5">
         <div class="ghost-num" aria-hidden="true">3</div>
@@ -1032,9 +1408,9 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
           <li>Conexión con el RNDC para el manifiesto electrónico</li>
           <li>Integración con el GPS satelital y sensores de temperatura actuales</li>
           <li>Apps nativas en App Store y Google Play</li>
-          <li>Tarifas sugeridas con inteligencia artificial</li>
+          <li>Convenios de combustible, llantas y seguros para la red</li><li>Tarifas sugeridas con inteligencia artificial</li>
         </ul>
-        <div class="price"><b>Aporte We Rock</b><small>Mano de obra sin costo<br>Safe Trip cubre licencias y tiendas</small></div>
+        <div class="price"><b>A costo</b><small>Según alcance, proveedores<br>y volumen real</small></div>
       </article>
     </div>
   </div>
@@ -1043,36 +1419,37 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 11 INVERSIÓN ================= -->
 <section class="slide lt tex-grid" data-title="Inversión" id="s-inversion">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">10 · Lo que pone cada uno</div>
-    <h2 class="h2 rv" style="--d:1">We Rock pone el equipo.<br><em>Safe Trip solo cubre costos.</em></h2>
-    <p class="lead rv fit-short" style="--d:2">Toda la mano de obra (desarrollo, soporte, contenido y gestión de campañas) es el aporte de We Rock a la alianza. Safe Trip paga únicamente lo que cobran terceros: servidores, mapas, WhatsApp y pauta, directo a cada proveedor.</p>
+    <div class="lbl rv" style="--d:0">17 · Inversión a costo</div>
+    <h2 class="h2 rv" style="--d:1">Todo a costo, sin margen. <em>Ganamos después.</em></h2>
+    <p class="lead rv fit-short" style="--d:2">We Rock cobra solo lo que le cuesta su equipo: desarrollo, soporte y la estrategia completa de marketing para conseguir carga y conductores. Los proveedores externos se pagan directo, sin intermediación.</p>
     <div class="pkg-block corner-fx rv-3d" style="--d:3">
       <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
       <div class="pkg-head">
-        <div><span class="badge">Alianza</span><h3>Safe Trip Connect · Primeros 4 meses</h3></div>
-        <p>El aporte de We Rock se muestra a valor comercial de referencia, para dimensionar lo que entra a la alianza. <b style="color:#fff">Safe Trip no lo paga.</b></p>
+        <div><span class="badge">Alianza · precio a costo</span><h3>Safe Trip Connect · Primeros 4 meses</h3></div>
+        <p>Frente a la tarifa comercial, Safe Trip se ahorra <b style="color:#fff">$17.780.000</b>. Ese margen al que renuncia We Rock es su inversión en la alianza.</p>
       </div>
       <div class="inv-table-wrap">
         <table class="inv-table">
           <thead><tr><th>Rubro</th><th>Mes 1</th><th>Mes 2</th><th>Mes 3</th><th>Mes 4</th><th>Total</th></tr></thead>
           <tbody>
-            <tr class="grp"><td colspan="6">Aporte We Rock · mano de obra · $0 para Safe Trip</td></tr>
-            <tr class="aporte"><td>Desarrollo plataforma Fase 1<span class="rubro-note">Portal, despacho y app del conductor</span></td><td>$12.800.000</td><td>$9.600.000</td><td>$9.600.000</td><td class="dash">—</td><td>$32.000.000</td></tr>
-            <tr class="aporte"><td>Soporte y evolución<span class="rubro-note">Desde el lanzamiento</span></td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td>$1.800.000</td><td>$1.800.000</td></tr>
-            <tr class="aporte"><td>Contenido B2B y producción audiovisual<span class="rubro-note">Redes, blog y sesión de flota</span></td><td class="dash">—</td><td>$2.850.000</td><td>$1.300.000</td><td>$1.300.000</td><td>$5.450.000</td></tr>
-            <tr class="aporte"><td>Gestión de campañas<span class="rubro-note">Google, LinkedIn y Meta Ads</span></td><td class="dash">—</td><td class="dash">—</td><td>$3.050.000</td><td>$3.050.000</td><td>$6.100.000</td></tr>
-            <tr class="subtotal aporte-sub"><td>Valor aportado por We Rock</td><td>$12.800.000</td><td>$12.450.000</td><td>$13.950.000</td><td>$6.150.000</td><td>$45.350.000</td></tr>
-            <tr class="grp"><td colspan="6">Costos reales · Safe Trip paga directo al proveedor</td></tr>
-            <tr><td>Servidores, mapas y WhatsApp API<span class="rubro-note">Estimado según uso</span></td><td>$250.000</td><td>$250.000</td><td>$500.000</td><td>$500.000</td><td>$1.500.000</td></tr>
-            <tr><td>Logística de producción<span class="rubro-note">Transporte y locaciones, estimado</span></td><td class="dash">—</td><td>$350.000</td><td class="dash">—</td><td class="dash">—</td><td>$350.000</td></tr>
-            <tr><td>Pauta Google Ads<span class="rubro-note">Sugerida, ajustable</span></td><td class="dash">—</td><td class="dash">—</td><td>$1.200.000</td><td>$1.200.000</td><td>$2.400.000</td></tr>
-            <tr><td>Pauta LinkedIn Ads<span class="rubro-note">Sugerida, ajustable</span></td><td class="dash">—</td><td class="dash">—</td><td>$1.500.000</td><td>$1.500.000</td><td>$3.000.000</td></tr>
-            <tr><td>Pauta Meta Ads<span class="rubro-note">Sugerida, ajustable</span></td><td class="dash">—</td><td class="dash">—</td><td>$600.000</td><td>$600.000</td><td>$1.200.000</td></tr>
-            <tr class="total"><td>Lo que paga Safe Trip</td><td>$250.000</td><td>$600.000</td><td>$3.800.000</td><td>$3.800.000</td><td>$8.450.000</td></tr>
+            <tr class="grp"><td colspan="6">We Rock · a costo, sin margen</td></tr>
+            <tr><td>Desarrollo plataforma Fase 1<span class="rubro-note">Cinco frentes · hitos 40 / 30 / 30</span></td><td>$7.680.000</td><td>$5.760.000</td><td>$5.760.000</td><td class="dash">—</td><td>$19.200.000</td></tr>
+            <tr><td>Soporte y evolución<span class="rubro-note">Desde el lanzamiento</span></td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td>$1.080.000</td><td>$1.080.000</td></tr>
+            <tr><td>Contenido y producción audiovisual<span class="rubro-note">Redes, blog y sesión de flota</span></td><td class="dash">—</td><td>$1.710.000</td><td>$780.000</td><td>$780.000</td><td>$3.270.000</td></tr>
+            <tr><td>Búsqueda de carga · Google Ads<span class="rubro-note">Gestión de campañas</span></td><td class="dash">—</td><td class="dash">—</td><td>$660.000</td><td>$660.000</td><td>$1.320.000</td></tr>
+            <tr><td>Búsqueda de conductores · Meta Ads<span class="rubro-note">Pre-registro desde el mes 2</span></td><td class="dash">—</td><td>$600.000</td><td>$600.000</td><td>$600.000</td><td>$1.800.000</td></tr>
+            <tr class="subtotal"><td>Subtotal We Rock a costo</td><td>$7.680.000</td><td>$8.070.000</td><td>$7.800.000</td><td>$3.120.000</td><td>$26.670.000</td></tr>
+            <tr class="aporte"><td>Tarifa comercial de referencia<span class="rubro-note">Lo que costaría sin alianza</span></td><td>$12.800.000</td><td>$13.450.000</td><td>$13.000.000</td><td>$5.200.000</td><td>$44.450.000</td></tr>
+            <tr class="grp"><td colspan="6">Proveedores externos · Safe Trip paga directo</td></tr>
+            <tr><td>Infraestructura de la app<span class="rubro-note">Servidores, mapas, WhatsApp API, validación de identidad y licencias · estimado</span></td><td>$400.000</td><td>$550.000</td><td>$750.000</td><td>$750.000</td><td>$2.450.000</td></tr>
+            <tr><td>Pauta Google Ads y Meta Ads<span class="rubro-note">Sugerida, ajustable</span></td><td class="dash">—</td><td>$600.000</td><td>$1.800.000</td><td>$1.800.000</td><td>$4.200.000</td></tr>
+            <tr><td>Logística de producción<span class="rubro-note">Transporte y locaciones</span></td><td class="dash">—</td><td>$350.000</td><td class="dash">—</td><td class="dash">—</td><td>$350.000</td></tr>
+            <tr class="subtotal"><td>Subtotal proveedores</td><td>$400.000</td><td>$1.500.000</td><td>$2.550.000</td><td>$2.550.000</td><td>$7.000.000</td></tr>
+            <tr class="total"><td>Total mes a mes · Safe Trip</td><td>$8.080.000</td><td>$9.570.000</td><td>$10.350.000</td><td>$5.670.000</td><td>$33.670.000</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="pkg-note">Valores en pesos colombianos. Los costos son estimados y se pagan contra factura del proveedor, sin intermediación ni margen de We Rock. La pauta es opcional y se ajusta mes a mes según resultados.</p>
+      <p class="pkg-note">Pesos colombianos, antes de IVA. Proveedores estimados, pagados contra su factura; la pasarela cobra su comisión por transacción. LinkedIn Ads entra en etapa 2 a $570.000 al mes más pauta.</p>
     </div>
   </div>
 </section>
@@ -1080,40 +1457,40 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 12 LA ALIANZA ================= -->
 <section class="slide lt2 tex-dots" data-title="La alianza" id="s-modelos">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">11 · La alianza</div>
-    <h2 class="h2 rv" style="--d:1">No es un contrato de servicios.<br><em>Es un negocio compartido.</em></h2>
+    <div class="lbl rv" style="--d:0">18 · La alianza</div>
+    <h2 class="h2 rv" style="--d:1">Nadie pierde plata.<br><em>Ganamos cuando Safe Trip gana.</em></h2>
     <div class="ally">
       <article class="ally-col rv" style="--d:2">
         <span class="badge" style="background:var(--dk)">We Rock pone</span>
         <ul>
-          <li><span><b>Todo el desarrollo</b> de Safe Trip Connect, en sus tres fases</span></li>
-          <li><span><b>Soporte y evolución</b> continua de la plataforma</span></li>
-          <li><span><b>Contenido, producción y gestión de campañas</b> en Google, LinkedIn y Meta</span></li>
-          <li><span><b>Dirección Estratégica™</b>: comité mensual con la gerencia</span></li>
+          <li><span><b>Desarrollo y soporte a costo:</b> 40% por debajo de su tarifa comercial</span></li>
+          <li><span><b>Marketing completo a costo:</b> búsqueda constante de carga y de conductores</span></li>
+          <li><span><b>Dirección Estratégica™:</b> comité mensual con la gerencia</span></li>
+          <li><span><b>El producto:</b> diseño, código y evolución de la plataforma</span></li>
         </ul>
-        <div class="ally-foot">Valor de referencia: <b>$45.350.000</b> en 4 meses</div>
+        <div class="ally-foot">Margen al que renuncia: <b>$17.780.000</b> en 4 meses</div>
       </article>
       <article class="ally-col rv" style="--d:3">
         <span class="badge" style="background:var(--dk)">Safe Trip pone</span>
         <ul>
-          <li><span><b>La operación:</b> habilitación, flota, red de terceros y clientes actuales</span></li>
-          <li><span><b>Los costos reales</b> de terceros: servidores, mapas, WhatsApp y pauta</span></li>
-          <li><span><b>Conocimiento del negocio:</b> tarifas, rutas y procesos para diseñar bien</span></li>
-          <li><span><b>Un responsable interno</b> para validar entregas y adoptar la herramienta</span></li>
+          <li><span><b>La operación:</b> habilitación, flota, red de terceros y clientes</span></li>
+          <li><span><b>Los costos a precio real:</b> equipo a costo y proveedores directos</span></li>
+          <li><span><b>Conocimiento del negocio:</b> tarifas, rutas y procesos</span></li>
+          <li><span><b>Un responsable interno</b> para validar y adoptar la herramienta</span></li>
         </ul>
-        <div class="ally-foot">Costos estimados: <b>$8.450.000</b> en 4 meses</div>
+        <div class="ally-foot">Inversión a costo: <b>$33.670.000</b> en 4 meses</div>
       </article>
       <article class="ally-col win corner-fx rv" style="--d:4">
-        <span class="badge">Ganamos juntos</span>
-        <p>We Rock recupera su aporte solo si la plataforma genera negocio nuevo. Proponemos definirlo juntos entre dos caminos:</p>
-        <div class="opt"><b>Opción 1 · Participación en ingresos nuevos</b><small>Un porcentaje de los fletes que entren por la plataforma: retornos llenados y clientes que lleguen por los canales digitales. Si no hay ingreso nuevo, We Rock no cobra.</small></div>
-        <div class="opt"><b>Opción 2 · Safe Trip Connect como producto</b><small>Copropiedad de la plataforma para licenciarla a otras transportadoras del país. Safe Trip opera y valida; We Rock desarrolla y comercializa.</small></div>
+        <span class="badge">A futuro · lo que gana We Rock</span>
+        <div class="opt"><b>10% de la utilidad de los viajes nuevos</b><small>Solo retornos llenados y clientes que lleguen por la plataforma o el marketing, durante 36 meses por cliente. Nunca sobre los clientes actuales. Si un viaje no deja utilidad, no hay pago. El panel de gerencia lo liquida solo, cada mes.</small></div>
+        <div class="opt"><b>60/40 en Safe Trip Connect como producto</b><small>Una sociedad nueva, con marca neutra, para licenciar la plataforma a otras transportadoras. Safe Trip recibe el 40% y la usa gratis para siempre.</small></div>
+        <div class="opt"><b>Tope y salida justos</b><small>Cuando We Rock recupere 3 veces el margen al que renunció, su porcentaje baja a la mitad. Safe Trip puede recomprar la participación en cualquier momento.</small></div>
       </article>
     </div>
     <div class="rules rv" style="--d:5">
-      <div><b>Costos transparentes</b><span>Se pagan contra factura del proveedor, sin margen de We Rock.</span></div>
+      <div><b>Safe Trip se queda con el 90%</b><span>de toda utilidad nueva que genere la plataforma.</span></div>
       <div><b>Los clientes son de Safe Trip</b><span>Datos, tarifas y relación comercial siempre en su poder.</span></div>
-      <div><b>Todo por escrito</b><span>Acuerdo de alianza con metas, porcentajes y salida clara para ambos.</span></div>
+      <div><b>Todo por escrito</b><span>Contrato de cuentas en participación y acuerdo de socios para el producto.</span></div>
     </div>
   </div>
 </section>
@@ -1122,9 +1499,9 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <section class="slide dk tex-grid-dk noise glow-tr" data-title="Por qué We Rock" id="s-werock">
   <div class="inner why">
     <div>
-      <div class="lbl rv" style="--d:0">12 · Por qué We Rock</div>
+      <div class="lbl rv" style="--d:0">19 · Por qué We Rock</div>
       <h2 class="h2 rv" style="--d:1;color:#fff">Esto no es una app.<br>Es un <em>negocio completo.</em></h2>
-      <p class="lead rv" style="--d:2">Una plataforma sin clientes no sirve, y una campaña sin plataforma se queda en una llamada más. We Rock construye la tecnología, trae el tráfico y ordena el proceso comercial. Ponemos nuestro equipo porque creemos en el negocio: si Safe Trip crece, crecemos juntos.</p>
+      <p class="lead rv" style="--d:2">Una plataforma sin clientes no sirve, y una campaña sin plataforma se queda en una llamada más. We Rock construye la tecnología, trae el tráfico y ordena el proceso comercial. Trabajamos a costo porque creemos en el negocio: si Safe Trip crece, crecemos juntos.</p>
       <div class="pillars3">
         <div class="rv" style="--d:3"><small>Infraestructura digital™</small><span>La plataforma, el portal y la app</span></div>
         <div class="rv" style="--d:4"><small>Arquitectura de crecimiento™</small><span>Google, LinkedIn, Meta, SEO y contenido</span></div>
@@ -1146,12 +1523,12 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <section class="slide dk close noise glow-bl" data-title="Siguiente paso" id="s-cierre">
   <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
   <div class="inner">
-    <div class="lbl rv" style="--d:0">13 · Siguiente paso</div>
+    <div class="lbl rv" style="--d:0">20 · Siguiente paso</div>
     <h2 class="close-title rv" style="--d:1">¿Movemos<br>la <span class="r">primera carga?</span></h2>
     <div class="next">
       <div class="rv" style="--d:2"><b>01</b><h3>Sesión de descubrimiento</h3><p>Dos horas con gerencia y operación: rutas, tarifas, flota y red de terceros.</p></div>
       <div class="rv" style="--d:3"><b>02</b><h3>Prototipo navegable</h3><p>En dos semanas, Safe Trip toca el portal y la app antes de firmar nada.</p></div>
-      <div class="rv" style="--d:4"><b>03</b><h3>Firmamos la alianza</h3><p>Acordamos cómo gana cada uno, firmamos y la plataforma sale en 12 semanas.</p></div>
+      <div class="rv" style="--d:4"><b>03</b><h3>Firmamos la alianza</h3><p>Cerramos porcentajes, firmamos y la plataforma sale en 12 semanas.</p></div>
     </div>
     <div class="cta-row rv" style="--d:5">
       <a class="cta-btn" href="https://wa.me/573125766056?text=Hola%20David,%20hablemos%20de%20Safe%20Trip%20Connect" target="_blank" rel="noopener">
@@ -1244,7 +1621,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   // Calculadora de retornos
   const $ = id => document.getElementById(id);
   const cop = v => '$'+Math.round(v).toLocaleString('es-CO');
-  const COSTO_MES = 3800000; // costos operativos + pauta desde el lanzamiento (ver tabla de inversión)
+  const COSTO_MES = 5670000; // costo mensual a costo desde el lanzamiento (ver tabla de inversión, mes 4)
   function calc(){
     const V=+$('cV').value, E=+$('cE').value, R=+$('cR').value, F=+$('cF').value;
     [$('cV'),$('cE'),$('cR'),$('cF')].forEach(r=>r.style.setProperty('--p',((r.value-r.min)/(r.max-r.min)*100)+'%'));
