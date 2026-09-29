@@ -926,6 +926,55 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   .alt .foot b{white-space:nowrap}
 }
 
+/* portada en celular: franja reservada para la figura conceptual */
+@media(max-width:768px){.slide.cover{padding-top:300px}}
+
+/* HalconBot: qué es y qué incluye */
+.hb{display:grid;grid-template-columns:.9fr 1.3fr;gap:44px;align-items:start}
+.hb-proof{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:20px}
+.hb-proof div{background:var(--red);color:#fff;padding:16px 18px}
+.hb-proof b{display:block;font-size:34px;font-weight:900;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.hb-proof span{display:block;font-size:12px;line-height:1.4;color:rgba(255,255,255,.9);margin-top:6px}
+.hb-mods{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(0,0,0,.08)}
+.hb-mods article{background:#fff;padding:15px 18px 14px;display:grid;grid-template-columns:36px 1fr;column-gap:12px;transition:transform .35s var(--ease),box-shadow .35s}
+.hb-mods article:hover{transform:translateY(-3px);box-shadow:0 18px 30px -22px rgba(0,0,0,.45);position:relative;z-index:2}
+.hb-mods .ic{width:36px;height:36px;border-radius:10px;background:#fde8e9;display:grid;place-items:center;grid-row:span 2;transition:transform .45s var(--bounce)}
+.hb-mods article:hover .ic{transform:scale(1.1) rotate(-6deg)}
+.hb-mods .ic svg{width:19px;height:19px}
+.hb-mods b{font-size:14.5px;font-weight:800;line-height:1.25}
+.hb-mods p{font-size:12.5px;line-height:1.45;color:var(--ink2);margin-top:3px}
+.hb-inc{display:grid;grid-template-columns:1.35fr 1fr;gap:2px;margin-top:2px}
+.hb-inc > div{background:var(--lt3);padding:15px 20px}
+.hb-inc h4{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.hb-inc ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:5px 16px}
+.hb-inc li{font-size:12.5px;line-height:1.4;color:var(--ink2);padding-left:13px;position:relative}
+.hb-inc li::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;background:var(--red);transform:rotate(45deg)}
+.plans{display:grid;gap:5px}
+.plans span{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12.5px;color:var(--ink2);padding:5px 10px;background:rgba(255,255,255,.6);font-variant-numeric:tabular-nums}
+.plans span b{font-size:14px;font-weight:900;color:var(--ink)}
+.plans span.rec{background:var(--dk);color:rgba(255,255,255,.75)}
+.plans span.rec b{color:#fff}
+.plans small{font-size:10.5px;color:var(--ink3);margin-top:2px}
+.dk2 .hb-mods,.dk .hb-mods{background:rgba(255,255,255,.07)}
+.dk2 .hb-mods article,.dk .hb-mods article{background:var(--dk3)}
+.dk2 .hb-mods b,.dk .hb-mods b{color:#fff}
+.dk2 .hb-mods p,.dk .hb-mods p{color:var(--text-dk2)}
+.dk2 .hb-mods .ic,.dk .hb-mods .ic{background:rgba(232,0,10,.16)}
+.dk2 .hb-inc > div,.dk .hb-inc > div{background:#1b1b1b}
+.dk2 .hb-inc li,.dk .hb-inc li{color:var(--text-dk2)}
+.dk2 .plans span,.dk .plans span{background:rgba(255,255,255,.05);color:var(--text-dk2)}
+.dk2 .plans span b,.dk .plans span b{color:#fff}
+.dk2 .plans span.rec,.dk .plans span.rec{background:var(--red);color:rgba(255,255,255,.9)}
+.dk2 .plans small,.dk .plans small{color:rgba(255,255,255,.4)}
+@media(max-width:1024px){.hb{grid-template-columns:1fr;gap:26px}}
+@media(max-width:768px){.hb-mods,.hb-inc,.hb-inc ul{grid-template-columns:1fr}.hb>*{min-width:0}.hb-proof b{font-size:28px}}
+@media(min-width:769px) and (max-height:1000px){.hb .lead{font-size:15px}.hb-proof{margin-top:14px}.hb-proof div{padding:12px 16px}.hb-proof b{font-size:28px}.hb-mods article{padding:11px 16px 10px}.hb-mods p{font-size:12px}.hb-inc > div{padding:11px 18px}.hb-inc li{font-size:12px}.plans span{padding:3px 10px}}
+
+/* tabla de inversión con desglose: más compacta en pantallas bajas */
+@media(min-width:769px) and (max-height:1000px){#s-inversion .slide,#s-inversion{padding-top:78px;padding-bottom:56px}#s-inversion .h2{font-size:clamp(28px,5.4vh,48px);margin-bottom:8px}#s-inversion .pkg-block{padding:18px 40px 14px;margin-top:8px}#s-inversion .pkg-head{margin-bottom:8px}#s-inversion .pkg-head h3{font-size:22px;margin-top:8px}#s-inversion .pkg-head p{font-size:12.5px}#s-inversion .inv-table th,#s-inversion .inv-table td{padding:4px 12px;font-size:12px}#s-inversion .inv-table tr.grp td{padding-top:7px}#s-inversion .inv-table tr.total td{padding-top:8px;font-size:14px}#s-inversion .inv-table .rubro-note{font-size:10px}#s-inversion .pkg-note{margin-top:8px;font-size:11.5px}}
+
+.hb-mods article{align-content:start}
+
 :root{--bc:#0E2A47;--bc2:#16436F;--ba:#C9A227}
 </style>
 </head>
@@ -1252,7 +1301,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
         <div class="device-browser tilt rv-3d" style="--d:3;margin-top:14px">
           <div class="device-browser-bar">
             <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
-            <div class="db-url">CRM · Doctorado UNINTE Colombia</div>
+            <div class="db-url">HalconBot · Doctorado por etapa</div>
           </div>
           <div class="pipe">
             <div class="pcol"><h6>Interesados <em>184</em></h6><div class="pcard hot"><b>Adriana Rincón</b><small>Docente · Meta Ads</small><span class="tg">Hoy</span></div><div class="pcard"><b>Jorge Castaño</b><small>Funcionario · LinkedIn</small></div><div class="pcard mv"><b>Paola Ruiz</b><small>Profesora · Google</small></div></div>
@@ -1270,10 +1319,53 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   </div>
 </section>
 
+<!-- ================= HALCONBOT ================= -->
+<section class="slide lt2 tex-dots noise" data-title="Qué es HalconBot" id="s-halconbot">
+  <div class="inner">
+    <div class="hb">
+      <div>
+        <div class="lbl rv" style="--d:0">09 · HalconBot, el CRM incluido</div>
+        <h2 class="h2 rv" style="--d:1;font-size:clamp(30px,3.3vw,48px)">Un asistente con IA en WhatsApp <em>que además es el CRM.</em></h2>
+        <p class="lead rv" style="--d:2">HalconBot es la plataforma de We Rock que atiende por WhatsApp con inteligencia artificial y guarda a cada persona que escribe: quién es, qué preguntó, en qué etapa va y qué le falta. Para UNINTE Colombia, califica a cada interesado (docente, funcionario, gerente) y lo lleva al webinar sin que nadie se enfríe. No hay que comprar ni aprender otro CRM: el chat y la base de datos son la misma herramienta.</p>
+        <div class="hb-proof rv" style="--d:3">
+          <div><b>74%</b><span>de las conversaciones las resolvió la IA sola en una semana: 1.954 contra 682 que necesitaron a una persona.</span></div>
+          <div><b>3,4×</b><span>ventas: Vanity Nail Bar pasó de $7M a $24M COP al mes con el mismo equipo.</span></div>
+        </div>
+        <p class="src rv" style="--d:4">Datos del panel real de un cliente activo de HalconBot (Vanity Nail Bar, Bogotá).</p>
+      </div>
+      <div>
+        <div class="hb-mods rv-3d" style="--d:2">
+          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 10h6M9 13h4"/></svg></div><b>WhatsApp con IA, 24/7</b><p>Responde costos, cuotas, convalidación y fechas con la información aprobada por UNINTE.</p></article>
+          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></div><b>Base de datos de interesados</b><p>Cada persona queda registrada con su historial completo y acceso directo a su chat.</p></article>
+          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg></div><b>Etapas con etiquetas automáticas</b><p>"Docente", "Funcionario", "Webinar", "Documentos", "Inscrito": el embudo que vieron antes.</p></article>
+          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div><b>Chat en vivo con el asesor</b><p>El asesor toma la conversación cuando hace falta, sin que la persona repita nada. Avisos al correo.</p></article>
+          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-7-7 18-3-8z"/></svg></div><b>Envíos masivos por segmento</b><p>Invitación al webinar, cierre de cohorte o recordatorio de documentos solo a quien corresponde.</p></article>
+          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 14h6M9 17h4"/></svg></div><b>Documentos y sitio web</b><p>Envía el plan de estudios en PDF y videos del director, y se conecta como chat en la landing.</p></article>
+        </div>
+        <div class="hb-inc rv" style="--d:4">
+          <div>
+            <h4>Lo que incluye la implementación · US$1.200</h4>
+            <ul><li>Base de conocimiento: programa, costos, convalidación y preguntas frecuentes</li><li>Etiquetas por perfil y etapa</li><li>Conexión a WhatsApp Business y a la landing</li><li>Plantillas de invitación y recordatorio</li><li>Capacitación al asesor comercial</li><li>Ajustes durante el primer mes</li></ul>
+          </div>
+          <div>
+            <h4>Plataforma · pago mensual aparte</h4>
+            <div class="plans">
+              <span>Starter · 6.000 conversaciones <b>US$49</b></span>
+              <span class="rec">Growth · 22.500 conversaciones <b>US$89</b></span>
+              <span>Business · 60.000 conversaciones <b>US$139</b></span>
+              <small>Se empieza en el plan que pida el volumen real y se sube cuando haga falta.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= 09 RECORRIDO ================= -->
 <section class="slide lt tex-grid" data-title="Recorrido del estudiante" id="s-viaje">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">09 · Recorrido del estudiante</div>
+    <div class="lbl rv" style="--d:0">10 · Recorrido del estudiante</div>
     <h2 class="h2 rv" style="--d:1">Del anuncio a la clase.<br><em>Y la posta pasa a UNINTE.</em></h2>
     <div class="journey">
       <div class="j-step rv" style="--d:1"><div class="j-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M10 18h4"/></svg></div><div class="j-n">01</div><h3>Ve el anuncio</h3><p>En LinkedIn, Facebook o buscando "doctorado virtual" en Google.</p><span class="j-who">Marketing</span></div>
@@ -1289,7 +1381,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 10 FINANCIACIÓN ================= -->
 <section class="slide lt2 tex-dots" data-title="Financiación" id="s-financiacion">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">10 · Financiación</div>
+    <div class="lbl rv" style="--d:0">11 · Financiación</div>
     <h2 class="h2 rv" style="--d:1">El precio no se esconde.<br><em>Se financia.</em></h2>
     <div class="fin-grid">
       <div class="quota rv-3d" style="--d:2">
@@ -1320,7 +1412,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 11 CALCULADORA ================= -->
 <section class="slide dk tex-grid-dk noise" data-title="La meta en números" id="s-calc">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">11 · La meta en números</div>
+    <div class="lbl rv" style="--d:0">12 · La meta en números</div>
     <h2 class="h2 rv" style="--d:1;color:#fff">¿Qué hace falta para llegar a <em>200 estudiantes?</em></h2>
     <p class="lead rv fit-short" style="--d:2">Mueva los controles. Los valores iniciales son supuestos para un posgrado de alto valor en Colombia; se reemplazan con datos reales desde el primer mes.</p>
     <div class="calc rv-3d" style="--d:3">
@@ -1348,7 +1440,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 12 MARKETING ================= -->
 <section class="slide lt tex-dots" data-title="Marketing digital" id="s-marketing">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">12 · Marketing digital</div>
+    <div class="lbl rv" style="--d:0">13 · Marketing digital</div>
     <h2 class="h2 rv" style="--d:1">Primero quien ya busca.<br><em>Después quien necesita confiar.</em></h2>
     <div class="mk-split">
       <div class="mk-side rv" style="--d:3">
@@ -1382,7 +1474,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 13 HOJA DE RUTA ================= -->
 <section class="slide dk2 noise glow-bl" data-title="Hoja de ruta" id="s-ruta">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">13 · Hoja de ruta</div>
+    <div class="lbl rv" style="--d:0">14 · Hoja de ruta</div>
     <h2 class="h2 rv" style="--d:1;color:#fff">Bogotá primero.<br><em>Después, las capitales.</em></h2>
     <div class="phases">
       <article class="phase main rv" style="--d:3">
@@ -1432,7 +1524,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 14 INVERSIÓN ================= -->
 <section class="slide lt tex-grid" data-title="Inversión" id="s-inversion">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">14 · Inversión</div>
+    <div class="lbl rv" style="--d:0">15 · Inversión</div>
     <h2 class="h2 rv" style="--d:1">Cuatro meses para <em>abrir Bogotá.</em></h2>
     <p class="lead rv fit-short" style="--d:2">Cada estudiante representa un programa de US$6.700. Con la meta de 200 en el primer año, el volumen vendido supera US$1.300.000 antes de hablar de comisiones.</p>
     <div class="pkg-block corner-fx rv-3d" style="--d:3">
@@ -1445,12 +1537,18 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
         <table class="inv-table">
           <thead><tr><th>Rubro</th><th>Mes 1</th><th>Mes 2</th><th>Mes 3</th><th>Mes 4</th><th>Total</th></tr></thead>
           <tbody>
-            <tr class="grp"><td colspan="6">We Rock</td></tr>
-            <tr><td>Implementación<span class="rubro-note">Landing, kit comercial, CRM, HalconBot, analítica y redes · hitos 60 / 40</span></td><td>US$3.180</td><td>US$2.120</td><td class="dash">—</td><td class="dash">—</td><td>US$5.300</td></tr>
+            <tr class="grp"><td colspan="6">We Rock · implementación, pago único por hitos 60 / 40</td></tr>
+            <tr><td>Landing Colombia<span class="rubro-note">Formulario, calculadora de cuotas y preguntas frecuentes</span></td><td>US$1.080</td><td>US$720</td><td class="dash">—</td><td class="dash">—</td><td>US$1.800</td></tr>
+            <tr><td>Kit comercial y webinar<span class="rubro-note">Presentación, piezas, guiones y respuestas a objeciones</span></td><td>US$720</td><td>US$480</td><td class="dash">—</td><td class="dash">—</td><td>US$1.200</td></tr>
+            <tr><td>CRM + HalconBot<span class="rubro-note">Configuración, etiquetas por perfil y etapa, WhatsApp</span></td><td>US$720</td><td>US$480</td><td class="dash">—</td><td class="dash">—</td><td>US$1.200</td></tr>
+            <tr><td>Analítica y tablero<span class="rubro-note">Costo por interesado e inscrito, semana a semana</span></td><td>US$360</td><td>US$240</td><td class="dash">—</td><td class="dash">—</td><td>US$600</td></tr>
+            <tr><td>Creación de redes Colombia<span class="rubro-note">Alternativa B · perfiles e identidad adaptada</span></td><td>US$300</td><td>US$200</td><td class="dash">—</td><td class="dash">—</td><td>US$500</td></tr>
+            <tr class="subtotal"><td>Subtotal implementación</td><td>US$3.180</td><td>US$2.120</td><td class="dash">—</td><td class="dash">—</td><td>US$5.300</td></tr>
+            <tr class="grp"><td colspan="6">We Rock · servicios mensuales</td></tr>
             <tr><td>Contenido y redes Colombia<span class="rubro-note">Calendario, piezas y video corto</span></td><td>US$950</td><td>US$950</td><td>US$950</td><td>US$950</td><td>US$3.800</td></tr>
             <tr><td>Gestión de pauta<span class="rubro-note">Google, LinkedIn y Meta</span></td><td class="dash">—</td><td>US$650</td><td>US$650</td><td>US$650</td><td>US$1.950</td></tr>
             <tr><td>Asesor comercial<span class="rubro-note">Más US$100 por estudiante inscrito</span></td><td class="dash">—</td><td>US$1.100</td><td>US$1.100</td><td>US$1.100</td><td>US$3.300</td></tr>
-            <tr class="subtotal"><td>Subtotal We Rock</td><td>US$4.130</td><td>US$4.820</td><td>US$2.700</td><td>US$2.700</td><td>US$14.350</td></tr>
+            <tr class="subtotal"><td>Subtotal We Rock · implementación + mensual</td><td>US$4.130</td><td>US$4.820</td><td>US$2.700</td><td>US$2.700</td><td>US$14.350</td></tr>
             <tr class="grp"><td colspan="6">Proveedores y pauta · pago directo</td></tr>
             <tr><td>Plan HalconBot Growth<span class="rubro-note">Hasta 22.500 conversaciones al mes</span></td><td>US$89</td><td>US$89</td><td>US$89</td><td>US$89</td><td>US$356</td></tr>
             <tr><td>Herramientas<span class="rubro-note">Hosting, dominio, webinar y email · estimado</span></td><td>US$60</td><td>US$60</td><td>US$60</td><td>US$60</td><td>US$240</td></tr>
@@ -1468,7 +1566,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 15 MODELOS ================= -->
 <section class="slide lt2 tex-dots" data-title="Dos formas de trabajar" id="s-modelos">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">15 · Dos formas de trabajar</div>
+    <div class="lbl rv" style="--d:0">16 · Dos formas de trabajar</div>
     <h2 class="h2 rv" style="--d:1">Fijo o compartido.<br><em>Ustedes eligen el riesgo.</em></h2>
     <div class="two">
       <article class="rv" style="--d:2">
@@ -1499,7 +1597,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 16 RIESGOS ================= -->
 <section class="slide lt tex-grid" data-title="Riesgos controlados" id="s-riesgos">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">16 · Riesgos controlados</div>
+    <div class="lbl rv" style="--d:0">17 · Riesgos controlados</div>
     <h2 class="h2 rv" style="--d:1">Lo que puede salir mal.<br><em>Y cómo lo evitamos.</em></h2>
     <table class="risk rv" style="--d:2">
       <thead><tr><th>Riesgo</th><th>Qué pasa</th><th>Cómo lo manejamos</th></tr></thead>
@@ -1518,7 +1616,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <section class="slide dk tex-grid-dk noise glow-tr" data-title="Por qué We Rock" id="s-werock">
   <div class="inner why">
     <div>
-      <div class="lbl rv" style="--d:0">17 · Por qué We Rock</div>
+      <div class="lbl rv" style="--d:0">18 · Por qué We Rock</div>
       <h2 class="h2 rv" style="--d:1;color:#fff">UNINTE enseña.<br>Nosotros <em>llenamos las cohortes.</em></h2>
       <p class="lead rv" style="--d:2">Somos colombianos, conocemos el mercado y operamos el embudo completo: la página, la pauta, el WhatsApp, el CRM y la persona que llama. Un solo equipo responsable de los inscritos, no de los "me gusta".</p>
       <div class="pillars3">
@@ -1542,7 +1640,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <section class="slide dk close noise glow-bl" data-title="Siguiente paso" id="s-cierre">
   <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
   <div class="inner">
-    <div class="lbl rv" style="--d:0">18 · Siguiente paso</div>
+    <div class="lbl rv" style="--d:0">19 · Siguiente paso</div>
     <h2 class="close-title rv" style="--d:1">¿Abrimos<br><span class="r">Colombia?</span></h2>
     <div class="next">
       <div class="rv" style="--d:2"><b>01</b><h3>Validación con UNINTE</h3><p>Uso de marca, redes, convalidación y comisión del convenio.</p></div>
@@ -1665,42 +1763,24 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   }
   if(reduce){ document.querySelectorAll('svg').forEach(s=>s.pauseAnimations && s.pauseAnimations()); }
 
-  // Portada: red de nodos que confluyen en un centro (estudiantes que llegan a la universidad)
-  function coverNet(cfg){
+  // Portadas conceptuales: red neuronal We Rock con la forma de cada proyecto
+  function neuralCanvas(build, frame){
     const cv = $('net'), ctx = cv.getContext('2d');
-    let W,H,DPR,pulses=[];
-    const P = n => { const c=cfg.nodes[n], m=innerWidth<769; const b = m ? cfg.boxM : cfg.box; return [(b[0]+c[0]*b[2])*W, (b[1]+c[1]*b[3])*H]; };
-    function size(){DPR=Math.min(devicePixelRatio||1,2);W=cv.offsetWidth;H=cv.offsetHeight;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
-    function spawn(){const e=cfg.edges[Math.random()*cfg.edges.length|0];pulses.push({a:e[0],b:e[1],t:0,s:.003+Math.random()*.004});}
+    let W=0,H=0,M=false,state=null,t0=performance.now();
+    const mouse={x:-999,y:-999};
+    function size(){const d=Math.min(devicePixelRatio||1,2);W=cv.offsetWidth;H=cv.offsetHeight;M=innerWidth<769;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);state=build(W,H,M);}
     size(); addEventListener('resize',size);
-    for(let i=0;i<cfg.count;i++){spawn();pulses[i].t=Math.random();}
-    function curve(A,B,bend){const mx=(A[0]+B[0])/2,my=(A[1]+B[1])/2,dx=B[0]-A[0],dy=B[1]-A[1];return [mx-dy*bend,my+dx*bend];}
-    function pt(A,C,B,t){const u=1-t;return [u*u*A[0]+2*u*t*C[0]+t*t*B[0],u*u*A[1]+2*u*t*C[1]+t*t*B[1]];}
-    function draw(time){
-      ctx.clearRect(0,0,W,H);
-      cfg.edges.forEach(([a,b,bd])=>{const A=P(a),B=P(b),C=curve(A,B,bd||.12);ctx.strokeStyle=bd?'rgba(255,255,255,.14)':'rgba(255,255,255,.08)';ctx.lineWidth=1;if(bd)ctx.setLineDash([3,6]);ctx.beginPath();ctx.moveTo(A[0],A[1]);ctx.quadraticCurveTo(C[0],C[1],B[0],B[1]);ctx.stroke();ctx.setLineDash([]);});
-      pulses.forEach(p=>{
-        const e=cfg.edges.find(x=>x[0]===p.a&&x[1]===p.b), A=P(p.a),B=P(p.b),C=curve(A,B,(e&&e[2])||.12);
-        const h=pt(A,C,B,p.t), tl=pt(A,C,B,Math.max(0,p.t-.14));
-        const g=ctx.createLinearGradient(tl[0],tl[1],h[0],h[1]);g.addColorStop(0,'rgba(232,0,10,0)');g.addColorStop(1,'rgba(232,0,10,.95)');
-        ctx.strokeStyle=g;ctx.lineWidth=2;ctx.beginPath();
-        for(let k=0;k<=8;k++){const q=pt(A,C,B,Math.max(0,p.t-.14)+(p.t-Math.max(0,p.t-.14))*k/8);k?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]);}
-        ctx.stroke();
-        ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(h[0],h[1],2.2,0,7);ctx.fill();
-        if(!reduce) p.t+=p.s;
-      });
-      pulses=pulses.filter(p=>p.t<1); while(pulses.length<cfg.count) spawn();
-      ctx.font='600 10px Barlow, sans-serif';ctx.textBaseline='middle';
-      Object.keys(cfg.nodes).forEach(n=>{
-        const [x,y]=P(n), big=n===cfg.hub, far=cfg.far&&cfg.far.includes(n);
-        const pulse = reduce?0:(Math.sin(time/600+x)*.5+.5);
-        ctx.fillStyle='rgba(232,0,10,'+(.12+pulse*.12)+')';ctx.beginPath();ctx.arc(x,y,big?16+pulse*4:far?11:7+pulse*3,0,7);ctx.fill();
-        ctx.fillStyle=big||far?'#E8000A':'#fff';ctx.beginPath();ctx.arc(x,y,big?5:far?4:3,0,7);ctx.fill();
-        ctx.fillStyle='rgba(255,255,255,'+(big||far?.92:.5)+')';ctx.fillText(n.toUpperCase(),x+11,y);
-      });
-      if(!reduce) requestAnimationFrame(draw);
-    }
-    requestAnimationFrame(draw);
+    cv.parentElement.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+    cv.parentElement.addEventListener('mouseleave',()=>{mouse.x=mouse.y=-999;});
+    const api = {
+      link(a,b,max,boost){const d=Math.hypot(a.x-b.x,a.y-b.y);if(d>max)return;const nm=Math.min(Math.hypot(a.x-mouse.x,a.y-mouse.y),Math.hypot(b.x-mouse.x,b.y-mouse.y));const m=nm<200?(1-nm/200)*.5:0;ctx.strokeStyle='rgba(232,0,10,'+Math.min((1-d/max)*(boost||.45)+m,1)+')';ctx.lineWidth=.6+m;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();},
+      node(x,y,r,hot){const g=ctx.createRadialGradient(x,y,r*.4,x,y,r*(hot?9:6));g.addColorStop(0,'rgba(232,0,10,'+(hot?.45:.2)+')');g.addColorStop(1,'rgba(232,0,10,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r*(hot?9:6),0,7);ctx.fill();ctx.fillStyle=hot?'#ff2a31':'#E8000A';ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();},
+      dust(x,y,r,a){ctx.fillStyle='rgba(255,255,255,'+a+')';ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();},
+      spark(x,y,k){const g=ctx.createRadialGradient(x,y,0,x,y,10);g.addColorStop(0,'rgba(255,240,220,'+(.85*k)+')');g.addColorStop(.4,'rgba(255,120,50,'+(.35*k)+')');g.addColorStop(1,'rgba(232,0,10,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,10,0,7);ctx.fill();},
+      label(txt,x,y,hot,align){ctx.font=(hot?'800 ':'700 ')+'10px Barlow, sans-serif';ctx.textBaseline='middle';ctx.textAlign=align||'left';ctx.fillStyle=hot?'#E8000A':'rgba(255,255,255,.5)';ctx.fillText(txt.split('').join(String.fromCharCode(8202)),x,y);ctx.textAlign='left';}
+    };
+    function loop(now){ctx.clearRect(0,0,W,H);frame(ctx,state,(now-t0)/1000,api,W,H,M);if(!reduce)requestAnimationFrame(loop);}
+    requestAnimationFrame(loop);
   }
 
   // Calculadora: meta de 200 estudiantes en 12 meses
@@ -1717,17 +1797,37 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
     $('outCac').textContent = perMonth > 0 ? usd(A / perMonth) : '—';
   });
 
-  // Portada: Colombia conectada con México; Bogotá como punto de partida
-  coverNet({
-    hub:'Bogotá', count:14, far:['México','Medellín','Cali','Bucaramanga'],
-    box:[.5,.1,.45,.8], boxM:[.04,.1,.88,.5],
-    nodes:{
-      'México':[.02,.02],
-      'Santa Marta':[.58,.1],'Barranquilla':[.46,.12],'Cartagena':[.36,.17],'Cúcuta':[.91,.31],'Bucaramanga':[.8,.39],
-      'Medellín':[.4,.46],'Pereira':[.36,.56],'Ibagué':[.47,.6],'Bogotá':[.65,.58],'Villavicencio':[.84,.64],
-      'Cali':[.25,.68],'Neiva':[.47,.74],'Pasto':[.15,.87]
-    },
-    edges:[['México','Bogotá',.18],['Bogotá','México',.18],['Medellín','Bogotá'],['Cali','Bogotá'],['Bucaramanga','Bogotá'],['Barranquilla','Bogotá'],['Cartagena','Bogotá'],['Santa Marta','Bogotá'],['Cúcuta','Bogotá'],['Pereira','Bogotá'],['Ibagué','Bogotá'],['Villavicencio','Bogotá'],['Neiva','Bogotá'],['Pasto','Bogotá']]
+  // Portada: el ascenso. Muchos profesionales abajo, pocos doctores arriba; las señales suben de nivel
+  neuralCanvas((W,H,M)=>{
+    const lim = M ? Math.max(document.querySelector('#s-portada .inner').offsetTop - 16, H*.28) : H;
+    const x0 = M ? W*.1 : W*.5, x1 = M ? W*.94 : W*.95, yb = M ? lim - 34 : H*.8, yt = M ? 96 : H*.24;
+    const names = ['PROFESIONAL','ESPECIALISTA','MAGÍSTER','DOCTOR'], counts = M ? [14,9,5,2] : [22,14,8,3];
+    const n = names.length, sw = (x1-x0)/n, sh = (yb-yt)/(n-1);
+    const levels = names.map((name,i)=>{
+      const lx = x0 + i*sw, ly = yb - i*sh, nodes = [];
+      for(let k=0;k<counts[i];k++) nodes.push({bx:lx+sw*.12+Math.random()*sw*.76, by:ly-12-Math.random()*Math.min(sh*.4,48), ph:Math.random()*6.3, x:0, y:0});
+      return {name, lx, ly, nodes};
+    });
+    const dust = Array.from({length:M?40:80},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.3,vy:-(Math.random()*.18+.04),a:Math.random()*.22+.05}));
+    return {levels, sw, sh, dust, sig:[], next:0, flash:0};
+  },(ctx,s,t,api,W,H)=>{
+    s.dust.forEach(d=>{d.y+=d.vy;if(d.y<0)d.y=H;api.dust(d.x,d.y,d.r,d.a);});
+    const L=s.levels, top=L.length-1;
+    // escalera: columnas con brillo que crece hacia arriba
+    L.forEach((l,i)=>{const g=ctx.createLinearGradient(0,l.ly,0,L[0].ly);g.addColorStop(0,'rgba(232,0,10,'+(.05+i*.035)+')');g.addColorStop(1,'rgba(232,0,10,0)');ctx.fillStyle=g;ctx.fillRect(l.lx,l.ly,s.sw,L[0].ly-l.ly+1);});
+    ctx.strokeStyle='rgba(255,255,255,.14)';ctx.lineWidth=1;ctx.beginPath();
+    L.forEach((l,i)=>{if(i===0)ctx.moveTo(l.lx,l.ly);else ctx.lineTo(l.lx,l.ly);ctx.lineTo(l.lx+s.sw,l.ly);});ctx.stroke();
+    ctx.strokeStyle='rgba(232,0,10,.55)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(L[top].lx,L[top].ly);ctx.lineTo(L[top].lx+s.sw,L[top].ly);ctx.stroke();
+    L.forEach((l,i)=>l.nodes.forEach(p=>{p.x=p.bx+Math.sin(t*.6+p.ph)*6;p.y=p.by+Math.cos(t*.5+p.ph)*5;}));
+    // conexiones dentro del nivel y hacia el siguiente
+    L.forEach((l,i)=>{l.nodes.forEach((a,k)=>{for(let j=k+1;j<l.nodes.length;j++)api.link(a,l.nodes[j],s.sw*.55,.35);if(L[i+1])L[i+1].nodes.forEach(b=>api.link(a,b,s.sw*.8,.22));});});
+    L.forEach((l,i)=>l.nodes.forEach(p=>api.node(p.x,p.y,i===top?3.4:1.4+i*.45,i===top)));
+    // nivel superior: brillo al recibir una señal
+    if(s.flash>0){L[top].nodes.forEach(p=>api.spark(p.x,p.y,s.flash));s.flash*=.94;}
+    // señales que suben un nivel
+    if(t>s.next){const i=Math.random()*top|0,a=L[i].nodes[Math.random()*L[i].nodes.length|0],b=L[i+1].nodes[Math.random()*L[i+1].nodes.length|0];s.sig.push({a,b,k:0,top:i+1===top});s.next=t+.22+Math.random()*.35;}
+    s.sig=s.sig.filter(q=>{q.k+=.016;const e=1-Math.pow(1-q.k,2),x=q.a.x+(q.b.x-q.a.x)*e,y=q.a.y+(q.b.y-q.a.y)*e-Math.sin(q.k*Math.PI)*18;api.spark(x,y,1);if(q.k>=1){if(q.top)s.flash=1;return false;}return true;});
+    L.forEach((l,i)=>api.label(l.name,l.lx+6,l.ly+14,i===top));
   });
 
 })();

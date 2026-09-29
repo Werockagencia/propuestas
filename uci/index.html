@@ -926,6 +926,55 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   .alt .foot b{white-space:nowrap}
 }
 
+/* portada en celular: franja reservada para la figura conceptual */
+@media(max-width:768px){.slide.cover{padding-top:300px}}
+
+/* HalconBot: qué es y qué incluye */
+.hb{display:grid;grid-template-columns:.9fr 1.3fr;gap:44px;align-items:start}
+.hb-proof{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:20px}
+.hb-proof div{background:var(--red);color:#fff;padding:16px 18px}
+.hb-proof b{display:block;font-size:34px;font-weight:900;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.hb-proof span{display:block;font-size:12px;line-height:1.4;color:rgba(255,255,255,.9);margin-top:6px}
+.hb-mods{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(0,0,0,.08)}
+.hb-mods article{background:#fff;padding:15px 18px 14px;display:grid;grid-template-columns:36px 1fr;column-gap:12px;transition:transform .35s var(--ease),box-shadow .35s}
+.hb-mods article:hover{transform:translateY(-3px);box-shadow:0 18px 30px -22px rgba(0,0,0,.45);position:relative;z-index:2}
+.hb-mods .ic{width:36px;height:36px;border-radius:10px;background:#fde8e9;display:grid;place-items:center;grid-row:span 2;transition:transform .45s var(--bounce)}
+.hb-mods article:hover .ic{transform:scale(1.1) rotate(-6deg)}
+.hb-mods .ic svg{width:19px;height:19px}
+.hb-mods b{font-size:14.5px;font-weight:800;line-height:1.25}
+.hb-mods p{font-size:12.5px;line-height:1.45;color:var(--ink2);margin-top:3px}
+.hb-inc{display:grid;grid-template-columns:1.35fr 1fr;gap:2px;margin-top:2px}
+.hb-inc > div{background:var(--lt3);padding:15px 20px}
+.hb-inc h4{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.hb-inc ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:5px 16px}
+.hb-inc li{font-size:12.5px;line-height:1.4;color:var(--ink2);padding-left:13px;position:relative}
+.hb-inc li::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;background:var(--red);transform:rotate(45deg)}
+.plans{display:grid;gap:5px}
+.plans span{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12.5px;color:var(--ink2);padding:5px 10px;background:rgba(255,255,255,.6);font-variant-numeric:tabular-nums}
+.plans span b{font-size:14px;font-weight:900;color:var(--ink)}
+.plans span.rec{background:var(--dk);color:rgba(255,255,255,.75)}
+.plans span.rec b{color:#fff}
+.plans small{font-size:10.5px;color:var(--ink3);margin-top:2px}
+.dk2 .hb-mods,.dk .hb-mods{background:rgba(255,255,255,.07)}
+.dk2 .hb-mods article,.dk .hb-mods article{background:var(--dk3)}
+.dk2 .hb-mods b,.dk .hb-mods b{color:#fff}
+.dk2 .hb-mods p,.dk .hb-mods p{color:var(--text-dk2)}
+.dk2 .hb-mods .ic,.dk .hb-mods .ic{background:rgba(232,0,10,.16)}
+.dk2 .hb-inc > div,.dk .hb-inc > div{background:#1b1b1b}
+.dk2 .hb-inc li,.dk .hb-inc li{color:var(--text-dk2)}
+.dk2 .plans span,.dk .plans span{background:rgba(255,255,255,.05);color:var(--text-dk2)}
+.dk2 .plans span b,.dk .plans span b{color:#fff}
+.dk2 .plans span.rec,.dk .plans span.rec{background:var(--red);color:rgba(255,255,255,.9)}
+.dk2 .plans small,.dk .plans small{color:rgba(255,255,255,.4)}
+@media(max-width:1024px){.hb{grid-template-columns:1fr;gap:26px}}
+@media(max-width:768px){.hb-mods,.hb-inc,.hb-inc ul{grid-template-columns:1fr}.hb>*{min-width:0}.hb-proof b{font-size:28px}}
+@media(min-width:769px) and (max-height:1000px){.hb .lead{font-size:15px}.hb-proof{margin-top:14px}.hb-proof div{padding:12px 16px}.hb-proof b{font-size:28px}.hb-mods article{padding:11px 16px 10px}.hb-mods p{font-size:12px}.hb-inc > div{padding:11px 18px}.hb-inc li{font-size:12px}.plans span{padding:3px 10px}}
+
+/* tabla de inversión con desglose: más compacta en pantallas bajas */
+@media(min-width:769px) and (max-height:1000px){#s-inversion .slide,#s-inversion{padding-top:78px;padding-bottom:56px}#s-inversion .h2{font-size:clamp(28px,5.4vh,48px);margin-bottom:8px}#s-inversion .pkg-block{padding:18px 40px 14px;margin-top:8px}#s-inversion .pkg-head{margin-bottom:8px}#s-inversion .pkg-head h3{font-size:22px;margin-top:8px}#s-inversion .pkg-head p{font-size:12.5px}#s-inversion .inv-table th,#s-inversion .inv-table td{padding:4px 12px;font-size:12px}#s-inversion .inv-table tr.grp td{padding-top:7px}#s-inversion .inv-table tr.total td{padding-top:8px;font-size:14px}#s-inversion .inv-table .rubro-note{font-size:10px}#s-inversion .pkg-note{margin-top:8px;font-size:11.5px}}
+
+.hb-mods article{align-content:start}
+
 :root{--bc:#12355B;--bc2:#1D4F86;--ba:#E0A526}
 </style>
 </head>
@@ -1319,7 +1368,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
         <div class="device-browser tilt rv-3d" style="--d:3;margin-top:14px">
           <div class="device-browser-bar">
             <div class="db-dots"><span class="db-dot-r"></span><span class="db-dot-y"></span><span class="db-dot-g"></span></div>
-            <div class="db-url">CRM · Admisiones Científica</div>
+            <div class="db-url">HalconBot · Admisiones por etapa</div>
           </div>
           <div class="pipe">
             <div class="pcol"><h6>Nuevos <em>48</em></h6><div class="pcard hot"><b>María Solís</b><small>Excel · Meta Ads</small><span class="tg">Hoy</span></div><div class="pcard"><b>José Quirós</b><small>Ventas · Google</small></div><div class="pcard mv"><b>Daniela Rojas</b><small>Docentes · TikTok</small></div></div>
@@ -1337,10 +1386,53 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   </div>
 </section>
 
+<!-- ================= HALCONBOT ================= -->
+<section class="slide dk2 tex-grid-dk glow-tr noise" data-title="Qué es HalconBot" id="s-halconbot">
+  <div class="inner">
+    <div class="hb">
+      <div>
+        <div class="lbl rv" style="--d:0">11 · HalconBot, el CRM incluido</div>
+        <h2 class="h2 rv" style="--d:1;color:#fff;font-size:clamp(30px,3.3vw,48px)">Un asistente con IA en WhatsApp <em>que además es el CRM.</em></h2>
+        <p class="lead rv" style="--d:2">HalconBot es la plataforma de We Rock que atiende por WhatsApp con inteligencia artificial y guarda a cada persona que escribe: quién es, qué preguntó, en qué etapa va y qué le falta. Para la UCI, es la oficina de admisiones abierta a medianoche y la memoria de cada interesado. No hay que comprar ni aprender otro CRM: el chat y la base de datos son la misma herramienta.</p>
+        <div class="hb-proof rv" style="--d:3">
+          <div><b>74%</b><span>de las conversaciones las resolvió la IA sola en una semana: 1.954 contra 682 que necesitaron a una persona.</span></div>
+          <div><b>3,4×</b><span>ventas: Vanity Nail Bar pasó de $7M a $24M COP al mes con el mismo equipo.</span></div>
+        </div>
+        <p class="src rv" style="--d:4">Datos del panel real de un cliente activo de HalconBot (Vanity Nail Bar, Bogotá).</p>
+      </div>
+      <div>
+        <div class="hb-mods rv-3d" style="--d:2">
+          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 10h6M9 13h4"/></svg></div><b>WhatsApp con IA, 24/7</b><p>Responde precios, fechas de inicio, requisitos y formas de pago con la información real de la UCI.</p></article>
+          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></div><b>Base de datos de interesados</b><p>Cada persona queda registrada con su historial completo y acceso directo a su chat.</p></article>
+          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg></div><b>Etapas con etiquetas automáticas</b><p>"Interesado en Excel", "Pidió asesor", "Pago pendiente", "Matriculado": el embudo que vieron antes.</p></article>
+          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div><b>Chat en vivo con el asesor</b><p>El asesor toma la conversación cuando hace falta, sin que la persona repita nada. Avisos al correo.</p></article>
+          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-7-7 18-3-8z"/></svg></div><b>Envíos masivos por segmento</b><p>Apertura de matrícula, recordatorio de pago o invitación a la carrera solo a quien corresponde.</p></article>
+          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 14h6M9 17h4"/></svg></div><b>Documentos y sitio web</b><p>Envía el temario en PDF, fotos y videos, y se conecta como chat en el sitio web.</p></article>
+        </div>
+        <div class="hb-inc rv" style="--d:4">
+          <div>
+            <h4>Lo que incluye la implementación · US$1.200</h4>
+            <ul><li>Base de conocimiento: cursos, precios, requisitos y preguntas frecuentes</li><li>Etiquetas por etapa e interés</li><li>Conexión a WhatsApp Business y al sitio</li><li>Plantillas de mensajes y recordatorios</li><li>Capacitación al asesor y al equipo</li><li>Ajustes durante el primer mes</li></ul>
+          </div>
+          <div>
+            <h4>Plataforma · pago mensual aparte</h4>
+            <div class="plans">
+              <span>Starter · 6.000 conversaciones <b>US$49</b></span>
+              <span class="rec">Growth · 22.500 conversaciones <b>US$89</b></span>
+              <span>Business · 60.000 conversaciones <b>US$139</b></span>
+              <small>Se empieza en el plan que pida el volumen real y se sube cuando haga falta.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= 11 RECORRIDO ================= -->
 <section class="slide lt2 tex-grid" data-title="Recorrido del estudiante" id="s-viaje">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">11 · Recorrido del estudiante</div>
+    <div class="lbl rv" style="--d:0">12 · Recorrido del estudiante</div>
     <h2 class="h2 rv" style="--d:1">Del anuncio al aula,<br><em>sin una sola fila.</em></h2>
     <div class="journey">
       <div class="j-step rv" style="--d:1"><div class="j-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#E8000A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M10 18h4"/></svg></div><div class="j-n">01</div><h3>Ve el anuncio</h3><p>En Instagram, TikTok o buscando "curso virtual" en Google.</p><span class="j-who">Marketing</span></div>
@@ -1356,7 +1448,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 12 CALCULADORA ================= -->
 <section class="slide dk tex-grid-dk noise" data-title="La meta en números" id="s-calc">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">12 · La meta en números</div>
+    <div class="lbl rv" style="--d:0">13 · La meta en números</div>
     <h2 class="h2 rv" style="--d:1;color:#fff">¿Cuánto hace falta para llegar a <em>250 matrículas?</em></h2>
     <p class="lead rv fit-short" style="--d:2">Mueva los controles. Los valores iniciales son supuestos conservadores para Costa Rica y se ajustan con los datos reales desde la primera semana de pauta.</p>
     <div class="calc rv-3d" style="--d:3">
@@ -1384,7 +1476,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 13 MARKETING ================= -->
 <section class="slide lt tex-dots" data-title="Marketing digital" id="s-marketing">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">13 · Marketing digital</div>
+    <div class="lbl rv" style="--d:0">14 · Marketing digital</div>
     <h2 class="h2 rv" style="--d:1">Dos velocidades.<br><em>Una sola marca.</em></h2>
     <p class="lead rv fit-short" style="--d:2">Los cursos libres se venden rápido y pagan el arranque. La universidad se construye con confianza, contenido y los estudiantes que ya pasaron por un curso.</p>
     <div class="mk-split">
@@ -1419,7 +1511,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 14 HOJA DE RUTA ================= -->
 <section class="slide dk2 noise glow-bl" data-title="Hoja de ruta" id="s-ruta">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">14 · Hoja de ruta</div>
+    <div class="lbl rv" style="--d:0">15 · Hoja de ruta</div>
     <h2 class="h2 rv" style="--d:1;color:#fff">Seis semanas para abrir.<br><em>Dos cuatrimestres para despegar.</em></h2>
     <div class="phases">
       <article class="phase main rv" style="--d:3">
@@ -1470,7 +1562,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 15 INVERSIÓN ================= -->
 <section class="slide lt tex-grid" data-title="Inversión" id="s-inversion">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">15 · Inversión</div>
+    <div class="lbl rv" style="--d:0">16 · Inversión</div>
     <h2 class="h2 rv" style="--d:1">De cero a vender, <em>en cuatro meses.</em></h2>
     <p class="lead rv fit-short" style="--d:2">Con la meta de 250 matrículas a un precio promedio de US$120, el primer cuatrimestre factura cerca de US$30.000 en cursos libres, antes de sumar un solo estudiante universitario.</p>
     <div class="pkg-block corner-fx rv-3d" style="--d:3">
@@ -1483,13 +1575,19 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
         <table class="inv-table">
           <thead><tr><th>Rubro</th><th>Mes 1</th><th>Mes 2</th><th>Mes 3</th><th>Mes 4</th><th>Total</th></tr></thead>
           <tbody>
-            <tr class="grp"><td colspan="6">We Rock</td></tr>
-            <tr><td>Implementación<span class="rubro-note">Marca, sitio web, campus, matrícula, CRM y HalconBot · hitos 50 / 30 / 20</span></td><td>US$5.600</td><td>US$3.360</td><td>US$2.240</td><td class="dash">—</td><td>US$11.200</td></tr>
+            <tr class="grp"><td colspan="6">We Rock · implementación, pago único por hitos 50 / 30 / 20</td></tr>
+            <tr><td>Marca y manual de marca<span class="rubro-note">Nombre de uso, logotipo, paleta, tipografía y plantillas</span></td><td>US$800</td><td>US$480</td><td>US$320</td><td class="dash">—</td><td>US$1.600</td></tr>
+            <tr><td>Sitio web<span class="rubro-note">Catálogo de cursos, carreras y sedes virtuales</span></td><td>US$1.200</td><td>US$720</td><td>US$480</td><td class="dash">—</td><td>US$2.400</td></tr>
+            <tr><td>Campus virtual tipo Moodle<span class="rubro-note">Con marca, cursos cargados y certificados con QR</span></td><td>US$1.600</td><td>US$960</td><td>US$640</td><td class="dash">—</td><td>US$3.200</td></tr>
+            <tr><td>Matrícula en línea<span class="rubro-note">Formulario, documentos y pago con SINPE Móvil o tarjeta</span></td><td>US$1.400</td><td>US$840</td><td>US$560</td><td class="dash">—</td><td>US$2.800</td></tr>
+            <tr><td>CRM + HalconBot<span class="rubro-note">Configuración, etiquetas por etapa y conexión a WhatsApp</span></td><td>US$600</td><td>US$360</td><td>US$240</td><td class="dash">—</td><td>US$1.200</td></tr>
+            <tr class="subtotal"><td>Subtotal implementación</td><td>US$5.600</td><td>US$3.360</td><td>US$2.240</td><td class="dash">—</td><td>US$11.200</td></tr>
+            <tr class="grp"><td colspan="6">We Rock · servicios mensuales</td></tr>
             <tr><td>Contenido y redes<span class="rubro-note">Creación de canales, calendario y producción</span></td><td>US$950</td><td>US$950</td><td>US$950</td><td>US$950</td><td>US$3.800</td></tr>
             <tr><td>Gestión de pauta<span class="rubro-note">Meta, TikTok y Google</span></td><td class="dash">—</td><td>US$550</td><td>US$550</td><td>US$550</td><td>US$1.650</td></tr>
             <tr><td>Asesor comercial<span class="rubro-note">Más bono por matrícula cerrada</span></td><td class="dash">—</td><td>US$850</td><td>US$850</td><td>US$850</td><td>US$2.550</td></tr>
             <tr><td>Soporte técnico<span class="rubro-note">Sitio, campus y matrícula</span></td><td class="dash">—</td><td class="dash">—</td><td>US$280</td><td>US$280</td><td>US$560</td></tr>
-            <tr class="subtotal"><td>Subtotal We Rock</td><td>US$6.550</td><td>US$5.710</td><td>US$4.870</td><td>US$2.630</td><td>US$19.760</td></tr>
+            <tr class="subtotal"><td>Subtotal We Rock · implementación + mensual</td><td>US$6.550</td><td>US$5.710</td><td>US$4.870</td><td>US$2.630</td><td>US$19.760</td></tr>
             <tr class="grp"><td colspan="6">Proveedores y pauta · la UCI paga directo</td></tr>
             <tr><td>Servidores, dominio y correo<span class="rubro-note">Sitio y campus · estimado</span></td><td>US$75</td><td>US$75</td><td>US$75</td><td>US$75</td><td>US$300</td></tr>
             <tr><td>Plan HalconBot Growth<span class="rubro-note">Hasta 22.500 conversaciones al mes</span></td><td class="dash">—</td><td>US$89</td><td>US$89</td><td>US$89</td><td>US$267</td></tr>
@@ -1507,7 +1605,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <!-- ================= 16 SERVICIOS ================= -->
 <section class="slide lt2 tex-dots" data-title="Cada pieza por separado" id="s-servicios">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">16 · Cada pieza por separado</div>
+    <div class="lbl rv" style="--d:0">17 · Cada pieza por separado</div>
     <h2 class="h2 rv" style="--d:1">El plan es una sugerencia.<br><em>La UCI elige por dónde empezar.</em></h2>
     <div class="svc-title rv" style="--d:2">Implementación · pago único</div>
     <div class="svc-grid rv" style="--d:3">
@@ -1533,7 +1631,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <section class="slide dk tex-grid-dk noise glow-tr" data-title="Por qué We Rock" id="s-werock">
   <div class="inner why">
     <div>
-      <div class="lbl rv" style="--d:0">17 · Por qué We Rock</div>
+      <div class="lbl rv" style="--d:0">18 · Por qué We Rock</div>
       <h2 class="h2 rv" style="--d:1;color:#fff">No es un sitio web.<br>Es una <em>universidad funcionando.</em></h2>
       <p class="lead rv" style="--d:2">Un campus sin estudiantes no sirve, y una campaña sin matrícula en línea se pierde en el WhatsApp. We Rock construye la tecnología, trae el tráfico y pone a una persona a cerrar matrículas. Un solo equipo responsable del resultado.</p>
       <div class="pillars3">
@@ -1557,7 +1655,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <section class="slide dk close noise glow-bl" data-title="Siguiente paso" id="s-cierre">
   <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
   <div class="inner">
-    <div class="lbl rv" style="--d:0">18 · Siguiente paso</div>
+    <div class="lbl rv" style="--d:0">19 · Siguiente paso</div>
     <h2 class="close-title rv" style="--d:1">¿Abrimos<br>la <span class="r">primera matrícula?</span></h2>
     <div class="next">
       <div class="rv" style="--d:2"><b>01</b><h3>El listado de cursos</h3><p>La UCI nos comparte los cursos libres, sus precios y los docentes que los dictan.</p></div>
@@ -1680,42 +1778,24 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   }
   if(reduce){ document.querySelectorAll('svg').forEach(s=>s.pauseAnimations && s.pauseAnimations()); }
 
-  // Portada: red de nodos que confluyen en un centro (estudiantes que llegan a la universidad)
-  function coverNet(cfg){
+  // Portadas conceptuales: red neuronal We Rock con la forma de cada proyecto
+  function neuralCanvas(build, frame){
     const cv = $('net'), ctx = cv.getContext('2d');
-    let W,H,DPR,pulses=[];
-    const P = n => { const c=cfg.nodes[n], m=innerWidth<769; const b = m ? cfg.boxM : cfg.box; return [(b[0]+c[0]*b[2])*W, (b[1]+c[1]*b[3])*H]; };
-    function size(){DPR=Math.min(devicePixelRatio||1,2);W=cv.offsetWidth;H=cv.offsetHeight;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
-    function spawn(){const e=cfg.edges[Math.random()*cfg.edges.length|0];pulses.push({a:e[0],b:e[1],t:0,s:.003+Math.random()*.004});}
+    let W=0,H=0,M=false,state=null,t0=performance.now();
+    const mouse={x:-999,y:-999};
+    function size(){const d=Math.min(devicePixelRatio||1,2);W=cv.offsetWidth;H=cv.offsetHeight;M=innerWidth<769;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);state=build(W,H,M);}
     size(); addEventListener('resize',size);
-    for(let i=0;i<cfg.count;i++){spawn();pulses[i].t=Math.random();}
-    function curve(A,B,bend){const mx=(A[0]+B[0])/2,my=(A[1]+B[1])/2,dx=B[0]-A[0],dy=B[1]-A[1];return [mx-dy*bend,my+dx*bend];}
-    function pt(A,C,B,t){const u=1-t;return [u*u*A[0]+2*u*t*C[0]+t*t*B[0],u*u*A[1]+2*u*t*C[1]+t*t*B[1]];}
-    function draw(time){
-      ctx.clearRect(0,0,W,H);
-      cfg.edges.forEach(([a,b,bd])=>{const A=P(a),B=P(b),C=curve(A,B,bd||.12);ctx.strokeStyle=bd?'rgba(255,255,255,.14)':'rgba(255,255,255,.08)';ctx.lineWidth=1;if(bd)ctx.setLineDash([3,6]);ctx.beginPath();ctx.moveTo(A[0],A[1]);ctx.quadraticCurveTo(C[0],C[1],B[0],B[1]);ctx.stroke();ctx.setLineDash([]);});
-      pulses.forEach(p=>{
-        const e=cfg.edges.find(x=>x[0]===p.a&&x[1]===p.b), A=P(p.a),B=P(p.b),C=curve(A,B,(e&&e[2])||.12);
-        const h=pt(A,C,B,p.t), tl=pt(A,C,B,Math.max(0,p.t-.14));
-        const g=ctx.createLinearGradient(tl[0],tl[1],h[0],h[1]);g.addColorStop(0,'rgba(232,0,10,0)');g.addColorStop(1,'rgba(232,0,10,.95)');
-        ctx.strokeStyle=g;ctx.lineWidth=2;ctx.beginPath();
-        for(let k=0;k<=8;k++){const q=pt(A,C,B,Math.max(0,p.t-.14)+(p.t-Math.max(0,p.t-.14))*k/8);k?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]);}
-        ctx.stroke();
-        ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(h[0],h[1],2.2,0,7);ctx.fill();
-        if(!reduce) p.t+=p.s;
-      });
-      pulses=pulses.filter(p=>p.t<1); while(pulses.length<cfg.count) spawn();
-      ctx.font='600 10px Barlow, sans-serif';ctx.textBaseline='middle';
-      Object.keys(cfg.nodes).forEach(n=>{
-        const [x,y]=P(n), big=n===cfg.hub, far=cfg.far&&cfg.far.includes(n);
-        const pulse = reduce?0:(Math.sin(time/600+x)*.5+.5);
-        ctx.fillStyle='rgba(232,0,10,'+(.12+pulse*.12)+')';ctx.beginPath();ctx.arc(x,y,big?16+pulse*4:far?11:7+pulse*3,0,7);ctx.fill();
-        ctx.fillStyle=big||far?'#E8000A':'#fff';ctx.beginPath();ctx.arc(x,y,big?5:far?4:3,0,7);ctx.fill();
-        ctx.fillStyle='rgba(255,255,255,'+(big||far?.92:.5)+')';ctx.fillText(n.toUpperCase(),x+11,y);
-      });
-      if(!reduce) requestAnimationFrame(draw);
-    }
-    requestAnimationFrame(draw);
+    cv.parentElement.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+    cv.parentElement.addEventListener('mouseleave',()=>{mouse.x=mouse.y=-999;});
+    const api = {
+      link(a,b,max,boost){const d=Math.hypot(a.x-b.x,a.y-b.y);if(d>max)return;const nm=Math.min(Math.hypot(a.x-mouse.x,a.y-mouse.y),Math.hypot(b.x-mouse.x,b.y-mouse.y));const m=nm<200?(1-nm/200)*.5:0;ctx.strokeStyle='rgba(232,0,10,'+Math.min((1-d/max)*(boost||.45)+m,1)+')';ctx.lineWidth=.6+m;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();},
+      node(x,y,r,hot){const g=ctx.createRadialGradient(x,y,r*.4,x,y,r*(hot?9:6));g.addColorStop(0,'rgba(232,0,10,'+(hot?.45:.2)+')');g.addColorStop(1,'rgba(232,0,10,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r*(hot?9:6),0,7);ctx.fill();ctx.fillStyle=hot?'#ff2a31':'#E8000A';ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();},
+      dust(x,y,r,a){ctx.fillStyle='rgba(255,255,255,'+a+')';ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();},
+      spark(x,y,k){const g=ctx.createRadialGradient(x,y,0,x,y,10);g.addColorStop(0,'rgba(255,240,220,'+(.85*k)+')');g.addColorStop(.4,'rgba(255,120,50,'+(.35*k)+')');g.addColorStop(1,'rgba(232,0,10,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,10,0,7);ctx.fill();},
+      label(txt,x,y,hot,align){ctx.font=(hot?'800 ':'700 ')+'10px Barlow, sans-serif';ctx.textBaseline='middle';ctx.textAlign=align||'left';ctx.fillStyle=hot?'#E8000A':'rgba(255,255,255,.5)';ctx.fillText(txt.split('').join(String.fromCharCode(8202)),x,y);ctx.textAlign='left';}
+    };
+    function loop(now){ctx.clearRect(0,0,W,H);frame(ctx,state,(now-t0)/1000,api,W,H,M);if(!reduce)requestAnimationFrame(loop);}
+    requestAnimationFrame(loop);
   }
 
   // Calculadora: meta de 250 matrículas en el cuatrimestre
@@ -1732,16 +1812,34 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
     $('outN').style.color = n >= 250 ? '#fff' : 'rgba(255,255,255,.75)';
   });
 
-  // Portada: estudiantes de todo el país llegando a la sede principal en San José
-  coverNet({
-    hub:'San José', count:12,
-    box:[.52,.12,.42,.72], boxM:[.06,.12,.84,.46],
-    nodes:{
-      'San José':[.55,.43],'Alajuela':[.43,.35],'Heredia':[.57,.29],'Cartago':[.66,.51],
-      'Liberia':[.13,.12],'Nicoya':[.12,.34],'Puntarenas':[.3,.44],'San Carlos':[.42,.2],
-      'Limón':[.88,.38],'Pérez Zeledón':[.66,.7],'Golfito':[.83,.92]
-    },
-    edges:[['Liberia','San José'],['Nicoya','San José'],['Puntarenas','San José'],['San Carlos','San José'],['Alajuela','San José'],['Heredia','San José'],['Cartago','San José'],['Limón','San José'],['Pérez Zeledón','San José'],['Golfito','San José']]
+  // Portada: el conocimiento orbitando la universidad (neuronas en órbita alrededor del sello Científica)
+  neuralCanvas((W,H,M)=>{
+    const lim = M ? Math.max(document.querySelector('#s-portada .inner').offsetTop - 16, H*.28) : H;
+    const cx = M ? W*.5 : W*.73, cy = M ? (70 + lim) / 2 : H*.46;
+    const R = M ? Math.min(W*.33, (lim - 70) * .36) : Math.min(W*.19, H*.3);
+    const orbits = [{tilt:-.42,rx:R*1.45,ry:R*.46,n:15,sp:.16},{tilt:.62,rx:R*1.2,ry:R*.4,n:12,sp:-.2},{tilt:1.5,rx:R*1.02,ry:R*.36,n:10,sp:.24}];
+    const ps = [];
+    orbits.forEach((o,k)=>{for(let i=0;i<o.n;i++)ps.push({o,a:i/o.n*Math.PI*2+Math.random()*.3,hot:Math.random()<.18});});
+    const dust = Array.from({length:M?40:80},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.3,vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.12,a:Math.random()*.25+.05}));
+    return {cx,cy,R,orbits,ps,dust,sig:[],pulse:0,next:0};
+  },(ctx,s,t,api,W,H)=>{
+    s.dust.forEach(d=>{d.x=(d.x+d.vx+W)%W;d.y=(d.y+d.vy+H)%H;api.dust(d.x,d.y,d.r,d.a);});
+    ctx.lineWidth=1;
+    s.orbits.forEach(o=>{ctx.strokeStyle='rgba(255,255,255,.07)';ctx.beginPath();ctx.ellipse(s.cx,s.cy,o.rx,o.ry,o.tilt,0,Math.PI*2);ctx.stroke();});
+    s.ps.forEach(p=>{const o=p.o,th=p.a+o.sp*t,c=Math.cos(th),sn=Math.sin(th);p.x=s.cx+o.rx*c*Math.cos(o.tilt)-o.ry*sn*Math.sin(o.tilt);p.y=s.cy+o.rx*c*Math.sin(o.tilt)+o.ry*sn*Math.cos(o.tilt);p.z=sn;});
+    for(let i=0;i<s.ps.length;i++)for(let j=i+1;j<s.ps.length;j++)api.link(s.ps[i],s.ps[j],s.R*.75,.4);
+    // núcleo
+    const g=ctx.createRadialGradient(s.cx,s.cy,0,s.cx,s.cy,s.R*1.1);g.addColorStop(0,'rgba(232,0,10,'+(.32+s.pulse*.25)+')');g.addColorStop(1,'rgba(232,0,10,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(s.cx,s.cy,s.R*1.1,0,7);ctx.fill();
+    const r=s.R*.3,cg=ctx.createRadialGradient(s.cx-r*.3,s.cy-r*.35,0,s.cx,s.cy,r);cg.addColorStop(0,'#ff3a40');cg.addColorStop(.6,'#E8000A');cg.addColorStop(1,'#9d0007');ctx.fillStyle=cg;ctx.beginPath();ctx.arc(s.cx,s.cy,r*(1+s.pulse*.06),0,7);ctx.fill();
+    ctx.strokeStyle='#fff';ctx.lineWidth=Math.max(2,r*.09);ctx.beginPath();ctx.arc(s.cx,s.cy,r*.66,0,7);ctx.stroke();
+    ctx.lineWidth=Math.max(3,r*.14);ctx.lineCap='round';const u=r*.26;ctx.beginPath();ctx.moveTo(s.cx-u,s.cy-u*1.2);ctx.lineTo(s.cx-u,s.cy+u*.1);ctx.arc(s.cx,s.cy+u*.1,u,Math.PI,0,true);ctx.lineTo(s.cx+u,s.cy-u*1.2);ctx.stroke();ctx.lineCap='butt';
+    api.label('CIENTÍFICA',s.cx,s.cy+r+22,true,'center');
+    s.pulse*=.93;
+    // partículas por delante y por detrás del núcleo
+    s.ps.forEach(p=>{if(p.z<0&&Math.hypot(p.x-s.cx,p.y-s.cy)<r*1.05)return;api.node(p.x,p.y,(p.hot?2.8:1.8)+p.z*.8,p.hot&&p.z>0);});
+    // señales hacia el centro: estudiantes que llegan
+    if(t>s.next){const p=s.ps[Math.random()*s.ps.length|0];s.sig.push({p,k:0});s.next=t+.35+Math.random()*.5;}
+    s.sig=s.sig.filter(q=>{q.k+=.018;const x=q.p.x+(s.cx-q.p.x)*q.k,y=q.p.y+(s.cy-q.p.y)*q.k;api.spark(x,y,1-q.k*.3);if(q.k>=1){s.pulse=1;return false;}return true;});
   });
 
 })();
