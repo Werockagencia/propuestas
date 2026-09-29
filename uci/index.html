@@ -975,6 +975,50 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 
 .hb-mods article{align-content:start}
 
+/* ============ CELULAR: MÁS IMPACTO, MENOS SCROLL ============ */
+.swipe-hint{display:none}
+@media(max-width:768px){
+  /* carruseles deslizables para grupos de tarjetas */
+  .m-swipe{display:grid!important;grid-auto-flow:column;grid-template-columns:none!important;grid-auto-columns:84%;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;gap:10px!important;background:none!important;margin-right:-20px;padding-right:20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .m-swipe::-webkit-scrollbar{display:none}
+  .m-swipe > *{scroll-snap-align:start;min-width:0}
+  .swipe-hint{display:flex;align-items:center;gap:12px;margin:14px 0 10px;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+  .dk .swipe-hint,.dk2 .swipe-hint{color:rgba(255,255,255,.5)}
+  .swipe-hint .bar{flex:1;height:2px;background:rgba(128,128,128,.25);position:relative;overflow:hidden}
+  .swipe-hint .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--red);width:var(--w,20%);transform:translateX(var(--x,0));transition:transform .25s var(--ease)}
+  .swipe-hint b{color:var(--red);font-variant-numeric:tabular-nums}
+  .swipe-hint svg{width:14px;height:14px;animation:nudge 1.6s ease-in-out infinite}
+  @keyframes nudge{50%{transform:translateX(5px)}}
+  .phases.m-swipe .phase{min-height:100%}
+
+  /* tabla de inversión como filas-tarjeta */
+  .inv-table-wrap{overflow:visible}
+  .inv-table{min-width:0}
+  .inv-table thead{display:none}
+  .inv-table,.inv-table tbody{display:block}
+  .inv-table tr{display:grid;grid-template-columns:repeat(4,1fr);column-gap:6px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+  .inv-table td{display:block;padding:0!important;border:none!important;white-space:normal;text-align:left!important;font-size:12px}
+  .inv-table td:first-child{grid-column:1/4;font-size:14px}
+  .inv-table td:last-child{grid-column:4;grid-row:1;text-align:right!important;font-weight:800;color:#fff;font-size:14px}
+  .inv-table td:nth-child(2),.inv-table td:nth-child(3),.inv-table td:nth-child(4),.inv-table td:nth-child(5){grid-row:2;margin-top:8px;font-size:12px}
+  .inv-table td:nth-child(2)::before{content:'Mes 1'}
+  .inv-table td:nth-child(3)::before{content:'Mes 2'}
+  .inv-table td:nth-child(4)::before{content:'Mes 3'}
+  .inv-table td:nth-child(5)::before{content:'Mes 4'}
+  .inv-table td:nth-child(n+2):not(:last-child)::before{display:block;font-size:8.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:2px;text-decoration:none}
+  .inv-table tr.grp{display:block;padding:18px 0 4px;border:none}
+  .inv-table tr.grp td{font-size:9.5px}
+  .inv-table tr.subtotal{background:rgba(255,255,255,.05);padding:10px 10px;margin:0 -10px}
+  .inv-table tr.total{border-top:2px solid var(--red);border-bottom:none;padding-top:14px}
+  .inv-table tr.total td:first-child{font-size:16px}
+  .inv-table tr.total td:last-child{font-size:18px;color:#fff}
+  .inv-table .rubro-note{display:block;margin:2px 0 0!important}
+}
+@media(max-width:768px){
+  .inv-table tr.subtotal td{background:none!important}
+  .inv-table tr.grp td,.inv-table tr.grp td:last-child{text-align:left!important;color:var(--red);font-size:9.5px;font-weight:800}
+}
+
 :root{--bc:#12355B;--bc2:#1D4F86;--ba:#E0A526}
 </style>
 </head>
@@ -1797,6 +1841,27 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
     function loop(now){ctx.clearRect(0,0,W,H);frame(ctx,state,(now-t0)/1000,api,W,H,M);if(!reduce)requestAnimationFrame(loop);}
     requestAnimationFrame(loop);
   }
+
+  // Celular: grupos de tarjetas como carrusel con indicador de posición
+  (function(){
+    const sel = '.bench,.law,.eco,.phases,.hb-mods,.allies';
+    const arrow = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
+    document.querySelectorAll(sel).forEach(g=>{
+      const n = g.children.length; if(n < 3) return;
+      g.classList.add('m-swipe');
+      const h = document.createElement('div'); h.className = 'swipe-hint'; h.setAttribute('aria-hidden','true');
+      h.innerHTML = '<span>Desliza</span>'+arrow+'<span class="bar"><i></i></span><b>1 / '+n+'</b>';
+      g.parentNode.insertBefore(h, g);
+      const bar = h.querySelector('i'), num = h.querySelector('b');
+      bar.style.setProperty('--w', (100/n)+'%');
+      g.addEventListener('scroll',()=>{
+        const max = g.scrollWidth - g.clientWidth, p = max > 0 ? g.scrollLeft / max : 0;
+        const i = Math.round(p*(n-1));
+        num.textContent = (i+1)+' / '+n;
+        bar.style.setProperty('--x', (p*(n-1)*100)+'%');
+      },{passive:true});
+    });
+  })();
 
   // Calculadora: meta de 250 matrículas en el cuatrimestre
   bindCalc(['cA','cB','cC','cD'], (A,B,C,D)=>{
