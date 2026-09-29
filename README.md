@@ -26,3 +26,5 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [Tirano Fajardo Abogados — Estrategia híbrida (Google Ads Familia + LinkedIn Ads Insolvencia)](https://werockagencia.github.io/propuestas/tiranofajardo/)
 - [Pet Empire Mobile Grooming — Sitio WordPress + MoeGo, Contenido, Google Ads y Meta Ads (USD semanal)](https://werockagencia.github.io/propuestas/petempire/)
 - [Safe Trip — Alianza Safe Trip Connect: plataforma de carga + marketing digital (presentación)](https://werockagencia.github.io/propuestas/safetrip/)
+- [Universidad Científica Internacional (Costa Rica) — Marca, web, campus virtual, matrícula y equipo comercial (presentación, USD)](https://werockagencia.github.io/propuestas/uci/)
+- [UNINTE Colombia — Doctorado en Administración: captación comercial en Colombia (presentación, USD)](https://werockagencia.github.io/propuestas/uninte/)
