@@ -75,7 +75,6 @@ em,.it{font-style:italic;font-family:var(--serif);color:var(--gold-2);font-weigh
 
 /* ── nav ── */
 .nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:100;display:flex;align-items:center;gap:6px;padding:7px 7px 7px 10px;border-radius:999px;background:rgba(11,10,36,.55);border:1px solid var(--hair-d);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);transition:background .4s,transform .5s var(--ease);width:max-content;max-width:calc(100% - 24px)}
-.nav.hide{transform:translate(-50%,-140%)}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;padding-right:8px}
 .brand img{width:34px;height:34px;border-radius:50%;object-fit:cover}
 .brand b{font:600 13px/1 var(--serif);letter-spacing:.16em;white-space:nowrap}
@@ -97,8 +96,21 @@ em,.it{font-style:italic;font-family:var(--serif);color:var(--gold-2);font-weigh
   linear-gradient(180deg,rgba(11,10,36,.6),transparent 26%)}
 @media(max-width:900px){.hero .poster{left:0;width:100%;height:62svh;object-position:62% 62%}.hero{background:var(--night);padding-top:50svh;align-items:start}.hero::before{background:linear-gradient(180deg,rgba(11,10,36,.55) 0,rgba(11,10,36,.05) 14svh,rgba(11,10,36,.1) 40svh,var(--night) 62svh)}}
 @media(max-width:600px){.seal{display:none}.kicker{letter-spacing:.12em;font-size:11px}}
-.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:end}
-.hero h1{margin:22px 0 26px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,600px) 1fr;gap:40px;align-items:end}
+.hero h1{margin:22px 0 24px;font-size:clamp(44px,6vw,88px)}
+.hero-points{list-style:none;margin:30px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px}
+.hero-points li{display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(247,244,236,.78)}
+.hero-points svg{width:18px;height:18px;color:var(--gold)}
+.hero-pets{position:relative;justify-self:end;width:420px;height:360px}
+.pf{position:absolute;margin:0;padding:8px;background:var(--bone);border-radius:22px;box-shadow:0 40px 70px -30px rgba(0,0,0,.75)}
+.pf img{display:block;object-fit:cover;border-radius:15px}
+.pf.a{right:0;bottom:24px;transform:rotate(4deg)}
+.pf.a img{width:230px;height:288px}
+.pf.b{left:20px;bottom:0;transform:rotate(-5deg);z-index:2}
+.pf.b img{width:200px;height:250px}
+.pf-note{position:absolute;left:150px;top:0;display:flex;gap:8px;align-items:center;font-size:13px;padding:9px 14px;border-radius:999px;background:rgba(11,10,36,.7);backdrop-filter:blur(10px);white-space:nowrap}
+@media(max-width:1100px){.hero-pets{width:340px;height:320px}.pf.a img{width:190px;height:238px}.pf.b img{width:165px;height:206px}.pf-note{left:60px}}
+@media(max-width:900px){.hero-pets{justify-self:start;width:100%;max-width:360px;height:300px;margin-top:10px}}
 .hero h1 .line{display:block;overflow:hidden}
 .hero h1 .line>span{display:inline-block;transform:translateY(105%);animation:rise 1.2s var(--ease) forwards}
 .hero h1 .line:nth-child(2)>span{animation-delay:.12s}
@@ -230,8 +242,18 @@ section{position:relative}
 .results{background:var(--bone);color:var(--ink);overflow:hidden}
 .rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px var(--gut) 30px calc(max(var(--gut),(100% - var(--wrap))/2));scrollbar-width:none}
 .rail::-webkit-scrollbar{display:none}
-.ba{flex:none;width:min(420px,82vw);scroll-snap-align:start}
-.ba .cmp{aspect-ratio:4/5;border-radius:26px;box-shadow:0 40px 60px -40px rgba(20,17,47,.5)}
+/* Cada par: antes | después lado a lado, en cuadrado (el formato nativo de las
+   fotos, 620×620) para que no se recorte nada. A ≤ 290 px por foto siguen
+   nítidas incluso en pantallas retina. */
+.ba{flex:none;width:min(580px,88vw);scroll-snap-align:start;padding:10px;border-radius:30px;background:#fff;border:1px solid var(--hair-l);box-shadow:0 40px 60px -40px rgba(20,17,47,.45)}
+.ba .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:relative}
+.ba figure{margin:0;position:relative;aspect-ratio:1/1;border-radius:22px;overflow:hidden;background:var(--bone-2)}
+.ba figure img{width:100%;height:100%;object-fit:cover}
+.ba .lbl{position:absolute;top:12px;left:12px;font:500 11px var(--mono);letter-spacing:.18em;text-transform:uppercase;padding:7px 10px;border-radius:999px;background:rgba(11,10,36,.72);color:var(--bone)}
+.ba .lbl.a{background:var(--gold);color:var(--night)}
+.ba .mid{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--night);display:grid;place-items:center;box-shadow:0 0 0 6px #fff;z-index:2}
+.ba .mid svg{width:18px;height:18px}
+.ba .txt{padding:16px 10px 8px}
 .ba h3{font:400 26px/1.1 var(--serif);margin:20px 0 6px}
 .ba p{margin:0;color:var(--ink-soft);font-size:15.5px}
 .rail-ctl{display:flex;gap:10px}
@@ -417,7 +439,11 @@ footer.site{background:var(--night);padding:90px 0 120px;overflow:hidden;positio
 .ft-grid p,.ft-grid a{color:rgba(247,244,236,.72);text-decoration:none;font-size:15px;margin:0 0 8px;display:block}
 .ft-grid a:hover{color:var(--gold)}
 .wordmark{font:500 clamp(64px,15vw,230px)/.85 var(--serif);letter-spacing:-.04em;margin-top:80px;white-space:nowrap;background:linear-gradient(180deg,rgba(247,244,236,.16),rgba(247,244,236,0));-webkit-background-clip:text;background-clip:text;color:transparent}
-.fine{font-size:13px;color:rgba(247,244,236,.45);margin-top:30px}
+.fine{font-size:13px;color:rgba(247,244,236,.45);margin:0}
+.credit{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:30px;padding-top:22px;border-top:1px solid var(--hair-d)}
+.werock{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:rgba(247,244,236,.6);padding:10px 16px;border:1px solid var(--hair-d);border-radius:999px;transition:.3s}
+.werock b{color:var(--gold);font-weight:500}
+.werock:hover{border-color:var(--gold);color:var(--bone)}
 @media(max-width:860px){.ft-grid{grid-template-columns:1fr}}
 
 /* barra móvil */
@@ -493,15 +519,19 @@ footer.site{background:var(--night);padding:90px 0 120px;overflow:hidden;positio
         <a class="btn" href="#book"><span data-es="Reservar en 30 segundos">Book in 30 seconds</span><span class="ar"><svg width="18" height="18"><use href="#i-arrow"/></svg></span></a>
         <a class="btn ghost" href="tel:+14752776167" data-call><span>(475) 277-6167</span><span class="ar"><svg width="18" height="18"><use href="#i-phone"/></svg></span></a>
       </div>
-    </div>
-    <aside class="hero-card fade" aria-label="Why Pet Empire">
-      <ul>
-        <li><svg><use href="#i-van"/></svg><span data-es="La van se estaciona en tu casa">The van parks at your home</span></li>
+      <ul class="hero-points fade">
         <li><svg><use href="#i-one"/></svg><span data-es="Una mascota a la vez">One pet at a time</span></li>
-        <li><svg><use href="#i-tooth"/></svg><span data-es="Dental despierto, sin anestesia">Dental while awake, no anesthesia</span></li>
-        <li><svg><use href="#i-cat"/></svg><span data-es="Perros <i>y</i> gatos">Dogs <i>and</i> cats</span></li>
+        <li><svg><use href="#i-cage"/></svg><span data-es="Sin jaulas">No cages</span></li>
+        <li><svg><use href="#i-tooth"/></svg><span data-es="Dental sin anestesia">Dental, no anesthesia</span></li>
+        <li><svg><use href="#i-cat"/></svg><span data-es="Perros y gatos">Dogs &amp; cats</span></li>
       </ul>
-      <div class="rate"><span class="stars">★★★★★</span><span data-es="5.0 en Google · Se habla español">5.0 on Google · Se habla español</span></div>
+    </div>
+    <!-- Dos clientes reales recién salidos de la van: contextualizan el servicio
+         sin tapar la van. Fotos de 620 px mostradas a ≤ 230 px (nítidas en retina). -->
+    <aside class="hero-pets fade" aria-label="Real clients">
+      <figure class="pf a"><img src="fotos/web/pet33.webp" alt="Sheltie with a white bow tie after grooming in the van" width="230" height="288"></figure>
+      <figure class="pf b"><img src="fotos/web/ba-doodle-a.webp" alt="Goldendoodle brushed out and finished in the van" width="200" height="250"></figure>
+      <div class="pf-note"><span class="stars">★★★★★</span><span data-es="5.0 en Google · recién salidos de la van">5.0 on Google · fresh out of the van</span></div>
     </aside>
   </div>
   <span class="scroll-cue" aria-hidden="true"></span>
@@ -610,7 +640,7 @@ footer.site{background:var(--night);padding:90px 0 120px;overflow:hidden;positio
     <div class="sec-head">
       <div><span class="kicker" data-es="Antes y después">Before &amp; after</span><h2 class="h-l" data-es="El mismo animal,<br><em>la misma tarde.</em>">Same animal,<br><em>same afternoon.</em></h2></div>
       <div>
-        <p class="lede" data-es="Sin perros cambiados, sin retoques. Lo de la izquierda es lo que había debajo del pelo. Arrastra cada foto.">No swapped dogs, no retouching. What's on the left is what was under the coat. Drag each photo.</p>
+        <p class="lede" data-es="Sin perros cambiados, sin retoques. Lo de la izquierda es lo que había debajo del pelo.">No swapped dogs, no retouching. What's on the left is what was under the coat.</p>
         <div class="rail-ctl" style="margin-top:20px"><button type="button" data-rail="-1" aria-label="Previous"><svg width="20" height="20" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button><button type="button" data-rail="1" aria-label="Next"><svg width="20" height="20"><use href="#i-arrow"/></svg></button></div>
       </div>
     </div>
@@ -861,7 +891,8 @@ footer.site{background:var(--night);padding:90px 0 120px;overflow:hidden;positio
       <div><h4 data-es="Horario">Hours</h4><p data-es="Lun – Sáb · 8:00 – 20:00">Mon – Sat · 8:00 AM – 8:00 PM</p><p data-es="Domingo · 8:00 – 18:00">Sunday · 8:00 AM – 6:00 PM</p></div>
     </div>
     <div class="wordmark" aria-hidden="true">Pet Empire</div>
-    <p class="fine" data-es="© 2026 Pet Empire Mobile Grooming · Cuidado premium para una raza superior.">© 2026 Pet Empire Mobile Grooming · Premium care for a higher breed.</p>
+    <div class="credit"><p class="fine" data-es="© 2026 Pet Empire Mobile Grooming · Cuidado premium para una raza superior.">© 2026 Pet Empire Mobile Grooming · Premium care for a higher breed.</p>
+    <a class="werock" href="https://www.werock.space" target="_blank" rel="noopener">Site developed by <b>www.werock.space</b></a></div>
   </div>
 </footer>
 
@@ -927,10 +958,12 @@ $("#wall2").innerHTML = [...MURO].reverse().map(n => `<img src="fotos/web/pet${n
 
 $("#rail").innerHTML = ANTES_DESPUES.map(b => `
   <article class="ba">
-    <div class="cmp"><img src="fotos/web/ba-${b.k}-b.webp" alt="${b.en[0]} before" loading="lazy"><img class="after" src="fotos/web/ba-${b.k}-a.webp" alt="${b.en[0]} after" loading="lazy">
-      <span class="handle"></span><span class="lbl b" data-es="Antes">Before</span><span class="lbl a" data-es="Después">After</span>
-      <input type="range" min="0" max="100" value="50" aria-label="${b.en[0]}: before and after"></div>
-    <h3 data-es="${b.es[0]}">${b.en[0]}</h3><p data-es="${b.es[1]}">${b.en[1]}</p>
+    <div class="pair">
+      <figure><img src="fotos/web/ba-${b.k}-b.webp" alt="${b.en[0]} before" loading="lazy" width="620" height="620"><span class="lbl" data-es="Antes">Before</span></figure>
+      <figure><img src="fotos/web/ba-${b.k}-a.webp" alt="${b.en[0]} after" loading="lazy" width="620" height="620"><span class="lbl a" data-es="Después">After</span></figure>
+      <span class="mid" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+    </div>
+    <div class="txt"><h3 data-es="${b.es[0]}">${b.en[0]}</h3><p data-es="${b.es[1]}">${b.en[1]}</p></div>
   </article>`).join("");
 
 $("#rev-grid").innerHTML = RESENAS.map(r => `<article class="rev rv"><span class="stars">★★★★★</span><q>${r.texto}</q><footer>${r.autor} · ${r.detalle}</footer></article>`).join("");
@@ -1042,7 +1075,6 @@ let lastY = 0, tick = false;
 const onScroll = () => {
   const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
   prog.style.width = (y / h * 100) + "%";
-  nav.classList.toggle("hide", y > lastY && y > 600);
   dock.classList.toggle("show", y > innerHeight * .8);
   lastY = y;
   const r = bw.getBoundingClientRect(), words = $$(".w", bw);
