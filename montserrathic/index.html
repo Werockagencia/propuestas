@@ -45,18 +45,18 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
 </style></head><body>
 <div class="top"><b>Montserrat Etapa II × HIC · Ronda 5 · versión blanca y verde</b><div class="r"><small>Toca cualquier lámina para verla en detalle</small><a href="Montserrat_Pauta_HIC_Ronda5.pdf" download>Descargar PDF</a></div></div>
 <main id="g">
-<button data-i="0"><img src="r5/s-01.jpg" alt="Portada"></button>
-<button data-i="1"><img src="r5/s-02.jpg" alt="Ajustes de esta ronda"></button>
-<button data-i="2"><img src="r5/s-03.jpg" alt="Valla: versión blanca y verde"></button>
-<button data-i="3"><img src="r5/s-04.jpg" alt="Valla versión blanca"></button>
-<button data-i="4"><img src="r5/s-05.jpg" alt="Valla versión verde"></button>
-<button data-i="5"><img src="r5/s-06.jpg" alt="Caja de luz: versión blanca y verde"></button>
-<button data-i="6"><img src="r5/s-07.jpg" alt="Caja de luz versión blanca"></button>
-<button data-i="7"><img src="r5/s-08.jpg" alt="Caja de luz versión verde"></button>
-<button data-i="8"><img src="r5/s-09.jpg" alt="Ascensor: versión blanca y verde"></button>
-<button data-i="9"><img src="r5/s-10.jpg" alt="Ascensor versión blanca"></button>
-<button data-i="10"><img src="r5/s-11.jpg" alt="Ascensor versión verde"></button>
-<button data-i="11"><img src="r5/s-12.jpg" alt="¿Blanca o verde?"></button>
+<button data-i="0"><img src="r5/s-01.jpg?v=6" alt="Portada"></button>
+<button data-i="1"><img src="r5/s-02.jpg?v=6" alt="Ajustes de esta ronda"></button>
+<button data-i="2"><img src="r5/s-03.jpg?v=6" alt="Valla: versión blanca y verde"></button>
+<button data-i="3"><img src="r5/s-04.jpg?v=6" alt="Valla versión blanca"></button>
+<button data-i="4"><img src="r5/s-05.jpg?v=6" alt="Valla versión verde"></button>
+<button data-i="5"><img src="r5/s-06.jpg?v=6" alt="Caja de luz: versión blanca y verde"></button>
+<button data-i="6"><img src="r5/s-07.jpg?v=6" alt="Caja de luz versión blanca"></button>
+<button data-i="7"><img src="r5/s-08.jpg?v=6" alt="Caja de luz versión verde"></button>
+<button data-i="8"><img src="r5/s-09.jpg?v=6" alt="Ascensor: versión blanca y verde"></button>
+<button data-i="9"><img src="r5/s-10.jpg?v=6" alt="Ascensor versión blanca"></button>
+<button data-i="10"><img src="r5/s-11.jpg?v=6" alt="Ascensor versión verde"></button>
+<button data-i="11"><img src="r5/s-12.jpg?v=6" alt="¿Blanca o verde?"></button>
 </main>
 <footer>Montserrat Etapa II · Azulado Inmobiliario</footer>
 
@@ -72,7 +72,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
   var items=[].slice.call(document.querySelectorAll('#g button'));
   var lb=document.getElementById('lb'),img=document.getElementById('lbI'),st=document.getElementById('lbS'),
       t=document.getElementById('lbT'),z=document.getElementById('lbZ'),ld=document.getElementById('lbL'),cur=0,last=null;
-  function hd(i){return 'r5/hd/'+items[i].querySelector('img').getAttribute('src').split('/').pop()}
+  function hd(i){return 'r5/hd/'+items[i].querySelector('img').getAttribute('src').split('/').pop().split('?')[0]}
   function show(i){
     cur=(i+items.length)%items.length;var th=items[cur].querySelector('img');
     setZoom(false);ld.hidden=false;img.src=th.src;img.alt=th.alt;
