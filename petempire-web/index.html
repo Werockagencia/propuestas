@@ -454,6 +454,49 @@ footer.site{background:var(--night);padding:90px 0 120px;overflow:hidden;positio
 .dock a:last-child{border:1px solid var(--hair-d)}
 @media(max-width:760px){.dock{display:flex}}
 
+/* ── Pulido responsive ── */
+html{overflow-x:clip}
+body{overflow-x:clip}
+.book-grid,.faq-grid,.dent-grid,.inside-grid,.zones{min-width:0}
+.book-grid>*,.faq-grid>*,.inside-grid>*{min-width:0}
+.alt a b{font-size:clamp(18px,5vw,24px);overflow-wrap:anywhere}
+@media(max-width:900px){
+  .hero-pets{position:relative;display:flex;align-items:flex-end;gap:14px;width:100%;max-width:none;height:auto;margin-top:26px;padding-top:44px}
+  .pf{position:relative;inset:auto}
+  .pf.a,.pf.b{right:auto;left:auto;bottom:auto}
+  .pf.a img,.pf.b img{width:min(150px,38vw);height:auto;aspect-ratio:4/5}
+  .pf-note{left:0;top:0}
+  .van-hero{aspect-ratio:auto;height:clamp(240px,58vw,420px);min-height:0}
+  .van-hero img{height:100%;transform:none}
+  .van-hero .cap{left:12px;right:12px;bottom:12px}
+  .van-hero .cap span{font-size:10px;padding:7px 10px}
+  .van-hero .cap span:first-child{display:none}
+  .sec{padding:clamp(72px,14vw,110px) 0}
+  .sec-head{margin-bottom:36px}
+  .truths,.svc-grid,.feats{gap:12px}
+  .cats .pics{min-height:240px}
+  .ft-grid{gap:28px}
+  footer.site{padding:70px 0 110px}
+}
+@media(max-width:600px){
+  .h-l{font-size:clamp(34px,10vw,44px)}
+  .big-words{font-size:clamp(28px,8.4vw,40px)}
+  .svc{padding:22px;min-height:0}
+  .svc h3{padding-top:26px;font-size:26px}
+  .svc.feature{min-height:460px}
+  .svc .price{top:22px;right:22px}
+  .zone h3{font-size:34px}
+  .offer .amt{font-size:64px}
+  .calc-out .fig{font-size:46px}
+  .dias{gap:4px}.dia{padding:8px 0}.dia b{font-size:17px}
+  .two{grid-template-columns:1fr;gap:0}
+  .form{padding:20px}
+  .rev q{font-size:19px}.rev:first-child q{font-size:20px}
+  .credit{flex-direction:column;align-items:flex-start}
+  .wordmark{margin-top:50px}
+  .wall-row img{width:170px;height:214px}
+  .nav{top:10px}
+}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .rv{opacity:1;transform:none}
