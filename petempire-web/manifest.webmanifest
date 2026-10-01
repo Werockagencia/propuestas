@@ -1,0 +1,30 @@
+{
+  "name": "Pet Empire Mobile Grooming",
+  "short_name": "Pet Empire",
+  "description": "Mobile pet grooming and anesthesia-free dental cleaning at your home in New Haven County, Connecticut.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1F1B56",
+  "theme_color": "#1F1B56",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
