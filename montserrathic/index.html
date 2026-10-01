@@ -6,21 +6,102 @@
 :root{--or:#EE8023;--bosque:#13251A;--peach:#F4C9A0;--muted:#a9bcae}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bosque);color:#fff;font-family:'Red Hat Display',system-ui,sans-serif}
+body.lock{overflow:hidden}
 .top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;max-width:1500px;margin:0 auto;padding:22px 16px}
 .top b{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.top .r{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.top small{color:var(--muted);font-size:13px}
 .top a{color:#fff;background:var(--or);text-decoration:none;font-weight:700;font-size:14px;padding:10px 18px;border-radius:30px}
 main{max-width:1500px;margin:0 auto;padding:0 16px 40px;display:flex;flex-direction:column;gap:18px}
-img{width:100%;height:auto;display:block;border-radius:10px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+main button{all:unset;display:block;cursor:zoom-in;border-radius:10px;position:relative}
+main button:focus-visible{outline:3px solid var(--or);outline-offset:4px}
+main img{width:100%;height:auto;display:block;border-radius:10px;box-shadow:0 30px 60px rgba(0,0,0,.35);transition:transform .25s ease}
+main button:hover img{transform:scale(1.006)}
+main button::after{content:'Ver detalle';position:absolute;right:16px;bottom:16px;background:rgba(19,37,26,.85);color:#fff;font-weight:700;font-size:13px;padding:8px 14px;border-radius:20px;opacity:0;transition:opacity .2s}
+main button:hover::after,main button:focus-visible::after{opacity:1}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40px}
-footer a{color:var(--muted)}
+
+/* Modal */
+.lb{position:fixed;inset:0;background:rgba(8,14,10,.96);display:flex;flex-direction:column;z-index:10}
+.lb[hidden]{display:none}
+.lb .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;padding-top:calc(12px + env(safe-area-inset-top,0px));font-size:14px}
+.lb .bar .t{color:#fff;font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb .bar .t span{color:var(--muted);font-weight:500;margin-left:8px}
+.lb .ctrls{display:flex;gap:8px;flex-shrink:0}
+.lb .ctrls button{all:unset;cursor:pointer;background:rgba(255,255,255,.12);color:#fff;font-weight:700;font-size:14px;padding:9px 14px;border-radius:20px}
+.lb .ctrls button:hover{background:rgba(255,255,255,.22)}
+.lb .ctrls button:focus-visible{outline:2px solid var(--or)}
+.lb .stage{flex:1;overflow:auto;display:flex;align-items:center;justify-content:center;position:relative;cursor:zoom-in}
+.lb .stage img{max-width:96vw;max-height:calc(100vh - 140px);display:block;border-radius:6px;user-select:none}
+.lb .stage.zoom{display:block;cursor:zoom-out}
+.lb .stage.zoom img{max-width:none;max-height:none;width:250%;margin:0 auto}
+.lb .arrow{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:26px;display:grid;place-items:center;cursor:pointer;border:0}
+.lb .arrow:hover{background:var(--or)}
+.lb .prev{left:14px}.lb .next{right:14px}
+.lb .hint{text-align:center;color:var(--muted);font-size:12px;padding:8px 16px calc(12px + env(safe-area-inset-bottom,0px))}
+.lb .spin{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:14px;pointer-events:none}
+@media (max-width:700px){.lb .arrow{width:42px;height:42px;font-size:20px;top:auto;bottom:56px;transform:none}.lb .stage.zoom img{width:400%}}
+@media (prefers-reduced-motion:reduce){main img{transition:none}}
 </style></head><body>
-<div class="top"><b>Montserrat Etapa II × HIC · Ronda 4 · versión blanca y verde</b><a href="Montserrat_Pauta_HIC_Ronda4.pdf" download>Descargar PDF</a></div>
-<main>
-<img src="r4/s-01.jpg" alt="Portada"><img src="r4/s-02.jpg" alt="Ajustes de esta ronda">
-<img src="r4/s-03.jpg" alt="Valla: versión blanca y verde"><img src="r4/s-04.jpg" alt="Valla versión blanca"><img src="r4/s-05.jpg" alt="Valla versión verde">
-<img src="r4/s-06.jpg" alt="Caja de luz: versión blanca y verde"><img src="r4/s-07.jpg" alt="Caja de luz versión blanca"><img src="r4/s-08.jpg" alt="Caja de luz versión verde">
-<img src="r4/s-09.jpg" alt="Ascensor: versión blanca y verde"><img src="r4/s-10.jpg" alt="Ascensor versión blanca"><img src="r4/s-11.jpg" alt="Ascensor versión verde">
-<img src="r4/s-12.jpg" alt="¿Blanca o verde?">
+<div class="top"><b>Montserrat Etapa II × HIC · Ronda 4 · versión blanca y verde</b><div class="r"><small>Toca cualquier lámina para verla en detalle</small><a href="Montserrat_Pauta_HIC_Ronda4.pdf" download>Descargar PDF</a></div></div>
+<main id="g">
+<button data-i="0"><img src="r4/s-01.jpg" alt="Portada"></button>
+<button data-i="1"><img src="r4/s-02.jpg" alt="Ajustes de esta ronda"></button>
+<button data-i="2"><img src="r4/s-03.jpg" alt="Valla: versión blanca y verde"></button>
+<button data-i="3"><img src="r4/s-04.jpg" alt="Valla versión blanca"></button>
+<button data-i="4"><img src="r4/s-05.jpg" alt="Valla versión verde"></button>
+<button data-i="5"><img src="r4/s-06.jpg" alt="Caja de luz: versión blanca y verde"></button>
+<button data-i="6"><img src="r4/s-07.jpg" alt="Caja de luz versión blanca"></button>
+<button data-i="7"><img src="r4/s-08.jpg" alt="Caja de luz versión verde"></button>
+<button data-i="8"><img src="r4/s-09.jpg" alt="Ascensor: versión blanca y verde"></button>
+<button data-i="9"><img src="r4/s-10.jpg" alt="Ascensor versión blanca"></button>
+<button data-i="10"><img src="r4/s-11.jpg" alt="Ascensor versión verde"></button>
+<button data-i="11"><img src="r4/s-12.jpg" alt="¿Blanca o verde?"></button>
 </main>
 <footer>Montserrat Etapa II · Azulado Inmobiliario</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Detalle de la lámina">
+  <div class="bar"><div class="t" id="lbT"></div><div class="ctrls"><button id="lbZ" type="button">Acercar</button><button id="lbX" type="button" aria-label="Cerrar">Cerrar ✕</button></div></div>
+  <div class="stage" id="lbS"><div class="spin" id="lbL">Cargando en alta…</div><img id="lbI" alt=""></div>
+  <button class="arrow prev" id="lbP" type="button" aria-label="Anterior">‹</button>
+  <button class="arrow next" id="lbN" type="button" aria-label="Siguiente">›</button>
+  <div class="hint">Clic en la imagen para acercar · flechas ← → para navegar · Esc para cerrar</div>
+</div>
+<script>
+(function(){
+  var items=[].slice.call(document.querySelectorAll('#g button'));
+  var lb=document.getElementById('lb'),img=document.getElementById('lbI'),st=document.getElementById('lbS'),
+      t=document.getElementById('lbT'),z=document.getElementById('lbZ'),ld=document.getElementById('lbL'),cur=0,last=null;
+  function hd(i){return 'r4/hd/'+items[i].querySelector('img').getAttribute('src').split('/').pop()}
+  function show(i){
+    cur=(i+items.length)%items.length;var th=items[cur].querySelector('img');
+    setZoom(false);ld.hidden=false;img.src=th.src;img.alt=th.alt;
+    var big=new Image();big.onload=function(){if(img.alt===th.alt){img.src=big.src;ld.hidden=true}};big.src=hd(cur);
+    t.innerHTML=th.alt+'<span>'+(cur+1)+' / '+items.length+'</span>';
+    new Image().src=hd((cur+1)%items.length);
+  }
+  function open(i){last=document.activeElement;lb.hidden=false;document.body.classList.add('lock');show(i);z.focus()}
+  function close(){lb.hidden=true;document.body.classList.remove('lock');setZoom(false);if(last)last.focus()}
+  function setZoom(on){st.classList.toggle('zoom',on);z.textContent=on?'Alejar':'Acercar'}
+  function toggleZoom(e){
+    var on=!st.classList.contains('zoom');
+    var r=img.getBoundingClientRect(),fx=e&&e.clientX?(e.clientX-r.left)/r.width:.5,fy=e&&e.clientY?(e.clientY-r.top)/r.height:.5;
+    setZoom(on);
+    if(on){requestAnimationFrame(function(){st.scrollLeft=fx*img.offsetWidth-st.clientWidth/2;st.scrollTop=fy*img.offsetHeight-st.clientHeight/2})}
+  }
+  items.forEach(function(b,i){b.addEventListener('click',function(){open(i)})});
+  img.addEventListener('click',function(e){e.stopPropagation();toggleZoom(e)});
+  st.addEventListener('click',function(e){if(e.target===st&&!st.classList.contains('zoom'))close()});
+  z.addEventListener('click',function(){toggleZoom()});
+  document.getElementById('lbX').addEventListener('click',close);
+  document.getElementById('lbP').addEventListener('click',function(){show(cur-1)});
+  document.getElementById('lbN').addEventListener('click',function(){show(cur+1)});
+  document.addEventListener('keydown',function(e){
+    if(lb.hidden)return;
+    if(e.key==='Escape')close();else if(e.key==='ArrowRight')show(cur+1);else if(e.key==='ArrowLeft')show(cur-1);
+  });
+  var x0=null;st.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  st.addEventListener('touchend',function(e){if(x0===null||st.classList.contains('zoom'))return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));x0=null});
+})();
+</script>
 </body></html>
