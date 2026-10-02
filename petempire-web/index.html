@@ -180,6 +180,12 @@ section{position:relative}
 .svc h3{font:400 30px/1.05 var(--serif);letter-spacing:-.02em;margin:auto 0 10px;padding-top:40px}
 .svc p{margin:0;color:var(--ink-soft);font-size:15.5px}
 .svc .price{position:absolute;top:28px;right:28px;font:500 13px/1 var(--mono);letter-spacing:.06em;padding:9px 12px;border-radius:999px;background:var(--bone);color:var(--navy)}
+.addons{gap:22px}
+.addons-head{display:flex;gap:18px;align-items:center}
+.addons-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.addons-list li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 16px;border-radius:16px;background:var(--bone);font-size:15px}
+.addons-list b{font:500 13px var(--mono);letter-spacing:.04em;color:var(--navy);white-space:nowrap}
+@media(max-width:860px){.addons-list{grid-template-columns:1fr}}
 .svc.feature{grid-column:span 8;grid-row:span 2;background:var(--night);color:var(--bone);border:0;min-height:620px;justify-content:flex-end}
 .svc.feature video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75}
 .svc.feature::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,10,36,.97) 22%,rgba(11,10,36,.2) 70%,rgba(11,10,36,.5));z-index:1}
@@ -366,7 +372,7 @@ section{position:relative}
 .offer.den .btn{--bg:var(--night);--fg:var(--bone)}
 .offer.den .btn .ar{background:var(--gold);color:var(--night)}
 .offer .fine{font-size:13px;opacity:.7;margin-top:14px}
-.offer .strike{text-decoration:line-through;opacity:.6;font-size:15px}
+.offer .strike{opacity:.75;font-size:15px}
 @media(max-width:860px){.offers{grid-template-columns:1fr}}
 .tiers-h{font:italic 400 24px var(--serif);margin:60px 0 18px;color:var(--navy)}
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -600,27 +606,26 @@ body{overflow-x:clip}
 <section class="sec light services" id="services">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="kicker" data-es="El trabajo">The work</span><h2 class="h-l" data-es="Cuatro servicios,<br><em>una visita.</em>">Four services,<br><em>one visit.</em></h2></div>
+      <div><span class="kicker" data-es="El trabajo">The work</span><h2 class="h-l" data-es="Tres servicios,<br><em>una visita.</em>">Three services,<br><em>one visit.</em></h2></div>
       <p class="lede" data-es="Todo pasa dentro de la van, frente a tu casa. Perros y gatos. Puedes combinar varios en la misma visita.">Everything happens inside the van, outside your house. Dogs and cats. Mix and match in the same visit.</p>
     </div>
     <div class="svc-grid">
       <article class="svc feature rv">
         <video autoplay muted loop playsinline preload="none" poster="fotos/web/dental-poster.jpg" aria-hidden="true"><source src="video/dental.mp4" type="video/mp4"></video>
         <span class="ico"><svg><use href="#i-tooth"/></svg></span>
-        <span class="price" data-price="dental">$200</span>
+        <span class="price" data-price="dental">$150–$200</span>
         <h3 data-es="Limpieza dental<br><em>sin anestesia</em>">Anesthesia-free<br><em>dental cleaning</em></h3>
-        <p data-es="Sarro y placa retirados a mano, con tu mascota despierta. Sin sedación, sin quirófano. Se puede pedir sola, sin baño.">Tartar and plaque removed by hand, with your pet awake. No sedation, no surgery room. Book it on its own — no groom required.</p>
+        <p data-es="Limpieza dental profunda: sarro y placa retirados a mano, con tu mascota despierta. Sin sedación, sin quirófano. Se puede pedir sola, sin baño.">Deep dental cleaning: tartar and plaque removed by hand, with your pet awake. No sedation, no surgery room. Book it on its own — no groom required.</p>
         <span class="tag" data-es="Si su aliento vacía la sala, es esta.">If its breath clears the room, this is the one.</span>
         <a class="btn more" href="#dental"><span data-es="Ver el proceso">See the process</span><span class="ar"><svg width="18" height="18"><use href="#i-arrow"/></svg></span></a>
       </article>
       <div class="svc-side">
-        <article class="svc rv"><span class="ico"><svg><use href="#i-scissors"/></svg></span><span class="price" data-price="groom">From $100</span><h3 data-es="Baño y corte">Full grooming</h3><p data-es="Baño completo, uñas, oídos, glándulas, cepillado, corte y estilo nuevo.">Complete bath, nails, ears, glands, brushing, trimming and a new style.</p></article>
-        <article class="svc rv"><span class="ico"><svg><use href="#i-drop"/></svg></span><span class="price" data-price="bath">From $75</span><h3 data-es="Baño y cepillado">Bath &amp; brush</h3><p data-es="Baño a fondo, secado, cepillado y corte de uñas.">Thorough bath, blow-dry, brushing and nail trim.</p></article>
+        <article class="svc rv"><span class="ico"><svg><use href="#i-scissors"/></svg></span><span class="price" data-price="groom">From $120</span><h3 data-es="Baño y corte">Wash &amp; grooming</h3><p data-es="Baño completo, uñas, oídos, glándulas, cepillado, corte y estilo nuevo. Gatos desde $165.">Complete bath, nails, ears, glands, brushing, trimming and a new style. Cats from $165.</p></article>
+        <article class="svc rv"><span class="ico"><svg><use href="#i-drop"/></svg></span><span class="price" data-price="bath">From $90</span><h3 data-es="Baño regular">Regular bath</h3><p data-es="Baño a fondo, secado, cepillado y corte de uñas. Gatos desde $120.">Thorough bath, blow-dry, brushing and nail trim. Cats from $120.</p></article>
       </div>
-      <article class="svc rv" style="grid-column:span 12;min-height:0;flex-direction:row;align-items:center;gap:24px;flex-wrap:wrap">
-        <span class="ico"><svg><use href="#i-brush"/></svg></span>
-        <div style="flex:1;min-width:240px"><h3 style="padding:0;margin:0 0 6px" data-es="Antimuda">De-shedding</h3><p data-es="Tratamiento especial para reducir la muda y mantener el pelo sano. El pelo se queda en nuestra tina, no en tu sofá.">Specialized treatment to reduce shedding and keep the coat healthy. The fur stays in our tub, not on your couch.</p></div>
-        <span class="price" data-price="deshed" style="position:static">From $75</span>
+      <article class="svc rv addons" style="grid-column:span 12;min-height:0">
+        <div class="addons-head"><span class="ico"><svg><use href="#i-brush"/></svg></span><div><h3 style="padding:0;margin:0 0 4px" data-es="Adicionales">Add-ons</h3><p data-es="Se suman a cualquier servicio. Si hace falta alguno, te lo decimos antes de empezar.">Added to any service. If one is needed, we tell you before we start.</p></div></div>
+        <ul class="addons-list" id="addons"></ul>
       </article>
     </div>
   </div>
@@ -667,7 +672,7 @@ body{overflow-x:clip}
           <p data-es="Desliza para ver la diferencia. Tu mascota baja de la van por su cuenta, con la boca limpia.">Drag to see the difference. Your pet walks out of the van on its own, with a clean mouth.</p>
           <div class="mobile-media"><div class="cmp" style="height:100%"><img src="fotos/web/teeth-4.webp" alt="Before: tartar on the teeth"><img class="after" src="fotos/web/teeth-1.webp" alt="After: clean teeth"><span class="handle"></span><span class="lbl b" data-es="Antes">Before</span><span class="lbl a" data-es="Después">After</span><input type="range" min="0" max="100" value="50" aria-label="Before and after"></div></div>
           <div class="dent-price">
-            <div class="pill"><b data-den-single>$200</b><span data-es="por limpieza">per cleaning</span></div>
+            <div class="pill"><b data-den-single>$150–$200</b><span data-es="por limpieza">per cleaning</span></div>
             <div class="pill gold"><b data-den-plan>$450</b><span data-den-plan-sub data-es="3 limpiezas · plan dental">3 cleanings · dental plan</span></div>
           </div>
           <p class="dent-honest" data-es="Honestos: es una limpieza para mantener la boca sana y quitar el mal aliento. No reemplaza al veterinario cuando ya hay enfermedad dental seria.">To be straight with you: it's a cleaning that keeps the mouth healthy and takes the bad breath away. It isn't a replacement for a vet when there's already serious dental disease.</p>
@@ -774,22 +779,23 @@ body{overflow-x:clip}
       <div class="calc-in">
         <p class="lbl-s" data-es="Servicio">Service</p>
         <div class="chips" id="svc">
-          <button class="chip" type="button" data-v="groom" aria-pressed="true" data-es="Baño y corte">Full grooming</button>
-          <button class="chip" type="button" data-v="bath" aria-pressed="false" data-es="Baño y cepillado">Bath &amp; brush</button>
-          <button class="chip" type="button" data-v="deshed" aria-pressed="false" data-es="Antimuda">De-shedding</button>
-          <button class="chip" type="button" data-v="dental" aria-pressed="false">Dental</button>
+          <button class="chip" type="button" data-v="groom" aria-pressed="true" data-es="Baño y corte">Wash &amp; grooming</button>
+          <button class="chip" type="button" data-v="bath" aria-pressed="false" data-es="Baño regular">Regular bath</button>
+          <button class="chip" type="button" data-v="dental" aria-pressed="false" data-es="Limpieza dental">Deep dental</button>
         </div>
         <p class="lbl-s" data-es="Tamaño">Pet size</p>
         <div class="chips" id="size" style="margin:0">
-          <button class="chip" type="button" data-v="small" aria-pressed="true" data-es="Pequeño<small>&lt; 20 lb</small>">Small<small>&lt; 20 lb</small></button>
-          <button class="chip" type="button" data-v="medium" aria-pressed="false" data-es="Mediano<small>20–50 lb</small>">Medium<small>20–50 lb</small></button>
-          <button class="chip" type="button" data-v="large" aria-pressed="false" data-es="Grande<small>50–90 lb</small>">Large<small>50–90 lb</small></button>
-          <button class="chip" type="button" data-v="giant" aria-pressed="false" data-es="Gigante<small>90 lb +</small>">Giant<small>90 lb +</small></button>
+          <button class="chip" type="button" data-v="small" aria-pressed="true" data-es="Pequeño<small>1–20 lb</small>">Small<small>1–20 lb</small></button>
+          <button class="chip" type="button" data-v="medium" aria-pressed="false" data-es="Mediano<small>20–40 lb</small>">Medium<small>20–40 lb</small></button>
+          <button class="chip" type="button" data-v="large" aria-pressed="false" data-es="Grande<small>45–60 lb</small>">Large<small>45–60 lb</small></button>
+          <button class="chip" type="button" data-v="xl" aria-pressed="false">XL<small>70–150 lb</small></button>
+          <button class="chip" type="button" data-v="xxl" aria-pressed="false">XXL<small>150–250 lb</small></button>
+          <button class="chip" type="button" data-v="cat" aria-pressed="false" data-es="Gato<small>cualquier tamaño</small>">Cat<small>any size</small></button>
         </div>
       </div>
       <div class="calc-out" aria-live="polite">
         <span class="kicker" data-es="Precio habitual">Typical price</span>
-        <div class="fig" id="quote-figure">$100–$125</div>
+        <div class="fig" id="quote-figure">$120–$130</div>
         <p id="quote-note"></p>
       </div>
     </div>
@@ -856,10 +862,10 @@ body{overflow-x:clip}
       <div class="paso">
         <h3 data-es="¿Qué necesita?">What does it need?</h3>
         <div class="chips" id="r-servicios">
-          <button class="chip" type="button" data-v="groom" aria-pressed="false" data-es="Baño y corte">Full grooming</button>
-          <button class="chip" type="button" data-v="bath" aria-pressed="false" data-es="Baño y cepillado">Bath &amp; brush</button>
-          <button class="chip" type="button" data-v="deshed" aria-pressed="false" data-es="Antimuda">De-shedding</button>
-          <button class="chip" type="button" data-v="dental" aria-pressed="false">Dental</button>
+          <button class="chip" type="button" data-v="groom" aria-pressed="false" data-es="Baño y corte">Wash &amp; grooming</button>
+          <button class="chip" type="button" data-v="bath" aria-pressed="false" data-es="Baño regular">Regular bath</button>
+          <button class="chip" type="button" data-v="dental" aria-pressed="false" data-es="Limpieza dental">Deep dental</button>
+          <button class="chip" type="button" data-v="deshed" aria-pressed="false" data-es="+ Antimuda">+ De-shedding</button>
         </div>
         <p class="lbl-s" data-es="¿Perro o gato?">Dog or cat?</p>
         <div class="chips" id="r-especie">
@@ -867,12 +873,13 @@ body{overflow-x:clip}
           <button class="chip" type="button" data-v="gato" aria-pressed="false" data-es="Gato">Cat</button>
           <button class="chip" type="button" data-v="otro" aria-pressed="false" data-es="Otro">Other</button>
         </div>
-        <p class="lbl-s" data-es="¿Tamaño?">What size?</p>
+        <p class="lbl-s" id="r-tamano-lbl" data-es="¿Tamaño?">What size?</p>
         <div class="chips" id="r-tamano">
-          <button class="chip" type="button" data-v="S" aria-pressed="false">S<small>&lt; 20 lb</small></button>
-          <button class="chip" type="button" data-v="M" aria-pressed="false">M<small>20–50 lb</small></button>
-          <button class="chip" type="button" data-v="L" aria-pressed="false">L<small>50–90 lb</small></button>
-          <button class="chip" type="button" data-v="XL" aria-pressed="false">XL<small>90 lb +</small></button>
+          <button class="chip" type="button" data-v="S" aria-pressed="false">S<small>1–20 lb</small></button>
+          <button class="chip" type="button" data-v="M" aria-pressed="false">M<small>20–40 lb</small></button>
+          <button class="chip" type="button" data-v="L" aria-pressed="false">L<small>45–60 lb</small></button>
+          <button class="chip" type="button" data-v="XL" aria-pressed="false">XL<small>70–150 lb</small></button>
+          <button class="chip" type="button" data-v="XXL" aria-pressed="false">XXL<small>150–250 lb</small></button>
         </div>
       </div>
 
@@ -942,21 +949,31 @@ body{overflow-x:clip}
 <div class="dock" id="dock"><a href="#book" data-es="Reservar">Book</a><a href="tel:+14752776167" data-call data-es="Llamar">Call</a></div>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Pet Empire Mobile Grooming","url":"https://petempiregrooming.com/","image":"https://petempiregrooming.com/logo.jpg","telephone":"+1-475-277-6167","priceRange":"$75–$235","areaServed":["Brooklyn, NY","New Haven County, CT"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"4"},
-"makesOffer":[{"@type":"Offer","priceCurrency":"USD","price":"100","itemOffered":{"@type":"Service","name":"Full grooming"}},{"@type":"Offer","priceCurrency":"USD","price":"75","itemOffered":{"@type":"Service","name":"Bath & brush"}},{"@type":"Offer","priceCurrency":"USD","price":"75","itemOffered":{"@type":"Service","name":"De-shedding"}},{"@type":"Offer","priceCurrency":"USD","price":"200","itemOffered":{"@type":"Service","name":"Anesthesia-free dental cleaning"}}]}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Pet Empire Mobile Grooming","url":"https://petempiregrooming.com/","image":"https://petempiregrooming.com/logo.jpg","telephone":"+1-475-277-6167","priceRange":"$90–$310","areaServed":["Brooklyn, NY","New Haven County, CT"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"4"},
+"makesOffer":[{"@type":"Offer","priceCurrency":"USD","price":"120","itemOffered":{"@type":"Service","name":"Wash & grooming"}},{"@type":"Offer","priceCurrency":"USD","price":"90","itemOffered":{"@type":"Service","name":"Regular bath"}},{"@type":"Offer","priceCurrency":"USD","price":"150","itemOffered":{"@type":"Service","name":"Anesthesia-free deep dental cleaning"}}]}
 </script>
 
 <script>
 /* ═══════════════════════════════════════════════════════════════════
    DATOS DEL NEGOCIO — lo único que hay que tocar.
-   (Mismos valores que el sitio publicado al 30/09/2026.)
+   Lista de precios nueva de Pet Empire (octubre 2026).
+   Tamaños: S 1–20 lb · M 20–40 · L 45–60 · XL 70–150 · XXL 150–250 · gatos aparte.
    ═══════════════════════════════════════════════════════════════════ */
 const PRECIOS = {
-  groom:  { small: [100, 125], medium: [140, 155], large: [145, 195], giant: [145, 235] },
-  bath:   { small: [75, 90],   medium: [95, 105],  large: 110,        giant: [110, 130] },
-  deshed: { small: [75, 90],   medium: [95, 110],  large: [110, 125], giant: [130, 180] },
-  dental: { small: 200, medium: 200, large: 200, giant: 200 },   // precio cerrado
+  groom:  { small: [120, 130], medium: [140, 150], large: [160, 180], xl: [200, 220], xxl: [280, 310], cat: [165, 180] },   // wash & grooming
+  bath:   { small: [90, 100],  medium: [110, 120], large: [130, 140], xl: [150, 170], xxl: [200, 230], cat: [120, 130] },   // baño regular
+  dental: { small: [150, 200], medium: [150, 200], large: [150, 200], xl: [150, 200], xxl: [150, 200], cat: [150, 200] }, // deep dental cleaning
 };
+/* Adicionales: se suman al servicio. [en, es, precio en, precio es] */
+const ADICIONALES = [
+  ["De-shedding", "Antimuda", "$40–$50"],
+  ["Dematting", "Desenredado", "$60–$80 / hour", "$60–$80 / hora"],
+  ["Surface tooth brushing", "Cepillado dental superficial", "$20"],
+  ["Medicated shampoo", "Champú medicado", "$30"],
+  ["Behavior fee", "Recargo por comportamiento", "$30–$40"],
+  ["Poor coat condition", "Recargo por mal estado del pelo", "$30–$40"],
+];
+const TAMANOS = { small: ["Small", "Pequeño", "1–20 lb"], medium: ["Medium", "Mediano", "20–40 lb"], large: ["Large", "Grande", "45–60 lb"], xl: ["XL", "XL", "70–150 lb"], xxl: ["XXL", "XXL", "150–250 lb"], cat: ["Cat", "Gato", "any size"] };
 const MEMBRESIA = { precio: 300, visitas: 4, meses: 3, pago: null };   // pago = Stripe Payment Link
 const DENTAL    = { precio: 450, sesiones: 3, pago: null };
 const PLANES = [
@@ -992,7 +1009,7 @@ const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ── contenido generado ── */
 $("#ribbon").innerHTML = Array(2).fill(
-  ["Full grooming","Bath & brush","De-shedding","Anesthesia-free dental","Dogs & cats","Se habla español","One pet at a time"].map(t => `<span>${t}</span>`).join("")
+  ["Wash & grooming","Regular bath","Anesthesia-free dental","De-shedding","Dematting","Dogs & cats","Se habla español","One pet at a time"].map(t => `<span>${t}</span>`).join("")
 ).join("");
 $("#ct-towns").innerHTML = PUEBLOS_CT.map(t => `<span>${t}</span>`).join("");
 const muro = MURO.map(n => `<img src="fotos/web/pet${n}.webp" alt="" loading="lazy" width="230" height="290">`).join("");
@@ -1030,15 +1047,16 @@ bw.dataset.en = bw.textContent; pintarPalabras();
 const desde = (s) => Math.min(...Object.values(PRECIOS[s]).map(v => Array.isArray(v) ? v[0] : v));
 const pintarDesde = () => $$("[data-price]").forEach(el => {
   const vals = Object.values(PRECIOS[el.dataset.price]);
-  const fijo = vals.every(v => !Array.isArray(v) && v === vals[0]);
-  el.textContent = fijo ? `$${desde(el.dataset.price)}` : T(`From $${desde(el.dataset.price)}`, `Desde $${desde(el.dataset.price)}`);
+  const igual = vals.every(v => JSON.stringify(v) === JSON.stringify(vals[0]));   // mismo precio en todos los tamaños
+  el.textContent = igual ? money(vals[0]) : T(`From $${desde(el.dataset.price)}`, `Desde $${desde(el.dataset.price)}`);
 });
+const pintarAdicionales = () => { $("#addons").innerHTML = ADICIONALES.map(a => `<li><span>${T(a[0], a[1])}</span><b>${T(a[2], a[3] || a[2])}</b></li>`).join(""); };
 const elegido = { svc: "groom", size: "small" };
 const pintarPrecio = () => {
   $("#quote-figure").textContent = money(PRECIOS[elegido.svc][elegido.size]);
   $("#quote-note").textContent = elegido.svc === "dental"
-    ? T("Closed price, same for every size. Can be booked on its own.", "Precio cerrado, igual para todos los tamaños. Se puede pedir sola.")
-    : T("Typical price for that size. Heavy matting can raise it — we'll tell you on the phone before we start.", "Precio habitual para ese tamaño. Los nudos fuertes pueden subirlo; te lo decimos por teléfono antes de empezar.");
+    ? T("Same range for every size — it depends on how much tartar there is. Can be booked on its own.", "El mismo rango para todos los tamaños: depende de cuánto sarro haya. Se puede pedir sola.")
+    : T("Typical price for that size. Add-ons like dematting or de-shedding are extra — we tell you before we start.", "Precio habitual para ese tamaño. Adicionales como desenredado o antimuda van aparte; te lo decimos antes de empezar.");
 };
 const pintarPlanes = () => {
   const svc = elegido.svc === "dental" ? "groom" : elegido.svc;
@@ -1053,7 +1071,7 @@ const pintarPlanes = () => {
     $("[data-plan-nota]", card).textContent = `$${total} ${cada} · ${T("you save", "ahorras")} $${Math.round(ahorro)}`;
     const nombre = $("h4", card).textContent.split(" ·")[0];
     const a = $("[data-plan-cta]", card);
-    a.href = wa(T(`Hi, I'd like the ${nombre} plan (${p.banos} grooms, −${p.descuento * 100}%). My pet is ${elegido.size}.`, `Hola, quiero el plan ${nombre} (${p.banos} baños, −${p.descuento * 100}%). Mi mascota es ${({small:"pequeña",medium:"mediana",large:"grande",giant:"gigante"})[elegido.size]}.`));
+    a.href = wa(T(`Hi, I'd like the ${nombre} plan (${p.banos} grooms, −${p.descuento * 100}%). Size: ${TAMANOS[elegido.size][0]} (${TAMANOS[elegido.size][2]}).`, `Hola, quiero el plan ${nombre} (${p.banos} baños, −${p.descuento * 100}%). Tamaño: ${TAMANOS[elegido.size][1]} (${TAMANOS[elegido.size][2]}).`));
     a.target = "_blank"; a.rel = "noopener";
   });
 };
@@ -1063,13 +1081,13 @@ const pintarOfertas = () => {
   $("#mem-unit").textContent = T(`One payment · ${MEMBRESIA.meses} months`, `Pago único · ${MEMBRESIA.meses} meses`);
   $("#mem-sub").textContent = T(`${MEMBRESIA.visitas} visits from the van to your door over ${MEMBRESIA.meses} months — $${porVisita} each, the lowest per-visit price we have.`, `${MEMBRESIA.visitas} visitas de la van a tu casa en ${MEMBRESIA.meses} meses: $${porVisita} cada una, el precio más bajo por visita que tenemos.`);
   $("#mem-cta").href = MEMBRESIA.pago || wa(T(`Hi, I'd like the membership: ${MEMBRESIA.visitas} visits for $${MEMBRESIA.precio}. How do I sign up?`, `Hola, quiero la membresía: ${MEMBRESIA.visitas} visitas por $${MEMBRESIA.precio}. ¿Cómo la contrato?`));
-  const suelto = PRECIOS.dental.small, normal = suelto * DENTAL.sesiones, porSesion = Math.round(DENTAL.precio / DENTAL.sesiones);
+  const suelto = PRECIOS.dental.small, alto = suelto[1], normal = alto * DENTAL.sesiones, porSesion = Math.round(DENTAL.precio / DENTAL.sesiones);
   $("#den-amt").textContent = `$${DENTAL.precio}`;
-  $("#den-badge").textContent = T(`Save $${normal - DENTAL.precio}`, `Ahorras $${normal - DENTAL.precio}`);
+  $("#den-badge").textContent = T(`Save up to $${normal - DENTAL.precio}`, `Ahorras hasta $${normal - DENTAL.precio}`);
   $("#den-unit").textContent = T(`${DENTAL.sesiones} sessions · $${porSesion} each`, `${DENTAL.sesiones} sesiones · $${porSesion} cada una`);
-  $("#den-strike").textContent = T(`Instead of $${normal}`, `En vez de $${normal}`);
+  $("#den-strike").innerHTML = T(`Instead of up to <s>$${normal}</s> one by one ($${suelto[0]}–$${alto} each)`, `En vez de hasta <s>$${normal}</s> sueltas ($${suelto[0]}–$${alto} cada una)`);
   $("#den-cta").href = DENTAL.pago || wa(T(`Hi, I'd like the dental plan: ${DENTAL.sesiones} cleanings for $${DENTAL.precio}.`, `Hola, quiero el plan dental: ${DENTAL.sesiones} limpiezas por $${DENTAL.precio}.`));
-  $("[data-den-single]").textContent = `$${suelto}`;
+  $("[data-den-single]").textContent = money(suelto);
   $("[data-den-plan]").textContent = `$${DENTAL.precio}`;
 };
 $$("#svc .chip, #size .chip").forEach(chip => chip.addEventListener("click", () => {
@@ -1164,11 +1182,12 @@ const grupo = (id, campo, multi) => $$(`#${id} .chip, #${id} .dia`).forEach(c =>
   pintarForm();
 }));
 grupo("r-servicios", "servicios", true); grupo("r-especie", "especie"); grupo("r-tamano", "tamano"); grupo("r-dias", "dia"); grupo("r-franja", "franja");
-const SVC = { groom: ["Full grooming", "Baño y corte"], bath: ["Bath & brush", "Baño y cepillado"], deshed: ["De-shedding", "Antimuda"], dental: ["Dental", "Dental"] };
+const SVC = { groom: ["Wash & grooming", "Baño y corte"], bath: ["Regular bath", "Baño regular"], dental: ["Deep dental cleaning", "Limpieza dental profunda"], deshed: ["De-shedding (add-on)", "Antimuda (adicional)"] };
 const FRANJA = { manana: ["Morning", "Mañana"], tarde: ["Afternoon", "Tarde"], noche: ["Evening", "Noche"] };
-const TAM = { S: ["small", "S (under 20 lb)", "S (menos de 20 lb)"], M: ["medium", "M (20–50 lb)", "M (20–50 lb)"], L: ["large", "L (50–90 lb)", "L (50–90 lb)"], XL: ["giant", "XL (over 90 lb)", "XL (más de 90 lb)"] };
+const TAM = { S: ["small", "S (1–20 lb)", "S (1–20 lb)"], M: ["medium", "M (20–40 lb)", "M (20–40 lb)"], L: ["large", "L (45–60 lb)", "L (45–60 lb)"], XL: ["xl", "XL (70–150 lb)", "XL (70–150 lb)"], XXL: ["xxl", "XXL (150–250 lb)", "XXL (150–250 lb)"] };
+const esGato = () => R.especie === "gato";
 const queFalta = () => {
-  if (paso === 0) { if (!R.servicios.length) return T("Pick what your pet needs.", "Elige qué necesita tu mascota."); if (!R.tamano) return T("Pick your pet's size.", "Elige el tamaño de tu mascota."); return null; }
+  if (paso === 0) { if (!R.servicios.length) return T("Pick what your pet needs.", "Elige qué necesita tu mascota."); if (!R.tamano && !esGato()) return T("Pick your pet's size.", "Elige el tamaño de tu mascota."); return null; }
   if (paso === 1) { if (!R.dia) return T("Pick a day.", "Elige un día."); if (!R.franja) return T("Pick morning, afternoon or evening.", "Elige mañana, tarde o noche."); return null; }
   if (!f.nombre.value.trim()) return T("We need your name.", "Falta tu nombre.");
   const n = f.telefono.value.replace(/\D/g, "").length;
@@ -1182,9 +1201,10 @@ const pintarForm = () => {
   $("#paso-progreso").style.width = `${(paso + 1) / pasos.length * 100}%`;
   $("#paso-cuenta").textContent = `${paso + 1} / ${pasos.length}`;
   atras.hidden = paso === 0;
+  $("#r-tamano").hidden = $("#r-tamano-lbl").hidden = esGato();   // los gatos tienen precio propio, sin tamaño
   const t = [];
   if (R.servicios.length) t.push(R.servicios.map(s => SVC[s][i()]).join(" + "));
-  if (R.tamano) t.push(`${T("size", "tamaño")} ${R.tamano}`);
+  if (esGato()) t.push(T("cat", "gato")); else if (R.tamano) t.push(`${T("size", "tamaño")} ${R.tamano}`);
   if (R.dia) { const d = new Date(R.dia + "T12:00:00"); t.push(`${DIAS[ES ? "es" : "en"][d.getDay()]} ${d.getDate()}`); }
   if (R.franja) t.push(FRANJA[R.franja][i()].toLowerCase());
   $("#resumen").textContent = t.join("  ·  ");
@@ -1194,9 +1214,10 @@ const mensaje = () => {
   const L = ES ? { t: "NUEVA RESERVA", s: "Servicio", m: "Mascota", d: "Día", h: "Hora", p: "Pueblo", n: "Nombre", tel: "Teléfono", no: "Notas", e: "Precio estimado" }
                : { t: "NEW BOOKING", s: "Service", m: "Pet", d: "Day", h: "Time", p: "Town", n: "Name", tel: "Phone", no: "Notes", e: "Est. price" };
   const esp = { perro: ["Dog", "Perro"], gato: ["Cat", "Gato"], otro: ["Other", "Otro"] }[R.especie][i()];
-  const bicho = [f.mascota.value.trim(), `${esp}, ${TAM[R.tamano][1 + i()]}`].filter(Boolean).join(" — ");
+  const bicho = [f.mascota.value.trim(), esGato() ? esp : `${esp}, ${TAM[R.tamano][1 + i()]}`].filter(Boolean).join(" — ");
   const dia = new Date(R.dia + "T12:00:00").toLocaleDateString(ES ? "es-US" : "en-US", { weekday: "long", month: "long", day: "numeric" });
-  const est = R.servicios.map(s => `${SVC[s][i()]} ${money(PRECIOS[s][TAM[R.tamano][0]])}`);
+  const clave = esGato() ? "cat" : TAM[R.tamano][0];
+  const est = R.servicios.map(s => `${SVC[s][i()]} ${s === "deshed" ? ADICIONALES[0][2] : money(PRECIOS[s][clave])}`);
   const l = [`*${L.t}*`, "", `*${L.s}:* ${R.servicios.map(s => SVC[s][i()]).join(" + ")}`, `*${L.m}:* ${bicho}`, `*${L.d}:* ${dia}`, `*${L.h}:* ${FRANJA[R.franja][i()]}`, "", `*${L.n}:* ${f.nombre.value.trim()}`, `*${L.tel}:* ${f.telefono.value.trim()}`];
   if (f.pueblo.value.trim()) l.push(`*${L.p}:* ${f.pueblo.value.trim()}`);
   if (f.notas.value.trim()) l.push("", `*${L.no}:* ${f.notas.value.trim()}`);
@@ -1225,10 +1246,10 @@ $("#lang").addEventListener("click", e => {
   e.currentTarget.textContent = ES ? "EN" : "ES";
   e.currentTarget.setAttribute("aria-label", ES ? "Switch language to English" : "Cambiar idioma a español");
   document.documentElement.lang = ES ? "es" : "en";
-  pintarDesde(); pintarPrecio(); pintarPlanes(); pintarOfertas(); pintarForm();
+  pintarDesde(); pintarAdicionales(); pintarPrecio(); pintarPlanes(); pintarOfertas(); pintarForm();
 });
 
-pintarDesde(); pintarPrecio(); pintarPlanes(); pintarOfertas(); pintarForm();
+pintarDesde(); pintarAdicionales(); pintarPrecio(); pintarPlanes(); pintarOfertas(); pintarForm();
 document.addEventListener("click", e => { if (e.target.closest("[data-call]") && typeof gtag === "function") gtag("event", "call_click"); });
 </script>
 </body>

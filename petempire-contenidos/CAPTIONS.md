@@ -74,7 +74,7 @@ What actually happens during an anesthesia-free dental cleaning? Step by step:
 
 Straight talk: it's a cleaning, not surgery. It keeps the mouth clean and the breath fresh — it doesn't replace your vet when there's serious dental disease.
 
-$200 per cleaning, or 3 for $450 with the dental plan.
+$150–$200 per cleaning, or 3 for $450 with the dental plan.
 📞 (475) 277-6167
 
 #anesthesiafreedental #dogdentalcare #petdentalhealth #mobilegrooming #brooklyndogs #newhavenct #petempire
@@ -88,7 +88,7 @@ $200 per cleaning, or 3 for $450 with the dental plan.
 4. Step 03, a hand instrument cleaning a dog's teeth. Text: By hand, tooth by tooth.
 5. Step 04, a gloved hand cleaning along a dog's gumline. Text: Along the gumline, where it hides.
 6. Before and after photos of a dog's teeth side by side.
-7. Text: A cleaning, not surgery. $200 per cleaning or 3 for $450.
+7. Text: A cleaning, not surgery. $150 to $200 per cleaning or 3 for $450.
 
 ## Nº 04 · Same mouth, same afternoon
 
@@ -101,7 +101,7 @@ Left: yellow-brown tartar on the canines and back teeth. Right: the same dog, af
 
 House rules: no filters, no swapped dogs, no sedation.
 
-Anesthesia-free dental: $200 per cleaning · Dental plan: 3 for $450. No groom required.
+Anesthesia-free dental: $150–$200 per cleaning · Dental plan: 3 for $450. No groom required.
 📍 Brooklyn · New Haven County
 📞 (475) 277-6167
 
@@ -114,7 +114,7 @@ Anesthesia-free dental: $200 per cleaning · Dental plan: 3 for $450. No groom r
 2. Before: close-up of yellow-brown tartar on a dog's canine and back teeth.
 3. After: the same dog's teeth after an anesthesia-free cleaning.
 4. Text: No filters. No swapped dogs. No sedation.
-5. Prices: $200 one cleaning, $450 dental plan with 3 cleanings.
+5. Prices: from $150 one cleaning, $450 dental plan with 3 cleanings.
 
 ## Nº 05 · Why we take one pet at a time
 
@@ -149,10 +149,10 @@ Pets. People. A higher standard.
 **Date:** Thursday, October 22 · **Chapter:** III · **Slides:** 5
 
 ```
-3 cleanings. $450. (Instead of $600.)
+3 cleanings. $450. (Instead of up to $600 one by one.)
 
 The Pet Empire dental plan:
-• 3 deep, anesthesia-free dental cleanings — $150 each instead of $200
+• 3 deep, anesthesia-free dental cleanings — $150 each instead of up to $200
 • Your pet stays awake and walks away on its own
 • No groom required — book the dental on its own
 • They don't expire. Use them on your schedule.
@@ -166,7 +166,7 @@ Ask for the dental plan: (475) 277-6167, or book in 30 seconds from the link in 
 
 **Alt text**
 
-1. Text: 3 cleanings. $450. $600 crossed out, you save $150.
+1. Text: 3 cleanings. $450. $150 each, save up to $150.
 2. List of what the dental plan includes.
 3. A large number 3. Text: A clean mouth is upkeep, not a one-time thing.
 4. A dog's clean front teeth, lip held back. Text: Keep it like this.
@@ -178,6 +178,6 @@ Ask for the dental plan: (475) 277-6167, or book in 30 seconds from the link in 
 - [ ] The dental cleaning clips (blue gloves / white gloves) are Pet Empire’s own footage. Clips with a third-party "Pawfect" watermark were left out.
 - [ ] Step 01 ("if it needs a vet, we tell you") matches how the team actually works.
 - [ ] The cleaning is done "by hand" (the website says so; some clips show a pen-style scaler).
-- [ ] Prices: dental $200 / dental plan 3 for $450 (from the website as of Sep 30, 2026).
+- [ ] Prices: deep dental $150–$200 / dental plan 3 for $450 / wash & grooming from $120 / regular bath from $90 (new price list, October 2026).
 - [ ] Someone answers DMs with the word "DENTAL" (piece 02).
 - [ ] Service areas: Park Slope, Bay Ridge, Williamsburg, Bushwick and New Haven County.
