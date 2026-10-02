@@ -56,7 +56,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
 </div>
 <script>
 (function(){
-  var V='?v=13', D='r6/piezas/';
+  var V='?v=14', D='r6/piezas/';
   var VB='Valla 5 × 2 m', CJ='Caja de luz sótano 3 · 2,5 × 1,1 m', AS='Puertas ascensor · 1 × 2,09 m';
   var P={
     vb:['R6_valla_5x2_blanca.jpg',VB+' · versión blanca'], vv:['R6_valla_5x2_verde.jpg',VB+' · versión verde'],
@@ -65,8 +65,10 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
     scb:['situ_R6caja_blanca.jpg',CJ+' · opción A · blanca · simulación'], scv:['situ_R6caja_verde.jpg',CJ+' · opción A · verde · simulación'],
     cbB:['R6B_cajaluz_2.5x1.1_blanca.jpg',CJ+' · opción B · blanca'], cvB:['R6B_cajaluz_2.5x1.1_verde.jpg',CJ+' · opción B · verde'],
     scbB:['situ_R6Bcaja_blanca.jpg',CJ+' · opción B · blanca · simulación'], scvB:['situ_R6Bcaja_verde.jpg',CJ+' · opción B · verde · simulación'],
-    ab:['R6_ascensor_1x2.09_blanca.jpg',AS+' · versión blanca'], av:['R6_ascensor_1x2.09_verde.jpg',AS+' · versión verde'],
-    sab:['situ_R6asc_blanca.jpg',AS+' · blanca · simulación en el ascensor'], sav:['situ_R6asc_verde.jpg',AS+' · verde · simulación en el ascensor']
+    ab:['R6_ascensor_1x2.09_blanca.jpg',AS+' · opción A · blanca'], av:['R6_ascensor_1x2.09_verde.jpg',AS+' · opción A · verde'],
+    sab:['situ_R6asc_blanca.jpg',AS+' · opción A · blanca · simulación'], sav:['situ_R6asc_verde.jpg',AS+' · opción A · verde · simulación'],
+    abB:['R6B_ascensor_1x2.09_blanca.jpg',AS+' · opción B · blanca'], avB:['R6B_ascensor_1x2.09_verde.jpg',AS+' · opción B · verde'],
+    sabB:['situ_R6Basc_blanca.jpg',AS+' · opción B · blanca · simulación'], savB:['situ_R6Basc_verde.jpg',AS+' · opción B · verde · simulación']
   };
   /* zonas clickeables: [x,y,ancho,alto] en px de la lámina 1920 x 1080 + pieza */
   var S=[
@@ -81,11 +83,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
     ['Caja de luz · opción B · blanca',[[70,150,1480,651,'cbB'],[1590,150,260,347,'scbB']]],
     ['Caja de luz · opción B · verde',[[70,150,1480,651,'cvB'],[1590,150,260,347,'scvB']]],
     ['Ascensor: blanca y verde',[[70,130,411,860,'ab'],[501,130,411,860,'av'],[1440,130,200,304,'sab'],[1660,130,200,304,'sav']]],
-    ['Ascensor · versión blanca',[[560,110,440,920,'ab'],[1060,430,395,600,'sab']]],
-    ['Ascensor · versión verde',[[560,110,440,920,'av'],[1060,430,395,600,'sav']]],
+    ['Ascensor · opción A · blanca',[[560,110,440,920,'ab'],[1060,430,395,600,'sab']]],
+    ['Ascensor · opción A · verde',[[560,110,440,920,'av'],[1060,430,395,600,'sav']]],
+    ['Ascensor · opción B · blanca',[[560,110,440,920,'abB'],[1060,430,395,600,'sabB']]],
+    ['Ascensor · opción B · verde',[[560,110,440,920,'avB'],[1060,430,395,600,'savB']]],
     ['¿Blanca o verde?',[]]
   ];
-  var ORDER=['vb','vv','svb','svv','cb','cv','scb','scv','cbB','cvB','scbB','scvB','ab','av','sab','sav'];
+  var ORDER=['vb','vv','svb','svv','cb','cv','scb','scv','cbB','cvB','scbB','scvB','ab','av','sab','sav','abB','avB','sabB','savB'];
   var g=document.getElementById('g');
   S.forEach(function(s,i){
     var f=document.createElement('figure');f.className='sl';
