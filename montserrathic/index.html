@@ -56,13 +56,15 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
 </div>
 <script>
 (function(){
-  var V='?v=12', D='r6/piezas/';
+  var V='?v=13', D='r6/piezas/';
   var VB='Valla 5 × 2 m', CJ='Caja de luz sótano 3 · 2,5 × 1,1 m', AS='Puertas ascensor · 1 × 2,09 m';
   var P={
     vb:['R6_valla_5x2_blanca.jpg',VB+' · versión blanca'], vv:['R6_valla_5x2_verde.jpg',VB+' · versión verde'],
     svb:['situ_R6valla_blanca.jpg',VB+' · blanca · simulación en el parqueadero'], svv:['situ_R6valla_verde.jpg',VB+' · verde · simulación en el parqueadero'],
-    cb:['R6_cajaluz_2.5x1.1_blanca.jpg',CJ+' · versión blanca'], cv:['R6_cajaluz_2.5x1.1_verde.jpg',CJ+' · versión verde'],
-    scb:['situ_R6caja_blanca.jpg',CJ+' · blanca · simulación en el pasillo'], scv:['situ_R6caja_verde.jpg',CJ+' · verde · simulación en el pasillo'],
+    cb:['R6_cajaluz_2.5x1.1_blanca.jpg',CJ+' · opción A · blanca'], cv:['R6_cajaluz_2.5x1.1_verde.jpg',CJ+' · opción A · verde'],
+    scb:['situ_R6caja_blanca.jpg',CJ+' · opción A · blanca · simulación'], scv:['situ_R6caja_verde.jpg',CJ+' · opción A · verde · simulación'],
+    cbB:['R6B_cajaluz_2.5x1.1_blanca.jpg',CJ+' · opción B · blanca'], cvB:['R6B_cajaluz_2.5x1.1_verde.jpg',CJ+' · opción B · verde'],
+    scbB:['situ_R6Bcaja_blanca.jpg',CJ+' · opción B · blanca · simulación'], scvB:['situ_R6Bcaja_verde.jpg',CJ+' · opción B · verde · simulación'],
     ab:['R6_ascensor_1x2.09_blanca.jpg',AS+' · versión blanca'], av:['R6_ascensor_1x2.09_verde.jpg',AS+' · versión verde'],
     sab:['situ_R6asc_blanca.jpg',AS+' · blanca · simulación en el ascensor'], sav:['situ_R6asc_verde.jpg',AS+' · verde · simulación en el ascensor']
   };
@@ -74,14 +76,16 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
     ['Valla · versión blanca',[[70,140,1780,712,'vb'],[1530,880,320,139,'svb']]],
     ['Valla · versión verde',[[70,140,1780,712,'vv'],[1530,880,320,139,'svv']]],
     ['Caja de luz: blanca y verde',[[70,140,1000,440,'cb'],[70,610,1000,440,'cv'],[1520,140,330,440,'scb'],[1520,610,330,440,'scv']]],
-    ['Caja de luz · versión blanca',[[70,150,1480,651,'cb'],[1590,150,260,347,'scb']]],
-    ['Caja de luz · versión verde',[[70,150,1480,651,'cv'],[1590,150,260,347,'scv']]],
+    ['Caja de luz · opción A · blanca',[[70,150,1480,651,'cb'],[1590,150,260,347,'scb']]],
+    ['Caja de luz · opción A · verde',[[70,150,1480,651,'cv'],[1590,150,260,347,'scv']]],
+    ['Caja de luz · opción B · blanca',[[70,150,1480,651,'cbB'],[1590,150,260,347,'scbB']]],
+    ['Caja de luz · opción B · verde',[[70,150,1480,651,'cvB'],[1590,150,260,347,'scvB']]],
     ['Ascensor: blanca y verde',[[70,130,411,860,'ab'],[501,130,411,860,'av'],[1440,130,200,304,'sab'],[1660,130,200,304,'sav']]],
     ['Ascensor · versión blanca',[[560,110,440,920,'ab'],[1060,430,395,600,'sab']]],
     ['Ascensor · versión verde',[[560,110,440,920,'av'],[1060,430,395,600,'sav']]],
     ['¿Blanca o verde?',[]]
   ];
-  var ORDER=['vb','vv','svb','svv','cb','cv','scb','scv','ab','av','sab','sav'];
+  var ORDER=['vb','vv','svb','svv','cb','cv','scb','scv','cbB','cvB','scbB','scvB','ab','av','sab','sav'];
   var g=document.getElementById('g');
   S.forEach(function(s,i){
     var f=document.createElement('figure');f.className='sl';
