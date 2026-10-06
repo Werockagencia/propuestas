@@ -30,3 +30,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [Safe Trip — Alianza Safe Trip Connect: plataforma de carga + marketing digital (presentación)](https://werockagencia.github.io/propuestas/safetrip/)
 - [Universidad Científica Internacional (Costa Rica) — Marca, web, campus virtual, matrícula y equipo comercial (presentación, USD)](https://werockagencia.github.io/propuestas/uci/)
 - [UNINTE Colombia — Doctorado en Administración: captación comercial en Colombia (presentación, USD)](https://werockagencia.github.io/propuestas/uninte/)
+- [Experiencias corporativas (marca nueva) — Naming, identidad, sitio, HalconBot y plan de 4 meses (presentación)](https://werockagencia.github.io/propuestas/experienciascorporativas/)
