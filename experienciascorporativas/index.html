@@ -829,7 +829,11 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 .two dl{display:grid;grid-template-columns:1fr auto;gap:8px 16px;margin-top:16px;font-size:14px;font-variant-numeric:tabular-nums}
 .two dt{color:var(--ink2)}
 .two .b dt{color:var(--text-dk2)}
-.two dd{font-weight:900;text-align:right}
+.two dd{font-weight:900;text-align:right;white-space:nowrap}
+.two.three{grid-template-columns:repeat(3,1fr)}
+.two.three article{padding:22px 24px}
+.two.three p{font-size:13.5px}
+.two.three dl{font-size:13.5px}
 
 .mt0{margin-top:0!important}
 
@@ -845,7 +849,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   .ladder{grid-template-columns:1fr 1fr;height:auto;align-items:stretch}
   .step{height:auto;min-height:150px}
   .slide:not(.on) .step{transform:none}
-  .alt,.two{grid-template-columns:1fr}
+  .alt,.two,.two.three{grid-template-columns:1fr}
   .pc{grid-template-columns:1fr;gap:12px}
   .allies{grid-template-columns:1fr}
   .site{height:auto}
@@ -1744,18 +1748,24 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 </section>
 
 <!-- ================= 18 DOS FORMAS ================= -->
-<section class="slide lt2 tex-dots" data-title="Dos formas de arrancar" id="s-modelos">
+<section class="slide lt2 tex-dots" data-title="Tres formas de arrancar" id="s-modelos">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">18 · Dos formas de arrancar</div>
-    <h2 class="h2 rv" style="--d:1">Completo o esencial.<br><em>Ustedes eligen el ritmo.</em></h2>
-    <div class="two">
+    <div class="lbl rv" style="--d:0">18 · Tres formas de arrancar</div>
+    <h2 class="h2 rv" style="--d:1">Básico, esencial o completo.<br><em>Ustedes eligen el ritmo.</em></h2>
+    <div class="two three">
       <article class="rv" style="--d:2">
+        <span class="badge" style="background:var(--dk)">Arranque básico</span>
+        <h3>Sitio y Google Ads</h3>
+        <p>Lo mínimo para empezar a recibir solicitudes: un sitio que convierte y anuncios para quien ya está buscando proveedor.</p>
+        <dl><dt>Sitio web, en dos pagos</dt><dd>$3.200.000</dd><dt>Gestión de Google Ads</dt><dd>$850.000 / mes</dd><dt>Pauta sugerida, directo a Google</dt><dd>$1.000.000 / mes</dd><dt><b>4 meses con We Rock</b></dt><dd>$5.750.000</dd></dl>
+      </article>
+      <article class="rv" style="--d:3">
         <span class="badge" style="background:var(--dk)">Arranque esencial · pago único</span>
-        <h3>Salir a vender con marca, ya</h3>
+        <h3>Salir a vender con marca</h3>
         <p>Para que Elkin salga a vender desde el primer día con una marca seria. El resto se suma cuando entren los primeros eventos.</p>
         <dl><dt>Diseño de marca, naming incluido</dt><dd>$1.200.000</dd><dt>Landing con "Arma tu experiencia"</dt><dd>$2.400.000</dd><dt>Kit comercial B2B</dt><dd>$900.000</dd><dt><b>Total</b></dt><dd>$4.500.000</dd></dl>
       </article>
-      <article class="b corner-fx rv" style="--d:3">
+      <article class="b corner-fx rv" style="--d:4">
         <span class="badge">Plan completo · recomendado</span>
         <h3>Marca, sistema y clientes</h3>
         <p style="margin-bottom:0">El plan de la tabla anterior. Llega a la temporada con sitio, CRM y campañas funcionando.</p>
@@ -1775,7 +1785,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
       <div class="svc-card optional"><small>Sugerido</small><b>Gestión de Meta Ads</b><div class="p">$850.000 <i>/ mes + pauta</i></div></div>
       <div class="svc-card optional"><small>Opcional</small><b>Foto y video del primer evento</b><div class="p">$1.550.000 <i>/ sesión</i></div></div>
     </div>
-    <p class="src rv" style="--d:6">Pesos colombianos, antes de IVA. Lo que se paga en el arranque esencial se descuenta completo si después pasan al plan completo.</p>
+    <p class="src rv" style="--d:6">Pesos colombianos, antes de IVA. El arranque básico necesita nombre y logo para el sitio; si aún no los tienen, se suma el diseño de marca ($1.200.000, naming incluido). Lo pagado en sitio, landing, marca o kit se descuenta completo si después pasan al plan completo.</p>
   </div>
 </section>
 
@@ -1829,7 +1839,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
     <h2 class="close-title rv" style="--d:1">¿Le ponemos<br><span class="r">nombre?</span></h2>
     <div class="next">
       <div class="rv" style="--d:2"><b>01</b><h3>Taller de marca</h3><p>Dos horas con los tres socios: historia, valores, opciones de nombre y la experiencia que quieren que se recuerde.</p></div>
-      <div class="rv" style="--d:3"><b>02</b><h3>Elegir cómo arrancar</h3><p>Plan completo o arranque esencial. Lo esencial se descuenta si después crecen.</p></div>
+      <div class="rv" style="--d:3"><b>02</b><h3>Elegir cómo arrancar</h3><p>Básico, esencial o completo. Lo que paguen al inicio se descuenta si después crecen.</p></div>
       <div class="rv" style="--d:4"><b>03</b><h3>Tres semanas y hay marca</h3><p>Lista para las conversaciones de diciembre y los presupuestos de bienestar de 2027.</p></div>
     </div>
     <div class="cta-row rv" style="--d:5">
