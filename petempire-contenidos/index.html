@@ -29,7 +29,7 @@ h1{font:350 clamp(48px,8vw,108px)/.92 var(--serif);letter-spacing:-.04em;margin:
 .chap{border:1px solid var(--hair);border-radius:20px;padding:18px}
 .chap b{font:400 30px/1 var(--serif);color:var(--gold)}
 .chap span{display:block;font-size:14px;color:var(--soft);margin-top:8px}
-.cal{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:30px 0 0}
+.cal{display:grid;grid-template-columns:repeat(9,1fr);gap:10px;margin:30px 0 0}
 .cal a{text-decoration:none;border-radius:18px;overflow:hidden;background:var(--navy-2);border:1px solid var(--hair);transition:transform .5s var(--ease)}
 .cal a:hover{transform:translateY(-4px)}
 .cal img{aspect-ratio:4/5;object-fit:cover;width:100%}
@@ -81,10 +81,25 @@ details.alt ol{margin:12px 0 0;padding-left:20px;font-size:14px;color:var(--soft
 .adsec .intro{max-width:60ch;font-size:17px;color:rgba(11,10,36,.78);margin:0}
 .adtag{position:absolute;top:28px;right:28px;font:600 13px var(--mono);letter-spacing:.22em;padding:10px 14px;border-radius:999px;background:var(--night);color:var(--gold)}
 .ad{margin-top:44px;padding:clamp(20px,3vw,34px);border-radius:28px;background:var(--night);color:var(--bone);display:grid;grid-template-columns:1fr;gap:clamp(24px,4vw,50px);align-items:start}
-.ad-imgs{display:flex;gap:14px;align-items:flex-end}
+.ad-imgs{display:flex;gap:14px;align-items:flex-end;overflow-x:auto;scrollbar-width:thin;padding-bottom:6px}
+.ad-imgs figure{flex:none}
+.ad-imgs .sq img{aspect-ratio:1/1;width:240px}
+.ad-imgs video{border-radius:16px;width:250px;aspect-ratio:9/16;background:#000;display:block}
+.ad-imgs .var img{outline:3px dashed var(--red);outline-offset:3px}
+.ad-imgs .var figcaption{color:#ff8a8f}
+.role-tag{display:inline-block;font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:7px 11px;border-radius:999px;background:var(--gold);color:var(--night);margin-bottom:10px}
+.cards{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.cards span{font-size:12.5px;padding:6px 10px;border-radius:999px;border:1px solid var(--hair);color:var(--soft)}
+.bench{margin-top:34px;display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.bench .box{background:var(--night);color:var(--bone);border-radius:24px;padding:clamp(18px,3vw,30px)}
+.bench h3{font:400 clamp(24px,2.4vw,32px)/1.1 var(--serif);margin:0 0 14px}
+.bench .small{font-size:13px;color:var(--soft);margin:0 0 14px}
+.bench dl{margin:0}.bench dt{font-weight:600;margin-top:14px}.bench dd{margin:4px 0 0;color:var(--soft);font-size:14.5px}
+.bench ol{margin:0;padding-left:20px}.bench li{margin:8px 0;font-size:14.5px;color:rgba(247,244,236,.85)}
+.bench .full{grid-column:1/-1}
+@media(max-width:900px){.bench{grid-template-columns:1fr}}
 .ad-imgs figure{margin:0;text-align:center}
 .ad-imgs img{border-radius:16px;width:300px;height:auto;aspect-ratio:4/5;object-fit:cover}
-.ad-imgs .st img{width:240px;aspect-ratio:9/16}
+.ad-imgs .st img{width:220px;aspect-ratio:9/16}
 .ad-imgs figcaption{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-top:10px}
 .ad-imgs figcaption a{color:var(--gold)}
 .ad .no{font-size:72px}
@@ -96,7 +111,8 @@ details.alt ol{margin:12px 0 0;padding-left:20px;font-size:14px;color:var(--soft
 .field .copy{padding:6px 11px;font-size:12px}
 .adnotes{margin:30px 0 0;padding-left:20px;color:rgba(11,10,36,.8)}
 .adnotes li{margin:8px 0}
-@media(max-width:900px){.ad{grid-template-columns:1fr}.ad-imgs{gap:10px}.ad-imgs img{width:100%}.ad-imgs figure{flex:1 1 0;min-width:0}.ad-imgs .st{flex:.75 1 0}}
+@media(max-width:900px){.ad{grid-template-columns:1fr}.ad-imgs{gap:10px}.ad-imgs figure{flex:none}.ad-imgs img{width:200px}.ad-imgs .sq img{width:190px}.ad-imgs .st img{width:150px}.ad-imgs video{width:160px}}
+.field span{white-space:pre-line}
 @media(max-width:600px){.adsec{padding:20px 14px;border-radius:28px;margin-top:80px}.adtag{position:static;display:inline-block;margin-bottom:18px}.ad{padding:16px;border-radius:22px}.field{padding:10px 12px}.ad-imgs figcaption{font-size:9.5px;letter-spacing:.08em}.piece{padding:60px 0}.sec-t{margin:80px 0 20px}.check{padding:22px 18px}.cal{gap:8px}.cal div{padding:8px;font-size:9.5px}.cal div b{font-size:14px}}
 @media(hover:none){.track figure a{opacity:1}}
 .hd{display:inline-flex;align-items:center;gap:14px;text-decoration:none;padding:12px 14px 12px 20px;border-radius:999px;background:var(--gold);color:var(--night);font:600 15px var(--sans);transition:transform .4s var(--ease),box-shadow .4s}
@@ -115,18 +131,18 @@ details.alt ol{margin:12px 0 0;padding-left:20px;font-size:14px;color:var(--soft
 footer{padding:80px 0 60px;color:var(--soft);font-size:13px}
 footer .big{font:500 clamp(56px,13vw,170px)/.85 var(--serif);letter-spacing:-.04em;background:linear-gradient(180deg,rgba(247,244,236,.15),transparent);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:24px}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform 1s var(--ease)}.rv.in{opacity:1;transform:none}
-@media(max-width:900px){.hero,.piece,.ig-wrap{grid-template-columns:1fr}.piece:nth-child(even) .car{order:0}.meta{position:static}.cal{grid-template-columns:repeat(3,1fr)}.chapters{grid-template-columns:1fr}}
+@media(max-width:900px){.hero,.piece,.ig-wrap{grid-template-columns:1fr}.piece:nth-child(even) .car{order:0}.meta{position:static}.cal{grid-template-columns:repeat(3,1fr)!important;grid-template-columns:repeat(3,1fr)}.chapters{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 </style></head><body>
 <header class="wrap">
   <div class="top"><span class="brand"><img src="icon.png" alt="">PET EMPIRE</span><span class="by">Instagram · October 2026</span></div>
   <section class="hero">
-    <div><span class="kick">6 carousels · Tue &amp; Thu</span><h1>Not just <em>perfect dogs.</em></h1></div>
-    <div><p class="lede">What sells here isn't the perfect dog — it's the process and the care behind it. Six editorial carousels built from Pet Empire's own photos and dental footage — the before, the process, and the care.</p>
-      <div class="chapters"><div class="chap"><b>I</b><span>What the photo doesn't show</span></div><div class="chap"><b>II</b><span>The process</span></div><div class="chap"><b>III</b><span>The care</span></div></div></div>
+    <div><span class="kick">9 carousels · Tue &amp; Thu · Oct 6 – Nov 3</span><h1>Not just <em>perfect dogs.</em></h1></div>
+    <div><p class="lede">What sells here isn't the perfect dog — it's the process and the care behind it. Nine editorial carousels built from Pet Empire's own photos and dental footage (plus three free Unsplash illustrations) — the before, the process, and the care.</p>
+      <div class="chapters"><div class="chap"><b>I</b><span>What the photo doesn't show</span></div><div class="chap"><b>II</b><span>The process</span></div><div class="chap"><b>III</b><span>The care</span></div><div class="chap"><b>IV</b><span>At your door</span></div></div></div>
   </section>
   <div class="dlbar"><a class="hd" href="download/PetEmpire_October2026_ALL.zip" download><span>Download everything in HD <small>· posts + ads + captions · .zip</small></span><i>↓</i></a><p>Lossless PNG at Instagram's native size (1080×1350 posts, 1080×1920 stories), every caption and alt text, and a publishing guide — ready to hand off.</p></div>
-  <nav class="cal" aria-label="Calendar"><a href="#p01"><img src="img/01-01.jpg" alt="" loading="lazy"><div>Oct 6 · Tue<b>Nº 01</b></div></a><a href="#p02"><img src="img/02-01.jpg" alt="" loading="lazy"><div>Oct 8 · Thu<b>Nº 02</b></div></a><a href="#p03"><img src="img/03-01.jpg" alt="" loading="lazy"><div>Oct 13 · Tue<b>Nº 03</b></div></a><a href="#p04"><img src="img/04-01.jpg" alt="" loading="lazy"><div>Oct 15 · Thu<b>Nº 04</b></div></a><a href="#p05"><img src="img/05-01.jpg" alt="" loading="lazy"><div>Oct 20 · Tue<b>Nº 05</b></div></a><a href="#p06"><img src="img/06-01.jpg" alt="" loading="lazy"><div>Oct 22 · Thu<b>Nº 06</b></div></a></nav>
+  <nav class="cal" aria-label="Calendar"><a href="#p01"><img src="img/01-01.jpg" alt="" loading="lazy"><div>Oct 6 · Tue<b>Nº 01</b></div></a><a href="#p02"><img src="img/02-01.jpg" alt="" loading="lazy"><div>Oct 8 · Thu<b>Nº 02</b></div></a><a href="#p03"><img src="img/03-01.jpg" alt="" loading="lazy"><div>Oct 13 · Tue<b>Nº 03</b></div></a><a href="#p04"><img src="img/04-01.jpg" alt="" loading="lazy"><div>Oct 15 · Thu<b>Nº 04</b></div></a><a href="#p05"><img src="img/05-01.jpg" alt="" loading="lazy"><div>Oct 20 · Tue<b>Nº 05</b></div></a><a href="#p06"><img src="img/06-01.jpg" alt="" loading="lazy"><div>Oct 22 · Thu<b>Nº 06</b></div></a><a href="#p07"><img src="img/07-01.jpg" alt="" loading="lazy"><div>Oct 27 · Tue<b>Nº 07</b></div></a><a href="#p08"><img src="img/08-01.jpg" alt="" loading="lazy"><div>Oct 29 · Thu<b>Nº 08</b></div></a><a href="#p09"><img src="img/09-01.jpg" alt="" loading="lazy"><div>Nov 3 · Tue<b>Nº 09</b></div></a></nav>
 </header>
 
 <main class="wrap">
@@ -134,12 +150,12 @@ footer .big{font:500 clamp(56px,13vw,170px)/.85 var(--serif);letter-spacing:-.04
   <div class="ig-wrap rv">
     <div>
       <div class="ig-head"><img src="icon.png" alt=""><div><b>pet.empire.mobile.grooming</b><span>Mobile grooming · anesthesia-free dental</span></div></div>
-      <div class="grid-ig"><img src="img/06-01.jpg" alt="Cover Nº 06" loading="lazy"><img src="img/05-01.jpg" alt="Cover Nº 05" loading="lazy"><img src="img/04-01.jpg" alt="Cover Nº 04" loading="lazy"><img src="img/03-01.jpg" alt="Cover Nº 03" loading="lazy"><img src="img/02-01.jpg" alt="Cover Nº 02" loading="lazy"><img src="img/01-01.jpg" alt="Cover Nº 01" loading="lazy"></div>
+      <div class="grid-ig"><img src="img/09-01.jpg" alt="Cover Nº 09" loading="lazy"><img src="img/08-01.jpg" alt="Cover Nº 08" loading="lazy"><img src="img/07-01.jpg" alt="Cover Nº 07" loading="lazy"><img src="img/06-01.jpg" alt="Cover Nº 06" loading="lazy"><img src="img/05-01.jpg" alt="Cover Nº 05" loading="lazy"><img src="img/04-01.jpg" alt="Cover Nº 04" loading="lazy"><img src="img/03-01.jpg" alt="Cover Nº 03" loading="lazy"><img src="img/02-01.jpg" alt="Cover Nº 02" loading="lazy"><img src="img/01-01.jpg" alt="Cover Nº 01" loading="lazy"></div>
     </div>
     <p class="lede">Newest first, the way Instagram shows it. The covers alternate navy, cream and gold so the grid reads as one edition — and every carousel ends on a real call to action: (475) 277-6167 or the booking link in bio.</p>
   </div>
 
-  <div class="sec-t"><div><span class="kick">The pieces</span><h2>Six carousels, <em>in order.</em></h2></div><span class="by">Single slides below · full packs in HD (.zip) per carousel</span></div>
+  <div class="sec-t"><div><span class="kick">The pieces</span><h2>Nine carousels, <em>in order.</em></h2></div><span class="by">Single slides below · full packs in HD (.zip) per carousel</span></div>
   <div class="pieces">
   
   <article class="piece rv" id="p01">
@@ -318,45 +334,179 @@ Ask for the dental plan: (475) 277-6167, or book in 30 seconds from the link in 
       <div class="dl"><a href="png/pet-empire-06-01.jpg" download>01</a><a href="png/pet-empire-06-02.jpg" download>02</a><a href="png/pet-empire-06-03.jpg" download>03</a><a href="png/pet-empire-06-04.jpg" download>04</a><a href="png/pet-empire-06-05.jpg" download>05</a></div>
     </div>
   </article>
+  <article class="piece rv" id="p07">
+    <div class="car">
+      <div class="track" tabindex="0" aria-label="Carousel Nº 07"><figure><img src="img/07-01.jpg" alt="The Pet Empire grooming van parked outside. Text: What happens when the van pulls up?" loading="lazy" width="900" height="1125"><a href="png/pet-empire-07-01.jpg" download>Full size ↓</a></figure><figure><img src="img/07-02.jpg" alt="Two photos of the grooming van parked at a city curb. Text: Step 1, we park at your curb." loading="lazy" width="900" height="1125"><a href="png/pet-empire-07-02.jpg" download>Full size ↓</a></figure><figure><img src="img/07-03.jpg" alt="Inside the grooming van: the table and a dog standing on it. Text: Step 2, your pet comes in alone." loading="lazy" width="900" height="1125"><a href="png/pet-empire-07-03.jpg" download>Full size ↓</a></figure><figure><img src="img/07-04.jpg" alt="A husky and a shepherd mix being bathed in the van. Text: Step 3, bath, dry, cut, nails, ears." loading="lazy" width="900" height="1125"><a href="png/pet-empire-07-04.jpg" download>Full size ↓</a></figure><figure><img src="img/07-05.jpg" alt="A groomed husky and two groomed small dogs. Text: Step 4, back through your door." loading="lazy" width="900" height="1125"><a href="png/pet-empire-07-05.jpg" download>Full size ↓</a></figure><figure><img src="img/07-06.jpg" alt="Text: No car. No cage. No waiting. Phone (475) 277-6167." loading="lazy" width="900" height="1125"><a href="png/pet-empire-07-06.jpg" download>Full size ↓</a></figure></div>
+      <div class="ctl"><div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div><div class="arrows"><button type="button" data-d="-1" aria-label="Previous slide">←</button><button type="button" data-d="1" aria-label="Next slide">→</button></div></div>
+    </div>
+    <div class="meta">
+      <div class="no">Nº 07</div>
+      <h3>What happens when the van pulls up</h3>
+      <div class="facts"><span class="d">Tuesday, October 27</span><span>Chapter IV · At your door</span><span>6 slides · 4:5</span></div>
+      <p class="role"><b>Role:</b> Explains mobile grooming step by step, for people who have never used it. Mirrors the carousel ad.</p>
+      <p class="role"><b>Speaks to:</b> Pet owners who think grooming means a car ride and a waiting room.</p>
+      <div class="cap"><div class="cap-h"><span>Caption</span><button class="copy" type="button" data-copy="c07">Copy caption</button></div>
+        <pre id="c07">What actually happens when the Pet Empire van pulls up? 🚐
+
+1. We park at your curb — you don't drive anywhere.
+2. Your pet comes inside, alone. No other animals, no cages.
+3. Bath, dry, cut, nails, ears — or a dental cleaning, no anesthesia.
+4. We walk them back through your door. Same afternoon.
+
+Dogs &amp; cats · from $90 · Brooklyn &amp; New Haven County.
+📞 (475) 277-6167 · Book in 30 seconds, link in bio
+
+#mobilegrooming #mobiledoggrooming #brooklyndogs #parkslopedogs #newhavenct #doggroomer #petempire</pre></div>
+      <a class="hd" href="download/PetEmpire_N07_2026-10-27.zip" download><span>HD pack <small>· 6 PNG + caption.txt</small></span><i>↓</i></a>
+      <details class="alt"><summary>Alt text per slide</summary><ol><li>The Pet Empire grooming van parked outside. Text: What happens when the van pulls up?</li><li>Two photos of the grooming van parked at a city curb. Text: Step 1, we park at your curb.</li><li>Inside the grooming van: the table and a dog standing on it. Text: Step 2, your pet comes in alone.</li><li>A husky and a shepherd mix being bathed in the van. Text: Step 3, bath, dry, cut, nails, ears.</li><li>A groomed husky and two groomed small dogs. Text: Step 4, back through your door.</li><li>Text: No car. No cage. No waiting. Phone (475) 277-6167.</li></ol></details>
+      <div class="dl"><a href="png/pet-empire-07-01.jpg" download>01</a><a href="png/pet-empire-07-02.jpg" download>02</a><a href="png/pet-empire-07-03.jpg" download>03</a><a href="png/pet-empire-07-04.jpg" download>04</a><a href="png/pet-empire-07-05.jpg" download>05</a><a href="png/pet-empire-07-06.jpg" download>06</a></div>
+    </div>
+  </article>
+  <article class="piece rv" id="p08">
+    <div class="car">
+      <div class="track" tabindex="0" aria-label="Carousel Nº 08"><figure><img src="img/08-01.jpg" alt="A groomer holding a gray poodle. Text: How often should your pet be groomed?" loading="lazy" width="900" height="1125"><a href="png/pet-empire-08-01.jpg" download>Full size ↓</a></figure><figure><img src="img/08-02.jpg" alt="A groomed goldendoodle. Text: Doodles and poodles, every 4 to 6 weeks." loading="lazy" width="900" height="1125"><a href="png/pet-empire-08-02.jpg" download>Full size ↓</a></figure><figure><img src="img/08-03.jpg" alt="A groomed husky with a bandana. Text: Huskies, shelties, goldens, every 6 to 8 weeks plus de-shedding." loading="lazy" width="900" height="1125"><a href="png/pet-empire-08-03.jpg" download>Full size ↓</a></figure><figure><img src="img/08-04.jpg" alt="A groomed shih-poo with a red tie. Text: Shih tzus, yorkies, maltese, every 4 to 6 weeks." loading="lazy" width="900" height="1125"><a href="png/pet-empire-08-04.jpg" download>Full size ↓</a></figure><figure><img src="img/08-05.jpg" alt="A yellow labrador outdoors. Text: Labs, pit bulls, beagles, every 6 to 8 weeks plus nails monthly." loading="lazy" width="900" height="1125"><a href="png/pet-empire-08-05.jpg" download>Full size ↓</a></figure><figure><img src="img/08-06.jpg" alt="A long-haired calico cat. Text: Long-haired cats, every 6 to 8 weeks." loading="lazy" width="900" height="1125"><a href="png/pet-empire-08-06.jpg" download>Full size ↓</a></figure><figure><img src="img/08-07.jpg" alt="Text: Once a month keeps matting from starting. Quarterly, half-year and yearly plans." loading="lazy" width="900" height="1125"><a href="png/pet-empire-08-07.jpg" download>Full size ↓</a></figure></div>
+      <div class="ctl"><div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="arrows"><button type="button" data-d="-1" aria-label="Previous slide">←</button><button type="button" data-d="1" aria-label="Next slide">→</button></div></div>
+    </div>
+    <div class="meta">
+      <div class="no">Nº 08</div>
+      <h3>How often should your pet be groomed?</h3>
+      <div class="facts"><span class="d">Thursday, October 29</span><span>Chapter IV · At your door</span><span>7 slides · 4:5</span></div>
+      <p class="role"><b>Role:</b> Saveable guide by coat type. Builds authority and leads naturally to the monthly plans.</p>
+      <p class="role"><b>Speaks to:</b> Owners who only book when the dog is already matted.</p>
+      <div class="cap"><div class="cap-h"><span>Caption</span><button class="copy" type="button" data-copy="c08">Copy caption</button></div>
+        <pre id="c08">How often should your pet be groomed? A quick guide by coat type 📌
+
+🐩 Doodles &amp; poodles — every 4–6 weeks
+🐺 Huskies, shelties, goldens — every 6–8 weeks + de-shedding
+🐶 Shih tzus, yorkies, maltese — every 4–6 weeks
+🐕 Labs, pit bulls, beagles — every 6–8 weeks + nails monthly
+🐈 Long-haired cats — every 6–8 weeks
+
+General guide — every pet is different, and we adjust it to yours.
+Once a month keeps matting from starting: our plans take 10%, 15% or 20% off each groom.
+
+Save this for later. 📞 (475) 277-6167
+
+#doggroomingtips #mobilegrooming #doodlegrooming #huskygrooming #brooklyndogs #newhavenct #petempire</pre></div>
+      <a class="hd" href="download/PetEmpire_N08_2026-10-29.zip" download><span>HD pack <small>· 7 PNG + caption.txt</small></span><i>↓</i></a>
+      <details class="alt"><summary>Alt text per slide</summary><ol><li>A groomer holding a gray poodle. Text: How often should your pet be groomed?</li><li>A groomed goldendoodle. Text: Doodles and poodles, every 4 to 6 weeks.</li><li>A groomed husky with a bandana. Text: Huskies, shelties, goldens, every 6 to 8 weeks plus de-shedding.</li><li>A groomed shih-poo with a red tie. Text: Shih tzus, yorkies, maltese, every 4 to 6 weeks.</li><li>A yellow labrador outdoors. Text: Labs, pit bulls, beagles, every 6 to 8 weeks plus nails monthly.</li><li>A long-haired calico cat. Text: Long-haired cats, every 6 to 8 weeks.</li><li>Text: Once a month keeps matting from starting. Quarterly, half-year and yearly plans.</li></ol></details>
+      <div class="dl"><a href="png/pet-empire-08-01.jpg" download>01</a><a href="png/pet-empire-08-02.jpg" download>02</a><a href="png/pet-empire-08-03.jpg" download>03</a><a href="png/pet-empire-08-04.jpg" download>04</a><a href="png/pet-empire-08-05.jpg" download>05</a><a href="png/pet-empire-08-06.jpg" download>06</a><a href="png/pet-empire-08-07.jpg" download>07</a></div>
+    </div>
+  </article>
+  <article class="piece rv" id="p09">
+    <div class="car">
+      <div class="track" tabindex="0" aria-label="Carousel Nº 09"><figure><img src="img/09-01.jpg" alt="A white cat inside a clear pet carrier. Text: The hardest part of grooming a cat? Getting there." loading="lazy" width="900" height="1125"><a href="png/pet-empire-09-01.jpg" download>Full size ↓</a></figure><figure><img src="img/09-02.jpg" alt="The Pet Empire grooming van parked outside. Text: No carrier, no car ride, we come to you." loading="lazy" width="900" height="1125"><a href="png/pet-empire-09-02.jpg" download>Full size ↓</a></figure><figure><img src="img/09-03.jpg" alt="A long-haired calico cat and a black and white cat. Text: One pet in the van, no barking." loading="lazy" width="900" height="1125"><a href="png/pet-empire-09-03.jpg" download>Full size ↓</a></figure><figure><img src="img/09-04.jpg" alt="List of cat services and prices: regular bath, wash and grooming, dental cleaning, dematting." loading="lazy" width="900" height="1125"><a href="png/pet-empire-09-04.jpg" download>Full size ↓</a></figure><figure><img src="img/09-05.jpg" alt="Two groomed cats with Google reviews from cat owners." loading="lazy" width="900" height="1125"><a href="png/pet-empire-09-05.jpg" download>Full size ↓</a></figure><figure><img src="img/09-06.jpg" alt="Text: Almost no mobile groomer takes cats. We do." loading="lazy" width="900" height="1125"><a href="png/pet-empire-09-06.jpg" download>Full size ↓</a></figure></div>
+      <div class="ctl"><div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div><div class="arrows"><button type="button" data-d="-1" aria-label="Previous slide">←</button><button type="button" data-d="1" aria-label="Next slide">→</button></div></div>
+    </div>
+    <div class="meta">
+      <div class="no">Nº 09</div>
+      <h3>Cats hate the car. So we skip it.</h3>
+      <div class="facts"><span class="d">Tuesday, November 3</span><span>Chapter IV · At your door</span><span>6 slides · 4:5</span></div>
+      <p class="role"><b>Role:</b> Owns the cat niche (almost no mobile groomer takes cats) with real Google reviews from cat owners.</p>
+      <p class="role"><b>Speaks to:</b> Cat owners who gave up on grooming because of the carrier and the car.</p>
+      <div class="cap"><div class="cap-h"><span>Caption</span><button class="copy" type="button" data-copy="c09">Copy caption</button></div>
+        <pre id="c09">The hardest part of grooming a cat? Getting there. 🐈
+
+So we skip it. Our van parks at your curb, your cat goes from your arms to our table, and there are no barking dogs around — one pet at a time.
+
+Bath $120–$130 · full groom $165–$180 · dental cleaning without anesthesia · dematting.
+
+“My elderly cat Anna came out of the van looking amazing…” — Dennie D., Google
+
+Brooklyn &amp; New Haven County · 📞 (475) 277-6167
+
+#catgrooming #mobilecatgrooming #catsofbrooklyn #brooklyncats #newhavenct #mobilegrooming #petempire</pre></div>
+      <a class="hd" href="download/PetEmpire_N09_2026-11-03.zip" download><span>HD pack <small>· 6 PNG + caption.txt</small></span><i>↓</i></a>
+      <details class="alt"><summary>Alt text per slide</summary><ol><li>A white cat inside a clear pet carrier. Text: The hardest part of grooming a cat? Getting there.</li><li>The Pet Empire grooming van parked outside. Text: No carrier, no car ride, we come to you.</li><li>A long-haired calico cat and a black and white cat. Text: One pet in the van, no barking.</li><li>List of cat services and prices: regular bath, wash and grooming, dental cleaning, dematting.</li><li>Two groomed cats with Google reviews from cat owners.</li><li>Text: Almost no mobile groomer takes cats. We do.</li></ol></details>
+      <div class="dl"><a href="png/pet-empire-09-01.jpg" download>01</a><a href="png/pet-empire-09-02.jpg" download>02</a><a href="png/pet-empire-09-03.jpg" download>03</a><a href="png/pet-empire-09-04.jpg" download>04</a><a href="png/pet-empire-09-05.jpg" download>05</a><a href="png/pet-empire-09-06.jpg" download>06</a></div>
+    </div>
+  </article>
   </div>
 
   <section class="check rv"><span class="kick">Before publishing</span><h2>To confirm with <em>Pet Empire.</em></h2>
-    <ul><li>The teeth photos (before = yellow, after = clean) are the SAME dog from the same session — pieces 03 and 04 say &quot;same dog, same afternoon&quot;.</li><li>The dental cleaning clips (blue gloves / white gloves) are Pet Empire’s own footage. Clips with a third-party &quot;Pawfect&quot; watermark were left out.</li><li>Step 01 (&quot;if it needs a vet, we tell you&quot;) matches how the team actually works.</li><li>The cleaning is done &quot;by hand&quot; (the website says so; some clips show a pen-style scaler).</li><li>Prices: deep dental $150–$200 / dental plan 3 for $450 / wash &amp; grooming from $120 / regular bath from $90 (new price list, October 2026).</li><li>Someone answers DMs with the word &quot;DENTAL&quot; (piece 02).</li><li>Service areas: Park Slope, Bay Ridge, Williamsburg, Bushwick and New Haven County.</li></ul></section>
+    <ul><li>Pieces 08 and 09 use two free Unsplash photos (cover poodle, short-coat labrador, cat in carrier) as illustrations — they are not Pet Empire clients and are never labeled as such (see assets/photos/stock/SOURCES.md).</li><li>The teeth photos (before = yellow, after = clean) are the SAME dog from the same session — pieces 03 and 04 say &quot;same dog, same afternoon&quot;.</li><li>The dental cleaning clips (blue gloves / white gloves) are Pet Empire’s own footage. Clips with a third-party &quot;Pawfect&quot; watermark were left out.</li><li>Step 01 (&quot;if it needs a vet, we tell you&quot;) matches how the team actually works.</li><li>The cleaning is done &quot;by hand&quot; (the website says so; some clips show a pen-style scaler).</li><li>Prices: deep dental $150–$200 / dental plan 3 for $450 / wash &amp; grooming from $120 / regular bath from $90 (new price list, October 2026).</li><li>Someone answers DMs with the word &quot;DENTAL&quot; (piece 02).</li><li>Service areas: Park Slope, Bay Ridge, Williamsburg, Bushwick and New Haven County.</li></ul></section>
 
   <section class="adsec rv" id="ads"><span class="adtag">PAID · META ADS</span>
     <span class="kick">Separate from the organic grid</span>
-    <h2>Meta Ads: <em>two creative proposals.</em></h2>
-    <p class="intro">These are <b>paid ads</b> for Facebook and Instagram, not posts for the feed. Each proposal comes in feed 4:5 and stories/reels 9:16, with the copy ready to paste into Ads Manager.</p>
-    <a class="hd dark" style="margin-top:22px" href="download/PetEmpire_MetaAds_October2026.zip" download><span>Download ads in HD <small>· 4 PNG + ad-copy.txt · .zip</small></span><i>↓</i></a>
+    <h2>Meta Ads v2: <em>mobile grooming, said plainly.</em></h2>
+    <p class="intro">These are <b>paid ads</b> for Facebook and Instagram, not posts for the feed. Rebuilt after a benchmark of the mobile-grooming ads running today in the US: a carousel, a single image and a 15-second reel to find new clients, plus the dental ad for retargeting. Variants with a red dashed outline carry a “$15 off” offer and need Pet Empire’s approval.</p>
+    <div class="bench">
+      <div class="box"><h3>What the benchmark shows</h3><p class="small">Meta Ad Library, United States, active ads matching “mobile grooming” (~870 results), 6 Oct 2026. About 60 ads from consumer-facing mobile groomers reviewed (equipment sellers and hiring ads excluded).</p><dl><dt>They say what it is, literally.</dt><dd>“Mobile Dog Grooming — We Come To You” (PurrFurred), “Skip The Drive. We Come To You.” (The Valley Grooming), “Groomed at Your Door” (Groombar). No metaphors.</dd><dt>They name the area in line one.</dt><dd>“Buda, Kyle &amp; San Marcos dog parents…”, “San Diego pet parents…”, “Serving Marysville &amp; nearby”. Locals stop for their own neighborhood.</dd><dt>They sell the pain they remove.</dt><dd>No car rides, no cages, no crowded salon, no waiting all day, anxious pets. “No more stressful grooming trips.”</dd><dt>First-visit offer is almost standard.</dt><dd>$10–$20 off or 10–15% off the first groom (Zoomin Groomin, Groombar, Petstar, FurFresh, Fur Exclusive, Blooming).</dd><dt>Low-friction CTA.</dt><dd>Book Now to an online booking page, Send Message / WhatsApp, or “text a photo for availability” (Becca’s Pet Mecca — the same ad running since Dec 2022).</dd><dt>Video and carousels dominate.</dt><dd>Most long-running ads are short videos (van tours, transformations, the groomer). Carousels repeat “We Come To You!” across cards.</dd><dt>Proof up front.</dt><dd>Star ratings (“⭐ 4.9-star rated”), before/after, “not Photoshop — one session”.</dd></dl></div>
+      <div class="box"><h3>In the customer’s shoes</h3><dl><dt>Old ad B (the van)</dt><dd>Beautiful, but “The salon that parks in your driveway” makes me think for a second — and on Instagram I don’t give it that second. “Grooming” is small, I never see a dog being groomed, and there is no reason to book now.</dd><dt>Old ad A (dental)</dt><dd>It stops the scroll (gross in a good way), but cold I don’t know who you are or that it’s mobile. It’s a niche service: great for people who already know you, weak as a first impression.</dd><dt>What I need to book</dt><dd>In 3 seconds: what it is (mobile pet grooming), that it comes to MY neighborhood, that it’s safe for my pet (one at a time, no cages, reviews), roughly what it costs, and one tap to book.</dd></dl></div>
+      <div class="box full"><h3>How to run them</h3><ol><li>Campaign: Sales or Leads with Click-to-WhatsApp (14753009861) or the website booking (#book). Start with one campaign, ad sets per area.</li><li>Location: Brooklyn ZIPs 11215, 11217, 11209, 11211, 11249, 11221, 11237 (Park Slope, Bay Ridge, Williamsburg, Bushwick) + 10–15 mi around New Haven, CT. People living in, not traveling to.</li><li>Audience: Advantage+ audience with suggestions (dog owners, cat owners, pet grooming, dog lovers), age 25–65. Let the creative do the targeting.</li><li>Creative mix: C (carousel) + D (single) + E (reel) in the prospecting ad set; A (dental) in a retargeting ad set for reel viewers (50%+), IG/FB engagers and site visitors (30 days).</li><li>Budget: ~80% prospecting / 20% retargeting. Minimum ~$15–$20/day per ad set for 7 days before judging; then keep the lowest cost per WhatsApp conversation or booking.</li><li>Offer: test the $15-off-first-groom variants (C6-offer, D-offer) against the no-offer versions — only if Pet Empire approves the discount.</li><li>Answer fast: the ad is only as good as the reply. WhatsApp messages answered in minutes, not hours.</li><li>Spanish: same ads with Spanish copy for a Spanish-language ad set (the business already offers service in Spanish).</li></ol></div>
+    </div>
+    <a class="hd dark" style="margin-top:22px" href="download/PetEmpire_MetaAds_October2026.zip" download><span>Download ads in HD <small>· PNG + reel MP4 + ad-copy.txt · .zip</small></span><i>↓</i></a>
     
     <article class="ad">
-      <div class="ad-imgs"><figure class=""><img src="ads/A-feed-4x5.jpg" alt="Ad A feed 4:5" loading="lazy"><figcaption>Feed 4:5 · <a href="ads/pet-empire-ad-A-feed-4x5.jpg" download>Download</a></figcaption></figure><figure class="st"><img src="ads/A-story-9x16.jpg" alt="Ad A story 9:16" loading="lazy"><figcaption>Stories · Reels 9:16 · <a href="ads/pet-empire-ad-A-story-9x16.jpg" download>Download</a></figcaption></figure></div>
+      <div class="ad-imgs"><figure class="sq"><img src="ads/C1.jpg" alt="Ad C · Card 1 · hook" loading="lazy"><figcaption>Card 1 · hook · <a href="ads/pet-empire-ad-C1.jpg" download>Download</a></figcaption></figure><figure class="sq"><img src="ads/C2.jpg" alt="Ad C · Card 2" loading="lazy"><figcaption>Card 2 · <a href="ads/pet-empire-ad-C2.jpg" download>Download</a></figcaption></figure><figure class="sq"><img src="ads/C3.jpg" alt="Ad C · Card 3" loading="lazy"><figcaption>Card 3 · <a href="ads/pet-empire-ad-C3.jpg" download>Download</a></figcaption></figure><figure class="sq"><img src="ads/C4.jpg" alt="Ad C · Card 4" loading="lazy"><figcaption>Card 4 · <a href="ads/pet-empire-ad-C4.jpg" download>Download</a></figcaption></figure><figure class="sq"><img src="ads/C5.jpg" alt="Ad C · Card 5" loading="lazy"><figcaption>Card 5 · <a href="ads/pet-empire-ad-C5.jpg" download>Download</a></figcaption></figure><figure class="sq"><img src="ads/C6.jpg" alt="Ad C · Card 6 · book" loading="lazy"><figcaption>Card 6 · book · <a href="ads/pet-empire-ad-C6.jpg" download>Download</a></figcaption></figure><figure class="sq var"><img src="ads/C6-offer.jpg" alt="Ad C · Card 6 · $15 off variant" loading="lazy"><figcaption>Card 6 · $15 off variant · <a href="ads/pet-empire-ad-C6-offer.jpg" download>Download</a></figcaption></figure></div>
       <div>
-        <div class="no">Ad A</div>
-        <h3>Dental — “Bad breath isn’t just dog breath”</h3>
-        <p class="role"><b>Goal:</b> Conversion: bookings for the anesthesia-free dental cleaning ($150–$200 · plan 3 for $450).</p>
-        <p class="role"><b>Why it works:</b> The most distinctive service, shown with real proof: the same dog before and after. Lowest competition — almost no mobile groomer offers dental.</p>
+        <span class="role-tag">Main ad · cold audience</span>
+        <div class="no">Ad C</div>
+        <h3>Carousel — “Mobile pet grooming: how it works”</h3>
+        <p class="role"><b>Goal:</b> New clients who have never heard of Pet Empire. Explains the service in 6 swipes: we come to you → full salon inside → one pet at a time → real result → reviews + price + book.</p>
+        <p class="role"><b>Why it works:</b> In the benchmark, carousels and step-by-step formats are how long-running groomers explain “mobile” to people who have never used it. Every card is understandable on its own, so it still works if someone only sees card 1.</p>
+        <p class="role" style="margin-top:12px"><b>Card headlines (one per card):</b></p><div class="cards"><span>1. We come to your door</span><span>2. We park at your curb</span><span>3. A full salon inside</span><span>4. One pet at a time, no cages</span><span>5. Same-afternoon results</span><span>6. Book in 30 seconds</span></div>
         <div class="fields">
-          <div class="field"><small>Primary text</small><span id="adA0">Bad breath isn’t “just dog breath.” 🦷 It’s usually tartar — and we clean it off by hand, with your pet awake, inside our van in your driveway. No anesthesia, no drop-off. $150–$200 per cleaning, or 3 for $450.</span><button class="copy" type="button" data-copy="adA0">Copy</button></div><div class="field"><small>Headline</small><span id="adA1">Anesthesia-free dental, at your door</span><button class="copy" type="button" data-copy="adA1">Copy</button></div><div class="field"><small>Description</small><span id="adA2">Brooklyn · New Haven County</span><button class="copy" type="button" data-copy="adA2">Copy</button></div><div class="field"><small>Button</small><span id="adA3">Book Now</span></div><div class="field"><small>Suggested audience</small><span id="adA4">Dog and cat owners, 28–65, within 5 mi of Park Slope, Bay Ridge, Williamsburg, Bushwick + New Haven County (15 mi). Interests: dog owners, cat owners, pet dental care, pet grooming.</span></div>
+          <div class="field"><small>Primary text</small><span id="adC0">Brooklyn &amp; New Haven County pet parents: skip the car ride. 🚐
+Pet Empire is a full grooming salon on wheels — we park at your curb, groom your dog or cat inside the van, one pet at a time, no cages, and walk them back through your door.
+
+✓ Wash &amp; grooming · regular bath · de-shedding
+✓ Anesthesia-free dental cleaning
+✓ ★★★★★ 5.0 on Google · Spanish spoken
+
+Book in 30 seconds 👇</span><button class="copy" type="button" data-copy="adC0">Copy</button></div><div class="field"><small>Headline</small><span id="adC1">Mobile pet grooming — we come to you</span><button class="copy" type="button" data-copy="adC1">Copy</button></div><div class="field"><small>Description</small><span id="adC2">Dogs &amp; cats · from $90</span><button class="copy" type="button" data-copy="adC2">Copy</button></div><div class="field"><small>Button</small><span id="adC3">Book Now (or Send WhatsApp Message)</span></div>
         </div>
       </div>
     </article>
     <article class="ad">
-      <div class="ad-imgs"><figure class=""><img src="ads/B-feed-4x5.jpg" alt="Ad B feed 4:5" loading="lazy"><figcaption>Feed 4:5 · <a href="ads/pet-empire-ad-B-feed-4x5.jpg" download>Download</a></figcaption></figure><figure class="st"><img src="ads/B-story-9x16.jpg" alt="Ad B story 9:16" loading="lazy"><figcaption>Stories · Reels 9:16 · <a href="ads/pet-empire-ad-B-story-9x16.jpg" download>Download</a></figcaption></figure></div>
+      <div class="ad-imgs"><figure class="feed"><img src="ads/D-feed-4x5.jpg" alt="Ad D · Feed 4:5" loading="lazy"><figcaption>Feed 4:5 · <a href="ads/pet-empire-ad-D-feed-4x5.jpg" download>Download</a></figcaption></figure><figure class="st"><img src="ads/D-story-9x16.jpg" alt="Ad D · Stories · Reels 9:16" loading="lazy"><figcaption>Stories · Reels 9:16 · <a href="ads/pet-empire-ad-D-story-9x16.jpg" download>Download</a></figcaption></figure><figure class="feed var"><img src="ads/D-feed-4x5-offer.jpg" alt="Ad D · Feed 4:5 · $15 off variant" loading="lazy"><figcaption>Feed 4:5 · $15 off variant · <a href="ads/pet-empire-ad-D-feed-4x5-offer.jpg" download>Download</a></figcaption></figure></div>
       <div>
-        <div class="no">Ad B</div>
-        <h3>Grooming — “The salon that parks in your driveway”</h3>
-        <p class="role"><b>Goal:</b> Reach + conversion: new grooming clients (from $120).</p>
-        <p class="role"><b>Why it works:</b> Sells the convenience in one look: the new van plus two real clients fresh out of it. Works as a cold-audience introduction.</p>
+        <span class="role-tag">Main ad · single image</span>
+        <div class="no">Ad D</div>
+        <h3>Single image — “MOBILE PET GROOMING”</h3>
+        <p class="role"><b>Goal:</b> Same audience as C, for placements where carousels don’t run (Stories, Reels). Replaces the old “salon that parks in your driveway” ad.</p>
+        <p class="role"><b>Why it works:</b> The old headline was a metaphor; a scroller needs one second to know WHAT it is. The winners in the benchmark literally say “Mobile Dog Grooming — We Come To You”, name the area, and show the van plus a groomed pet.</p>
+        
         <div class="fields">
-          <div class="field"><small>Primary text</small><span id="adB0">The grooming salon that parks in your driveway. 🚐 One pet at a time, no cages, no other animals around — your dog or cat walks right back through your door. Full grooming from $120. Spanish spoken.</span><button class="copy" type="button" data-copy="adB0">Copy</button></div><div class="field"><small>Headline</small><span id="adB1">Mobile grooming from $120</span><button class="copy" type="button" data-copy="adB1">Copy</button></div><div class="field"><small>Description</small><span id="adB2">One pet at a time · Dogs &amp; cats</span><button class="copy" type="button" data-copy="adB2">Copy</button></div><div class="field"><small>Button</small><span id="adB3">Book Now</span></div><div class="field"><small>Suggested audience</small><span id="adB4">Same areas as A. Broad 25–60 with pet-owner interests; exclude current clients (customer list) once uploaded.</span></div>
+          <div class="field"><small>Primary text</small><span id="adD0">Mobile pet grooming in Brooklyn &amp; New Haven County. 🐶🐱
+No car rides, no cages, no waiting room — our van parks outside your home and your pet is groomed inside, one at a time.
+From $90 · 5.0 ★ on Google · Book in 30 seconds.</span><button class="copy" type="button" data-copy="adD0">Copy</button></div><div class="field"><small>Headline</small><span id="adD1">Mobile Pet Grooming — We Come To You</span><button class="copy" type="button" data-copy="adD1">Copy</button></div><div class="field"><small>Description</small><span id="adD2">Brooklyn · New Haven County</span><button class="copy" type="button" data-copy="adD2">Copy</button></div><div class="field"><small>Button</small><span id="adD3">Book Now</span></div>
         </div>
       </div>
     </article>
-    <ul class="adnotes"><li>Destination: the website booking section (/#book) or WhatsApp click-to-chat to (475) 300-9861 — both already work.</li><li>Run A and B as two ad sets in the same campaign for 7 days, then shift budget to the one with the lower cost per booking.</li><li>Meta reviews before/after images more strictly in health categories; this is pet dental care, but if ad A is flagged, use the “after” half only with the same copy.</li><li>Confirm with Pet Empire that the before/after teeth photos are the same dog (the ad says “same dog”).</li></ul>
+    <article class="ad">
+      <div class="ad-imgs"><figure class="video"><video src="ads/pet-empire-ad-E-reel-9x16.mp4" poster="ads/E-reel-9x16-poster.jpg" controls muted playsinline preload="none"></video><figcaption>Reel 9:16 · 15 s · <a href="ads/pet-empire-ad-E-reel-9x16.mp4" download>Download</a></figcaption></figure></div>
+      <div>
+        <span class="role-tag">Main ad · video (Reels/Stories)</span>
+        <div class="no">Ad E</div>
+        <h3>Reel 15 s — van, dental, before &amp; after, book</h3>
+        <p class="role"><b>Goal:</b> Reach + cheap attention in Reels and Stories, where video wins. Builds the retargeting pool for ads C and A.</p>
+        <p class="role"><b>Why it works:</b> Most of the long-running ads in the benchmark are short videos (UGC, transformations, the van). Built from Pet Empire’s own clips; add a trending sound from Instagram’s library when uploading.</p>
+        
+        <div class="fields">
+          <div class="field"><small>Primary text</small><span id="adE0">This is what mobile grooming looks like. 🚐 We park at your curb, groom your dog or cat inside our van — one pet at a time — and bring them back to your door. Dental cleaning without anesthesia too. Brooklyn &amp; New Haven County.</span><button class="copy" type="button" data-copy="adE0">Copy</button></div><div class="field"><small>Headline</small><span id="adE1">Mobile Pet Grooming — Book in 30 seconds</span><button class="copy" type="button" data-copy="adE1">Copy</button></div><div class="field"><small>Description</small><span id="adE2">Dogs &amp; cats · from $90</span><button class="copy" type="button" data-copy="adE2">Copy</button></div><div class="field"><small>Button</small><span id="adE3">Book Now</span></div>
+        </div>
+      </div>
+    </article>
+    <article class="ad">
+      <div class="ad-imgs"><figure class="feed"><img src="ads/A-feed-4x5.jpg" alt="Ad A · Feed 4:5" loading="lazy"><figcaption>Feed 4:5 · <a href="ads/pet-empire-ad-A-feed-4x5.jpg" download>Download</a></figcaption></figure><figure class="st"><img src="ads/A-story-9x16.jpg" alt="Ad A · Stories · Reels 9:16" loading="lazy"><figcaption>Stories · Reels 9:16 · <a href="ads/pet-empire-ad-A-story-9x16.jpg" download>Download</a></figcaption></figure></div>
+      <div>
+        <span class="role-tag">Second ad · retargeting</span>
+        <div class="no">Ad A</div>
+        <h3>Dental v2 — “Mobile dental cleaning · no anesthesia”</h3>
+        <p class="role"><b>Goal:</b> People who already watched the reel / visited the site, plus owners actively worried about breath or tartar.</p>
+        <p class="role"><b>Why it works:</b> Before/after teeth is a proven hook (Purrfect Grooming has run it with a WhatsApp keyword offer), but cold it’s a niche service. v2 adds the missing context: it says MOBILE DENTAL CLEANING, “no vet trip”, and shows the van.</p>
+        
+        <div class="fields">
+          <div class="field"><small>Primary text</small><span id="adA0">Bad breath isn’t “just dog breath.” 🦷 It’s usually tartar — and we clean it off with your pet awake, inside our van, in your driveway. No anesthesia, no vet trip. $150–$200 per cleaning, or 3 for $450.
+Message us “SMILE” on WhatsApp for the first open date.</span><button class="copy" type="button" data-copy="adA0">Copy</button></div><div class="field"><small>Headline</small><span id="adA1">Mobile dental cleaning — no anesthesia</span><button class="copy" type="button" data-copy="adA1">Copy</button></div><div class="field"><small>Description</small><span id="adA2">Dogs &amp; cats · at your door</span><button class="copy" type="button" data-copy="adA2">Copy</button></div><div class="field"><small>Button</small><span id="adA3">Send WhatsApp Message</span></div>
+        </div>
+      </div>
+    </article>
+    <ul class="adnotes"><li>Before/after teeth photos must be the same dog (the ads say “same dog”) — confirm with Pet Empire.</li><li>The “$15 off your first groom” variants are proposals: do not run them unless Pet Empire approves the discount.</li><li>Meta reviews before/after images more strictly in health categories; if ad A is flagged, run the after half only.</li><li>The old ad B (“The salon that parks in your driveway”) is retired and replaced by C, D and E.</li></ul>
   </section>
 </main>
-<footer class="wrap"><div class="big">Pet Empire</div>All photos and clips are Pet Empire's own client material. Prepared by We Rock · <a href="https://www.werock.space" target="_blank" rel="noopener">www.werock.space</a> · October 2026.</footer>
+<footer class="wrap"><div class="big">Pet Empire</div>Client photos, the van and all clips are Pet Empire's own material; three illustrative photos in pieces 08–09 are from Unsplash (free license) and are not clients. Prepared by We Rock · <a href="https://www.werock.space" target="_blank" rel="noopener">www.werock.space</a> · October 2026.</footer>
 <script>
 document.querySelectorAll('.car').forEach(c=>{const t=c.querySelector('.track'),dots=[...c.querySelectorAll('.dots i')];
  const go=d=>t.scrollBy({left:d*t.clientWidth,behavior:'smooth'});

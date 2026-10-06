@@ -172,8 +172,94 @@ Ask for the dental plan: (475) 277-6167, or book in 30 seconds from the link in 
 4. A dog's clean front teeth, lip held back. Text: Keep it like this.
 5. The Pet Empire van. Text: Ask for the dental plan. Phone (475) 277-6167.
 
+## Nº 07 · What happens when the van pulls up
+
+**Date:** Tuesday, October 27 · **Chapter:** IV · **Slides:** 6
+
+```
+What actually happens when the Pet Empire van pulls up? 🚐
+
+1. We park at your curb — you don't drive anywhere.
+2. Your pet comes inside, alone. No other animals, no cages.
+3. Bath, dry, cut, nails, ears — or a dental cleaning, no anesthesia.
+4. We walk them back through your door. Same afternoon.
+
+Dogs & cats · from $90 · Brooklyn & New Haven County.
+📞 (475) 277-6167 · Book in 30 seconds, link in bio
+
+#mobilegrooming #mobiledoggrooming #brooklyndogs #parkslopedogs #newhavenct #doggroomer #petempire
+```
+
+**Alt text**
+
+1. The Pet Empire grooming van parked outside. Text: What happens when the van pulls up?
+2. Two photos of the grooming van parked at a city curb. Text: Step 1, we park at your curb.
+3. Inside the grooming van: the table and a dog standing on it. Text: Step 2, your pet comes in alone.
+4. A husky and a shepherd mix being bathed in the van. Text: Step 3, bath, dry, cut, nails, ears.
+5. A groomed husky and two groomed small dogs. Text: Step 4, back through your door.
+6. Text: No car. No cage. No waiting. Phone (475) 277-6167.
+
+## Nº 08 · How often should your pet be groomed?
+
+**Date:** Thursday, October 29 · **Chapter:** IV · **Slides:** 7
+
+```
+How often should your pet be groomed? A quick guide by coat type 📌
+
+🐩 Doodles & poodles — every 4–6 weeks
+🐺 Huskies, shelties, goldens — every 6–8 weeks + de-shedding
+🐶 Shih tzus, yorkies, maltese — every 4–6 weeks
+🐕 Labs, pit bulls, beagles — every 6–8 weeks + nails monthly
+🐈 Long-haired cats — every 6–8 weeks
+
+General guide — every pet is different, and we adjust it to yours.
+Once a month keeps matting from starting: our plans take 10%, 15% or 20% off each groom.
+
+Save this for later. 📞 (475) 277-6167
+
+#doggroomingtips #mobilegrooming #doodlegrooming #huskygrooming #brooklyndogs #newhavenct #petempire
+```
+
+**Alt text**
+
+1. A groomer holding a gray poodle. Text: How often should your pet be groomed?
+2. A groomed goldendoodle. Text: Doodles and poodles, every 4 to 6 weeks.
+3. A groomed husky with a bandana. Text: Huskies, shelties, goldens, every 6 to 8 weeks plus de-shedding.
+4. A groomed shih-poo with a red tie. Text: Shih tzus, yorkies, maltese, every 4 to 6 weeks.
+5. A yellow labrador outdoors. Text: Labs, pit bulls, beagles, every 6 to 8 weeks plus nails monthly.
+6. A long-haired calico cat. Text: Long-haired cats, every 6 to 8 weeks.
+7. Text: Once a month keeps matting from starting. Quarterly, half-year and yearly plans.
+
+## Nº 09 · Cats hate the car. So we skip it.
+
+**Date:** Tuesday, November 3 · **Chapter:** IV · **Slides:** 6
+
+```
+The hardest part of grooming a cat? Getting there. 🐈
+
+So we skip it. Our van parks at your curb, your cat goes from your arms to our table, and there are no barking dogs around — one pet at a time.
+
+Bath $120–$130 · full groom $165–$180 · dental cleaning without anesthesia · dematting.
+
+“My elderly cat Anna came out of the van looking amazing…” — Dennie D., Google
+
+Brooklyn & New Haven County · 📞 (475) 277-6167
+
+#catgrooming #mobilecatgrooming #catsofbrooklyn #brooklyncats #newhavenct #mobilegrooming #petempire
+```
+
+**Alt text**
+
+1. A white cat inside a clear pet carrier. Text: The hardest part of grooming a cat? Getting there.
+2. The Pet Empire grooming van parked outside. Text: No carrier, no car ride, we come to you.
+3. A long-haired calico cat and a black and white cat. Text: One pet in the van, no barking.
+4. List of cat services and prices: regular bath, wash and grooming, dental cleaning, dematting.
+5. Two groomed cats with Google reviews from cat owners.
+6. Text: Almost no mobile groomer takes cats. We do.
+
 ## To confirm with Pet Empire
 
+- [ ] Pieces 08 and 09 use two free Unsplash photos (cover poodle, short-coat labrador, cat in carrier) as illustrations — they are not Pet Empire clients and are never labeled as such (see assets/photos/stock/SOURCES.md).
 - [ ] The teeth photos (before = yellow, after = clean) are the SAME dog from the same session — pieces 03 and 04 say "same dog, same afternoon".
 - [ ] The dental cleaning clips (blue gloves / white gloves) are Pet Empire’s own footage. Clips with a third-party "Pawfect" watermark were left out.
 - [ ] Step 01 ("if it needs a vet, we tell you") matches how the team actually works.
