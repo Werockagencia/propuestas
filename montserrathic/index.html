@@ -43,7 +43,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
 .lb .hint{text-align:center;color:var(--muted);font-size:12px;padding:8px 16px calc(12px + env(safe-area-inset-bottom,0px))}
 @media (max-width:700px){.lb .arrow{width:42px;height:42px;font-size:20px;top:auto;bottom:56px;transform:none}}
 </style></head><body>
-<div class="top"><b>Montserrat Etapa II × HIC</b><div class="r"><small>Toca cualquier pieza para verla en detalle</small><a href="Montserrat_Pauta_HIC.pdf" download>Descargar PDF</a></div></div>
+<div class="top"><b>Montserrat Etapa II × HIC y Aeropuerto</b><div class="r"><small>Toca cualquier pieza para verla en detalle</small><a href="Montserrat_Pauta_HIC.pdf" download>Descargar PDF</a></div></div>
 <main id="g"></main>
 <footer>Montserrat Etapa II · Azulado Inmobiliario</footer>
 
@@ -56,45 +56,38 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
 </div>
 <script>
 (function(){
-  var V='?v=14', D='r6/piezas/';
-  var VB='Valla 5 × 2 m', CJ='Caja de luz sótano 3 · 2,5 × 1,1 m', AS='Puertas ascensor · 1 × 2,09 m';
+  var V='?v=15', D='r7/piezas/';
   var P={
-    vb:['R6_valla_5x2_blanca.jpg',VB+' · versión blanca'], vv:['R6_valla_5x2_verde.jpg',VB+' · versión verde'],
-    svb:['situ_R6valla_blanca.jpg',VB+' · blanca · simulación en el parqueadero'], svv:['situ_R6valla_verde.jpg',VB+' · verde · simulación en el parqueadero'],
-    cb:['R6_cajaluz_2.5x1.1_blanca.jpg',CJ+' · opción A · blanca'], cv:['R6_cajaluz_2.5x1.1_verde.jpg',CJ+' · opción A · verde'],
-    scb:['situ_R6caja_blanca.jpg',CJ+' · opción A · blanca · simulación'], scv:['situ_R6caja_verde.jpg',CJ+' · opción A · verde · simulación'],
-    cbB:['R6B_cajaluz_2.5x1.1_blanca.jpg',CJ+' · opción B · blanca'], cvB:['R6B_cajaluz_2.5x1.1_verde.jpg',CJ+' · opción B · verde'],
-    scbB:['situ_R6Bcaja_blanca.jpg',CJ+' · opción B · blanca · simulación'], scvB:['situ_R6Bcaja_verde.jpg',CJ+' · opción B · verde · simulación'],
-    ab:['R6_ascensor_1x2.09_blanca.jpg',AS+' · opción A · blanca'], av:['R6_ascensor_1x2.09_verde.jpg',AS+' · opción A · verde'],
-    sab:['situ_R6asc_blanca.jpg',AS+' · opción A · blanca · simulación'], sav:['situ_R6asc_verde.jpg',AS+' · opción A · verde · simulación'],
-    abB:['R6B_ascensor_1x2.09_blanca.jpg',AS+' · opción B · blanca'], avB:['R6B_ascensor_1x2.09_verde.jpg',AS+' · opción B · verde'],
-    sabB:['situ_R6Basc_blanca.jpg',AS+' · opción B · blanca · simulación'], savB:['situ_R6Basc_verde.jpg',AS+' · opción B · verde · simulación']
+    v:['R7_valla_5x2_verde.jpg','Valla 5 × 2 m · verde'],
+    sv:['situ_R7valla.jpg','Valla 5 × 2 m · simulación en el parqueadero'],
+    cb:['R7_cajaluz_2.5x1.1_blanca.jpg','Caja de luz sótano 3 · 2,5 × 1,1 m · blanca'],
+    cv:['R7_cajaluz_2.5x1.1_verde.jpg','Caja de luz sótano 3 · 2,5 × 1,1 m · verde'],
+    scb:['situ_R7caja_blanca.jpg','Caja de luz · blanca · simulación en el pasillo'],
+    scv:['situ_R7caja_verde.jpg','Caja de luz · verde · simulación en el pasillo'],
+    a:['R7_ascensor_1x2.09_verde.jpg','Puertas ascensor · 1 × 2,09 m · verde'],
+    sa:['situ_R7asc.jpg','Puertas ascensor · simulación en el ascensor'],
+    u:['R7_pantalla_urgencias_1920x1080_verde.jpg','Pantalla Urgencias HIC · 1920 × 1080'],
+    p2:['R7_pantalla_piso2_1080x1920_verde.jpg','Pantalla piso 2 ascensores · 1080 × 1920'],
+    bga:['R7_aeropuerto_bga_1280x576_verde.jpg','Aeropuerto Palonegro · 1280 × 576']
   };
-  /* zonas clickeables: [x,y,ancho,alto] en px de la lámina 1920 x 1080 + pieza */
+  var c=266.67, g=20, x0=110;
   var S=[
-    ['Portada',[[110,630,548,260,'svb'],[686,630,548,260,'scv'],[1262,630,548,260,'sab']]],
+    ['Portada',[[x0,600,c,240,'v'],[x0+(c+g),600,c,240,'cb'],[x0+2*(c+g),600,c,240,'a'],[x0+3*(c+g),600,c,240,'u'],[x0+4*(c+g),600,c,240,'p2'],[x0+5*(c+g),600,c,240,'bga']]],
     ['Lo que cambió',[]],
-    ['Valla: blanca y verde',[[70,140,1150,460,'vb'],[70,600,1150,460,'vv'],[1260,300,600,261,'svb'],[1260,760,600,261,'svv']]],
-    ['Valla · versión blanca',[[70,140,1780,712,'vb'],[1530,880,320,139,'svb']]],
-    ['Valla · versión verde',[[70,140,1780,712,'vv'],[1530,880,320,139,'svv']]],
-    ['Caja de luz: blanca y verde',[[70,140,1000,440,'cb'],[70,610,1000,440,'cv'],[1520,140,330,440,'scb'],[1520,610,330,440,'scv']]],
-    ['Caja de luz · opción A · blanca',[[70,150,1480,651,'cb'],[1590,150,260,347,'scb']]],
-    ['Caja de luz · opción A · verde',[[70,150,1480,651,'cv'],[1590,150,260,347,'scv']]],
-    ['Caja de luz · opción B · blanca',[[70,150,1480,651,'cbB'],[1590,150,260,347,'scbB']]],
-    ['Caja de luz · opción B · verde',[[70,150,1480,651,'cvB'],[1590,150,260,347,'scvB']]],
-    ['Ascensor: blanca y verde',[[70,130,411,860,'ab'],[501,130,411,860,'av'],[1440,130,200,304,'sab'],[1660,130,200,304,'sav']]],
-    ['Ascensor · opción A · blanca',[[560,110,440,920,'ab'],[1060,430,395,600,'sab']]],
-    ['Ascensor · opción A · verde',[[560,110,440,920,'av'],[1060,430,395,600,'sav']]],
-    ['Ascensor · opción B · blanca',[[560,110,440,920,'abB'],[1060,430,395,600,'sabB']]],
-    ['Ascensor · opción B · verde',[[560,110,440,920,'avB'],[1060,430,395,600,'savB']]],
-    ['¿Blanca o verde?',[]]
+    ['Valla',[[70,130,1780,712,'v'],[1530,870,320,139,'sv']]],
+    ['Caja de luz',[[70,130,1050,462,'cb'],[70,610,1050,462,'cv'],[1520,130,330,440,'scb'],[1520,610,330,440,'scv']]],
+    ['Ascensor',[[560,110,440,920,'a'],[1060,430,395,600,'sa']]],
+    ['Pantalla Urgencias',[[70,130,1440,810,'u']]],
+    ['Pantalla piso 2',[[640,110,520,924,'p2']]],
+    ['Aeropuerto',[[70,150,1780,801,'bga']]],
+    ['Siguientes pasos',[]]
   ];
-  var ORDER=['vb','vv','svb','svv','cb','cv','scb','scv','cbB','cvB','scbB','scvB','ab','av','sab','sav','abB','avB','sabB','savB'];
+  var ORDER=['v','sv','cb','cv','scb','scv','a','sa','u','p2','bga'];
   var g=document.getElementById('g');
   S.forEach(function(s,i){
     var f=document.createElement('figure');f.className='sl';
     var n=('0'+(i+1)).slice(-2);
-    f.innerHTML='<img src="r6/s-'+n+'.jpg'+V+'" alt="'+s[0]+'" loading="'+(i<2?'eager':'lazy')+'">';
+    f.innerHTML='<img src="r7/s-'+n+'.jpg'+V+'" alt="'+s[0]+'" loading="'+(i<2?'eager':'lazy')+'">';
     s[1].forEach(function(h){
       var b=document.createElement('button');b.className='hs';b.type='button';
       b.style.left=(h[0]/19.2)+'%';b.style.top=(h[1]/10.8)+'%';b.style.width=(h[2]/19.2)+'%';b.style.height=(h[3]/10.8)+'%';
