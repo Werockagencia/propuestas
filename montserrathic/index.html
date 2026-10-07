@@ -56,7 +56,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
 </div>
 <script>
 (function(){
-  var V='?v=27', D='r8/piezas/';
+  var V='?v=28', D='r8/piezas/';
   var P={
     v:['R8_valla_5x2_verde.jpg','Valla 5 × 2 m'],
     sv:['situ_R8valla.jpg','Valla 5 × 2 m · simulación en el parqueadero'],
@@ -64,10 +64,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
     sc:['situ_R8caja.jpg','Caja de luz · simulación en el pasillo'],
     a:['R8_ascensor_1x2.09_verde.jpg','Puertas ascensor · 1 × 2,09 m · opción A'],
     sa:['situ_R8asc.jpg','Puertas ascensor · opción A · simulación'],
-    ab:['R8B_ascensor_1x2.09_verde.jpg','Puertas ascensor · opción B · personas'],
+    ab:['R8B_ascensor_1x2.09_verde.jpg','Puertas ascensor · opción B · familia'],
     sab:['situ_R8Basc.jpg','Puertas ascensor · opción B · simulación'],
-    ac:['R8C_ascensor_1x2.09_verde.jpg','Puertas ascensor · opción C · familia + información'],
-    sac:['situ_R8Casc.jpg','Puertas ascensor · opción C · simulación'],
     u:['R8_pantalla_urgencias_1920x1080_verde.jpg','Pantalla Urgencias HIC · 1920 × 1080'],
     p2:['R8_pantalla_piso2_1080x1920_verde.jpg','Pantalla piso 2 ascensores · 1080 × 1920']
   };
@@ -79,12 +77,11 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
     ['Caja de luz',[[70,150,1480,651,'c'],[1590,150,260,347,'sc']]],
     ['Ascensor A',[[560,110,440,920,'a'],[1060,430,395,600,'sa']]],
     ['Ascensor B',[[560,110,440,920,'ab'],[1060,430,395,600,'sab']]],
-    ['Ascensor C',[[560,110,440,920,'ac'],[1060,430,395,600,'sac']]],
     ['Pantalla Urgencias',[[70,130,1440,810,'u']]],
     ['Pantalla piso 2',[[640,110,520,924,'p2']]],
     ['Siguientes pasos',[]]
   ];
-  var ORDER=['v','sv','c','sc','a','sa','ab','sab','ac','sac','u','p2'];
+  var ORDER=['v','sv','c','sc','a','sa','ab','sab','u','p2'];
   var g=document.getElementById('g');
   S.forEach(function(s,i){
     var f=document.createElement('figure');f.className='sl';
