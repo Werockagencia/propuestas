@@ -32,3 +32,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [UNINTE Colombia — Doctorado en Administración: captación comercial en Colombia (presentación, USD)](https://werockagencia.github.io/propuestas/uninte/)
 - [Experiencias corporativas (marca nueva) — Naming, identidad, sitio, HalconBot y plan de 4 meses (presentación)](https://werockagencia.github.io/propuestas/experienciascorporativas/)
 - [Periscopio y Mira al Centro — AEO para la agencia y la Fotomaratón (presentación)](https://werockagencia.github.io/propuestas/periscopio/)
+- [S2 Aesthetics (Canadá) — Marca, Instagram, contenido, Meta Ads y HalconBot (presentación, CAD)](https://werockagencia.github.io/propuestas/s2aesthetics/)
