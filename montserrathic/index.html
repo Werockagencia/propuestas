@@ -12,6 +12,11 @@ body.lock{overflow:hidden}
 .top .r{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .top small{color:var(--muted);font-size:13px}
 .top a{color:#fff;background:var(--or);text-decoration:none;font-weight:700;font-size:14px;padding:10px 18px;border-radius:30px}
+.top a.sec{background:transparent;border:2px solid rgba(255,255,255,.35);padding:8px 16px}
+.top a.fin{display:inline-flex;align-items:center;gap:8px}
+.top a.fin svg{width:16px;height:16px;fill:#fff}
+.top a:hover{filter:brightness(1.1)}
+.top a:focus-visible{outline:3px solid #fff;outline-offset:2px}
 main{max-width:1500px;margin:0 auto;padding:0 16px 40px;display:flex;flex-direction:column;gap:18px}
 .sl{position:relative;margin:0;border-radius:10px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.35)}
 .sl img{width:100%;height:auto;display:block}
@@ -43,7 +48,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
 .lb .hint{text-align:center;color:var(--muted);font-size:12px;padding:8px 16px calc(12px + env(safe-area-inset-bottom,0px))}
 @media (max-width:700px){.lb .arrow{width:42px;height:42px;font-size:20px;top:auto;bottom:56px;transform:none}}
 </style></head><body>
-<div class="top"><b>Montserrat Etapa II × HIC</b><div class="r"><small>Toca cualquier pieza para verla en detalle</small><a href="Montserrat_Pauta_HIC.pdf" download>Descargar PDF</a></div></div>
+<div class="top"><b>Montserrat Etapa II × HIC</b><div class="r"><small>Toca cualquier pieza para verla en detalle</small><a class="sec" href="Montserrat_Pauta_HIC.pdf" download>Presentación PDF</a><a class="fin" href="Montserrat_HIC_Artes_Finales.zip" download><svg viewBox="0 0 24 24"><path d="M12 3a1 1 0 011 1v9.6l3.3-3.3a1 1 0 111.4 1.4l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 111.4-1.4l3.3 3.3V4a1 1 0 011-1zM5 19h14a1 1 0 110 2H5a1 1 0 110-2z"/></svg>Descargar artes finales (ZIP · 57 MB)</a></div></div>
 <main id="g"></main>
 <footer>Montserrat Etapa II · Azulado Inmobiliario</footer>
 
@@ -56,7 +61,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
 </div>
 <script>
 (function(){
-  var V='?v=31', D='r8/piezas/';
+  var V='?v=32', D='r8/piezas/';
   var P={
     v:['R8_valla_5x2_verde.jpg','Valla 5 × 2 m'],
     sv:['situ_R8valla.jpg','Valla 5 × 2 m · simulación en el parqueadero'],
