@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Montserrat II · Señalización</title>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--or:#EE8023;--bosque:#13251A;--vd:#1F3B2A;--muted:#a9bcae}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bosque);color:#fff;font-family:'Red Hat Display',system-ui,sans-serif}
+body.lock{overflow:hidden}
+header{max-width:1400px;margin:0 auto;padding:40px 16px 10px}
+header b{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+header h1{font-size:clamp(32px,5vw,56px);font-weight:900;margin:10px 0 8px;letter-spacing:-.02em}
+header p{color:var(--muted);max-width:760px;line-height:1.5;margin:0}
+main{max-width:1400px;margin:0 auto;padding:10px 16px 50px}
+section{margin-top:44px}
+section h2{font-size:24px;font-weight:900;margin:0 0 4px}
+section .m{color:var(--muted);font-size:15px;margin:0 0 18px}
+.g{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end}
+.g button{all:unset;cursor:zoom-in;display:flex;flex-direction:column;gap:8px;min-width:0}
+.g img{display:block;border-radius:6px;box-shadow:0 20px 40px rgba(0,0,0,.35);max-width:100%;height:auto;transition:transform .2s}
+.g button:hover img,.g button:focus-visible img{transform:translateY(-3px);outline:3px solid var(--or);outline-offset:3px}
+.g span{font-size:13px;color:var(--muted)}
+.tall img{height:440px;width:auto}
+.wide img{width:100%}
+.wide button{flex:1 1 100%}
+.mid button{flex:1 1 calc(50% - 9px)}.mid img{width:100%}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40px}
+.lb{position:fixed;inset:0;background:rgba(8,14,10,.97);display:flex;flex-direction:column;z-index:10}
+.lb[hidden]{display:none}
+.lb .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px}
+.lb .bar .t{font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb .bar button{all:unset;cursor:pointer;background:rgba(255,255,255,.12);font-weight:700;font-size:14px;padding:9px 14px;border-radius:20px}
+.lb .st{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:0 16px 16px}
+.lb .st img{max-width:100%;max-height:calc(100vh - 90px);border-radius:4px}
+@media (max-width:700px){.tall img{height:300px}}
+</style></head><body>
+<header><b>Montserrat Etapa II · Floridablanca</b><h1>Rediseño de señalización</h1>
+<p>Mismo sistema de las piezas del HIC: verde, logo Montserrat en vector, flecha naranja y una casilla blanca para escribir a cuántos metros está la sala de negocios. Toca cualquier pieza para verla en grande.</p></header>
+<main id="m"></main>
+<footer>Montserrat Etapa II · Azulado Inmobiliario</footer>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true"><div class="bar"><div class="t" id="lt"></div><button id="lx" type="button">Cerrar ✕</button></div><div class="st" id="ls"><img id="li" alt=""></div></div>
+<script>
+var V='?v=1';
+var S=[
+ {t:'Pendones',m:'1 × 2 m · 4 flechas',c:'tall',f:['pendon_1x2_up','pendon_1x2_right','pendon_1x2_left','pendon_1x2_uturn'],n:['Adelante','Derecha','Izquierda','Retorno']},
+ {t:'Pasacalles',m:'7 × 1 m · 3 flechas',c:'wide',f:['pasacalle_7x1_up','pasacalle_7x1_right','pasacalle_7x1_left'],n:['Adelante','Derecha','Izquierda']},
+ {t:'Bastidores',m:'4 × 0,9 m · 3 flechas',c:'mid',f:['bastidor_4x0.9_up','bastidor_4x0.9_right','bastidor_4x0.9_left'],n:['Adelante','Derecha','Izquierda']},
+ {t:'Tótem de bienvenida',m:'0,7 × 2 m',c:'tall',f:['totem_0.7x2_up'],n:['Bienvenidos']}
+];
+var m=document.getElementById('m'),lb=document.getElementById('lb'),li=document.getElementById('li'),lt=document.getElementById('lt');
+S.forEach(function(s){var sec=document.createElement('section');sec.innerHTML='<h2>'+s.t+'</h2><p class="m">'+s.m+'</p><div class="g '+s.c+'"></div>';var g=sec.querySelector('.g');
+ s.f.forEach(function(f,i){var b=document.createElement('button');b.type='button';b.innerHTML='<img src="img/'+f+'.jpg'+V+'" alt="'+s.t+' · '+s.n[i]+'" loading="lazy"><span>'+s.n[i]+'</span>';
+  b.onclick=function(){li.src='img/'+f+'.jpg'+V;li.alt=s.t+' · '+s.n[i];lt.textContent=s.t+' · '+s.m.split(' · ')[0]+' · '+s.n[i];lb.hidden=false;document.body.classList.add('lock')};g.appendChild(b)});
+ m.appendChild(sec)});
+function cl(){lb.hidden=true;document.body.classList.remove('lock')}
+document.getElementById('lx').onclick=cl;document.getElementById('ls').onclick=function(e){if(e.target.id==='ls')cl()};
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)cl()});
+</script>
+</body></html>
