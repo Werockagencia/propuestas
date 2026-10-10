@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Emet · Outsourcing Contable | Contabilidad, impuestos y declaración de renta</title>
+<meta name="description" content="Emet lleva la contabilidad, los impuestos, la nómina y la declaración de renta de personas y pequeñas empresas en Colombia. Atención personalizada, rápida y confidencial.">
+<link rel="icon" href="assets/logo-simbolo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  "name": "Emet Outsourcing Contable",
+  "founder": {"@type": "Person", "name": "Alejandra Vinasco", "jobTitle": "Contadora Pública"},
+  "telephone": "+57 321 755 9462",
+  "areaServed": "CO",
+  "knowsLanguage": "es",
+  "description": "Outsourcing contable, impuestos, nómina y declaración de renta para personas naturales, emprendedores y pymes en Colombia."
+}
+</script>
+<style>
+:root{
+  --azul:#009FE0; --azul-txt:#1366E0; --azul-osc:#0B3D91;
+  --magenta:#FF00BE; --magenta-txt:#D4009E; --violeta:#9B00FF;
+  --tinta:#0B1020; --texto:#2B3245; --suave:#5B6478; --linea:#E3E8F0;
+  --fondo:#FFFFFF; --fondo-2:#F4F7FB; --hielo:#EAF4FD;
+  --radio:22px; --sombra:0 18px 50px -20px rgba(11,16,32,.22);
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:Poppins,system-ui,sans-serif;color:var(--texto);background:var(--fondo);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3{color:var(--tinta);line-height:1.12;letter-spacing:-.02em}
+h2{font-size:clamp(1.9rem,3.6vw,2.8rem);font-weight:700}
+h3{font-size:1.15rem;font-weight:600}
+.azul{color:var(--azul-txt)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--azul-txt)}
+.eyebrow::before{content:"";width:22px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--azul),var(--magenta))}
+.lead{font-size:1.08rem;color:var(--suave);max-width:60ch}
+section{padding:110px 0}
+.head{max-width:720px;margin-bottom:56px}
+.head h2{margin:14px 0 16px}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 .98rem Poppins,sans-serif;text-decoration:none;padding:15px 26px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-wa{background:#18B85A;color:#fff;box-shadow:0 12px 28px -10px rgba(24,184,90,.7)}
+.btn-wa:hover{background:#13a24f}
+.btn-ghost{border-color:var(--linea);color:var(--tinta);background:#fff}
+.btn-ghost:hover{border-color:var(--azul-txt);color:var(--azul-txt)}
+.btn svg{width:20px;height:20px}
+
+/* Header fijo (siempre visible) */
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(255,255,255,.92);border-bottom:1px solid var(--linea)}
+header::before{content:"";position:absolute;inset:0;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:-1}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo img{width:38px;height:38px}
+.logo b{font-size:1.55rem;font-weight:700;color:var(--tinta);letter-spacing:-.03em;line-height:1}
+.logo small{display:block;font-size:.56rem;letter-spacing:.2em;color:var(--suave);font-weight:500;margin-top:3px;text-transform:uppercase}
+.menu{display:flex;gap:30px;list-style:none}
+.menu a{text-decoration:none;font-size:.92rem;font-weight:500;color:var(--texto)}
+.menu a:hover{color:var(--azul-txt)}
+.nav .btn{padding:10px 18px;font-size:.88rem}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer}
+.burger span{display:block;width:22px;height:2px;background:var(--tinta);margin:5px auto;transition:.25s}
+
+/* Hero */
+.hero{padding:160px 0 90px;position:relative;overflow:hidden;background:
+  radial-gradient(700px 420px at 92% 8%,rgba(0,159,224,.13),transparent 70%),
+  radial-gradient(600px 400px at 70% 100%,rgba(255,0,190,.09),transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}
+.hero h1{font-size:clamp(2.4rem,5.2vw,4rem);font-weight:800;margin:18px 0 22px}
+.hero h1 span{display:block;background:linear-gradient(90deg,var(--azul-txt),var(--violeta) 70%,var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{font-size:1.15rem}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;margin:34px 0 26px}
+.micro{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.86rem;color:var(--suave)}
+.micro span{display:inline-flex;align-items:center;gap:7px}
+.micro span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--azul)}
+
+/* Tarjeta panel del hero */
+.panel{background:#fff;border:1px solid var(--linea);border-radius:28px;box-shadow:var(--sombra);padding:28px;position:relative}
+.panel-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.panel-top b{font-size:.95rem;color:var(--tinta)}
+.panel-top span{font-size:.76rem;color:var(--suave);background:var(--fondo-2);padding:5px 11px;border-radius:999px}
+.obl{list-style:none;display:grid;gap:10px}
+.obl li{display:flex;align-items:center;gap:14px;padding:13px 14px;border:1px solid var(--linea);border-radius:14px;font-size:.9rem;opacity:0;transform:translateY(8px);animation:entra .55s ease forwards}
+.obl li:nth-child(2){animation-delay:.15s}.obl li:nth-child(3){animation-delay:.3s}.obl li:nth-child(4){animation-delay:.45s}
+.obl i{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--hielo);color:var(--azul-txt)}
+.obl i svg{width:18px;height:18px}
+.obl div{flex:1;line-height:1.3}
+.obl small{display:block;color:var(--suave);font-size:.76rem}
+.tag{font-size:.72rem;font-weight:600;padding:5px 10px;border-radius:999px;white-space:nowrap}
+.ok{background:#E3F8EC;color:#0D7A3E}
+.pend{background:#FFE8F7;color:var(--magenta-txt)}
+.grafico{margin-top:20px;padding:18px;border-radius:16px;background:linear-gradient(135deg,#0B1020,#14214a);color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:14px}
+.grafico p{font-size:.78rem;opacity:.75;line-height:1.35}
+.grafico strong{display:block;font-size:1.35rem;opacity:1;font-weight:700}
+.barras{display:flex;align-items:flex-end;gap:7px;height:62px}
+.barras span{width:14px;border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,var(--azul),#0a5fb0);transform-origin:bottom;animation:crece 1s cubic-bezier(.2,.8,.2,1) both}
+.barras span:last-child{background:linear-gradient(180deg,var(--magenta),#a3007c)}
+.flota{position:absolute;left:-26px;bottom:-22px;background:#fff;border:1px solid var(--linea);border-radius:16px;padding:12px 16px;box-shadow:var(--sombra);display:flex;gap:10px;align-items:center;font-size:.82rem;line-height:1.25}
+.flota img{width:30px}
+@keyframes entra{to{opacity:1;transform:none}}
+@keyframes crece{from{transform:scaleY(0)}}
+
+/* Franja confianza */
+.franja{padding:0;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);background:var(--fondo-2)}
+.franja ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr)}
+.franja li{display:flex;gap:12px;align-items:center;padding:24px 18px;font-size:.88rem;font-weight:500;color:var(--tinta);line-height:1.3}
+.franja li+li{border-left:1px solid var(--linea)}
+.franja svg{flex:none;width:26px;height:26px;color:var(--azul-txt)}
+
+/* Verdad */
+.verdad{background:linear-gradient(120deg,#8A00F0,#C600D6 45%,var(--magenta));color:#fff;position:relative;overflow:hidden}
+.verdad::after{content:"";position:absolute;right:-180px;top:-120px;width:620px;height:620px;border-radius:50%;background:rgba(255,255,255,.08)}
+.verdad-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center;position:relative;z-index:1}
+.hebreo{font-size:clamp(6rem,14vw,11rem);font-weight:700;line-height:.9;font-family:"Times New Roman",serif;opacity:.95}
+.verdad .eyebrow{color:#fff}
+.verdad .eyebrow::before{background:#fff}
+.verdad h2{color:#fff;margin:16px 0 18px}
+.verdad p{font-size:1.08rem;opacity:.92;max-width:58ch}
+.valores{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.valores span{border:1px solid rgba(255,255,255,.45);padding:8px 16px;border-radius:999px;font-size:.88rem;font-weight:500}
+
+/* Servicios */
+.serv-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.serv{grid-column:span 2;background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:30px;transition:border-color .25s,transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.serv:hover{transform:translateY(-4px);border-color:#bfd6f5;box-shadow:var(--sombra)}
+.serv .ic{width:54px;height:54px;border-radius:16px;background:var(--hielo);display:grid;place-items:center;color:var(--azul-txt);margin-bottom:22px}
+.serv .ic svg{width:26px;height:26px}
+.serv h3{margin-bottom:10px}
+.serv p{font-size:.94rem;color:var(--suave)}
+.serv ul{list-style:none;margin-top:16px;display:flex;flex-wrap:wrap;gap:6px}
+.serv ul li{font-size:.74rem;background:var(--fondo-2);padding:4px 10px;border-radius:999px;color:var(--texto)}
+.serv.destacado{grid-column:span 4;background:linear-gradient(135deg,#0B1020,#132457);border:0;color:#cfd8ea;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+.serv.destacado h3{color:#fff;font-size:1.5rem}
+.serv.destacado p{color:#c6d0e4}
+.serv.destacado .ic{background:rgba(255,255,255,.1);color:#fff}
+.serv.destacado .pill{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--magenta-txt);padding:5px 12px;border-radius:999px;margin-bottom:14px}
+.checks{list-style:none;display:grid;gap:12px}
+.checks li{display:flex;gap:10px;font-size:.92rem;color:#fff;line-height:1.35}
+.checks li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--azul);display:grid;place-items:center;font-size:.72rem;font-weight:700}
+.serv.destacado .btn{margin-top:22px}
+
+/* Para quién */
+.quien{background:var(--fondo-2)}
+.quien-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.q{background:#fff;border-radius:var(--radio);padding:34px 30px;border:1px solid var(--linea);position:relative;overflow:hidden}
+.q::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--azul),var(--magenta))}
+.q .num{font-size:.8rem;font-weight:600;color:var(--azul-txt)}
+.q h3{font-size:1.3rem;margin:10px 0 12px}
+.q p{font-size:.94rem;color:var(--suave)}
+.q ul{margin-top:16px;padding-left:18px;font-size:.9rem;display:grid;gap:5px}
+.q ul li::marker{color:var(--magenta)}
+
+/* Proceso */
+.pasos{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:p;position:relative}
+.pasos::before{content:"";position:absolute;top:27px;left:28px;right:28px;height:2px;background:repeating-linear-gradient(90deg,var(--linea) 0 8px,transparent 8px 14px)}
+.paso{position:relative}
+.paso b{counter-increment:p;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#fff;border:2px solid var(--azul-txt);color:var(--azul-txt);font-size:1.05rem;margin-bottom:22px;position:relative}
+.paso b::after{content:"0" counter(p)}
+.paso:last-child b{background:var(--azul-txt);color:#fff}
+.paso h3{margin-bottom:8px}
+.paso p{font-size:.93rem;color:var(--suave)}
+
+/* Herramienta renta */
+.renta{background:radial-gradient(800px 500px at 0% 0%,rgba(0,159,224,.1),transparent 60%),var(--fondo-2)}
+.renta-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
+.renta .nota{margin-top:24px;font-size:.82rem;color:var(--suave);border-left:3px solid var(--azul);padding-left:14px}
+.calc{background:#fff;border-radius:28px;padding:34px;box-shadow:var(--sombra);border:1px solid var(--linea)}
+.calc h3{font-size:1.2rem;margin-bottom:6px}
+.calc > p{font-size:.88rem;color:var(--suave);margin-bottom:22px}
+.campo{display:grid;grid-template-columns:1fr 210px;gap:14px;align-items:center;padding:13px 0;border-top:1px solid var(--linea)}
+.campo label{font-size:.9rem;font-weight:500;color:var(--tinta);line-height:1.3}
+.campo label small{display:block;font-weight:400;color:var(--suave);font-size:.76rem}
+.campo .in{position:relative}
+.campo .in::before{content:"$";position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--suave);font-size:.9rem}
+.campo input[type=text]{width:100%;font:500 .95rem Poppins,sans-serif;padding:11px 14px 11px 28px;border:1.5px solid var(--linea);border-radius:12px;text-align:right;color:var(--tinta)}
+.campo input:focus{outline:none;border-color:var(--azul-txt);box-shadow:0 0 0 4px rgba(19,102,224,.12)}
+.sw{display:flex;gap:6px;justify-self:end}
+.sw button{font:500 .85rem Poppins,sans-serif;padding:9px 18px;border-radius:10px;border:1.5px solid var(--linea);background:#fff;cursor:pointer;color:var(--texto)}
+.sw button[aria-pressed=true]{background:var(--azul-txt);border-color:var(--azul-txt);color:#fff}
+.resultado{margin-top:20px;border-radius:18px;padding:22px 24px;background:var(--fondo-2);display:flex;gap:16px;align-items:flex-start;transition:background .3s}
+.resultado .dot{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;background:#fff;color:var(--suave);font-size:1.2rem}
+.resultado b{display:block;color:var(--tinta);font-size:1.05rem;margin-bottom:4px}
+.resultado p{font-size:.88rem;color:var(--suave)}
+.resultado.si{background:#FFF0FA}.resultado.si .dot{background:var(--magenta-txt);color:#fff}
+.resultado.no{background:#E9F8EF}.resultado.no .dot{background:#18A957;color:#fff}
+.resultado .btn{margin-top:14px;padding:11px 20px;font-size:.88rem}
+
+/* Sobre */
+.sobre-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
+.foto{aspect-ratio:4/5;border-radius:28px;position:relative;overflow:hidden;background:linear-gradient(160deg,#EAF4FD,#FDEBF7);display:grid;place-items:center;text-align:center;border:1px solid var(--linea)}
+.foto .ph{color:var(--suave);font-size:.85rem;padding:30px}
+.foto .ph img{width:120px;margin:0 auto 18px;opacity:.9}
+.foto .firma{position:absolute;left:20px;right:20px;bottom:20px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--sombra);text-align:left;line-height:1.3}
+.foto .firma b{color:var(--tinta)}
+.foto .firma small{display:block;color:var(--suave);font-size:.8rem}
+.sobre blockquote{font-size:1.3rem;font-weight:500;color:var(--tinta);line-height:1.45;margin:22px 0;padding-left:20px;border-left:4px solid var(--magenta)}
+.sobre p+p{margin-top:14px}
+.sobre p{color:var(--suave)}
+.datos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.datos div{border:1px solid var(--linea);border-radius:16px;padding:16px}
+.datos b{display:block;font-size:1.5rem;color:var(--azul-txt);line-height:1.1}
+.datos small{font-size:.8rem;color:var(--suave)}
+
+/* FAQ */
+.faq{background:var(--fondo-2)}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+details{background:#fff;border:1px solid var(--linea);border-radius:16px;margin-bottom:12px;overflow:hidden}
+summary{list-style:none;cursor:pointer;padding:20px 56px 20px 22px;font-weight:600;color:var(--tinta);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:var(--hielo);color:var(--azul-txt);display:grid;place-items:center;font-size:1.2rem;transition:transform .25s}
+details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+details p{padding:0 22px 20px;color:var(--suave);font-size:.95rem}
+
+/* CTA final */
+.cta{padding:0 0 110px}
+.cta-box{border-radius:32px;padding:64px;background:linear-gradient(120deg,#0A5FCF,#1F8FE8 50%,var(--azul));color:#fff;display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.cta-box::after{content:"";position:absolute;right:-90px;bottom:-140px;width:380px;height:380px;background:url(assets/logo-simbolo.svg) center/contain no-repeat;opacity:.16}
+.cta-box h2{color:#fff;margin-bottom:14px}
+.cta-box p{opacity:.92;max-width:52ch}
+.tel{position:relative;z-index:1;background:#fff;color:var(--tinta);border-radius:22px;padding:26px;text-align:left;text-decoration:none;display:flex;gap:16px;align-items:center;box-shadow:0 20px 40px -18px rgba(0,0,0,.4);transition:transform .2s}
+.tel:hover{transform:translateY(-3px)}
+.tel svg{width:52px;height:52px;flex:none}
+.tel small{display:block;font-weight:600;font-size:.95rem}
+.tel b{font-size:1.45rem;color:var(--azul-txt);white-space:nowrap;letter-spacing:-.01em}
+
+/* Footer */
+footer{background:var(--tinta);color:#aab3c7;padding:70px 0 28px;font-size:.9rem}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)}
+footer .logo b{color:#fff}
+footer .logo small{color:#aab3c7}
+footer h4{color:#fff;font-size:.9rem;margin-bottom:14px}
+footer ul{list-style:none;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+.f-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px;font-size:.82rem}
+.f-bottom a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+
+/* WhatsApp flotante */
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:#18B85A;display:grid;place-items:center;box-shadow:0 14px 30px -8px rgba(24,184,90,.75);transition:transform .2s}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float svg{width:32px;height:32px}
+
+/* Notas de la propuesta (solo para presentar al cliente) */
+.np-toggle{position:fixed;left:22px;bottom:22px;z-index:60;font:600 .8rem Poppins,sans-serif;padding:11px 16px;border-radius:999px;border:0;cursor:pointer;background:var(--tinta);color:#fff;box-shadow:var(--sombra);display:flex;gap:8px;align-items:center}
+.np-toggle i{width:9px;height:9px;border-radius:50%;background:#555;transition:.2s}
+body.np .np-toggle i{background:var(--magenta)}
+.np-nota{display:none}
+body.np .np-nota{display:block;position:relative;margin:0 0 26px;background:#FFF7D6;border:1px dashed #D9A400;color:#5c4500;border-radius:14px;padding:12px 16px 12px 44px;font-size:.84rem;line-height:1.5;max-width:780px}
+body.np .np-nota::before{content:"✎";position:absolute;left:16px;top:11px;font-size:1rem}
+body.np .confirmar{background:#FFF1A8;box-shadow:0 0 0 3px #FFF1A8;border-radius:3px;color:#3d2f00}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.obl li{opacity:1!important;transform:none!important}
+  html{scroll-behavior:auto}
+}
+
+@media (max-width:1020px){
+  .hero-grid,.verdad-grid,.renta-grid,.sobre-grid,.faq-grid,.cta-box{grid-template-columns:1fr}
+  .hero-grid{gap:56px}
+  .serv,.serv.destacado{grid-column:span 6}
+  .serv.destacado{grid-template-columns:1fr}
+  .quien-grid{grid-template-columns:1fr}
+  .pasos{grid-template-columns:1fr 1fr;row-gap:40px}
+  .pasos::before{display:none}
+  .franja ul{grid-template-columns:1fr 1fr}
+  .franja li:nth-child(3){border-left:0}
+  .franja li:nth-child(n+3){border-top:1px solid var(--linea)}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .sobre-grid .foto{max-width:420px}
+}
+@media (max-width:860px){
+  .menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:10px 24px 24px;border-bottom:1px solid var(--linea);box-shadow:var(--sombra)}
+  .menu a{display:block;padding:14px 0;border-bottom:1px solid var(--linea);font-size:1rem}
+  body.menu-on .menu{display:flex}
+  .burger{display:block}
+  .nav .btn{display:none}
+}
+@media (max-width:620px){
+  .wrap{padding:0 16px}
+  section{padding:76px 0}
+  .hero{padding:118px 0 70px}
+  .ctas .btn{width:100%;justify-content:center}
+  .panel{padding:20px}
+  .flota{position:static;margin-top:16px}
+  .pasos{grid-template-columns:1fr}
+  .franja ul{grid-template-columns:1fr}
+  .franja li{border-left:0!important;border-top:1px solid var(--linea)}
+  .franja li:first-child{border-top:0}
+  .campo{grid-template-columns:1fr}
+  .sw{justify-self:start}
+  .calc{padding:22px}
+  .datos{grid-template-columns:1fr}
+  .cta-box{padding:36px 22px}
+  .tel b{font-size:1.2rem}
+  .f-grid{grid-template-columns:1fr}
+  .np-toggle span{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#inicio" aria-label="Emet Outsourcing Contable, inicio">
+      <img src="assets/logo-simbolo.svg" alt="" width="38" height="38">
+      <span><b>Emet</b><small>Outsourcing Contable</small></span>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#como">Cómo trabajamos</a></li>
+      <li><a href="#renta">¿Debo declarar?</a></li>
+      <li><a href="#alejandra">Nosotros</a></li>
+      <li><a href="#preguntas">Preguntas</a></li>
+    </ul>
+    <a class="btn btn-wa" href="https://wa.me/573217559462?text=Hola%20Emet%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios%20contables." target="_blank" rel="noopener">Escríbenos</a>
+    <button class="burger" aria-label="Abrir menú" aria-controls="menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="np-nota">El benchmark mostró que casi todas las firmas abren con "soluciones integrales" y un carrusel de banners. Aquí abrimos con una promesa concreta (orden + claridad) y el WhatsApp como acción principal, porque así ya llegan los clientes de Emet desde redes. <a href="benchmark.html"><b>Ver benchmark completo →</b></a></div>
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Outsourcing contable · Colombia</span>
+        <h1>Tus números en orden. <span>Tus decisiones, con claridad.</span></h1>
+        <p class="lead">Llevamos la contabilidad, los impuestos y la nómina de personas y pequeñas empresas para que cumplas a tiempo con la DIAN y entiendas, de verdad, cómo van tus cuentas.</p>
+        <div class="ctas">
+          <a class="btn btn-wa" href="https://wa.me/573217559462?text=Hola%20Emet%2C%20quiero%20agendar%20una%20asesor%C3%ADa." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+            Agenda tu asesoría
+          </a>
+          <a class="btn btn-ghost" href="#renta">¿Debo declarar renta?</a>
+        </div>
+        <div class="micro">
+          <span class="confirmar">Primera asesoría sin costo</span>
+          <span>Atención virtual en todo el país</span>
+          <span>100% confidencial</span>
+        </div>
+      </div>
+
+      <div class="panel" aria-label="Ejemplo del seguimiento mensual que hace Emet">
+        <div class="panel-top"><b>Tu mes contable</b><span>Así se ve estar al día</span></div>
+        <ul class="obl">
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></i><div>Contabilidad del mes<small>Registro y conciliación bancaria</small></div><span class="tag ok">Al día</span></li>
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></i><div>Retención en la fuente<small>Declaración mensual DIAN</small></div><span class="tag ok">Presentada</span></li>
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M17 11l2 2 4-4"/></svg></i><div>Nómina y seguridad social<small>Nómina electrónica y PILA</small></div><span class="tag ok">Transmitida</span></li>
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></i><div>IVA bimestral<small>Te avisamos 10 días antes</small></div><span class="tag pend">Próximo</span></li>
+        </ul>
+        <div class="grafico">
+          <p>Informe mensual<strong>Claro y a tiempo</strong>sin tecnicismos</p>
+          <div class="barras" aria-hidden="true"><span style="height:38%"></span><span style="height:52%;animation-delay:.1s"></span><span style="height:46%;animation-delay:.2s"></span><span style="height:68%;animation-delay:.3s"></span><span style="height:80%;animation-delay:.4s"></span><span style="height:100%;animation-delay:.5s"></span></div>
+        </div>
+        <div class="flota"><img src="assets/logo-simbolo.svg" alt=""><span><b>Cero multas</b><br>por fechas olvidadas</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRANJA DE CONFIANZA -->
+<section class="franja" aria-label="Por qué confiar en Emet">
+  <div class="wrap">
+    <ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 6v6c0 5 3.8 9.3 9 10 5.2-.7 9-5 9-10V6l-9-4Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span class="confirmar">Contadora Pública con tarjeta profesional vigente</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Tu información es confidencial y está protegida</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/><circle cx="12" cy="12" r="9"/></svg>Atención virtual en toda Colombia</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12V7H4v13h8"/><path d="M4 7l2-4h12l2 4M16 19l2 2 4-4"/></svg><span class="confirmar">Tarifa fija mensual, sin sorpresas</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="wrap">
+    <div class="np-nota">Las firmas grandes listan 20+ servicios en menús desplegables. Emet muestra solo cinco, escritos en lenguaje de cliente. La declaración de renta va destacada porque hoy es la puerta de entrada (es la pieza que ya circula en redes).</div>
+    <div class="head rv">
+      <span class="eyebrow">Servicios</span>
+      <h2>Todo lo contable, <span class="azul">en un solo lugar.</span></h2>
+      <p class="lead">Tú te concentras en tu trabajo o en tu negocio. Nosotros nos encargamos de que tus cuentas, tus impuestos y tu nómina estén al día.</p>
+    </div>
+    <div class="serv-grid">
+      <article class="serv destacado rv">
+        <div>
+          <span class="pill">Personas naturales</span>
+          <h3>Declaración de renta sin estrés</h3>
+          <p>Verificamos si estás obligado a declarar, reunimos contigo los soportes y elaboramos y presentamos tu declaración aprovechando, dentro de la ley, las deducciones y beneficios a los que tienes derecho.</p>
+          <a class="btn btn-wa" href="https://wa.me/573217559462?text=Hola%20Emet%2C%20necesito%20ayuda%20con%20mi%20declaraci%C3%B3n%20de%20renta." target="_blank" rel="noopener">Quiero declarar con Emet</a>
+        </div>
+        <ul class="checks">
+          <li>Verificamos si estás obligado a declarar</li>
+          <li>Elaboramos y presentamos tu declaración ante la DIAN</li>
+          <li>Revisamos deducciones, rentas exentas y beneficios</li>
+          <li>Atención personalizada, rápida y confidencial</li>
+        </ul>
+      </article>
+      <article class="serv rv">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div>
+        <h3>Outsourcing contable</h3>
+        <p>Llevamos tu contabilidad mes a mes y te entregamos estados financieros bajo NIIF para pymes, con un informe que se entiende.</p>
+        <ul><li>Registro mensual</li><li>Conciliaciones</li><li>Estados financieros</li></ul>
+      </article>
+      <article class="serv rv">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M8 14h3"/></svg></div>
+        <h3>Impuestos al día</h3>
+        <p>Preparamos y presentamos tus obligaciones con calendario propio, para que ninguna fecha de la DIAN te tome por sorpresa.</p>
+        <ul><li>IVA</li><li>Retención en la fuente</li><li>ICA</li><li>Exógena</li><li>Renta empresas</li></ul>
+      </article>
+      <article class="serv rv">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M17 11l2 2 4-4"/></svg></div>
+        <h3>Nómina y seguridad social</h3>
+        <p>Liquidamos tu nómina, transmitimos la nómina electrónica y dejamos lista la planilla de seguridad social.</p>
+        <ul><li>Nómina electrónica</li><li>PILA</li><li>Prestaciones</li></ul>
+      </article>
+      <article class="serv rv">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6Z"/><path d="M14 3v6h6M9 14l2 2 4-4"/></svg></div>
+        <h3>Trámites y acompañamiento</h3>
+        <p>RUT, facturación electrónica, formalización de tu negocio y respuesta cuando la DIAN te escribe.</p>
+        <ul><li>RUT</li><li>Facturación electrónica</li><li>Formalización</li><li>Requerimientos DIAN</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- VERDAD -->
+<section class="verdad">
+  <div class="wrap verdad-grid">
+    <div class="hebreo rv" aria-hidden="true" lang="he">אמת</div>
+    <div class="rv">
+      <div class="np-nota" style="color:#5c4500">Ningún referente cuenta una historia de marca. Emet sí tiene una (viene del manual de marca) y es perfecta para una contadora: la verdad como estándar de trabajo.</div>
+      <span class="eyebrow">Por qué Emet</span>
+      <h2>Emet significa <em>verdad</em>.</h2>
+      <p>Es una palabra hebrea y también nuestra forma de trabajar: cifras exactas, información clara y cero atajos frente a la ley. Porque una contabilidad confiable es la base para que tú y tu negocio crezcan tranquilos.</p>
+      <div class="valores"><span>Transparencia</span><span>Exactitud</span><span>Confidencialidad</span><span>Cercanía</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section class="quien">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">¿A quién acompañamos?</span>
+      <h2>Contabilidad seria, <span class="azul">a tu medida.</span></h2>
+    </div>
+    <div class="quien-grid">
+      <article class="q rv">
+        <span class="num">01</span>
+        <h3>Personas naturales</h3>
+        <p>Empleados, pensionados y rentistas que quieren cumplir con la DIAN sin enredarse.</p>
+        <ul><li>Declaración de renta</li><li>Revisión de obligación de declarar</li><li>Actualización del RUT</li></ul>
+      </article>
+      <article class="q rv">
+        <span class="num">02</span>
+        <h3>Independientes y emprendedores</h3>
+        <p>Profesionales y negocios que están arrancando y necesitan hacer las cosas bien desde el principio.</p>
+        <ul><li>Facturación electrónica</li><li>Régimen Simple o régimen ordinario</li><li>Impuestos y planeación</li></ul>
+      </article>
+      <article class="q rv">
+        <span class="num">03</span>
+        <h3>Pequeñas y medianas empresas</h3>
+        <p>Empresas que prefieren tercerizar su área contable en lugar de montar un departamento propio.</p>
+        <ul><li>Contabilidad mensual completa</li><li>Nómina y seguridad social</li><li>Informes para tomar decisiones</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO TRABAJAMOS -->
+<section id="como">
+  <div class="wrap">
+    <div class="np-nota">Un proceso visible responde la duda #1 de quien terceriza: "¿cómo sería trabajar con ustedes?". Solo Contable.app lo muestra en el benchmark; los demás no.</div>
+    <div class="head rv">
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2>Simple, claro <span class="azul">y sin letra pequeña.</span></h2>
+    </div>
+    <div class="pasos">
+      <div class="paso rv"><b></b><h3>Hablamos</h3><p>Nos escribes por WhatsApp y agendamos una conversación para entender tu situación.</p></div>
+      <div class="paso rv"><b></b><h3>Propuesta clara</h3><p>Recibes por escrito qué haremos, en qué fechas y cuánto cuesta. <span class="confirmar">Tarifa fija, sin cobros por hora.</span></p></div>
+      <div class="paso rv"><b></b><h3>Nos encargamos</h3><p>Nos compartes tus soportes por un canal seguro y nosotros procesamos, preparamos y presentamos.</p></div>
+      <div class="paso rv"><b></b><h3>Te mantenemos al tanto</h3><p>Recibes tu informe, los comprobantes de cada declaración y avisos antes de cada fecha importante.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ¿DEBO DECLARAR? -->
+<section class="renta" id="renta">
+  <div class="wrap renta-grid">
+    <div class="rv">
+      <div class="np-nota">Herramienta gratuita inspirada en Tributi (el único referente con una). Atrae tráfico de Google cada temporada de renta y convierte a WhatsApp. Las cifras se actualizan cada año con la UVT; en WordPress quedará como un bloque editable.</div>
+      <span class="eyebrow">Herramienta gratuita</span>
+      <h2>¿Debes declarar renta <span class="azul">en 2027?</span></h2>
+      <p class="lead">Responde con tus cifras del año 2026 y en segundos sabrás si superas alguno de los topes que fija la DIAN. Si es así, te ayudamos con todo el proceso.</p>
+      <p class="nota">Topes del año gravable 2026 (se declara en 2027), calculados con la UVT 2026 de $52.374 (Resolución DIAN 000238 de 2025). Resultado orientativo: no reemplaza la revisión de un contador.</p>
+    </div>
+    <form class="calc rv" id="calc" onsubmit="return false" novalidate>
+      <h3>Revisa tus cifras de 2026</h3>
+      <p>Escribe los valores aproximados. Si no aplica, déjalo en blanco.</p>
+      <div class="campo"><label>¿Eres responsable de IVA?<small>Si facturas cobrando IVA</small></label>
+        <div class="sw" role="group" aria-label="Responsable de IVA"><button type="button" data-iva="1" aria-pressed="false">Sí</button><button type="button" data-iva="0" aria-pressed="true">No</button></div></div>
+      <div class="campo"><label for="pat">Patrimonio bruto al 31 de diciembre<small>Casa, carro, ahorros, inversiones…</small></label><div class="in"><input id="pat" type="text" inputmode="numeric" data-tope="235683000" data-nombre="tu patrimonio bruto supera $235.683.000 (4.500 UVT)"></div></div>
+      <div class="campo"><label for="ing">Ingresos brutos del año<small>Salario, honorarios, arriendos, ventas…</small></label><div class="in"><input id="ing" type="text" inputmode="numeric" data-tope="73323600" data-igual="1" data-nombre="tus ingresos brutos alcanzan $73.323.600 (1.400 UVT)"></div></div>
+      <div class="campo"><label for="tc">Consumos con tarjeta de crédito</label><div class="in"><input id="tc" type="text" inputmode="numeric" data-tope="73323600" data-nombre="tus consumos con tarjeta de crédito superan $73.323.600"></div></div>
+      <div class="campo"><label for="com">Compras y consumos totales</label><div class="in"><input id="com" type="text" inputmode="numeric" data-tope="73323600" data-nombre="tus compras y consumos superan $73.323.600"></div></div>
+      <div class="campo"><label for="dep">Consignaciones, depósitos e inversiones</label><div class="in"><input id="dep" type="text" inputmode="numeric" data-tope="73323600" data-nombre="tus consignaciones e inversiones superan $73.323.600"></div></div>
+      <div class="resultado" id="res" aria-live="polite">
+        <span class="dot">?</span>
+        <div><b>Completa tus cifras</b><p>El resultado aparece aquí automáticamente.</p></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="sobre" id="alejandra">
+  <div class="wrap sobre-grid">
+    <div class="foto rv">
+      <div class="ph"><img src="assets/logo-simbolo.svg" alt="">Aquí va un retrato real de Alejandra<br>(sesión de fotos pendiente)</div>
+      <div class="firma"><b>Alejandra Vinasco</b><small class="confirmar">Contadora Pública · Fundadora de Emet</small></div>
+    </div>
+    <div class="rv">
+      <div class="np-nota">En el benchmark ninguna firma muestra quién atiende. En contabilidad la confianza es personal: ponerle cara y nombre es la mayor ventaja de Emet frente a firmas grandes. Las cifras de abajo son ejemplos y deben reemplazarse por datos reales.</div>
+      <span class="eyebrow">Quién está detrás</span>
+      <h2>Hola, soy <span class="azul">Alejandra Vinasco.</span></h2>
+      <blockquote>“Quiero que cada cliente sepa exactamente qué se presentó, cuándo y por qué.”</blockquote>
+      <p>Fundé Emet con una idea sencilla: que las personas y los negocios pequeños tengan el mismo acompañamiento contable serio que tienen las grandes empresas, pero con trato cercano y respuestas rápidas.</p>
+      <p>Me gusta explicar las cosas sin tecnicismos, anticiparme a las fechas y cuidar la información de cada cliente como si fuera propia. Si trabajas con Emet, siempre sabrás con quién hablar.</p>
+      <div class="datos">
+        <div><b class="confirmar">+10</b><small>años de experiencia</small></div>
+        <div><b class="confirmar">+100</b><small>declaraciones presentadas</small></div>
+        <div><b>1</b><small>persona que conoce tu caso</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="preguntas">
+  <div class="wrap faq-grid">
+    <div class="rv">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Lo que más <span class="azul">nos preguntan.</span></h2>
+      <p class="lead" style="margin-top:16px">¿Tienes otra duda? Escríbenos por WhatsApp y te respondemos personalmente.</p>
+    </div>
+    <div class="rv">
+      <details open><summary>¿Qué es el outsourcing contable?</summary><p>Es contratar a una firma externa para que lleve tu contabilidad, tus impuestos y tu nómina, en lugar de tener un contador de planta. Pagas solo por el servicio que necesitas y cuentas con un equipo que está al día con la norma.</p></details>
+      <details><summary>¿Tengo que estar en la misma ciudad?</summary><p>No. Trabajamos de forma virtual con clientes de toda Colombia: recibimos tus documentos por un canal seguro y nos reunimos por videollamada cuando hace falta.</p></details>
+      <details><summary>Si estoy obligado a declarar renta, ¿tengo que pagar impuesto?</summary><p>No necesariamente. Estar obligado a declarar no significa que debas pagar: muchas declaraciones terminan con saldo en cero o incluso con saldo a favor. Lo que sí genera sanciones es no declarar a tiempo.</p></details>
+      <details><summary>¿Cuánto cuestan sus servicios?</summary><p>Depende del tipo de servicio y del volumen de tu operación. Después de una primera conversación te enviamos una propuesta por escrito con una tarifa clara, para que sepas desde el principio cuánto vas a pagar.</p></details>
+      <details><summary>¿Cómo envío mis documentos?</summary><p>Te compartimos una carpeta privada en la nube y te decimos exactamente qué soportes necesitamos cada mes. Nada de correos perdidos ni papeles sueltos.</p></details>
+      <details><summary>¿Mi información está segura?</summary><p>Sí. Manejamos tu información con total confidencialidad y conforme a la Ley 1581 de 2012 de protección de datos personales. Solo la usamos para prestarte el servicio.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta" style="background:var(--fondo-2)">
+  <div class="wrap">
+    <div class="cta-box rv">
+      <div>
+        <h2>Deja de preocuparte por las fechas de la DIAN.</h2>
+        <p>Cuéntanos tu caso y te decimos cómo podemos ayudarte. Sin compromiso y con total confidencialidad.</p>
+      </div>
+      <a class="tel" href="https://wa.me/573217559462?text=Hola%20Emet%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios%20contables." target="_blank" rel="noopener">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#18B85A"/><path fill="#fff" d="M24 11a13 13 0 0 0-11.2 19.6L11 37l6.6-1.7A13 13 0 1 0 24 11Zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 24 34.6Zm5.8-7.9c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.1l-1 1.3c-.2.2-.4.3-.7.1a8.7 8.7 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.8 3.8 0 0 0-1.2 2.9 6.7 6.7 0 0 0 1.4 3.5 15.3 15.3 0 0 0 5.9 5.2c2.2.9 3 1 4.1.8.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6l-.6-.4Z"/></svg>
+        <span><small>Escríbenos aquí</small><b>+57 321 755 9462</b></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="logo" href="#inicio"><img src="assets/logo-simbolo.svg" alt="" width="38" height="38"><span><b>Emet</b><small>Outsourcing Contable</small></span></a>
+        <p style="margin-top:18px;max-width:34ch">Contabilidad, impuestos y nómina para personas y pequeñas empresas en Colombia.</p>
+      </div>
+      <div><h4>Servicios</h4><ul><li><a href="#servicios">Declaración de renta</a></li><li><a href="#servicios">Outsourcing contable</a></li><li><a href="#servicios">Impuestos</a></li><li><a href="#servicios">Nómina</a></li></ul></div>
+      <div><h4>Emet</h4><ul><li><a href="#alejandra">Nosotros</a></li><li><a href="#como">Cómo trabajamos</a></li><li><a href="#renta">¿Debo declarar?</a></li><li><a href="#preguntas">Preguntas</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li><a href="https://wa.me/573217559462" target="_blank" rel="noopener">WhatsApp +57 321 755 9462</a></li><li class="confirmar">correo@emet.com.co</li><li class="confirmar">Instagram @emet</li><li class="confirmar">Ciudad, Colombia</li></ul></div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Emet Outsourcing Contable · <a href="#" style="color:inherit">Política de tratamiento de datos</a></span>
+      <span>Sitio desarrollado por <a href="https://www.werock.space" target="_blank" rel="noopener">www.werock.space</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/573217559462?text=Hola%20Emet%2C%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+</a>
+<button class="np-toggle" type="button" aria-pressed="false"><i></i><span>Notas de la propuesta</span></button>
+
+<script>
+// Menú móvil
+const burger=document.querySelector('.burger');
+burger.addEventListener('click',()=>{const on=document.body.classList.toggle('menu-on');burger.setAttribute('aria-expanded',on)});
+document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>{document.body.classList.remove('menu-on');burger.setAttribute('aria-expanded',false)}));
+
+// Notas de la propuesta
+const np=document.querySelector('.np-toggle');
+np.addEventListener('click',()=>{np.setAttribute('aria-pressed',document.body.classList.toggle('np'))});
+
+// Aparición al hacer scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// ¿Debo declarar renta?
+const calc=document.getElementById('calc'),res=document.getElementById('res');
+const inputs=[...calc.querySelectorAll('input')];
+let iva=false;
+const num=v=>Number(v.replace(/\D/g,''))||0;
+inputs.forEach(i=>i.addEventListener('input',()=>{const n=num(i.value);i.value=n?n.toLocaleString('es-CO'):'';evaluar()}));
+calc.querySelectorAll('[data-iva]').forEach(b=>b.addEventListener('click',()=>{
+  iva=b.dataset.iva==='1';
+  calc.querySelectorAll('[data-iva]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  evaluar();
+}));
+function evaluar(){
+  const razones=[];
+  if(iva) razones.push('eres responsable de IVA');
+  let algo=iva;
+  inputs.forEach(i=>{const n=num(i.value),t=+i.dataset.tope;if(n)algo=true;if(i.dataset.igual?n>=t:n>t)razones.push(i.dataset.nombre)});
+  res.className='resultado';
+  if(!algo){res.innerHTML='<span class="dot">?</span><div><b>Completa tus cifras</b><p>El resultado aparece aquí automáticamente.</p></div>';return}
+  if(razones.length){
+    res.classList.add('si');
+    res.innerHTML='<span class="dot">!</span><div><b>Sí, deberías declarar renta en 2027</b><p>Porque '+razones.join('; ')+'. Te ayudamos a prepararla y presentarla a tiempo.</p><a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/573217559462?text=Hola%20Emet%2C%20us%C3%A9%20la%20herramienta%20de%20la%20web%20y%20debo%20declarar%20renta.%20%C2%BFMe%20ayudan%3F">Quiero que Emet me ayude</a></div>';
+  }else{
+    res.classList.add('no');
+    res.innerHTML='<span class="dot">✓</span><div><b>Con estas cifras, no estarías obligado</b><p>Aun así, declarar voluntariamente puede servirte (por ejemplo, para recuperar retenciones). Si tienes dudas, escríbenos.</p><a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/573217559462?text=Hola%20Emet%2C%20tengo%20una%20duda%20sobre%20mi%20declaraci%C3%B3n%20de%20renta.">Tengo una duda</a></div>';
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmark Emet · We Rock</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/logo-simbolo.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#009FE0;--azul-txt:#1366E0;--magenta:#FF00BE;--magenta-txt:#C8009A;--violeta:#9B00FF;--tinta:#0B1020;--texto:#2B3245;--suave:#5B6478;--linea:#E3E8F0;--fondo-2:#F4F7FB;--hielo:#EAF4FD}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,system-ui,sans-serif;color:var(--texto);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{color:var(--tinta);letter-spacing:-.02em;line-height:1.15}
+h2{font-size:clamp(1.6rem,3vw,2.2rem);margin:10px 0 18px}
+h3{font-size:1.08rem}
+a{color:var(--azul-txt)}
+.eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--azul-txt)}
+section{padding:72px 0;border-top:1px solid var(--linea)}
+.lead{font-size:1.06rem;color:var(--suave);max-width:70ch}
+header{background:linear-gradient(120deg,#8A00F0,#C600D6 45%,var(--magenta));color:#fff;padding:36px 0 80px;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;right:-120px;top:-100px;width:480px;height:480px;border-radius:50%;background:rgba(255,255,255,.08)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:70px;font-size:.85rem;flex-wrap:wrap;gap:12px}
+.top b{display:flex;align-items:center;gap:10px;font-size:1.1rem}
+.top img{width:32px}
+.top a{color:#fff;border:1px solid rgba(255,255,255,.5);padding:8px 16px;border-radius:999px;text-decoration:none;font-weight:500}
+header h1{color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;max-width:18ch;position:relative;z-index:1}
+header p{max-width:62ch;margin-top:18px;opacity:.92;font-size:1.08rem;position:relative;z-index:1}
+.meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;font-size:.85rem;opacity:.85}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-48px;position:relative;z-index:2}
+.kpi{background:#fff;border-radius:20px;padding:22px;box-shadow:0 18px 50px -20px rgba(11,16,32,.25);border:1px solid var(--linea)}
+.kpi b{font-size:2rem;color:var(--tinta);display:block;line-height:1}
+.kpi span{font-size:.85rem;color:var(--suave)}
+.refs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ref{border:1px solid var(--linea);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.ref .tipo{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--magenta-txt)}
+.ref p{font-size:.9rem;color:var(--suave)}
+.ref dl{font-size:.84rem;display:grid;gap:6px;margin-top:4px}
+.ref dt{font-weight:600;color:var(--tinta)}
+.ref dd{color:var(--suave)}
+.ref .usar{margin-top:auto;background:var(--hielo);border-radius:12px;padding:12px 14px;font-size:.85rem;color:var(--tinta)}
+.ref .usar b{color:var(--azul-txt)}
+.tabla{overflow-x:auto;border:1px solid var(--linea);border-radius:18px}
+table{border-collapse:collapse;width:100%;min-width:860px;font-size:.86rem}
+th,td{padding:13px 14px;text-align:left;border-bottom:1px solid var(--linea);vertical-align:top}
+thead th{background:var(--fondo-2);color:var(--tinta);font-weight:600}
+tbody th{color:var(--tinta);font-weight:600;white-space:nowrap}
+tr.emet td,tr.emet th{background:#FFF0FA}
+.s{font-weight:700}.s.si{color:#0D7A3E}.s.no{color:#B42318}.s.med{color:#9A6700}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.box{border-radius:20px;padding:28px;border:1px solid var(--linea)}
+.box h3{margin-bottom:14px}
+.box ul{padding-left:20px;display:grid;gap:9px;font-size:.93rem}
+.box.malo{background:#FFF6F5}.box.malo li::marker{color:#B42318}
+.box.bueno{background:#EEF9F2}.box.bueno li::marker{color:#0D7A3E}
+.ops{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:o}
+.op{border-radius:20px;padding:26px;background:var(--fondo-2);position:relative}
+.op::before{counter-increment:o;content:counter(o);position:absolute;top:22px;right:22px;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--azul),var(--magenta));color:#fff;display:grid;place-items:center;font-weight:700;font-size:.85rem}
+.op h3{padding-right:40px;margin-bottom:8px}
+.op p{font-size:.9rem;color:var(--suave)}
+.mapa{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+.home{border:2px solid var(--azul-txt);border-radius:20px;padding:24px}
+.home ol{padding-left:22px;display:grid;gap:7px;font-size:.92rem;margin-top:12px}
+.home ol li::marker{color:var(--azul-txt);font-weight:700}
+.pags{display:grid;gap:14px;align-content:start}
+.pag{border:1px dashed #b9c4d6;border-radius:16px;padding:16px 18px;font-size:.88rem}
+.pag b{color:var(--tinta);display:block}
+.pag span{color:var(--suave)}
+.fase{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--hielo);color:var(--azul-txt);margin-left:6px}
+.check{columns:2;column-gap:40px;list-style:none;font-size:.93rem}
+.check li{break-inside:avoid;padding:10px 0 10px 34px;position:relative;border-bottom:1px solid var(--linea)}
+.check li::before{content:"";position:absolute;left:0;top:12px;width:20px;height:20px;border:2px solid var(--azul-txt);border-radius:6px}
+.fuentes{font-size:.82rem;color:var(--suave);display:grid;gap:4px;padding-left:18px}
+.cta-final{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.92rem}
+.btn-p{background:var(--azul-txt);color:#fff}
+.btn-g{border:2px solid var(--linea);color:var(--tinta)}
+footer{padding:40px 0;font-size:.82rem;color:var(--suave);border-top:1px solid var(--linea)}
+@media (max-width:900px){.kpis{grid-template-columns:1fr 1fr}.refs,.ops{grid-template-columns:1fr 1fr}.grid2,.mapa{grid-template-columns:1fr}.check{columns:1}}
+@media (max-width:600px){.wrap{padding:0 16px}.refs,.ops{grid-template-columns:1fr}section{padding:56px 0}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top"><b><img src="assets/logo-simbolo.svg" alt="">Emet · Propuesta web</b><a href="index.html">Ver propuesta visual →</a></div>
+    <span class="eyebrow" style="color:#fff">Benchmark · Octubre 2026</span>
+    <h1>Cómo se presentan los contadores en Colombia</h1>
+    <p>Revisamos seis sitios de firmas contables, plataformas de declaración de renta y servicios de outsourcing que operan en Colombia, para encontrar qué hace todo el mundo, qué falta y dónde puede destacarse Emet con un sitio sencillo pero muy profesional.</p>
+    <div class="meta"><span>Preparado por We Rock para Emet Outsourcing Contable</span><span>Cliente: Alejandra Vinasco</span></div>
+  </div>
+</header>
+
+<div class="wrap kpis">
+  <div class="kpi"><b>6</b><span>referentes analizados</span></div>
+  <div class="kpi"><b>0 de 6</b><span>muestran a la persona que atiende</span></div>
+  <div class="kpi"><b>1 de 6</b><span>tiene herramienta “¿debo declarar?”</span></div>
+  <div class="kpi"><b>1 de 6</b><span>muestra testimonios de clientes</span></div>
+</div>
+
+<section style="border-top:0">
+  <div class="wrap">
+    <span class="eyebrow">01 · Referentes</span>
+    <h2>A quién miramos y qué nos llevamos</h2>
+    <p class="lead" style="margin-bottom:34px">Elegimos tres tipos de referente: firmas tradicionales (la competencia directa de Emet), una red internacional (el estándar de “seriedad”) y plataformas digitales (el estándar de experiencia de usuario).</p>
+    <div class="refs">
+      <article class="ref">
+        <span class="tipo">Firma mediana · Bogotá + 4 ciudades</span>
+        <h3>G&amp;D Consulting Group</h3>
+        <p>Contadores y abogados para pymes. Hero con ISO 9001, cuatro bloques de servicios, “¿Por qué nosotros?” con seis valores sueltos, blog normativo y sedes.</p>
+        <dl><dt>CTA</dt><dd>“Agende una cita de consultoría”. Sin WhatsApp.</dd><dt>Confianza</dt><dd>ISO 9001, +25 años, membresías internacionales. Sin testimonios.</dd></dl>
+        <div class="usar"><b>Tomamos:</b> landings por ciudad para SEO local. <b>Evitamos:</b> textos genéricos y valores sin explicación.</div>
+      </article>
+      <article class="ref">
+        <span class="tipo">Firma tradicional · Nacional</span>
+        <h3>CR Consultores Colombia</h3>
+        <p>Menú con más de 25 páginas, carrusel con banners repetidos, seminarios, boletín y un blog normativo de más de 1.300 páginas.</p>
+        <dl><dt>CTA</dt><dd>WhatsApp flotante con mensaje prellenado + boletín.</dd><dt>Confianza</dt><dd>“Nos recomiendan nuestros clientes”, sin pruebas visibles.</dd></dl>
+        <div class="usar"><b>Tomamos:</b> WhatsApp con mensaje prellenado. <b>Evitamos:</b> el menú infinito y la saturación.</div>
+      </article>
+      <article class="ref">
+        <span class="tipo">Red internacional</span>
+        <h3>BDO Colombia</h3>
+        <p>Home editorial: alertas tributarias, pódcast y publicaciones. Tono cálido (“Personas ayudando a personas”) pero pensada para empresas grandes.</p>
+        <dl><dt>CTA</dt><dd>“¡Contáctanos ahora!” con formulario.</dd><dt>Confianza</dt><dd>Marca global y liderazgo de opinión.</dd></dl>
+        <div class="usar"><b>Tomamos:</b> tono humano y alertas tributarias puntuales. <b>Evitamos:</b> depender de mucho contenido que Emet no podría mantener.</div>
+      </article>
+      <article class="ref">
+        <span class="tipo">Plataforma de renta</span>
+        <h3>Tributi</h3>
+        <p>La mejor experiencia del grupo: promesa clara, herramienta gratuita “¿Debo declarar renta?”, planes con precio, prensa, reseñas de Google y FAQ.</p>
+        <dl><dt>CTA</dt><dd>“Empezar mi declaración” repetido + WhatsApp de soporte.</dd><dt>Confianza</dt><dd>Reseñas, logos de empresas, prensa, garantía.</dd></dl>
+        <div class="usar"><b>Tomamos:</b> la herramienta “¿Debo declarar?” y el lenguaje sin jerga. <b>Diferencia de Emet:</b> una persona real, no una app.</div>
+      </article>
+      <article class="ref">
+        <span class="tipo">Outsourcing digital · Prelanzamiento</span>
+        <h3>Contable.app</h3>
+        <p>Página muy limpia: tabla comparativa frente a firmas e independientes, servicios en cuatro bloques, proceso en tres pasos y FAQ extensa.</p>
+        <dl><dt>CTA</dt><dd>Lista de espera, sin compromiso.</dd><dt>Confianza</dt><dd>Transparencia: dice lo que aún no tiene definido.</dd></dl>
+        <div class="usar"><b>Tomamos:</b> proceso en pasos, “contador con nombre y apellido” y tarifa fija sin cobro por hora.</div>
+      </article>
+      <article class="ref">
+        <span class="tipo">Portal del gremio</span>
+        <h3>Accounter</h3>
+        <p>Noticias, seminarios, plantillas y calculadoras para contadores. No vende servicios a clientes finales, pero marca el tono del sector.</p>
+        <dl><dt>CTA</dt><dd>WhatsApp “¡Contáctanos!” y afiliaciones.</dd><dt>Confianza</dt><dd>Volumen de contenido técnico.</dd></dl>
+        <div class="usar"><b>Aprendizaje:</b> las calculadoras gratuitas atraen tráfico. Para Emet basta una sola, bien hecha.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">02 · Comparativo</span>
+    <h2>Lo que tiene cada sitio</h2>
+    <div class="tabla">
+      <table>
+        <thead><tr><th></th><th>Rostro visible</th><th>Lenguaje claro</th><th>WhatsApp</th><th>Proceso explicado</th><th>Herramienta gratis</th><th>Testimonios</th><th>Estructura simple</th></tr></thead>
+        <tbody>
+          <tr><th>G&amp;D Consulting</th><td class="s no">No</td><td class="s med">Medio</td><td class="s no">No</td><td class="s no">No</td><td class="s no">No</td><td class="s no">No</td><td class="s med">Media</td></tr>
+          <tr><th>CR Consultores</th><td class="s no">No</td><td class="s no">Técnico</td><td class="s si">Sí</td><td class="s no">No</td><td class="s no">No</td><td class="s no">No</td><td class="s no">No</td></tr>
+          <tr><th>BDO Colombia</th><td class="s no">No</td><td class="s med">Medio</td><td class="s no">No</td><td class="s no">No</td><td class="s no">No</td><td class="s no">No</td><td class="s med">Media</td></tr>
+          <tr><th>Tributi</th><td class="s no">No</td><td class="s si">Sí</td><td class="s si">Sí</td><td class="s si">Sí</td><td class="s si">Sí</td><td class="s si">Sí</td><td class="s med">Media</td></tr>
+          <tr><th>Contable.app</th><td class="s med">Promesa</td><td class="s si">Sí</td><td class="s no">No</td><td class="s si">Sí</td><td class="s med">Enlaces</td><td class="s no">No</td><td class="s si">Sí</td></tr>
+          <tr><th>Accounter</th><td class="s no">No</td><td class="s no">Técnico</td><td class="s si">Sí</td><td class="s no">No</td><td class="s si">Sí</td><td class="s no">No</td><td class="s no">No</td></tr>
+          <tr class="emet"><th>Emet (propuesta)</th><td class="s si">Sí</td><td class="s si">Sí</td><td class="s si">Principal</td><td class="s si">Sí</td><td class="s si">Sí</td><td class="s med">Cuando haya</td><td class="s si">Sí</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">03 · Hallazgos</span>
+    <h2>Lo que hace todo el mundo… y lo que nadie hace</h2>
+    <div class="grid2">
+      <div class="box malo">
+        <h3>Patrones del sector (evitar)</h3>
+        <ul>
+          <li>Menús con 15 a 25 servicios: el visitante no sabe por dónde empezar.</li>
+          <li>Frases intercambiables: “soluciones integrales”, “altos estándares”, “valor agregado”.</li>
+          <li>Nadie da la cara: no hay fotos ni nombres de quién atiende.</li>
+          <li>Prueba social casi inexistente: sin testimonios, sin casos ni cifras.</li>
+          <li>Blogs normativos enormes que solo leen otros contadores.</li>
+          <li>Precio oculto: “escríbenos y te cotizamos”, sin explicar cómo se cobra.</li>
+        </ul>
+      </div>
+      <div class="box bueno">
+        <h3>Lo que sí funciona (adoptar)</h3>
+        <ul>
+          <li>WhatsApp con mensaje prellenado como canal principal.</li>
+          <li>Herramienta gratuita “¿Debo declarar renta?”: atrae búsquedas cada temporada.</li>
+          <li>Proceso en pasos que responde “¿cómo sería trabajar con ustedes?”.</li>
+          <li>Lenguaje sin jerga y en tuteo, como ya habla Emet en redes.</li>
+          <li>Preguntas frecuentes que bajan objeciones (precio, seguridad, distancia).</li>
+          <li>Tarifa fija y propuesta por escrito como señal de transparencia.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">04 · Oportunidad</span>
+    <h2>Dónde puede destacarse Emet</h2>
+    <p class="lead" style="margin-bottom:30px">Emet no compite con BDO en tamaño ni con Tributi en tecnología. Compite en algo que ninguno de los dos ofrece: <b>una contadora con nombre propio, cercana y transparente</b>, con una presentación tan profesional como la de una firma grande.</p>
+    <div class="ops">
+      <div class="op"><h3>La cara de Alejandra</h3><p>En contabilidad la confianza es personal. Un retrato profesional y su voz en primera persona valen más que cualquier certificado genérico.</p></div>
+      <div class="op"><h3>“Emet = verdad”</h3><p>Una historia de marca que ningún competidor tiene y que encaja con lo que el cliente busca en un contador: exactitud y honestidad.</p></div>
+      <div class="op"><h3>Sencillez como valor</h3><p>Una sola página clara, cinco servicios y un botón de WhatsApp. Lo simple se percibe ordenado, y eso es justo lo que se le pide a un contador.</p></div>
+      <div class="op"><h3>Herramienta de renta</h3><p>Conecta con la campaña que ya está en redes y convierte visitas de Google en conversaciones de WhatsApp cada temporada.</p></div>
+      <div class="op"><h3>Proceso y tarifa claros</h3><p>Explicar cómo se trabaja y que la tarifa es fija elimina la mayor objeción: el miedo a lo desconocido y a los cobros sorpresa.</p></div>
+      <div class="op"><h3>Coherencia con redes</h3><p>Misma paleta azul y magenta, Poppins y el tono de las piezas actuales: el sitio se siente como la continuación natural de Instagram.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">05 · Estructura propuesta</span>
+    <h2>Un sitio sencillo, pero completo</h2>
+    <p class="lead" style="margin-bottom:30px">Una página de inicio que hace todo el trabajo y pocas páginas de apoyo. Fácil de mantener para Alejandra y rápida de construir.</p>
+    <div class="mapa">
+      <div class="home">
+        <h3>Inicio (one page)</h3>
+        <ol>
+          <li>Hero: promesa + WhatsApp + “¿Debo declarar?”</li>
+          <li>Franja de confianza (4 sellos)</li>
+          <li>Servicios (renta destacada + 4 servicios)</li>
+          <li>“Emet significa verdad”: historia de marca</li>
+          <li>¿A quién acompañamos? (personas, independientes, pymes)</li>
+          <li>Cómo trabajamos (4 pasos)</li>
+          <li>Herramienta “¿Debo declarar renta?”</li>
+          <li>Quién está detrás: Alejandra</li>
+          <li>Preguntas frecuentes</li>
+          <li>Llamado final + footer</li>
+        </ol>
+      </div>
+      <div class="pags">
+        <div class="pag"><b>Declaración de renta <span class="fase">Fase 1</span></b><span>Landing para pauta y SEO en temporada (abril–octubre), con la herramienta y los planes.</span></div>
+        <div class="pag"><b>Política de tratamiento de datos <span class="fase">Fase 1</span></b><span>Obligatoria por la Ley 1581 de 2012.</span></div>
+        <div class="pag"><b>Calendario tributario <span class="fase">Fase 2</span></b><span>Fechas DIAN del año por último dígito del NIT: contenido que se comparte y trae visitas.</span></div>
+        <div class="pag"><b>Blog corto <span class="fase">Fase 2</span></b><span>Solo si Alejandra quiere publicar: reutilizar los textos de las piezas de redes.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">06 · Implementación</span>
+    <h2>Cómo lo construimos en WordPress</h2>
+    <div class="grid2">
+      <div class="box"><h3>Técnica</h3><ul>
+        <li>Tema de bloques propio (theme.json + patterns), sin Elementor: rápido y fácil de editar.</li>
+        <li>Textos 100% editables desde Gutenberg por Alejandra.</li>
+        <li>Herramienta de renta como bloque con los topes en un solo lugar (se actualiza cada año con la UVT).</li>
+        <li>SEO local: datos estructurados de servicio contable, Google Business Profile y metadatos.</li>
+        <li>Hosting en Hostinger, dominio propio y correo corporativo.</li>
+      </ul></div>
+      <div class="box"><h3>Medición</h3><ul>
+        <li>Cada botón de WhatsApp lleva un mensaje distinto para saber de qué sección viene el contacto.</li>
+        <li>Google Analytics 4 + eventos de clic en WhatsApp y uso de la herramienta.</li>
+        <li>Píxel de Meta para pauta de temporada de renta.</li>
+        <li>Reseñas de Google conectadas al sitio cuando existan.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">07 · Lo que necesitamos de Alejandra</span>
+    <h2>Checklist para pasar a producción</h2>
+    <ul class="check">
+      <li>Nombre confirmado: Emet Outsourcing (actualizar el manual, que dice “Emet Integral”).</li>
+      <li>Logo en vector original (.ai / .svg).</li>
+      <li>Número de tarjeta profesional y si desea mostrarlo.</li>
+      <li>Años de experiencia y formación (universidad, especializaciones).</li>
+      <li>Ciudad base y si atiende presencial, virtual o ambas.</li>
+      <li>Lista final de servicios (confirmar nómina, ICA, exógena, revisoría).</li>
+      <li>¿Primera asesoría sin costo? ¿Tarifa fija mensual?</li>
+      <li>Sesión de fotos: retrato profesional + fotos de trabajo.</li>
+      <li>2 o 3 testimonios de clientes, con su autorización.</li>
+      <li>Correo, Instagram, dominio y acceso al hosting (si ya existe).</li>
+      <li>Revisión y aprobación de los textos propuestos.</li>
+      <li>Datos para la política de tratamiento de datos (razón social, NIT).</li>
+    </ul>
+    <div class="cta-final"><a class="btn btn-p" href="index.html">Ver la propuesta visual</a></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Fuentes</span>
+    <ul class="fuentes" style="margin-top:14px">
+      <li><a href="https://www.gydconsulting.com/">gydconsulting.com</a></li>
+      <li><a href="https://crconsultorescolombia.com/">crconsultorescolombia.com</a></li>
+      <li><a href="https://www.bdo.com.co/es-co/inicio">bdo.com.co</a></li>
+      <li><a href="https://tributi.com/">tributi.com</a></li>
+      <li><a href="https://contable.app/co/contabilidad-pymes">contable.app/co</a></li>
+      <li><a href="https://accounter.co/">accounter.co</a></li>
+      <li>UVT 2026 y topes para declarar: <a href="https://siemprealdia.co/colombia/impuestos/uvt-2026/">siemprealdia.co</a>, <a href="https://www.siigo.com/blog/obligaciones-fiscales/nuevos-topes-para-declarar-renta/">siigo.com</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer><div class="wrap">Preparado por <a href="https://www.werock.space">We Rock</a> · Octubre 2026 · Documento de propuesta</div></footer>
+</body>
+</html>
