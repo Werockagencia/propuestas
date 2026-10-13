@@ -1,0 +1,53 @@
+MONTSERRAT ETAPA II · SEÑALIZACIÓN SALA DE NEGOCIOS · CUADRO DE PRODUCCIÓN
+Fuente: "Mapa señalización SV MONTSERRAT" (5 láminas)
+
+ARTES (PDF a tamaño real, textos en vector)
+A  Pendón 100 x 200 cm · flecha ADELANTE ........ 13 unidades
+B  Pendón 100 x 200 cm · flecha DERECHA ......... 3 unidades
+C  Pendón 100 x 200 cm · flecha IZQUIERDA ....... 3 unidades
+D  Pendón 100 x 200 cm · flecha RETORNO ......... 3 unidades
+E  Bastidor 400 x 90 cm · flecha en L DERECHA ... 2 unidades
+F  Pasacalle 700 x 100 cm · flecha ADELANTE ..... 5 unidades
+G  Tótem 70 x 200 cm · bienvenida (OPCIONAL, no aparece en el mapa)
+TOTAL: 22 pendones · 2 bastidores · 5 pasacalles
+
+PUNTO DEL MAPA → ARTE · CANTIDAD
+ACCESO INMEDIATO
+ 0   Pendón de frente (puente) ........ A · 1
+ 1   Pendón retorno ................... D · 1
+ 2   Pendón retorno ................... D · 1
+ 3   Pendón retorno ................... D · 1
+ 4,5 No van
+ 6   1 pendón ......................... A · 1   (el mapa no indica flecha: CONFIRMAR)
+ 7   No va
+ 8   2 pendones flecha derecha ........ B · 2
+ 9A  Bastidor con L ................... E · 1   (asumido L a la DERECHA: CONFIRMAR)
+ 9B  Pendón derecho ................... A · 1
+DESDE FLORIDABLANCA
+ 10  2 pendones derecho ............... A · 2
+ 11  Pendón derecho ................... A · 1
+ 12  1 pendón derecho ................. A · 1
+ 13  No va (semáforo)
+ 14  2 pendones mano izquierda ........ C · 2
+ 15  1 pendón izquierda ............... C · 1
+ 16  Bastidor con lona, L derecha ..... E · 1
+AUTOPISTA
+ 17  Pendón derecho ................... A · 1
+ 18  Pasacalle flecha derecho ......... F · 1
+ 19  1 pendón derecho ................. A · 1
+ 20  1 pendón derecho ................. A · 1
+ 21  Pasacalle ........................ F · 1
+ 22  1 pendón derecho ................. A · 1
+ 23  Pasacalle ........................ F · 1
+ 24  Pendón flecha derecho ............ A · 1
+ 25  Pendón flecha derecha ............ B · 1
+CAÑAVERAL
+ 26  Pasacalle flecha derecho ......... F · 1
+ 27  1 pendón derecho ................. A · 1
+ 28  Pasacalle ........................ F · 1
+
+CRITERIO: "derecho" = seguir derecho (flecha ADELANTE). "derecha" = girar a la derecha.
+Puntos a confirmar: 6 (sin flecha), 9A (dirección de la L), 18/24/26 ("flecha derecho": ¿adelante o derecha?).
+
+METROS: cada arte trae una casilla blanca "A ___ m". Escribir/pegar la distancia de cada punto a la sala de negocios.
+Color: PDF en RGB, el impresor convierte a CMYK. Sin sangrado: confirmar excedente de tensado/ojales con el impresor.
