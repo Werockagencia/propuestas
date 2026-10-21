@@ -37,13 +37,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
 .lb .st img{max-width:100%;max-height:calc(100vh - 90px);border-radius:4px}
 </style></head><body>
 <header><b>Montserrat Etapa II · Floridablanca</b><h1>Vallas y página de revista</h1><p>Rediseño de la valla exterior, la caja de luz y la página de revista. Toca una pieza para verla en grande. Propuesta para revisión: los artes finales se generan después de la aprobación.</p>
-<div class="dl"><a href="Montserrat_II_Vallas_y_Revista.pdf?v=6" download><svg viewBox="0 0 24 24" width="16" height="16" fill="#fff" aria-hidden="true"><path d="M12 3a1 1 0 011 1v9.6l3.3-3.3a1 1 0 111.4 1.4l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 111.4-1.4l3.3 3.3V4a1 1 0 011-1zM5 19h14a1 1 0 110 2H5a1 1 0 110-2z"/></svg>Descargar PDF para revisión</a></div></header>
+<div class="dl"><a href="Montserrat_II_Vallas_y_Revista.pdf?v=7" download><svg viewBox="0 0 24 24" width="16" height="16" fill="#fff" aria-hidden="true"><path d="M12 3a1 1 0 011 1v9.6l3.3-3.3a1 1 0 111.4 1.4l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 111.4-1.4l3.3 3.3V4a1 1 0 011-1zM5 19h14a1 1 0 110 2H5a1 1 0 110-2z"/></svg>Descargar PDF para revisión</a></div></header>
 <main id="m"></main>
 <main><div class="note"><b>Por confirmar:</b> la frase de la valla exterior es una propuesta ("Construimos el lugar donde comienza tu historia."). La valla de culata del edificio queda pendiente de la foto. Los QR son estáticos y no vencen.</div></main>
 <footer>Montserrat Etapa II · Azulado Inmobiliario</footer>
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-labelledby="lt"><div class="bar"><div class="t" id="lt"></div><button id="lx" type="button">Cerrar ✕</button></div><div class="st" id="ls"><img id="li" alt=""></div></div>
 <script>
-var V='?v=6'+Date.now();
+var V='?v=7'+Date.now();
 var S=[{"t":"Valla exterior · 11 × 3,6 m","m":"Solo marcas del grupo desarrollador con frase · dos opciones","w":560,"f":["valla_ext_a","valla_ext_b"],"n":["Opción A · con foto aérea","Opción B · fondo verde"]},{"t":"Caja de luz · 2 × 2 m","m":"Dos caras · Abadías Condominio + Montserrat · marcas aliadas abajo","w":340,"f":["caja_a","caja_b"],"n":["Cara A · ¡Bienvenidos!","Cara B · ¡Vuelve pronto!"]},{"t":"Página de revista · carta","m":"21,6 × 27,9 cm · textos y logos dentro de la caja tipográfica de 17,6 × 23,9 cm · ubicación y beneficios","w":340,"f":["revista","revista_b"],"n":["Propuesta 1 · editorial","Propuesta 2 · fotográfica"]},{"t":"Valla culata edificio","m":"Pendiente: se diseña cuando llegue la foto de la culata.","w":340,"f":[],"n":[]}];
 var m=document.getElementById('m'),lb=document.getElementById('lb'),li=document.getElementById('li'),lt=document.getElementById('lt'),last=null;
 S.forEach(function(s){var sec=document.createElement('section');sec.innerHTML='<h2>'+s.t+'</h2><p class="m">'+s.m+'</p><div class="g" style="--x:1"></div>';var g=sec.querySelector('.g');g.style.gridTemplateColumns='repeat(auto-fit,minmax(min(100%,'+s.w+'px),1fr))';
