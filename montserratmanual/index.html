@@ -52,8 +52,8 @@ ul.l li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9p
 .badge{background:#fff;clip-path:polygon(0 0,100% 0,100% 80%,50% 100%,0 80%);display:flex;justify-content:center;align-items:flex-start}
 /* separadores */
 .op .ph{left:0;top:0;bottom:0;width:58%}
-.op .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(31,59,42,0) 60%,var(--vd))}
-.op .big{position:absolute;right:90px;top:160px;font-family:GU;font-size:260px;line-height:1;color:var(--or)}
+.op .ph{right:auto}
+.op .big{position:absolute;right:90px;top:160px;font-family:GU;font-size:260px;line-height:1;color:transparent;-webkit-text-stroke:2px var(--peach)}
 .op .nm{position:absolute;right:90px;top:460px;width:560px;text-align:right}
 .op .nm b{display:block;font-family:GU;font-size:64px;line-height:1.05}
 .op .nm span{display:block;font-size:20px;line-height:1.5;color:#cfdcd2;margin-top:18px}
@@ -62,8 +62,8 @@ ul.l li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9p
 .pat{border-radius:14px;flex:1;min-height:0}
 .flora{background:var(--cream);position:relative;overflow:hidden}
 .flora::before,.flora::after{content:"";position:absolute;inset:-60px;-webkit-mask:url(assets/flor.png) 0 0/120px 118px repeat;mask:url(assets/flor.png) 0 0/120px 118px repeat}
-.flora::before{background:var(--or)}
-.flora::after{background:var(--vd);-webkit-mask-position:60px 59px;mask-position:60px 59px}
+.flora::before{background:#E6DCCB}
+.flora::after{background:#D9C9AF;-webkit-mask-position:60px 59px;mask-position:60px 59px}
 /* íconos */
 .ic{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
 .ic div{border:1px solid var(--line);border-radius:14px;height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;font-size:14px;font-weight:700}
@@ -74,13 +74,13 @@ ul.l li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9p
 @media print{html,body{background:#fff}.top{display:none}.deck{display:block;padding:0}.pg{zoom:1;box-shadow:none;break-after:page;margin:0}@page{size:1600px 900px;margin:0}}
 </style></head><body>
 <div class="top"><b>Brand guidelines · Montserrat y Abadías</b>
-  <span style="display:flex;gap:10px;flex-wrap:wrap"><a href="Manual_Marca_Montserrat_Abadias.pdf?v=3" download><svg viewBox="0 0 24 24" width="16" height="16" fill="#fff" aria-hidden="true"><path d="M12 3a1 1 0 011 1v9.6l3.3-3.3a1 1 0 111.4 1.4l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 111.4-1.4l3.3 3.3V4a1 1 0 011-1zM5 19h14a1 1 0 110 2H5a1 1 0 110-2z"/></svg>Descargar manual en PDF</a><a class="sec" href="Montserrat_Abadias_Logos.zip?v=2" download>Descargar logos</a></span></div>
+  <span style="display:flex;gap:10px;flex-wrap:wrap"><a href="Manual_Marca_Montserrat_Abadias.pdf?v=4" download><svg viewBox="0 0 24 24" width="16" height="16" fill="#fff" aria-hidden="true"><path d="M12 3a1 1 0 011 1v9.6l3.3-3.3a1 1 0 111.4 1.4l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 111.4-1.4l3.3 3.3V4a1 1 0 011-1zM5 19h14a1 1 0 110 2H5a1 1 0 110-2z"/></svg>Descargar manual en PDF</a><a class="sec" href="Montserrat_Abadias_Logos.zip?v=2" download>Descargar logos</a></span></div>
 <div class="deck">
 
 <!-- PORTADA -->
 <section class="pg dark">
-  <div class="ph" style="inset:0;background-image:url(assets/foto/aerea.jpg)"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,40,28,.96) 0%,rgba(20,40,28,.88) 42%,rgba(20,40,28,.25) 75%,rgba(20,40,28,.1))"></div>
+  <div class="ph" style="left:860px;right:0;top:0;bottom:0;background-image:url(assets/foto/aerea.jpg)"></div>
+  <div style="position:absolute;left:838px;top:0;bottom:0;width:22px;background:url(assets/pat/petalos.svg) 0 0/22px 22px"></div>
   <div style="position:absolute;left:0;top:0;bottom:0;width:22px;background:url(assets/pat/petalos.svg) 0 0/22px 22px"></div>
   <div style="position:absolute;left:110px;top:110px;display:flex;gap:18px">
     <div style="background:#fff;border-radius:14px;padding:14px 18px"><img src="assets/logos/montserrat.svg" alt="Montserrat" style="height:112px;display:block"></div>
@@ -97,18 +97,17 @@ ul.l li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9p
 <!-- ÍNDICE -->
 <section class="pg">
   <div class="ph" style="right:0;top:0;bottom:0;width:470px;background-image:url(assets/foto/senderos.jpg)"></div>
-  <div style="position:absolute;right:0;top:0;bottom:0;width:470px;background:linear-gradient(180deg,rgba(31,59,42,0) 50%,rgba(31,59,42,.85))"></div>
-  <div class="serif" style="position:absolute;right:50px;bottom:60px;width:370px;color:#fff;font-size:36px;line-height:1.2">"Un hogar rodeado de naturaleza y cerca de todo."</div>
+  <div class="serif" style="position:absolute;right:0;bottom:0;width:470px;background:var(--vd);color:#fff;font-size:34px;line-height:1.2;padding:40px 46px">"Un hogar rodeado de naturaleza y cerca de todo."</div>
   <div class="hd" style="right:560px"><span class="num">Contenido</span></div>
   <div class="ttl">Índice</div>
   <div style="position:absolute;left:90px;top:230px;width:960px;display:grid;grid-template-columns:repeat(2,1fr);gap:0 50px">
     <table>
-      <tr><td style="width:60px;font-family:GU;color:var(--or);font-size:28px">01</td><td><b>La marca</b><br><span style="color:var(--muted);font-size:15px">Esencia · manifiesto · logotipo · construcción · versiones · usos incorrectos</span></td></tr>
-      <tr><td style="font-family:GU;color:var(--or);font-size:28px">02</td><td><b>Sistema visual</b><br><span style="color:var(--muted);font-size:15px">Color · combinaciones · tipografía · patrones · iconografía · fotografía</span></td></tr>
+      <tr><td style="width:60px;font-family:GU;color:var(--vd);font-size:28px">01</td><td><b>La marca</b><br><span style="color:var(--muted);font-size:15px">Esencia · manifiesto · logotipo · construcción · versiones · usos incorrectos</span></td></tr>
+      <tr><td style="font-family:GU;color:var(--vd);font-size:28px">02</td><td><b>Sistema visual</b><br><span style="color:var(--muted);font-size:15px">Color · combinaciones · tipografía · patrones · iconografía · fotografía</span></td></tr>
     </table>
     <table>
-      <tr><td style="width:60px;font-family:GU;color:var(--or);font-size:28px">03</td><td><b>Abadías</b><br><span style="color:var(--muted);font-size:15px">Logotipo · convivencia de marcas · marcas aliadas</span></td></tr>
-      <tr><td style="font-family:GU;color:var(--or);font-size:28px">04</td><td><b>Aplicaciones</b><br><span style="color:var(--muted);font-size:15px">Papelería · redes sociales · merchandising · publicidad · datos</span></td></tr>
+      <tr><td style="width:60px;font-family:GU;color:var(--vd);font-size:28px">03</td><td><b>Abadías</b><br><span style="color:var(--muted);font-size:15px">Logotipo · convivencia de marcas · marcas aliadas</span></td></tr>
+      <tr><td style="font-family:GU;color:var(--vd);font-size:28px">04</td><td><b>Aplicaciones</b><br><span style="color:var(--muted);font-size:15px">Papelería · redes sociales · merchandising · publicidad · datos</span></td></tr>
     </table>
   </div>
   <div class="ft" style="right:560px"><span><i></i>Montserrat y Abadías</span><span>02</span></div>
@@ -291,12 +290,12 @@ ul.l li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9p
 <section class="pg">
   <div class="hd"><span class="num">02.5 · Patrones</span><span class="sec">Sistema visual</span></div>
   <div class="ttl">Patrones de marca</div>
-  <div class="lead">Nacen de la flor: el pétalo, la hoja y los senderos. Se usan en bordes, fondos, empaques y piezas de apoyo; nunca detrás de textos.</div>
+  <div class="lead">Nacen de la flor: el pétalo, la hoja y los senderos. Cada patrón se construye en una sola familia de color, tono sobre tono, para que acompañe sin competir con el logo ni con los textos.</div>
   <div class="body" style="top:280px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px">
-    <div class="col"><div class="pat" style="background:url(assets/pat/petalos.svg) 0 0/120px 120px"></div><div class="cap">Pétalos</div><div style="font-size:14px;color:var(--muted)">Bordes, franjas y detalles.</div></div>
-    <div class="col"><div class="pat flora"></div><div class="cap">Floración</div><div style="font-size:14px;color:var(--muted)">Empaques, merch y fondos claros.</div></div>
+    <div class="col"><div class="pat" style="background:url(assets/pat/petalos.svg) 0 0/120px 120px"></div><div class="cap">Pétalos verde</div><div style="font-size:14px;color:var(--muted)">Fondos verdes, bordes y franjas.</div></div>
+    <div class="col"><div class="pat flora"></div><div class="cap">Floración</div><div style="font-size:14px;color:var(--muted)">Fondos claros, empaques y papelería.</div></div>
     <div class="col"><div class="pat" style="background:url(assets/pat/senderos.svg) 0 0/300px 240px"></div><div class="cap">Senderos</div><div style="font-size:14px;color:var(--muted)">Fondos verdes, mapas y ubicación.</div></div>
-    <div class="col"><div class="pat" style="background:url(assets/pat/hojas.svg) 0 0/110px 110px"></div><div class="cap">Hojas</div><div style="font-size:14px;color:var(--muted)">Club, bienestar y redes sociales.</div></div>
+    <div class="col"><div class="pat" style="background:url(assets/pat/petalos_naranja.svg) 0 0/120px 120px"></div><div class="cap">Pétalos naranja</div><div style="font-size:14px;color:var(--muted)">Solo acentos: botones, etiquetas y promociones.</div></div>
   </div>
   <div class="ft"><span><i></i>Patrones</span><span>14</span></div>
 </section>
@@ -344,7 +343,7 @@ ul.l li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9p
 
 <!-- SEPARADOR 03 -->
 <section class="pg dark op"><div class="ph" style="background-image:url(assets/foto/montanas.jpg)"></div>
-  <div class="big" style="color:var(--peach)">03</div><div class="nm"><b>Abadías</b><span>El macroproyecto y club donde vive Montserrat, y las marcas que lo hacen posible.</span></div><div class="strip"></div></section>
+  <div class="big">03</div><div class="nm"><b>Abadías</b><span>El macroproyecto y club donde vive Montserrat, y las marcas que lo hacen posible.</span></div><div class="strip"></div></section>
 
 <!-- ABADÍAS -->
 <section class="pg">
@@ -437,12 +436,11 @@ ul.l li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9p
   <div class="hd"><span class="num">04.2 · Redes sociales</span><span class="sec">Aplicaciones</span></div>
   <div class="ttl">Redes sociales</div>
   <div class="mk" style="left:90px;top:230px;width:380px;height:380px;border-radius:10px;overflow:hidden;background:url(assets/foto/senderos.jpg) center/cover">
-    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,40,28,0) 40%,rgba(20,40,28,.9))"></div>
     <div class="badge" style="position:absolute;right:22px;top:0;width:70px;height:82px;padding-top:10px"><img src="assets/logos/montserrat.svg" alt="" style="width:54px"></div>
-    <div style="position:absolute;left:26px;bottom:24px;color:#fff"><div style="font-family:GU;font-size:30px;line-height:1.05">Vive rodeado<br>de naturaleza</div><div class="serif" style="font-size:24px;color:var(--peach)">y cerca de todo.</div></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;background:var(--vd);padding:20px 26px;color:#fff"><div style="font-family:GU;font-size:30px;line-height:1.05">Vive rodeado<br>de naturaleza</div><div class="serif" style="font-size:24px;color:var(--peach)">y cerca de todo.</div></div>
   </div>
   <div class="mk" style="left:500px;top:230px;width:380px;height:380px;border-radius:10px;overflow:hidden;background:var(--vd)">
-    <div style="position:absolute;inset:0;background:url(assets/pat/hojas.svg) 0 0/80px 80px;opacity:.16"></div>
+    <div style="position:absolute;inset:0;background:url(assets/pat/senderos.svg) 0 0/300px 240px;opacity:1"></div>
     <div style="position:absolute;left:30px;top:40px;color:#fff"><div class="num">Apartamentos</div><div style="font-family:GU;font-size:72px;line-height:1;margin-top:14px">85 <span style="font-size:.4em;color:var(--or)">A</span><br>226<sup style="font-size:.4em;color:var(--or)">m²</sup></div></div>
     <div style="position:absolute;left:30px;right:30px;bottom:26px;display:flex;align-items:center;gap:10px;color:#fff;font-weight:900;font-size:18px"><span style="width:34px;height:34px;border-radius:50%;background:#25D366;display:grid;place-items:center"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></span>311 333 9202</div>
   </div>
@@ -450,8 +448,7 @@ ul.l li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9p
     <div style="position:absolute;left:0;right:0;bottom:0;height:120px;background:var(--or);color:#fff;padding:20px 26px"><div style="font-family:GU;font-size:26px">Apartamento modelo</div><div style="font-size:15px;margin-top:4px">¡Visítalo y vívelo! · Sala de ventas</div></div>
   </div>
   <div class="mk" style="left:1320px;top:200px;width:200px;height:356px;border-radius:14px;overflow:hidden;background:url(assets/foto/fachada.jpg) 50% 30%/cover">
-    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,40,28,.1),rgba(20,40,28,.85))"></div>
-    <div style="position:absolute;left:16px;right:16px;bottom:20px;color:#fff"><div style="font-family:GU;font-size:20px;line-height:1.05">Tu espacio.<br>Tu estatus.</div><div class="serif" style="font-size:18px;color:var(--peach)">Tu hogar.</div><div style="margin-top:12px;background:#fff;color:var(--vd);border-radius:20px;font-weight:900;font-size:12px;text-align:center;padding:7px">VER PROYECTO</div></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;background:var(--vd);padding:16px;color:#fff"><div style="font-family:GU;font-size:20px;line-height:1.05">Tu espacio.<br>Tu estatus.</div><div class="serif" style="font-size:18px;color:var(--peach)">Tu hogar.</div><div style="margin-top:12px;background:#fff;color:var(--vd);border-radius:20px;font-weight:900;font-size:12px;text-align:center;padding:7px">VER PROYECTO</div></div>
   </div>
   <div style="position:absolute;left:90px;top:650px;width:1200px;font-size:16px;line-height:1.5;color:#3a3a3a">Post de lifestyle con foto y frase · post de datos sobre verde con patrón de hojas · post de producto con franja naranja · historia vertical con botón.</div>
   <div class="ft"><span><i></i>Instagram · Facebook · historias</span><span>24</span></div>
