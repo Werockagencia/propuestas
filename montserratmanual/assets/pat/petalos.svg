@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240"><rect width="240" height="240" fill="#1F3B2A"/>
+<path d="M0 0h120v120A120 120 0 0 1 0 0z" fill="#ED8023"/><path d="M240 0v120h-120A120 120 0 0 1 240 0z" fill="#26462F"/>
+<path d="M0 240v-120h120A120 120 0 0 1 0 240z" fill="#F4C9A0"/><path d="M240 240h-120v-120A120 120 0 0 1 240 240z" fill="#C45D18"/>
+<circle cx="120" cy="120" r="10" fill="#F3F1EC"/></svg>
