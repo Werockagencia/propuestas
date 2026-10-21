@@ -1,307 +1,355 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
-<title>Manual de marca · Montserrat y Abadías</title>
+<title>Brand guidelines · Montserrat y Abadías</title>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,500;1,6..96,600&display=swap" rel="stylesheet">
 <style>
+/* Brand guidelines en láminas fijas de 1600 x 900 px. En pantalla se escalan al ancho disponible; al imprimir, una lámina por página. */
 @font-face{font-family:G;src:url(assets/fonts/Geomanist-Light.ttf);font-weight:300}
 @font-face{font-family:G;src:url(assets/fonts/Geomanist-Book.ttf);font-weight:400}
 @font-face{font-family:G;src:url(assets/fonts/Geomanist-Medium.ttf);font-weight:500}
 @font-face{font-family:G;src:url(assets/fonts/Geomanist-Bold.ttf);font-weight:700}
 @font-face{font-family:G;src:url(assets/fonts/Geomanist-Black.ttf);font-weight:900}
 @font-face{font-family:GU;src:url(assets/fonts/Geomanist-Ultra.ttf)}
-:root{--or:#ED8023;--or2:#C45D18;--ab:#7DB742;--ab2:#008842;--vd:#1F3B2A;--vd2:#26462F;--peach:#F4C9A0;--ink:#1A1A1A;--cream:#F3F1EC;--muted:#5d655f;--line:#E4E1DB}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:20px}
-body{margin:0;background:#fff;color:var(--ink);font-family:G,system-ui,sans-serif;font-size:17px;line-height:1.55}
-a{color:inherit}
+:root{--or:#ED8023;--or2:#C45D18;--vd:#1F3B2A;--vd2:#26462F;--peach:#F4C9A0;--ink:#1A1A1A;--cream:#F3F1EC;--muted:#6b716c;--line:#E4E1DB;--z:1}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#d9d6d0}
+body{font-family:G,system-ui,sans-serif;color:var(--ink)}
+.top{position:sticky;top:0;z-index:9;background:var(--vd);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;flex-wrap:wrap}
+.top b{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--peach)}
+.top a{display:inline-flex;align-items:center;gap:8px;background:var(--or);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:9px 16px;border-radius:30px}
+.top a.sec{background:transparent;border:2px solid rgba(255,255,255,.35);padding:7px 14px}
+.top a:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.deck{display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px 16px 60px}
+.pg{zoom:var(--z);position:relative;width:1600px;height:900px;overflow:hidden;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.18);flex-shrink:0}
+.hd{position:absolute;left:90px;right:90px;top:70px;display:flex;justify-content:space-between;align-items:flex-start}
+.num{font-weight:700;font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--or)}
+.sec{font-weight:500;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.ttl{position:absolute;left:90px;top:108px;font-family:GU;font-size:58px;line-height:1.02;letter-spacing:-.015em;width:1100px}
+.ttl .serif{color:var(--or)}
+.lead{position:absolute;left:90px;top:190px;width:820px;font-size:20px;line-height:1.5;color:#3a3a3a}
+.body{position:absolute;left:90px;right:90px;top:290px;bottom:110px}
+.ft{position:absolute;left:90px;right:90px;bottom:42px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
 .serif{font-family:'Bodoni Moda',serif;font-style:italic;font-weight:600}
-/* navegación */
-nav{position:fixed;left:0;top:0;bottom:0;width:250px;background:var(--vd);color:#fff;padding:28px 22px;overflow:auto;z-index:5}
-nav img{width:120px;background:#fff;border-radius:10px;padding:10px;display:block;margin-bottom:20px}
-nav b{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--peach);margin:18px 0 8px}
-nav a{display:block;text-decoration:none;font-size:14.5px;padding:5px 0;color:#dbe6de}
-nav a:hover,nav a:focus-visible{color:#fff;outline:none;text-decoration:underline}
-main{margin-left:250px}
-section{padding:72px 64px;border-bottom:1px solid var(--line);max-width:1250px}
-.k{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--or)}
-h1,h2{font-family:GU;letter-spacing:-.015em;line-height:1;margin:10px 0 18px}
-h2{font-size:clamp(34px,4vw,52px)}
-h3{font-size:21px;font-weight:900;margin:30px 0 10px}
-p.lead{font-size:20px;max-width:760px;color:#333}
-.grid{display:grid;gap:22px}
-.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.tile{border-radius:14px;min-height:220px;display:grid;place-items:center;padding:30px;position:relative}
-.tile small{position:absolute;left:14px;bottom:10px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.tile img{max-width:70%;max-height:170px}
-.wht img{filter:brightness(0) invert(1)}
-.blk img{filter:brightness(0)}
+.dark{background:var(--vd);color:#fff}
+.dark .ft{color:#9db3a3;border-color:rgba(255,255,255,.15)}
+.wm{position:absolute;aspect-ratio:1400/1376;background:var(--vd2);-webkit-mask:url(assets/flor.png) center/contain no-repeat;mask:url(assets/flor.png) center/contain no-repeat}
+.row{display:flex;gap:28px;height:100%}
+.col{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column}
+.card{border:1px solid var(--line);border-radius:16px;padding:28px}
+.card h4{font-size:22px;font-weight:900;margin-bottom:10px}
+.card p{font-size:17px;line-height:1.5;color:#3a3a3a}
+.tile{border-radius:14px;display:flex;align-items:center;justify-content:center;flex:1;min-height:0;overflow:hidden}
+.tile img{max-width:62%;max-height:70%}
+.cap{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-top:12px;color:#3a3a3a;line-height:1.3}
+.cap.no{color:#B3261E}
 .bd{border:1px solid var(--line)}
-/* portada */
-.cover{min-height:min(100vh,760px);background:var(--vd);color:#fff;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;max-width:none}
-.cover .wm{position:absolute;right:-180px;top:-120px;width:720px;aspect-ratio:1400/1376;background:var(--vd2);-webkit-mask:url(assets/flor.png) center/contain no-repeat;mask:url(assets/flor.png) center/contain no-repeat}
-.cover .lg{display:flex;gap:18px;position:relative}
-.cover .lg img{height:130px;background:#fff;border-radius:14px;padding:14px}
-.cover h1{font-size:clamp(46px,7vw,96px);margin-top:40px;position:relative}
-.cover h1 .serif{color:var(--peach);display:block;font-size:.72em;margin-top:8px}
-.cover p{position:relative;max-width:640px;color:#cfdcd2;font-size:19px}
-/* construcción */
-.cons{position:relative;width:min(560px,100%);aspect-ratio:303.3/262.4;margin:20px 0}
-.cons .lz{position:absolute;inset:0;outline:2px dashed var(--or)}
-.cons img{position:absolute;left:0;top:0;width:100%}
-.cons .x{position:absolute;background:rgba(237,128,35,.16);border:1px solid var(--or);font-size:12px;font-weight:700;color:var(--or2);display:grid;place-items:center}
-.prot{display:inline-block;padding:13.7%;outline:2px dashed var(--or);background:repeating-linear-gradient(45deg,#fff 0 8px,#fdf1e6 8px 16px)}
-.prot img{display:block;width:100%;background:#fff}
-/* color */
-.sw{border-radius:14px;overflow:hidden;border:1px solid var(--line)}
-.sw .c{height:130px}
-.sw .t{padding:14px 16px;font-size:14px;line-height:1.5}
-.sw .t b{display:block;font-size:16px;font-weight:900;margin-bottom:4px}
-.bar{display:flex;height:34px;border-radius:8px;overflow:hidden;margin-top:14px}
-/* tipografía */
-.ty{border:1px solid var(--line);border-radius:14px;padding:26px}
-.ty .big{font-size:76px;line-height:1}
-.ty .abc{font-size:22px;letter-spacing:.02em;margin-top:10px;color:#333;word-break:break-all}
-table{border-collapse:collapse;width:100%;font-size:15px}
-th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-/* usos incorrectos */
-.no{border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.no .v{height:190px;display:grid;place-items:center;background:#fff;position:relative;overflow:hidden}
-.no .v img{width:150px}
-.no .t{padding:10px 14px;font-size:14px;display:flex;gap:8px;align-items:flex-start}
-.no .t::before{content:"✕";color:#C1272D;font-weight:900}
-/* aplicaciones */
-.ap img{width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
-.ap figcaption{font-size:14px;color:var(--muted);margin-top:8px}
-figure{margin:0}
-.note{background:var(--cream);border-left:4px solid var(--or);padding:14px 18px;border-radius:8px;font-size:15px;margin:18px 0}
-.dl a{display:inline-flex;gap:8px;align-items:center;background:var(--or);color:#fff;text-decoration:none;font-weight:700;padding:11px 18px;border-radius:30px;margin:6px 8px 0 0}
-.dl a.sec{background:transparent;color:var(--ink);border:2px solid var(--line)}
-.dl a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-.co{display:flex;align-items:center;justify-content:center;gap:36px;padding:40px;border-radius:14px}
-.co img{height:150px}.co .sp{width:2px;height:120px;background:#d9d5ce}
-@media (max-width:900px){nav{position:static;width:auto}main{margin-left:0}section{padding:48px 18px}.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.cover .lg img{height:90px}}
-@media (max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}}
-@media print{nav{display:none}main{margin:0}section{break-after:page;border:0;padding:40px}.cover{min-height:auto;height:180mm}@page{size:A4 landscape;margin:10mm}}
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle;font-size:17px;line-height:1.4}
+th{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.sw .c{height:200px;border-radius:14px 14px 0 0}
+.sw .t{border:1px solid var(--line);border-top:0;border-radius:0 0 14px 14px;padding:18px 20px;font-size:15px;line-height:1.65}
+.sw .t b{display:block;font-size:19px;font-weight:900;margin-bottom:6px}
+.sw .t span{color:var(--muted);display:inline-block;width:56px;font-weight:700;font-size:12px;letter-spacing:.1em}
+ul.l{list-style:none}
+ul.l li{position:relative;padding-left:24px;font-size:18px;line-height:1.5;margin:0 0 12px}
+ul.l li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9px;border-radius:50%;background:var(--or)}
+.shot{border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.14);background:#eee;margin:0;min-height:0}
+.shot img{display:block;width:100%;height:100%;object-fit:cover}
+.badge{background:#fff;clip-path:polygon(0 0,100% 0,100% 80%,50% 100%,0 80%);display:flex;justify-content:center;align-items:flex-start}
+@media print{
+  html,body{background:#fff}.top{display:none}.deck{display:block;padding:0}
+  .pg{zoom:1;box-shadow:none;break-after:page;margin:0}
+  @page{size:1600px 900px;margin:0}
+}
+.ap .shot{background:#ECEAE5;box-shadow:none}.ap .shot img{object-fit:contain}
 </style></head><body>
-<nav aria-label="Contenido del manual">
-  <img src="assets/logos/montserrat.svg" alt="Montserrat">
-  <b>Montserrat</b>
-  <a href="#intro">Esencia de marca</a><a href="#logo">Logotipo</a><a href="#construccion">Construcción y protección</a><a href="#versiones">Versiones</a><a href="#incorrectos">Usos incorrectos</a><a href="#color">Color</a><a href="#tipo">Tipografía</a><a href="#recursos">Recursos gráficos</a><a href="#foto">Fotografía</a><a href="#voz">Tono de voz</a>
-  <b>Abadías</b>
-  <a href="#abadias">Logotipo Abadías</a><a href="#cobrand">Convivencia de marcas</a><a href="#aliados">Marcas aliadas</a>
-  <b>Uso</b>
-  <a href="#aplicaciones">Aplicaciones</a><a href="#legal">Datos y textos legales</a><a href="#descargas">Descargas</a>
-</nav>
-<main>
-<section class="cover" id="top">
-  <div class="wm" aria-hidden="true"></div>
-  <div class="lg"><img src="assets/logos/montserrat.svg" alt="Montserrat Conjunto Residencial"><img src="assets/logos/abadias_condominio.png" alt="Abadías Condominio"></div>
-  <h1>Manual de marca<span class="serif">Montserrat y Abadías</span></h1>
-  <p>Guía para usar correctamente los logotipos, colores, tipografías y recursos gráficos de Montserrat Conjunto Residencial y de Abadías Condominio en piezas impresas y digitales.</p>
+<div class="top"><b>Brand guidelines · Montserrat y Abadías</b>
+  <span style="display:flex;gap:10px;flex-wrap:wrap"><a href="Manual_Marca_Montserrat_Abadias.pdf?v=2" download><svg viewBox="0 0 24 24" width="16" height="16" fill="#fff" aria-hidden="true"><path d="M12 3a1 1 0 011 1v9.6l3.3-3.3a1 1 0 111.4 1.4l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 111.4-1.4l3.3 3.3V4a1 1 0 011-1zM5 19h14a1 1 0 110 2H5a1 1 0 110-2z"/></svg>Descargar manual en PDF</a><a class="sec" href="Montserrat_Abadias_Logos.zip?v=1" download>Descargar logos</a></span></div>
+<div class="deck" id="deck">
+
+<section class="pg dark">
+  <div class="wm" style="right:-200px;top:-180px;width:900px"></div>
+  <div style="position:absolute;left:110px;top:120px;display:flex;gap:22px">
+    <div style="background:#fff;border-radius:16px;padding:18px 22px"><img src="assets/logos/montserrat.svg" alt="Montserrat" style="height:130px;display:block"></div>
+    <div style="background:#fff;border-radius:16px;padding:18px 22px"><img src="assets/logos/abadias_condominio.png" alt="Abadías Condominio" style="height:130px;display:block"></div>
+  </div>
+  <div style="position:absolute;left:110px;top:430px">
+    <div class="num" style="color:var(--peach)">Brand guidelines · 2026</div>
+    <div style="font-family:GU;font-size:96px;line-height:1.05;letter-spacing:-.02em;margin-top:18px">Manual de marca</div>
+    <div class="serif" style="font-size:64px;line-height:1.2;color:var(--peach);margin-top:12px">Montserrat y Abadías</div>
+  </div>
+  <div class="ft"><span>Montserrat Etapa II · Floridablanca</span><span>Uso interno y de proveedores</span></div>
 </section>
 
-<section id="intro">
-  <div class="k">01 · Esencia</div><h2>Un hogar rodeado de naturaleza <span class="serif" style="color:var(--or)">y cerca de todo.</span></h2>
-  <p class="lead">Montserrat Etapa II es un proyecto residencial en Floridablanca, parte del macroproyecto Abadías Condominio: naturaleza, un club con más de 25 espacios y una ubicación estratégica a minutos del HIC y la Autopista.</p>
-  <div class="grid g3" style="margin-top:28px">
-    <div class="ty"><h3 style="margin-top:0">Naturaleza</h3>Senderos, zonas verdes y terrazas jardín. La flor del imagotipo nace de esta idea.</div>
-    <div class="ty"><h3 style="margin-top:0">Bienestar</h3>Club con zonas deportivas, fitness, recreativas y wellness para toda la familia.</div>
-    <div class="ty"><h3 style="margin-top:0">Diseño</h3>Arquitectura moderna, espacios flexibles y certificación EDGE de sostenibilidad.</div>
+<section class="pg">
+  <div class="hd"><span class="num">Contenido</span><span class="sec">Índice</span></div>
+  <div class="ttl">Índice</div>
+  <div class="body" style="top:230px;display:grid;grid-template-columns:repeat(3,1fr);gap:0 60px;align-content:start">
+    <div><div class="sec" style="color:var(--or);margin-bottom:16px">Montserrat</div>
+      <table><tr><td style="width:56px">03</td><td>Esencia de marca</td></tr><tr><td>04</td><td>Logotipo</td></tr><tr><td>05</td><td>Construcción y protección</td></tr><tr><td>06</td><td>Versiones</td></tr><tr><td>07</td><td>Usos incorrectos</td></tr></table></div>
+    <div><div class="sec" style="color:var(--or);margin-bottom:16px">Sistema visual</div>
+      <table><tr><td style="width:56px">08</td><td>Color</td></tr><tr><td>09</td><td>Tipografía</td></tr><tr><td>10</td><td>Jerarquía tipográfica</td></tr><tr><td>11</td><td>Recursos gráficos</td></tr><tr><td>12</td><td>Fotografía y tono</td></tr></table></div>
+    <div><div class="sec" style="color:var(--or);margin-bottom:16px">Abadías y uso</div>
+      <table><tr><td style="width:56px">13</td><td>Logotipo Abadías</td></tr><tr><td>14</td><td>Convivencia de marcas</td></tr><tr><td>15</td><td>Marcas aliadas</td></tr><tr><td>16</td><td>Aplicaciones</td></tr><tr><td>17</td><td>Datos obligatorios</td></tr></table></div>
   </div>
+  <div class="ft"><span>Montserrat y Abadías</span><span>02</span></div>
 </section>
 
-<section id="logo">
-  <div class="k">02 · Logotipo</div><h2>El logotipo Montserrat</h2>
-  <p class="lead">Se compone de tres partes que siempre van juntas: el <b>imagotipo</b> (la flor de cinco pétalos en naranja con volumen), el <b>logotipo</b> "Montserrat" y el <b>descriptor</b> "Conjunto Residencial".</p>
-  <div class="grid g2" style="align-items:center;margin-top:20px">
-    <div class="tile bd" style="min-height:320px"><img src="assets/logos/montserrat.svg" alt="Logotipo Montserrat" style="max-height:260px"></div>
-    <table><tr><th>Elemento</th><th>Uso</th></tr>
-      <tr><td><b>Imagotipo</b> (flor)</td><td>Puede usarse solo como recurso gráfico o avatar de redes. Nunca se cambia su forma ni su degradado.</td></tr>
-      <tr><td><b>Logotipo</b></td><td>Es un dibujo vectorial: no se reescribe con ninguna tipografía.</td></tr>
-      <tr><td><b>Descriptor</b></td><td>Acompaña siempre al logotipo en la versión principal.</td></tr></table>
-  </div>
+<section class="pg">
+  <div class="hd"><span class="num">01 · Esencia</span><span class="sec">Montserrat</span></div>
+  <div class="ttl">Naturaleza, bienestar <span class="serif">y diseño.</span></div>
+  <div class="lead">Montserrat Etapa II es un proyecto residencial en Floridablanca, dentro del macroproyecto Abadías Condominio, a minutos del HIC y la Autopista.</div>
+  <div class="body" style="top:330px"><div class="row" style="align-items:flex-start">
+    <div class="card col" style="min-height:300px"><div class="num" style="margin-bottom:18px">01</div><h4>Naturaleza</h4><p>Senderos, zonas verdes y terraza jardín en cada apartamento. La flor del logo nace de esta idea.</p></div>
+    <div class="card col" style="min-height:300px"><div class="num" style="margin-bottom:18px">02</div><h4>Bienestar</h4><p>Un club con más de 25 espacios: zona deportiva, fitness, recreativa y wellness.</p></div>
+    <div class="card col" style="min-height:300px"><div class="num" style="margin-bottom:18px">03</div><h4>Diseño</h4><p>Arquitectura moderna, espacios flexibles y certificación EDGE de sostenibilidad.</p></div>
+  </div></div>
+  <div class="ft"><span>Esencia de marca</span><span>03</span></div>
 </section>
 
-<section id="construccion">
-  <div class="k">03 · Construcción</div><h2>Área de protección y tamaño mínimo</h2>
-  <p class="lead">La unidad de medida <b>X</b> es la altura de la letra "M" del logotipo. Alrededor del logo se deja un espacio libre mínimo de <b>1X</b>, sin textos, bordes ni otros logos.</p>
-  <div class="grid g2" style="align-items:center">
-    <div><div class="prot" style="width:min(520px,100%)"><img src="assets/logos/montserrat.svg" alt="Logotipo con área de protección"></div><p style="font-size:14px;color:var(--muted)">Zona rayada = área de protección (1X por lado).</p></div>
-    <table><tr><th>Medio</th><th>Ancho mínimo</th></tr>
-      <tr><td>Impreso</td><td><b>30 mm</b> de ancho (el descriptor debe seguir siendo legible)</td></tr>
-      <tr><td>Digital</td><td><b>150 px</b> de ancho</td></tr>
-      <tr><td>Gran formato (vallas, pendones)</td><td>Mínimo el <b>15 %</b> del ancho de la pieza, sobre fondo blanco o escudo blanco</td></tr>
-      <tr><td>Solo imagotipo (flor)</td><td>12 mm impreso · 32 px digital</td></tr></table>
-  </div>
+<section class="pg">
+  <div class="hd"><span class="num">02 · Logotipo</span><span class="sec">Montserrat</span></div>
+  <div class="ttl">El logotipo</div>
+  <div class="body" style="top:230px"><div class="row">
+    <div class="tile bd" style="flex:1.15"><img src="assets/logos/montserrat.svg" alt="Logotipo Montserrat" style="max-width:70%;max-height:78%"></div>
+    <div class="col" style="justify-content:center">
+      <table>
+        <tr><th>Elemento</th><th>Descripción</th></tr>
+        <tr><td><b>Imagotipo</b></td><td>Flor de cinco pétalos en naranja con volumen. Puede usarse sola como recurso o avatar.</td></tr>
+        <tr><td><b>Logotipo</b></td><td>"Montserrat" dibujado en vector. No se reescribe con ninguna tipografía.</td></tr>
+        <tr><td><b>Descriptor</b></td><td>"Conjunto Residencial". Acompaña siempre a la versión principal.</td></tr>
+      </table>
+    </div>
+  </div></div>
+  <div class="ft"><span>Logotipo</span><span>04</span></div>
 </section>
 
-<section id="versiones">
-  <div class="k">04 · Versiones</div><h2>Versiones permitidas</h2>
-  <div class="grid g3">
-    <div class="tile bd"><img src="assets/logos/montserrat.svg" alt=""><small>Principal · a color sobre blanco</small></div>
-    <div class="tile" style="background:var(--vd)"><div style="background:#fff;width:180px;height:200px;padding:28px 22px 50px;clip-path:polygon(0 0,100% 0,100% 80%,50% 100%,0 80%)"><img src="assets/logos/montserrat.svg" alt="" style="width:136px;max-width:none"></div><small style="color:#fff">Sobre verde · dentro del escudo blanco</small></div>
-    <div class="tile" style="background:var(--vd)"><img src="assets/logos/montserrat.svg" alt="" style="filter:brightness(0) invert(1)"><small style="color:#fff">Monocromática blanca</small></div>
-    <div class="tile bd"><img src="assets/logos/montserrat.svg" alt="" style="filter:brightness(0)"><small>Monocromática negra</small></div>
-    <div class="tile" style="background:var(--or)"><img src="assets/logos/montserrat.svg" alt="" style="filter:brightness(0) invert(1)"><small style="color:#fff">Blanca sobre naranja</small></div>
-    <div class="tile bd"><div style="width:165px;height:162px;overflow:hidden"><img src="assets/logos/montserrat.svg" alt="" style="width:396px;max-width:none;max-height:none;margin:-40px 0 0 -116px"></div><small>Solo imagotipo</small></div>
-  </div>
-  <div class="note">La versión principal a color solo va sobre blanco o tonos muy claros. Sobre fotos o el verde de marca se usa el <b>escudo blanco</b> (versión de campaña) o la versión monocromática blanca.</div>
+<section class="pg">
+  <div class="hd"><span class="num">03 · Construcción</span><span class="sec">Montserrat</span></div>
+  <div class="ttl">Área de protección y tamaño mínimo</div>
+  <div class="body" style="top:230px"><div class="row">
+    <div class="tile" style="background:repeating-linear-gradient(45deg,#fff 0 10px,#fdf1e6 10px 20px);outline:2px dashed var(--or);outline-offset:-2px">
+      <div style="background:#fff;padding:40px 46px"><img src="assets/logos/montserrat.svg" alt="Logotipo con área de protección" style="display:block;width:330px;max-width:none;max-height:none"></div>
+    </div>
+    <div class="col" style="justify-content:center">
+      <p style="font-size:19px;line-height:1.5;margin-bottom:22px"><b>X</b> = altura de la letra "M" del logotipo. Alrededor del logo se deja libre como mínimo <b>1X</b> por cada lado (zona rayada): sin textos, bordes ni otros logos.</p>
+      <table><tr><th>Medio</th><th>Ancho mínimo</th></tr>
+        <tr><td>Impreso</td><td><b>30 mm</b></td></tr>
+        <tr><td>Digital</td><td><b>150 px</b></td></tr>
+        <tr><td>Gran formato</td><td>15 % del ancho de la pieza</td></tr>
+        <tr><td>Solo imagotipo</td><td>12 mm · 32 px</td></tr></table>
+    </div>
+  </div></div>
+  <div class="ft"><span>Construcción y protección</span><span>05</span></div>
 </section>
 
-<section id="incorrectos">
-  <div class="k">05 · Usos incorrectos</div><h2>Lo que no se debe hacer</h2>
-  <div class="grid g4">
-    <div class="no"><div class="v"><img src="assets/logos/montserrat.svg" alt="" style="transform:scaleX(1.5)"></div><div class="t">Deformar o estirar</div></div>
-    <div class="no"><div class="v"><img src="assets/logos/montserrat.svg" alt="" style="transform:rotate(-18deg)"></div><div class="t">Rotar o inclinar</div></div>
-    <div class="no"><div class="v"><img src="assets/logos/montserrat.svg" alt="" style="filter:hue-rotate(160deg)"></div><div class="t">Cambiar los colores</div></div>
-    <div class="no"><div class="v"><img src="assets/logos/montserrat.svg" alt="" style="filter:drop-shadow(6px 8px 4px rgba(0,0,0,.6))"></div><div class="t">Agregar sombras o efectos</div></div>
-    <div class="no"><div class="v" style="background:url(assets/apl/R8_valla_5x2_verde.jpg) 75% 40%/360%"><img src="assets/logos/montserrat.svg" alt=""></div><div class="t">Poner a color sobre fotos sin escudo</div></div>
-    <div class="no"><div class="v" style="background:var(--or)"><img src="assets/logos/montserrat.svg" alt=""></div><div class="t">Fondos sin contraste</div></div>
-    <div class="no"><div class="v"><img src="assets/logos/montserrat.svg" alt="" style="opacity:.35"></div><div class="t">Usar con transparencia</div></div>
-    <div class="no"><div class="v"><span style="font-family:G;font-weight:900;font-size:38px;color:var(--or)">Montserrat</span></div><div class="t">Reescribir el nombre con otra letra</div></div>
+<section class="pg">
+  <div class="hd"><span class="num">04 · Versiones</span><span class="sec">Montserrat</span></div>
+  <div class="ttl">Versiones permitidas</div>
+  <div class="body" style="top:210px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:20px 24px">
+    <div class="col"><div class="tile bd"><img src="assets/logos/montserrat.svg" alt=""></div><div class="cap">Principal · color sobre blanco</div></div>
+    <div class="col"><div class="tile" style="background:var(--vd)"><div class="badge" style="width:150px;height:170px;padding-top:22px"><img src="assets/logos/montserrat.svg" alt="" style="width:118px;max-width:none;max-height:none"></div></div><div class="cap">Sobre verde · escudo blanco</div></div>
+    <div class="col"><div class="tile" style="background:var(--vd)"><img src="assets/logos/montserrat_mono_blanco.png" alt=""></div><div class="cap">Monocromática blanca</div></div>
+    <div class="col"><div class="tile bd"><img src="assets/logos/montserrat_mono_negro.png" alt=""></div><div class="cap">Monocromática negra</div></div>
+    <div class="col"><div class="tile" style="background:var(--or)"><img src="assets/logos/montserrat_mono_blanco.png" alt=""></div><div class="cap">Blanca sobre naranja</div></div>
+    <div class="col"><div class="tile bd"><div style="width:150px;height:147px;overflow:hidden"><img src="assets/logos/montserrat.svg" alt="" style="width:360px;max-width:none;max-height:none;margin:-36px 0 0 -105px"></div></div><div class="cap">Solo imagotipo</div></div>
   </div>
+  <div class="ft"><span>Versiones</span><span>06</span></div>
 </section>
 
-<section id="color">
-  <div class="k">06 · Color</div><h2>Paleta de color</h2>
-  <p class="lead">El naranja de la flor es el color de identidad. El verde bosque es el fondo de campaña y conecta con la naturaleza de Abadías.</p>
-  <h3>Colores de marca</h3>
-  <div class="grid g4">
-    <div class="sw"><div class="c" style="background:#ED8023"></div><div class="t"><b>Naranja Montserrat</b>HEX #ED8023<br>RGB 237 128 35<br>CMYK 7 59 90 1</div></div>
-    <div class="sw"><div class="c" style="background:#C45D18"></div><div class="t"><b>Naranja sombra</b>HEX #C45D18<br>RGB 196 93 24<br>CMYK 20 69 89 9</div></div>
-    <div class="sw"><div class="c" style="background:#1F3B2A"></div><div class="t"><b>Verde bosque</b>HEX #1F3B2A<br>RGB 31 59 42<br>CMYK 82 49 74 60</div></div>
-    <div class="sw"><div class="c" style="background:#26462F"></div><div class="t"><b>Verde flor (marca de agua)</b>HEX #26462F<br>RGB 38 70 47<br>CMYK 82 46 78 53</div></div>
+<section class="pg">
+  <div class="hd"><span class="num">05 · Usos incorrectos</span><span class="sec">Montserrat</span></div>
+  <div class="ttl">Lo que no se debe hacer</div>
+  <div class="body" style="top:210px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:20px 22px">
+    <div class="col"><div class="tile bd"><img src="assets/logos/montserrat.svg" alt="" style="max-width:46%;transform:scaleX(1.5)"></div><div class="cap no">✕ Deformar o estirar</div></div>
+    <div class="col"><div class="tile bd"><img src="assets/logos/montserrat.svg" alt="" style="max-width:55%;transform:rotate(-18deg)"></div><div class="cap no">✕ Rotar o inclinar</div></div>
+    <div class="col"><div class="tile bd"><img src="assets/logos/montserrat.svg" alt="" style="max-width:55%;filter:hue-rotate(160deg)"></div><div class="cap no">✕ Cambiar los colores</div></div>
+    <div class="col"><div class="tile bd"><img src="assets/logos/montserrat.svg" alt="" style="max-width:55%;filter:drop-shadow(6px 8px 4px rgba(0,0,0,.55))"></div><div class="cap no">✕ Agregar sombras o efectos</div></div>
+    <div class="col"><div class="tile" style="background:url(assets/apl/R8_valla_5x2_verde.jpg) 75% 40%/360%"><img src="assets/logos/montserrat.svg" alt="" style="max-width:55%"></div><div class="cap no">✕ A color sobre foto sin escudo</div></div>
+    <div class="col"><div class="tile" style="background:var(--or)"><img src="assets/logos/montserrat.svg" alt="" style="max-width:55%"></div><div class="cap no">✕ Fondo sin contraste</div></div>
+    <div class="col"><div class="tile bd"><img src="assets/logos/montserrat.svg" alt="" style="max-width:55%;opacity:.3"></div><div class="cap no">✕ Usar con transparencia</div></div>
+    <div class="col"><div class="tile bd"><span style="font-weight:900;font-size:38px;color:var(--or)">Montserrat</span></div><div class="cap no">✕ Reescribir con otra letra</div></div>
   </div>
-  <h3>Complementarios</h3>
-  <div class="grid g4">
-    <div class="sw"><div class="c" style="background:#F4C9A0"></div><div class="t"><b>Durazno</b>HEX #F4C9A0<br>RGB 244 201 160<br>CMYK 7 25 42 0</div></div>
-    <div class="sw"><div class="c" style="background:#F3F1EC"></div><div class="t"><b>Crema</b>HEX #F3F1EC<br>RGB 243 241 236<br>CMYK 8 7 10 0</div></div>
-    <div class="sw"><div class="c" style="background:#1A1A1A"></div><div class="t"><b>Negro texto</b>HEX #1A1A1A<br>RGB 26 26 26<br>CMYK 72 65 58 76</div></div>
-    <div class="sw"><div class="c" style="background:#fff;border-bottom:1px solid var(--line)"></div><div class="t"><b>Blanco</b>HEX #FFFFFF<br>RGB 255 255 255<br>CMYK 0 0 0 0</div></div>
-  </div>
-  <h3>Proporción de uso</h3>
-  <div class="bar" role="img" aria-label="Proporción: 45% verde, 30% blanco, 15% naranja, 10% durazno"><div style="flex:45;background:#1F3B2A"></div><div style="flex:30;background:#fff;border:1px solid var(--line)"></div><div style="flex:15;background:#ED8023"></div><div style="flex:10;background:#F4C9A0"></div></div>
-  <p style="font-size:14px;color:var(--muted)">Verde 45 % · blanco 30 % · naranja 15 % (acentos: flechas, cifras, botones) · durazno 10 % (frases en cursiva).</p>
-  <div class="note">CMYK calculado con el perfil Coated FOGRA39. Los archivos del cliente no traen referencia Pantone: si se requiere tinta directa, validar con una guía Pantone física antes de imprimir.</div>
+  <div class="ft"><span>Usos incorrectos</span><span>07</span></div>
 </section>
 
-<section id="tipo">
-  <div class="k">07 · Tipografía</div><h2>Tipografías</h2>
-  <div class="grid g2">
-    <div class="ty"><div class="k" style="color:var(--muted)">Institucional</div><div class="big" style="font-family:GU">Geomanist</div><div class="abc" style="font-weight:400">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Ññ Oo Pp 0123456789</div><p style="font-size:15px;margin-top:14px">Pesos: Light, Book, Medium, Bold, Black y Ultra. Es la letra de toda la comunicación: titulares, cifras, datos y textos.</p></div>
-    <div class="ty"><div class="k" style="color:var(--muted)">Acento editorial</div><div class="big serif">Bodoni Moda</div><div class="abc serif" style="font-weight:500">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Ññ 0123456789</div><p style="font-size:15px;margin-top:14px">Solo en cursiva, para la segunda línea de las frases ("Tu hogar.", "donde siempre quisiste."). Nunca en textos largos ni datos.</p></div>
+<section class="pg">
+  <div class="hd"><span class="num">06 · Color</span><span class="sec">Sistema visual</span></div>
+  <div class="ttl">Paleta de color</div>
+  <div class="body" style="top:210px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-content:start">
+    <div class="sw"><div class="c" style="background:#ED8023"></div><div class="t"><b>Naranja Montserrat</b><span>HEX</span>#ED8023<br><span>RGB</span>237 128 35<br><span>CMYK</span>7 59 90 1</div></div>
+    <div class="sw"><div class="c" style="background:#1F3B2A"></div><div class="t"><b>Verde bosque</b><span>HEX</span>#1F3B2A<br><span>RGB</span>31 59 42<br><span>CMYK</span>82 49 74 60</div></div>
+    <div class="sw"><div class="c" style="background:#F4C9A0"></div><div class="t"><b>Durazno</b><span>HEX</span>#F4C9A0<br><span>RGB</span>244 201 160<br><span>CMYK</span>7 25 42 0</div></div>
+    <div class="sw"><div class="c" style="background:#F3F1EC;border:1px solid var(--line);border-bottom:0"></div><div class="t"><b>Crema</b><span>HEX</span>#F3F1EC<br><span>RGB</span>243 241 236<br><span>CMYK</span>8 7 10 0</div></div>
+    <div style="grid-column:1/-1;margin-top:8px">
+      <div style="display:flex;height:36px;border-radius:10px;overflow:hidden;border:1px solid var(--line)"><div style="flex:45;background:#1F3B2A"></div><div style="flex:30;background:#fff"></div><div style="flex:15;background:#ED8023"></div><div style="flex:10;background:#F4C9A0"></div></div>
+      <div style="display:flex;font-size:14px;color:var(--muted);margin-top:10px"><span style="flex:45">Verde 45 %</span><span style="flex:30">Blanco 30 %</span><span style="flex:15">Naranja 15 %</span><span style="flex:10">Durazno 10 %</span></div>
+      <p style="font-size:14px;line-height:1.5;color:var(--muted);margin-top:14px">Apoyo: naranja sombra #C45D18 · verde flor #26462F (marca de agua) · negro texto #1A1A1A. CMYK calculado con Coated FOGRA39; el cliente no tiene Pantone definido: validar con guía física si se usa tinta directa.</p>
+    </div>
   </div>
-  <h3>Jerarquía</h3>
-  <table><tr><th>Nivel</th><th>Fuente</th><th>Ejemplo</th></tr>
-    <tr><td>Titular</td><td>Geomanist Ultra / Black</td><td style="font-family:GU;font-size:30px">Tu espacio. Tu estatus.</td></tr>
-    <tr><td>Frase de acento</td><td>Bodoni Moda cursiva · durazno</td><td class="serif" style="font-size:30px;color:#c98e55">Tu hogar.</td></tr>
-    <tr><td>Antetítulo</td><td>Geomanist Bold · mayúsculas · tracking amplio · naranja</td><td style="font-weight:700;letter-spacing:.22em;font-size:13px;color:var(--or)">FLORIDABLANCA · A MINUTOS DEL HIC</td></tr>
-    <tr><td>Cifras</td><td>Geomanist Ultra · "m²" en naranja</td><td style="font-family:GU;font-size:30px">85 <span style="font-size:.4em;color:var(--or)">A</span> 226<sup style="font-size:.45em;color:var(--or)">m²</sup></td></tr>
-    <tr><td>Texto</td><td>Geomanist Book</td><td>Apartamentos con terraza jardín y club.</td></tr></table>
+  <div class="ft"><span>Color</span><span>08</span></div>
 </section>
 
-<section id="recursos">
-  <div class="k">08 · Recursos gráficos</div><h2>Recursos gráficos</h2>
-  <div class="grid g3">
-    <div class="tile" style="background:var(--vd);overflow:hidden"><div style="width:240px;aspect-ratio:1400/1376;background:var(--vd2);-webkit-mask:url(assets/flor.png) center/contain no-repeat;mask:url(assets/flor.png) center/contain no-repeat"></div><small style="color:#fff">Flor como marca de agua · tono sobre tono</small></div>
-    <div class="tile" style="background:var(--vd)"><div style="background:#fff;width:170px;height:200px;clip-path:polygon(0 0,100% 0,100% 80%,50% 100%,0 80%);display:grid;place-items:center;padding-bottom:30px"><img src="assets/logos/montserrat.svg" alt="" style="width:126px;max-width:none"></div><small style="color:#fff">Escudo blanco para el logo</small></div>
-    <div class="tile" style="background:var(--vd)"><div style="width:150px;height:150px;border-radius:50%;background:var(--or);display:grid;place-items:center"><svg viewBox="0 0 100 100" width="96" height="96" fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"><path d="M16 50h66M58 24 84 50 58 76"/></svg></div><small style="color:#fff">Flecha de señalización</small></div>
-  </div>
-  <ul style="margin-top:22px">
-    <li>La flor de marca de agua se usa grande y recortada por el borde, en <b>#26462F sobre #1F3B2A</b>; nunca en naranja ni encima de textos importantes.</li>
-    <li>El escudo blanco cuelga del borde superior de la pieza y aloja el logo a color.</li>
-    <li>Los teléfonos llevan el ícono de WhatsApp en verde (#25D366) y nunca la palabra "WhatsApp".</li>
-  </ul>
+<section class="pg">
+  <div class="hd"><span class="num">07 · Tipografía</span><span class="sec">Sistema visual</span></div>
+  <div class="ttl">Tipografías</div>
+  <div class="body" style="top:210px"><div class="row">
+    <div class="card col">
+      <div class="sec">Institucional</div>
+      <div style="font-family:GU;font-size:92px;line-height:1.1;margin:22px 0 10px">Geomanist</div>
+      <div style="font-size:24px;line-height:1.55;color:#333">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk<br>Ll Mm Nn Ññ Oo Pp 0123456789</div>
+      <div style="display:flex;gap:18px;margin-top:auto;font-size:18px;flex-wrap:wrap"><span style="font-weight:300">Light</span><span style="font-weight:400">Book</span><span style="font-weight:500">Medium</span><span style="font-weight:700">Bold</span><span style="font-weight:900">Black</span><span style="font-family:GU">Ultra</span></div>
+    </div>
+    <div class="card col">
+      <div class="sec">Acento editorial</div>
+      <div class="serif" style="font-size:84px;line-height:1.2;margin:16px 0 6px">Bodoni Moda</div>
+      <div class="serif" style="font-size:24px;line-height:1.55;color:#333;font-weight:500">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk<br>Ll Mm Nn Ññ Oo Pp 0123456789</div>
+      <p style="margin-top:auto;font-size:16px;color:#3a3a3a;line-height:1.5">Solo en cursiva, para la segunda línea de una frase. Nunca en textos largos ni en datos.</p>
+    </div>
+  </div></div>
+  <div class="ft"><span>Tipografía</span><span>09</span></div>
 </section>
 
-<section id="foto">
-  <div class="k">09 · Fotografía</div><h2>Estilo de fotografía</h2>
-  <div class="grid g3 ap">
-    <figure><img src="assets/apl/R8_valla_5x2_verde.jpg" alt="Render de senderos" style="aspect-ratio:4/3;object-fit:cover;object-position:75% 50%"><figcaption>Renders con luz natural, vegetación y vida familiar.</figcaption></figure>
-    <figure><img src="assets/apl/R8_ascensor_1x2.09_verde.jpg" alt="Render de la torre" style="aspect-ratio:4/3;object-fit:cover;object-position:50% 70%"><figcaption>Arquitectura con cielo azul y entorno verde.</figcaption></figure>
-    <figure><img src="assets/apl/caja.jpg" alt="Caja de luz con render" style="aspect-ratio:4/3;object-fit:cover;object-position:50% 50%"><figcaption>Fotos reales del apartamento modelo para interiores.</figcaption></figure>
+<section class="pg">
+  <div class="hd"><span class="num">08 · Jerarquía</span><span class="sec">Sistema visual</span></div>
+  <div class="ttl">Jerarquía tipográfica</div>
+  <div class="body" style="top:210px">
+    <table>
+      <tr><th style="width:210px">Nivel</th><th style="width:430px">Fuente y estilo</th><th>Ejemplo</th></tr>
+      <tr><td>Antetítulo</td><td>Geomanist Bold · mayúsculas · tracking amplio · naranja</td><td style="font-weight:700;letter-spacing:.22em;font-size:15px;color:var(--or)">FLORIDABLANCA · A MINUTOS DEL HIC</td></tr>
+      <tr><td>Titular</td><td>Geomanist Ultra</td><td style="font-family:GU;font-size:40px;line-height:1.15">Tu espacio. Tu estatus.</td></tr>
+      <tr><td>Frase de acento</td><td>Bodoni Moda cursiva · durazno</td><td class="serif" style="font-size:40px;line-height:1.25;color:#C98E55">Tu hogar.</td></tr>
+      <tr><td>Cifras</td><td>Geomanist Ultra · conectores y m² en naranja</td><td style="font-family:GU;font-size:40px;line-height:1.15">85 <span style="font-size:.42em;color:var(--or)">A</span> 226<sup style="font-size:.45em;color:var(--or)">m²</sup></td></tr>
+      <tr><td>Texto</td><td>Geomanist Book</td><td style="font-size:18px">Apartamentos con terraza jardín y club.</td></tr>
+    </table>
   </div>
-  <div class="note">Toda imagen lleva la nota "<b>Imagen ilustrativa.</b> Aplican condiciones y restricciones." y la etiqueta "render" o "foto real". En espacios hospitalarios (HIC) no se usan personas en traje de baño.</div>
+  <div class="ft"><span>Jerarquía tipográfica</span><span>10</span></div>
 </section>
 
-<section id="voz">
-  <div class="k">10 · Tono de voz</div><h2>Cómo hablamos</h2>
-  <div class="grid g2">
-    <div class="ty"><h3 style="margin-top:0">Sí</h3>Cercano, aspiracional y claro. Frases cortas. Tuteamos.<br><i>"Tu espacio. Tu estatus. Tu hogar."<br>"Vive rodeado de naturaleza y cerca de todo."<br>"¡Escanea aquí y déjate sorprender!"</i></div>
-    <div class="ty"><h3 style="margin-top:0">No</h3>Tecnicismos, exceso de texto ni promesas que no se puedan cumplir. Las áreas siempre se escriben como "de 85 a 226 m²" o "desde 85 m² hasta 226 m²".</div>
+<section class="pg">
+  <div class="hd"><span class="num">09 · Recursos gráficos</span><span class="sec">Sistema visual</span></div>
+  <div class="ttl">Recursos gráficos</div>
+  <div class="body" style="top:210px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr auto;gap:18px 24px">
+    <div class="tile" style="background:var(--vd)"><div class="wm" style="width:300px;position:static"></div></div>
+    <div class="tile" style="background:var(--vd)"><div class="badge" style="width:180px;height:210px;padding-top:26px"><img src="assets/logos/montserrat.svg" alt="" style="width:140px;max-width:none;max-height:none"></div></div>
+    <div class="tile" style="background:var(--vd)"><div style="width:170px;height:170px;border-radius:50%;background:var(--or);display:grid;place-items:center"><svg viewBox="0 0 100 100" width="110" height="110" fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 50h66M58 24 84 50 58 76"/></svg></div></div>
+    <div><div class="cap">Flor · marca de agua</div><p style="font-size:16px;line-height:1.5;margin-top:6px">Grande y recortada por el borde, en #26462F sobre #1F3B2A. Nunca encima de textos.</p></div>
+    <div><div class="cap">Escudo blanco</div><p style="font-size:16px;line-height:1.5;margin-top:6px">Cuelga del borde superior y aloja el logo a color sobre fondos verdes o fotos.</p></div>
+    <div><div class="cap">Flecha de señalización</div><p style="font-size:16px;line-height:1.5;margin-top:6px">Círculo naranja con flecha blanca de trazo grueso, legible desde el carro.</p></div>
   </div>
+  <div class="ft"><span>Recursos gráficos</span><span>11</span></div>
 </section>
 
-<section id="abadias">
-  <div class="k">11 · Abadías</div><h2>Logotipo Abadías</h2>
-  <p class="lead">Abadías es el macroproyecto y club donde se ubica Montserrat. Su trébol verde comparte la construcción de la flor de Montserrat: son marcas hermanas.</p>
-  <div class="grid g3">
-    <div class="tile bd"><img src="assets/logos/abadias_condominio.png" alt="Abadías Condominio"><small>Abadías Condominio · principal</small></div>
-    <div class="tile bd"><img src="assets/logos/abadias_club.svg" alt="Abadías Club"><small>Abadías Club · para el club</small></div>
-    <div class="tile" style="background:var(--vd)"><img src="assets/logos/abadias_club.svg" alt="" style="filter:brightness(0) invert(1)"><small style="color:#fff">Monocromática blanca</small></div>
-  </div>
-  <div class="grid g4" style="margin-top:22px">
-    <div class="sw"><div class="c" style="background:#7DB742"></div><div class="t"><b>Verde trébol</b>HEX #7DB742<br>RGB 125 183 66<br>CMYK 59 9 89 0</div></div>
-    <div class="sw"><div class="c" style="background:#008842"></div><div class="t"><b>Verde sombra</b>HEX #008842<br>RGB 0 136 66<br>CMYK 85 24 93 9</div></div>
-  </div>
-  <div class="note">"Abadías Condominio" se construyó a partir del logo oficial de Abadías Club, con la misma tipografía. Cuando llegue el archivo original del cliente se debe reemplazar por ese.</div>
+<section class="pg">
+  <div class="hd"><span class="num">10 · Fotografía y tono</span><span class="sec">Sistema visual</span></div>
+  <div class="ttl">Fotografía y tono de voz</div>
+  <div class="body" style="top:210px"><div class="row">
+    <div class="col" style="flex:1.3;gap:18px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;min-height:0">
+        <figure class="shot"><img src="assets/apl/foto_senderos.jpg" alt="Render de senderos y zonas verdes"></figure>
+        <figure class="shot"><img src="assets/apl/foto_aerea.jpg" alt="Foto aérea del proyecto"></figure>
+      </div>
+      <ul class="l"><li>Renders con luz natural, vegetación y vida familiar.</li><li>Etiqueta "render" o "foto real" y nota legal en cada pieza.</li><li>En espacios hospitalarios no se usan personas en traje de baño.</li></ul>
+    </div>
+    <div class="card col" style="background:var(--cream);border:0">
+      <div class="sec" style="color:var(--or)">Tono de voz</div>
+      <p style="font-size:19px;line-height:1.55;margin:16px 0 26px">Cercano, aspiracional y claro. Frases cortas. Tuteamos.</p>
+      <div style="font-family:GU;font-size:30px;line-height:1.25">"Tu espacio. Tu estatus.</div>
+      <div class="serif" style="font-size:32px;line-height:1.3;color:var(--or)">Tu hogar."</div>
+      <div style="font-family:GU;font-size:24px;line-height:1.3;margin-top:24px">"¡Escanea aquí y déjate sorprender!"</div>
+      <p style="font-size:15px;color:var(--muted);margin-top:auto;line-height:1.5">Evitar tecnicismos, exceso de texto y promesas que no se puedan cumplir.</p>
+    </div>
+  </div></div>
+  <div class="ft"><span>Fotografía y tono</span><span>12</span></div>
 </section>
 
-<section id="cobrand">
-  <div class="k">12 · Convivencia</div><h2>Montserrat + Abadías</h2>
-  <div class="co bd"><img src="assets/logos/montserrat.svg" alt="Montserrat"><div class="sp"></div><img src="assets/logos/abadias_condominio.png" alt="Abadías Condominio"></div>
-  <ul style="margin-top:20px">
-    <li>Ambos logos con la <b>misma altura visual</b>, separados por una línea vertical gris (#D9D5CE) y un espacio de 1X a cada lado.</li>
-    <li>En piezas de Montserrat, Montserrat va primero (izquierda o arriba). En piezas del club, Abadías va primero.</li>
-    <li>Nunca se fusionan, se superponen ni se cambian sus colores para que combinen.</li>
-  </ul>
+<section class="pg">
+  <div class="hd"><span class="num">11 · Abadías</span><span class="sec">Abadías</span></div>
+  <div class="ttl">Logotipo Abadías</div>
+  <div class="lead">El trébol verde de Abadías comparte la construcción de la flor de Montserrat: son marcas hermanas.</div>
+  <div class="body" style="top:290px;display:grid;grid-template-columns:repeat(3,1fr) 1.15fr;gap:22px">
+    <div class="col"><div class="tile bd"><img src="assets/logos/abadias_condominio.png" alt="Abadías Condominio"></div><div class="cap">Abadías Condominio · principal</div></div>
+    <div class="col"><div class="tile bd"><img src="assets/logos/abadias_club.svg" alt="Abadías Club"></div><div class="cap">Abadías Club · para el club</div></div>
+    <div class="col"><div class="tile" style="background:var(--vd)"><img src="assets/logos/abadias_condominio_mono_blanco.png" alt=""></div><div class="cap">Monocromática blanca</div></div>
+    <div class="col" style="gap:14px">
+      <div style="display:flex;gap:14px;flex:1"><div style="flex:1;border-radius:12px;background:#7DB742"></div><div style="flex:1;border-radius:12px;background:#008842"></div></div>
+      <div style="display:flex;gap:14px;font-size:14px;line-height:1.55"><div style="flex:1"><b>Verde trébol</b><br>#7DB742<br>CMYK 59 9 89 0</div><div style="flex:1"><b>Verde sombra</b><br>#008842<br>CMYK 85 24 93 9</div></div>
+    </div>
+  </div>
+  <div class="ft"><span>"Abadías Condominio" adaptado del logo oficial de Abadías Club · reemplazar por el original cuando llegue</span><span>13</span></div>
 </section>
 
-<section id="aliados">
-  <div class="k">13 · Marcas aliadas</div><h2>Grupo desarrollador y fiducia</h2>
-  <div class="co bd" style="gap:46px;flex-wrap:wrap">
-    <div><div class="k" style="font-size:11px;color:#3a3a3a;border-left:3px solid var(--or);padding-left:8px;margin-bottom:10px">Comercializa</div><img src="assets/logos/azulado.svg" alt="AZULado inmobiliario" style="height:70px"></div>
-    <div class="sp" style="height:90px"></div>
-    <div><div class="k" style="font-size:11px;color:#3a3a3a;border-left:3px solid var(--or);padding-left:8px;margin-bottom:10px">Gerencia y construye</div><img src="assets/logos/masc.svg" alt="MASC" style="height:76px"></div>
-    <div class="sp" style="height:90px"></div>
-    <div><div class="k" style="font-size:11px;color:#3a3a3a;border-left:3px solid var(--or);padding-left:8px;margin-bottom:10px">Fiducia</div><img src="assets/logos/alianza.svg" alt="Alianza Fiduciaria" style="height:62px"></div>
-  </div>
-  <p style="margin-top:18px">Van siempre en este orden, sobre fondo blanco, en la franja inferior de la pieza y con su rol escrito encima en mayúsculas con línea naranja.</p>
+<section class="pg">
+  <div class="hd"><span class="num">12 · Convivencia</span><span class="sec">Abadías</span></div>
+  <div class="ttl">Montserrat + Abadías</div>
+  <div class="body" style="top:210px"><div class="row">
+    <div class="tile bd" style="flex:1.2;gap:56px"><img src="assets/logos/montserrat.svg" alt="Montserrat" style="height:200px;max-width:none;max-height:none"><div style="width:2px;height:170px;background:#D9D5CE"></div><img src="assets/logos/abadias_condominio.png" alt="Abadías Condominio" style="height:200px;max-width:none;max-height:none"></div>
+    <div class="col" style="justify-content:center"><ul class="l">
+      <li>Misma altura visual para ambos logos.</li>
+      <li>Separados por una línea vertical #D9D5CE y 1X de espacio a cada lado.</li>
+      <li>En piezas de Montserrat, Montserrat va primero; en piezas del club, Abadías va primero.</li>
+      <li>Nunca se fusionan, se superponen ni se recolorean para combinar.</li></ul></div>
+  </div></div>
+  <div class="ft"><span>Convivencia de marcas</span><span>14</span></div>
 </section>
 
-<section id="aplicaciones">
-  <div class="k">14 · Aplicaciones</div><h2>Aplicaciones</h2>
-  <div class="grid g2 ap">
-    <figure><img src="assets/apl/R8_valla_5x2_verde.jpg" alt="Valla HIC"><figcaption>Valla 5 × 2 m · Hospital Internacional de Colombia</figcaption></figure>
-    <figure><img src="assets/apl/valla_ext.jpg" alt="Valla exterior"><figcaption>Valla exterior 11 × 3,6 m · grupo desarrollador</figcaption></figure>
-    <figure><img src="assets/apl/brochure.jpg" alt="Página de brochure"><figcaption>Brochure · página de apartamento</figcaption></figure>
-    <figure><img src="assets/apl/R8_pantalla_urgencias_1920x1080_verde.jpg" alt="Pantalla digital"><figcaption>Pantalla digital 1920 × 1080</figcaption></figure>
+<section class="pg">
+  <div class="hd"><span class="num">13 · Marcas aliadas</span><span class="sec">Abadías</span></div>
+  <div class="ttl">Grupo desarrollador y fiducia</div>
+  <div class="lead">Van siempre en este orden, sobre fondo blanco, en la franja inferior de la pieza, con su rol en mayúsculas y línea naranja.</div>
+  <div class="body" style="top:330px">
+    <div class="tile bd" style="height:300px;justify-content:space-around;padding:0 60px">
+      <div><div class="cap" style="border-left:3px solid var(--or);padding-left:10px;margin:0 0 16px">Comercializa</div><img src="assets/logos/azulado.svg" alt="AZULado inmobiliario" style="height:96px;max-width:none;max-height:none"></div>
+      <div style="width:2px;height:140px;background:#D9D5CE"></div>
+      <div><div class="cap" style="border-left:3px solid var(--or);padding-left:10px;margin:0 0 16px">Gerencia y construye</div><img src="assets/logos/masc.svg" alt="MASC" style="height:104px;max-width:none;max-height:none"></div>
+      <div style="width:2px;height:140px;background:#D9D5CE"></div>
+      <div><div class="cap" style="border-left:3px solid var(--or);padding-left:10px;margin:0 0 16px">Fiducia</div><img src="assets/logos/alianza.svg" alt="Alianza Fiduciaria" style="height:84px;max-width:none;max-height:none"></div>
+    </div>
   </div>
-  <div class="grid g3 ap" style="margin-top:22px">
-    <figure><img src="assets/apl/pendon.jpg" alt="Pendón de señalización"><figcaption>Pendón de señalización 1 × 2 m</figcaption></figure>
-    <figure><img src="assets/apl/caja.jpg" alt="Caja de luz"><figcaption>Caja de luz 2 × 2 m</figcaption></figure>
-    <figure><img src="assets/apl/revista.jpg" alt="Página de revista"><figcaption>Página de revista carta</figcaption></figure>
-  </div>
+  <div class="ft"><span>Marcas aliadas</span><span>15</span></div>
 </section>
 
-<section id="legal">
-  <div class="k">15 · Datos</div><h2>Datos y textos obligatorios</h2>
-  <table><tr><th>Dato</th><th>Cómo se escribe</th></tr>
-    <tr><td>Líneas de ventas</td><td>311 333 9202 · 317 647 9729 (con ícono de WhatsApp)</td></tr>
-    <tr><td>Web</td><td>www.montserrat2.com</td></tr>
-    <tr><td>Áreas</td><td>De 85 a 226 m² · Apartamentos desde 85 m² hasta 226 m²</td></tr>
-    <tr><td>Sala de ventas</td><td>Carrera 8A # 12-05, Abadías Condominio, Floridablanca, Santander</td></tr>
-    <tr><td>Nota legal corta</td><td><b>Imagen ilustrativa.</b> Aplican condiciones y restricciones.</td></tr>
-    <tr><td>QR</td><td>Estáticos, apuntan a www.montserrat2.com (no vencen)</td></tr></table>
+<section class="pg">
+  <div class="hd"><span class="num">14 · Aplicaciones</span><span class="sec">Uso</span></div>
+  <div class="ttl">Aplicaciones</div>
+  <div class="body ap" style="top:200px;bottom:100px;display:grid;grid-template-columns:.62fr 1.5fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:16px">
+    <figure class="shot" style="grid-row:1/4"><img src="assets/apl/pendon.jpg" alt="Pendón de señalización"></figure>
+    <figure class="shot"><img src="assets/apl/R8_valla_5x2_verde.jpg" alt="Valla HIC 5 x 2 m"></figure>
+    <figure class="shot" style="grid-row:1/3"><img src="assets/apl/caja.jpg" alt="Caja de luz 2 x 2 m"></figure>
+    <figure class="shot"><img src="assets/apl/valla_ext.jpg" alt="Valla exterior 11 x 3,6 m"></figure>
+    <figure class="shot"><img src="assets/apl/brochure.jpg" alt="Página de brochure"></figure>
+    <figure class="shot"><img src="assets/apl/R8_pantalla_urgencias_1920x1080_verde.jpg" alt="Pantalla digital 1920 x 1080"></figure>
+  </div>
+  <div class="ft"><span>Vallas · pantallas · señalización · caja de luz · brochure · revista</span><span>16</span></div>
 </section>
 
-<section id="descargas">
-  <div class="k">16 · Descargas</div><h2>Archivos de logos</h2>
-  <div class="dl">
-    <a href="Montserrat_Abadias_Logos.zip" download>Descargar paquete de logos (SVG, PNG, EPS)</a>
-    <a class="sec" href="Manual_Marca_Montserrat_Abadias.pdf" download>Descargar manual en PDF</a>
+<section class="pg">
+  <div class="hd"><span class="num">15 · Datos</span><span class="sec">Uso</span></div>
+  <div class="ttl">Datos y textos obligatorios</div>
+  <div class="body" style="top:210px">
+    <table>
+      <tr><th style="width:260px">Dato</th><th>Cómo se escribe</th></tr>
+      <tr><td>Líneas de ventas</td><td>311 333 9202 · 317 647 9729 · con ícono de WhatsApp, sin la palabra "WhatsApp"</td></tr>
+      <tr><td>Web</td><td>www.montserrat2.com</td></tr>
+      <tr><td>Áreas</td><td>De 85 a 226 m² · Apartamentos desde 85 m² hasta 226 m²</td></tr>
+      <tr><td>Sala de ventas</td><td>Carrera 8A # 12-05, Abadías Condominio, Floridablanca, Santander</td></tr>
+      <tr><td>Nota legal</td><td><b>Imagen ilustrativa.</b> Aplican condiciones y restricciones.</td></tr>
+      <tr><td>QR</td><td>Estáticos, apuntan a www.montserrat2.com (no vencen)</td></tr>
+    </table>
+  </div>
+  <div class="ft"><span>Datos obligatorios</span><span>17</span></div>
+</section>
+
+<section class="pg dark">
+  <div class="wm" style="left:-220px;bottom:-260px;width:900px"></div>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px">
+    <div style="display:flex;gap:22px"><div style="background:#fff;border-radius:16px;padding:16px 20px"><img src="assets/logos/montserrat.svg" alt="Montserrat" style="height:110px;display:block"></div><div style="background:#fff;border-radius:16px;padding:16px 20px"><img src="assets/logos/abadias_condominio.png" alt="Abadías Condominio" style="height:110px;display:block"></div></div>
+    <div style="font-family:GU;font-size:40px">www.montserrat2<span style="color:var(--or)">.com</span></div>
   </div>
 </section>
-</main>
+</div>
+<script>
+function fit(){var w=Math.min(1600,document.documentElement.clientWidth-32);document.documentElement.style.setProperty('--z',(w/1600).toFixed(4))}
+fit();addEventListener('resize',fit);
+</script>
 </body></html>
