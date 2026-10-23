@@ -127,6 +127,20 @@ body.on-dark .nav-arrows button{background:rgba(40,40,42,.8);box-shadow:0 0 0 1p
 .cover-foot{display:flex;align-items:center;gap:14px;margin-top:40px;font-size:13px;color:var(--ink3);font-weight:500}
 .cover-foot .x{width:1px;height:18px;background:var(--line)}
 .hb-word{font-weight:800;letter-spacing:.32em;font-size:12px;color:var(--ink)}
+.lockup{display:flex;align-items:center;gap:22px;margin-top:40px;flex-wrap:wrap}
+.lockup img{display:block;height:auto}
+.lockup .l-epz{width:150px}
+.lockup .l-wr{height:34px;width:auto}
+.lockup .l-hb{width:118px}
+.lockup .x{width:1px;height:34px;background:var(--line)}
+.lockup .when{font-size:13px;color:var(--ink3);font-weight:500}
+.top-epz{height:30px;width:auto;display:block}
+body.on-dark .top-epz{filter:brightness(0) invert(1);opacity:.85}
+.iso{width:100%;height:100%;object-fit:contain;display:block}
+.av.img{background:#fff!important;padding:3px;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.hb-side .brand-img{width:92px;margin:0 4px 6px;filter:brightness(0) invert(1)}
+.hb-side .acc b.img{background:#fff;padding:2px}
+.call .who.img{background:#fff;padding:10px}
 
 /* ---------- hours stat ---------- */
 .week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:8px}
@@ -608,7 +622,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     <img class="logo logo-w" src="we-rock.png" alt="We Rock" onerror="this.style.display='none'">
   </div>
   <div class="deck-meta">
-    <span class="hide-m">Propuesta para <b>Empresas Públicas de Zipaquirá</b></span>
+    <span class="hide-m">Propuesta para</span><img class="top-epz" src="epz-logo.png" alt="Empresas Públicas de Zipaquirá">
     <button class="fs-btn" id="fsBtn" aria-label="Pantalla completa" title="Pantalla completa (F)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
     </button>
@@ -636,8 +650,13 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
       <span class="pill">WhatsApp · Web · Voz</span>
       <span class="pill">Valor fijo mensual, todo incluido</span>
     </div>
-    <div class="cover-foot rv" style="--d:4">
-      <span>We Rock</span><span class="x"></span><span class="hb-word">HALCONBOT</span><span class="x"></span><span>Octubre 2026</span>
+    <div class="lockup rv" style="--d:4">
+      <img class="l-epz" src="epz-logo.png" alt="Empresas Públicas de Zipaquirá">
+      <span class="x"></span>
+      <img class="l-wr" src="we-rock-v1.png" alt="We Rock">
+      <img class="l-hb" src="halconbot-logo.png" alt="HalconBot">
+      <span class="x"></span>
+      <span class="when">Octubre 2026</span>
     </div>
   </div>
 </section>
@@ -846,7 +865,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
         <div class="db-bar"><i></i><i></i><i></i><div class="db-url"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5" width="7" height="5.5" rx="1" fill="#86868b"/><path d="M4 5V3.7a2 2 0 0 1 4 0V5" fill="none" stroke="#86868b" stroke-width="1.2"/></svg>app.halconbot.co/chats</div></div>
         <div class="hb">
           <div class="hb-side">
-            <span class="brand">HALCONBOT</span>
+            <img class="brand-img" src="halconbot-logo.png" alt="HalconBot">
             <span class="sec">PRINCIPAL</span>
             <span class="it"><i></i>Inicio</span>
             <span class="it act"><i></i>Chats</span>
@@ -857,7 +876,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
             <span class="sec">AUTOMATIZACIÓN</span>
             <span class="it"><i></i>Bots</span>
             <span class="it"><i></i>Envíos masivos</span>
-            <span class="acc">EPZ <b>E</b></span>
+            <span class="acc">EPZ <b class="img"><img class="iso" src="epz-iso.png" alt=""></b></span>
           </div>
           <div class="hb-list">
             <span class="hb-search">Buscar usuarios…</span>
@@ -885,7 +904,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
       <div class="device-phone phone-over tilt">
         <span class="notch"></span>
         <div class="scr">
-          <div class="wa-top"><span class="av">EPZ</span><div><b>EPZ Zipaquirá <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#25D366"/><path d="M7 12.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4"/></svg></b><span>Cuenta de empresa oficial</span></div></div>
+          <div class="wa-top"><span class="av img"><img class="iso" src="epz-iso.png" alt=""></span><div><b>EPZ Zipaquirá <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#25D366"/><path d="M7 12.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4"/></svg></b><span>Cuenta de empresa oficial</span></div></div>
           <div class="wa-body">
             <span class="wa-day">HOY</span>
             <div class="wa in" style="transition-delay:.4s"><span class="tpl">AVISO PROGRAMADO</span>Hola, Andrés. El jueves 30 de octubre, de 8:00 a.m. a 2:00 p.m., habrá suspensión del servicio de acueducto en tu sector por mantenimiento de redes.<small>7:02 a.m.</small>
@@ -984,7 +1003,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
       </div>
       <div>
         <div class="erp rv" style="--d:3">
-          <div class="erp-h"><span>Estado de cuenta · Cuenta 1029384</span><span class="live"><i></i>ERP en línea</span></div>
+          <div class="erp-h"><span style="display:flex;align-items:center;gap:8px"><img src="epz-iso.png" alt="" style="width:20px;height:20px">Estado de cuenta · Cuenta 1029384</span><span class="live"><i></i>ERP en línea</span></div>
           <div class="erp-amt tnum">$86.420</div>
           <div class="erp-sub">Total a pagar · periodo septiembre</div>
           <div class="spark" aria-hidden="true"><i style="--v:62;--k:0"></i><i style="--v:58;--k:1"></i><i style="--v:66;--k:2"></i><i style="--v:60;--k:3"></i><i style="--v:71;--k:4"></i><i style="--v:64;--k:5"></i><i style="--v:69;--k:6"></i><i style="--v:92;--k:7"></i></div>
@@ -1028,7 +1047,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
         <div class="device-phone call tilt">
           <span class="notch"></span>
           <div class="scr">
-            <span class="who">EPZ</span>
+            <span class="who img"><img class="iso" src="epz-iso.png" alt=""></span>
             <h4>EPZ Zipaquirá</h4>
             <span class="t">Llamada de WhatsApp · 01:24</span>
             <div class="tr">
@@ -1196,7 +1215,13 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
       <a class="cta" href="https://wa.me/573125766056?text=Hola%20David,%20quiero%20avanzar%20con%20la%20propuesta%20de%20HalconBot%20para%20EPZ" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ico-wa"/></svg>Hablar con David</a>
       <a class="cta alt" href="mailto:davidh@werock.space">davidh@werock.space</a>
     </div>
-    <div class="sign rv" style="--d:6"><span>We Rock · Bogotá, Colombia</span><span>werock.space</span><span>+57 312 576 6056</span></div>
+    <div class="lockup rv" style="--d:6;justify-content:center;margin-top:36px">
+      <img class="l-epz" src="epz-logo.png" alt="Empresas Públicas de Zipaquirá">
+      <span class="x"></span>
+      <img class="l-wr" src="we-rock-v1.png" alt="We Rock">
+      <img class="l-hb" src="halconbot-logo.png" alt="HalconBot">
+    </div>
+    <div class="sign rv" style="--d:7;margin-top:18px"><span>We Rock · Bogotá, Colombia</span><span>werock.space</span><span>+57 312 576 6056</span></div>
   </div>
 </section>
 
