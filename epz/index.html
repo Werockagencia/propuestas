@@ -460,7 +460,15 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 .compare .vs{font-size:13px;font-weight:700;color:rgba(255,255,255,.4)}
 
 /* why */
-.why{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.case{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;background:#fff;border-radius:var(--r);padding:26px 32px;margin-top:30px;box-shadow:0 0 0 1px rgba(0,0,0,.04)}
+.case img{width:92px;height:auto;display:block}
+.case .who{font-size:12.5px;font-weight:700;color:var(--red)}
+.case b{display:block;font-size:22px;font-weight:800;letter-spacing:-.025em;line-height:1.2;margin:4px 0 8px}
+.case p{font-size:14.5px;color:var(--ink2);line-height:1.5}
+.case .pills{margin-top:12px}.case .pill{font-size:12px;padding:6px 12px}
+@media (min-width:769px) and (max-height:1000px){.case{padding:20px 26px;margin-top:20px}.case b{font-size:19px}.case p{font-size:13.5px}.why .card{padding:20px}.why .card p{font-size:13px}}
+@media (max-width:768px){.case{grid-template-columns:1fr;gap:14px;padding:22px}.case img{width:70px}}
 .why .card{padding:26px}
 .why .mid{margin-bottom:6px}
 
@@ -1236,7 +1244,16 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 <section class="slide g" data-title="Por qué We Rock" id="s-werock">
   <div class="inner">
     <div class="eyebrow rv"><span class="n">18</span> Por qué We Rock</div>
-    <h2 class="h2 rv" style="--d:1">Un solo responsable.<br>De la estrategia a la operación.</h2>
+    <h2 class="h2 rv" style="--d:1">Ya conocemos el servicio público.<br>Un solo responsable.</h2>
+    <div class="case rv" style="--d:2">
+      <img src="epc-logo.png" alt="EPC, Empresa de Servicios Públicos de Cajicá">
+      <div>
+        <span class="who">Caso EPC · Empresa de Servicios Públicos de Cajicá</span>
+        <b>Entendemos el proceso de atención al ciudadano de una empresa de servicios públicos.</b>
+        <p>Con EPC trabajamos la atención ciudadana con HalconBot y su estrategia digital. Sabemos cómo llega cada consulta, qué responde la entidad y qué debe pasar a un funcionario.</p>
+        <div class="pills"><span class="pill">PQR y términos de la Ley 142</span><span class="pill">Cortes y avisos por sector</span><span class="pill">Facturación y pagos</span><span class="pill">Reportes de daños</span></div>
+      </div>
+    </div>
     <div class="why">
       <div class="card rv" style="--d:2"><span class="mid">2018</span><b style="display:block;margin-top:8px;font-size:16px">Firma de crecimiento estratégico</b><p>Diseñamos y operamos sistemas de crecimiento. Fundador con más de 15 años en estrategia digital.</p></div>
       <div class="card rv" style="--d:3"><span class="mid">74%</span><b style="display:block;margin-top:8px;font-size:16px">IA probada en producción</b><p>HalconBot ya atiende negocios reales todos los días, con resultados medidos en su panel.</p></div>
