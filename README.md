@@ -34,3 +34,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [Periscopio y Mira al Centro — AEO para la agencia y la Fotomaratón (presentación)](https://werockagencia.github.io/propuestas/periscopio/)
 - [S&S Esthétique (Montreal, enfermeras) — Sistema de marca, Instagram, contenido, Meta Ads y HalconBot (presentación)](https://werockagencia.github.io/propuestas/s2aesthetics/)
 - [Emet Outsourcing — Sitio web (propuesta visual + benchmark de contadores en Colombia)](https://werockagencia.github.io/propuestas/emet/)
+- [Fundación Solidaridad por Colombia — Rediseño web completo con la firma "Educación y sostenibilidad" (10 páginas navegables)](https://werockagencia.github.io/propuestas/solidaridad/)
