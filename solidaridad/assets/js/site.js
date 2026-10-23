@@ -54,6 +54,9 @@
   const alerta = $('.alerta');
   if (alerta) {
     if (leer('spc-alerta-cerrada') === alerta.dataset.version) alerta.hidden = true;
+    // El hero mide 100vh menos la fila visible de la franja
+    const medirAlerta = () => document.documentElement.style.setProperty('--alerta-h', alerta.hidden ? '0px' : $('.alerta-fila', alerta).offsetHeight + 'px');
+    medirAlerta(); addEventListener('resize', medirAlerta);
     $('.alerta-abrir', alerta)?.addEventListener('click', e => {
       const abierta = alerta.toggleAttribute('data-open');
       e.currentTarget.setAttribute('aria-expanded', String(abierta));
@@ -61,7 +64,7 @@
     $('.alerta-cerrar', alerta)?.addEventListener('click', () => {
       alerta.style.transition = 'opacity .4s, transform .5s';
       alerta.style.opacity = '0'; alerta.style.transform = 'translateY(-100%)';
-      setTimeout(() => { alerta.hidden = true; }, 420);
+      setTimeout(() => { alerta.hidden = true; medirAlerta(); }, 420);
       guardar('spc-alerta-cerrada', alerta.dataset.version);
     });
   }
