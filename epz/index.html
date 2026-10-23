@@ -168,15 +168,15 @@ body.on-dark .top-epz{filter:brightness(0) invert(1);opacity:.85}
 .q.feat .mid{color:#fff}
 
 /* ---------- idea ---------- */
-.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
-.tile{border-radius:var(--r);padding:34px 30px 30px;background:var(--bg2);position:relative;overflow:hidden;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .5s var(--ease)}
+.trio{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.tile{border-radius:var(--r);padding:34px 30px 30px;background:var(--bg2);position:relative;overflow:hidden;min-height:250px;display:flex;flex-direction:column;justify-content:flex-start;transition:transform .5s var(--ease)}
 .tile:hover{transform:scale(1.02)}
-.tile .glyph{position:absolute;top:26px;left:30px;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;color:#fff}
+.tile .glyph{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;color:#fff;flex-shrink:0;margin-bottom:auto}
 .tile .glyph svg{width:28px;height:28px}
-.tile h3{font-size:28px;font-weight:800;letter-spacing:-.03em}
-.tile p{font-size:14.5px;color:var(--ink2);line-height:1.45;margin-top:8px}
-.tile .when{position:absolute;top:30px;right:28px}
-.memory{margin:18px auto 0;max-width:700px;display:flex;align-items:center;gap:14px;justify-content:center;font-size:15px;color:var(--ink2)}
+.tile h3{font-size:23px;font-weight:800;letter-spacing:-.03em;margin-top:26px}
+.tile p{font-size:13.5px;color:var(--ink2);line-height:1.45;margin-top:8px}
+.tile .when{position:absolute;top:28px;right:24px}
+.memory{margin:18px auto 0;max-width:700px;display:block;text-align:center;font-size:15px;line-height:1.5;color:var(--ink2)}
 .memory b{color:var(--ink)}
 
 /* ---------- benchmark ---------- */
@@ -485,7 +485,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   .h2{font-size:clamp(32px,3.7vw,52px);margin-bottom:12px}
   .lead{font-size:17px}
   .qs,.bench,.trust,.why{margin-top:24px}
-  .trio{margin-top:28px}.tile{min-height:210px;padding:28px 26px 24px}
+  .trio{margin-top:28px}.tile{min-height:210px;padding:24px 22px 22px}.tile h3{margin-top:20px}
   .hb{height:360px}.device-phone .scr{height:450px}.device-phone{width:228px}
   .phases{margin-top:28px}.ph{padding:24px}
   .flow{margin-top:34px}.human{margin-top:28px}
@@ -671,7 +671,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   <div class="inner">
     <div class="eyebrow rv">Empresas Públicas de Zipaquirá × HalconBot</div>
     <h1 class="h1 rv" style="--d:1">Atención que<br><span class="grad">nunca cierra.</span></h1>
-    <p class="lead rv" style="--d:2">Una inteligencia artificial que atiende a los usuarios de EPZ por chat, notas de voz, fotos y llamadas de WhatsApp, y en la web. Con la información real de su factura. Las 24 horas, los 7 días.</p>
+    <p class="lead rv" style="--d:2">Una inteligencia artificial que atiende a los usuarios de EPZ por WhatsApp (chat, notas de voz, fotos y llamadas), Facebook, Instagram y la web. Con la información real de su factura. Las 24 horas, los 7 días.</p>
     <div class="pills rv" style="--d:3">
       <span class="pill">3 fases · 4 meses</span>
       <span class="pill">WhatsApp · Web · Voz</span>
@@ -780,7 +780,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 <section class="slide" data-title="La idea" id="s-idea">
   <div class="inner center">
     <div class="eyebrow rv"><span class="n">05</span> La idea</div>
-    <h2 class="h1 rv" style="--d:1">Una IA. Tres canales.<br><span class="grad">Una sola memoria.</span></h2>
+    <h2 class="h1 rv" style="--d:1">Una IA. Todos los canales.<br><span class="grad">Una sola memoria.</span></h2>
     <div class="trio" style="text-align:left">
       <div class="tile rv" style="--d:2">
         <span class="glyph" style="background:var(--wa)"><svg aria-hidden="true"><use href="#ico-wa"/></svg></span>
@@ -794,14 +794,20 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
         <h3>epz.gov.co</h3>
         <p>Chat en el sitio WordPress de EPZ, que responde igual que en WhatsApp.</p>
       </div>
-      <div class="tile rv" style="--d:4;background:#000;color:#fff">
+      <div class="tile rv" style="--d:4">
+        <span class="glyph" style="background:linear-gradient(135deg,#0866ff 0%,#a033ff 50%,#ff3c78 100%)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="#fff"/></svg></span>
+        <span class="when tag t-f2">Mes 2</span>
+        <h3>Facebook e Instagram</h3>
+        <p>Messenger y los mensajes directos de Instagram, con la misma IA y en el mismo panel.</p>
+      </div>
+      <div class="tile rv" style="--d:5;background:#000;color:#fff">
         <span class="glyph" style="background:var(--grad)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
         <span class="when tag t-f3">Mes 3 a 4</span>
         <h3>Llamadas de WhatsApp</h3>
         <p style="color:rgba(255,255,255,.6)">El usuario llama desde el chat de EPZ y contesta una voz propia de EPZ. Sin menús de "marque 1".</p>
       </div>
     </div>
-    <p class="memory rv" style="--d:5">Lo que el usuario dijo por WhatsApp, <b>la IA lo recuerda cuando llama.</b> Un historial, una base de datos, un panel.</p>
+    <p class="memory rv" style="--d:6">Lo que el usuario escribió por Instagram o WhatsApp, <b>la IA lo recuerda cuando llama.</b> Un historial, una base de datos, un panel.</p>
   </div>
 </section>
 
@@ -955,7 +961,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     <div class="eyebrow rv"><span class="n">09</span> Cómo funciona</div>
     <h2 class="h2 rv" style="--d:1">Pregunta. Entiende. Consulta.<br>Resuelve. Aprende.</h2>
     <div class="flow">
-      <div class="st rv" style="--d:2"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg></span><b>El usuario escribe o llama</b><p>Chat, nota de voz, foto o llamada de WhatsApp, o la web. A cualquier hora.</p></div>
+      <div class="st rv" style="--d:2"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg></span><b>El usuario escribe o llama</b><p>WhatsApp, Facebook, Instagram o la web. Texto, audio, foto o llamada, a cualquier hora.</p></div>
       <div class="st rv" style="--d:3"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></span><b>La IA entiende</b><p>Transcribe audios, lee imágenes, identifica el tema y lo etiqueta.</p></div>
       <div class="st rv" style="--d:4"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3 3 7 3s7-1.3 7-3v-6"/></svg></span><b>Consulta</b><p>La base de conocimiento de EPZ y, desde la fase 2, el ERP de facturación.</p></div>
       <div class="st rv" style="--d:5"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><b>Resuelve</b><p>Responde, agenda una visita o envía el enlace de pago oficial.</p></div>
@@ -978,7 +984,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
         <ul><li>Configuración de HalconBot</li><li>Carga de la base de conocimiento</li><li>IA en WhatsApp y en la web</li><li>Segmentación con etiquetas</li><li>Monitoreo y aprendizaje continuo</li></ul>
         <div class="bar"><i style="--k:0"></i></div></div>
       <div class="ph rv" style="--d:3;background:#fff"><span class="num">2</span><span class="when">Mes 2</span><h3>Conectar</h3>
-        <ul><li>Envíos masivos por segmento</li><li>Aviso "Tu factura está disponible" a cada usuario</li><li>Agendamiento con Google Calendar</li><li>Integración con el ERP de facturación vía API</li></ul>
+        <ul><li>Chat con IA en Facebook e Instagram</li><li>Envíos masivos por segmento</li><li>Aviso "Tu factura está disponible" a cada usuario</li><li>Agendamiento con Google Calendar</li><li>Integración con el ERP de facturación vía API</li></ul>
         <div class="bar"><i style="--k:1"></i></div></div>
       <div class="ph p3 rv" style="--d:4"><span class="num">3</span><span class="when">3 a 4 meses · en vivo a más tardar en el mes 4</span><h3>Dar voz</h3>
         <ul><li>Llamadas de WhatsApp atendidas por la IA, sobre Twilio Voice</li><li>Voz oficial de EPZ clonada y transcripción en tiempo real</li><li>Microservicio propio en servidor dedicado</li><li>Transferencia a un funcionario y transcripción en el panel</li></ul>
@@ -1020,12 +1026,13 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
       <div>
         <div class="eyebrow rv"><span class="n">12</span> Fase 2 · Mes 2</div>
         <h2 class="h1 rv" style="--d:1">Conectar.</h2>
-        <p class="lead rv" style="--d:2">La IA deja de responder lo general y empieza a responder lo personal: la factura, la visita, el aviso de su sector.</p>
+        <p class="lead rv" style="--d:2">La IA llega a las redes de EPZ y empieza a responder lo personal: la factura, la visita, el aviso de su sector.</p>
         <ol class="steps">
-          <li class="rv" style="--d:3"><span class="k">1</span><div><b>Envíos masivos</b><span>Avisos de cortes por sector, recordatorios de pago y campañas de ahorro de agua, con plantillas aprobadas por Meta.</span></div></li>
-          <li class="rv" style="--d:4"><span class="k">2</span><div><b>Aviso de factura disponible</b><span>Cada mes, al emitirse la factura, cada usuario recibe por WhatsApp su valor, fecha límite y enlace de pago. Con el ERP conectado.</span></div></li>
-          <li class="rv" style="--d:5"><span class="k">3</span><div><b>Agendamiento con Google Calendar</b><span>Visitas técnicas, revisión de medidores e inspecciones, en el calendario de cada cuadrilla o funcionario.</span></div></li>
-          <li class="rv" style="--d:6"><span class="k">4</span><div><b>Integración con el ERP de facturación</b><span>Vía API: saldo, factura del periodo, fecha límite y estado de cuenta, después de validar la identidad del titular.</span></div></li>
+          <li class="rv" style="--d:3"><span class="k">1</span><div><b>Chat en Facebook e Instagram</b><span>Messenger y mensajes directos de Instagram atendidos por la IA, con el mismo historial y el mismo panel.</span></div></li>
+          <li class="rv" style="--d:3"><span class="k">2</span><div><b>Envíos masivos</b><span>Avisos de cortes por sector, recordatorios de pago y campañas de ahorro de agua, con plantillas aprobadas por Meta.</span></div></li>
+          <li class="rv" style="--d:4"><span class="k">3</span><div><b>Aviso de factura disponible</b><span>Cada mes, al emitirse la factura, cada usuario recibe por WhatsApp su valor, fecha límite y enlace de pago. Con el ERP conectado.</span></div></li>
+          <li class="rv" style="--d:5"><span class="k">4</span><div><b>Agendamiento con Google Calendar</b><span>Visitas técnicas, revisión de medidores e inspecciones, en el calendario de cada cuadrilla o funcionario.</span></div></li>
+          <li class="rv" style="--d:6"><span class="k">5</span><div><b>Integración con el ERP de facturación</b><span>Vía API: saldo, factura del periodo, fecha límite y estado de cuenta, después de validar la identidad del titular.</span></div></li>
         </ol>
       </div>
       <div>
@@ -1150,6 +1157,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
         <li>Segmentación con etiquetas</li>
       </ul></div>
       <div class="chk rv" style="--d:3"><h4>Fase 2 <span>Mes 2</span></h4><ul>
+        <li>Chat con IA en Facebook e Instagram</li>
         <li>Envíos masivos por segmento y sector</li>
         <li>Aviso "Tu factura está disponible"</li>
         <li>Agendamiento con Google Calendar</li>
@@ -1198,7 +1206,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
         <span class="h3">Incluido en la mensualidad</span>
         <ul class="vlist" style="margin-top:8px">
           <li><div><b>Envíos masivos de WhatsApp</b><span>Factura disponible, cortes, recordatorios y campañas</span></div><em class="ok">25.000/mes</em></li>
-          <li><div><b>Conversaciones de IA</b><span>WhatsApp y web, incluidas las respuestas que Meta cobra desde octubre de 2026</span></div><em class="ok">Hasta 60.000/mes</em></li>
+          <li><div><b>Conversaciones de IA</b><span>WhatsApp, web, Facebook e Instagram, incluidas las respuestas que Meta cobra</span></div><em class="ok">Hasta 60.000/mes</em></li>
           <li><div><b>Llamadas de WhatsApp con IA</b><span>Desde el mes 4: Twilio, transcripción y voz incluidos</span></div><em class="ok">3.000/mes</em></li>
           <li><div><b>Usuarios del panel</b><span>Funcionarios con acceso a chats y reportes</span></div><em class="ok">Sin límite</em></li>
           <li><div><b>Capacitación e informe mensual</b><span>Conversaciones, envíos, temas y % resuelto por IA</span></div><em class="ok">Incluido</em></li>
