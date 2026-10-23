@@ -19,3 +19,5 @@ innovacion.webp  https://unsplash.com/photos/1771765812031-22653b4c70a6  (1200x8
 lectura.webp  https://unsplash.com/photos/1785780224501-d5befd3e019c  (1200x1799)
 ninos-juego.webp  https://unsplash.com/photos/1502086223501-7ea6ecd79368  (1600x1107)
 ninos-sonrisa.webp  https://unsplash.com/photos/1669310746280-429fd5e46643  (1200x1797)
+slide-ninas-*.webp  https://images.unsplash.com/photo-1621353417044-d9585aee7346  (diapositiva 2 del hero, 2560 y 1440 px)
+slide-gem-*.webp  foto real de GEM Colombia 2026 (sitio actual), ampliada con lanczos a 1920

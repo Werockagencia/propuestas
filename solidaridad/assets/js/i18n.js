@@ -66,7 +66,7 @@
 
     // Slider
     's2.sello': 'Solidarity Sponsor · Education', 's2.t1': 'Sponsor', 's2.t2': 'the future of', 's2.t3': '<em class="frio-text" style="font-style:normal">a child.</em>',
-    's2.lead': 'Support a child or young person’s education all year: early childhood, Semillitas, Youth or university scholarships. From US$22 a month.',
+    's2.lead': 'Support the education of a girl, a boy or a young person all year: early childhood, Semillitas, Youth or university scholarships. From US$22 a month.',
     's2.cta': 'Become a sponsor', 's2.cta2': 'See programs', 's.provisional': 'Placeholder photo',
     's3.sello': 'Earthquake emergency · GEM Alliance', 's3.t1': 'Thousands of families', 's3.t2': 'need to go back', 's3.t3': '<em class="calido-text" style="font-style:normal">home.</em>',
     's3.lead': 'With Global Empowerment Mission we bring food, water, shelter and reconstruction to communities hit by the earthquake.',
