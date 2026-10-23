@@ -305,6 +305,7 @@ body.on-dark .nav-arrows button{background:rgba(40,40,42,.8);box-shadow:0 0 0 1p
 .ph .num{position:absolute;right:20px;top:6px;font-size:120px;font-weight:900;letter-spacing:-.06em;opacity:.06;line-height:1}
 .ph.p3{background:#000;color:#fff}
 .ph.p3 .when{color:rgba(255,255,255,.5)}
+.ph.p3 li{color:rgba(255,255,255,.85)}
 .ph.p3 .num{opacity:.12}
 .ph .bar{height:4px;border-radius:9px;margin-top:22px;background:rgba(0,0,0,.08);overflow:hidden}
 .ph.p3 .bar{background:rgba(255,255,255,.14)}
@@ -476,7 +477,10 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   .flow{margin-top:34px}.human{margin-top:28px}
   .steps{margin-top:18px;gap:9px}.steps li{padding:12px 16px}
   .calc{margin-top:24px}.ctrl,.res{padding:24px}
-  .inv-table th,.inv-table td{padding:3.5px 9px;font-size:11.5px}
+  .inv-table th,.inv-table td{padding:3px 9px;font-size:11.5px}
+  .inv-table tr.grp td{font-size:9.5px;padding-top:5px!important;padding-bottom:0!important}
+  #s-inversion{padding-top:66px;padding-bottom:36px}
+  #s-inversion .eyebrow{margin-bottom:4px}
   .inv-table tr.sub td{padding-top:5px;padding-bottom:5px}
   .vlist li{padding:8px 0!important}.vlist span{font-size:12px}
   #s-variable .card{padding:22px 24px}#s-variable .compare{padding:18px 26px}#s-variable .compare b{font-size:26px}
@@ -485,7 +489,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   .inv-table tr.grp td{padding-top:8px;padding-bottom:2px}
   .inv-table tr.tot td{padding-top:8px}
   .inv-note{margin-top:8px}
-  .price-hero{margin:0 0 10px}.price-hero .big{font-size:50px}.price-hero .per{padding-bottom:4px;font-size:14px}
+  .price-hero{margin:0 0 8px}.price-hero .big{font-size:42px}.price-hero .per{padding-bottom:4px;font-size:14px}
   .year b{font-size:22px}
   .vars{margin-top:24px}.vlist li{padding:11px 0}
   .close-steps{margin-top:28px}.cta{margin-top:28px}
@@ -626,7 +630,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   <div class="inner">
     <div class="eyebrow rv">Empresas Públicas de Zipaquirá × HalconBot</div>
     <h1 class="h1 rv" style="--d:1">Atención que<br><span class="grad">nunca cierra.</span></h1>
-    <p class="lead rv" style="--d:2">Una inteligencia artificial que atiende a los usuarios de EPZ por WhatsApp, por la web y por teléfono. Con la información real de su factura. Las 24 horas, los 7 días.</p>
+    <p class="lead rv" style="--d:2">Una inteligencia artificial que atiende a los usuarios de EPZ por chat, notas de voz, fotos y llamadas de WhatsApp, y en la web. Con la información real de su factura. Las 24 horas, los 7 días.</p>
     <div class="pills rv" style="--d:3">
       <span class="pill">3 fases · 4 meses</span>
       <span class="pill">WhatsApp · Web · Voz</span>
@@ -720,7 +724,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
       <div class="q rv" style="--d:5"><span class="bub">¿Cómo pongo una PQR?</span><span class="ans">Orienta, lleva al formulario oficial y marca el caso para seguimiento del equipo.</span><span><span class="tag t-f1">Fase 1</span></span></div>
       <div class="q rv" style="--d:6"><span class="bub">Hay un daño en mi calle</span><span class="ans">Pide ubicación y foto, etiqueta "Reporte de daño" y alerta al equipo técnico.</span><span><span class="tag t-f1">Fase 1</span></span></div>
       <div class="q rv" style="--d:7"><span class="bub">Necesito revisión del medidor</span><span class="ans">Agenda la visita en el calendario de la cuadrilla y confirma por WhatsApp.</span><span><span class="tag t-f2">Fase 2 · Agenda</span></span></div>
-      <div class="q rv" style="--d:8"><span class="bub">¿Me pueden llamar?</span><span class="ans">La misma IA contesta la línea con la voz oficial de EPZ.</span><span><span class="tag t-f3">Fase 3 · Voz</span></span></div>
+      <div class="q rv" style="--d:8"><span class="bub">¿Me pueden llamar?</span><span class="ans">El usuario toca "llamar" en el WhatsApp de EPZ y le contesta la IA con la voz oficial.</span><span><span class="tag t-f3">Fase 3 · Voz</span></span></div>
     </div>
     <p class="src rv" style="--d:9">Fuente: <a href="https://www.enel.com.co/content/dam/enel-co/espa%C3%B1ol/7-prensa/2020/julio/Enel-Codensa-ha-atendido-mas-de-10000-transacciones-a-traves-de-Whatsapp-con-el-robot-Elena.pdf" target="_blank" rel="noopener">Enel Codensa</a>, asistente Elena: más de 57.000 conversaciones y 10.400 transacciones en su primer mes, 70% copia de factura.</p>
   </div>
@@ -736,19 +740,19 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
         <span class="glyph" style="background:var(--wa)"><svg aria-hidden="true"><use href="#ico-wa"/></svg></span>
         <span class="when tag t-f1">Mes 1</span>
         <h3>WhatsApp</h3>
-        <p>Número oficial verificado de EPZ. Donde ya están los usuarios de Zipaquirá.</p>
+        <p>Número oficial verificado. Entiende texto, notas de audio e imágenes.</p>
       </div>
       <div class="tile rv" style="--d:3">
         <span class="glyph" style="background:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.8 2.5 15.2 0 18M12 3c-2.5 2.8-2.5 15.2 0 18"/></svg></span>
         <span class="when tag t-f1">Mes 1</span>
         <h3>epz.gov.co</h3>
-        <p>Chat en el sitio web con la identidad de EPZ, que responde igual que en WhatsApp.</p>
+        <p>Chat en el sitio WordPress de EPZ, que responde igual que en WhatsApp.</p>
       </div>
       <div class="tile rv" style="--d:4;background:#000;color:#fff">
         <span class="glyph" style="background:var(--grad)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
-        <span class="when tag t-f3">Mes 3 y 4</span>
-        <h3>Llamadas</h3>
-        <p style="color:rgba(255,255,255,.6)">La línea de atención contesta con una voz propia de EPZ. Sin menús de "marque 1".</p>
+        <span class="when tag t-f3">Mes 3 a 4</span>
+        <h3>Llamadas de WhatsApp</h3>
+        <p style="color:rgba(255,255,255,.6)">El usuario llama desde el chat de EPZ y contesta una voz propia de EPZ. Sin menús de "marque 1".</p>
       </div>
     </div>
     <p class="memory rv" style="--d:5">Lo que el usuario dijo por WhatsApp, <b>la IA lo recuerda cuando llama.</b> Un historial, una base de datos, un panel.</p>
@@ -905,8 +909,8 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     <div class="eyebrow rv"><span class="n">09</span> Cómo funciona</div>
     <h2 class="h2 rv" style="--d:1">Pregunta. Entiende. Consulta.<br>Resuelve. Aprende.</h2>
     <div class="flow">
-      <div class="st rv" style="--d:2"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg></span><b>El usuario escribe o llama</b><p>WhatsApp, web o línea telefónica, a cualquier hora.</p></div>
-      <div class="st rv" style="--d:3"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></span><b>La IA entiende</b><p>Texto, audio o voz. Identifica el tema y lo etiqueta.</p></div>
+      <div class="st rv" style="--d:2"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg></span><b>El usuario escribe o llama</b><p>Chat, nota de voz, foto o llamada de WhatsApp, o la web. A cualquier hora.</p></div>
+      <div class="st rv" style="--d:3"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></span><b>La IA entiende</b><p>Transcribe audios, lee imágenes, identifica el tema y lo etiqueta.</p></div>
       <div class="st rv" style="--d:4"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3 3 7 3s7-1.3 7-3v-6"/></svg></span><b>Consulta</b><p>La base de conocimiento de EPZ y, desde la fase 2, el ERP de facturación.</p></div>
       <div class="st rv" style="--d:5"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><b>Resuelve</b><p>Responde, agenda una visita o envía el enlace de pago oficial.</p></div>
       <div class="st rv" style="--d:6"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5"/></svg></span><b>Aprende</b><p>Revisamos los chats cada semana y ajustamos lo que se respondió mal.</p></div>
@@ -930,8 +934,8 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
       <div class="ph rv" style="--d:3;background:#fff"><span class="num">2</span><span class="when">Mes 2</span><h3>Conectar</h3>
         <ul><li>Envíos masivos por segmento</li><li>Aviso "Tu factura está disponible" a cada usuario</li><li>Agendamiento con Google Calendar</li><li>Integración con el ERP de facturación vía API</li></ul>
         <div class="bar"><i style="--k:1"></i></div></div>
-      <div class="ph p3 rv" style="--d:4"><span class="num">3</span><span class="when">Mes 3 y 4</span><h3>Dar voz</h3>
-        <ul><li>Clonación de una voz oficial de EPZ</li><li>Llamadas atendidas por la IA, con transferencia a un funcionario</li><li>Transcripción de cada llamada en el panel</li><li>Un solo historial para chat y teléfono</li></ul>
+      <div class="ph p3 rv" style="--d:4"><span class="num">3</span><span class="when">3 a 4 meses · en vivo a más tardar en el mes 4</span><h3>Dar voz</h3>
+        <ul><li>Llamadas de WhatsApp atendidas por la IA, sobre Twilio Voice</li><li>Voz oficial de EPZ clonada y transcripción en tiempo real</li><li>Microservicio propio en servidor dedicado</li><li>Transferencia a un funcionario y transcripción en el panel</li></ul>
         <div class="bar"><i style="--k:2"></i></div></div>
     </div>
   </div>
@@ -953,9 +957,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
         </div>
       </div>
       <ol class="steps">
-        <li class="rv" style="--d:2"><span class="k">1</span><div><b>Configuración de la herramienta</b><span>HalconBot con la identidad de EPZ y el número oficial en WhatsApp Business API, verificado.</span></div></li>
+        <li class="rv" style="--d:2"><span class="k">1</span><div><b>Configuración de la herramienta</b><span>HalconBot Plan Business (más de 200 usuarios al día, hasta 60.000 conversaciones al mes) con el número oficial en WhatsApp Business Cloud API.</span></div></li>
         <li class="rv" style="--d:3"><span class="k">2</span><div><b>Carga de la base de conocimiento</b><span>Tarifas, trámites, requisitos de conexión, puntos de pago, guía de la factura, PQR y cortes. Validada por EPZ antes de salir.</span></div></li>
-        <li class="rv" style="--d:4"><span class="k">3</span><div><b>IA atendiendo WhatsApp y el sitio web</b><span>Chat en epz.gov.co con los colores de EPZ y las mismas respuestas que en WhatsApp.</span></div></li>
+        <li class="rv" style="--d:4"><span class="k">3</span><div><b>IA atendiendo WhatsApp y el sitio web</b><span>Texto, imágenes y notas de audio transcritas. Chat en el WordPress de epz.gov.co con las mismas respuestas.</span></div></li>
         <li class="rv" style="--d:5"><span class="k">4</span><div><b>Segmentación con etiquetas</b><span>Consulta factura, Reporte de daño, PQR, Corte programado, Nueva conexión. Se definen con EPZ.</span></div></li>
         <li class="rv" style="--d:6"><span class="k">5</span><div><b>Monitoreo y aprendizaje continuo</b><span>Revisión semanal de chats, corrección de respuestas y entrenamiento. Informe mensual de gestión.</span></div></li>
       </ol>
@@ -1007,17 +1011,17 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   <div class="inner">
     <div class="voice">
       <div>
-        <div class="eyebrow rv"><span class="n">13</span> Fase 3 · Mes 3 y 4</div>
+        <div class="eyebrow rv"><span class="n">13</span> Fase 3 · 3 a 4 meses</div>
         <h2 class="h1 rv" style="--d:1">Con voz <span class="grad">propia.</span></h2>
-        <p class="lead rv" style="--d:2">La línea de EPZ contesta con una voz que suena a Zipaquirá. Entiende lo que el usuario dice, consulta lo mismo que el chat y, si hace falta, transfiere a un funcionario.</p>
+        <p class="lead rv" style="--d:2">El usuario toca "llamar" en el WhatsApp de EPZ y le contesta una voz que suena a Zipaquirá. Entiende lo que dice, consulta lo mismo que el chat y, si hace falta, transfiere a un funcionario.</p>
         <div class="wave rv" style="--d:3" aria-hidden="true">
           <i style="--k:0;--h:40%"></i><i style="--k:1;--h:75%"></i><i style="--k:2;--h:55%"></i><i style="--k:3;--h:95%"></i><i style="--k:4;--h:60%"></i><i style="--k:5;--h:80%"></i><i style="--k:6;--h:45%"></i><i style="--k:7;--h:100%"></i><i style="--k:8;--h:70%"></i><i style="--k:9;--h:50%"></i><i style="--k:10;--h:85%"></i><i style="--k:11;--h:40%"></i><i style="--k:12;--h:65%"></i><i style="--k:13;--h:90%"></i><i style="--k:14;--h:55%"></i><i style="--k:15;--h:75%"></i><i style="--k:16;--h:35%"></i><i style="--k:17;--h:60%"></i><i style="--k:18;--h:80%"></i><i style="--k:19;--h:45%"></i><i style="--k:20;--h:70%"></i><i style="--k:21;--h:30%"></i>
         </div>
         <div class="vfeat">
-          <div class="rv" style="--d:4"><b>Mes 3 · Clonación de voz</b><span>Una voz oficial creada con grabaciones de una persona de EPZ, con su autorización firmada.</span></div>
-          <div class="rv" style="--d:5"><b>Mes 3 · Flujos de llamada</b><span>Factura, cortes, daños y agenda por voz, conectados al ERP y a Google Calendar.</span></div>
-          <div class="rv" style="--d:6"><b>Mes 4 · Pruebas y salida</b><span>Llamadas de prueba con funcionarios, ajuste de tono y salida en vivo.</span></div>
-          <div class="rv" style="--d:7"><b>Todo queda escrito</b><span>Cada llamada se transcribe y queda en el historial del usuario en el panel.</span></div>
+          <div class="rv" style="--d:4"><b>Mes 1 y 2 · Infraestructura</b><span>Llamadas nativas de WhatsApp Business sobre Twilio Voice y un microservicio propio en Docker, en servidor dedicado.</span></div>
+          <div class="rv" style="--d:5"><b>Mes 2 y 3 · Escuchar y hablar</b><span>Transcripción en tiempo real (Whisper) y voz oficial de EPZ clonada, con autorización firmada de la persona.</span></div>
+          <div class="rv" style="--d:6"><b>Mes 3 · Cerebro HalconBot</b><span>La llamada usa el mismo entrenamiento del chat: factura, cortes, daños y agenda por voz.</span></div>
+          <div class="rv" style="--d:7"><b>Mes 4 · Pruebas y salida</b><span>Latencia, calidad de audio y estabilidad. Cada llamada queda transcrita en el panel.</span></div>
         </div>
       </div>
       <div class="devices rv" style="--d:3;margin:0">
@@ -1025,8 +1029,8 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
           <span class="notch"></span>
           <div class="scr">
             <span class="who">EPZ</span>
-            <h4>Línea de atención EPZ</h4>
-            <span class="t">Asistente de voz · 01:24</span>
+            <h4>EPZ Zipaquirá</h4>
+            <span class="t">Llamada de WhatsApp · 01:24</span>
             <div class="tr">
               <div style="transition-delay:.5s"><b>Usuario</b>Buenas, es que no me llega agua desde la mañana.</div>
               <div class="ai" style="transition-delay:1.1s"><b>EPZ · IA</b>Entiendo. ¿Me confirma su dirección o el número de cuenta?</div>
@@ -1037,7 +1041,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
         </div>
       </div>
     </div>
-    <p class="src rv" style="--d:8">Módulos nuevos de HalconBot: EPZ entra entre las primeras entidades en usarlos. Conversación ilustrativa.</p>
+    <p class="src rv" style="--d:8">Desarrollo a la medida del equipo de ingeniería de HalconBot: EPZ entra entre las primeras entidades con este módulo. Conversación ilustrativa.</p>
   </div>
 </section>
 
@@ -1056,9 +1060,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
       <div class="res rv" style="--d:3" aria-live="polite">
         <div><span>Horas liberadas al mes</span><b id="rH">350</b></div>
         <div><span>Equivale a funcionarios de tiempo completo</span><b id="rF">2,2</b></div>
-        <div><span>Costo por conversación con HalconBot</span><b id="rC">$1.600</b></div>
+        <div><span>Costo por conversación con HalconBot</span><b id="rC">$2.080</b></div>
         <div><span>Atención fuera de horario</span><b>24/7</b></div>
-        <div class="wide"><span>Valor del tiempo liberado cada mes</span><b class="grad" id="rV">$8.750.000</b><span style="margin-top:6px">frente a una mensualidad fija de $8.000.000 + IVA</span></div>
+        <div class="wide"><span>Valor del tiempo liberado cada mes</span><b class="grad" id="rV">$8.750.000</b><span style="margin-top:6px">frente a una mensualidad fija de $10.400.000 + IVA</span></div>
       </div>
     </div>
     <p class="src rv" style="--d:4">Cifras ilustrativas para conversar. Supone 160 horas laborales al mes por funcionario. El número real de conversaciones se mide en el panel desde el primer mes.</p>
@@ -1074,7 +1078,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
       <div class="card rv" style="--d:2"><b>Habeas data</b><p>Ley 1581 de 2012: aviso de privacidad en cada conversación y envíos solo a usuarios que autorizan recibir su factura por WhatsApp.</p></div>
       <div class="card rv" style="--d:3"><b>Identidad antes que datos</b><p>Ningún saldo ni estado de cuenta sin validar al titular. La IA nunca pide tarjetas ni claves; el pago va al canal PSE oficial.</p></div>
       <div class="card rv" style="--d:4"><b>PQR por el canal oficial</b><p>La IA orienta y lleva al formulario de EPZ. El radicado y los términos de la Ley 142 siguen en manos de la entidad.</p></div>
-      <div class="card rv" style="--d:5"><b>Trazabilidad total</b><p>Cada chat y cada llamada queda guardado y se puede exportar. Útil para informes y auditorías.</p></div>
+      <div class="card rv" style="--d:5"><b>Trazabilidad total</b><p>Cada chat y cada llamada queda guardado y se puede exportar. El audio de voz se procesa en un microservicio propio, aislado.</p></div>
       <div class="card rv" style="--d:6"><b>La IA no inventa</b><p>Responde solo con la base de conocimiento validada por EPZ. Lo que no sabe, lo pasa a un funcionario.</p></div>
       <div class="card rv" style="--d:7"><b>Los datos son de EPZ</b><p>Base de usuarios, conversaciones y voz clonada pertenecen a la entidad. Se entregan al terminar el contrato.</p></div>
     </div>
@@ -1086,41 +1090,45 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   <div class="inner">
     <div class="eyebrow rv"><span class="n">16</span> Inversión</div>
     <div class="price-hero rv" style="--d:1">
-      <span class="big tnum">$8.000.000</span>
-      <span class="per"><b>+ IVA al mes. Valor fijo.</b><br>Todo incluido, también Meta.<br>Sin implementación aparte.</span>
-      <div class="year"><span>Contrato anual · 12 mensualidades</span><b class="tnum">$96.000.000 + IVA</b><span>$114.240.000 con IVA del 19%</span></div>
+      <span class="big tnum">$10.400.000</span>
+      <span class="per"><b>+ IVA al mes. Valor fijo.</b><br>Todo incluido: Meta, Twilio e IA.<br>Sin implementación aparte.</span>
+      <div class="year"><span>Contrato anual · 12 mensualidades</span><b class="tnum">$124.800.000 + IVA</b><span>$148.512.000 con IVA del 19%</span></div>
     </div>
     <div class="inv-wrap rv" style="--d:2">
       <table class="inv-table">
         <thead><tr><th>Qué incluye cada mensualidad</th><th>Mes 1</th><th>Mes 2</th><th>Mes 3</th><th>Mes 4</th><th>Mes 5 a 12 c/u</th><th>Total año</th></tr></thead>
         <tbody>
           <tr class="grp"><td colspan="7">Fase 1 · Implementación</td></tr>
-          <tr><td>Configuración y WhatsApp Business API<span class="rn">Número oficial verificado, identidad EPZ</span><span class="mm">Mes 1</span></td><td class="m">$1.300.000</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="fin">$1.300.000</td></tr>
+          <tr><td>Configuración y WhatsApp Cloud API<span class="rn">Número oficial verificado, identidad EPZ</span><span class="mm">Mes 1</span></td><td class="m">$1.300.000</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="fin">$1.300.000</td></tr>
           <tr><td>Base de conocimiento<span class="rn">Carga, curaduría y validación con EPZ</span><span class="mm">Mes 1</span></td><td class="m">$1.200.000</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="fin">$1.200.000</td></tr>
-          <tr><td>Chat en epz.gov.co<span class="mm">Mes 1</span></td><td class="m">$500.000</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="fin">$500.000</td></tr>
+          <tr><td>Chat en el WordPress de epz.gov.co<span class="mm">Mes 1</span></td><td class="m">$500.000</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="fin">$500.000</td></tr>
           <tr class="grp"><td colspan="7">Fase 2 · Implementación</td></tr>
           <tr><td>Módulo de envíos masivos<span class="rn">Plantillas y segmentos por sector</span><span class="mm">Mes 2</span></td><td class="m dash">—</td><td class="m">$300.000</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="fin">$300.000</td></tr>
           <tr><td>Aviso "Tu factura está disponible"<span class="rn">Envío automático al emitir cada ciclo</span><span class="mm">Mes 2</span></td><td class="m dash">—</td><td class="m">$500.000</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="fin">$500.000</td></tr>
           <tr><td>Agendamiento con Google Calendar<span class="mm">Mes 2</span></td><td class="m dash">—</td><td class="m">$800.000</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="fin">$800.000</td></tr>
           <tr><td>Integración ERP de facturación vía API<span class="rn">Consulta de factura y estado de cuenta</span><span class="mm">Mes 2</span></td><td class="m dash">—</td><td class="m">$1.400.000</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="fin">$1.400.000</td></tr>
-          <tr class="grp"><td colspan="7">Fase 3 · Implementación</td></tr>
-          <tr><td>Clonación de voz oficial<span class="mm">Mes 3</span></td><td class="m dash">—</td><td class="m dash">—</td><td class="m">$1.200.000</td><td class="m dash">—</td><td class="m dash">—</td><td class="fin">$1.200.000</td></tr>
-          <tr><td>Módulo de llamadas con IA<span class="rn">Flujos, transferencia y pruebas</span><span class="mm">Mes 3 $1.800.000 · Mes 4 $1.200.000</span></td><td class="m dash">—</td><td class="m dash">—</td><td class="m">$1.800.000</td><td class="m">$1.200.000</td><td class="m dash">—</td><td class="fin">$3.000.000</td></tr>
+          <tr class="grp"><td colspan="7">Fase 3 · Módulo de voz por WhatsApp · 3 a 4 meses</td></tr>
+          <tr><td>Desarrollo del módulo de voz<span class="rn">Twilio Voice, microservicio Docker, Whisper, conexión HalconBot</span><span class="mm">$2.600.000 del mes 1 al 4</span></td><td class="m">$2.600.000</td><td class="m">$2.600.000</td><td class="m">$2.600.000</td><td class="m">$2.600.000</td><td class="m dash">—</td><td class="fin">$10.400.000</td></tr>
+          <tr><td>Clonación de voz oficial<span class="rn">Síntesis de voz con la voz de EPZ</span><span class="mm">Mes 3</span></td><td class="m dash">—</td><td class="m dash">—</td><td class="m">$1.200.000</td><td class="m dash">—</td><td class="m dash">—</td><td class="fin">$1.200.000</td></tr>
+          <tr><td>Pruebas integrales<span class="rn">Latencia, calidad de audio y estabilidad</span><span class="mm">Mes 3 $1.800.000 · Mes 4 $800.000</span></td><td class="m dash">—</td><td class="m dash">—</td><td class="m">$1.800.000</td><td class="m">$800.000</td><td class="m dash">—</td><td class="fin">$2.600.000</td></tr>
           <tr class="grp"><td colspan="7">Operación mensual</td></tr>
-          <tr><td>Licencia HalconBot Profesional<span class="rn">Hasta 120.000 conversaciones al mes</span><span class="mm">$1.100.000 cada mes</span></td><td class="m">$1.100.000</td><td class="m">$1.100.000</td><td class="m">$1.100.000</td><td class="m">$1.100.000</td><td class="m">$1.100.000</td><td class="fin">$13.200.000</td></tr>
+          <tr><td>Licencia HalconBot Plan Business<span class="rn">Más de 200 usuarios al día, 60.000 conversaciones</span><span class="mm">$600.000 cada mes</span></td><td class="m">$600.000</td><td class="m">$600.000</td><td class="m">$600.000</td><td class="m">$600.000</td><td class="m">$600.000</td><td class="fin">$7.200.000</td></tr>
           <tr><td>Operación IA y mejora continua<span class="rn">Monitoreo, entrenamiento, informe mensual</span><span class="mm">$2.400.000 cada mes</span></td><td class="m">$2.400.000</td><td class="m">$2.400.000</td><td class="m">$2.400.000</td><td class="m">$2.400.000</td><td class="m">$2.400.000</td><td class="fin">$28.800.000</td></tr>
           <tr><td>Soporte y capacitación<span class="mm">$500.000 cada mes</span></td><td class="m">$500.000</td><td class="m">$500.000</td><td class="m">$500.000</td><td class="m">$500.000</td><td class="m">$500.000</td><td class="fin">$6.000.000</td></tr>
-          <tr><td>Operación del canal de voz<span class="rn">Incluye 3.000 minutos al mes</span><span class="mm">$1.800.000 desde el mes 4</span></td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m">$1.800.000</td><td class="m">$1.800.000</td><td class="fin">$16.200.000</td></tr>
-          <tr><td>Mantenimiento de integraciones<span class="rn">ERP, Calendar y envíos</span><span class="mm">$1.200.000 desde el mes 5</span></td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m">$1.200.000</td><td class="fin">$9.600.000</td></tr>
-          <tr><td>Gestión de envíos y plantillas<span class="rn">Diseño, aprobación en Meta, programación y reporte</span><span class="mm">$250.000 cada mes</span></td><td class="m">$250.000</td><td class="m">$250.000</td><td class="m">$250.000</td><td class="m">$250.000</td><td class="m">$250.000</td><td class="fin">$3.000.000</td></tr>
-          <tr class="grp"><td colspan="7">Mensajería de Meta (WhatsApp) · incluida</td></tr>
+          <tr><td>Gestión de envíos y plantillas<span class="rn">Diseño, aprobación en Meta, programación</span><span class="mm">$250.000 cada mes</span></td><td class="m">$250.000</td><td class="m">$250.000</td><td class="m">$250.000</td><td class="m">$250.000</td><td class="m">$250.000</td><td class="fin">$3.000.000</td></tr>
+          <tr><td>Operación del canal de voz<span class="rn">Monitoreo de llamadas y ajuste de la voz</span><span class="mm">$1.300.000 desde el mes 4</span></td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m">$1.300.000</td><td class="m">$1.300.000</td><td class="fin">$11.700.000</td></tr>
+          <tr><td>Mantenimiento de integraciones y microservicio<span class="rn">ERP, Calendar, envíos y voz</span><span class="mm">$1.600.000 desde el mes 5</span></td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m">$1.600.000</td><td class="fin">$12.800.000</td></tr>
+          <tr><td>Desarrollo evolutivo<span class="rn">Bolsa de horas para nuevos flujos y reportes</span><span class="mm">$1.800.000 desde el mes 5</span></td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m">$1.800.000</td><td class="fin">$14.400.000</td></tr>
+          <tr class="grp"><td colspan="7">Servicios de terceros · incluidos</td></tr>
           <tr><td>Bolsa de mensajes Meta<span class="rn">25.000 envíos al mes + respuestas de servicio</span><span class="mm">$750.000 cada mes</span></td><td class="m">$750.000</td><td class="m">$750.000</td><td class="m">$750.000</td><td class="m">$750.000</td><td class="m">$750.000</td><td class="fin">$9.000.000</td></tr>
-          <tr class="sub"><td>Mensualidad fija<span class="mm">$8.000.000 todos los meses</span></td><td class="m">$8.000.000</td><td class="m">$8.000.000</td><td class="m">$8.000.000</td><td class="m">$8.000.000</td><td class="m">$8.000.000</td><td class="fin">$96.000.000</td></tr>
-          <tr class="tot"><td>Con IVA del 19%<span class="mm">$9.520.000 al mes</span></td><td class="m">$9.520.000</td><td class="m">$9.520.000</td><td class="m">$9.520.000</td><td class="m">$9.520.000</td><td class="m">$9.520.000</td><td class="fin">$114.240.000</td></tr>
+          <tr><td>Bolsa de voz e IA<span class="rn">Twilio y OpenAI, 3.000 minutos al mes</span><span class="mm">$900.000 desde el mes 4</span></td><td class="m dash">—</td><td class="m dash">—</td><td class="m dash">—</td><td class="m">$900.000</td><td class="m">$900.000</td><td class="fin">$8.100.000</td></tr>
+          <tr><td>Servidor del microservicio de voz<span class="rn">VPS dedicado</span><span class="mm">$300.000 cada mes</span></td><td class="m">$300.000</td><td class="m">$300.000</td><td class="m">$300.000</td><td class="m">$300.000</td><td class="m">$300.000</td><td class="fin">$3.600.000</td></tr>
+          <tr class="sub"><td>Mensualidad fija<span class="mm">$10.400.000 todos los meses</span></td><td class="m">$10.400.000</td><td class="m">$10.400.000</td><td class="m">$10.400.000</td><td class="m">$10.400.000</td><td class="m">$10.400.000</td><td class="fin">$124.800.000</td></tr>
+          <tr class="tot"><td>Con IVA del 19%<span class="mm">$12.376.000 al mes</span></td><td class="m">$12.376.000</td><td class="m">$12.376.000</td><td class="m">$12.376.000</td><td class="m">$12.376.000</td><td class="m">$12.376.000</td><td class="fin">$148.512.000</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="inv-note rv" style="--d:3">Pesos colombianos. Contrato mensual con pago mes vencido contra informe de gestión. Un solo valor fijo: implementación, operación, licencia y mensajes de Meta ya están dentro. EPZ nunca paga un anticipo ni facturas aparte.</p>
+    <p class="inv-note rv" style="--d:3">Pesos colombianos. Contrato mensual con pago mes vencido contra informe de gestión. Un solo valor fijo: implementación, desarrollo de voz, licencia, operación y consumos de Meta, Twilio y OpenAI ya están dentro. Sin anticipos ni facturas de terceros.</p>
   </div>
 </section>
 
@@ -1128,35 +1136,35 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 <section class="slide" data-title="Todo incluido" id="s-variable">
   <div class="inner">
     <div class="eyebrow rv"><span class="n">17</span> Sin letra pequeña</div>
-    <h2 class="h2 rv" style="--d:1">Un valor fijo. Meta incluida.</h2>
+    <h2 class="h2 rv" style="--d:1">Un valor fijo. Todo incluido.</h2>
     <div class="vars">
       <div class="card rv" style="--d:2">
-        <span class="h3">Incluido en los $8.000.000</span>
+        <span class="h3">Incluido en los $10.400.000</span>
         <ul class="vlist" style="margin-top:8px">
           <li><div><b>Envíos masivos de WhatsApp</b><span>Factura disponible, cortes, recordatorios y campañas</span></div><em class="ok">25.000/mes</em></li>
-          <li><div><b>Conversaciones de IA</b><span>WhatsApp y web, incluidas las respuestas que Meta cobra desde octubre de 2026</span></div><em class="ok">Hasta 120.000/mes</em></li>
-          <li><div><b>Minutos de voz con IA</b><span>Desde el mes 4, con la línea actual de EPZ</span></div><em class="ok">3.000/mes</em></li>
+          <li><div><b>Conversaciones de IA</b><span>WhatsApp y web, incluidas las respuestas que Meta cobra desde octubre de 2026</span></div><em class="ok">Hasta 60.000/mes</em></li>
+          <li><div><b>Llamadas de WhatsApp con IA</b><span>Desde el mes 4: Twilio, transcripción y voz incluidos</span></div><em class="ok">3.000/mes</em></li>
           <li><div><b>Usuarios del panel</b><span>Funcionarios con acceso a chats y reportes</span></div><em class="ok">Sin límite</em></li>
           <li><div><b>Capacitación e informe mensual</b><span>Conversaciones, envíos, temas y % resuelto por IA</span></div><em class="ok">Incluido</em></li>
         </ul>
       </div>
       <div class="card rv" style="--d:3">
-        <span class="h3">Cómo se calcula la bolsa de Meta</span>
+        <span class="h3">Consumos de terceros, ya pagados</span>
         <ul class="vlist" style="margin-top:8px">
-          <li><div><b>15.000 notificaciones de utilidad</b><span>"Tu factura está disponible", cortes, recordatorios de pago · ≈ $3 c/u</span></div><em>$45.000</em></li>
-          <li><div><b>10.000 mensajes de marketing</b><span>Campañas de ahorro de agua, cultura de pago, eventos · ≈ $46 c/u</span></div><em>$460.000</em></li>
-          <li><div><b>Respuestas de servicio</b><span>Las primeras 1.000 son gratis; reserva para 60.000 más · ≈ $3 c/u</span></div><em>$180.000</em></li>
-          <li><div><b>Reserva por ajustes de tarifa</b><span>Cambios de Meta durante el año</span></div><em>$65.000</em></li>
-          <li><div><b>Bolsa mensual incluida</b><span>Si EPZ envía más notificaciones y menos marketing, sobra margen</span></div><em style="color:var(--red)">$750.000</em></li>
+          <li><div><b>Meta: 15.000 notificaciones de utilidad</b><span>"Tu factura está disponible", cortes, recordatorios · ≈ $3 c/u</span></div><em>$45.000</em></li>
+          <li><div><b>Meta: 10.000 mensajes de marketing</b><span>Ahorro de agua, cultura de pago, eventos · ≈ $46 c/u</span></div><em>$460.000</em></li>
+          <li><div><b>Meta: respuestas de servicio y reserva</b><span>1.000 gratis al mes; reserva para 60.000 más y cambios de tarifa</span></div><em>$245.000</em></li>
+          <li><div><b>Twilio y OpenAI para voz</b><span>3.000 min: llamada, Whisper, voz e IA · ≈ US$0,06/min + reserva</span></div><em>$900.000</em></li>
+          <li><div><b>Servidor del microservicio de voz</b><span>VPS dedicado con Docker</span></div><em>$300.000</em></li>
         </ul>
       </div>
     </div>
     <div class="compare rv" style="--d:4">
       <div><span>Un turno de atención 24/7 con personas</span><b>4 a 5 funcionarios</b><span>Más de $16.000.000 al mes, sin envíos ni voz</span></div>
       <span class="vs">VS</span>
-      <div><span>HalconBot: WhatsApp, web, voz y 25.000 envíos</span><b class="grad">$8.000.000 + IVA</b><span>Fijo, todos los meses, todo incluido</span></div>
+      <div><span>HalconBot: WhatsApp, web, voz y 25.000 envíos</span><b class="grad">$10.400.000 + IVA</b><span>Fijo, todos los meses, todo incluido</span></div>
     </div>
-    <p class="src rv" style="--d:5">Tarifas de Meta para Colombia en 2026 (facturación en pesos desde abril): marketing ≈ US$0,0125 y utilidad ≈ US$0,0008 por mensaje; desde el 1 de octubre de 2026 las respuestas de servicio se cobran después de las primeras 1.000 al mes. Fuente: <a href="https://developers.facebook.com/docs/whatsapp/pricing" target="_blank" rel="noopener">Meta, precios de WhatsApp Business</a>. Si el volumen real supera la bolsa, se revisa con EPZ antes de cualquier ajuste.</p>
+    <p class="src rv" style="--d:5">Tarifas de Meta para Colombia en 2026 (facturación en pesos desde abril): marketing ≈ US$0,0125 y utilidad ≈ US$0,0008 por mensaje; desde el 1 de octubre de 2026 las respuestas de servicio se cobran después de las primeras 1.000 al mes. Fuente: <a href="https://developers.facebook.com/docs/whatsapp/pricing" target="_blank" rel="noopener">Meta, precios de WhatsApp Business</a>. Voz: estimado de Twilio, Whisper y síntesis de voz a TRM de referencia. Si el volumen real supera la bolsa, se revisa con EPZ antes de cualquier ajuste.</p>
   </div>
 </section>
 
@@ -1181,7 +1189,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     <h2 class="h1 rv" style="--d:1">Zipaquirá,<br><span class="grad">siempre atendida.</span></h2>
     <div class="close-steps">
       <div class="card rv" style="--d:2"><span class="k">01 · Esta semana</span><b>Validar alcance</b><p>Revisamos fases, valor y forma de contratación con el equipo de EPZ.</p></div>
-      <div class="card rv" style="--d:3"><span class="k">02 · Al firmar</span><b>Accesos y documentos</b><p>Número de WhatsApp, documentos de trámites y tarifas, y contacto técnico del ERP.</p></div>
+      <div class="card rv" style="--d:3"><span class="k">02 · Al firmar</span><b>Accesos y documentos</b><p>Acceso de administrador al Meta Business Manager, información institucional y normativa, y contacto técnico del ERP.</p></div>
       <div class="card rv" style="--d:4"><span class="k">03 · Día 30</span><b>EPZ en vivo</b><p>La IA atiende WhatsApp y la web. Arranca la fase 2.</p></div>
     </div>
     <div class="rv" style="--d:5">
@@ -1300,7 +1308,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 
   // Calculadora: tiempo liberado
   const cop = v => '$' + Math.round(v).toLocaleString('es-CO');
-  const FEE = 8000000;
+  const FEE = 10400000;
   const ids = ['cA','cB','cC','cD'], els = ids.map($);
   function calc(){
     els.forEach(r=>r.style.setProperty('--p',((r.value-r.min)/(r.max-r.min)*100)+'%'));
