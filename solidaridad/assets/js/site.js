@@ -336,6 +336,62 @@
     $('button', aviso).addEventListener('click', () => { aviso.classList.remove('on'); try { sessionStorage.setItem('spc-aviso', 1); } catch (e) {} });
   }
 
+  /* ---------- Slider del hero ---------- */
+  const slider = $('.hero-slider');
+  if (slider) {
+    const slides = $$('.slide', slider), puntos = $$('.sp', slider), pausaBtn = $('.sf-pausa', slider);
+    let actual = 0, pausaManual = quieto, sobre = false, fuera = false;
+    slider.style.setProperty('--dur', '7s');
+    const pausar = () => slider.classList.toggle('pausado', pausaManual || sobre || fuera);
+    const ir = n => {
+      n = (n + slides.length) % slides.length;
+      if (n === actual) return;
+      slides.forEach((s, i) => {
+        const on = i === n;
+        s.classList.toggle('activo', on);
+        s.toggleAttribute('inert', !on);
+        s.setAttribute('aria-hidden', String(!on));
+        if (on) $$('img[loading="lazy"]', s).forEach(img => { img.loading = 'eager'; });
+      });
+      puntos.forEach((p, i) => p.setAttribute('aria-current', String(i === n)));
+      actual = n;
+    };
+    // La barra de progreso manda: cuando termina de llenarse, pasa a la siguiente
+    puntos.forEach((p, i) => {
+      p.addEventListener('click', () => ir(i));
+      $('i b', p).addEventListener('animationend', () => { if (i === actual) ir(actual + 1); });
+    });
+    $$('[data-dir]', slider).forEach(b => b.addEventListener('click', () => ir(actual + +b.dataset.dir)));
+    pausaBtn?.addEventListener('click', () => {
+      pausaManual = !pausaManual;
+      pausaBtn.setAttribute('aria-pressed', String(pausaManual));
+      pausaBtn.setAttribute('aria-label', pausaManual ? 'Reproducir' : 'Pausar');
+      pausar();
+    });
+    if (quieto) pausaBtn?.setAttribute('aria-pressed', 'true');
+    if (!tactil) {
+      slider.addEventListener('mouseenter', () => { sobre = true; pausar(); });
+      slider.addEventListener('mouseleave', () => { sobre = false; pausar(); });
+    }
+    slider.addEventListener('focusin', () => { sobre = true; pausar(); });
+    slider.addEventListener('focusout', () => { sobre = false; pausar(); });
+    slider.addEventListener('keydown', e => { if (e.key === 'ArrowRight') ir(actual + 1); if (e.key === 'ArrowLeft') ir(actual - 1); });
+    // Deslizar con el dedo
+    let x0 = null, y0 = 0;
+    slider.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+    slider.addEventListener('touchend', e => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) ir(actual + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
+    // Precarga de las fotos grandes cuando la página ya cargó
+    addEventListener('load', () => setTimeout(() => $$('.slide img[loading="lazy"]', slider).forEach(img => { img.loading = 'eager'; }), 1200));
+    // Fuera de pantalla no avanza
+    new IntersectionObserver(([e]) => { fuera = !e.isIntersecting; pausar(); }).observe(slider);
+    pausar();
+  }
+
   /* Año del pie */
   $$('[data-ano-actual]').forEach(e => { e.textContent = new Date().getFullYear(); });
 })();

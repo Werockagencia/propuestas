@@ -63,6 +63,15 @@
     'f.eyebrow': 'Join us today', 'f.t': 'Together we are <span class="grad-text">more</span>.',
     'f.lead': 'Your donation reaches children, high school students, university students, families, older adults and communities struck by disaster.',
 
+
+    // Slider
+    's2.sello': 'Solidarity Sponsor · Education', 's2.t1': 'Sponsor', 's2.t2': 'the future of', 's2.t3': '<em class="frio-text" style="font-style:normal">a child.</em>',
+    's2.lead': 'Support a child or young person’s education all year: early childhood, Semillitas, Youth or university scholarships. From US$22 a month.',
+    's2.cta': 'Become a sponsor', 's2.cta2': 'See programs', 's.provisional': 'Placeholder photo',
+    's3.sello': 'Earthquake emergency · GEM Alliance', 's3.t1': 'Thousands of families', 's3.t2': 'need to go back', 's3.t3': '<em class="calido-text" style="font-style:normal">home.</em>',
+    's3.lead': 'With Global Empowerment Mission we bring food, water, shelter and reconstruction to communities hit by the earthquake.',
+    'sp.1': 'Your help today', 'sp.3': 'Earthquake 2026',
+
     // Dona
     'd.t': 'Every gift <span class="calido-text">multiplies</span>', 'd.lead': 'Choose how you want to help: sponsor a program all year, give once, or support the earthquake response.',
     'd.padrino': 'Become a Solidarity Sponsor', 'd.paso1': 'Choose a program', 'd.paso2': 'How often', 'd.paso3': 'Currency',
