@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Plan de negocio · Yo Amo la Empanada al Horno</title>
+<meta name="description" content="Plan de negocio a 6 meses (noviembre 2026 a abril 2027) para Yo Amo la Empanada al Horno: INVIMA, software POS con IA, marketing, HalconBot, operación y crecimiento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E8000A;--red-h:#FF1A22;--dk:#0A0A0A;--dk2:#111;--dk3:#161616;
+  --lt:#F5F2EB;--lt2:#EDE9DF;--lt3:#E4DFD4;--white:#fff;--gray:#888;--gray2:#555;
+  --text-dk:#E8E4DC;--text-dk2:#AAA;--ok:#1E8E4E;--warn:#C27A00;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--dk);color:var(--text-dk);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img,svg{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--red);z-index:200}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:150;background:rgba(10,10,10,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.07)}
+#nav .wrap{display:flex;align-items:center;gap:22px;height:56px}
+.nav-brand{font-weight:800;font-size:15px;letter-spacing:.02em;white-space:nowrap}
+.nav-brand i{color:var(--red);font-style:normal}
+.nav-links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{font-size:12.5px;font-weight:600;letter-spacing:.04em;text-decoration:none;color:var(--text-dk2);padding:8px 11px;border-radius:6px;white-space:nowrap;transition:.2s}
+.nav-links a:hover,.nav-links a.on{color:#fff;background:rgba(232,0,10,.18)}
+
+/* SECTIONS */
+section{position:relative;padding:96px 0;overflow:hidden}
+.dark{background:var(--dk)}.dark2{background:var(--dk2)}
+.light{background:var(--lt);color:#1a1a1a}.light2{background:var(--lt2);color:#1a1a1a}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-label::before{content:"";width:26px;height:2px;background:var(--red)}
+.sec-title{font-size:clamp(34px,4.4vw,60px);font-weight:800;line-height:1.04;letter-spacing:-.01em;margin-bottom:18px}
+.sec-title em{font-style:normal;color:var(--red)}
+.sec-lead{font-size:19px;max-width:760px;color:var(--text-dk2);margin-bottom:44px}
+.light .sec-lead,.light2 .sec-lead{color:#555}
+.brand-mark{position:absolute;right:-60px;top:40px;width:420px;opacity:.045;fill:var(--red);pointer-events:none}
+.light .brand-mark,.light2 .brand-mark{opacity:.06}
+.diag-top{clip-path:polygon(0 0,100% 3.5vw,100% 100%,0 100%);margin-top:-3.5vw;padding-top:calc(96px + 3.5vw)}
+.grid-tex{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px}
+.light.grid-tex,.light2.grid-tex{background-image:linear-gradient(rgba(0,0,0,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.045) 1px,transparent 1px)}
+.dots-tex{background-image:radial-gradient(rgba(232,0,10,.16) 1.2px,transparent 1.2px);background-size:26px 26px}
+
+/* COVER */
+#portada{min-height:100vh;padding:120px 0 170px;display:flex;align-items:center;background:radial-gradient(900px 500px at 78% 40%,rgba(232,0,10,.22),transparent 60%),var(--dk)}
+#portada .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;position:relative;z-index:2;width:100%}
+.cover-kick{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+.cover-title{font-size:clamp(38px,4.7vw,70px);font-weight:900;line-height:.98;letter-spacing:-.02em}
+.cover-title em{font-style:normal;color:var(--red)}
+.cover-sub{font-size:20px;color:var(--text-dk2);max-width:560px;margin:24px 0 28px}
+.cover-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:12px;font-weight:600;padding:7px 13px;border:1px solid rgba(255,255,255,.18);border-radius:99px;color:var(--text-dk)}
+.stairs{display:flex;align-items:flex-end;gap:9px;height:340px}
+.stair{flex:1;border-radius:99px 99px 6px 6px;background:linear-gradient(180deg,var(--red),#7a0006);position:relative;height:0;animation:rise 1.1s cubic-bezier(.2,.8,.2,1) forwards}
+.stair:nth-child(1){--h:24%;background:linear-gradient(180deg,#444,#222)}
+.stair:nth-child(2){--h:32%;animation-delay:.1s}.stair:nth-child(3){--h:39%;animation-delay:.2s}
+.stair:nth-child(4){--h:52%;animation-delay:.3s}.stair:nth-child(5){--h:66%;animation-delay:.4s}.stair:nth-child(6){--h:84%;animation-delay:.5s}
+.stair b{position:absolute;top:-26px;left:50%;transform:translateX(-50%);font-size:13px;font-weight:800;white-space:nowrap}
+.stair span{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.75)}
+.stairs-cap{font-size:12px;color:var(--text-dk2);margin-top:14px;letter-spacing:.04em}
+.heart-top{position:absolute;top:-62px;right:2%;width:46px;fill:var(--red);animation:beat 1.6s ease-in-out infinite}
+@keyframes rise{to{height:var(--h)}}
+@keyframes beat{50%{transform:scale(1.14)}}
+.cover-bar{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.05);border-top:1px solid rgba(255,255,255,.1);z-index:3}
+#portada .cover-bar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding-top:20px;padding-bottom:20px;align-items:start}
+.cb{padding:0 18px;border-left:1px solid rgba(255,255,255,.12)}
+.cb:first-child{border-left:0;padding-left:0}
+.cb b{display:block;font-size:30px;font-weight:900;line-height:1}
+.cb span{font-size:12px;color:var(--text-dk2);letter-spacing:.03em}
+
+/* CARDS & GRIDS */
+.grid{display:grid;gap:2px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--dk3);padding:28px;position:relative}
+.light .card,.light2 .card{background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.card.top{border-top:3px solid var(--red)}
+.card h3{font-size:20px;font-weight:700;margin-bottom:10px;line-height:1.2}
+.card p,.card li{font-size:15px;color:var(--text-dk2)}
+.light .card p,.light .card li,.light2 .card p,.light2 .card li{color:#444}
+.card ul{list-style:none;margin-top:8px}
+.card li{padding:5px 0 5px 18px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--red);border-radius:50%}
+.big{font-size:clamp(40px,5vw,66px);font-weight:900;line-height:1;letter-spacing:-.02em}
+.big small{font-size:.38em;font-weight:700;letter-spacing:0}
+.kpi-l{font-size:13px;font-weight:600;color:var(--text-dk2);margin-top:8px}
+.light .kpi-l,.light2 .kpi-l{color:#666}
+.badge{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:4px;vertical-align:middle;margin-left:6px}
+.b-dato{background:rgba(30,142,78,.16);color:#2bbf6c}
+.b-sup{background:rgba(194,122,0,.18);color:#e5a02a}
+.b-fuente{background:rgba(120,150,255,.16);color:#8aa4ff}
+.light .b-dato{color:#14703b}.light .b-sup{color:#9a6000}.light .b-fuente{color:#3f58c9}
+.note{border-left:3px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);padding:16px 20px;font-size:14.5px;color:var(--text-dk2);margin:22px 0}
+.light .note,.light2 .note{border-left-color:rgba(0,0,0,.18);background:var(--lt2);color:#444}
+.light2 .note{background:var(--lt3)}
+.note b{color:inherit}
+.partner{background:linear-gradient(135deg,rgba(232,0,10,.16),rgba(232,0,10,.04));border:1px solid rgba(232,0,10,.35);padding:32px 34px;margin:40px 0 0;position:relative}
+.partner h3{font-size:24px;font-weight:800;margin-bottom:6px}
+.partner ol{margin:16px 0 0 22px}
+.partner li{margin:10px 0;font-size:16px;color:var(--text-dk)}
+.partner li b{color:#fff}
+.light .partner{background:linear-gradient(135deg,#fff,#fbe9e6);color:#1a1a1a}
+.light .partner li{color:#333}.light .partner li b{color:#000}
+
+/* TABLES */
+.tbl-wrap{overflow-x:auto;margin:18px 0}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dk2);padding:12px 14px;border-bottom:2px solid var(--red);white-space:nowrap}
+td{padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.09);vertical-align:top}
+.light th,.light2 th{color:#555}
+.light td,.light2 td{border-bottom-color:rgba(0,0,0,.09)}
+td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.sum td{font-weight:800;border-top:2px solid var(--red)}
+td b{font-weight:700}
+
+/* PHASES / GANTT */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:46px}
+.phase{background:var(--dk3);padding:26px 24px;border-top:3px solid var(--red)}
+.phase .ph-n{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--red)}
+.phase h3{font-size:21px;font-weight:800;margin:6px 0 4px}
+.phase .ph-w{font-size:13px;color:var(--text-dk2);margin-bottom:10px}
+.phase p{font-size:14.5px;color:var(--text-dk2)}
+.gantt{display:grid;grid-template-columns:200px repeat(6,1fr);gap:2px;font-size:13px}
+.gantt .h{background:var(--dk3);padding:10px;text-align:center;font-weight:800;letter-spacing:.06em;font-size:11.5px;color:var(--text-dk2)}
+.gantt .r{background:var(--dk3);padding:12px 12px;font-weight:600}
+.gantt .c{background:var(--dk3);position:relative;min-height:42px}
+.gantt .bar{position:absolute;top:9px;bottom:9px;left:3px;right:3px;background:var(--red);border-radius:4px;opacity:.92;font-size:10.5px;font-weight:700;color:#fff;display:flex;align-items:center;padding:0 7px;white-space:nowrap;overflow:hidden}
+.gantt .bar.soft{background:rgba(232,0,10,.35)}
+.gantt .bar.cond{background:repeating-linear-gradient(45deg,rgba(232,0,10,.55),rgba(232,0,10,.55) 6px,rgba(232,0,10,.25) 6px,rgba(232,0,10,.25) 12px)}
+.gantt-leg{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--text-dk2);margin-top:14px}
+.gantt-leg i{display:inline-block;width:22px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+
+/* ACCORDION (frentes) */
+details.fr{background:#fff;margin-bottom:2px;border-top:3px solid var(--red)}
+details.fr summary{list-style:none;cursor:pointer;padding:24px 28px;display:grid;grid-template-columns:54px 1fr auto;gap:16px;align-items:center}
+details.fr summary::-webkit-details-marker{display:none}
+.fr-n{font-size:34px;font-weight:900;color:var(--red);line-height:1}
+.fr-t{font-size:22px;font-weight:800;line-height:1.15;color:#111}
+.fr-s{font-size:14px;color:#666;margin-top:3px;font-weight:500}
+.fr-plus{width:34px;height:34px;border-radius:50%;border:2px solid #111;position:relative;transition:.25s}
+.fr-plus::before,.fr-plus::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;background:#111;transform:translate(-50%,-50%)}
+.fr-plus::after{transform:translate(-50%,-50%) rotate(90deg);transition:.25s}
+details[open] .fr-plus{background:var(--red);border-color:var(--red);transform:rotate(180deg)}
+details[open] .fr-plus::before,details[open] .fr-plus::after{background:#fff}
+details[open] .fr-plus::after{opacity:0}
+.fr-body{padding:4px 28px 32px 98px;color:#333}
+.fr-body h4{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:22px 0 10px}
+.fr-body p{font-size:15.5px;margin-bottom:10px;max-width:860px}
+.steps{list-style:none;counter-reset:s;margin:6px 0}
+.steps li{counter-increment:s;position:relative;padding:11px 0 11px 44px;border-bottom:1px solid rgba(0,0,0,.08);font-size:15px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:28px;height:28px;border-radius:50%;background:#111;color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.steps li small{display:block;color:#777;font-size:12.5px;margin-top:2px;font-weight:500}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{font-size:12.5px;font-weight:700;background:var(--lt2);padding:6px 11px;border-radius:99px;color:#333}
+.chip b{color:var(--red)}
+.fr-body table th{color:#555}.fr-body table td{border-bottom-color:rgba(0,0,0,.09);color:#333}
+
+/* MODEL */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+.tab{font:inherit;font-size:13px;font-weight:700;letter-spacing:.04em;padding:11px 18px;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--text-dk);cursor:pointer;border-radius:6px;transition:.2s}
+.tab:hover{border-color:var(--red)}
+.tab.on{background:var(--red);border-color:var(--red);color:#fff}
+.light .tab,.light2 .tab{border-color:rgba(0,0,0,.2);color:#222}.light .tab.on,.light2 .tab.on{color:#fff}
+.model{display:grid;grid-template-columns:1.25fr .75fr;gap:2px}
+.chart{background:var(--dk3);padding:28px 26px 20px}
+.bars{display:flex;align-items:flex-end;gap:12px;height:290px;border-bottom:1px solid rgba(255,255,255,.2);padding-top:34px}
+.bcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;position:relative}
+.bar-r{width:100%;background:linear-gradient(180deg,var(--red),#8a0007);border-radius:6px 6px 0 0;transition:height .6s cubic-bezier(.2,.8,.2,1);position:relative;min-height:2px}
+.bar-r b{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:13px;font-weight:800;white-space:nowrap}
+.bar-n{position:absolute;bottom:0;left:18%;right:18%;background:rgba(255,255,255,.88);transition:height .6s;border-radius:3px 3px 0 0}
+.bnames{display:flex;gap:12px;margin-top:8px}
+.bnames div{flex:1;text-align:center;font-size:12px;font-weight:700;color:var(--text-dk2);letter-spacing:.06em}
+.legend{font-size:12.5px;color:var(--text-dk2);margin-top:14px;display:flex;gap:18px;flex-wrap:wrap}
+.legend i{display:inline-block;width:14px;height:10px;margin-right:6px;border-radius:2px}
+.ctrl{background:var(--dk3);padding:28px 26px}
+.ctrl h3{font-size:18px;font-weight:800;margin-bottom:16px}
+.ctrl label{display:block;font-size:13px;font-weight:600;color:var(--text-dk2);margin:18px 0 6px}
+.ctrl label output{float:right;color:#fff;font-weight:800}
+.ctrl input[type=range]{width:100%;accent-color:var(--red)}
+.ctrl .res{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14)}
+.ctrl .res b{font-size:30px;font-weight:900;display:block}
+.ctrl .res span{font-size:13px;color:var(--text-dk2)}
+
+/* MONTH TABS */
+.mpanel{display:none;background:var(--dk3);color:var(--text-dk);padding:30px 32px;border-top:3px solid var(--red)}
+.mpanel.on{display:block;animation:fade .35s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.mpanel h3{font-size:26px;font-weight:800;margin-bottom:4px;color:#fff}
+.mpanel .mgoal{color:var(--text-dk2);font-size:15px;margin-bottom:18px}
+.mpanel ul{list-style:none}
+.mpanel li{padding:11px 0 11px 34px;position:relative;border-bottom:1px solid rgba(255,255,255,.09);font-size:15.5px}
+.mpanel li::before{content:"";position:absolute;left:2px;top:15px;width:15px;height:15px;border:2px solid var(--red);border-radius:4px}
+.gate{margin-top:20px;padding:14px 18px;background:rgba(232,0,10,.12);border:1px dashed rgba(232,0,10,.6);font-size:14.5px}
+.gate b{color:#fff;letter-spacing:.06em}
+
+/* RISKS */
+.risk-card b.lbl{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:10px 0 2px}
+
+/* SOURCES */
+.src li{margin:8px 0;font-size:14.5px}
+.src a{color:var(--red);text-underline-offset:3px}
+
+/* CTA / FOOTER */
+.cta{background:var(--red);color:#fff;text-align:center;padding:90px 0}
+.cta h2{font-size:clamp(32px,4.4vw,58px);font-weight:900;line-height:1.05;margin-bottom:14px}
+.cta p{font-size:19px;max-width:640px;margin:0 auto 28px;opacity:.95}
+.btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#111;font-weight:800;font-size:16px;padding:16px 30px;border-radius:99px;text-decoration:none;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.3)}
+footer{background:var(--dk);padding:36px 0;font-size:13.5px;color:var(--text-dk2);text-align:center}
+footer b{color:#fff}
+
+.reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  #portada .wrap{grid-template-columns:1fr}
+  .stairs{height:260px}.heart-top{top:-56px}
+  .g3,.g4,.phases{grid-template-columns:repeat(2,1fr)}
+  .model{grid-template-columns:1fr}
+  #portada .cover-bar .wrap{grid-template-columns:repeat(2,1fr);row-gap:14px}
+  .cb:nth-child(3){border-left:0;padding-left:0}
+  .fr-body{padding-left:28px}
+  .gantt{grid-template-columns:130px repeat(6,1fr);font-size:12px}
+}
+@media(max-width:768px){
+  section{padding:72px 0}.wrap{padding:0 16px}
+  .diag-top{margin-top:-24px;padding-top:96px;clip-path:polygon(0 0,100% 24px,100% 100%,0 100%)}
+  #portada{padding:96px 0 230px;min-height:auto}
+  #portada .cover-bar .wrap{padding-top:14px;padding-bottom:14px}
+  .cb b{font-size:22px}.cb{padding:0 10px}
+  .nav-brand{display:none}
+  .g2,.g3,.g4,.phases{grid-template-columns:1fr}
+  .card{padding:22px}
+  details.fr summary{grid-template-columns:40px 1fr 34px;padding:20px 16px}
+  .fr-n{font-size:26px}.fr-t{font-size:18px}
+  .fr-body{padding:2px 16px 26px}
+  /* tablas como tarjetas */
+  .rt thead{display:none}
+  .rt,.rt tbody,.rt tr,.rt td{display:block;width:100%}
+  .rt tr{background:rgba(255,255,255,.05);margin-bottom:10px;padding:10px 14px;border-left:3px solid var(--red)}
+  .light .rt tr,.light2 .rt tr,.fr-body .rt tr{background:rgba(0,0,0,.04)}
+  .rt td{border:0;padding:5px 0;text-align:left!important;white-space:normal!important}
+  .rt td[data-l]::before{content:attr(data-l);display:block;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:1px}
+  .rt tr.sum{border-left-color:#fff}
+  .gantt-wrap{overflow-x:auto;margin:0 -16px;padding:0 16px}
+  .gantt{min-width:640px}
+  .mpanel{padding:22px 18px}
+  .bars{gap:7px}.bnames{gap:7px}.bar-r b{font-size:11px;top:-19px}
+  .partner{padding:24px 20px}
+}
+@media print{#nav,#prog,.cover-bar{display:none}.reveal{opacity:1;transform:none}details.fr{break-inside:avoid}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.stair{height:var(--h)}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<nav id="nav"><div class="wrap">
+  <div class="nav-brand">Yo <i>♥</i> La Empanada · Plan 2026/27</div>
+  <div class="nav-links" id="navlinks">
+    <a href="#resumen">Resumen</a><a href="#punto">Punto de partida</a><a href="#mercado">Mercado</a><a href="#problemas">Problemas</a><a href="#estrategia">Estrategia</a><a href="#frentes">Plan punto a punto</a><a href="#finanzas">Finanzas</a><a href="#meses">Mes a mes</a><a href="#riesgos">Riesgos</a><a href="#proximos">Próximos pasos</a><a href="#fuentes">Fuentes</a>
+  </div>
+</div></nav>
+
+<!-- PORTADA -->
+<section id="portada" class="dark">
+  <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true" style="right:-80px;top:80px;width:520px"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="wrap">
+    <div>
+      <div class="cover-kick">Plan de negocio · noviembre 2026 a abril 2027</div>
+      <h1 class="cover-title">Yo ♥ La Empanada<br>al Horno: <em>de 200 mil<br>a 570 mil al día</em></h1>
+      <p class="cover-sub">La ruta, punto a punto, para escalar el negocio sin perder lo que lo hace especial: INVIMA, software con IA, marketing, HalconBot, operación y nuevos productos congelados.</p>
+      <div class="cover-tags"><span class="tag">Documento entre socios</span><span class="tag">Confidencial</span><span class="tag">Preparado por We Rock · 2 de noviembre de 2026</span></div>
+    </div>
+    <div style="position:relative">
+      <svg class="heart-top" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 5 6.4 5c2 0 3.6 1.1 4.4 2.7h.4C12 6.1 13.600 5 15.600 5 19 5 21.100 8.400 19.600 11.800 19.500 11.800 12 21 12 21z" transform="translate(0 -1)"/></svg>
+      <div class="stairs" aria-label="Meta de facturación mensual: de 6 millones a 17 millones">
+        <div class="stair"><b>$6M</b><span>HOY</span></div>
+        <div class="stair"><b>$6,6M</b><span>NOV</span></div>
+        <div class="stair"><b>$9M</b><span>DIC</span></div>
+        <div class="stair"><b>$11M</b><span>FEB</span></div>
+        <div class="stair"><b>$14M</b><span>MAR</span></div>
+        <div class="stair"><b>$17M</b><span>ABR</span></div>
+      </div>
+      <div class="stairs-cap">Facturación mensual: punto de partida y meta del escenario base</div>
+    </div>
+  </div>
+  <div class="cover-bar"><div class="wrap">
+    <div class="cb"><b>$200.000</b><span>facturación diaria hoy</span></div>
+    <div class="cb"><b>20%</b><span>margen neto actual</span></div>
+    <div class="cb"><b>$1,2M</b><span>queda libre al mes para invertir</span></div>
+    <div class="cb"><b>2,8×</b><span>meta de ventas en 6 meses</span></div>
+  </div></div>
+</section>
+
+<!-- RESUMEN -->
+<section id="resumen" class="light grid-tex">
+  <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="wrap">
+    <div class="sec-label reveal">Resumen ejecutivo</div>
+    <h2 class="sec-title reveal">El producto ya ganó. Ahora hay que <em>ordenar la casa</em> para vender más sin quebrarla.</h2>
+    <p class="sec-lead reveal">Lo que tienes funciona: la gente lo ama y ya hay estándar en todo. Lo que falta no es amor por el producto, es volumen, margen, capacidad y permisos. Esta es la tesis completa en cinco ideas.</p>
+    <div class="grid g3 reveal">
+      <div class="card top"><h3>1. Hoy el dinero libre es muy poco</h3><p>Con $200.000 diarios (unos $6M al mes) y 20% neto, quedan cerca de <b>$1,2M al mes</b>. Un solo trámite como INVIMA, o un software, pesa mucho contra esa cifra. Por eso escalamos por etapas, con puertas de caja.</p></div>
+      <div class="card top"><h3>2. La plata está en B2B y recompra</h3><p>Un pedido nuevo de pauta fría cuesta cerca de $26.000 y deja cerca de $21.000 de contribución en la primera compra. La rentabilidad llega con el cliente que repite y con negocios que compran cada semana.</p></div>
+      <div class="card top"><h3>3. INVIMA abre puertas, pero por fases</h3><p>Es el desbloqueo para tiendas, distribuidores y supermercados. Empezamos ya con los pasos de costo bajo (clasificación, BPM, capacitación) y dejamos el gasto grande para cuando la caja lo permita.</p></div>
+      <div class="card top"><h3>4. Comprar un POS probado, no construir uno</h3><p>Un software con facturación electrónica, inventario por recetas y trazabilidad se compra en semanas. La IA va encima: tablero, alertas y pronóstico de producción, conectados a HalconBot.</p></div>
+      <div class="card top"><h3>5. Medir antes de ampliar</h3><p>Primero costeo por receta, capacidad real y tablero. Después, la pasta y otros congelados, probados por preventa antes de producirlos.</p></div>
+      <div class="card top" style="background:var(--dk);border-top-color:#fff"><h3 style="color:#fff">La meta en una línea</h3><p style="color:#ddd">Pasar de <b style="color:#fff">$6M a $17M mensuales</b> en abril de 2027 (base), con utilidad neta de <b style="color:#fff">$1,2M a cerca de $2,9M al mes</b>, y dejar el permiso INVIMA en trámite o aprobado.</p></div>
+    </div>
+    <div class="grid g3 reveal" style="margin-top:2px">
+      <div class="card"><div class="big" style="color:var(--red)">$11,5M<small> /mes</small></div><div class="kpi-l">Escenario conservador en abril (si B2B y recompra van lentos)</div></div>
+      <div class="card"><div class="big" style="color:var(--red)">$17M<small> /mes</small></div><div class="kpi-l">Escenario base en abril (el que proponemos como compromiso)</div></div>
+      <div class="card"><div class="big" style="color:var(--red)">$25M<small> /mes</small></div><div class="kpi-l">Escenario ambicioso (permiso aprobado y 1 a 2 cuentas de retail o distribución)</div></div>
+    </div>
+    <div class="note reveal"><b>Cómo leer este documento.</b> Cada cifra lleva una etiqueta: <span class="badge b-dato">Dato</span> lo que nos contaste o vimos en tus cuentas; <span class="badge b-sup">Supuesto</span> lo que estimamos y hay que validar con tus datos reales; <span class="badge b-fuente">Fuente</span> lo que sale de un enlace público (están al final). Los supuestos no son verdades: son la lista de cosas que debemos medir en el mes 1.</div>
+
+    <div class="partner reveal">
+      <h3>Qué haría yo si fuera tu socio</h3>
+      <p style="color:var(--text-dk2)" class="pl">Siete decisiones directas, en orden de importancia:</p>
+      <ol>
+        <li><b>No comprometer ningún gasto grande antes de costear.</b> Una semana de trabajo con las recetas nos dice dónde se escapa el margen.</li>
+        <li><b>Hacer de B2B el motor.</b> Veinte negocios que compran cada semana valen más que cien clientes que compran una vez.</li>
+        <li><b>Consolidar la pauta en pocas campañas</b> y medir por pedido cerrado, no por clic.</li>
+        <li><b>Empezar INVIMA ya, pero en fases</b>, y reservar un fondo de formalización del 25% del neto cada mes.</li>
+        <li><b>Comprar el POS, conectarlo a HalconBot y poner la IA encima.</b> Construir a medida queda para el año 2.</li>
+        <li><b>Probar los productos nuevos con preventa:</b> si no se venden 20 unidades antes de producir, no se producen.</li>
+        <li><b>Probar precios.</b> Entre una empanada de supermercado ($420 a $851) y la tuya ($3.500 a $5.000) hay mucho espacio premium; subir 5% en dos productos por dos semanas cuesta poco y enseña mucho.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- PUNTO DE PARTIDA -->
+<section id="punto" class="dark diag-top dots-tex">
+  <div class="wrap">
+    <div class="sec-label reveal">Diagnóstico</div>
+    <h2 class="sec-title reveal">Dónde estamos <em>hoy</em>, con números</h2>
+    <p class="sec-lead reveal">Lo que sabemos del negocio, de la pauta de octubre y de HalconBot. Donde faltan datos, lo decimos.</p>
+    <div class="grid g4 reveal">
+      <div class="card top"><div class="big">$6M<small>/mes</small></div><div class="kpi-l">Facturación ≈ $200.000 por día <span class="badge b-dato">Dato</span></div></div>
+      <div class="card top"><div class="big">20%</div><div class="kpi-l">Margen neto ≈ $1,2M al mes <span class="badge b-dato">Dato</span></div></div>
+      <div class="card top"><div class="big">$6.600</div><div class="kpi-l">Costo por contacto en pauta (octubre) <span class="badge b-dato">Dato</span></div></div>
+      <div class="card top"><div class="big">0</div><div class="kpi-l">Pedidos cerrados que hoy registra el panel de HalconBot <span class="badge b-dato">Dato</span></div></div>
+    </div>
+    <div class="grid g2 reveal" style="margin-top:2px">
+      <div class="card"><h3>Lo que ya tiene el negocio</h3>
+        <ul>
+          <li>Producto con enamorados: siete sabores gourmet, tradicionales y lasaña, todo estandarizado.</li>
+          <li>Bandejas congeladas listas para calentar (x4) o para hornear (x5), con etiqueta de marca.</li>
+          <li>Domicilios propios en Cajicá y Chía, sitio web con carta y pedidos, y atención por WhatsApp con la asistente Alma en HalconBot.</li>
+          <li>Línea B2B con lista mayorista y promoción 15 + 1 <span class="badge b-sup">por confirmar vigencia</span>.</li>
+          <li>Pauta activa en Meta con tres campañas y seis anuncios.</li>
+        </ul></div>
+      <div class="card"><h3>Lo que muestran los datos de octubre</h3>
+        <ul>
+          <li>Pauta gastada hasta ahora: cerca de $28.000, frenada por un bloqueo de pago y por revisiones de anuncios. Aún no hay muestra suficiente para juzgar las campañas.</li>
+          <li>Resultados: 2 conversaciones por WhatsApp y 2 inicios de pago en la web, con costo cercano a $6.600 por resultado.</li>
+          <li>HalconBot: 4 contactos reales nuevos el 28 y 29 de octubre y 0 pedidos registrados en el panel.</li>
+          <li>Un contacto llegó desde Bogotá, fuera de zona de entrega: ya se ajustó la segmentación y falta que Alma pregunte barrio y municipio.</li>
+        </ul></div>
+    </div>
+    <div class="note reveal"><b>La cuenta que más importa.</b> $200.000 al día por 30 días son $6M. Con 20% neto quedan $1,2M. Esa es toda la plata libre del negocio: de ahí salen el permiso INVIMA, el software, la pauta y cualquier contratación. Si el neto fuera después de pagar nómina (como nos contaste, “alcanza para nómina”), el margen es todavía más delgado de lo que parece. Por eso este plan pone la rentabilidad antes del volumen. <span class="badge b-sup">Supuesto: 30 días de venta al mes</span></div>
+  </div>
+</section>
+
+<!-- MERCADO -->
+<section id="mercado" class="light grid-tex">
+  <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true" style="left:-90px;right:auto"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="wrap">
+    <div class="sec-label reveal">Mercado y oportunidades</div>
+    <h2 class="sec-title reveal">Un mercado que crece, y un hueco <em>entre el supermercado y el restaurante</em></h2>
+    <p class="sec-lead reveal">No hay cifras públicas confiables del segmento “empanadas y comida lista congelada” en Colombia. Estas son las señales que sí encontramos, con su fuente y sus límites.</p>
+    <div class="grid g4 reveal">
+      <div class="card top"><div class="big" style="color:var(--red)">US$1.620M</div><div class="kpi-l">Mercado colombiano de congelados en 2025, con crecimiento anual cercano a 5% hasta 2035 <span class="badge b-fuente">Fuente</span></div></div>
+      <div class="card top"><div class="big" style="color:var(--red)">$420 a $851</div><div class="kpi-l">Precio por unidad de empanada congelada de supermercado, en una prueba de Semana (sin fecha) <span class="badge b-fuente">Fuente</span></div></div>
+      <div class="card top"><div class="big" style="color:var(--red)">≈122.800</div><div class="kpi-l">Habitantes de Cajicá en 2025 (proyección DANE) y 126.436 en 2026 <span class="badge b-fuente">Fuente</span></div></div>
+      <div class="card top"><div class="big" style="color:var(--red)">≈497.000</div><div class="kpi-l">Personas en los 11 municipios de Sabana Centro (estimación regional, dato antiguo) <span class="badge b-fuente">Fuente</span></div></div>
+    </div>
+    <div class="note reveal"><b>Límites de los datos.</b> Las cifras de mercado vienen de empresas que venden informes de investigación y no coinciden entre sí; úsalas como orden de magnitud, no como meta. La prueba de Semana no trae fecha, y los precios de supermercado de hoy deben revisarse en la góndola. No encontramos datos públicos de ticket promedio ni recompra de comida congelada; los vamos a generar con tu propio POS.</div>
+
+    <h3 class="reveal" style="font-size:28px;font-weight:800;margin:46px 0 16px">Dónde está el dinero: segmentos priorizados</h3>
+    <div class="tbl-wrap reveal"><table class="rt">
+      <thead><tr><th>Segmento</th><th>Qué compran</th><th>Por qué atrae</th><th>Requiere</th><th>Prioridad</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Segmento"><b>Negocios locales (B2B)</b><br>tiendas, cafeterías, panaderías, gimnasios, colegios</td><td data-l="Qué compran">Bandejas x4 y x5, lasaña, por semana</td><td data-l="Por qué atrae">Compra recurrente, pedidos grandes, sin costo de pauta por cliente</td><td data-l="Requiere">Lista mayorista, mínimos, ruta de entrega, cartera controlada</td><td data-l="Prioridad"><b style="color:var(--red)">Alta, mes 2 en adelante</b></td></tr>
+        <tr><td data-l="Segmento"><b>Hogares que repiten (B2C)</b></td><td data-l="Qué compran">“Cena resuelta”: bandejas y lasaña cada 2 a 4 semanas</td><td data-l="Por qué atrae">El producto ya gusta; la recompra se logra con CRM y no con pauta</td><td data-l="Requiere">WhatsApp bien automatizado, plan mensual, reseñas</td><td data-l="Prioridad"><b style="color:var(--red)">Alta, ya</b></td></tr>
+        <tr><td data-l="Segmento"><b>Oficinas y eventos</b></td><td data-l="Qué compran">Bandejas surtidas y empanadas por unidad para reuniones, cierres, regalos corporativos</td><td data-l="Por qué atrae">Ticket alto en pocos pedidos; temporada de diciembre</td><td data-l="Requiere">Propuesta en PDF, factura electrónica, entrega puntual</td><td data-l="Prioridad">Media, diciembre y después</td></tr>
+        <tr><td data-l="Segmento"><b>Supermercados y distribuidores</b></td><td data-l="Qué compran">Bandejas con código de barras</td><td data-l="Por qué atrae">Volumen grande y marca visible</td><td data-l="Requiere">Permiso INVIMA, rotulado, capacidad, capital de trabajo (pagan a plazo y piden descuento) <span class="badge b-sup">Supuesto</span></td><td data-l="Prioridad">Alta pero condicionada: piloto desde el mes 6</td></tr>
+        <tr><td data-l="Segmento"><b>Almuerzos y comida lista para oficinas</b></td><td data-l="Qué compran">Pasta, lasaña individual, platos congelados por porción</td><td data-l="Por qué atrae">Tendencia a comida lista por urbanización y poco tiempo <span class="badge b-fuente">Fuente</span></td><td data-l="Requiere">Producto nuevo, preventa y clasificación sanitaria</td><td data-l="Prioridad">Media, prueba en el mes 4</td></tr>
+      </tbody></table></div>
+
+    <div class="grid g3 reveal" style="margin-top:34px">
+      <div class="card top"><h3>Posicionamiento: no competir por precio</h3><p>Una empanada industrial cuesta una fracción de la tuya. Tu terreno es otro: horneada, baja en grasa, gourmet, hecha en Cajicá y con domicilio propio. La promesa es “cena resuelta”, no “la más barata”.</p></div>
+      <div class="card top"><h3>Señal de que el modelo funciona</h3><p>Todos Comemos, una plataforma de comida lista que llegó a más de 15.000 personas, fue comprada por Foody por $2.000 millones. La comida preparada y recurrente tiene comprador estratégico <span class="badge b-fuente">Fuente</span>.</p></div>
+      <div class="card top"><h3>Ventaja logística local</h3><p>Sabana Centro crece rápido y concentra familias que trabajan en Bogotá y quieren comer bien sin cocinar. Domicilios propios en dos municipios son un activo que los grandes no tienen.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMAS -->
+<section id="problemas" class="dark diag-top">
+  <div class="wrap">
+    <div class="sec-label reveal">Problemas a resolver</div>
+    <h2 class="sec-title reveal">Ocho cuellos de botella, <em>en orden de impacto</em></h2>
+    <p class="sec-lead reveal">Si escalamos sin arreglarlos, vender más no deja más plata: deja más trabajo con el mismo margen.</p>
+    <div class="grid g2 reveal">
+      <div class="card top"><h3>1. Margen sin costeo</h3><p>No hay costo por receta ni margen por producto. Sin esto no sabemos qué empujar, qué subir de precio ni cuánto descuento admite el mayorista.</p></div>
+      <div class="card top"><h3>2. Capacidad desconocida</h3><p>No sabemos cuántas unidades por turno se pueden producir, cuál es el cuello de botella ni cuánta merma hay. Esa cifra define si podemos prometer el doble de pedidos.</p></div>
+      <div class="card top"><h3>3. Formalización sanitaria pendiente</h3><p>Sin permiso INVIMA no se puede vender a tiendas grandes, distribuidores ni supermercados, y es un riesgo si crece la visibilidad. Hay que verificar qué cubre hoy el concepto sanitario del local.</p></div>
+      <div class="card top"><h3>4. Administración manual</h3><p>No hay POS, inventario por receta, cartera de clientes B2B, ni un tablero semanal. Las decisiones se toman con intuición y la nómina presiona la caja.</p></div>
+      <div class="card top"><h3>5. Pauta fragmentada</h3><p>$14.000 diarios repartidos en tres campañas y seis anuncios no dan datos suficientes para aprender. Además, a $26.000 por pedido nuevo la primera compra casi no deja utilidad.</p></div>
+      <div class="card top"><h3>6. HalconBot sin cerrar el ciclo</h3><p>Hay una frase fija que interrumpe pagos por Nequi y Daviplata, no se pregunta el barrio antes de ofrecer domicilio, no existe un flujo B2B y los pedidos no se registran. Hay ventas que se pierden o no se cuentan.</p></div>
+      <div class="card top"><h3>7. Dependencia de personas clave</h3><p>El estándar está en la cabeza del equipo fundador. Para crecer hay que pasarlo a manuales, fichas técnicas y roles claros.</p></div>
+      <div class="card top"><h3>8. Cadena de frío y estacionalidad</h3><p>Congelados exigen nevera, empaque y transporte controlados. Diciembre sube, enero cae: hay que planear producción y caja para ambos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTRATEGIA -->
+<section id="estrategia" class="light2 grid-tex">
+  <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="wrap">
+    <div class="sec-label reveal">Estrategia</div>
+    <h2 class="sec-title reveal">Cuatro fases con <em>puertas de caja</em></h2>
+    <p class="sec-lead reveal">Cada fase se abre solo si la anterior cumplió sus números. Así el crecimiento nunca se paga con la nómina.</p>
+    <div class="phases reveal" style="background:transparent">
+      <div class="phase" style="background:#fff"><div class="ph-n">FASE 0</div><h3 style="color:#111">Medir y ordenar</h3><div class="ph-w" style="color:#666">Semanas 1 a 4 · noviembre</div><p style="color:#444">Costeo por receta, capacidad real, caja semanal, pauta consolidada, HalconBot reparado, consulta formal a INVIMA.</p></div>
+      <div class="phase" style="background:#fff"><div class="ph-n">FASE 1</div><h3 style="color:#111">Orden y temporada</h3><div class="ph-w" style="color:#666">Mes 2 · diciembre</div><p style="color:#444">POS implementado, campaña de temporada con preventa, kit y lista mayorista, adecuaciones planeadas.</p></div>
+      <div class="phase" style="background:#fff"><div class="ph-n">FASE 2</div><h3 style="color:#111">B2B y recompra</h3><div class="ph-w" style="color:#666">Meses 3 y 4 · enero y febrero</div><p style="color:#444">Visitas semanales, Plan Nevera, medio tiempo en producción, laboratorios, solicitud INVIMA radicada, preventa de pasta.</p></div>
+      <div class="phase" style="background:#fff"><div class="ph-n">FASE 3</div><h3 style="color:#111">Escalar y ampliar</h3><div class="ph-w" style="color:#666">Meses 5 y 6 · marzo y abril</div><p style="color:#444">Lanzamiento de pasta, más pauta donde rinde, 20 cuentas B2B, piloto de retail si el permiso sale.</p></div>
+    </div>
+
+    <h3 class="reveal" style="font-size:26px;font-weight:800;margin-bottom:14px;color:#111">Línea de tiempo por frente</h3>
+    <div class="gantt-wrap reveal"><div class="gantt" id="gantt"></div></div>
+    <div class="gantt-leg"><span style="color:#444"><i style="background:var(--red)"></i>Ejecución</span><span style="color:#444"><i style="background:rgba(232,0,10,.35)"></i>Preparación o continuo</span><span style="color:#444"><i style="background:repeating-linear-gradient(45deg,rgba(232,0,10,.55),rgba(232,0,10,.55) 4px,rgba(232,0,10,.25) 4px,rgba(232,0,10,.25) 8px)"></i>Depende de una puerta o de INVIMA</span></div>
+
+    <h3 class="reveal" style="font-size:26px;font-weight:800;margin:46px 0 14px;color:#111">Las cuatro puertas de caja</h3>
+    <div class="tbl-wrap reveal"><table class="rt">
+      <thead><tr><th>Puerta</th><th>Cuándo</th><th>Debe cumplirse</th><th>Qué se libera</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Puerta"><b>Puerta 1</b></td><td data-l="Cuándo">Fin de noviembre</td><td data-l="Debe cumplirse">Costeo terminado, ventas del mes ≥ $6,6M, capacidad medida, caja semanal funcionando</td><td data-l="Qué se libera">Compra del POS y asesor B2B por comisión</td></tr>
+        <tr><td data-l="Puerta"><b>Puerta 2</b></td><td data-l="Cuándo">Fin de enero</td><td data-l="Debe cumplirse">8 cuentas B2B activas, margen bruto ≥ 60%, autodiagnóstico BPM listo</td><td data-l="Qué se libera">Laboratorios, estudio de vida útil, radicación INVIMA</td></tr>
+        <tr><td data-l="Puerta"><b>Puerta 3</b></td><td data-l="Cuándo">Fin de febrero</td><td data-l="Debe cumplirse">Ventas ≥ $11M, capacidad al 85% o más, 12 cuentas B2B</td><td data-l="Qué se libera">Auxiliar de producción y preventa de pasta</td></tr>
+        <tr><td data-l="Puerta"><b>Puerta 4</b></td><td data-l="Cuándo">Fin de marzo</td><td data-l="Debe cumplirse">Ventas ≥ $14M, 16 cuentas B2B, cartera sana, permiso en trámite avanzado</td><td data-l="Qué se libera">Lanzamiento de pasta y propuesta de retail</td></tr>
+      </tbody></table></div>
+  </div>
+</section>
+
+<!-- FRENTES -->
+<section id="frentes" class="light grid-tex" style="padding-top:60px">
+  <div class="wrap">
+    <div class="sec-label reveal">Plan punto a punto</div>
+    <h2 class="sec-title reveal" style="color:#111">Diez frentes de trabajo, <em>cada uno con pasos concretos</em></h2>
+    <p class="sec-lead reveal">Abre cada frente para ver los pasos, el responsable, la meta y el costo estimado. “Responsable” propuesto: <b>Socio</b> (dueño del negocio), <b>Producción</b>, <b>Comercial</b> (asesor B2B) y <b>We Rock</b>.</p>
+
+    <!-- 1 Finanzas -->
+    <details class="fr reveal" open>
+      <summary><span class="fr-n">01</span><span><div class="fr-t">Finanzas y costeo</div><div class="fr-s">Saber cuánto cuesta y cuánto deja cada producto</div></span><span class="fr-plus"></span></summary>
+      <div class="fr-body">
+        <div class="meta-row"><span class="chip">Responsable <b>Socio + We Rock</b></span><span class="chip">Plazo <b>semanas 1 a 4</b></span><span class="chip">Costo <b>$0 (tiempo del equipo)</b></span></div>
+        <h4>Pasos</h4>
+        <ol class="steps">
+          <li>Hacer la ficha de costo de cada receta: insumos por unidad, empaque, etiqueta, gas o energía, mano de obra por unidad.<small>Entregable: hoja con costo y margen por producto.</small></li>
+          <li>Fijar el costo de ventas objetivo por línea (meta inicial 38% a 40%) y el margen mínimo por canal.<small>Regla propuesta: ningún precio mayorista con contribución menor a 40%.</small></li>
+          <li>Separar cuentas: una cuenta del negocio, otra de nómina y un fondo de formalización (25% del neto mensual).<small>Evita que el permiso INVIMA se pague con la caja de nómina.</small></li>
+          <li>Cerrar caja cada lunes: ventas, gastos, cartera, saldo y proyección de 4 semanas.</li>
+          <li>Probar precios: +5% en dos productos durante dos semanas y mirar si baja el volumen.</li>
+          <li>Definir el punto de equilibrio mensual y revisarlo cada mes.<small>Con costos fijos de $2,35M (incluida pauta) y 52% de contribución, el equilibrio es unos $4,5M; con la estructura del mes 6 es unos $11,9M.</small></li>
+        </ol>
+        <h4>Meta del frente</h4><p>Costeo del 100% del catálogo en la semana 3 y tablero de caja semanal activo desde la semana 4.</p>
+      </div>
+    </details>
+
+    <!-- 2 Operación -->
+    <details class="fr reveal">
+      <summary><span class="fr-n">02</span><span><div class="fr-t">Operación, capacidad y cadena de frío</div><div class="fr-s">Poder producir el doble sin perder el estándar</div></span><span class="fr-plus"></span></summary>
+      <div class="fr-body">
+        <div class="meta-row"><span class="chip">Responsable <b>Producción</b></span><span class="chip">Plazo <b>meses 1 a 4</b></span><span class="chip">Costo <b>por cotizar (equipos)</b></span></div>
+        <h4>Pasos</h4>
+        <ol class="steps">
+          <li>Medir durante dos semanas: unidades por hora y por turno, cuello de botella, merma y tiempo de horno.</li>
+          <li>Pasar el estándar a manuales: fichas técnicas por receta, procedimientos de producción, empaque y despacho.<small>Es la base para INVIMA y para delegar.</small></li>
+          <li>Programar producción por lotes con la demanda de la semana (preventa y pedidos B2B), para bajar merma e inventario.</li>
+          <li>Control de frío: termómetros con registro, rotación primero en entrar primero en salir, cajas térmicas y rutas de entrega agrupadas.</li>
+          <li>Definir etiqueta con lote y fecha de producción en todas las bandejas (trazabilidad).</li>
+          <li>Decidir equipos solo cuando la capacidad pase de 85%: segundo horno, congelador de ráfaga o cuarto frío.<small>No comprar antes: el equipo se paga con ventas, no al revés.</small></li>
+        </ol>
+        <h4>Meta del frente</h4><p>Capacidad medida en la semana 2, merma menor a 3% y despacho agrupado por rutas desde el mes 2.</p>
+      </div>
+    </details>
+
+    <!-- 3 INVIMA -->
+    <details class="fr reveal">
+      <summary><span class="fr-n">03</span><span><div class="fr-t">INVIMA y formalización sanitaria</div><div class="fr-s">El permiso que abre tiendas, distribuidores y supermercados</div></span><span class="fr-plus"></span></summary>
+      <div class="fr-body">
+        <div class="meta-row"><span class="chip">Responsable <b>Socio + asesor sanitario</b></span><span class="chip">Plazo <b>meses 1 a 6</b></span><span class="chip">Reserva de planeación <b>$8M a $12M</b></span></div>
+        <p style="margin-top:12px"><b>Lo que dice la norma:</b> la Resolución 2674 de 2013 exige que todo alimento que se venda al consumidor tenga registro, permiso o notificación sanitaria, según su riesgo. La Resolución 719 de 2015 clasifica los alimentos por riesgo. En su anexo, las <b>empanadas</b> aparecen en el grupo de platos preparados (15.1.2) con <b>riesgo medio</b>, lo que apunta a un <b>permiso sanitario</b>. La <b>lasaña y la pasta rellena</b> no tienen ítem propio y su clasificación depende de la composición (por ejemplo, el contenido de carne), así que se consulta a INVIMA antes de invertir. <span class="badge b-fuente">Fuente</span></p>
+        <div class="note" style="margin:14px 0"><b>Importante.</b> La clasificación sale de un resumen del anexo y debe confirmarse en el texto oficial. Según una guía consultada, riesgo alto exige registro (vigencia de 5 años), riesgo medio permiso (7 años) y riesgo bajo notificación. No encontramos tarifas ni plazos oficiales: la reserva de $8M a $12M es una estimación de planeación (adecuaciones, laboratorios, estudio de vida útil, asesoría, etiquetas y tasa) que debe cotizarse. <span class="badge b-sup">Supuesto</span></div>
+        <h4>Pasos</h4>
+        <ol class="steps">
+          <li>Consulta formal a INVIMA o a un asesor sanitario: clasificación de cada producto actual (empanadas, lasaña) y futuro (pasta), y trámite que corresponde.<small>Costo bajo. Se hace en el mes 1.</small></li>
+          <li>Verificar qué cubre hoy el concepto sanitario del local y la situación de Cámara de Comercio, RUT y uso de suelo para fabricación de alimentos.</li>
+          <li>Autodiagnóstico de Buenas Prácticas de Manufactura (BPM) contra la Resolución 2674: infraestructura, flujo de producción, filtro sanitario, agua, residuos, control de plagas, limpieza y desinfección.</li>
+          <li>Plan de saneamiento básico escrito y capacitación documentada en manipulación de alimentos para todo el equipo.</li>
+          <li>Adecuaciones priorizadas por costo e impacto, con dos cotizaciones cada una.<small>Se ejecutan después de la Puerta 2.</small></li>
+          <li>Análisis microbiológicos de producto terminado en laboratorio acreditado y estudio de vida útil congelado.</li>
+          <li>Rotulado: etiqueta con ingredientes, alérgenos, lote, vencimiento, registro y, si aplica, etiquetado nutricional y frontal (Resolución 810 de 2021). Confirmar aplicabilidad con el asesor.<span class="badge b-fuente">Fuente</span></li>
+          <li>Radicar la solicitud en INVIMA (mes 4) y responder requerimientos; auditoría interna previa a la visita (mes 5).</li>
+          <li>Mientras tanto: vender a consumidores y negocios locales dentro de lo que cubre el concepto sanitario actual, y no abrir retail ni distribución hasta tener el permiso.</li>
+        </ol>
+        <h4>Meta del frente</h4><p>Clasificación confirmada en el mes 1, solicitud radicada en el mes 4 y permiso aprobado o en última etapa en el mes 6 (la fecha final depende de INVIMA).</p>
+      </div>
+    </details>
+
+    <!-- 4 POS -->
+    <details class="fr reveal">
+      <summary><span class="fr-n">04</span><span><div class="fr-t">Software POS y administrativo con IA</div><div class="fr-s">Contratarlo: comprar un POS probado y poner la IA encima</div></span><span class="fr-plus"></span></summary>
+      <div class="fr-body">
+        <div class="meta-row"><span class="chip">Responsable <b>Socio + We Rock</b></span><span class="chip">Plazo <b>decidir en noviembre, operar en diciembre</b></span><span class="chip">Costo <b>$100.000 a $250.000 al mes + implementación</b></span></div>
+        <p style="margin-top:12px"><b>Recomendación:</b> comprar un software con POS, facturación electrónica e inventario por recetas (listo en semanas) y construir encima una capa de IA y automatización (tablero, alertas, pronóstico, conexión con HalconBot). Construir un sistema a medida desde cero cuesta más y tarda más; se evalúa en el año 2 si el negocio lo pide.</p>
+        <h4>Lo que debe hacer (lista de requisitos para pedir demos)</h4>
+        <ul class="steps" style="list-style:none">
+          <li>Venta de mostrador y domicilio con caja, pagos Nequi, Daviplata, Bre-B, tarjeta y efectivo conciliados.</li>
+          <li>Facturación electrónica ante la DIAN integrada al punto de venta.</li>
+          <li>Inventario de insumos con recetas: cada venta descuenta insumos y calcula el costo real.</li>
+          <li>Producción por lotes con fecha de vencimiento (trazabilidad para INVIMA).</li>
+          <li>Lista de precios por cliente y cuentas por cobrar para B2B.</li>
+          <li>Pedidos de la web y de WhatsApp entrando solos al sistema (conexión con HalconBot por API).</li>
+          <li>Tablero con ventas, margen por producto, merma, recompra y caja, sin armar hojas de cálculo.</li>
+        </ul>
+        <h4>Opciones de compra (precios publicados por terceros, confirmar en cada sitio)</h4>
+        <div class="tbl-wrap"><table class="rt">
+          <thead><tr><th>Opción</th><th>Qué ofrece</th><th class="n">Precio de referencia</th><th>Cuidado</th></tr></thead>
+          <tbody>
+            <tr><td data-l="Opción"><b>Alegra</b> (plan Pyme)</td><td data-l="Qué ofrece">Contabilidad, facturación y POS en la misma cuenta</td><td class="n" data-l="Precio">≈ $163.900 al mes</td><td data-l="Cuidado">Verificar inventario por recetas y producción</td></tr>
+            <tr><td data-l="Opción"><b>Siigo</b> (Nube y POS)</td><td data-l="Qué ofrece">Contabilidad fuerte; POS para restaurantes y tiendas</td><td class="n" data-l="Precio">Nube desde ≈ $191.327 al mes, sin POS</td><td data-l="Cuidado">El POS se contrata aparte</td></tr>
+            <tr><td data-l="Opción"><b>Loggro</b> (línea restaurantes)</td><td data-l="Qué ofrece">Facturación, ventas e inventario para gastronomía</td><td class="n" data-l="Precio">≈ $98.990 (con límites) a $253.990</td><td data-l="Cuidado">Planes con límites de uso</td></tr>
+          </tbody></table></div>
+        <p style="font-size:13px;color:#666">Los precios salen de comparativas de los propios proveedores y de blogs, sin fecha verificada; sirven para dimensionar. No pudimos confirmar el precio de Treinta ni del POS de Siigo. <span class="badge b-fuente">Fuente</span></p>
+        <h4>Pasos</h4>
+        <ol class="steps">
+          <li>Semana 2: pedir demo a tres proveedores con la lista de requisitos de arriba y un caso real (una receta y un pedido B2B).</li>
+          <li>Semana 3: comparar con una matriz (precio, inventario por recetas, facturación, soporte, integración por API) y decidir.</li>
+          <li>Diciembre: migrar catálogo, recetas, precios y clientes; capacitar al equipo; correr en paralelo una semana.</li>
+          <li>Enero: conectar pedidos de la web y HalconBot; activar tablero y alertas.</li>
+          <li>Capa de IA (We Rock puede cotizarla aparte): resumen diario en WhatsApp para el socio (“ayer vendiste X, margen Y, stock bajo en Z”), pronóstico de producción semanal y alertas de merma o cartera vencida.</li>
+        </ol>
+        <p style="font-size:13px;color:#666">Transparencia: We Rock puede cotizar la capa de integración y el tablero, pero la recomendación de comprar el POS base es independiente de ello. Conviene comparar al menos otra cotización.</p>
+      </div>
+    </details>
+
+    <!-- 5 Marketing B2C -->
+    <details class="fr reveal">
+      <summary><span class="fr-n">05</span><span><div class="fr-t">Marketing y ventas a hogares (B2C)</div><div class="fr-s">Menos clics, más pedidos y más recompra</div></span><span class="fr-plus"></span></summary>
+      <div class="fr-body">
+        <div class="meta-row"><span class="chip">Responsable <b>We Rock + Socio</b></span><span class="chip">Pauta <b>$430.000 a $1M al mes</b></span><span class="chip">Meta <b>8,5M al mes en abril</b></span></div>
+        <p style="margin-top:12px"><b>La cuenta:</b> con un costo de $6.600 por contacto y un cierre de 25% <span class="badge b-sup">Supuesto</span>, un pedido nuevo cuesta unos $26.000. Con ticket de $38.000 y 56% de contribución <span class="badge b-sup">Supuesto</span> deja cerca de $21.000. Es decir: la primera compra casi no paga la pauta; el negocio se hace en la <b>segunda y tercera compra</b>. Por eso la prioridad no es más pauta sino más recompra.</p>
+        <h4>Pasos</h4>
+        <ol class="steps">
+          <li>Consolidar la pauta: una campaña a WhatsApp para hogares y una campaña B2B, con presupuesto suficiente para aprender (propuesta: $6.000 y $8.000 diarios); pausar la campaña a la web hasta tener tráfico propio.<small>Pendiente de tu aprobación.</small></li>
+          <li>Medir por pedido cerrado, no por clic: cada pedido se marca con su origen en el POS y en HalconBot.</li>
+          <li>Recompra: mensaje automático a los 15, 25 y 35 días (“¿se acabó la nevera?”), lista de difusión semanal con el menú de la semana y un código de referido ($3.000 de descuento para quien invita y quien llega).</li>
+          <li>Plan Nevera: suscripción mensual (por ejemplo 2 bandejas y 1 lasaña con 8% a 10% de descuento y domicilio incluido); piloto con 30 hogares en enero.</li>
+          <li>Local: ficha de Google Business Profile completa con fotos y reseñas, alianzas con administradores de conjuntos residenciales y oficinas de Cajicá y Chía, y puestos de degustación los fines de semana.</li>
+          <li>Conectar Instagram al WhatsApp Business y publicar la parrilla de contenido (producto real, proceso, “cena resuelta”).</li>
+          <li>Temporada: preventa de cenas de 24 y 31 de diciembre con cupos limitados y bandejas de regalo corporativo.</li>
+          <li>Revisión cada 15 días: pausar lo que no baje del costo por pedido objetivo y duplicar lo que sí.</li>
+        </ol>
+        <h4>Meta del frente</h4><p>Costo por pedido nuevo menor a $22.000 en el mes 3, recompra a 30 días de 35% o más y 40 hogares en Plan Nevera en el mes 6. <span class="badge b-sup">Supuesto</span></p>
+      </div>
+    </details>
+
+    <!-- 6 B2B -->
+    <details class="fr reveal">
+      <summary><span class="fr-n">06</span><span><div class="fr-t">Ventas a negocios (B2B)</div><div class="fr-s">El motor de crecimiento: 20 cuentas recurrentes</div></span><span class="fr-plus"></span></summary>
+      <div class="fr-body">
+        <div class="meta-row"><span class="chip">Responsable <b>Comercial + Socio</b></span><span class="chip">Costo <b>base $600.000 + 5% de ventas B2B</b></span><span class="chip">Meta <b>20 cuentas × $350.000 = $7M al mes</b></span></div>
+        <p style="margin-top:12px">Con 20 negocios que compran en promedio $350.000 al mes <span class="badge b-sup">Supuesto</span> se llega a $7M mensuales sin gastar un peso en pauta por cliente. Con una tasa de cierre de 15% <span class="badge b-sup">Supuesto</span>, se necesitan unas 130 conversaciones o visitas en cinco meses, es decir unas 6 por semana.</p>
+        <h4>Pasos</h4>
+        <ol class="steps">
+          <li>Definir el cliente ideal: tiendas de barrio y minimercados, panaderías y cafeterías, gimnasios, colegios y jardines, tiendas de conjuntos residenciales, oficinas y hoteles pequeños de Cajicá, Chía y Zipaquirá.</li>
+          <li>Armar el kit B2B: lista mayorista en PDF, condiciones (mínimo de pedido, días de entrega, pago), promoción 15 + 1, ficha del producto, bandeja de muestra y tarjeta con WhatsApp.</li>
+          <li>Fijar reglas de crédito: primer pedido anticipado; luego máximo 8 días; bloqueo automático si hay cartera vencida.</li>
+          <li>Contratar un asesor comercial por comisión (Puerta 1) con meta de 6 visitas semanales y seguimiento por WhatsApp.</li>
+          <li>Cuenta ancla: conseguir 3 negocios “vitrina” (cafetería, gimnasio, tienda) y pedirles permiso para usarlos como referencia.</li>
+          <li>Ruta de entrega semanal agrupada por zona para que el costo logístico sea bajo.</li>
+          <li>Medir semanalmente: contactos, visitas, muestras, cuentas nuevas, ventas por cuenta y churn.</li>
+        </ol>
+        <h4>Retail y distribución (condicionado a INVIMA)</h4>
+        <p>Desde el mes 6, si el permiso está aprobado: piloto con 1 o 2 puntos de venta o un distribuidor. Los grandes compradores suelen pedir descuento y pagar a plazo <span class="badge b-sup">Supuesto</span>, así que solo se entra con capital de trabajo y con margen calculado en el costeo.</p>
+      </div>
+    </details>
+
+    <!-- 7 HalconBot -->
+    <details class="fr reveal">
+      <summary><span class="fr-n">07</span><span><div class="fr-t">Optimizar HalconBot</div><div class="fr-s">Que la asistente cierre ventas y registre todo</div></span><span class="fr-plus"></span></summary>
+      <div class="fr-body">
+        <div class="meta-row"><span class="chip">Responsable <b>We Rock</b></span><span class="chip">Plazo <b>noviembre y diciembre</b></span><span class="chip">Meta <b>≥ 90% de pruebas aprobadas</b></span></div>
+        <h4>Pasos</h4>
+        <ol class="steps">
+          <li>Reparar la frase fija (“Para cotizar bien…”) que aparece cuando el cliente responde “Nequi” o “Daviplata” después de un pedido.</li>
+          <li>Agregar la pregunta de barrio y municipio antes de ofrecer domicilio; fuera de Cajicá y Chía, ofrecer recoger en el local o entrega programada.</li>
+          <li>Crear el flujo B2B: detectar “soy tienda, cafetería, gimnasio…”, enviar lista mayorista, explicar mínimos, 15 + 1 y pagos, y agendar visita; etiqueta “B2B” y aviso inmediato al asesor.</li>
+          <li>Cerrar el pedido con resumen (productos, dirección, método de pago, hora) y registrarlo en el panel de Pedidos y, luego, en el POS.</li>
+          <li>Seguimiento automático: recordatorio de pago, “¿cómo te fue?” a las 48 horas y recompra a los 15, 25 y 35 días.</li>
+          <li>Captura de datos para el CRM: nombre, dirección, tipo de negocio o de hogar, cumpleaños opcional.</li>
+          <li>Escalar a un humano cuando haya queja, evento grande o petición fuera de lo normal.</li>
+          <li>Batería de pruebas: unas 60 conversaciones por escenario (hogar con domicilio, pedido desde la web, B2B, fuera de zona, quejas, pago, cambio de pedido) con criterios de aprobación; borrar el cliente de prueba entre una y otra.</li>
+          <li>Reporte semanal: conversaciones, contactos calificados, pedidos, ingresos por fuente (Meta, orgánico, referidos).</li>
+        </ol>
+      </div>
+    </details>
+
+    <!-- 8 Portafolio -->
+    <details class="fr reveal">
+      <summary><span class="fr-n">08</span><span><div class="fr-t">Portafolio: pasta y otros congelados</div><div class="fr-s">Ampliar con el mismo modelo, probando por preventa</div></span><span class="fr-plus"></span></summary>
+      <div class="fr-body">
+        <div class="meta-row"><span class="chip">Responsable <b>Producción + Socio</b></span><span class="chip">Plazo <b>pruebas en meses 3 y 4, lanzamiento en mes 5</b></span><span class="chip">Regla <b>20 unidades en preventa o no se produce</b></span></div>
+        <p style="margin-top:12px"><b>Criterios para elegir qué producto agregar:</b> usa equipos e insumos que ya hay, deja al menos 55% de margen bruto, aguanta 60 días o más congelado, los clientes ya lo piden y su clasificación sanitaria es conocida. Calificación de 1 a 5 según nuestro criterio (hipótesis por validar con tus clientes):</p>
+        <div class="tbl-wrap"><table class="rt">
+          <thead><tr><th>Candidato</th><th class="n">Sinergia con rellenos</th><th class="n">Margen esperado</th><th class="n">Demanda B2B</th><th class="n">Complejidad sanitaria</th><th>Decisión</th></tr></thead>
+          <tbody>
+            <tr><td data-l="Candidato"><b>Canelones y ravioles rellenos</b> (res y pollo)</td><td class="n" data-l="Sinergia">5</td><td class="n" data-l="Margen">4</td><td class="n" data-l="Demanda B2B">4</td><td class="n" data-l="Complejidad">3</td><td data-l="Decisión"><b style="color:var(--red)">Primero</b></td></tr>
+            <tr><td data-l="Candidato"><b>Salsas congeladas</b> (boloñesa, blanca)</td><td class="n" data-l="Sinergia">4</td><td class="n" data-l="Margen">5</td><td class="n" data-l="Demanda B2B">4</td><td class="n" data-l="Complejidad">3</td><td data-l="Decisión">Segundo, acompaña la pasta</td></tr>
+            <tr><td data-l="Candidato"><b>Lasaña individual</b> (porción para oficina)</td><td class="n" data-l="Sinergia">5</td><td class="n" data-l="Margen">4</td><td class="n" data-l="Demanda B2B">5</td><td class="n" data-l="Complejidad">2</td><td data-l="Decisión"><b style="color:var(--red)">Primero</b></td></tr>
+            <tr><td data-l="Candidato"><b>Pasteles de pollo, arepas rellenas, croquetas</b></td><td class="n" data-l="Sinergia">4</td><td class="n" data-l="Margen">4</td><td class="n" data-l="Demanda B2B">3</td><td class="n" data-l="Complejidad">3</td><td data-l="Decisión">Tercero, según preventa</td></tr>
+            <tr><td data-l="Candidato"><b>Platos listos por porción</b> (arroz con pollo, pasta boloñesa)</td><td class="n" data-l="Sinergia">2</td><td class="n" data-l="Margen">3</td><td class="n" data-l="Demanda B2B">4</td><td class="n" data-l="Complejidad">2</td><td data-l="Decisión">Después de tener POS y permiso</td></tr>
+          </tbody></table></div>
+        <h4>Pasos</h4>
+        <ol class="steps">
+          <li>Mes 3: recetar y costear (costo, rendimiento, vida útil) dos candidatos; degustación con 10 clientes y 3 negocios aliados.</li>
+          <li>Mes 4: preventa por WhatsApp con foto, precio y fecha de entrega; si se venden 20 o más unidades por sabor, se produce.</li>
+          <li>Consultar a INVIMA la clasificación sanitaria antes de producir en volumen y reflejarla en el rotulado.</li>
+          <li>Mes 5: lanzamiento con etiqueta propia, anuncio en HalconBot y oferta a la base de clientes B2B.</li>
+          <li>Mes 6: revisar ventas y margen; matar lo que no pase 15% de la mezcla de ventas o 55% de margen bruto.</li>
+        </ol>
+      </div>
+    </details>
+
+    <!-- 9 Organización -->
+    <details class="fr reveal">
+      <summary><span class="fr-n">09</span><span><div class="fr-t">Equipo y organización</div><div class="fr-s">Roles claros y nómina que crece con las ventas</div></span><span class="fr-plus"></span></summary>
+      <div class="fr-body">
+        <div class="meta-row"><span class="chip">Responsable <b>Socio</b></span><span class="chip">Costo <b>sube solo cuando se abre una puerta</b></span></div>
+        <h4>Roles propuestos</h4>
+        <div class="tbl-wrap"><table class="rt">
+          <thead><tr><th>Rol</th><th>Qué hace</th><th>Cuándo entra</th><th class="n">Costo mensual</th></tr></thead>
+          <tbody>
+            <tr><td data-l="Rol"><b>Socio / dirección</b></td><td data-l="Qué hace">Estrategia, compras, cuentas ancla B2B, finanzas</td><td data-l="Cuándo">Ya</td><td class="n" data-l="Costo">Ya incluido</td></tr>
+            <tr><td data-l="Rol"><b>Jefe de producción</b></td><td data-l="Qué hace">Calidad, capacidad, BPM, mermas, programación</td><td data-l="Cuándo">Ya (rol de alguien del equipo)</td><td class="n" data-l="Costo">Ya incluido</td></tr>
+            <tr><td data-l="Rol"><b>Asesor comercial B2B</b></td><td data-l="Qué hace">6 visitas semanales, seguimiento, cartera</td><td data-l="Cuándo">Puerta 1 (diciembre)</td><td class="n" data-l="Costo">$600.000 + 5% de ventas B2B <span class="badge b-sup">Supuesto</span></td></tr>
+            <tr><td data-l="Rol"><b>Auxiliar de producción</b></td><td data-l="Qué hace">Producción y empaque en picos</td><td data-l="Cuándo">Puerta 3 (medio tiempo); tiempo completo con ventas ≥ $14M</td><td class="n" data-l="Costo">≈ $1,4M a $2,6M <span class="badge b-sup">Supuesto</span></td></tr>
+            <tr><td data-l="Rol"><b>Administrativo(a) medio tiempo</b></td><td data-l="Qué hace">POS, facturación, cartera, caja semanal</td><td data-l="Cuándo">Solo si el POS no libera tiempo</td><td class="n" data-l="Costo">por definir</td></tr>
+          </tbody></table></div>
+        <h4>Pasos</h4>
+        <ol class="steps">
+          <li>Escribir las funciones y metas de cada persona en una hoja (qué debe pasar cada semana).</li>
+          <li>Bono por equipo: pequeño porcentaje de la utilidad cuando se cumplan meta de ventas, merma menor a 3% y cero reclamos.</li>
+          <li>Reunión semanal de 30 minutos con el tablero (lunes) y cierre mensual con números.</li>
+        </ol>
+      </div>
+    </details>
+
+    <!-- 10 Tablero -->
+    <details class="fr reveal">
+      <summary><span class="fr-n">10</span><span><div class="fr-t">Tablero de control (los números de cada semana)</div><div class="fr-s">Lo que se mide, se mejora</div></span><span class="fr-plus"></span></summary>
+      <div class="fr-body">
+        <div class="meta-row"><span class="chip">Responsable <b>We Rock</b></span><span class="chip">Frecuencia <b>semanal, lunes</b></span></div>
+        <div class="tbl-wrap"><table class="rt">
+          <thead><tr><th>Área</th><th>Indicador</th><th class="n">Meta</th></tr></thead>
+          <tbody>
+            <tr><td data-l="Área"><b>Ventas</b></td><td data-l="Indicador">Venta diaria promedio, ticket promedio, pedidos por día</td><td class="n" data-l="Meta">$570.000 diarios en abril</td></tr>
+            <tr><td data-l="Área"><b>Margen</b></td><td data-l="Indicador">Costo de ventas por línea, margen bruto, utilidad neta</td><td class="n" data-l="Meta">Costo de ventas ≤ 38%</td></tr>
+            <tr><td data-l="Área"><b>Operación</b></td><td data-l="Indicador">Unidades por turno, merma, uso de capacidad, entregas a tiempo</td><td class="n" data-l="Meta">Merma ≤ 3%</td></tr>
+            <tr><td data-l="Área"><b>B2B</b></td><td data-l="Indicador">Cuentas activas, ventas por cuenta, cartera vencida</td><td class="n" data-l="Meta">20 cuentas, cartera ≤ 8 días</td></tr>
+            <tr><td data-l="Área"><b>Marketing</b></td><td data-l="Indicador">Costo por contacto, costo por pedido, recompra a 30 días, referidos</td><td class="n" data-l="Meta">Costo por pedido ≤ $22.000</td></tr>
+            <tr><td data-l="Área"><b>HalconBot</b></td><td data-l="Indicador">Conversaciones, contactos calificados, pedidos cerrados, pruebas aprobadas</td><td class="n" data-l="Meta">Conversión a pedido ≥ 25%</td></tr>
+            <tr><td data-l="Área"><b>Formalización</b></td><td data-l="Indicador">Avance de INVIMA: autodiagnóstico, adecuaciones, laboratorios, radicado</td><td class="n" data-l="Meta">Radicado en el mes 4</td></tr>
+            <tr><td data-l="Área"><b>Caja</b></td><td data-l="Indicador">Saldo, proyección a 4 semanas, fondo de formalización</td><td class="n" data-l="Meta">Fondo = 25% del neto</td></tr>
+          </tbody></table></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- FINANZAS -->
+<section id="finanzas" class="dark diag-top dots-tex">
+  <div class="wrap">
+    <div class="sec-label reveal">Finanzas</div>
+    <h2 class="sec-title reveal">Proyección a seis meses con <em>tres escenarios</em></h2>
+    <p class="sec-lead reveal">Un modelo simple y transparente: ventas, costo de ventas, costos fijos y utilidad. Cambia el escenario y los supuestos para ver qué pasa. Es una herramienta de decisión, no una promesa.</p>
+    <div class="tabs reveal" id="stabs">
+      <button class="tab" data-s="conservador">Conservador</button>
+      <button class="tab on" data-s="base">Base (propuesto)</button>
+      <button class="tab" data-s="ambicioso">Ambicioso</button>
+    </div>
+    <div class="model reveal">
+      <div class="chart">
+        <div class="bars" id="bars"></div>
+        <div class="bnames" id="bnames"></div>
+        <div class="legend"><span><i style="background:var(--red)"></i>Ventas del mes</span><span><i style="background:#fff"></i>Utilidad neta del mes</span></div>
+      </div>
+      <div class="ctrl">
+        <h3>Ajusta los supuestos</h3>
+        <label>Costo de ventas inicial <output id="o-cogs">42%</output></label><input type="range" id="i-cogs" min="34" max="50" step="1" value="42">
+        <label>Costos fijos actuales (millones al mes) <output id="o-fix">1,92</output></label><input type="range" id="i-fix" min="1.2" max="3" step="0.02" value="1.92">
+        <label>Otros costos variables (empaque, domicilio, pagos) <output id="o-oth">6%</output></label><input type="range" id="i-oth" min="3" max="12" step="1" value="6">
+        <div class="res"><b id="r-net">$0</b><span id="r-net-l">Utilidad neta acumulada a seis meses</span></div>
+        <div class="res" style="border:0;padding-top:6px"><b id="r-be">$0</b><span>Punto de equilibrio del último mes</span></div>
+      </div>
+    </div>
+    <div class="tbl-wrap reveal"><table id="mtab" class="rt"></table></div>
+    <div class="note reveal"><b>Qué dice el modelo (base).</b> Las ventas pasan de $6M a $17M, y la utilidad neta mensual de $1,2M a unos $2,9M, pero el margen en pesos no sube en línea recta: en febrero y marzo cae a 9% o 10% porque se suman pauta, asesor comercial, medio tiempo de producción y software antes de que lleguen todas las ventas. Es el “valle de inversión” y por eso existen las puertas de caja. Con un costo de ventas de 38%, el margen neto vuelve a 17% en abril y sigue subiendo si se mantiene la disciplina.</div>
+
+    <h3 class="reveal" style="font-size:28px;font-weight:800;margin:40px 0 6px">De dónde salen las ventas del mes 6 (base)</h3>
+    <div class="grid g4 reveal">
+      <div class="card top"><div class="big">$8,5M</div><div class="kpi-l">Hogares: pedidos únicos y Plan Nevera (≈ 224 pedidos al mes con ticket de $38.000, de los cuales 40 hogares en plan) <span class="badge b-sup">Supuesto</span></div></div>
+      <div class="card top"><div class="big">$7,0M</div><div class="kpi-l">Negocios B2B: 20 cuentas × $350.000 <span class="badge b-sup">Supuesto</span></div></div>
+      <div class="card top"><div class="big">$1,5M</div><div class="kpi-l">Eventos, oficinas y regalos corporativos <span class="badge b-sup">Supuesto</span></div></div>
+      <div class="card top" style="background:var(--red)"><div class="big">$17M</div><div class="kpi-l" style="color:#fff">Total del mes 6 (≈ $570.000 por día)</div></div>
+    </div>
+
+    <h3 class="reveal" style="font-size:28px;font-weight:800;margin:40px 0 6px">Inversión y presupuesto estimado</h3>
+    <div class="tbl-wrap reveal"><table class="rt">
+      <thead><tr><th>Concepto</th><th class="n">Monto estimado</th><th>Cuándo</th><th>Estado de la cifra</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Concepto"><b>INVIMA y formalización</b> (adecuaciones, laboratorios, vida útil, asesor, etiquetas, tasa)</td><td class="n" data-l="Monto">$8M a $12M, una vez</td><td data-l="Cuándo">Meses 1 a 5, por hitos</td><td data-l="Estado"><span class="badge b-sup">Por cotizar</span></td></tr>
+        <tr><td data-l="Concepto"><b>Software POS y administrativo</b></td><td class="n" data-l="Monto">$100.000 a $250.000 al mes + implementación $0,5M a $1,5M</td><td data-l="Cuándo">Desde diciembre</td><td data-l="Estado"><span class="badge b-fuente">Fuente</span> <span class="badge b-sup">Por cotizar</span></td></tr>
+        <tr><td data-l="Concepto"><b>Pauta digital (Meta)</b></td><td class="n" data-l="Monto">$430.000 a $1M al mes</td><td data-l="Cuándo">Sube con resultados</td><td data-l="Estado"><span class="badge b-dato">Dato actual</span></td></tr>
+        <tr><td data-l="Concepto"><b>Asesor comercial B2B</b></td><td class="n" data-l="Monto">$600.000 + 5% de ventas B2B</td><td data-l="Cuándo">Desde diciembre o enero</td><td data-l="Estado"><span class="badge b-sup">Supuesto</span></td></tr>
+        <tr><td data-l="Concepto"><b>Auxiliar de producción</b></td><td class="n" data-l="Monto">$1,4M (medio tiempo) a $2,6M (tiempo completo)</td><td data-l="Cuándo">Febrero a marzo</td><td data-l="Estado"><span class="badge b-sup">Supuesto</span></td></tr>
+        <tr><td data-l="Concepto"><b>Muestras, kit B2B y degustaciones</b></td><td class="n" data-l="Monto">≈ $300.000 al mes</td><td data-l="Cuándo">Desde diciembre</td><td data-l="Estado"><span class="badge b-sup">Supuesto</span></td></tr>
+        <tr class="sum"><td data-l="Concepto">Dinero libre acumulado en 6 meses (escenario base)</td><td class="n" data-l="Monto" id="cum-lbl">≈ $8,9M</td><td data-l="Cuándo">Noviembre a abril</td><td data-l="Estado">Calculado arriba</td></tr>
+      </tbody></table></div>
+    <div class="note reveal"><b>El hueco de caja, dicho con claridad.</b> En el escenario base el negocio genera cerca de $8,9M de utilidad en seis meses y la formalización cuesta entre $8M y $12M. Si el dueño no inyecta capital, el permiso solo se paga completo hacia el mes 5 o 6, y el resto del plan casi no tiene margen de error. Opciones: un aporte de socios de $4M a $6M al inicio, pago a plazo con proveedores de adecuaciones, o una línea de crédito pequeña. Lo que no recomendamos es pagar INVIMA con la caja de nómina.</div>
+
+    <div class="grid g3 reveal" style="margin-top:34px">
+      <div class="card top"><h3>Si ventas van por debajo del plan</h3><p>No se abre la siguiente puerta. Se congela contratación y software de pago hasta recuperar la meta, y se mantiene solo lo que ya paga su propio costo.</p></div>
+      <div class="card top"><h3>Si el costo de ventas no baja de 42%</h3><p>Se revisa receta, proveedores, merma y precios antes de crecer. Cada punto de costo de ventas vale unos $170.000 al mes cuando se venden $17M.</p></div>
+      <div class="card top"><h3>Si B2B arranca más rápido</h3><p>Se adelanta la contratación del auxiliar de producción y la compra de un segundo horno, financiados con los pedidos ya firmados.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MES A MES -->
+<section id="meses" class="light2 grid-tex">
+  <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true" style="left:-90px;right:auto"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="wrap">
+    <div class="sec-label reveal">Hoja de ruta</div>
+    <h2 class="sec-title reveal" style="color:#111">Qué hacemos <em>mes a mes</em></h2>
+    <p class="sec-lead reveal">Lista de tareas por mes. Cada una está detallada en los frentes de arriba.</p>
+    <div class="tabs reveal" id="mtabs">
+      <button class="tab on" data-m="0">Mes 1 · Nov</button><button class="tab" data-m="1">Mes 2 · Dic</button><button class="tab" data-m="2">Mes 3 · Ene</button><button class="tab" data-m="3">Mes 4 · Feb</button><button class="tab" data-m="4">Mes 5 · Mar</button><button class="tab" data-m="5">Mes 6 · Abr</button>
+    </div>
+    <div id="mpanels" class="reveal"></div>
+  </div>
+</section>
+
+<!-- RIESGOS -->
+<section id="riesgos" class="dark diag-top">
+  <div class="wrap">
+    <div class="sec-label reveal">Riesgos</div>
+    <h2 class="sec-title reveal">Lo que puede salir mal y <em>cómo lo manejamos</em></h2>
+    <div class="grid g3 reveal" style="margin-top:34px">
+      <div class="card top risk-card"><h3>El permiso tarda más o cuesta más</h3><b class="lbl">Qué pasa</b><p>INVIMA pide ajustes o los plazos se extienden; se frena el retail.</p><b class="lbl">Cómo lo manejamos</b><p>Consulta formal en el mes 1, adecuaciones por prioridad, fondo de formalización y B2B local como motor mientras tanto.</p></div>
+      <div class="card top risk-card"><h3>Crecer más rápido que la capacidad</h3><b class="lbl">Qué pasa</b><p>Se prometen pedidos que no se pueden hacer con calidad.</p><b class="lbl">Cómo lo manejamos</b><p>Medir capacidad en el mes 1, programar por lotes, mínimos de pedido y contratar por puertas.</p></div>
+      <div class="card top risk-card"><h3>Cartera B2B vencida</h3><b class="lbl">Qué pasa</b><p>Se vende mucho y se cobra tarde; la caja se seca.</p><b class="lbl">Cómo lo manejamos</b><p>Primer pedido anticipado, máximo 8 días, bloqueo automático y seguimiento semanal desde el POS.</p></div>
+      <div class="card top risk-card"><h3>Pauta que no convierte</h3><b class="lbl">Qué pasa</b><p>El costo por pedido supera la utilidad de la primera compra.</p><b class="lbl">Cómo lo manejamos</b><p>Presupuesto concentrado, revisión cada 15 días, más recompra y referidos, y B2B como canal principal.</p></div>
+      <div class="card top risk-card"><h3>Costos de insumos suben</h3><b class="lbl">Qué pasa</b><p>La inflación de insumos reduce el margen; hacer empanadas llegó a ser 25% más caro en un año en 2022 <span class="badge b-fuente">Fuente</span>.</p><b class="lbl">Cómo lo manejamos</b><p>Costeo vivo en el POS, dos proveedores por insumo clave, revisión de precios cada trimestre.</p></div>
+      <div class="card top risk-card"><h3>Pérdida de calidad al crecer</h3><b class="lbl">Qué pasa</b><p>El estándar depende de pocas personas.</p><b class="lbl">Cómo lo manejamos</b><p>Fichas técnicas, controles por lote, degustación semanal y bono ligado a calidad y reclamos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROXIMOS PASOS -->
+<section id="proximos" class="light grid-tex">
+  <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="wrap">
+    <div class="sec-label reveal">Próximos pasos</div>
+    <h2 class="sec-title reveal" style="color:#111">Lo que necesitamos de ti <em>esta semana</em></h2>
+    <p class="sec-lead reveal">Para dejar de usar supuestos y cerrar el plan con números reales.</p>
+    <div class="grid g2 reveal">
+      <div class="card top"><h3>Datos que necesitamos</h3>
+        <ul>
+          <li>Ventas de los últimos 3 meses por producto y por canal (mostrador, domicilio, web, B2B).</li>
+          <li>Costo de insumos por receta y precios actuales de proveedores.</li>
+          <li>Nómina, arriendo, servicios y otros fijos del mes.</li>
+          <li>Unidades que se pueden producir por turno hoy, y horas trabajadas.</li>
+          <li>Lista mayorista vigente, mínimos, y si la promo 15 + 1 sigue activa.</li>
+          <li>Documentos sanitarios actuales: concepto sanitario, Cámara de Comercio, RUT.</li>
+        </ul></div>
+      <div class="card top"><h3>Decisiones que necesitamos</h3>
+        <ul>
+          <li>¿Apruebas consolidar la pauta (pausar la campaña web y dejar WhatsApp B2C y B2B)?</li>
+          <li>¿Quitamos la tarjeta de lasaña de los anuncios para hogares y dejamos solo bandejas?</li>
+          <li>¿Hay capital disponible para el fondo de formalización, y cuánto?</li>
+          <li>¿Quién asume los roles de jefe de producción y de seguimiento semanal?</li>
+          <li>¿Autorizas contactar a INVIMA o a un asesor sanitario para la consulta formal?</li>
+          <li>¿Quién prueba pasta y otros productos con clientes (degustación)?</li>
+        </ul></div>
+    </div>
+    <div class="note reveal"><b>Siguiente reunión propuesta:</b> sesión de 90 minutos para cerrar costeo, capacidad y la decisión del POS, con la primera revisión del tablero. A partir de ahí, reunión corta cada lunes con los mismos números.</div>
+  </div>
+</section>
+
+<!-- FUENTES -->
+<section id="fuentes" class="dark2" style="padding:80px 0">
+  <div class="wrap">
+    <div class="sec-label reveal">Fuentes y notas de verificación</div>
+    <h2 class="sec-title reveal" style="font-size:clamp(28px,3.4vw,44px)">De dónde sale cada dato externo</h2>
+    <ul class="src reveal" style="list-style:none;margin-top:22px">
+      <li><b>Resolución 2674 de 2013</b> (INVIMA): <a href="https://www.invima.gov.co/biblioteca/resolucion-2674-2013-reglamentacion-articulo-126-decreto-ley-019-2012" target="_blank" rel="noopener">invima.gov.co, reglamentación del artículo 126 del Decreto Ley 019 de 2012</a></li>
+      <li><b>Resolución 719 de 2015</b> (clasificación de alimentos por riesgo): <a href="https://normograma.invima.gov.co/normograma/compilacion/docs/resolucion_minsaludps_0719_2015.htm" target="_blank" rel="noopener">normograma INVIMA</a>. Lectura del anexo hecha por extracción automática; confirmar en el Diario Oficial 49.452.</li>
+      <li><b>Trámites y tipos de autorización</b>: <a href="https://www.invima.gov.co/biblioteca/pasos-obtener-registro-sanitario-alimentos-invima" target="_blank" rel="noopener">guía de pasos de INVIMA para registro, permiso y notificación</a></li>
+      <li><b>Etiquetado Resolución 810 de 2021</b>: <a href="https://leap.unep.org/en/countries/co/national-legislation/resolucion-810-de-2021-establece-los-requisitos-de-etiquetado" target="_blank" rel="noopener">ficha UNEP LEAP</a>; aplicación desde 2023 según <a href="https://blog.bancolombia.com/negocios/whatsapp-business-api/" target="_blank" rel="noopener">Bancolombia</a>.</li>
+      <li><b>Mercado de congelados en Colombia</b> (US$1.620M, ≈5% anual): <a href="https://www.informesdeexpertos.com/informes/mercado-de-alimentos-congelados-en-colombia" target="_blank" rel="noopener">Informes de Expertos</a>. Cifra de una firma que vende informes; solo orden de magnitud.</li>
+      <li><b>Precios de empanadas congeladas de supermercado</b>: <a href="https://www.semana.com/restaurantes-con-empanadas/31537/" target="_blank" rel="noopener">Semana, prueba de empanadas</a> (sin fecha visible).</li>
+      <li><b>Población de Cajicá</b>: <a href="https://telencuestas.com/censos-de-poblacion/colombia/2025/cundinamarca/cajica" target="_blank" rel="noopener">Telencuestas, proyecciones DANE</a>.</li>
+      <li><b>Software contable y POS</b>: <a href="https://blog.alegra.com/colombia/alegra-vs-loggro-colombia/" target="_blank" rel="noopener">Alegra vs Loggro</a>, <a href="https://www.siigo.com/blog/tecnologia-innovacion/software-para-restaurantes/" target="_blank" rel="noopener">Siigo, software para restaurantes</a>. Precios de terceros, sin fecha verificada.</li>
+      <li><b>Caso Todos Comemos y Foody</b>: <a href="https://www.portafolio.co/negocios/emprendimiento/app-todos-comemos-compro-foody-por-2-000-millones-de-pesos-555017" target="_blank" rel="noopener">Portafolio</a>.</li>
+      <li><b>Costo de hacer empanadas</b> (alza de 25% en 2022): <a href="https://www.bloomberglinea.com/2022/05/25/hacer-empanadas-en-colombia-es-25-mas-caro-ahora-que-hace-un-ano/" target="_blank" rel="noopener">Bloomberg Línea</a>.</li>
+    </ul>
+    <div class="note reveal" style="margin-top:28px"><b>Supuestos propios del modelo (revisar con datos reales):</b> 30 días de venta al mes; costo de ventas inicial de 42%, bajando a 38% con costeo y compras; otros costos variables de 6%; costos fijos actuales de $1,92M (derivados de que el 20% neto con $6M equivale a $1,2M); ticket de $38.000 en hogares; 25% de cierre en WhatsApp; 20 cuentas B2B con $350.000 mensuales; sueldos y comisiones de la tabla de equipo; reserva de INVIMA de $8M a $12M. Ninguna cifra de este documento es una garantía de resultado.</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Siete números y una reunión<br>nos separan del plan final.</h2>
+    <p>Envíanos las ventas, el costo de insumos y los documentos sanitarios, y en 48 horas devolvemos este mismo plan con cifras reales.</p>
+    <a class="btn" href="https://wa.me/573125766056?text=Hola%20David%2C%20revis%C3%A9%20el%20plan%20de%20Yo%20Amo%20la%20Empanada%20y%20quiero%20avanzar" target="_blank" rel="noopener">Escribir a David por WhatsApp</a>
+  </div>
+</section>
+<footer><div class="wrap"><b>We Rock</b> · Firma de crecimiento estratégico · Bogotá, Colombia<br>+57 312 576 6056 · davidh@werock.space · werock.space<br><span style="opacity:.7">Documento confidencial de trabajo entre socios. No compartir fuera del equipo.</span></div></footer>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  const fmtM=v=>'$'+(Math.round(v*100)/100).toString().replace('.',',')+'M';
+  const fmt=v=>'$'+Math.round(v*1e6).toLocaleString('es-CO').replace(/,/g,'.');
+
+  /* progreso y nav */
+  const prog=$('#prog');
+  addEventListener('scroll',()=>{const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+  const links=$$('#navlinks a'), secs=links.map(a=>$(a.getAttribute('href')));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id));const a=$('#navlinks a.on');if(a)a.scrollIntoView({inline:'center',block:'nearest'})}}),{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(s=>s&&io.observe(s));
+  const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target)}}),{threshold:.08});
+  $$('.reveal').forEach(el=>rv.observe(el));
+
+  /* gantt */
+  const names=['Nov','Dic','Ene','Feb','Mar','Abr'];
+  const rows=[
+    ['Finanzas y costeo',[[0,1,'Costeo y caja',0],[2,5,'Cierre y ajuste de precios',1]]],
+    ['Operación y capacidad',[[0,1,'Medir y manuales',0],[2,3,'Ajuste y equipos',1],[4,5,'Producción por lotes',1]]],
+    ['INVIMA y formalización',[[0,0,'Consulta',0],[1,2,'BPM y laboratorios',0],[3,4,'Radicar y trámite',0],[5,5,'Aprobación',2]]],
+    ['POS y administrativo con IA',[[0,0,'Elegir',0],[1,1,'Instalar',0],[2,5,'Tablero e IA',1]]],
+    ['Marketing a hogares',[[0,0,'Consolidar',0],[1,1,'Temporada',0],[2,5,'Recompra y Plan Nevera',0]]],
+    ['Ventas B2B',[[1,1,'Kit',1],[2,5,'Visitas semanales y 20 cuentas',0]]],
+    ['HalconBot',[[0,1,'Reparar y flujos',0],[2,5,'Seguimiento y reportes',1]]],
+    ['Pasta y nuevos productos',[[2,2,'Pruebas',1],[3,3,'Preventa',0],[4,5,'Lanzamiento',2]]],
+    ['Equipo',[[1,1,'Asesor',2],[3,3,'Auxiliar',2]]],
+    ['Retail y distribución',[[5,5,'Piloto',2]]]
+  ];
+  const g=$('#gantt');let h='<div class="h" style="text-align:left">Frente</div>'+names.map((n,i)=>`<div class="h">${n}</div>`).join('');
+  rows.forEach(r=>{h+=`<div class="r" style="color:#111;background:#fff">${r[0]}</div>`;
+    for(let m=0;m<6;m++){const b=r[1].find(x=>m>=x[0]&&m<=x[1]);let inner='';
+      if(b&&m===b[0]){const cls=b[3]===1?'soft':b[3]===2?'cond':'';inner=`<div class="bar ${cls}" style="right:calc(${-(b[1]-b[0])*100}% - ${(b[1]-b[0])*2}px + 3px);z-index:2">${b[2]}</div>`}
+      h+=`<div class="c" style="background:#fff;overflow:visible">${inner}</div>`}});
+  g.innerHTML=h;
+
+  /* modelo financiero */
+  const SC={
+    conservador:{rev:[6.4,8.0,7.4,8.8,10.2,11.5],d:[0,-.01,-.02,-.02,-.03,-.03]},
+    base:{rev:[6.6,9.0,8.5,11.0,14.0,17.0],d:[0,-.01,-.02,-.03,-.04,-.04]},
+    ambicioso:{rev:[6.8,9.5,9.5,13.0,18.0,25.0],d:[0,-.01,-.03,-.04,-.05,-.06]}
+  };
+  const ads=[.43,.6,.6,.8,.9,1.0], pos=[0,.2,.2,.2,.2,.2], b2b=[.10,.12,.18,.28,.36,.41];
+  let cur='base';
+  function run(){
+    const c0=+$('#i-cogs').value/100, fix=+$('#i-fix').value, oth=+$('#i-oth').value/100, s=SC[cur];
+    $('#o-cogs').textContent=(c0*100)+'%';$('#o-fix').textContent=fix.toFixed(2).replace('.',',');$('#o-oth').textContent=(oth*100)+'%';
+    let cum=0,out=[];
+    s.rev.forEach((r,i)=>{
+      const cogs=c0+s.d[i];
+      const hire=r>=14?2.6:(r>=9.5?1.4:0), sel=r>=8?0.6+0.05*r*b2b[i]:0;
+      const fixed=fix+ads[i]+pos[i]+hire+sel;
+      const net=r-r*(cogs+oth)-fixed;cum+=net;
+      out.push({m:names[i],r,cogs,fixed,net,pct:net/r,cum,be:fixed/(1-cogs-oth)});
+    });
+    const max=Math.max(...out.map(o=>o.r),1);
+    $('#bars').innerHTML=out.map(o=>`<div class="bcol"><div class="bar-r" style="height:${o.r/max*100}%"><b>${fmtM(o.r)}</b><div class="bar-n" style="height:${Math.max(0,o.net)/o.r*100}%"></div></div></div>`).join('');
+    $('#bnames').innerHTML=out.map(o=>`<div>${o.m}</div>`).join('');
+    $('#r-net').textContent=fmtM(cum);
+    $('#r-be').textContent=fmtM(out[5].be);
+    $('#mtab').innerHTML='<thead><tr><th>Mes</th><th class="n">Ventas</th><th class="n">Costo de ventas</th><th class="n">Costos fijos</th><th class="n">Utilidad neta</th><th class="n">Margen neto</th><th class="n">Acumulado</th></tr></thead><tbody>'+
+      out.map(o=>`<tr><td data-l="Mes"><b>${o.m}</b></td><td class="n" data-l="Ventas">${fmtM(o.r)}</td><td class="n" data-l="Costo de ventas">${Math.round(o.cogs*100)}%</td><td class="n" data-l="Costos fijos">${fmtM(o.fixed)}</td><td class="n" data-l="Utilidad neta" style="${o.net<0?'color:#ff6b6b':''}">${fmtM(o.net)}</td><td class="n" data-l="Margen neto">${Math.round(o.pct*100)}%</td><td class="n" data-l="Acumulado">${fmtM(o.cum)}</td></tr>`).join('')+
+      `<tr class="sum"><td data-l="Mes">Total 6 meses</td><td class="n" data-l="Ventas">${fmtM(s.rev.reduce((a,b)=>a+b))}</td><td class="n" data-l="Costo de ventas">·</td><td class="n" data-l="Costos fijos">·</td><td class="n" data-l="Utilidad neta">${fmtM(cum)}</td><td class="n" data-l="Margen neto">${Math.round(cum/s.rev.reduce((a,b)=>a+b)*100)}%</td><td class="n" data-l="Acumulado">${fmtM(cum)}</td></tr></tbody>`;
+    if(cur==='base'){const l=$('#cum-lbl');if(l)l.textContent='≈ '+fmtM(cum)}
+  }
+  $$('#stabs .tab').forEach(t=>t.addEventListener('click',()=>{$$('#stabs .tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');cur=t.dataset.s;run()}));
+  ['i-cogs','i-fix','i-oth'].forEach(id=>$('#'+id).addEventListener('input',run));
+  run();
+
+  /* meses */
+  const M=[
+    {t:'Mes 1 · Noviembre 2026',g:'Medir y ordenar',i:['Costear cada receta y fijar costo de ventas objetivo.','Medir capacidad: unidades por turno, cuello de botella y merma.','Abrir caja semanal y separar el fondo de formalización (25% del neto).','Consolidar la pauta y fijar meta de costo por contacto.','Reparar HalconBot: frase fija, zona de entrega y registro de pedidos.','Consulta formal a INVIMA y autodiagnóstico BPM con asesor sanitario.','Pedir tres demos de POS y decidir antes del día 25.'],gate:'Puerta 1: costeo hecho, ventas ≥ $6,6M, capacidad medida y caja semanal funcionando.'},
+    {t:'Mes 2 · Diciembre 2026',g:'Temporada y orden',i:['Implementar el POS: catálogo, recetas, precios y clientes.','Campaña de temporada con preventa de cenas del 24 y 31 y regalos corporativos.','Armar el kit B2B: lista mayorista, mínimos, muestra y condiciones de pago.','HalconBot: flujo B2B, difusión por segmentos y seguimiento de pago.','Contratar asesor comercial por comisión.','Plan de adecuaciones según autodiagnóstico con dos cotizaciones por ítem.','Cerrar el año con inventario y caja contados.'],gate:'Meta del mes: ventas de $9M y 3 cuentas B2B abiertas.'},
+    {t:'Mes 3 · Enero 2027',g:'B2B arranca',i:['Seis visitas por semana con kit de muestra y registro en el sistema.','Cierre de diciembre: margen por producto y ajuste de precios.','Laboratorios microbiológicos y estudio de vida útil.','Piloto Plan Nevera con 30 hogares.','Prueba de precios en dos productos.','Primera revisión de pauta: pausar lo que no baje del costo objetivo.','Recetar y costear dos candidatos de pasta o lasaña individual.'],gate:'Puerta 2: 8 cuentas B2B, margen bruto ≥ 60% y autodiagnóstico BPM listo.'},
+    {t:'Mes 4 · Febrero 2027',g:'Capacidad y portafolio',i:['Medio tiempo de producción si la capacidad pasa de 85%.','Preventa de pasta rellena y lasaña individual (meta 20 unidades por sabor).','Radicar la solicitud ante INVIMA.','12 cuentas B2B activas con cartera máxima de 8 días.','Manual de procesos y fichas técnicas completos.','Conectar pedidos de la web y HalconBot al POS.'],gate:'Puerta 3: ventas ≥ $11M, capacidad al 85% o más y 12 cuentas B2B.'},
+    {t:'Mes 5 · Marzo 2027',g:'Escalar lo que funciona',i:['Lanzar pasta si la preventa lo aprueba, con etiqueta propia.','Duplicar pauta donde el costo por pedido está bajo el objetivo.','16 cuentas B2B; programa de referidos entre negocios.','Auditoría interna BPM y simulacro de inspección.','Preparar propuesta de retail: lista, empaque, código de barras y condiciones.','Revisar financiamiento del tramo final de INVIMA.'],gate:'Puerta 4: ventas ≥ $14M, 16 cuentas B2B y permiso en trámite avanzado.'},
+    {t:'Mes 6 · Abril 2027',g:'Decidir el siguiente salto',i:['Aprobación del permiso (estimada; depende de INVIMA).','Piloto con 1 o 2 puntos de venta o un distribuidor si el permiso está aprobado.','20 cuentas B2B y 40 hogares en Plan Nevera.','Balance de seis meses: ventas, margen, caja y lecciones.','Plan del segundo semestre: segundo punto de producción, equipos o nuevo canal.','Decisión de inversión en cuarto frío o segundo horno.'],gate:'Meta del mes: ventas de $17M (≈ $570.000 diarios) y utilidad neta cercana a $2,9M.'}
+  ];
+  $('#mpanels').innerHTML=M.map((m,i)=>`<div class="mpanel${i?'':' on'}" data-i="${i}"><h3>${m.t}</h3><div class="mgoal">${m.g}</div><ul>${m.i.map(x=>`<li>${x}</li>`).join('')}</ul><div class="gate"><b>PUERTA / META:</b> ${m.gate}</div></div>`).join('');
+  $$('#mtabs .tab').forEach(t=>t.addEventListener('click',()=>{$$('#mtabs .tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');$$('.mpanel').forEach(p=>p.classList.toggle('on',p.dataset.i===t.dataset.m))}));
+})();
+</script>
+</body>
+</html>
