@@ -266,7 +266,7 @@ footer b{color:#fff}
 <nav id="nav"><div class="wrap">
   <div class="nav-brand">Yo <i>♥</i> La Empanada · Plan 2026/27</div>
   <div class="nav-links" id="navlinks">
-    <a href="#resumen">Resumen</a><a href="#punto">Punto de partida</a><a href="#mercado">Mercado</a><a href="#problemas">Problemas</a><a href="#estrategia">Estrategia</a><a href="#frentes">Plan punto a punto</a><a href="#finanzas">Finanzas</a><a href="#meses">Mes a mes</a><a href="#riesgos">Riesgos</a><a href="#proximos">Próximos pasos</a><a href="#fuentes">Fuentes</a>
+    <a href="#resumen">Resumen</a><a href="#punto">Punto de partida</a><a href="#mercado">Mercado</a><a href="#problemas">Problemas</a><a href="#estrategia">Estrategia</a><a href="#frentes">Plan punto a punto</a><a href="#arranque">Arranque</a><a href="#finanzas">Finanzas</a><a href="#meses">Mes a mes</a><a href="#riesgos">Riesgos</a><a href="#proximos">Próximos pasos</a><a href="#fuentes">Fuentes</a>
   </div>
 </div></nav>
 
@@ -469,14 +469,14 @@ footer b{color:#fff}
         <div class="meta-row"><span class="chip">Responsable <b>Socio + We Rock</b></span><span class="chip">Plazo <b>semanas 1 a 4</b></span><span class="chip">Costo <b>$0 (tiempo del equipo)</b></span></div>
         <h4>Pasos</h4>
         <ol class="steps">
-          <li>Hacer la ficha de costo de cada receta: insumos por unidad, empaque, etiqueta, gas o energía, mano de obra por unidad.<small>Entregable: hoja con costo y margen por producto.</small></li>
+          <li>Construir la base maestra de recetas y costos de las 11 referencias: materias primas, subrecetas, fichas de producto, costos de producción y empaque, mano de obra por unidad.<small>Entregable: Excel maestro con fórmulas visibles. Ya está hecho el maestro de materias primas; el calendario está en la sección Arranque.</small></li>
           <li>Fijar el costo de ventas objetivo por línea (meta inicial 38% a 40%) y el margen mínimo por canal.<small>Regla propuesta: ningún precio mayorista con contribución menor a 40%.</small></li>
           <li>Separar cuentas: una cuenta del negocio, otra de nómina y un fondo de formalización (25% del neto mensual).<small>Evita que el permiso INVIMA se pague con la caja de nómina.</small></li>
           <li>Cerrar caja cada lunes: ventas, gastos, cartera, saldo y proyección de 4 semanas.</li>
           <li>Probar precios: +5% en dos productos durante dos semanas y mirar si baja el volumen.</li>
           <li>Definir el punto de equilibrio mensual y revisarlo cada mes.<small>Con costos fijos de $2,35M (incluida pauta) y 52% de contribución, el equilibrio es unos $4,5M; con la estructura del mes 6 es unos $11,9M.</small></li>
         </ol>
-        <h4>Meta del frente</h4><p>Costeo del 100% del catálogo en la semana 3 y tablero de caja semanal activo desde la semana 4.</p>
+        <h4>Meta del frente</h4><p>Costeo del 100% del catálogo aprobado en la semana 4 de noviembre y tablero de caja semanal activo desde la semana 4.</p>
       </div>
     </details>
 
@@ -548,6 +548,7 @@ footer b{color:#fff}
         <p style="font-size:13px;color:#666">Los precios salen de comparativas de los propios proveedores y de blogs, sin fecha verificada; sirven para dimensionar. No pudimos confirmar el precio de Treinta ni del POS de Siigo. <span class="badge b-fuente">Fuente</span></p>
         <h4>Pasos</h4>
         <ol class="steps">
+          <li>El POS se alimenta de la base maestra: solo se cargan recetas aprobadas. La materia prima se descuenta al registrar la producción, no al vender el producto terminado, para no descontar dos veces.</li>
           <li>Semana 2: pedir demo a tres proveedores con la lista de requisitos de arriba y un caso real (una receta y un pedido B2B).</li>
           <li>Semana 3: comparar con una matriz (precio, inventario por recetas, facturación, soporte, integración por API) y decidir.</li>
           <li>Diciembre: migrar catálogo, recetas, precios y clientes; capacitar al equipo; correr en paralelo una semana.</li>
@@ -692,6 +693,77 @@ footer b{color:#fff}
   </div>
 </section>
 
+<!-- ARRANQUE -->
+<section id="arranque" class="light2 grid-tex">
+  <div class="wrap">
+    <div class="sec-label reveal">Arranque · actualizado el 2 de noviembre de 2026</div>
+    <h2 class="sec-title reveal" style="color:#111">Qué empezamos <em>esta semana</em> y cómo sigue el resto</h2>
+    <p class="sec-lead reveal">Todo el plan depende de una base: saber exactamente cuánto cuesta cada producto. Por eso la primera tarea es la <b>base maestra de recetas y costos</b>, que también alimenta el POS. Abajo está lo que ya se hizo, lo que sigue y quién lo hace.</p>
+
+    <h3 class="reveal" style="font-size:26px;font-weight:800;margin:30px 0 14px;color:#111">1. Base maestra de recetas y costos</h3>
+    <p class="reveal" style="color:#333;max-width:820px">Se construye en nueve documentos, una referencia a la vez y sin avanzar a la siguiente hasta que la ficha anterior esté aprobada. Regla de oro: no se inventa ningún gramaje, precio ni rendimiento; lo que falta queda marcado como pendiente.</p>
+    <div class="tbl-wrap reveal"><table class="rt">
+      <thead><tr><th>Documento</th><th>Qué contiene</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Documento"><b>A</b> Materias primas</td><td data-l="Qué contiene">32 materias primas con precio, fecha, rendimiento, merma y costo por gramo</td><td data-l="Estado"><span class="badge b-dato" style="margin-left:0">Hecho, para revisar</span></td></tr>
+        <tr><td data-l="Documento"><b>B</b> Subrecetas</td><td data-l="Qué contiene">Salsa criolla (dos versiones), dulce de piña, guayena y base de champiñón, cada una con su costo por gramo</td><td data-l="Estado"><span class="badge b-sup" style="margin-left:0">Sigue</span></td></tr>
+        <tr><td data-l="Documento"><b>C</b> Once fichas de producto</td><td data-l="Qué contiene">GO-01 a GO-07, TR-01, TR-02, LA-01 y LA-02, con fórmula, rendimiento y costo; se aprueban una por una</td><td data-l="Estado"><span class="badge b-sup" style="margin-left:0">Sigue</span></td></tr>
+        <tr><td data-l="Documento"><b>D</b> Costos de producción y empaque</td><td data-l="Qué contiene">Masa, horneado, congelación, bandeja, etiqueta y mano de obra por unidad</td><td data-l="Estado"><span class="badge b-sup" style="margin-left:0">Sigue</span></td></tr>
+        <tr><td data-l="Documento"><b>E</b> Costo por unidad, bandeja y lasaña</td><td data-l="Qué contiene">Matriz por presentación: horneada, precocida congelada, bandejas y lasaña lista para calentar</td><td data-l="Estado"><span class="badge b-sup" style="margin-left:0">Sigue</span></td></tr>
+        <tr><td data-l="Documento"><b>F y G</b> Base de datos y reglas del POS</td><td data-l="Qué contiene">Tablas, relaciones y reglas de inventario: la materia prima se descuenta al producir, no al vender</td><td data-l="Estado"><span class="badge b-sup" style="margin-left:0">Sigue</span></td></tr>
+        <tr><td data-l="Documento"><b>H</b> Inconsistencias y decisiones</td><td data-l="Qué contiene">Lista viva de datos faltantes y decisiones que requieren aprobación</td><td data-l="Estado"><span class="badge b-dato" style="margin-left:0">En marcha</span></td></tr>
+        <tr><td data-l="Documento"><b>I</b> Excel maestro</td><td data-l="Qué contiene">Libro único con fórmulas editables, historial de precios y controles de validación</td><td data-l="Estado"><span class="badge b-dato" style="margin-left:0">En marcha</span></td></tr>
+      </tbody></table></div>
+
+    <div class="grid g2 reveal" style="margin-top:24px">
+      <div class="card top"><h3>Primeros resultados</h3>
+        <ul>
+          <li>De las 32 materias primas, <b>7</b> tienen rendimiento registrado, <b>23</b> se costean sobre el peso bruto hasta confirmar su merma y <b>2</b> están pendientes (azúcar blanca; tomillo y laurel).</li>
+          <li>Decisión tomada: la libra del queso doble crema se calcula con 453,59 g (el costo más alto), lo que agrega unos $215 por lasaña frente a una libra de 500 g.</li>
+          <li>Costo provisional de una lasaña con los datos actuales: <b>≈ $10.093 la de res y ≈ $9.293 la de pechuga</b> <span class="badge b-sup">Provisional</span>. Aún no es costo final: el empaque es provisional y falta confirmar la salsa criolla y los rellenos contra sus recetas.</li>
+        </ul></div>
+      <div class="card top"><h3>Lo que hoy bloquea un cálculo</h3>
+        <ul>
+          <li>Tomate: el peso aprovechable registrado supera el peso comprado.</li>
+          <li>Azúcar blanca sin precio; tomillo y laurel sin presentación ni cantidad.</li>
+          <li>Dulce de piña y base de champiñón sin fórmula completa.</li>
+          <li>Salsa criolla: los ingredientes suman 3.390 g y el rendimiento registrado es 3.100 g caliente y 3.000 g frío.</li>
+          <li>Servicios y aseo ($70): falta saber a qué se aplican.</li>
+        </ul></div>
+    </div>
+
+    <h3 class="reveal" style="font-size:26px;font-weight:800;margin:40px 0 14px;color:#111">2. Tareas de noviembre, semana por semana</h3>
+    <p class="reveal" style="color:#333;max-width:820px">Calendario propuesto para llegar a la <b>Puerta 1</b> (fin de noviembre) con el costeo terminado. Las fechas se ajustan según la rapidez con que lleguen los datos.</p>
+    <div class="tbl-wrap reveal"><table class="rt">
+      <thead><tr><th>Semana</th><th>Tarea</th><th>Responsable</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Semana"><b>1 · 2 al 8 nov</b></td><td data-l="Tarea">Revisar el Documento A y resolver los pendientes (tomate, tomillo y laurel, azúcar blanca, vinagre de ml a g)</td><td data-l="Responsable">Socio</td><td data-l="Estado"><span class="badge b-sup" style="margin-left:0">Esperando</span></td></tr>
+        <tr><td data-l="Semana"><b>1</b></td><td data-l="Tarea">Entregar las fórmulas que faltan: dulce de piña, base de champiñón, relleno de res y de pechuga, salsa criolla de olla</td><td data-l="Responsable">Socio + Producción</td><td data-l="Estado"><span class="badge b-sup" style="margin-left:0">Esperando</span></td></tr>
+        <tr><td data-l="Semana"><b>1</b></td><td data-l="Tarea">Decidir la pauta: pausar la campaña web y dejar WhatsApp para hogares y negocios; quitar la tarjeta de lasaña de los anuncios para hogares</td><td data-l="Responsable">Socio</td><td data-l="Estado"><span class="badge b-sup" style="margin-left:0">Esperando</span></td></tr>
+        <tr><td data-l="Semana"><b>1</b></td><td data-l="Tarea">Enviar ventas de los últimos tres meses por producto y canal, nómina y costos fijos</td><td data-l="Responsable">Socio</td><td data-l="Estado"><span class="badge b-sup" style="margin-left:0">Esperando</span></td></tr>
+        <tr><td data-l="Semana"><b>1</b></td><td data-l="Tarea">Abrir la caja semanal del lunes y separar el fondo de formalización (25% del neto)</td><td data-l="Responsable">Socio</td><td data-l="Estado"><span class="badge b-fuente" style="margin-left:0">Pronto</span></td></tr>
+        <tr><td data-l="Semana"><b>1 y 2</b></td><td data-l="Tarea">Documento B: subrecetas costeadas, con las dos versiones de la salsa criolla sin mezclar</td><td data-l="Responsable">We Rock</td><td data-l="Estado"><span class="badge b-fuente" style="margin-left:0">Siguiente</span></td></tr>
+        <tr><td data-l="Semana"><b>2 · 9 al 15 nov</b></td><td data-l="Tarea">Fichas GO-01, GO-02 y GO-03, aprobadas una por una</td><td data-l="Responsable">We Rock + Socio</td><td data-l="Estado"><span class="badge b-fuente" style="margin-left:0">Siguiente</span></td></tr>
+        <tr><td data-l="Semana"><b>2 y 3</b></td><td data-l="Tarea">Medir capacidad y merma durante dos semanas: unidades por hora, peso real horneado y congelado, tiempos por etapa</td><td data-l="Responsable">Producción</td><td data-l="Estado"><span class="badge b-fuente" style="margin-left:0">Pronto</span></td></tr>
+        <tr><td data-l="Semana"><b>2</b></td><td data-l="Tarea">Pedir tres demos de POS con la lista de requisitos y la base maestra como anexo</td><td data-l="Responsable">Socio + We Rock</td><td data-l="Estado"><span class="badge b-fuente" style="margin-left:0">Pronto</span></td></tr>
+        <tr><td data-l="Semana"><b>2</b></td><td data-l="Tarea">Consulta formal a INVIMA o a un asesor sanitario y revisión de los documentos sanitarios actuales</td><td data-l="Responsable">Socio</td><td data-l="Estado"><span class="badge b-fuente" style="margin-left:0">Pronto</span></td></tr>
+        <tr><td data-l="Semana"><b>2 y 3</b></td><td data-l="Tarea">Reparar y probar la asistente de WhatsApp contra los objetivos de cada campaña (hogares, pedido desde la web, negocios)</td><td data-l="Responsable">We Rock</td><td data-l="Estado"><span class="badge b-fuente" style="margin-left:0">Pronto</span></td></tr>
+        <tr><td data-l="Semana"><b>3 · 16 al 22 nov</b></td><td data-l="Tarea">Fichas GO-04 a GO-07, TR-01 y TR-02; Documentos D y E</td><td data-l="Responsable">We Rock + Socio</td><td data-l="Estado"><span class="badge b-fuente" style="margin-left:0">Siguiente</span></td></tr>
+        <tr><td data-l="Semana"><b>3</b></td><td data-l="Tarea">Comparar las demos con una matriz y escoger el POS; autodiagnóstico de Buenas Prácticas de Manufactura con el asesor</td><td data-l="Responsable">Socio + We Rock</td><td data-l="Estado"><span class="badge b-fuente" style="margin-left:0">Siguiente</span></td></tr>
+        <tr><td data-l="Semana"><b>4 · 23 al 30 nov</b></td><td data-l="Tarea">Fichas LA-01 y LA-02; Documentos F, G y H; validación final de la base maestra</td><td data-l="Responsable">We Rock + Socio</td><td data-l="Estado"><span class="badge b-fuente" style="margin-left:0">Siguiente</span></td></tr>
+        <tr><td data-l="Semana"><b>4</b></td><td data-l="Tarea">Cerrar la caja de noviembre, medir la Puerta 1 y firmar el POS</td><td data-l="Responsable">Socio</td><td data-l="Estado"><span class="badge b-fuente" style="margin-left:0">Siguiente</span></td></tr>
+      </tbody></table></div>
+
+    <h3 class="reveal" style="font-size:26px;font-weight:800;margin:40px 0 14px;color:#111">3. Lo que viene después</h3>
+    <div class="grid g3 reveal">
+      <div class="card top"><h3>Diciembre</h3><p>Cargar al POS solo las recetas aprobadas, armar el kit B2B, contratar al asesor comercial y vender la temporada con preventa.</p></div>
+      <div class="card top"><h3>Enero y febrero</h3><p>Seis visitas por semana, laboratorios y estudio de vida útil, radicar INVIMA, medio tiempo de producción y preventa de pasta, siempre abriendo las puertas de caja.</p></div>
+      <div class="card top"><h3>Marzo y abril</h3><p>Lanzar lo que la preventa apruebe, duplicar la pauta que funciona, llegar a 20 cuentas B2B y decidir el piloto de retail con el permiso.</p></div>
+    </div>
+    <div class="note reveal" style="margin-top:20px"><b>Cómo se mide.</b> Cada lunes, el tablero muestra qué tareas de esta lista se cerraron. La Puerta 1 solo se abre con el costeo del 100% del catálogo aprobado, ventas del mes de $6,6M o más, capacidad medida y caja semanal funcionando. El detalle de cada mes está en la hoja de ruta de abajo.</div>
+  </div>
+</section>
+
 <!-- FINANZAS -->
 <section id="finanzas" class="dark diag-top dots-tex">
   <div class="wrap">
@@ -792,7 +864,8 @@ footer b{color:#fff}
       <div class="card top"><h3>Datos que necesitamos</h3>
         <ul>
           <li>Ventas de los últimos 3 meses por producto y por canal (mostrador, domicilio, web, B2B).</li>
-          <li>Costo de insumos por receta y precios actuales de proveedores.</li>
+          <li>Fórmulas que faltan para la base maestra: dulce de piña, base de champiñón, rellenos de res y de pechuga, salsa criolla de olla, y precio de azúcar blanca.</li>
+          <li>Rendimiento (merma) de carnes, quesos y verduras que hoy se costean sobre el peso bruto.</li>
           <li>Nómina, arriendo, servicios y otros fijos del mes.</li>
           <li>Unidades que se pueden producir por turno hoy, y horas trabajadas.</li>
           <li>Lista mayorista vigente, mínimos, y si la promo 15 + 1 sigue activa.</li>
@@ -914,8 +987,8 @@ footer b{color:#fff}
 
   /* meses */
   const M=[
-    {t:'Mes 1 · Noviembre 2026',g:'Medir y ordenar',i:['Costear cada receta y fijar costo de ventas objetivo.','Medir capacidad: unidades por turno, cuello de botella y merma.','Abrir caja semanal y separar el fondo de formalización (25% del neto).','Consolidar la pauta y fijar meta de costo por contacto.','Reparar HalconBot: frase fija, zona de entrega y registro de pedidos.','Consulta formal a INVIMA y autodiagnóstico BPM con asesor sanitario.','Pedir tres demos de POS y decidir antes del día 25.'],gate:'Puerta 1: costeo hecho, ventas ≥ $6,6M, capacidad medida y caja semanal funcionando.'},
-    {t:'Mes 2 · Diciembre 2026',g:'Temporada y orden',i:['Implementar el POS: catálogo, recetas, precios y clientes.','Campaña de temporada con preventa de cenas del 24 y 31 y regalos corporativos.','Armar el kit B2B: lista mayorista, mínimos, muestra y condiciones de pago.','HalconBot: flujo B2B, difusión por segmentos y seguimiento de pago.','Contratar asesor comercial por comisión.','Plan de adecuaciones según autodiagnóstico con dos cotizaciones por ítem.','Cerrar el año con inventario y caja contados.'],gate:'Meta del mes: ventas de $9M y 3 cuentas B2B abiertas.'},
+    {t:'Mes 1 · Noviembre 2026',g:'Medir y ordenar',i:['Terminar la base maestra de recetas y costos (11 fichas aprobadas una por una) y fijar el costo de ventas objetivo.','Medir capacidad: unidades por turno, cuello de botella y merma.','Abrir caja semanal y separar el fondo de formalización (25% del neto).','Consolidar la pauta y fijar meta de costo por contacto.','Reparar HalconBot: frase fija, zona de entrega y registro de pedidos.','Consulta formal a INVIMA y autodiagnóstico BPM con asesor sanitario.','Pedir tres demos de POS y decidir antes del día 25.'],gate:'Puerta 1: costeo hecho, ventas ≥ $6,6M, capacidad medida y caja semanal funcionando.'},
+    {t:'Mes 2 · Diciembre 2026',g:'Temporada y orden',i:['Implementar el POS cargando solo recetas aprobadas, precios y clientes.','Campaña de temporada con preventa de cenas del 24 y 31 y regalos corporativos.','Armar el kit B2B: lista mayorista, mínimos, muestra y condiciones de pago.','HalconBot: flujo B2B, difusión por segmentos y seguimiento de pago.','Contratar asesor comercial por comisión.','Plan de adecuaciones según autodiagnóstico con dos cotizaciones por ítem.','Cerrar el año con inventario y caja contados.'],gate:'Meta del mes: ventas de $9M y 3 cuentas B2B abiertas.'},
     {t:'Mes 3 · Enero 2027',g:'B2B arranca',i:['Seis visitas por semana con kit de muestra y registro en el sistema.','Cierre de diciembre: margen por producto y ajuste de precios.','Laboratorios microbiológicos y estudio de vida útil.','Piloto Plan Nevera con 30 hogares.','Prueba de precios en dos productos.','Primera revisión de pauta: pausar lo que no baje del costo objetivo.','Recetar y costear dos candidatos de pasta o lasaña individual.'],gate:'Puerta 2: 8 cuentas B2B, margen bruto ≥ 60% y autodiagnóstico BPM listo.'},
     {t:'Mes 4 · Febrero 2027',g:'Capacidad y portafolio',i:['Medio tiempo de producción si la capacidad pasa de 85%.','Preventa de pasta rellena y lasaña individual (meta 20 unidades por sabor).','Radicar la solicitud ante INVIMA.','12 cuentas B2B activas con cartera máxima de 8 días.','Manual de procesos y fichas técnicas completos.','Conectar pedidos de la web y HalconBot al POS.'],gate:'Puerta 3: ventas ≥ $11M, capacidad al 85% o más y 12 cuentas B2B.'},
     {t:'Mes 5 · Marzo 2027',g:'Escalar lo que funciona',i:['Lanzar pasta si la preventa lo aprueba, con etiqueta propia.','Duplicar pauta donde el costo por pedido está bajo el objetivo.','16 cuentas B2B; programa de referidos entre negocios.','Auditoría interna BPM y simulacro de inspección.','Preparar propuesta de retail: lista, empaque, código de barras y condiciones.','Revisar financiamiento del tramo final de INVIMA.'],gate:'Puerta 4: ventas ≥ $14M, 16 cuentas B2B y permiso en trámite avanzado.'},
