@@ -71,7 +71,8 @@ h1{font:800 21px/1.15 var(--display);margin:0;text-wrap:balance}
 .card h2 span{font:600 12px var(--body);color:var(--mut)}
 .stack{display:grid;gap:12px;align-content:start}
 label,.lab{display:block;font-size:11.5px;font-weight:700;color:var(--mut);margin-bottom:4px}
-select{width:100%;background:var(--raise);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+select,.txt{width:100%;background:var(--raise);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.txt:focus{border-color:var(--role)}
 .seg{display:grid;gap:5px}.seg.v{grid-template-columns:repeat(4,1fr)}.seg.k3{grid-template-columns:repeat(3,1fr)}
 .opt{background:var(--raise);border:1px solid var(--line);border-radius:8px;padding:6px 8px;text-align:left;font-weight:600;font-size:12.5px}
 .opt small{display:block;color:var(--mut);font-size:11px;font-weight:500}
@@ -256,7 +257,7 @@ const seed=()=>[{id:1,t:'Bloqueo',w:'Bucaramanga – Cúcuta',e:E[5],ok:true,ago
 const TRIPS=[['ST-1042','Bogotá → Cartagena','XKT 118','Propio','En ruta','ok'],['ST-1043','Medellín → Bogotá','TSM 219','Propio','Cargando','warn'],['ST-1044','Cali → Buenaventura','WDN 731','Aliado','En ruta','ok'],['ST-1045','Barranquilla → Bogotá','SKL 055','Propio','Retorno','ok']];
 const FLEET=[['XKT 118','Tractomula','Propio','Luis M.','Vigente','Vigente','ok'],['TSM 219','Sencillo','Propio','Carlos P.','Vigente','Vence en 12 días','warn'],['WDN 731','Doble troque','Aliado','Mario G.','Vigente','Vigente','ok'],['SKL 055','Tractomula','Propio','Andrés T.','Vence en 6 días','Vigente','warn'],['XKT 482','Tractomula','Aliado','Jairo R.','Vigente','Vigente','ok'],['NHR 204','Camión pequeño','Aliado','Diego L.','Vencido','Vigente','crit']];
 function reset(){
-  S={role:'cliente',view:{cliente:'cotizar',despacho:'torre',conductor:'app',finanzas:'pagos',gerencia:'resumen'},ph:'inicio',
+  S={ao:'',ad:'',role:'cliente',view:{cliente:'cotizar',despacho:'torre',conductor:'app',finanzas:'pagos',gerencia:'resumen'},ph:'inicio',
     o:'Bogotá',d:'Barranquilla',v:3,k:1,pct:100,stage:'none',id:1047,prog:0,run:false,alerts:seed(),aid:3,log:[],badge:{},
     ant:false,sal:false,fac:false,pf:{f:false,s:false},alertUsed:false,stopped:false,tipo:0,ret:false};
   log('sistema','Flett en línea. 18 viajes activos.');$('ov').classList.remove('on');render();
@@ -265,6 +266,8 @@ function log(r,t){const c=(ROLES[r]||{c:'#93a4bb'}).c,n=(ROLES[r]||{n:'Flett'}).
 function drawFeed(){$('feed').innerHTML=S.log.map((e,i)=>`<div class="ev${i===0&&S.fresh?' nw':''}" style="--c:${e.c}"><b>${e.n}</b>${e.t}</div>`).join('');S.fresh=false}
 const bump=(r)=>{if(S.role!==r)S.badge[r]=(S.badge[r]||0)+1};
 function quote(){const r=route(S.o,S.d),v=V[S.v],k=K[S.k],min=r.km*v.r*k.f,fl=min*1.18,price=fl*S.pct/100;const risk=Math.max(...r.path.slice(1).map((c,i)=>edge(r.path[i],c)[3]));return{r,v,k,min,fl,price,cost:min*.9,risk,h:Math.round(r.km/v.s)}}
+const DIR={'Bogotá':'Calle 13 # 68-40, Bodega 12','Barranquilla':'Vía 40 # 73-290, Bodega 7','Medellín':'Calle 30 # 65-15, Bodega 4','Cali':'Calle 15 # 26-101, Bodega 9','Cartagena':'Mamonal km 8, Bodega 3','Bucaramanga':'Anillo Vial km 2, Bodega 6'};
+const dirOf=k=>S['a'+k]||DIR[S[k]]||'Zona industrial, Bodega 1';
 const T=()=>S.trip;
 const active=()=>['ruta','alerta'].includes(S.stage);
 
@@ -287,7 +290,9 @@ cliente:{
   const q=quote(),bad=q.price<q.min,al=S.alerts.find(a=>!a.done&&a.ok&&q.r.path.includes(a.e[0])&&q.r.path.includes(a.e[1]));
   return `<h1>Cotiza tu carga en segundos</h1><p class="sub">Precio al instante, sin bajar del costo mínimo de la ruta.</p>
   <div class="g37"><div class="stack"><div class="card stack" style="gap:10px">
-    <div class="g2" style="gap:8px"><div><label for="fo">Origen</label><select id="fo"></select></div><div><label for="fd">Destino</label><select id="fd"></select></div></div>
+    <div class="g2" style="gap:8px"><div><label for="fo">Ciudad de origen</label><select id="fo"></select></div><div><label for="fd">Ciudad de destino</label><select id="fd"></select></div></div>
+    <div><label for="ao">Dirección exacta de cargue</label><input class="txt" id="ao" autocomplete="off" value="${dirOf('o')}"></div>
+    <div><label for="ad">Dirección exacta de entrega</label><input class="txt" id="ad" autocomplete="off" value="${dirOf('d')}"></div>
     <div><span class="lab">Vehículo</span><div class="seg v" style="grid-template-columns:1fr 1fr">${V.map((x,i)=>`<button class="opt" data-a="setv" data-v="${i}" aria-pressed="${i===S.v}">${x.n}<small>${x.d}</small></button>`).join('')}</div></div>
     <div><span class="lab">Carga</span><div class="seg k3">${K.map((x,i)=>`<button class="opt" data-a="setk" data-v="${i}" aria-pressed="${i===S.k}">${x.n}</button>`).join('')}</div></div>
   </div></div>
@@ -297,7 +302,7 @@ cliente:{
     <div class="note ${bad?'bad':'ok'}" id="nt" style="margin:8px 0">${bad?'Bloqueado: queda por debajo del costo mínimo de la ruta.':'Precio dentro de la norma.'}</div>
     ${al?`<div class="note warn" style="margin-bottom:8px">Alerta en la ruta: ${al.t}, ${al.w}.</div>`:''}
     <button class="btn full" id="res" data-a="reservar" ${bad?'disabled':''}>Reservar por ${money(q.price)}</button></div>
-    <div class="mapbox" style="height:300px">${map({route:q.r,vb:'120 8 400 480'})}</div></div></div>`;
+    <div class="mapbox" style="height:274px">${map({route:q.r,vb:'120 8 400 480'})}</div></div></div>`;
  },
  viajes(){
   if(S.stage==='none')return `<h1>Mis viajes</h1><p class="sub">Aquí sigues cada carga sin llamar a nadie.</p><div class="card empty">Aún no tienes viajes activos. Cotiza tu primera carga.</div>`;
@@ -307,12 +312,12 @@ cliente:{
   <div class="g73"><div class="mapbox" style="height:min(62vh,500px)">${map({route:T().r,alerts:false})}</div><div class="stack">
   ${S.stage==='alerta'?'<div class="note warn">Novedad en la ruta: el conductor se detuvo en un punto recomendado. Tu carga está monitoreada.</div>':''}
   <div class="card"><h2>Estado</h2><ul class="tl">${st.map((x,i)=>`<li class="${i===now?'n':x[1]?'d':''}">${x[0]}</li>`).join('')}</ul></div>
-  <div class="card"><div class="ln"><span>Conductor</span><b>${ix('aceptado')?'Jairo R. · identidad validada':'Por asignar'}</b></div><div class="ln"><span>Vehículo</span><b>${ix('aceptado')?T().v.p:'—'}</b></div><div class="ln"><span>Faltan</span><b data-live="km">—</b></div>${S.k===1?'<div class="ln"><span>Temperatura</span><b class="ok">−18,4 °C</b></div>':''}</div>
+  <div class="card"><div class="ln"><span>Cargue</span><b>${T().ao}</b></div><div class="ln"><span>Entrega</span><b>${T().ad}</b></div><div class="ln"><span>Conductor</span><b>${ix('aceptado')?'Jairo R. · identidad validada':'Por asignar'}</b></div><div class="ln"><span>Vehículo</span><b>${ix('aceptado')?T().v.p:'—'}</b></div><div class="ln"><span>Faltan</span><b data-live="km">—</b></div>${S.k===1?'<div class="ln"><span>Temperatura</span><b class="ok">−18,4 °C</b></div>':''}</div>
   </div></div>`;
  },
  docs(){
   if(!ix('cumplido'))return `<h1>Cumplidos y facturas</h1><p class="sub">Cada entrega llega con foto, GPS y firma.</p><div class="card empty">El cumplido aparece aquí apenas el conductor entregue.</div>`;
-  return `<h1>Cumplidos y facturas</h1><p class="sub">Soportes listos para tu contabilidad y auditorías.</p><div class="g2"><div class="card"><h2>Cumplido ST-${S.id} <span class="st ok">Aprobado</span></h2><div class="ln"><span>Foto de la entrega</span><b>Lista</b></div><div class="ln"><span>Ubicación GPS</span><b>${S.d}</b></div><div class="ln"><span>Firma</span><b>Recibido a conformidad</b></div></div>
+  return `<h1>Cumplidos y facturas</h1><p class="sub">Soportes listos para tu contabilidad y auditorías.</p><div class="g2"><div class="card"><h2>Cumplido ST-${S.id} <span class="st ok">Aprobado</span></h2><div class="ln"><span>Foto de la entrega</span><b>Lista</b></div><div class="ln"><span>Ubicación GPS</span><b>${T().ad}, ${S.d}</b></div><div class="ln"><span>Firma</span><b>Recibido a conformidad</b></div></div>
   <div class="card"><h2>Factura electrónica <span class="st ${S.fac?'ok':'warn'}">${S.fac?'Emitida':'En proceso'}</span></h2><div class="ln"><span>Valor</span><b>${money(T().price)}</b></div><div class="ln"><span>Emisor</span><b>Safe Trip S.A.S.</b></div></div></div>`;
  }},
 /* ---------- Despacho ---------- */
@@ -329,7 +334,7 @@ despacho:{
  asignar(){
   if(S.stage==='none')return `<h1>Asignación</h1><p class="sub">Los viajes nuevos llegan aquí.</p><div class="card empty">No hay viajes por asignar.</div>`;
   if(S.stage!=='reservado')return `<h1>Asignación</h1><p class="sub">ST-${S.id} · ${S.o} → ${S.d}</p><div class="note ok">${S.stage==='ofertado'?'Oferta enviada. Esperando al conductor.':'Asignado a Jairo R.'}</div>`;
-  return `<h1>Asignar ST-${S.id}</h1><p class="sub">${S.o} → ${S.d} · ${V[S.v].n} · ${money(T().price)}</p><div class="card tw"><h2>Conductores calificados <span>Ordenados por cercanía y calificación</span></h2><table><thead><tr><th>Conductor</th><th>Vehículo</th><th>Distancia</th><th>Calificación</th><th>Documentos</th><th></th></tr></thead><tbody>
+  return `<h1>Asignar ST-${S.id}</h1><p class="sub">${S.o} → ${S.d} · ${V[S.v].n} · ${money(T().price)}<br>Cargue: ${T().ao}, ${S.o} · Entrega: ${T().ad}, ${S.d}</p><div class="card tw"><h2>Conductores calificados <span>Ordenados por cercanía y calificación</span></h2><table><thead><tr><th>Conductor</th><th>Vehículo</th><th>Distancia</th><th>Calificación</th><th>Documentos</th><th></th></tr></thead><tbody>
   <tr class="me"><td>Jairo R.</td><td>${T().v.p} · Aliado</td><td>12 km</td><td>4,9</td><td><span class="st ok">Al día</span></td><td class="r"><button class="btn sm" data-a="ofertar">Enviar oferta</button></td></tr>
   <tr><td>Luis M.</td><td>XKT 118 · Propio</td><td>Ocupado</td><td>4,8</td><td><span class="st ok">Al día</span></td><td></td></tr>
   <tr><td>Diego L.</td><td>NHR 204 · Aliado</td><td>31 km</td><td>4,6</td><td><span class="st crit">SOAT vencido</span></td><td class="r mut">Bloqueado</td></tr></tbody></table></div><p></p><div class="note info">Sin documentos al día, Flett no le ofrece viajes a un vehículo.</div>`;
@@ -395,10 +400,10 @@ function phone(){
   if(S.ph==='seg'){el.innerHTML=`<h2 class="ph">Seguridad</h2>${S.alerts.filter(a=>!a.done).slice(0,3).map(a=>`<div class="pc"><small>${a.ago}</small><b>${a.t}</b><small>${a.w}</small></div>`).join('')}<div class="sp"><button class="pb no" data-a="reportar">Reportar en dos toques</button><button class="panic" id="pan" aria-label="Botón de pánico: mantener dos segundos"><i id="pbr"></i><span>Mantén para PÁNICO</span></button></div>`;bindPanic();return}
   if(S.ph==='pagos'){el.innerHTML=`<h2 class="ph">Mis pagos</h2>${T()&&S.ant?`<div class="pc"><small>Anticipo ST-${S.id}</small><div class="pay" style="font-size:20px">${money(pay/2)}</div><small class="ok">Recibido</small></div>`:''}${T()&&S.sal?`<div class="pc"><small>Saldo ST-${S.id}</small><div class="pay" style="font-size:20px">${money(pay/2)}</div><small class="ok">Recibido</small></div>`:''}<div class="pc"><small>Saldo ST-1032</small><b>$2.840.000</b><small class="ok">Recibido</small></div><div class="pc"><small>Este mes</small><b>11 viajes · Nivel Plata</b></div>`;return}
   if(S.ph==='mas'){el.innerHTML=`<h2 class="ph">Beneficios</h2><div class="pc"><small>ACPM con convenio</small><b>Descuento por galón</b></div><div class="pc"><small>Llantas</small><b>Precio de red</b></div><div class="pc"><small>Seguros</small><b>Póliza por viaje</b></div><div class="pc"><small>Pronto pago</small><b>Saldo en 48 horas</b></div><p class="ps" style="margin-top:auto">Tu nivel Oro desbloquea más convenios.</p>`;return}
-  if(S.stage==='ofertado'){el.innerHTML=`<div><p class="ps">Nueva oferta</p><h2 class="ph">${S.o} → ${S.d}</h2></div><div class="pc"><small>Te pagan</small><div class="pay">${money(pay)}</div><small>Anticipo 50% al cargar · Saldo en 48 h</small></div><div class="pc"><small>Distancia y riesgo</small><b>${T().r.km.toLocaleString('es-CO')} km · ${RN[T().risk]}</b></div><div class="sp"><button class="pb go" data-a="aceptar">Aceptar viaje</button></div>`;return}
-  if(S.stage==='aceptado'){el.innerHTML=`<div><p class="ps">Viaje ST-${S.id}</p><h2 class="ph">Listo para cargar</h2></div><div class="pc"><small>Anticipo</small><b class="${S.ant?'ok':'warn'}">${S.ant?money(pay/2)+' recibido':'En proceso'}</b></div><div class="pc"><small>Sitio de cargue</small><b>${S.o}</b></div><div class="sp"><button class="pb go" data-a="cargar" ${S.ant?'':'disabled style="opacity:.45"'}>Registrar cargue con fotos</button></div>`;return}
-  if(S.stage==='ruta'){el.innerHTML=`<div><p class="ps">En ruta a ${S.d}</p><h2 class="ph" data-live="km">0 km</h2></div><div class="pc"><small>Pago del viaje</small><div class="pay" style="font-size:21px">${money(pay)}</div></div><div class="pc"><small>Alertas en tu ruta</small><b>${S.alertUsed?'1 resuelta':'Ninguna'}</b></div><div class="sp"><button class="panic" id="pan" aria-label="Botón de pánico: mantener dos segundos"><i id="pbr"></i><span>Mantén para PÁNICO</span></button></div>`;bindPanic();return}
-  if(S.stage==='entrega'){const c=S.pf,ok=c.f&&c.s;el.innerHTML=`<div><p class="ps">Llegaste a ${S.d}</p><h2 class="ph">Cumplido digital</h2></div><button class="chk ${c.f?'d':''}" data-a="pf" data-v="f">Foto de la entrega <em>${c.f?'Lista':'Tomar'}</em></button><div class="chk d">Ubicación GPS <em>Lista</em></div><button class="chk ${c.s?'d':''}" data-a="pf" data-v="s">Firma del cliente <em>${c.s?'Lista':'Firmar'}</em></button><div class="sp"><button class="pb ok" data-a="cumplir" ${ok?'':'disabled style="opacity:.4"'}>Enviar cumplido</button></div>`;return}
+  if(S.stage==='ofertado'){el.innerHTML=`<div><p class="ps">Nueva oferta</p><h2 class="ph">${S.o} → ${S.d}</h2></div><div class="pc"><small>Te pagan</small><div class="pay">${money(pay)}</div><small>Anticipo 50% al cargar · Saldo en 48 h</small></div><div class="pc"><small>Cargue</small><b style="font-size:13.5px">${T().ao}</b><small>Entrega</small><b style="font-size:13.5px">${T().ad}</b></div><div class="pc"><small>Distancia y riesgo</small><b>${T().r.km.toLocaleString('es-CO')} km · ${RN[T().risk]}</b></div><div class="sp"><button class="pb go" data-a="aceptar">Aceptar viaje</button></div>`;return}
+  if(S.stage==='aceptado'){el.innerHTML=`<div><p class="ps">Viaje ST-${S.id}</p><h2 class="ph">Listo para cargar</h2></div><div class="pc"><small>Anticipo</small><b class="${S.ant?'ok':'warn'}">${S.ant?money(pay/2)+' recibido':'En proceso'}</b></div><div class="pc"><small>Sitio de cargue</small><b>${T().ao}</b><small>${S.o}</small></div><div class="sp"><button class="pb go" data-a="cargar" ${S.ant?'':'disabled style="opacity:.45"'}>Registrar cargue con fotos</button></div>`;return}
+  if(S.stage==='ruta'){el.innerHTML=`<div><p class="ps">En ruta a ${S.d}</p><h2 class="ph" data-live="km">0 km</h2><p class="ps">${T().ad}</p></div><div class="pc"><small>Pago del viaje</small><div class="pay" style="font-size:21px">${money(pay)}</div></div><div class="pc"><small>Alertas en tu ruta</small><b>${S.alertUsed?'1 resuelta':'Ninguna'}</b></div><div class="sp"><button class="panic" id="pan" aria-label="Botón de pánico: mantener dos segundos"><i id="pbr"></i><span>Mantén para PÁNICO</span></button></div>`;bindPanic();return}
+  if(S.stage==='entrega'){const c=S.pf,ok=c.f&&c.s;el.innerHTML=`<div><p class="ps">Llegaste a ${T().ad}</p><h2 class="ph">Cumplido digital</h2></div><button class="chk ${c.f?'d':''}" data-a="pf" data-v="f">Foto de la entrega <em>${c.f?'Lista':'Tomar'}</em></button><div class="chk d">Ubicación GPS <em>Lista</em></div><button class="chk ${c.s?'d':''}" data-a="pf" data-v="s">Firma del cliente <em>${c.s?'Lista':'Firmar'}</em></button><div class="sp"><button class="pb ok" data-a="cumplir" ${ok?'':'disabled style="opacity:.4"'}>Enviar cumplido</button></div>`;return}
   if(ix('cumplido')){el.innerHTML=`<div><p class="ps">Viaje ST-${S.id}</p><h2 class="ph">Entrega aprobada</h2></div><div class="pc"><small>Saldo</small><div class="pay">${money(pay/2)}</div><small class="${S.sal?'ok':''}">${S.sal?'Recibido':'Llega en 48 horas'}</small></div><div class="pc"><small>Calificación</small><b>4,9 · Sube a Nivel Oro</b></div><div class="pc"><small>Retorno disponible</small><b>${S.d} → ${S.o}</b></div>`;return}
   el.innerHTML=`<div><p class="ps">Buenos días</p><h2 class="ph">Hola, Jairo</h2></div><div class="pc"><small>Tu vehículo</small><b>XKT 482</b><small class="ok">Documentos al día</small></div><div class="pc"><small>Tu zona</small><b>Sin alertas cerca</b></div><div class="pc"><small>Este mes</small><b>11 viajes · Nivel Plata</b></div><p class="ps" style="margin-top:auto">Esperando ofertas de viaje.</p>`;
 }
@@ -410,7 +415,7 @@ const A={
  role(r){go(r)},
  setv(v){S.v=+v;render()},setk(v){S.k=+v;render()},
  ptab(v){S.ph=v;render()},
- reservar(){const q=quote();S.trip={r:q.r,v:q.v,price:q.price,risk:q.risk,h:q.h};S.stage='reservado';log('cliente',`Reservó ST-${S.id}: ${S.o} → ${S.d}, ${money(q.price)}.`);bump('despacho');render()},
+ reservar(){const q=quote();S.trip={r:q.r,v:q.v,price:q.price,risk:q.risk,h:q.h,ao:dirOf('o'),ad:dirOf('d')};S.stage='reservado';log('cliente',`Reservó ST-${S.id}: ${S.o} → ${S.d}, ${money(q.price)}.`);bump('despacho');render()},
  ofertar(){S.stage='ofertado';S.ph='inicio';log('despacho',`Ofertó ST-${S.id} a Jairo R., que tiene documentos al día.`);bump('conductor');render();ring()},
  aceptar(){S.stage='aceptado';log('conductor',`Jairo R. aceptó ST-${S.id}.`);bump('finanzas');bump('cliente');render()},
  anticipo(){S.ant=true;log('finanzas',`Pagó anticipo de ${money(T().price*.44)} a cuenta validada.`);bump('conductor');render()},
@@ -479,7 +484,7 @@ function render(){
   guide();drawFeed();frame();
 }
 function bindQuote(){
-  ['o','d'].forEach(k=>{const s=$('f'+k);Object.keys(CITY).sort().forEach(c=>{if(c!==(k==='o'?S.d:S.o))s.add(new Option(c,c))});s.value=S[k];s.onchange=()=>{S[k]=s.value;render()}});
+  ['o','d'].forEach(k=>{const s=$('f'+k);Object.keys(CITY).sort().forEach(c=>{if(c!==(k==='o'?S.d:S.o))s.add(new Option(c,c))});s.value=S[k];s.onchange=()=>{S[k]=s.value;S['a'+k]='';render()};const a=$('a'+k);a.oninput=()=>{S['a'+k]=a.value}});
   $('pr').oninput=e=>{S.pct=+e.target.value;const q=quote(),bad=q.price<q.min;$('pv').textContent=money(q.price);const n=$('nt');n.className='note '+(bad?'bad':'ok');n.textContent=bad?'Bloqueado: queda por debajo del costo mínimo de la ruta.':'Precio dentro de la norma.';const b=$('res');b.disabled=bad;b.textContent='Reservar por '+money(q.price)};
 }
 function frame(){
