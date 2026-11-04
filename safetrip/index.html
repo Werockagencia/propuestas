@@ -893,6 +893,8 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   .fl-logo{width:86vw}.fl-tag{font-size:21px;margin-top:22px}.fl-v{margin-top:20px}.fl-v div{padding:10px 14px}.fl-v span{font-size:13.5px}
   #s-flett{padding:84px 16px 76px;min-height:100vh;min-height:100svh}
 }
+#s-proyeccion .inv-table td{padding-top:5px;padding-bottom:5px}#s-proyeccion .inv-table tr.grp td{padding-top:9px}#s-proyeccion .h2{margin-bottom:12px}#s-proyeccion .pkg-note{margin-top:10px}
+@media(min-width:769px) and (max-height:860px){#s-proyeccion{padding-top:70px;padding-bottom:44px}#s-proyeccion .inv-table td{padding-top:3px;padding-bottom:3px;font-size:12.5px}#s-proyeccion .inv-table tr.grp td{padding-top:6px}#s-proyeccion .lbl{margin-bottom:8px}#s-proyeccion .h2{font-size:30px;margin-bottom:8px}#s-proyeccion .pkg-note{margin-top:6px;font-size:11.5px;line-height:1.35}#s-proyeccion .pkg-block{padding-top:12px;padding-bottom:12px}}
 </style>
 </head>
 <body>
@@ -1222,7 +1224,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
         <span class="badge">Por qué 50/50</span>
         <div class="opt"><b>Aportes parejos</b><small>Safe Trip pone hasta $60,5 M en el piloto. We Rock pone cerca de $72 M en trabajo y producto a valor de mercado.</small></div>
         <div class="opt"><b>Su capital se devuelve primero</b><small>Lo que Safe Trip ponga en la empresa después del piloto se le devuelve antes de repartir. Luego va 50/50.</small></div>
-        <div class="opt"><b>Decisiones entre los dos</b><small>Las decisiones grandes son de mutuo acuerdo, con un tercero neutral para desempatar.</small></div>
+        <div class="opt"><b>Decisiones entre los dos</b><small>Las decisiones grandes se toman de mutuo acuerdo, con reglas claras desde el inicio.</small></div>
       </article>
     </div>
     <div class="rules rv" style="--d:5">
@@ -1314,7 +1316,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
     <h2 class="h2 rv" style="--d:1;color:#fff">La app no transporta.<br><em>La carga la mueve una empresa habilitada.</em></h2>
     <div class="law">
       <article class="rv" style="--d:2"><div class="big">Carga</div><h3>Transporte</h3><p>La empresa nueva es de tecnología. El contrato de transporte y el manifiesto siempre son de una transportadora habilitada.</p><span class="fix">Safe Trip conserva su habilitación</span></article>
-      <article class="rv" style="--d:3"><div class="big">S.A.S.</div><h3>Sociedad</h3><p>Se crea por acciones simplificadas (Ley 1258 de 2008), con acuerdo de accionistas y una regla para desempatar.</p><span class="fix">50/50 con reglas por escrito</span></article>
+      <article class="rv" style="--d:3"><div class="big">S.A.S.</div><h3>Sociedad</h3><p>Se crea por acciones simplificadas (Ley 1258 de 2008), con un acuerdo de accionistas firmado.</p><span class="fix">50/50 con reglas por escrito</span></article>
       <article class="rv" style="--d:4"><div class="big">Código</div><h3>Propiedad de la app</h3><p>We Rock aporta el software en especie, con avalúo soportado y cesión escrita registrada en Derecho de Autor.</p><span class="fix">La app queda a nombre de la empresa</span></article>
       <article class="rv" style="--d:5"><div class="big">Datos</div><h3>Datos y dinero</h3><p>Autorización de datos según la Ley 1581. La app no guarda plata de terceros: los pagos van por banco o pasarela.</p><span class="fix">Menos riesgo regulatorio</span></article>
     </div>
@@ -1342,27 +1344,31 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <section class="slide lt tex-dots" data-title="Proyección financiera" id="s-proyeccion">
   <div class="inner">
     <div class="lbl rv" style="--d:0">15 · Proyección a 36 meses</div>
-    <h2 class="h2 rv" style="--d:1">Tres escenarios, <em>con los pies en la tierra.</em></h2>
+    <h2 class="h2 rv" style="--d:1">Tres escenarios a 36 meses, <em>con los pies en la tierra.</em></h2>
     <div class="pkg-block corner-fx rv-3d" style="--d:2">
       <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
       <div class="inv-table-wrap">
         <table class="inv-table proj">
-          <thead><tr><th>Empresa nueva</th><th>Conservador</th><th>Base</th><th>Ambicioso</th></tr></thead>
+          <thead><tr><th>Pesos colombianos</th><th>Conservador</th><th>Base</th><th>Ambicioso</th></tr></thead>
           <tbody>
-            <tr><td>Viajes actuales de Safe Trip al mes</td><td>30</td><td>40</td><td>60</td></tr>
-            <tr><td>Viajes nuevos al mes que trae el marketing</td><td>20</td><td>40</td><td>60</td></tr>
-            <tr><td>Otras transportadoras con la app</td><td>2</td><td>4</td><td>8</td></tr>
-            <tr><td>Ingresos del año 3</td><td>$144 M</td><td>$299 M</td><td>$511 M</td></tr>
-            <tr><td>Resultado del año 3</td><td>−$49 M</td><td>+$80 M</td><td>+$249 M</td></tr>
-            <tr><td>Se paga sola desde</td><td>No alcanza</td><td>Mes 20</td><td>Mes 13</td></tr>
-            <tr class="grp"><td colspan="4">Safe Trip</td></tr>
-            <tr><td>Inversión total (piloto + capital en la empresa)</td><td>$164 M<span class="rubro-note">Se frena en el mes 12</span></td><td>$152 M</td><td>$115 M</td></tr>
-            <tr><td>Margen extra por carga nueva en 36 meses</td><td>$94 M</td><td>$286 M</td><td>$430 M</td></tr>
+            <tr class="grp"><td colspan="4">Supuestos</td></tr>
+            <tr><td>Viajes de Safe Trip por mes</td><td>30</td><td>40</td><td>60</td></tr>
+            <tr><td>Viajes nuevos por mes, ya en meta</td><td>20</td><td>40</td><td>60</td></tr>
+            <tr><td>Otras transportadoras con la app en el mes 36</td><td>2</td><td>4</td><td>8</td></tr>
+            <tr class="grp"><td colspan="4">Empresa nueva</td></tr>
+            <tr><td>Ingreso en el mes 36 (un mes)</td><td>$12 M</td><td>$25 M</td><td>$45 M</td></tr>
+            <tr><td>Ganancia en el mes 36 (un mes)</td><td>−$4 M</td><td>+$7 M</td><td>+$23 M</td></tr>
+            <tr><td>Ingreso del año 3 (12 meses)</td><td>$144 M</td><td>$299 M</td><td>$511 M</td></tr>
+            <tr><td>Ganancia del año 3 (12 meses)</td><td>−$49 M</td><td>+$80 M</td><td>+$249 M</td></tr>
+            <tr><td>Empieza a pagarse sola</td><td>No alcanza</td><td>Mes 20</td><td>Mes 13</td></tr>
+            <tr class="grp"><td colspan="4">Safe Trip, total acumulado</td></tr>
+            <tr><td>Lo que invierte en total (piloto + capital)</td><td>$164 M<span class="rubro-note">Se frena en el mes 12</span></td><td>$152 M</td><td>$115 M</td></tr>
+            <tr><td>Margen extra de carga nueva en los 36 meses</td><td>$94 M</td><td>$286 M</td><td>$430 M</td></tr>
             <tr class="total"><td>Recupera su inversión</td><td>No en 36 meses</td><td>Mes 24</td><td>Mes 17</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="pkg-note">Pesos de 2026, antes de impuestos. Supuestos, no promesas: flete de $3,5 M a $4,2 M y margen de Safe Trip del 12%, por recalcular con sus datos reales. El margen extra descuenta lo que Safe Trip le paga a la empresa, y no incluye su 50% de la empresa ni los retornos llenos. Si a los 12 meses los números van como el conservador, se frena y no se pone más capital.</p>
+      <p class="pkg-note">Valores de 2026, antes de impuestos. El año 3 va del mes 25 al 36. Supuestos, no promesas: flete de $3,5 M a $4,2 M y margen de Safe Trip del 12%, por recalcular con sus datos reales. El margen extra descuenta lo que Safe Trip le paga a la empresa, y no incluye su 50% de la empresa ni los retornos llenos. Si a los 12 meses los números van como el conservador, se frena y no se pone más capital.</p>
     </div>
   </div>
 </section>
