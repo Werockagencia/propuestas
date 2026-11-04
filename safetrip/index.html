@@ -895,6 +895,10 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 }
 #s-proyeccion .inv-table td{padding-top:5px;padding-bottom:5px}#s-proyeccion .inv-table tr.grp td{padding-top:9px}#s-proyeccion .h2{margin-bottom:12px}#s-proyeccion .pkg-note{margin-top:10px}
 @media(min-width:769px) and (max-height:860px){#s-proyeccion{padding-top:70px;padding-bottom:44px}#s-proyeccion .inv-table td{padding-top:3px;padding-bottom:3px;font-size:12.5px}#s-proyeccion .inv-table tr.grp td{padding-top:6px}#s-proyeccion .lbl{margin-bottom:8px}#s-proyeccion .h2{font-size:30px;margin-bottom:8px}#s-proyeccion .pkg-note{margin-top:6px;font-size:11.5px;line-height:1.35}#s-proyeccion .pkg-block{padding-top:12px;padding-bottom:12px}}
+.gn{font-size:clamp(46px,min(5.4vw,9vh),76px);font-weight:900;line-height:1;letter-spacing:-.03em;color:#fff;margin:10px 0 2px}
+.phase.main .gn{color:#7aa4ff}
+#s-ganancia .phases{margin-top:22px}#s-ganancia .phase .sub{margin-bottom:12px}#s-ganancia .phase{padding:22px 24px}
+@media(max-height:800px) and (min-width:769px){#s-ganancia{padding-top:80px;padding-bottom:50px}#s-ganancia .h2{margin-bottom:10px}#s-ganancia .phases{margin-top:14px}}
 </style>
 </head>
 <body>
@@ -1373,9 +1377,41 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
   </div>
 </section>
 
+<section class="slide dk2 noise glow-tr" data-title="Lo que gana Safe Trip" id="s-ganancia">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">16 · Lo que gana Safe Trip</div>
+    <h2 class="h2 rv" style="--d:1;color:#fff">Superadas las etapas,<br><em>esto gana Safe Trip cada mes.</em></h2>
+    <p class="lead rv" style="--d:2">Ganancia nueva, adicional a lo que su operación ya produce hoy. Se suma el margen de la carga nueva y su 50% de las utilidades de Flett.</p>
+    <div class="phases">
+      <article class="phase  rv" style="--d:3">
+        <div class="when">Conservador</div>
+        <div class="gn">$4 M</div>
+        <p class="sub">al mes para Safe Trip</p>
+        <ul><li>$4 M de margen de carga nueva</li><li>$0 de Flett: la empresa no alcanza a pagarse sola</li></ul>
+        <div class="price"><b>$48 M</b><small>al año<br>29% sobre $164 M invertidos</small></div>
+      </article>
+      <article class="phase main rv" style="--d:4">
+        <div class="when">Base</div>
+        <div class="gn">$14 M</div>
+        <p class="sub">al mes para Safe Trip</p>
+        <ul><li>$11 M de margen de carga nueva</li><li>$3 M de su 50% de Flett</li></ul>
+        <div class="price"><b>$171 M</b><small>al año<br>112% sobre $152 M invertidos</small></div>
+      </article>
+      <article class="phase  rv" style="--d:5">
+        <div class="when">Ambicioso</div>
+        <div class="gn">$28 M</div>
+        <p class="sub">al mes para Safe Trip</p>
+        <ul><li>$16 M de margen de carga nueva</li><li>$11 M de su 50% de Flett</li></ul>
+        <div class="price"><b>$333 M</b><small>al año<br>290% sobre $115 M invertidos</small></div>
+      </article>
+    </div>
+    <p class="src rv" style="--d:6">Proyección al mes 36, en pesos de 2026 y antes de impuestos. No incluye retornos llenos, que en el ejemplo suman cerca de $10,5 M de ingreso al mes. La utilidad de Flett se reparte después de devolver el capital de Safe Trip. Son supuestos por validar con sus datos reales, no una promesa de resultado.</p>
+  </div>
+</section>
+
 <section class="slide dk2 noise glow-bl" data-title="Hoja de ruta" id="s-ruta">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">16 · Hoja de ruta</div>
+    <div class="lbl rv" style="--d:0">17 · Hoja de ruta</div>
     <h2 class="h2 rv" style="--d:1;color:#fff">Primero funciona. <em>Después escala.</em></h2>
     <div class="phases">
       <article class="phase main rv" style="--d:2">
@@ -1409,7 +1445,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <section class="slide dk tex-grid-dk noise glow-tr" data-title="Por qué We Rock" id="s-werock">
   <div class="inner why">
     <div>
-      <div class="lbl rv" style="--d:0">17 · Por qué We Rock</div>
+      <div class="lbl rv" style="--d:0">18 · Por qué We Rock</div>
       <h2 class="h2 rv" style="--d:1;color:#fff">Esto no es una app.<br>Es un <em>negocio completo.</em></h2>
       <p class="lead rv" style="--d:2">Una plataforma sin clientes no sirve, y una campaña sin plataforma se queda en una llamada más. We Rock construye la tecnología, trae el tráfico y ordena el proceso comercial. Por eso el modelo es de socios: ganamos cuando la carga se mueve.</p>
       <div class="pillars3">
@@ -1431,7 +1467,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 
 <section class="slide dk2 noise glow-bl" data-title="Más allá de la app" id="s-servicios">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">18 · Más allá de la app</div>
+    <div class="lbl rv" style="--d:0">19 · Más allá de la app</div>
     <h2 class="h2 rv" style="--d:1;color:#fff">La app es el gran proyecto.<br><em>Safe Trip puede crecer desde hoy.</em></h2>
     <p class="lead rv" style="--d:2">We Rock es una firma completa de desarrollo, marketing, comunicación y medios. Esto resolvemos en su empresa, con o sin la app.</p>
     <div class="law six">
@@ -1448,7 +1484,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 
 <section class="slide dk2 noise glow-tr" data-title="Preguntas resueltas" id="s-preguntas">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">19 · Antes de decidir</div>
+    <div class="lbl rv" style="--d:0">20 · Antes de decidir</div>
     <h2 class="h2 rv" style="--d:1;color:#fff">Las seis preguntas de un buen gerente.<br><em>Ya están resueltas.</em></h2>
     <div class="law six">
       <article class="rv" style="--d:2"><div class="big">Riesgo</div><h3>¿Y si no funciona?</h3><p>La inversión tiene tope de $60,5 M, $10 M dependen de las metas y la app sigue a su servicio 12 meses.</p><span class="fix">Riesgo con límite desde el día 1</span></article>
@@ -1464,7 +1500,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 <section class="slide dk close noise glow-bl" data-title="Siguiente paso" id="s-cierre">
   <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
   <div class="inner">
-    <div class="lbl rv" style="--d:0">20 · Siguiente paso</div>
+    <div class="lbl rv" style="--d:0">21 · Siguiente paso</div>
     <h2 class="close-title rv" style="--d:1">Movamos<br>la <span class="r">primera carga.</span></h2>
     <div class="next">
       <div class="rv" style="--d:2"><b>01</b><h3>Dos horas con sus números</h3><p>Con gerencia y operación revisamos rutas, flota, terceros y margen real. El diagnóstico queda para Safe Trip, siga o no.</p></div>
@@ -2067,7 +2103,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 (function(){
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const slides=[...document.querySelectorAll('.slide')];
-  const blue=new Set(['s-idea','s-modulos','s-seguridad','s-empresa','s-oportunidad','s-proyeccion','s-ruta','s-legal']);
+  const blue=new Set(['s-ganancia','s-idea','s-modulos','s-seguridad','s-empresa','s-oportunidad','s-proyeccion','s-ruta','s-legal']);
 
   const act=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('act',e.isIntersecting)),{threshold:.15});slides.forEach(s=>act.observe(s));
 
@@ -2135,11 +2171,11 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
     if(!isFinite(num)||num===0)return;
     const span=el.firstChild&&el.firstChild.nodeType===3&&el.childNodes.length===1?el.firstChild:null;if(!span)return;
     const t0=performance.now(),dur=1250;
-    const step=n=>{const p=Math.min(1,(n-t0)/dur),e=1-Math.pow(1-p,4);span.textContent=m[1]+fmt(num*e,dec,grp)+m[3];if(p<1)requestAnimationFrame(step);else span.textContent=t};
+    const step=n=>{const p=Math.max(0,Math.min(1,(n-t0)/dur)),e=1-Math.pow(1-p,4);span.textContent=m[1]+fmt(num*e,dec,grp)+m[3];if(p<1)requestAnimationFrame(step);else span.textContent=t};
     requestAnimationFrame(step);
   };
   if(!reduce){
-    const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.fxc){e.target.dataset.fxc=1;e.target.querySelectorAll('.law .big,.ex-grid b,.phase .price b,.inv-table.proj tbody td:not(:first-child)').forEach(count)}}),{threshold:.35});
+    const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.fxc){e.target.dataset.fxc=1;e.target.querySelectorAll('.law .big,.gn,.ex-grid b,.phase .price b,.inv-table.proj tbody td:not(:first-child)').forEach(count)}}),{threshold:.35});
     slides.forEach(s=>io2.observe(s));
   }
 
