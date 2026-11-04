@@ -813,7 +813,7 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 .fl-b3{transform:translate(-300px,360px) rotate(40deg)}
 .fl-word{clip-path:inset(-10% 100% -10% 0);opacity:0}
 .fl-tag{font-size:clamp(20px,2.4vw,32px);font-weight:600;color:#fff;margin:30px 0 0;max-width:760px;line-height:1.25;opacity:0;transform:translateY(20px);text-wrap:balance}
-.fl-v{display:flex;gap:2px;margin-top:30px;background:rgba(122,164,255,.18);border-radius:10px;overflow:hidden}
+.fl-v{display:flex;gap:2px;margin-top:30px;border-radius:10px;overflow:hidden}
 .fl-v div{background:rgba(8,16,32,.82);padding:13px 26px;opacity:0;transform:translateY(16px)}
 .fl-v b{display:block;font-size:19px;font-weight:800;color:#7aa4ff}
 .fl-v span{font-size:13px;color:#c6d3ea}
@@ -867,6 +867,31 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 @media(prefers-reduced-motion:reduce){
   .fw{opacity:1;transform:none;filter:none;transition:none}.amb i{animation:none}
   #s-flett *{animation:none!important;opacity:1!important;transform:none;clip-path:none!important;stroke-dashoffset:0!important}.fl-map{transform:translate(50%,-50%)!important;opacity:.5!important}.fl-glow,.fl-ring{display:none}
+}
+/* Celular: las tablas de negocio se leen como tarjetas, sin desplazamiento lateral */
+@media(max-width:768px){
+  .inv-table.terms{min-width:0;display:block}
+  .inv-table.terms thead{display:none}
+  .inv-table.terms tbody{display:grid;gap:8px}
+  .inv-table.terms tr{display:block;background:rgba(255,255,255,.05);border-radius:8px;padding:11px 13px}
+  .inv-table.terms td,.inv-table.terms td:first-child,.inv-table.terms td:nth-child(2),.inv-table.terms td:last-child{display:block;width:auto;max-width:none;padding:0;border:0;text-align:left;white-space:normal}
+  .inv-table.terms td:first-child{font-size:15px;font-weight:700;color:#fff}
+  .inv-table.terms td:nth-child(2){font-size:13.5px;line-height:1.4;margin-top:4px}
+  .inv-table.terms td:last-child{font-size:14px;margin-top:6px}
+  .inv-table.terms.mods td:nth-child(3){font-size:12.5px;margin-top:6px;color:rgba(255,255,255,.55)}
+  .inv-table.terms.mods td:last-child{font-size:12.5px;margin-top:2px;color:#7aa4ff}
+  .inv-table .rubro-note{font-size:12px;margin:3px 0 0;display:block}
+  .inv-table.proj .rubro-note{font-size:10.5px}
+  .inv-table-wrap{overflow:visible}
+  .inv-table.proj{table-layout:auto}
+  .law article,.law.six article{padding:15px 16px 14px}
+  .law .big{font-size:32px}
+  .law h3{font-size:16px;margin:7px 0 4px}
+  .law p{font-size:14px}
+  .law .fix{font-size:13px;margin-top:9px;padding-top:9px}
+  .phase{padding:22px 18px}
+  .fl-logo{width:86vw}.fl-tag{font-size:21px;margin-top:22px}.fl-v{margin-top:20px}.fl-v div{padding:10px 14px}.fl-v span{font-size:13.5px}
+  #s-flett{padding:84px 16px 76px;min-height:100vh;min-height:100svh}
 }
 </style>
 </head>
