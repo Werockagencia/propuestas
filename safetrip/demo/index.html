@@ -6,14 +6,14 @@
 <meta name="robots" content="noindex">
 <title>Flett · Demo</title>
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkZsZXR0Ij48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzNEN0JGRiIvPjxnIGZpbGw9IiNGRkZGRkYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExNi4xIDExNi4xKSBzY2FsZSgxLjMyKSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHJ4PSI1Ii8+PHBhdGggZD0iTTExNyAwSDIzNFEyNDAgMCAyMzcgNUwyMTQgOTdRMjEyIDEwMCAyMDggMTAwSDExN1ExMTIgMTAwIDExMiA5NVY1UTExMiAwIDExNyAwWiIvPjxyZWN0IHg9IjAiIHk9IjExMiIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHJ4PSI1Ii8+PC9nPjwvc3ZnPg==">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,800;112,900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* Un solo sistema, cinco entornos. Arriba se elige el rol; a la derecha se ve cómo se conectan. */
 :root{
   --night:#0a111c;--panel:#101a29;--raise:#172435;--raise2:#1e2d42;--line:#25344a;
   --ink:#edf2f8;--mut:#93a4bb;--accent:#3d7bff;
   --ok:#35c98d;--warn:#f5b93a;--crit:#ff5a5f;
-  --display:Archivo,"Arial Narrow",system-ui,sans-serif;--body:Figtree,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;--body:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
   --role:#3d7bff;color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -254,6 +254,73 @@ svg.map{display:block;width:100%;height:100%}
   .tw{overflow-x:auto}
 }
 @media(prefers-reduced-motion:reduce){.pulse,.ring,.ev,.rb .badge{animation:none}}
+
+/* Producto Flett: tema claro para web, oscuro para torre y cabina */
+:root[data-theme=light]{--night:#f4f6fa;--panel:#ffffff;--raise:#f1f4f9;--raise2:#dfe6f1;--line:#e3e8f0;--ink:#101827;--mut:#5f6b7c;color-scheme:light}
+:root[data-theme=light] .ok{color:#0f8a5a}:root[data-theme=light] .warn{color:#a86a00}:root[data-theme=light] .crit{color:#d92d32}
+:root[data-theme=light] .note.ok{background:#e4f7ee;color:#0d6b43}:root[data-theme=light] .note.bad{background:#fde8e8;color:#b42318}:root[data-theme=light] .note.warn{background:#fff4dc;color:#8a5a00}:root[data-theme=light] .note.info{background:#e8f0ff;color:#1d4ed8}
+:root[data-theme=light] .card,:root[data-theme=light] .k{box-shadow:0 1px 2px rgba(16,24,39,.05)}
+h1{font:700 22px/1.2 var(--display);letter-spacing:-.015em}
+.big{font-weight:700;letter-spacing:-.02em}.k b{font-weight:700;letter-spacing:-.01em}.card h2{font-weight:700}.ph{font-weight:700;letter-spacing:-.01em}.pay{font-weight:700;letter-spacing:-.02em}.pc b{font-weight:700}
+.btn{background:var(--accent);border-radius:8px;font-weight:600}.ghost{font-weight:600;border-radius:8px}
+.opt[aria-pressed=true]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.nv[aria-current=page]{background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)}.nv[aria-current=page] svg{color:var(--accent)}
+tr.me td{background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.tl li.n::before{background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+.ptabs button[aria-current=page]{color:#7aa4ff}
+.app{grid-template-rows:minmax(0,1fr)}
+.app:not(.islive) .top,.app:not(.islive) .ctx,.app:not(.islive) .guide{display:none}
+.app.islive{grid-template-rows:58px minmax(0,1fr) 64px}
+.stage{grid-template-columns:232px minmax(0,1fr)}
+.mcol{display:flex;flex-direction:column;min-width:0;min-height:0}
+.side{padding:14px 12px;gap:2px}
+.side .sb{padding:4px 8px 14px}.side .sb svg{height:28px;width:auto;display:block}
+:root[data-theme=light] .side .sb path[fill="#FFFFFF"]{fill:#0B121C}
+.side h2{display:none}
+.nv{font-weight:500;padding:9px 10px}
+.side .acct{margin-top:auto;display:flex;align-items:center;gap:9px;padding:9px 8px;border-top:1px solid var(--line);font-size:12.5px}
+.av{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:12.5px;flex:none}
+.acct b{display:block;font-weight:600}.acct small{color:var(--mut);font-size:11.5px}
+.side .mod{display:none}
+.tbar{display:flex;align-items:center;gap:10px;height:56px;padding:0 20px;background:var(--panel);border-bottom:1px solid var(--line);flex:none}
+.srch{flex:1;max-width:380px;display:flex;align-items:center;gap:8px;background:var(--raise);border-radius:8px;padding:7px 11px;color:var(--mut);font-size:13px}
+.tbar .sp2{margin-left:auto}
+.ib{position:relative;width:36px;height:36px;border-radius:8px;display:grid;place-items:center;color:var(--mut)}.ib:hover{background:var(--raise)}
+.ib em{position:absolute;top:4px;right:4px;min-width:15px;height:15px;border-radius:8px;background:var(--crit);color:#fff;font:700 9.5px/15px var(--body);text-align:center;font-style:normal;padding:0 3px}
+.main{padding:20px 22px 84px}
+.rail{position:fixed;top:56px;right:16px;width:320px;max-height:60vh;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 34px rgba(16,24,39,.18);z-index:7;display:none}
+.rail.on{display:flex}
+.app.islive~.rail{display:none}
+.app[data-role=conductor] .side,.app[data-role=conductor] .tbar{display:none}
+.app[data-role=conductor] .stage{grid-template-columns:minmax(0,1fr)}
+.app[data-role=conductor] .main{display:grid;place-items:center;padding:14px 14px 76px;background:radial-gradient(ellipse 60% 70% at 50% 40%,#16233a,#0a111c)}
+.drv{display:block;min-height:0}.drv .exp{display:none}
+.phone{height:min(640px,calc(100vh - 100px));width:300px;box-shadow:0 22px 54px rgba(0,0,0,.5)}
+.dock{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);display:none;align-items:center;gap:10px;background:rgba(11,18,28,.94);color:#edf2f8;border:1px solid #2b3b52;border-radius:12px;padding:6px 8px 6px 12px;z-index:6;max-width:calc(100vw - 24px);box-shadow:0 10px 28px rgba(0,0,0,.35);font-size:12.5px}
+.dock.on{display:flex}
+.dock b{font-size:11px;color:#9fb3cf;font-weight:600;white-space:nowrap}
+.dock select{width:auto;background:#1a2738;border-color:#2b3b52;color:#fff;padding:5px 8px;font-size:12.5px}
+.dock .dh{max-width:330px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#d6e0ee}
+.dock .btn{padding:6px 11px;font-size:12.5px;white-space:nowrap}.dock .gh{padding:6px 9px;border-radius:7px;font-weight:600;color:#c6d3ea;white-space:nowrap}.dock .gh:hover{background:#1a2738}
+.home{position:fixed;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 30%,#14233d,#0a111c);color:#edf2f8;display:none;flex-direction:column;align-items:center;justify-content:center;padding:24px;z-index:5;overflow:auto;gap:8px}
+.home.on{display:flex}
+.home .hl svg{height:46px;width:auto}
+.home h1{font-size:clamp(24px,3vw,34px);margin:14px 0 2px;text-align:center}
+.home p{margin:0 0 18px;color:#a9b8cc;text-align:center}
+.hg{display:grid;grid-template-columns:repeat(5,minmax(0,170px));gap:10px}
+.hc{background:#121e30;border:1px solid #2b3b52;border-radius:13px;padding:15px 14px;text-align:left;display:grid;gap:5px;color:#edf2f8;transition:border-color .15s,transform .15s}
+.hc:hover{border-color:#3d7bff;transform:translateY(-2px)}.hc svg{color:#7aa4ff;width:22px;height:22px}
+.hc b{font-size:15px;font-weight:700}.hc small{color:#a9b8cc;font-size:12px;line-height:1.3}
+.home .btn{margin-top:16px;padding:12px 22px;font-size:15px}
+.home .disc{margin-top:10px;font-size:12px;color:#7f90a8}
+.glslot{position:absolute;inset:0}.glslot #gl{position:absolute;inset:0}
+#glhold{position:fixed;left:-3000px;top:0;width:900px;height:600px}#glhold #gl{position:absolute;inset:0}
+body.glon .svgfb{display:none}
+:root[data-theme=dark] #gl canvas{filter:invert(.93) hue-rotate(180deg) brightness(.92)}
+.svgfb{position:absolute;inset:0}
+.mapbox{background:var(--raise)}
+.rb.lv{--rc:#fff}
+@media(max-width:1180px){.stage{grid-template-columns:minmax(0,1fr)}.tbar{display:none}.side .sb,.side .acct{display:none}.hg{grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.dock{left:8px;right:8px;transform:none;flex-wrap:wrap}.dock .dh{display:none}.main{padding:12px 12px 110px}.phone{height:600px}.rail{left:12px;right:12px;width:auto}}
 </style>
 </head>
 <body>
@@ -271,9 +338,9 @@ svg.map{display:block;width:100%;height:100%}
   </div>
   <div class="stage" id="stage">
     <nav class="side" id="side" aria-label="Módulos"></nav>
-    <main class="main" id="main" tabindex="-1"></main>
+    <div class="mcol"><div class="tbar" id="tbar"></div><main class="main" id="main" tabindex="-1"></main></div>
     <aside class="rail" aria-label="Línea de eventos">
-      <h2>Todo conectado</h2><p>Lo que pasa en un entorno llega a los demás.</p>
+      <h2>Actividad</h2><p>Lo que pasa en toda la operación.</p>
       <div class="feed" id="feed" aria-live="polite"></div>
     </aside>
   </div>
@@ -284,6 +351,9 @@ svg.map{display:block;width:100%;height:100%}
   </footer>
 </div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><path id="mp"/></svg>
+<div class="home" id="home"></div>
+<div class="dock" id="dock"></div>
+<div id="glhold" aria-hidden="true"></div>
 <div class="ov" id="ov"><div class="modal" id="mod" role="dialog" aria-modal="true" aria-labelledby="mt"></div></div>
 <div class="toast" id="toast" role="status"></div>
 
@@ -321,7 +391,7 @@ const seed=()=>[{id:1,t:'Bloqueo',w:'Bucaramanga – Cúcuta',e:E[5],ok:true,ago
 const TRIPS=[['ST-1042','Bogotá → Cartagena','XKT 118','Propio','En ruta','ok'],['ST-1043','Medellín → Bogotá','TSM 219','Propio','Cargando','warn'],['ST-1044','Cali → Buenaventura','WDN 731','Aliado','En ruta','ok'],['ST-1045','Barranquilla → Bogotá','SKL 055','Propio','Retorno','ok']];
 const FLEET=[['XKT 118','Tractomula','Propio','Luis M.','Vigente','Vigente','ok'],['TSM 219','Sencillo','Propio','Carlos P.','Vigente','Vence en 12 días','warn'],['WDN 731','Doble troque','Aliado','Mario G.','Vigente','Vigente','ok'],['SKL 055','Tractomula','Propio','Andrés T.','Vence en 6 días','Vigente','warn'],['XKT 482','Tractomula','Aliado','Jairo R.','Vigente','Vigente','ok'],['NHR 204','Camión pequeño','Aliado','Diego L.','Vencido','Vigente','crit']];
 function reset(){
-  S={mode:'live',wa:0,asked:false,askTxt:'',ao:'',ad:'',role:'cliente',view:{cliente:'cotizar',despacho:'torre',conductor:'app',finanzas:'pagos',gerencia:'resumen'},ph:'inicio',
+  S={mode:'home',wa:0,asked:false,askTxt:'',ao:'',ad:'',role:'cliente',view:{cliente:'cotizar',despacho:'torre',conductor:'app',finanzas:'pagos',gerencia:'resumen'},ph:'inicio',
     o:'Bogotá',d:'Barranquilla',v:3,k:1,pct:100,stage:'none',id:1047,prog:0,run:false,alerts:seed(),aid:3,log:[],badge:{},
     ant:false,sal:false,fac:false,pf:{f:false,s:false},alertUsed:false,stopped:false,tipo:0,ret:false};
   log('sistema','Flett en línea. 18 viajes activos.');$('ov').classList.remove('on');render();
@@ -343,7 +413,7 @@ function map(o={}){
   const al=(o.alerts?S.alerts.filter(a=>!a.done):[]).map(a=>{const m=a.xy||mid(a.e),c=a.ok?'var(--crit)':'var(--warn)';return`<circle class="pulse" cx="${m[0]}" cy="${m[1]}" r="11" fill="${c}"/><circle cx="${m[0]}" cy="${m[1]}" r="5" fill="${c}" stroke="#0a111c" stroke-width="2"/>`}).join('');
   const L=['Buenaventura','Pasto','Cartagena','Pereira','Medellín','Cali'];
   const ct=Object.keys(CITY).map(c=>{const p=P(c),e=r&&(c===r.path[0]||c===r.path[r.path.length-1]),l=L.includes(c);return`<circle cx="${p[0]}" cy="${p[1]}" r="${e?5.5:3}" fill="#edf2f8"/><text class="cn${e?' e':''}" x="${p[0]+(l?-8:8)}" y="${p[1]+4}" text-anchor="${l?'end':'start'}">${c}</text>`}).join('');
-  return`<svg class="map" viewBox="${o.vb||'20 8 530 700'}" role="img" aria-label="Mapa de Colombia con corredores de carga"><path class="colombia" d="${COL}"/>${ed}${rt}<g class="fleetg"></g>${al}${ct}<g class="truckg"></g></svg><div class="lg"><span><i style="background:var(--ok)"></i>Bajo</span><span><i style="background:var(--warn)"></i>Medio</span><span><i style="background:var(--crit)"></i>Alto</span></div>`;
+  return`<div class="glslot" data-r="${r?1:0}"></div><div class="svgfb"><svg class="map" viewBox="${o.vb||'20 8 530 700'}" role="img" aria-label="Mapa de Colombia con corredores de carga"><path class="colombia" d="${COL}"/>${ed}${rt}<g class="fleetg"></g>${al}${ct}<g class="truckg"></g></svg><div class="lg"><span><i style="background:var(--ok)"></i>Bajo</span><span><i style="background:var(--warn)"></i>Medio</span><span><i style="background:var(--crit)"></i>Alto</span></div></div>`;
 }
 
 /* ---------- Cliente ---------- */
@@ -366,7 +436,7 @@ cliente:{
     <div class="note ${bad?'bad':'ok'}" id="nt" style="margin:8px 0">${bad?'Bloqueado: queda por debajo del costo mínimo de la ruta.':'Precio dentro de la norma.'}</div>
     ${al?`<div class="note warn" style="margin-bottom:8px">Alerta en la ruta: ${al.t}, ${al.w}.</div>`:''}
     <button class="btn full" id="res" data-a="reservar" ${bad?'disabled':''}>Reservar por ${money(q.price)}</button></div>
-    <div class="mapbox" style="height:274px">${map({route:q.r,vb:'120 8 400 480'})}</div></div></div>`;
+    <div class="mapbox" style="height:274px">${map({route:q.r})}</div></div></div>`;
  },
  viajes(){
   if(S.stage==='none')return `<h1>Mis viajes</h1><p class="sub">Aquí sigues cada carga sin llamar a nadie.</p><div class="card empty">Aún no tienes viajes activos. Cotiza tu primera carga.</div>`;
@@ -496,7 +566,8 @@ const A={
  reportar(){const e=E[7],a={id:++S.aid,t:'Retén sospechoso',w:e[0]+' – '+e[1],e,ok:false,ago:'ahora',n:0};S.alerts.unshift(a);log('conductor','Reportó un retén. Queda por confirmar.');bump('despacho');render();toast('Reporte enviado')},
  factoring(){toast('La factura pasa a factoring con un aliado financiero');log('finanzas','Solicitó liquidez sobre una factura.')},
  panico(){const was=S.run;S.run=false;log('conductor','Pánico silencioso activado.');bump('despacho');$('mod').innerHTML=`<h2 id="mt">Pánico silencioso</h2><p>Jairo R. · ${T()?T().v.p:'XKT 482'} · Ubicación recibida</p><ul id="il"><li>Central 24/7 recibe la ubicación</li><li>Llamada de verificación</li><li>Contacto con la Policía</li><li>Conductores cercanos avisados</li></ul><button class="ghost" id="ic">Cerrar simulación</button>`;$('ov').classList.add('on');[...$('il').children].forEach((l,i)=>setTimeout(()=>l.classList.add('d'),400+i*700));$('ic').onclick=()=>{$('ov').classList.remove('on');S.run=was;log('despacho','Incidente cerrado.')};$('ic').focus()},
- reiniciar(){try{speechSynthesis.cancel()}catch(e){}reset();if(gl&&glOK)gl.fitBounds([[-76.2,4.1],[-72.6,11.4]],{padding:{top:60,bottom:70,left:40,right:40},duration:600})},
+ bell(){document.querySelector('.rail').classList.toggle('on')},
+ reiniciar(){try{speechSynthesis.cancel()}catch(e){}reset();},
 };
 function arrive(){if(S.stage!=='ruta')return;S.run=false;S.stage='entrega';S.ph='inicio';log('conductor',`Llegó a ${S.d}.`);bump('conductor');render()}
 function ring(){const p=$(S.mode==='live'?'lphone':'phone');if(p){p.classList.remove('ring');void p.offsetWidth;p.classList.add('ring')}}
@@ -508,35 +579,53 @@ const say=t=>{try{const u=new SpeechSynthesisUtterance(t);u.lang='es-CO';u.rate=
 const askQ=[['¿Cuál carro me deja menos?',()=>'SKL 055: deja 16% de margen. Gasta 18% más ACPM que el resto de la flota.'],['¿Cuánto dejó el último viaje?',()=>T()&&ix('pagado')?'ST-'+S.id+' dejó '+money(T().price*.06)+' para Safe Trip y '+money(T().price*.06)+' para Flett.':'Aún no se ha cerrado un viaje hoy.'],['¿Qué rutas debo evitar hoy?',()=>'Cali – Pasto y Bucaramanga – Cúcuta tienen riesgo alto. Mejor salir de día.'],['¿Quién me debe?',()=>'Manufacturas Demo: $6.150.000, vencida 9 días. Sus reservas están bloqueadas.']];
 function askHTML(){return '<div class="ask"><h2>Pregúntale a Flett</h2><div class="qs">'+askQ.map((q,i)=>'<button data-a="ask" data-v="'+i+'">'+q[0]+'</button>').join('')+'</div>'+(S.askTxt?'<div class="an">'+S.askTxt+'</div>':'')+'<small>Respuestas simuladas</small></div>'}
 A.ask=v=>{S.asked=true;S.askTxt=askQ[+v][1]();const b=$('askbox');if(b)b.innerHTML=askHTML();render()};
-A.live=()=>{S.mode='live';render();if(gl)setTimeout(()=>gl.resize(),30)};
+A.live=()=>{S.mode='live';render();if(gl)setTimeout(()=>gl.resize(),40)};
 A.wa=()=>{if(S.wa)return;S.wa=1;render();setTimeout(()=>{if(S.wa===1){S.wa=2;log('cliente','Cotizó por WhatsApp en segundos.');render()}},1300)};
 const wrap=(n,fn)=>{const o=A[n];A[n]=v=>{o(v);if(S.mode==='live')fn()}};
 wrap('reservar',()=>setTimeout(()=>{if(S.stage==='reservado')A.ofertar()},1500));
 wrap('aceptar',()=>setTimeout(()=>{if(S.stage==='aceptado'&&!S.ant)A.anticipo()},1000));
 wrap('cumplir',()=>{setTimeout(()=>{if(!S.fac)A.facturar()},900);setTimeout(()=>{if(!S.sal)A.saldo()},1900)});
 {const o=A.robo;A.robo=()=>{const p=Math.min(S.prog+.16,.95);o();const a=S.alerts.find(x=>x.mine);if(a)a.ll=posAt(p);render();if(S.mode==='live'){say('Jairo, hay un robo confirmado a 38 kilómetros. ¿Te llevo a un punto seguro?');if(gl&&a)gl.flyTo({center:a.ll,zoom:7.2,duration:1600})}}}
-const rlen=(()=>{let t=0;const c=[0];for(let i=1;i<ROAD.length;i++){t+=Math.hypot(ROAD[i][0]-ROAD[i-1][0],ROAD[i][1]-ROAD[i-1][1]);c.push(t)}return{t,c}})();
-function posAt(p){const d=p*rlen.t;let i=1;while(i<ROAD.length-1&&rlen.c[i]<d)i++;const a=ROAD[i-1],b=ROAD[i],u=(d-rlen.c[i-1])/((rlen.c[i]-rlen.c[i-1])||1);return[a[0]+(b[0]-a[0])*u,a[1]+(b[1]-a[1])*u]}
-function doneCoords(p){const d=p*rlen.t,o=[];for(let i=0;i<ROAD.length&&rlen.c[i]<d;i++)o.push(ROAD[i]);o.push(posAt(p));return o}
+let RD=ROAD;const mk=R=>{let t=0;const c=[0];for(let i=1;i<R.length;i++){t+=Math.hypot(R[i][0]-R[i-1][0],R[i][1]-R[i-1][1]);c.push(t)}return{t,c}};let rlen=mk(RD);
+function setRoad(p){RD=(p[0]==='Bogotá'&&p[p.length-1]==='Barranquilla')?ROAD:p.map(ll);rlen=mk(RD)}
+function posAt(p){const d=p*rlen.t;let i=1;while(i<RD.length-1&&rlen.c[i]<d)i++;const a=RD[i-1],b=RD[i],u=(d-rlen.c[i-1])/((rlen.c[i]-rlen.c[i-1])||1);return[a[0]+(b[0]-a[0])*u,a[1]+(b[1]-a[1])*u]}
+function doneCoords(p){const d=p*rlen.t,o=[];for(let i=0;i<RD.length&&rlen.c[i]<d;i++)o.push(RD[i]);o.push(posAt(p));return o}
 const ll=c=>[CITY[c][1],CITY[c][0]];
 const midLL=e=>{const a=ll(e[0]),b=ll(e[1]);return[(a[0]+b[0])/2,(a[1]+b[1])/2]};
 let gl=null,glOK=false,tm=null,am=[],glTried=false;
 const lineGJ=c=>({type:'Feature',geometry:{type:'LineString',coordinates:c.length>1?c:[c[0],c[0]]}});
-function fallbackMap(){if(glOK)return;$('gl').innerHTML=map({route:route(S.o,S.d),alerts:true});$('gl').classList.add('mapbox');frame()}
+let glStyle='';
+const wantStyle=()=>'https://tiles.openfreemap.org/styles/positron';
+function addLayers(){
+  if(!gl.getSource('rt')){gl.addSource('rt',{type:'geojson',data:lineGJ(RD)});gl.addSource('dn',{type:'geojson',data:lineGJ([RD[0]])});
+    gl.addLayer({id:'rt',type:'line',source:'rt',paint:{'line-color':'#3d7bff','line-width':7,'line-opacity':.35},layout:{'line-cap':'round','line-join':'round'}});
+    gl.addLayer({id:'dn',type:'line',source:'dn',paint:{'line-color':'#1f5fe0','line-width':4},layout:{'line-cap':'round','line-join':'round'}})}
+  if(!tm){const e=document.createElement('div');e.className='tmk';tm=new maplibregl.Marker({element:e}).setLngLat(RD[0])}
+  glOK=true;document.body.classList.add('glon');mountGL()
+}
+function fitRoad(d){if(!glOK)return;const xs=RD.map(p=>p[0]),ys=RD.map(p=>p[1]);gl.fitBounds([[Math.min(...xs),Math.min(...ys)],[Math.max(...xs),Math.max(...ys)]],{padding:{top:70,bottom:80,left:50,right:50},duration:d||0})}
+function mountGL(){
+  const g=$('gl');if(!glOK){return}
+  const slot=S.mode==='live'?document.querySelector('.glwrap'):document.querySelector('.glslot');
+  if(!slot)return;
+  if(g.parentElement!==slot){if(S.mode==='live')slot.prepend(g);else slot.appendChild(g)}
+  const w=wantStyle();if(w!==glStyle){glStyle=w;gl.setStyle(w)}
+  const p=T()?T().r.path:(S.mode==='live'||S.view[S.role]==='cotizar'?route(S.o,S.d).path:null);
+  if(p)setRoad(p);
+  gl.resize();
+  if(gl.getSource('rt')){gl.getSource('rt').setData(lineGJ(p?RD:[[-74,5],[-74,5]]));gl.getSource('dn').setData(lineGJ(ix('ruta')?doneCoords(S.prog):[RD[0]]))}
+  if(p)fitRoad();else gl.fitBounds([[-77.5,1],[-72,11.8]],{padding:30,duration:0});
+  drawGL();
+}
+function fallbackMap(){if(glOK)return;const w=document.querySelector('.glwrap');const g=$('gl');if(w&&!w.contains(g))w.prepend(g);g.innerHTML=map({route:route(S.o,S.d),alerts:true});frame()}
 function loadGL(){
   if(glTried)return;glTried=true;
   const l=document.createElement('link');l.rel='stylesheet';l.href='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css';document.head.appendChild(l);
   const sc=document.createElement('script');sc.src='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js';sc.onerror=fallbackMap;
   sc.onload=()=>{try{
-    gl=new maplibregl.Map({container:'gl',style:'https://tiles.openfreemap.org/styles/dark',center:[-74.4,7.7],zoom:5.2,attributionControl:{compact:true}});
-    gl.on('load',()=>{glOK=true;
-      gl.addSource('rt',{type:'geojson',data:lineGJ(ROAD)});gl.addSource('dn',{type:'geojson',data:lineGJ([ROAD[0]])});
-      gl.addLayer({id:'rt',type:'line',source:'rt',paint:{'line-color':'#3d7bff','line-width':7,'line-opacity':.38},layout:{'line-cap':'round','line-join':'round'}});
-      gl.addLayer({id:'dn',type:'line',source:'dn',paint:{'line-color':'#8fb2ff','line-width':4},layout:{'line-cap':'round','line-join':'round'}});
-      gl.fitBounds([[-76.2,4.1],[-72.6,11.4]],{padding:{top:60,bottom:70,left:40,right:40},duration:0});
-      const e=document.createElement('div');e.className='tmk';tm=new maplibregl.Marker({element:e}).setLngLat(ROAD[0]);
-      drawGL();
-    });
+    glStyle=wantStyle();
+    gl=new maplibregl.Map({container:'gl',style:glStyle,center:[-74.4,7.7],zoom:5.2,attributionControl:{compact:true}});
+    gl.on('style.load',addLayers);
     setTimeout(()=>{if(!glOK){gl.remove();gl=null;fallbackMap()}},12000);
   }catch(err){gl=null;fallbackMap()}};
   document.head.appendChild(sc);
@@ -544,11 +633,11 @@ function loadGL(){
 function drawGL(){
   if(!glOK)return;
   am.forEach(m=>m.remove());am=S.alerts.filter(a=>!a.done).map(a=>{const e=document.createElement('div');e.className='amk'+(a.ok?'':' w');e.title=a.t+', '+a.w;return new maplibregl.Marker({element:e}).setLngLat(a.ll||midLL(a.e)).addTo(gl)});
-  const show=ix('ruta');if(show)tm.addTo(gl);else tm.remove();
+  const show=ix('ruta')&&(S.mode==='live'||!!document.querySelector('.glslot[data-r="1"]'));if(show)tm.addTo(gl);else tm.remove();
   frameGL(true);
 }
 let fc=0;
-function frameGL(force){if(!glOK||!ix('ruta'))return;const p=posAt(S.prog);tm.setLngLat(p);if(force||++fc%20===0)gl.getSource('dn').setData(lineGJ(doneCoords(S.prog)));if(S.stage==='ruta'&&fc%120===0)gl.easeTo({center:p,zoom:6.1,duration:1500})}
+function frameGL(force){if(!glOK||!ix('ruta'))return;const p=posAt(S.prog);tm.setLngLat(p);const dn=gl.getSource('dn');if(dn&&(force||++fc%20===0))dn.setData(lineGJ(doneCoords(S.prog)));if(S.mode==='live'&&S.stage==='ruta'&&fc%120===0)gl.easeTo({center:p,zoom:6.1,duration:1500})}
 function cli(){
   const q=T()||quote(),el=$('lcli');
   if(S.stage==='none'){
@@ -578,7 +667,7 @@ function liveNext(){const s=LIVE.find(x=>!x.done());if(!s||(s.wait&&s.wait()))re
 function renderLive(){
   $('roles').innerHTML=rolesHTML();
   if(T())$('mp').setAttribute('d',pathD(T().r.path));
-  cli();phone();loadGL();
+  cli();phone();loadGL();mountGL();
   const on=ix('aceptado')&&!ix('entrega');
   $('tkp').innerHTML='<div><small>Viajes activos</small><b>'+(on?19:18)+'</b></div><div><small>Alertas</small><b class="crit">'+S.alerts.filter(a=>!a.done).length+'</b></div><div><small>A tiempo</small><b>96%</b></div>';
   const n=[];
@@ -633,19 +722,40 @@ function guide(){
   if(S.stage!=='none')add('Reiniciar','ghost',A.reiniciar);
 }
 function rolesHTML(){return `<button class="rb lv" role="tab" aria-selected="${S.mode==='live'}" data-a="live">${ic('map')}En vivo</button>`+Object.entries(ROLES).map(([k,r])=>`<button class="rb" role="tab" style="--rc:${r.c}" aria-selected="${S.mode!=='live'&&k===S.role}" data-a="role" data-v="${k}">${ic(r.i)}${r.n}${S.mode!=='live'&&S.badge[k]?`<span class="badge">${S.badge[k]}</span>`:''}</button>`).join('')}
+const WHO={cliente:['AE','Laura Méndez','Alimentos Ejemplo S.A.'],despacho:['ST','Coordinación','Safe Trip S.A.S.'],finanzas:['FN','Finanzas','Safe Trip S.A.S.'],gerencia:['GG','Gerencia','Safe Trip S.A.S.']};
+function brandSvg(){return document.querySelector('.brand svg').outerHTML}
+function renderHome(){const h=$('home');h.innerHTML='<div class="hl">'+brandSvg()+'</div><h1>Entra a Flett</h1><p>Un solo sistema. Cada persona ve lo que necesita.</p><div class="hg">'+Object.entries(ROLES).map(([k,r])=>'<button class="hc" data-a="role" data-v="'+k+'">'+ic(r.i)+'<b>'+r.n+'</b><small>'+r.who+'</small></button>').join('')+'</div><button class="btn" data-a="live">Ver un viaje en vivo</button><div class="disc">Prototipo con datos simulados</div>'}
+function dock(){
+  const d=$('dock');d.classList.toggle('on',S.mode==='explore');if(S.mode!=='explore')return;
+  const i=STEPS.findIndex(x=>!x.done()),st=STEPS[i],here=st&&S.role===st.r&&S.view[st.r]===st.v,w=st&&st.wait&&st.wait();
+  d.innerHTML='<b>Prototipo</b><select id="asr" aria-label="Ver como">'+Object.entries(ROLES).map(([k,r])=>'<option value="'+k+'"'+(k===S.role?' selected':'')+'>'+r.n+'</option>').join('')+'</select><span class="dh">'+(st?(i+1)+'/'+STEPS.length+' · '+st.t:'Recorrido completo')+'</span>'+(st?'<button class="btn" id="dn"'+(w?' disabled':'')+'>'+(w?'Un momento…':here?st.x:'Ir a '+ROLES[st.r].n)+'</button>':'')+'<button class="gh" data-a="live">En vivo</button><button class="gh" data-a="home">Inicio</button>';
+  $('asr').onchange=e=>go(e.target.value);const n=$('dn');if(n)n.onclick=next;
+}
+A.home=()=>{S.mode='home';render()};
+function holdGL(){const g=$('gl');if(g&&$('main').contains(g))$('glhold').appendChild(g)}
 function render(){
-  $('app').classList.toggle('islive',S.mode==='live');
+  holdGL();
+  const light=S.mode==='explore'&&!['despacho','conductor'].includes(S.role);
+  document.documentElement.dataset.theme=light?'light':'dark';
+  $('app').classList.toggle('islive',S.mode==='live');$('app').dataset.role=S.role;
+  $('home').classList.toggle('on',S.mode==='home');
+  if(S.mode==='home'){renderHome();dock();loadGL();return}
+  dock();
   if(S.mode==='live'){renderLive();return}
+  document.querySelector('.rail').classList.remove('on');
   const R=ROLES[S.role];
   document.documentElement.style.setProperty('--role',R.c);
   $('roles').innerHTML=rolesHTML();
   $('ctx').innerHTML=`<div class="chip">${ic(R.i)}Entorno ${R.n}</div><span>${R.who}</span><span>· ${R.dev}</span><div class="sim">Demo con datos simulados</div>`;
-  $('side').innerHTML=`<h2>${R.n}</h2>`+R.nav.map(n=>`<button class="nv" data-a="nav" data-v="${S.role}|${n[0]}" aria-current="${S.view[S.role]===n[0]?'page':'false'}">${ic(n[2])}${n[1]}</button>`).join('')+`<div class="mod">${R.mods}</div>`;
+  const W=WHO[S.role]||['JR','Jairo R.','Conductor'];
+  $('side').innerHTML=`<div class="sb">${brandSvg()}</div>`+R.nav.map(n=>`<button class="nv" data-a="nav" data-v="${S.role}|${n[0]}" aria-current="${S.view[S.role]===n[0]?'page':'false'}">${ic(n[2])}${n[1]}</button>`).join('')+`<div class="acct"><span class="av">${W[0]}</span><span><b>${W[1]}</b><small>${W[2]}</small></span></div>`;
+  const nb=S.badge[S.role]||0;
+  $('tbar').innerHTML=`<div class="srch">${ic('map')}Buscar viaje, placa o cliente</div><span class="sp2"></span><button class="ib" data-a="bell" aria-label="Actividad">${ic('shield')}${S.log.length>1?`<em>${Math.min(S.log.length-1,9)}</em>`:''}</button><span class="av">${W[0]}</span>`;
   const view=S.view[S.role];$('main').innerHTML=VIEWS[S.role][view]();
   if(S.role==='conductor')phone();
   if(S.role==='cliente'&&view==='cotizar'&&S.stage==='none')bindQuote();
   if(T())$('mp').setAttribute('d',pathD(T().r.path));
-  guide();drawFeed();frame();
+  drawFeed();frame();loadGL();mountGL();
 }
 function bindQuote(){
   ['o','d'].forEach(k=>{const s=$('f'+k);Object.keys(CITY).sort().forEach(c=>{if(c!==(k==='o'?S.d:S.o))s.add(new Option(c,c))});s.value=S[k];s.onchange=()=>{S[k]=s.value;S['a'+k]='';render()};const a=$('a'+k);a.oninput=()=>{S['a'+k]=a.value}});
