@@ -406,6 +406,8 @@ input[type=range]:focus-visible{outline:2px solid var(--red);outline-offset:8px}
 .ex-grid b.r{color:var(--red-h)}
 .ex-grid span{font-size:12px;color:rgba(255,255,255,.5)}
 .ex-grid.four{grid-template-columns:repeat(4,1fr)}
+#s-horas .inv-table.terms td:nth-child(3),#s-horas .inv-table.terms th:nth-child(3){text-align:right;white-space:nowrap}#s-horas .inv-table td:nth-child(2){max-width:none}
+@media(min-width:769px) and (max-height:1000px){#s-horas{padding-top:70px;padding-bottom:36px}#s-horas .h2{font-size:clamp(26px,3vw,40px);margin-bottom:8px}#s-horas .inv-table td{padding-top:6px;padding-bottom:6px}#s-horas .ex-grid{margin-top:8px}#s-horas .pkg-block{padding-top:12px;padding-bottom:12px}#s-horas .pkg-note{margin-top:6px;font-size:11.5px}}
 @media(min-width:769px) and (max-height:1000px){#s-inversion{padding-top:70px;padding-bottom:36px}#s-inversion .h2{font-size:clamp(26px,3vw,40px);margin-bottom:8px}#s-inversion .inv-table td{padding-top:5px;padding-bottom:5px}#s-inversion .inv-table th{padding-top:4px;padding-bottom:4px}#s-inversion .ex-grid{margin-top:8px}#s-inversion .pkg-block{padding-top:12px;padding-bottom:12px}#s-inversion .pkg-note{margin-top:6px;font-size:11.5px}}
 @media(max-width:768px){.ex-grid,.ex-grid.four{grid-template-columns:1fr}}
 @media(min-width:769px) and (max-height:1000px){.ex-grid b{font-size:20px}.ex-grid div{padding:10px 14px}}
@@ -1029,82 +1031,9 @@ table.fin[data-cols="y1"]{font-size:11px}table.fin[data-cols="y1"] th,table.fin[
   </div>
 </section>
 
-<section class="slide dk tex-grid-dk glow-bl noise" data-title="Las fugas" id="s-fugas">
-  <div class="inner">
-    <div class="lbl rv" style="--d:0">02 · Lo que hoy cuesta dinero</div>
-    <h2 class="h2 rv" style="--d:1;color:#fff">Cinco fugas que no aparecen<br>en el <em>estado de resultados.</em></h2>
-    <div class="leaks">
-      <article class="leak hot rv" style="--d:2">
-        <span class="tag">La más cara</span>
-        <div class="k">01</div>
-        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="16" width="24" height="16" rx="1"/><path d="M28 21h8l6 6v5H28z"/><circle cx="12" cy="35" r="3"/><circle cx="36" cy="35" r="3"/><path d="M10 10l4 4M18 8v5M26 10l-4 4"/></svg>
-        <h3>Retornos vacíos</h3>
-        <p>La tractomula que vuelve sin carga quema ACPM, peajes y conductor sin facturar un peso.</p>
-      </article>
-      <article class="leak rv" style="--d:3">
-        <div class="k">02</div>
-        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="26" r="15"/><path d="M24 17v9l6 4M19 6h10M24 6v5"/></svg>
-        <h3>Cotización lenta</h3>
-        <p>El cliente pide precio a tres transportadoras. Casi siempre gana la que responde primero.</p>
-      </article>
-      <article class="leak rv" style="--d:4">
-        <div class="k">03</div>
-        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 42s13-12 13-22a13 13 0 00-26 0c0 10 13 22 13 22z"/><path d="M21 17a3.5 3.5 0 116 2.5c-1.5 1-3 1.8-3 3.5M24 27v.5"/></svg>
-        <h3>"¿Dónde va mi carga?"</h3>
-        <p>Llamadas de clientes que ocupan al equipo operativo en vez de dejarlo vender y despachar.</p>
-      </article>
-      <article class="leak rv" style="--d:5">
-        <div class="k">04</div>
-        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="4" width="20" height="40" rx="4"/><path d="M21 38h6M8 16c-2 3-2 9 0 12M40 16c2 3 2 9 0 12"/></svg>
-        <h3>Terceros por teléfono</h3>
-        <p>Conseguir vehículos de la red a punta de llamadas y grupos de WhatsApp, sin trazabilidad.</p>
-      </article>
-      <article class="leak rv" style="--d:6">
-        <div class="k">05</div>
-        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="6"/><circle cx="34" cy="20" r="5"/><path d="M4 40c0-7 5-12 12-12s12 5 12 12M26 40c0-5 3-9 8-9s8 4 8 9"/></svg>
-        <h3>Crecer solo por referidos</h3>
-        <p>Los clientes nuevos llegan por contactos, no por un sistema que los traiga cada mes.</p>
-      </article>
-    </div>
-    <p class="note-dk rv" style="--d:7">Diagnóstico preliminar construido desde afuera. Lo validamos con la gerencia en la sesión de descubrimiento.</p>
-  </div>
-</section>
-
-<section class="slide dk tex-grid-dk noise glow-tr" data-title="El costo de esperar" id="s-esperar">
-  <div class="inner">
-    <div class="lbl rv" style="--d:0">03 · El costo de esperar</div>
-    <h2 class="h2 rv" style="--d:1;color:#fff">Quedarse igual <em>también tiene precio.</em></h2>
-    <p class="lead rv" style="--d:2">La regla ya cambió y el mercado se está digitalizando. Cada mes sin moverse deja dinero en la carretera.</p>
-    <div class="law">
-      <article class="rv" style="--d:3"><div class="big">$10,5 M</div><h3>Retornos sin llenar</h3><p>Al mes, en un ejemplo de 40 viajes con 35% de regresos vacíos y 1 de cada 4 llenados.</p><span class="fix">Dinero que ya se gastó en ACPM</span></article>
-      <article class="rv" style="--d:4"><div class="big">$18,1 M</div><h3>Carga nueva y Flett</h3><p>Al mes en el escenario base: margen de la carga nueva más su 50% de las utilidades.</p><span class="fix">Clientes que hoy contratan a otro</span></article>
-      <article class="rv" style="--d:5"><div class="big">$218 M</div><h3>Cada año de espera</h3><p>Es la ganancia anual del escenario base, con Flett ya caminando. Se recalcula con sus datos reales.</p><span class="fix">El costo real de no decidir</span></article>
-      <article class="rv" style="--d:6"><div class="big">1</div><h3>Posición por zona</h3><p>La primera transportadora de Bogotá y la Sabana define cómo funciona la app y se queda con la prioridad.</p><span class="fix">Esa ventaja no se repite</span></article>
-    </div>
-    <p class="src rv" style="--d:7">Ejercicio ilustrativo con los supuestos del escenario base. No es una promesa de resultado.</p>
-  </div>
-</section>
-
-<section class="slide dk2 noise glow-tr" data-title="Seguridad" id="s-seguridad">
-  <div class="inner">
-    <div class="lbl rv" style="--d:0">04 · Seguridad: la puerta de entrada</div>
-    <h2 class="h2 rv" style="--d:1;color:#fff">Una red nacional de alertas,<br><em>gratis para todo camionero.</em></h2>
-    <p class="lead rv" style="--d:2">El conductor entra por su seguridad y se queda por los viajes. Así crece la red sin comprar un camión.</p>
-    <div class="law six">
-      <article class="rv" style="--d:3"><div class="big">Alerta</div><h3>Robos en vivo</h3><p>Un reporte avisa a los conductores cercanos. La alerta dura 24 horas y se confirma antes de difundirse.</p><span class="fix">Modelo Drivewyze y CargoNet</span></article>
-      <article class="rv" style="--d:4"><div class="big">Mapa</div><h3>Riesgo por corredor</h3><p>Cada tramo se marca bajo, medio o alto, con horarios y tipos de robo. Se usa antes de salir.</p><span class="fix">Modelo Trucker Path</span></article>
-      <article class="rv" style="--d:5"><div class="big">Pánico</div><h3>Botón silencioso</h3><p>Envía ubicación y datos a la central 24/7 de la transportadora, que activa el protocolo con la Policía.</p><span class="fix">Conectado al monitoreo actual</span></article>
-      <article class="rv" style="--d:6"><div class="big">Identidad</div><h3>Antisuplantación</h3><p>Selfie, documento y licencia antes de cargar. El cliente ve quién llega y con qué vehículo.</p><span class="fix">Contra el robo con identidad falsa</span></article>
-      <article class="rv" style="--d:7"><div class="big">Ruta</div><h3>Desvíos y paradas</h3><p>Avisa si el vehículo se sale de la ruta o se detiene donde no debe. Muestra paraderos recomendados.</p><span class="fix">Geocercas y alertas</span></article>
-      <article class="rv" style="--d:8"><div class="big">Vías</div><h3>Bloqueos y cierres</h3><p>Colfecar registró 801 bloqueos viales en 2024. La app avisa antes de que el camión quede atrapado.</p><span class="fix">Menos viajes perdidos</span></article>
-    </div>
-    <p class="src rv" style="--d:9">Referentes: Trucker Path, Verisk CargoNet y Drivewyze. Bloqueos: Colfecar, 2024. Las alertas no reemplazan a la Policía: ante una emergencia hay que llamar al 123. Los reportes usan datos de ubicación autorizados por cada conductor.</p>
-  </div>
-</section>
-
 <section class="slide lt tex-grid" data-title="Módulos de la app" id="s-modulos">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">05 · Módulos de la app</div>
+    <div class="lbl rv" style="--d:0">02 · Módulos de la app</div>
     <h2 class="h2 rv" style="--d:1">Lo que ya funcionó en el mundo, <em>hecho para Colombia.</em></h2>
     <div class="pkg-block corner-fx rv-3d" style="--d:2">
       <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
@@ -1133,7 +1062,7 @@ table.fin[data-cols="y1"]{font-size:11px}table.fin[data-cols="y1"] th,table.fin[
 
 <section class="slide lt tex-grid" data-title="El piloto" id="s-inversion">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">06 · Paso 1: el piloto</div>
+    <div class="lbl rv" style="--d:0">03 · Paso 1: el piloto</div>
     <h2 class="h2 rv" style="--d:1">90 días para <em>demostrarlo con carga real.</em></h2>
     <p class="lead rv fit-short" style="--d:2">Medible y con metas claras. Semanas 1 a 6: construimos. Semanas 7 a 12: operamos en rutas reales.</p>
     <div class="pkg-block corner-fx rv-3d" style="--d:3">
@@ -1185,7 +1114,7 @@ table.fin[data-cols="y1"]{font-size:11px}table.fin[data-cols="y1"] th,table.fin[
 
 <section class="slide lt tex-grid" data-title="La empresa nueva" id="s-empresa">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">07 · Paso 2: la empresa nueva</div>
+    <div class="lbl rv" style="--d:0">04 · Paso 2: la empresa nueva</div>
     <h2 class="h2 rv" style="--d:1">Con el piloto cumplido, creamos<br><em>una empresa dueña de la app.</em></h2>
     <div class="pkg-block corner-fx rv-3d" style="--d:2">
       <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
@@ -1209,49 +1138,38 @@ table.fin[data-cols="y1"]{font-size:11px}table.fin[data-cols="y1"] th,table.fin[
   </div>
 </section>
 
-<section class="slide lt2 tex-dots" data-title="Qué pone cada uno" id="s-modelos">
+<section class="slide lt tex-grid" data-title="Lo que aporta We Rock" id="s-horas">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">08 · Qué pone cada uno</div>
-    <h2 class="h2 rv" style="--d:1">Cada uno pone<br><em>lo que el otro no tiene.</em></h2>
-    <div class="ally">
-      <article class="ally-col rv" style="--d:2">
-        <span class="badge" style="background:var(--dk)">Safe Trip pone</span>
-        <ul>
-          <li><span><b>El capital:</b> el piloto y la arrancada de la empresa</span></li>
-          <li><span><b>La operación:</b> habilitación, flota propia, conductores y vehículos aliados, y monitoreo 24/7</span></li>
-          <li><span><b>Sus viajes:</b> la app se prueba y mejora con carga real</span></li>
-          <li><span><b>El conocimiento del sector:</b> tarifas, rutas, procesos y un responsable interno</span></li>
-        </ul>
-        <div class="ally-foot">Lo que no puede construir sola: tecnología y demanda</div>
-      </article>
-      <article class="ally-col rv" style="--d:3">
-        <span class="badge" style="background:var(--dk)">We Rock pone</span>
-        <ul>
-          <li><span><b>La tecnología:</b> diseño, código y evolución de la app</span></li>
-          <li><span><b>Los clientes:</b> estrategia, campañas, contenido y WhatsApp con HalconBot</span></li>
-          <li><span><b>La venta de la app:</b> llevarla a otras transportadoras</span></li>
-          <li><span><b>Dirección Estratégica™:</b> comité mensual con la gerencia</span></li>
-        </ul>
-        <div class="ally-foot">Lo que no puede hacer solo: operar carga</div>
-      </article>
-      <article class="ally-col win corner-fx rv" style="--d:4">
-        <span class="badge">Por qué 50/50</span>
-        <div class="opt"><b>Aportes parejos</b><small>En 36 meses, Safe Trip pone cerca de $125 M en capital. We Rock deja de cobrar cerca de $167 M en trabajo y producto.</small></div>
-        <div class="opt"><b>Apuesta compartida</b><small>No hay deudas entre socios. Los dos le apuestan al mismo negocio y las ganancias se reparten siempre mitad y mitad.</small></div>
-        <div class="opt"><b>Decisiones entre los dos</b><small>Las decisiones grandes se toman de mutuo acuerdo, con reglas claras desde el inicio.</small></div>
-      </article>
-    </div>
-    <div class="rules rv" style="--d:5">
-      <div><b>Clientes y datos de Safe Trip</b><span>Su relación comercial y sus datos siguen siendo suyos.</span></div>
-      <div><b>La app es de la empresa nueva</b><span>Al crearla, el código pasa a ser de los dos socios.</span></div>
-      <div><b>Todo por escrito</b><span>Piloto, metas y acuerdo de socios firmados, con cuentas abiertas para ambos.</span></div>
+    <div class="lbl rv" style="--d:0">05 · Lo que aporta We Rock</div>
+    <h2 class="h2 rv" style="--d:1">3.346 horas de trabajo <em>invertidas en el negocio.</em></h2>
+    <div class="pkg-block corner-fx rv-3d" style="--d:2">
+      <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+      <div class="inv-table-wrap">
+        <table class="inv-table terms">
+          <thead><tr><th>Rama de We Rock</th><th>Qué aporta</th><th>Horas</th><th>Valor</th></tr></thead>
+          <tbody>
+            <tr><td>Infraestructura Digital™</td><td>La app: diseño, código, servidores y evolución continua</td><td>1.320</td><td>$66.000.000</td></tr>
+            <tr><td>Arquitectura de Crecimiento™</td><td>Estrategia, campañas, SEO, AEO y clientes nuevos</td><td>1.098</td><td>$54.900.000</td></tr>
+            <tr><td>Sistemas de Conversión™</td><td>HalconBot, WhatsApp y CRM comercial</td><td>400</td><td>$20.000.000</td></tr>
+            <tr><td>Producción y comunicación</td><td>Contenido, video y capacitación para conductores</td><td>264</td><td>$13.200.000</td></tr>
+            <tr><td>Dirección Estratégica™</td><td>Comité mensual con la gerencia y decisiones del negocio</td><td>264</td><td>$13.200.000</td></tr>
+            <tr class="subtotal"><td>Inversión de We Rock</td><td>Trabajo que deja de cobrar en 36 meses</td><td>3.346</td><td>$167.300.000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ex-grid">
+        <div><small>Safe Trip pone</small><b>$125 M</b><span>En dinero, más su operación, sus viajes y su conocimiento del sector</span></div>
+        <div><small>We Rock pone</small><b>$167 M</b><span>En trabajo y producto, además de la tecnología y la venta de la app</span></div>
+        <div><small>Por eso</small><b class="r">50/50</b><span>Sin deudas entre socios. Cada uno pone lo que el otro no tiene</span></div>
+      </div>
+      <p class="pkg-note">Horas equivalentes a $50.000 cada una, sobre el valor de catálogo de We Rock. Valor mensual: $10,8 M. Flett paga $6 M durante 33 meses. Incluye el montaje de HalconBot y el marketing del piloto por debajo del mercado. El dinero de Safe Trip corresponde al escenario base.</p>
     </div>
   </div>
 </section>
 
 <section class="slide lt tex-dots" data-title="Proyección financiera" id="s-proyeccion">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">09 · Proyección a 36 meses</div>
+    <div class="lbl rv" style="--d:0">06 · Proyección a 36 meses</div>
     <h2 class="h2 rv" style="--d:1">Tres escenarios a 36 meses, <em>con los pies en la tierra.</em></h2>
     <div class="pkg-block corner-fx rv-3d" style="--d:2">
       <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
@@ -1285,7 +1203,7 @@ table.fin[data-cols="y1"]{font-size:11px}table.fin[data-cols="y1"] th,table.fin[
 
 <section class="slide dk2 noise glow-tr" data-title="Lo que gana Safe Trip" id="s-ganancia">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">10 · Lo que gana Safe Trip</div>
+    <div class="lbl rv" style="--d:0">07 · Lo que gana Safe Trip</div>
     <h2 class="h2 rv" style="--d:1;color:#fff">Cuando Flett ya camina,<br><em>esto gana Safe Trip cada mes.</em></h2>
     <p class="lead rv" style="--d:2">Es ganancia nueva, aparte de lo que su operación ya deja hoy: lo que gana con la carga nueva más su mitad de las ganancias de Flett.</p>
     <div class="phases">
@@ -1318,7 +1236,7 @@ table.fin[data-cols="y1"]{font-size:11px}table.fin[data-cols="y1"] th,table.fin[
 
 <section class="slide dk2 noise glow-tr" data-title="Preguntas resueltas" id="s-preguntas">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">11 · Antes de decidir</div>
+    <div class="lbl rv" style="--d:0">08 · Antes de decidir</div>
     <h2 class="h2 rv" style="--d:1;color:#fff">Las seis preguntas de un buen gerente.<br><em>Ya están resueltas.</em></h2>
     <div class="law six">
       <article class="rv" style="--d:2"><div class="big">Riesgo</div><h3>¿Y si no funciona?</h3><p>Tiene tope de $73,2 M, $10 M dependen de las metas y la app del piloto queda trabajando para su operación.</p><span class="fix">Riesgo con tope, inversión que queda</span></article>
@@ -1331,27 +1249,10 @@ table.fin[data-cols="y1"]{font-size:11px}table.fin[data-cols="y1"] th,table.fin[
   </div>
 </section>
 
-<section class="slide dk2 noise glow-bl" data-title="Más allá de la app" id="s-servicios">
-  <div class="inner">
-    <div class="lbl rv" style="--d:0">12 · Más allá de la app</div>
-    <h2 class="h2 rv" style="--d:1;color:#fff">La app es el gran proyecto.<br><em>Safe Trip puede crecer desde hoy.</em></h2>
-    <p class="lead rv" style="--d:2">We Rock es una firma completa de desarrollo, marketing, comunicación y medios. Esto resolvemos en su empresa, con o sin la app.</p>
-    <div class="law six">
-      <article class="rv" style="--d:3"><div class="big">Marca</div><h3>Imagen y portafolio</h3><p>Marca renovada, portafolio comercial y presentaciones para licitaciones y grandes generadores de carga.</p><span class="fix">Verse del tamaño de su operación</span></article>
-      <article class="rv" style="--d:4"><div class="big">Web</div><h3>Sitio y correo corporativo</h3><p>Un sitio que convierte, con casos y clientes a la vista, y correos con su propio dominio.</p><span class="fix">Más confianza desde el primer contacto</span></article>
-      <article class="rv" style="--d:5"><div class="big">Ventas</div><h3>Clientes nuevos</h3><p>Google, LinkedIn, SEO y AEO para que los encuentren, más un CRM para no perder ninguna oportunidad.</p><span class="fix">Un sistema que trae clientes cada mes</span></article>
-      <article class="rv" style="--d:6"><div class="big">Medios</div><h3>Producción audiovisual</h3><p>Video y foto de la flota, los conductores y la cadena de frío, listos para redes y campañas.</p><span class="fix">Contenido propio y real</span></article>
-      <article class="rv" style="--d:7"><div class="big">Voz</div><h3>Comunicación</h3><p>Redes, boletines para clientes y videos de capacitación y seguridad vial para los conductores.</p><span class="fix">Apoya su plan de seguridad vial</span></article>
-      <article class="rv" style="--d:8"><div class="big">IA</div><h3>Automatización</h3><p>WhatsApp con HalconBot, atención 24/7, vinculación de conductores y reportes automáticos.</p><span class="fix">Menos carga para el equipo</span></article>
-    </div>
-    <p class="src rv" style="--d:9">Diagnóstico preliminar construido desde afuera. Cada frente se puede contratar por separado y lo priorizamos con la gerencia.</p>
-  </div>
-</section>
-
 <section class="slide dk close noise glow-bl" data-title="Siguiente paso" id="s-cierre">
   <svg class="brand-mark" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
   <div class="inner">
-    <div class="lbl rv" style="--d:0">13 · Siguiente paso</div>
+    <div class="lbl rv" style="--d:0">09 · Siguiente paso</div>
     <h2 class="close-title rv" style="--d:1">Movamos<br>la <span class="r">primera carga.</span></h2>
     <div class="next">
       <div class="rv" style="--d:2"><b>01</b><h3>Dos horas con sus números</h3><p>Con gerencia y operación revisamos rutas, flota, terceros y margen real. Ese diagnóstico queda para Safe Trip desde ese día.</p></div>
@@ -1373,177 +1274,6 @@ table.fin[data-cols="y1"]{font-size:11px}table.fin[data-cols="y1"] th,table.fin[
   </div>
 </section>
 
-<section class="slide dk2 noise glow-bl" data-title="La propuesta" id="s-propuesta">
-  <div class="inner">
-    <div class="lbl rv" style="--d:0">Anexo · La oportunidad en un minuto</div>
-    <h2 class="h2 rv" style="--d:1;color:#fff">Una oportunidad de mercado.<br><em>Dos pasos para tomarla.</em></h2>
-    <p class="lead rv" style="--d:2">El paso 1 arranca con la firma. El paso 2 se decide con resultados en la mano. La posición es para una sola transportadora en Bogotá y la Sabana.</p>
-    <div class="phases">
-      <article class="phase main rv" style="--d:3">
-        <div class="ghost-num" aria-hidden="true">1</div>
-        <div class="when">Paso 1 · 90 días</div>
-        <h3>Piloto en rutas reales</h3>
-        <p class="sub">Operación real en 1 o 2 rutas.</p>
-        <ul><li>Construimos lo esencial: cotizador, cumplidos digitales, utilidad por carro, retornos y alertas de seguridad</li><li>Salimos a traer clientes nuevos</li><li>Metas escritas desde el primer día</li></ul>
-        <div class="price"><b>$73,2 M</b><small>$35 M de desarrollo + $38,2 M de marketing<br>Es el máximo y cuenta como su aporte</small></div>
-      </article>
-      <article class="phase rv" style="--d:4">
-        <div class="ghost-num" aria-hidden="true">2</div>
-        <div class="when">Paso 2 · Con las metas cumplidas</div>
-        <h3>Empresa nueva 50/50</h3>
-        <p class="sub">Una empresa dueña de la app.</p>
-        <ul><li>Safe Trip sigue siendo la transportadora</li><li>We Rock sigue siendo la firma de tecnología y marketing</li><li>La empresa nueva cobra por cada viaje y le vende la app a otras transportadoras</li></ul>
-        <div class="price"><b>50 / 50</b><small>Un negocio de los dos<br>y ganancias mitad y mitad</small></div>
-      </article>
-      <article class="phase rv" style="--d:5">
-        <div class="ghost-num" aria-hidden="true">3</div>
-        <div class="when">Lo que gana Safe Trip</div>
-        <h3>Dos fuentes de dinero</h3>
-        <p class="sub">Más carga y parte de la app.</p>
-        <ul><li>Margen de los clientes nuevos que atiende</li><li>El 50% de lo que gane la app con otras transportadoras</li><li>Operación ordenada y lista para las reglas del Decreto 1017</li></ul>
-        <div class="price"><b>Mes 24</b><small>Recupera su inversión<br>en el escenario base</small></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="slide lt tex-grid" data-title="El mercado" id="s-mercado">
-  <div class="inner">
-    <div class="lbl rv" style="--d:0">Anexo · El mercado</div>
-    <h2 class="h2 rv" style="--d:1">La carga en Colombia crece.<br><em>La forma de contratarla, no.</em></h2>
-    <div class="stat-row">
-      <div class="stat rv" style="--d:2">
-        <div class="n"><span class="cnt" data-to="151">0</span><i>M</i></div>
-        <div class="t">Toneladas transportadas en 2025</div>
-        <div class="s">Por carretera, en todo el país.</div>
-        <div class="up">↑ 3,7% vs. 2024</div>
-      </div>
-      <div class="stat rv" style="--d:3">
-        <div class="n"><span class="cnt" data-to="2620" data-format="es">0</span></div>
-        <div class="t">Empresas de carga activas</div>
-        <div class="s">Registradas en el RNDC. Todas compitiendo por los mismos generadores de carga.</div>
-      </div>
-      <div class="stat rv" style="--d:4">
-        <div class="n"><span class="cnt" data-to="166">0</span><i>K</i></div>
-        <div class="t">Vehículos registrados</div>
-        <div class="s">Una red enorme de conductores y propietarios buscando viajes todos los días.</div>
-      </div>
-    </div>
-    <div class="punch rv" style="--d:5">
-      <div class="punch-bar"></div>
-      <p>La mayoría del sector todavía cotiza por llamada, despacha por WhatsApp y reporta en Excel. <b>La primera transportadora que convierta su operación en un producto digital se queda con los clientes más exigentes.</b></p>
-    </div>
-    <p class="src rv" style="--d:6">Fuente: Ministerio de Transporte, Superintendencia de Transporte y RNDC, cifras citadas en safetripsas.com.</p>
-  </div>
-</section>
-
-<section class="slide dk2 noise glow-tr" data-title="Por qué ahora" id="s-ahora">
-  <div class="inner">
-    <div class="lbl rv" style="--d:0">Anexo · Por qué ahora</div>
-    <h2 class="h2 rv" style="--d:1;color:#fff">La ley ya obliga a trabajar en digital.<br><em>Safe Trip puede ganar ventaja haciéndolo primero.</em></h2>
-    <p class="lead rv" style="--d:2">Desde el 22 de septiembre de 2025, con el Decreto 1017, cambiaron las reglas del transporte de carga. Para la mayoría de empresas esto significa más papeleo. Con Flett, ese trabajo se hace solo.</p>
-    <div class="law">
-      <article class="rv" style="--d:3"><div class="big">5 días</div><h3>Para pagar el flete</h3><p>Después de la entrega, el pago del flete tiene un plazo máximo de 5 días.</p><span class="fix">Avisa cuándo vence cada pago</span></article>
-      <article class="rv" style="--d:4"><div class="big">Mínimo</div><h3>No se puede cobrar menos</h3><p>Los fletes no se pueden pactar por debajo del costo mínimo que calcula el Gobierno para cada ruta (SICE-TAC).</p><span class="fix">El cotizador nunca baja de ese mínimo</span></article>
-      <article class="rv" style="--d:5"><div class="big">Tiempos</div><h3>Hay que registrar cada viaje</h3><p>Se reporta la llegada, el cargue y la salida. La espera máxima baja de 12 a 8 horas y las demoras tienen sanciones.</p><span class="fix">El GPS registra las horas solo</span></article>
-      <article class="rv" style="--d:6"><div class="big">Cobro</div><h3>El manifiesto sirve para cobrar</h3><p>El manifiesto de carga tiene fuerza legal para cobrar deudas, siempre que la entrega esté bien soportada.</p><span class="fix">Cada entrega queda con foto, GPS y firma</span></article>
-    </div>
-    <p class="src rv" style="--d:7">Fuente: Decreto 1017 de 2025 del Ministerio de Transporte y Resolución 20263040015655 de 2026. Resumen informativo: la aplicación exacta la validamos con el asesor jurídico de Safe Trip.</p>
-  </div>
-</section>
-
-<section class="slide dk2 glow-tr noise" data-title="La idea" id="s-idea">
-  <div class="inner idea-grid">
-    <div>
-      <div class="lbl rv" style="--d:0">Anexo · La idea</div>
-      <h2 class="h2 rv" style="--d:1;color:#fff">No competir con las apps de carga.<br><em>Ser la app.</em></h2>
-      <p class="lead rv" style="--d:2">Uber funciona porque controla la experiencia de los dos lados. Safe Trip ya tiene lo que las apps de carga tienen que salir a comprar: habilitación, certificaciones y una red de vehículos que confía en ella.</p>
-      <ul class="idea-list">
-        <li class="rv" style="--d:3"><svg viewBox="0 0 32 32" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 12-11 14C10 27 5 22 5 15V7z"/><path d="M11 16l4 4 7-8"/></svg><span><b>El cliente contrata a una empresa habilitada,</b> no a un desconocido de una app. SARLAFT, PESV, pólizas y monitoreo 24/7 vienen incluidos.</span></li>
-        <li class="rv" style="--d:4"><svg viewBox="0 0 32 32" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 9v14M12 12.5c0-1.5 1.8-2.5 4-2.5s4 1 4 2.8c0 4-8 2.2-8 6.2 0 1.8 1.8 3 4 3s4-1 4-2.5"/></svg><span><b>El margen se queda en casa.</b> Cada viaje de un tercero pasa por Safe Trip, con su tarifa y su control de calidad.</span></li>
-        <li class="rv" style="--d:5"><svg viewBox="0 0 32 32" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 22l7-7 5 5 12-12"/><path d="M21 8h7v7"/></svg><span><b>La flota crece sin comprar camiones.</b> La plataforma convierte la red de terceros en capacidad disponible, ordenada y medible.</span></li>
-      </ul>
-    </div>
-    <div class="hub rv-3d" style="--d:3" aria-label="Diagrama: generadores de carga y conductores conectados a través de Flett">
-      <svg class="links" viewBox="0 0 100 100" aria-hidden="true">
-        <line x1="50" y1="50" x2="16" y2="18" stroke="rgba(255,255,255,.12)" stroke-width=".4"/>
-        <line x1="50" y1="50" x2="84" y2="18" stroke="rgba(255,255,255,.12)" stroke-width=".4"/>
-        <line x1="50" y1="50" x2="16" y2="84" stroke="rgba(255,255,255,.12)" stroke-width=".4"/>
-        <line x1="50" y1="50" x2="84" y2="84" stroke="rgba(255,255,255,.12)" stroke-width=".4"/>
-        <line class="flow-dash" x1="16" y1="18" x2="50" y2="50" stroke="#E8000A" stroke-width=".6"/>
-        <line class="flow-dash" x1="84" y1="18" x2="50" y2="50" stroke="#E8000A" stroke-width=".6"/>
-        <line class="flow-dash" x1="50" y1="50" x2="16" y2="84" stroke="#E8000A" stroke-width=".6"/>
-        <line class="flow-dash" x1="50" y1="50" x2="84" y2="84" stroke="#E8000A" stroke-width=".6"/>
-      </svg>
-      <div class="hub-node" style="left:16%;top:18%">
-        <div class="dot"><svg viewBox="0 0 32 32" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 28V12l8 5v-5l8 5V6h8v22z"/><path d="M9 23h2M15 23h2M21 23h2"/></svg></div>
-        <b>Generadores de carga</b><small>Alimentos, farma, manufactura</small>
-      </div>
-      <div class="hub-node" style="left:84%;top:18%">
-        <div class="dot"><svg viewBox="0 0 32 32" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4v10M12 8l4-4 4 4"/><rect x="5" y="16" width="22" height="12" rx="1"/><path d="M5 21h22"/></svg></div>
-        <b>Clientes de retorno</b><small>Carga para las rutas de regreso</small>
-      </div>
-      <div class="hub-node" style="left:16%;top:84%">
-        <div class="dot"><svg viewBox="0 0 32 32" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="10" width="17" height="12" rx="1"/><path d="M20 14h5l4 4v4h-9z"/><circle cx="9" cy="24" r="2.5"/><circle cx="24" cy="24" r="2.5"/></svg></div>
-        <b>Flota propia</b><small>Vehículos Safe Trip</small>
-      </div>
-      <div class="hub-node" style="left:84%;top:84%">
-        <div class="dot"><svg viewBox="0 0 32 32" fill="none" stroke="#E8000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="4"/><circle cx="22" cy="13" r="3.5"/><path d="M3 27c0-5 3.5-8 8-8s8 3 8 8M18 27c0-3.5 1.8-6 5-6s5 2.5 5 6"/></svg></div>
-        <b>Red de terceros</b><small>Conductores y propietarios</small>
-      </div>
-      <div class="hub-core"><div><b>Flett</b><small>Plataforma</small></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="slide dk2 noise glow-tr" data-title="La apuesta de We Rock" id="s-aporte">
-  <div class="inner">
-    <div class="lbl rv" style="--d:0">Anexo · La apuesta de We Rock en el piloto</div>
-    <h2 class="h2 rv" style="--d:1;color:#fff">We Rock pone <em>su apuesta primero.</em></h2>
-    <p class="lead rv" style="--d:2">Cerca de $167 M en trabajo y producto en 36 meses, a precio de catálogo. Así de seguros estamos de este negocio.</p>
-    <div class="law six">
-      <article class="rv" style="--d:3"><div class="big">$158 M</div><h3>Trabajo bajo el mercado</h3><p>Tecnología y marketing valen cerca de $10,8 M al mes. Flett paga $6 M durante 33 meses.</p><span class="fix">Esa diferencia es capital de We Rock</span></article>
-      <article class="rv" style="--d:4"><div class="big">$3,5 M</div><h3>Montaje de HalconBot</h3><p>Lo dejamos listo sin costo para atender clientes y conductores 24/7. Safe Trip solo paga el plan de la plataforma.</p><span class="fix">Producto propio, ya probado</span></article>
-      <article class="rv" style="--d:5"><div class="big">$5 M</div><h3>Marketing invertido</h3><p>Estrategia, contenido y AEO valen $6,3 M al mes. En el piloto entran a $4,5 M.</p><span class="fix">Inversión de We Rock en el arranque</span></article>
-      <article class="rv" style="--d:6"><div class="big">Incluido</div><h3>Diagnóstico de arranque</h3><p>Revisamos sus números reales, rutas y clientes antes de construir.</p><span class="fix">Decisiones con datos</span></article>
-      <article class="rv" style="--d:7"><div class="big">$10 M</div><h3>Pago por resultados</h3><p>El último pago del desarrollo se activa al cumplir las metas.</p><span class="fix">Respaldamos lo que proyectamos</span></article>
-      <article class="rv" style="--d:8"><div class="big">100%</div><h3>Nada se pierde</h3><p>Lo pagado en el piloto cuenta como aporte, y la app del piloto trabaja para su operación desde el día 90.</p><span class="fix">Su inversión queda trabajando</span></article>
-    </div>
-    <p class="src rv" style="--d:9">Valores de mercado según el catálogo de We Rock. El pago por resultados aplica si Safe Trip usa la app y atiende la carga que llegue.</p>
-  </div>
-</section>
-
-<section class="slide dk2 noise glow-tr" data-title="Cómo queda en regla" id="s-legal">
-  <div class="inner">
-    <div class="lbl rv" style="--d:0">Anexo · Cómo queda en regla</div>
-    <h2 class="h2 rv" style="--d:1;color:#fff">La app no transporta.<br><em>La carga la mueve una empresa habilitada.</em></h2>
-    <div class="law">
-      <article class="rv" style="--d:2"><div class="big">Carga</div><h3>Transporte</h3><p>La empresa nueva es de tecnología. El contrato de transporte y el manifiesto siempre son de una transportadora habilitada.</p><span class="fix">Safe Trip conserva su habilitación</span></article>
-      <article class="rv" style="--d:3"><div class="big">S.A.S.</div><h3>Sociedad</h3><p>Se crea por acciones simplificadas (Ley 1258 de 2008), con un acuerdo de accionistas firmado.</p><span class="fix">50/50 con reglas por escrito</span></article>
-      <article class="rv" style="--d:4"><div class="big">Código</div><h3>Propiedad de la app</h3><p>We Rock aporta el software en especie, con avalúo soportado y cesión escrita registrada en Derecho de Autor.</p><span class="fix">La app queda a nombre de la empresa</span></article>
-      <article class="rv" style="--d:5"><div class="big">Datos</div><h3>Datos y dinero</h3><p>Autorización de datos según la Ley 1581. La app no guarda dinero de terceros: los pagos van por banco o pasarela.</p><span class="fix">Menos riesgo regulatorio</span></article>
-    </div>
-    <p class="src rv" style="--d:6">Resumen informativo: la estructura final la validan los asesores jurídicos y contables de ambas partes.</p>
-  </div>
-</section>
-
-<section class="slide dk2 noise glow-bl" data-title="El tamaño del negocio" id="s-oportunidad">
-  <div class="inner">
-    <div class="lbl rv" style="--d:0">Anexo · El tamaño del negocio</div>
-    <h2 class="h2 rv" style="--d:1;color:#fff">Con menos del 0,04% del mercado,<br><em>el negocio funciona.</em></h2>
-    <p class="lead rv" style="--d:2">No hay que ganarle a todo el sector. En el escenario base bastan Safe Trip y 4 transportadoras más. Una sola app sirve para todos los vehículos de carga.</p>
-    <div class="law six">
-      <article class="rv" style="--d:3"><div class="big">$24 B</div><h3>Fletes al año en Colombia</h3><p>Cerca de $24 billones en 2025: 151,5 millones de toneladas a $158.275 por tonelada.</p><span class="fix">El tamaño total del mercado</span></article>
-      <article class="rv" style="--d:4"><div class="big">$3,6 B</div><h3>Solo desde Cundinamarca</h3><p>Despacha 22,5 millones de toneladas, cerca del 15% del país. Ahí está Safe Trip.</p><span class="fix">Donde arrancamos</span></article>
-      <article class="rv" style="--d:5"><div class="big">2.620</div><h3>Posibles clientes de la app</h3><p>Empresas de carga activas, con más de 13 millones de viajes al año. Bastan 4 para el escenario base.</p><span class="fix">La app se puede vender</span></article>
-      <article class="rv" style="--d:6"><div class="big">27%</div><h3>De los viajes son de tractocamiones</h3><p>Mueven el 71% de la carga sólida. Es donde está el flete alto.</p><span class="fix">Aquí se gana por porcentaje</span></article>
-      <article class="rv" style="--d:7"><div class="big">64%</div><h3>De los viajes son de camiones de 2 ejes</h3><p>Mueven el 19% de la carga. Fletes más bajos, pero muchos más viajes.</p><span class="fix">Aquí se gana por volumen</span></article>
-      <article class="rv" style="--d:8"><div class="big">40–69%</div><h3>Viajes sin carga</h3><p>Según la fuente y el tipo de camión. Es dinero que se pierde en cada regreso.</p><span class="fix">El dolor que resolvemos</span></article>
-    </div>
-    <p class="src rv" style="--d:9">Fuentes: Ministerio de Transporte y RNDC; Observatorio Logístico de Santander (UPB) citado por Portafolio; Fedetranscarga citada por La República; Universidad de los Andes y El Tiempo. El valor total es un cálculo propio. Competencia: Teclogi levantó más de US$4,6 M, y existen bolsas de carga que conectan pero no operan.</p>
-  </div>
-</section>
-
 <section class="slide lt tex-grid" data-title="Mes a mes" id="s-mes">
   <div class="inner">
     <div class="fin-head"><div><div class="lbl rv" style="--d:0">Anexo · Proyección mes a mes</div><h2 class="h2 rv" style="--d:1">El primer año, <em>mes a mes.</em></h2></div><div class="fin-tabs rv" style="--d:2" role="group" aria-label="Escenario"><button data-fs="conservador">Conservador</button><button data-fs="base" class="on">Base</button><button data-fs="ambicioso">Ambicioso</button></div></div>
@@ -1560,59 +1290,37 @@ table.fin[data-cols="y1"]{font-size:11px}table.fin[data-cols="y1"] th,table.fin[
   </div>
 </section>
 
-<section class="slide dk2 noise glow-bl" data-title="Hoja de ruta" id="s-ruta">
+<section class="slide dk2 noise glow-tr" data-title="Seguridad" id="s-seguridad">
   <div class="inner">
-    <div class="lbl rv" style="--d:0">Anexo · Hoja de ruta</div>
-    <h2 class="h2 rv" style="--d:1;color:#fff">Primero funciona. <em>Después escala.</em></h2>
-    <div class="phases">
-      <article class="phase main rv" style="--d:2">
-        <div class="ghost-num" aria-hidden="true">1</div>
-        <div class="when">Meses 1 a 3</div>
-        <h3>Piloto</h3>
-        <p class="sub">1 o 2 rutas reales.</p>
-        <ul><li>Cotizador que respeta el costo mínimo</li><li>Cumplidos con foto, GPS y firma</li><li>Utilidad por carro y por viaje</li><li>Alertas de seguridad y botón de pánico</li><li>Retornos y primeras campañas</li></ul>
-        <div class="price"><b>Decisión</b><small>Metas cumplidas:<br>creamos la empresa</small></div>
-      </article>
-      <article class="phase rv" style="--d:3">
-        <div class="ghost-num" aria-hidden="true">2</div>
-        <div class="when">Meses 4 a 12</div>
-        <h3>Empresa y red</h3>
-        <p class="sub">Toda la operación de Safe Trip.</p>
-        <ul><li>Se constituye la S.A.S. 50/50</li><li>Red nacional de alertas abierta a todo camionero</li><li>App del conductor y red de terceros</li><li>Centro de despacho y alertas de vencimientos</li><li>Marketing en más rutas</li></ul>
-        <div class="price"><b>Mes 12</b><small>Revisión de números:<br>acelerar o frenar</small></div>
-      </article>
-      <article class="phase rv" style="--d:4">
-        <div class="ghost-num" aria-hidden="true">3</div>
-        <div class="when">Desde el mes 13</div>
-        <h3>Escala</h3>
-        <p class="sub">La app sale al mercado.</p>
-        <ul><li>Venta a otras transportadoras</li><li>Conexión con el RNDC y el GPS actual</li><li>Pagos por lote y factoring</li><li>Convenios de combustible, llantas y seguros</li></ul>
-        <div class="price"><b>Mes 15</b><small>La empresa se paga sola<br>en el escenario base</small></div>
-      </article>
+    <div class="lbl rv" style="--d:0">Anexo · Seguridad: la puerta de entrada</div>
+    <h2 class="h2 rv" style="--d:1;color:#fff">Una red nacional de alertas,<br><em>gratis para todo camionero.</em></h2>
+    <p class="lead rv" style="--d:2">El conductor entra por su seguridad y se queda por los viajes. Así crece la red sin comprar un camión.</p>
+    <div class="law six">
+      <article class="rv" style="--d:3"><div class="big">Alerta</div><h3>Robos en vivo</h3><p>Un reporte avisa a los conductores cercanos. La alerta dura 24 horas y se confirma antes de difundirse.</p><span class="fix">Modelo Drivewyze y CargoNet</span></article>
+      <article class="rv" style="--d:4"><div class="big">Mapa</div><h3>Riesgo por corredor</h3><p>Cada tramo se marca bajo, medio o alto, con horarios y tipos de robo. Se usa antes de salir.</p><span class="fix">Modelo Trucker Path</span></article>
+      <article class="rv" style="--d:5"><div class="big">Pánico</div><h3>Botón silencioso</h3><p>Envía ubicación y datos a la central 24/7 de la transportadora, que activa el protocolo con la Policía.</p><span class="fix">Conectado al monitoreo actual</span></article>
+      <article class="rv" style="--d:6"><div class="big">Identidad</div><h3>Antisuplantación</h3><p>Selfie, documento y licencia antes de cargar. El cliente ve quién llega y con qué vehículo.</p><span class="fix">Contra el robo con identidad falsa</span></article>
+      <article class="rv" style="--d:7"><div class="big">Ruta</div><h3>Desvíos y paradas</h3><p>Avisa si el vehículo se sale de la ruta o se detiene donde no debe. Muestra paraderos recomendados.</p><span class="fix">Geocercas y alertas</span></article>
+      <article class="rv" style="--d:8"><div class="big">Vías</div><h3>Bloqueos y cierres</h3><p>Colfecar registró 801 bloqueos viales en 2024. La app avisa antes de que el camión quede atrapado.</p><span class="fix">Menos viajes perdidos</span></article>
     </div>
+    <p class="src rv" style="--d:9">Referentes: Trucker Path, Verisk CargoNet y Drivewyze. Bloqueos: Colfecar, 2024. Las alertas no reemplazan a la Policía: ante una emergencia hay que llamar al 123. Los reportes usan datos de ubicación autorizados por cada conductor.</p>
   </div>
 </section>
 
-<section class="slide dk tex-grid-dk noise glow-tr" data-title="Por qué We Rock" id="s-werock">
-  <div class="inner why">
-    <div>
-      <div class="lbl rv" style="--d:0">Anexo · Por qué We Rock</div>
-      <h2 class="h2 rv" style="--d:1;color:#fff">Esto no es una app.<br>Es un <em>negocio completo.</em></h2>
-      <p class="lead rv" style="--d:2">Una plataforma sin clientes no sirve, y una campaña sin plataforma se queda en una llamada más. We Rock construye la tecnología, trae el tráfico y ordena el proceso comercial. Por eso el modelo es de socios: ganamos cuando la carga se mueve.</p>
-      <div class="pillars3">
-        <div class="rv" style="--d:3"><small>Infraestructura digital™</small><span>La plataforma, el portal y la app</span></div>
-        <div class="rv" style="--d:4"><small>Arquitectura de crecimiento™</small><span>Google, LinkedIn, Meta, SEO y contenido</span></div>
-        <div class="rv" style="--d:5"><small>Sistemas de conversión™</small><span>WhatsApp, HalconBot y CRM comercial</span></div>
-      </div>
+<section class="slide dk2 noise glow-bl" data-title="Más allá de la app" id="s-servicios">
+  <div class="inner">
+    <div class="lbl rv" style="--d:0">Anexo · Más allá de la app</div>
+    <h2 class="h2 rv" style="--d:1;color:#fff">La app es el gran proyecto.<br><em>Safe Trip puede crecer desde hoy.</em></h2>
+    <p class="lead rv" style="--d:2">We Rock es una firma completa de desarrollo, marketing, comunicación y medios. Esto resolvemos en su empresa, con o sin la app.</p>
+    <div class="law six">
+      <article class="rv" style="--d:3"><div class="big">Marca</div><h3>Imagen y portafolio</h3><p>Marca renovada, portafolio comercial y presentaciones para licitaciones y grandes generadores de carga.</p><span class="fix">Verse del tamaño de su operación</span></article>
+      <article class="rv" style="--d:4"><div class="big">Web</div><h3>Sitio y correo corporativo</h3><p>Un sitio que convierte, con casos y clientes a la vista, y correos con su propio dominio.</p><span class="fix">Más confianza desde el primer contacto</span></article>
+      <article class="rv" style="--d:5"><div class="big">Ventas</div><h3>Clientes nuevos</h3><p>Google, LinkedIn, SEO y AEO para que los encuentren, más un CRM para no perder ninguna oportunidad.</p><span class="fix">Un sistema que trae clientes cada mes</span></article>
+      <article class="rv" style="--d:6"><div class="big">Medios</div><h3>Producción audiovisual</h3><p>Video y foto de la flota, los conductores y la cadena de frío, listos para redes y campañas.</p><span class="fix">Contenido propio y real</span></article>
+      <article class="rv" style="--d:7"><div class="big">Voz</div><h3>Comunicación</h3><p>Redes, boletines para clientes y videos de capacitación y seguridad vial para los conductores.</p><span class="fix">Apoya su plan de seguridad vial</span></article>
+      <article class="rv" style="--d:8"><div class="big">IA</div><h3>Automatización</h3><p>WhatsApp con HalconBot, atención 24/7, vinculación de conductores y reportes automáticos.</p><span class="fix">Menos carga para el equipo</span></article>
     </div>
-    <div class="why-stats rv-3d" style="--d:3">
-      <div><b>15<i>+</i></b><span>Años de experiencia</span><p>Del fundador en estrategia digital. We Rock opera desde 2018.</p></div>
-      <div><b>Oro</b><span>MUSE Creative Awards</span><p>Diseño y desarrollo web accesible, reconocimiento internacional.</p></div>
-      <div><b>+190<i>%</i></b><span>Tasa de cierre</span><p>Servicios financieros: CRM, agentes con IA y call center digital integrados.</p></div>
-      <div><b>−68<i>%</i></b><span>Tiempo de respuesta</span><p>Primer contacto automatizado: de horas a minutos, 24/7.</p></div>
-      <div><b>$7M<i>→</i>$24M</b><span>COP al mes</span><p>Vanity Nail Bar con HalconBot, sin contratar vendedores nuevos.</p></div>
-      <div><b>4.9<i>★</i></b><span>Google Reviews</span><p>Clientes reales de manufactura, legal, salud y servicios.</p></div>
-    </div>
+    <p class="src rv" style="--d:9">Diagnóstico preliminar construido desde afuera. Cada frente se puede contratar por separado y lo priorizamos con la gerencia.</p>
   </div>
 </section>
 
@@ -1633,22 +1341,6 @@ table.fin[data-cols="y1"]{font-size:11px}table.fin[data-cols="y1"] th,table.fin[
         <tr><td><span class="lvl m">Medio</span>Datos personales</td><td>Autorizaciones de tratamiento de datos (Ley 1581), accesos por rol y registro de quién ve y cambia qué.</td></tr>
       </tbody>
     </table>
-  </div>
-</section>
-
-<section class="slide dk tex-grid-dk noise glow-bl" data-title="Benchmark" id="s-benchmark">
-  <div class="inner">
-    <div class="lbl rv" style="--d:0">Flett · Referentes del mundo</div>
-    <h2 class="h2 rv" style="--d:1;color:#fff">Lo que ya funcionó en el mundo.<br><em>Y lo que no.</em></h2>
-    <div class="bench">
-      <article class="rv" style="--d:2"><div class="who"><b>Uber Freight</b><span>EE. UU.</span></div><p class="fact">Paga al transportista en <strong>2 días hábiles</strong> tras aprobar la prueba de entrega. El pago rápido es su principal gancho con la red.</p><div class="lesson">Pagar rápido y sin pelear fideliza a los mejores conductores.</div><a class="bench-btn" href="https://www.uberfreight.com/" target="_blank" rel="noopener">Ver sitio <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2h6v6M10 2L3 9"/></svg><span class="sr"> Uber Freight (se abre en otra pestaña)</span></a></article>
-      <article class="rv" style="--d:3"><div class="who"><b>BlackBuck</b><span>India</span></div><p class="fact">Plataforma usada por cerca del <strong>27,5% de los camioneros</strong> de India. Rentable a nivel operativo y en bolsa desde 2024, gana con peajes, combustible y telemática.</p><div class="lesson">El dinero grande está en los servicios a la red, no solo en el flete.</div><a class="bench-btn" href="https://blackbuck.com/" target="_blank" rel="noopener">Ver sitio <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2h6v6M10 2L3 9"/></svg><span class="sr"> BlackBuck (se abre en otra pestaña)</span></a></article>
-      <article class="rv" style="--d:4"><div class="who"><b>Fretebras</b><span>Brasil</span></div><p class="fact">Recibe unas <strong>20.000 cargas al día</strong>. Los conductores entran gratis y las empresas pagan una suscripción mensual.</p><div class="lesson">La herramienta también se puede vender a otras transportadoras.</div><a class="bench-btn" href="https://www.fretebras.com.br/" target="_blank" rel="noopener">Ver sitio <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2h6v6M10 2L3 9"/></svg><span class="sr"> Fretebras (se abre en otra pestaña)</span></a></article>
-      <article class="rv" style="--d:5"><div class="who"><b>Nuvocargo</b><span>México</span></div><p class="fact">Combina operación de carga con <strong>pago al transportista en 48 horas</strong>, seguro de carga y financiación.</p><div class="lesson">Pagos y finanzas dentro de la app: el cliente y el conductor no se van.</div><a class="bench-btn" href="https://www.nuvocargo.com/" target="_blank" rel="noopener">Ver sitio <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2h6v6M10 2L3 9"/></svg><span class="sr"> Nuvocargo (se abre en otra pestaña)</span></a></article>
-      <article class="rv" style="--d:6"><div class="who"><b>Liftit y bolsas locales</b><span>Colombia</span></div><p class="fact">Liftit levantó <strong>US$16,5 millones</strong> en última milla. En carga pesada hay bolsas abiertas como Cárgalo, Rodar o Wiggo que conectan, pero no operan.</p><div class="lesson">Safe Trip no compite como bolsa: compite como operador habilitado.</div><a class="bench-btn" href="https://liftit.co/" target="_blank" rel="noopener">Ver sitio <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2h6v6M10 2L3 9"/></svg><span class="sr"> Liftit y bolsas locales (se abre en otra pestaña)</span></a></article>
-      <article class="fail rv" style="--d:7"><div class="who"><b>Convoy</b><span class="tag">Cerró en 2023</span></div><p class="fact">Llegó a valer <strong>US$3.800 millones</strong> como marketplace digital sin operación propia. Cerró cuando cayeron las tarifas y se acabó la caja.</p><div class="lesson">Nunca subsidiar fletes ni depender de capital: crecer sobre una operación real y rentable.</div><a class="bench-btn" href="https://www.cnbc.com/2023/10/19/bezos-backed-freight-firm-convoy-shuts-down-read-ceo-memo-here.html" target="_blank" rel="noopener">Leer el caso <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2h6v6M10 2L3 9"/></svg><span class="sr"> Convoy (se abre en otra pestaña)</span></a></article>
-    </div>
-    <p class="src rv" style="--d:8">Fuentes: Uber Freight (términos Quick Pay), prospecto de salida a bolsa de BlackBuck (Zinka Logistics, 2024), Fretebras, Nuvocargo, Semana y CNBC.</p>
   </div>
 </section>
 
