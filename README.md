@@ -36,3 +36,4 @@ Cada propuesta vive en su propia carpeta y se accede en:
 - [Emet Outsourcing — Sitio web (propuesta visual + benchmark de contadores en Colombia)](https://werockagencia.github.io/propuestas/emet/)
 - [Fundación Solidaridad por Colombia — Rediseño web completo con la firma "Educación y sostenibilidad" (10 páginas navegables)](https://werockagencia.github.io/propuestas/solidaridad/)
 - [Empresas Públicas de Zipaquirá (EPZ) — HalconBot en 3 fases: WhatsApp, web, envíos de factura y voz con IA, valor fijo mensual (presentación)](https://werockagencia.github.io/propuestas/epz/)
+- [Doña Lú Coffee — Marca, tienda online B2C y B2B, producción audiovisual y programa Casas que honran (presentación + demo de tienda)](https://werockagencia.github.io/propuestas/donalu/)
