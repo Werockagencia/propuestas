@@ -268,6 +268,7 @@ h1{font:700 22px/1.2 var(--display);letter-spacing:-.015em}
 tr.me td{background:color-mix(in srgb,var(--accent) 8%,transparent)}
 .tl li.n::before{background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
 .ptabs button[aria-current=page]{color:#7aa4ff}
+.phone:has(.pfull) .ptabs{visibility:hidden}
 .app{grid-template-rows:minmax(0,1fr)}
 .app:not(.islive) .top,.app:not(.islive) .ctx,.app:not(.islive) .guide{display:none}
 .app.islive{grid-template-rows:58px minmax(0,1fr) 64px}
@@ -379,6 +380,217 @@ body.glon .svgfb{display:none}
 .rq.auto svg{color:var(--ok)}
 .pill{display:inline-block;font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:9px;background:var(--raise);color:var(--mut);vertical-align:middle;white-space:nowrap}
 .pill.ok{background:rgba(53,201,141,.16);color:var(--ok)}.pill.warn{background:rgba(245,185,58,.18);color:var(--warn)}.pill.crit{background:rgba(255,90,95,.16);color:var(--crit)}.pill.acc{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
+/* ===== Conductor v4: mapa primero, hoja inferior, deslizar para confirmar ===== */
+.phone{--peekh:190px}
+.pmap{position:absolute;inset:0;z-index:0;background:#0c1524;overflow:hidden}
+#gm{position:absolute;inset:0}
+.pmap .svgfb{position:absolute;inset:-30% -70%}
+.pmap svg.map{width:100%;height:100%}
+.pmap .lg{display:none}
+.phone.off .pmap{filter:saturate(.25) brightness(.55)}
+.phone .pstat{position:relative;z-index:2;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7)}
+.pui{position:absolute;inset:0;z-index:3;pointer-events:none}
+.phone.tabs .psheet{bottom:57px}
+.phone.tabs .fabs{bottom:calc(var(--peekh) + 69px)}
+.pui>*{pointer-events:auto}
+.phone .ptabs{position:absolute;left:0;right:0;bottom:0;z-index:2;background:rgba(5,9,15,.97);border-top:1px solid #1a2636;grid-template-columns:repeat(4,1fr)}
+.pmap.ld .svgfb{display:none}
+.pmap .svgfb{display:block}
+.chips.g2c{display:grid;grid-template-columns:1fr 1fr}
+.chips.g2c span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex}
+.chips.g2c span svg{flex:none}
+.pfull.glass{padding-top:28px;gap:8px}
+.pfull.glass .ofh{gap:10px}
+.pfull.glass .ofh>div:last-child{min-width:0;display:grid;gap:2px}
+.pfull.glass .ofh small{font-size:12px}
+.pfull.glass .ofh .ver{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.pfull.glass .sp{margin-top:auto;flex:none;gap:6px}
+.pfull.glass .sp .pb.ghost2{min-height:46px}
+.pfull.glass .od{gap:2px 10px}
+
+.phone .ptabs button{min-height:56px}
+.pbar{position:absolute;left:10px;right:10px;top:30px;display:flex;gap:8px;align-items:flex-start}
+.pbar .ib2{width:42px;height:42px;border-radius:12px;background:rgba(16,26,40,.94);display:grid;place-items:center;color:var(--pink);flex:none;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.pbar .ib2[aria-pressed=true]{background:#ffd166;color:#1a1300}
+.man{flex:1;min-width:0;background:rgba(16,26,40,.95);border-radius:14px;padding:8px 12px;display:flex;gap:10px;align-items:center;box-shadow:0 4px 14px rgba(0,0,0,.35);min-height:42px}
+.man .mi{width:36px;height:36px;border-radius:10px;background:var(--accent);display:grid;place-items:center;color:#fff;flex:none}
+.man .mi svg{width:21px;height:21px}
+.man.ok .mi{background:var(--ok);color:#07241a}
+.man.hi .mi{background:#172435;font-size:18px}
+.man>span{min-width:0}
+.man b{display:block;font:800 15.5px/1.15 var(--display);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.man small{display:block;color:var(--pmut);font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fabs{position:absolute;right:10px;bottom:calc(var(--peekh) + 12px);display:grid;gap:8px}
+.fab{width:50px;height:50px;border-radius:50%;background:rgba(16,26,40,.96);color:var(--pink);display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.45);position:relative;overflow:hidden;touch-action:none;user-select:none;border:1px solid #2a3a52}
+.fab svg{width:22px;height:22px;position:relative}
+.fab.sos{background:var(--crit);color:#fff;border-color:transparent}
+.fab.wa{background:#1fa855;color:#fff;border-color:transparent}
+.fab i{position:absolute;inset:0;background:rgba(0,0,0,.4);transform:scaleX(0);transform-origin:left}
+.psheet{position:absolute;left:0;right:0;bottom:0;background:rgba(8,13,22,.97);border-radius:22px 22px 0 0;box-shadow:0 -10px 30px rgba(0,0,0,.5);display:flex;flex-direction:column;max-height:88%;transition:max-height .32s cubic-bezier(.2,.8,.2,1);overflow:hidden;animation:up .3s}
+[data-sh=peek] .psheet{max-height:var(--peekh)}
+.psheet .grip{flex:none;padding:9px 0 5px;display:grid;place-items:center;cursor:grab;touch-action:none}
+.psheet .grip i{width:42px;height:5px;border-radius:3px;background:#2a3a52}
+.psheet .pin{padding:0 14px 14px;overflow:auto;display:grid;gap:9px;align-content:start;min-height:0}
+[data-sh=peek] .pin{overflow:hidden}
+#gc{position:absolute;inset:0}
+/* Celular claro (cliente) y marco del cliente en modo En vivo */
+.phone.lightp,.lp.cl{--pbg:#eef2f7;--pcard:#fff;--pink:#101827;--pmut:#5f6b7c;--panel:#fff;--raise:#f1f4f9;--raise2:#dfe6f1;--line:#e3e8f0;--ink:#101827;--mut:#5f6b7c;color:#101827}
+.phone.lightp{background:#eef2f7;border-color:#d9dfea;box-shadow:0 22px 54px rgba(16,24,39,.25)}
+.lp.cl{position:relative;padding:0}
+.phone.lightp .pstat,.lp.cl .pstat{color:#101827;text-shadow:none}
+.phone.lightp .psheet,.lp.cl .psheet{background:rgba(255,255,255,.98);box-shadow:0 -8px 28px rgba(16,24,39,.14)}
+.phone.lightp .grip i,.lp.cl .grip i{background:#d9dfea}
+.phone.lightp .man,.lp.cl .man{background:rgba(255,255,255,.97);box-shadow:0 4px 16px rgba(16,24,39,.14)}
+.phone.lightp .man.hi .mi,.lp.cl .man.hi .mi{background:#eef2f7}
+.phone.lightp .pbar .ib2{background:#fff;color:#101827}
+.phone.lightp .ptabs{background:#fff;border-top-color:#e3e8f0}
+.phone.lightp .ptabs button{color:#5f6b7c}.phone.lightp .ptabs button[aria-current=page]{color:var(--accent)}
+.phone.lightp .pb.no,.lp.cl .pb.no{background:#eef2f7;color:#101827}
+.phone.lightp .pb.ghost2,.lp.cl .pb.ghost2{border-color:#d9dfea;color:#101827}
+.phone.lightp .chk,.lp.cl .chk{background:#f1f4f9;color:#101827}
+.phone.lightp .pfl button,.lp.cl .pfl button{border-color:#d9dfea;color:#101827}
+.phone.lightp .pfl button[aria-pressed=true],.lp.cl .pfl button[aria-pressed=true]{color:#fff}
+.phone.lightp .ern div,.phone.lightp .cor,.phone.lightp .onl,.phone.lightp .ask2,.lp.cl .ern div,.lp.cl .cor,.lp.cl .ask2,.lp.cl .drow,.phone.lightp .drow{background:#fff;box-shadow:0 1px 3px rgba(16,24,39,.08)}
+.phone.lightp .cor .ti,.lp.cl .cor .ti{background:#eef2f7}
+.phone.lightp .pc,.lp.cl .pc{background:#fff;box-shadow:0 1px 3px rgba(16,24,39,.06)}
+.phone.lightp .trow,.lp.cl .trow,.phone.lightp .prow,.lp.cl .prow{border-color:#eef1f5}
+.phone.lightp .money,.lp.cl .money,.phone.lightp .ern b.g,.lp.cl .ern b.g{color:#0f8a5a}
+.phone.lightp .ok,.lp.cl .ok{color:#0f8a5a}.phone.lightp .warn,.lp.cl .warn{color:#a86a00}
+.phone.lightp .stg i,.lp.cl .stg i{background:#dbe2ee}
+.phone.lightp .opts button,.lp.cl .opts button{background:#f1f4f9;color:#101827}.phone.lightp .opts button small,.lp.cl .opts button small{color:#5f6b7c}
+.phone.lightp label,.lp.cl label,.phone.lightp .lab,.lp.cl .lab{color:#5f6b7c}
+.phone.lightp .txt,.phone.lightp select,.lp.cl .txt,.lp.cl select{background:#fff;border-color:#d9dfea;color:#101827}
+.phone.lightp .note.info,.lp.cl .note.info{background:#e8f0ff;color:#1d4ed8}.phone.lightp .note.warn,.lp.cl .note.warn{background:#fff4dc;color:#8a5a00}
+.phone.lightp .lmk,.lp.cl .lmk{background:#fff;color:#101827;border-color:#d9dfea}
+.phone.lightp .tl li,.lp.cl .tl li{color:#5f6b7c}.phone.lightp .tl li.d,.phone.lightp .tl li.n,.lp.cl .tl li.d,.lp.cl .tl li.n{color:#101827}
+.phone.lightp .tl li::before,.lp.cl .tl li::before,.phone.lightp .tl li::after,.lp.cl .tl li::after{background:#dbe2ee}
+.phone.lightp .tl li.d::before,.lp.cl .tl li.d::before{background:#0f8a5a}.phone.lightp .tl li.n::before,.lp.cl .tl li.n::before{background:var(--accent)}
+.phone.lightp .ver,.lp.cl .ver{color:#0f8a5a}
+.phone.lightp .sel-type,.lp.cl .sel-type{background:#e8f0ff;border-color:#bcd0ff}
+.phone.lightp .ghost,.lp.cl .ghost{background:#f1f4f9;border-color:#e3e8f0;color:#101827}
+.phone.lightp .eta b,.lp.cl .eta b{color:#101827}
+.phone.lightp .av,.lp.cl .av{background:var(--accent)}
+.phone.lightp .spin,.lp.cl .spin{flex:none}
+.phone.lightp .pfl,.lp.cl .pfl{scrollbar-width:none}
+.cpin{width:16px;height:16px;border-radius:50%;background:#fff;border:4px solid var(--accent);box-shadow:0 0 0 4px rgba(61,123,255,.25)}
+.cpin.b{border-color:#0f8a5a;box-shadow:0 0 0 4px rgba(15,138,90,.25)}
+.man.warnm .mi{background:var(--warn);color:#1a1300}
+.offb{position:absolute;left:10px;right:10px;top:82px;background:#3a2a06;color:#ffd27a;border:1px solid #6b4e0a;border-radius:10px;padding:7px 10px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;z-index:2}
+.drow{display:flex;align-items:center;gap:10px;background:var(--pcard);border-radius:13px;padding:9px 12px}
+.drow>span:nth-child(2){flex:1;min-width:0}
+.drow b{display:block;font-size:14px;color:var(--pink)}.drow small{display:block;color:var(--pmut);font-size:12px}
+.rbtn{width:42px;height:42px;border-radius:50%;background:#eef2f7;display:grid;place-items:center;color:#101827;flex:none}
+.rbtn.wa{background:#1fa855;color:#fff}
+.ask2{background:var(--pcard);border-radius:16px;padding:12px 14px;width:100%;text-align:left;display:grid;gap:8px;color:var(--pink)}
+.ask2>b{font:800 18px var(--display)}
+.ask2 .od span{font-size:13.5px;font-weight:600}
+.stars{display:flex;gap:2px;margin-top:4px}
+.star{width:40px;height:40px;display:grid;place-items:center;color:#c9d2de}
+.star.on{color:#f5b93a}
+.star svg{width:26px;height:26px;fill:currentColor;stroke:none}
+.stg.c4{grid-template-columns:repeat(4,1fr)}
+.pfoot{flex:none;display:flex;align-items:center;gap:10px;padding:10px 14px 12px;border-top:1px solid rgba(0,0,0,.06);background:inherit}
+.pfoot>div{flex:1;min-width:0}
+.pfoot small{display:block;font-size:11px;color:var(--pmut);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pfoot b{font:800 20px/1.1 var(--display);color:var(--pink)}
+.pfoot .pb{width:auto;padding:0 18px;min-height:52px;flex:none}
+.gh{margin:6px 0 2px;font:700 10.5px var(--body);color:var(--pmut);letter-spacing:.06em;text-transform:uppercase}
+.cbx>span{position:absolute;left:12px;top:13px;color:var(--pmut);pointer-events:none;display:flex}
+.pui .cbx .txt{padding-left:38px}
+.app[data-view=app] .main{display:grid;place-items:center;padding:14px 14px 76px;background:radial-gradient(ellipse 60% 70% at 50% 40%,#e6ecf6,#f4f6fa)}
+.app[data-view=app] .drv{display:block}
+/* Pulido web: transiciones, jerarquía, consistencia */
+@keyframes fade{from{opacity:0;transform:translateY(5px)}}
+.main>*{animation:fade .28s both}
+.k{position:relative;overflow:hidden}
+.k::before{content:'';position:absolute;left:13px;top:0;width:26px;height:3px;border-radius:0 0 3px 3px;background:var(--role)}
+:root[data-theme=light] .k::before{background:var(--accent)}
+tbody tr{transition:background .12s}
+tbody tr:hover td{background:color-mix(in srgb,var(--role) 6%,transparent)}
+:root[data-theme=light] tbody tr:hover td{background:color-mix(in srgb,var(--accent) 5%,transparent)}
+.btn,.ghost,.pb,.ch,.opt,.vh,.cor,.onl{transition:transform .12s,filter .15s,background .15s,border-color .15s}
+.btn:active,.ghost:active,.pb:active,.cor:active,.onl:active{transform:scale(.985)}
+.card{transition:border-color .15s}
+.sub{max-width:68ch}
+.psheet .tl li{font-size:13.5px;padding-bottom:9px}
+.ph2{font:800 22px/1.1 var(--display);margin:0;letter-spacing:-.01em;color:var(--pink)}
+.ph3{font:800 16.5px/1.15 var(--display);margin:0}
+.psub{color:var(--pmut);font-size:13px;margin:0}
+.money{font:800 30px/1 var(--display);color:var(--ok);letter-spacing:-.02em}
+.money.xl{font-size:44px}
+.ern{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ern div{background:var(--pcard);border-radius:13px;padding:10px 12px}
+.ern small{display:block;color:var(--pmut);font-size:11.5px;font-weight:700}
+.ern b{font:800 20px/1.15 var(--display);color:var(--pink)}
+.ern b.g{color:var(--ok)}
+.onl{display:flex;align-items:center;gap:12px;background:var(--pcard);border-radius:16px;padding:11px 14px;width:100%;text-align:left;min-height:66px}
+.onl b{display:block;font:800 19px/1.1 var(--display);color:var(--pink)}.onl small{display:block;color:var(--pmut);font-size:12.5px}
+.onl .sw{margin-left:auto;width:64px;height:36px;border-radius:18px;background:#2a3a52;position:relative;flex:none;transition:background .2s}
+.onl .sw::after{content:'';position:absolute;left:3px;top:3px;width:30px;height:30px;border-radius:50%;background:#fff;transition:left .2s}
+.onl[aria-pressed=true] .sw{background:var(--ok)}.onl[aria-pressed=true] .sw::after{left:31px}
+.cor{display:flex;align-items:center;gap:10px;background:var(--pcard);border-radius:13px;padding:9px 12px;width:100%;text-align:left;min-height:56px}
+.cor .ti{background:#172435}
+.cor b{display:block;font-weight:800;font-size:14.5px;color:var(--pink)}.cor small{display:block;color:var(--pmut);font-size:12px}
+.cor .n{margin-left:auto;font:800 15px var(--display);color:#8fb2ff;white-space:nowrap;text-align:right}
+.warnchip{display:flex;align-items:center;gap:8px;background:rgba(245,185,58,.14);color:#ffd27a;border-radius:11px;padding:8px 11px;font-size:13px;font-weight:700;width:100%;text-align:left}
+.stg{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.stg i{height:5px;border-radius:3px;background:#22304a}.stg i.d{background:var(--ok)}.stg i.n{background:var(--accent);box-shadow:0 0 0 2px rgba(61,123,255,.35)}
+.stgl{display:grid;grid-template-columns:repeat(5,1fr);font-size:10.5px;color:var(--pmut);font-weight:700;text-align:center}
+.slide{position:relative;height:60px;border-radius:30px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font:800 15px var(--display);user-select:none;touch-action:none;overflow:hidden;width:100%}
+.slide.ok{background:var(--ok);color:#07241a}
+.slide[aria-disabled=true]{opacity:.45}
+.slide .kn{position:absolute;left:4px;top:4px;width:52px;height:52px;border-radius:50%;background:#fff;color:#0b1320;display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.3);transition:transform .25s;cursor:grab;touch-action:none}
+.slide.drag .kn{transition:none}
+.slide .kn svg{width:24px;height:24px;stroke-width:2.4}
+.slide span{padding-left:46px;pointer-events:none}
+.slide:not([aria-disabled=true])::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(255,255,255,.16) 50%,transparent 70%);background-size:200% 100%;animation:shine 2.6s infinite;pointer-events:none}
+@keyframes shine{from{background-position:200% 0}to{background-position:-200% 0}}
+.eta{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.eta b{font:800 24px/1 var(--display);color:var(--pink)}.eta small{color:var(--pmut);font-size:13px;font-weight:700;text-align:right}
+.pfull{position:absolute;inset:0;z-index:5;background:rgba(5,9,15,.95);display:flex;flex-direction:column;padding:34px 14px 14px;gap:9px;overflow:auto;animation:up .3s}
+.pfull.red{background:#3a0d13}
+.pfull.glass{background:linear-gradient(180deg,rgba(5,9,15,.25),rgba(5,9,15,.97) 44%)}
+.cring{position:relative;width:72px;height:72px;flex:none}
+.cring svg{width:72px;height:72px;transform:rotate(-90deg)}
+.cring circle{fill:none;stroke-width:6}
+.cring .bg{stroke:#22304a}.cring .fg{stroke:var(--ok);stroke-linecap:round;stroke-dasharray:201;stroke-dashoffset:0;animation:ring var(--dur,90s) linear forwards}
+@keyframes ring{to{stroke-dashoffset:201}}
+.cring b{position:absolute;inset:0;display:grid;place-items:center;font:800 16px var(--display);color:var(--pink)}
+.ofh{display:flex;align-items:center;gap:12px;margin-top:auto}
+.ofh small{display:block;color:var(--pmut);font-size:12.5px;font-weight:700}
+.od{display:grid;grid-template-columns:18px 1fr;gap:3px 10px;align-items:center}
+.od i{width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--accent);justify-self:center}
+.od i.b{background:var(--ok);border-color:var(--ok)}
+.od .ln2{width:2px;height:14px;background:#2a3a52;justify-self:center}
+.od b{display:block;font:800 14.5px/1.15 var(--display);color:var(--pink)}.od small{display:block;color:var(--pmut);font-size:11.5px}
+.pfull.glass .ofh{margin-top:0}.pfull.glass .sp{margin-top:auto}.pfull.glass .money.xl{font-size:40px}.pfull.glass .cring,.pfull.glass .cring svg{width:64px;height:64px}.pfull.glass .chips span{font-size:11.5px;padding:4px 9px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:var(--pcard);border-radius:12px;padding:5px 10px;font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;gap:5px;color:var(--pink)}
+.chips span svg{width:14px;height:14px}
+.cele{display:grid;place-items:center;text-align:center;gap:6px;margin:auto 0}
+.cele .bigok{width:84px;height:84px;animation:pop2 .6s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop2{from{transform:scale(.3);opacity:0}}
+.cele .money.xl{animation:pop2 .7s .15s both cubic-bezier(.2,1.4,.4,1)}
+.conf{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.conf i{position:absolute;top:-14px;width:8px;height:14px;border-radius:2px;animation:fall 2.8s linear infinite}
+@keyframes fall{to{transform:translateY(720px) rotate(540deg)}}
+.wk{display:flex;align-items:flex-end;gap:6px;height:110px;padding-top:6px}
+.wk div{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end}
+.wk i{display:block;width:100%;max-width:30px;border-radius:6px 6px 2px 2px;background:#22304a;min-height:3px}
+.wk .now i{background:var(--ok)}
+.wk small{font-size:11px;color:var(--pmut);font-weight:700}
+.trow{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.trow:last-child{border-bottom:0}
+.trow b{display:block;font-size:14px;color:var(--pink)}.trow small{color:var(--pmut);font-size:12px}
+.trow .v{font:800 15px var(--display);color:var(--pink);white-space:nowrap}
+.trow .v.g{color:var(--ok)}
+.lmk{background:rgba(16,26,40,.95);color:#fff;border-radius:12px;padding:4px 9px;font:800 11.5px var(--body);white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.4);border:1px solid #2a3a52}
+.lmk b{color:#8fb2ff}
+.tmk2{width:26px;height:26px;border-radius:50%;background:var(--accent);border:3px solid #fff;box-shadow:0 0 0 8px rgba(61,123,255,.28)}
+.pui .pc{background:var(--pcard)}
+.pui .opts button{background:#172435}
+.phone.sun .ph2{font-size:25px}.phone.sun .money{font-size:36px}.phone.sun .money.xl{font-size:48px}.phone.sun .slide{height:66px;font-size:17px}.phone.sun .fab{width:56px;height:56px}.phone.sun .psheet{background:#000}.phone.sun .pmap{filter:contrast(1.15)}.phone.sun .man b{font-size:17px}
+:root[data-theme=dark] #gm canvas{filter:invert(.93) hue-rotate(180deg) brightness(.92)}
 :root[data-theme=light] .pill.ok{color:#0f8a5a}:root[data-theme=light] .pill.warn{color:#8a5a00}:root[data-theme=light] .pill.crit{color:#b42318}
 /* Vehículos */
 .vehs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
@@ -493,6 +705,34 @@ body.glon .svgfb{display:none}
 .sig i{display:inline-block;width:3px;background:currentColor;border-radius:1px}
 @media(max-width:1180px){.vehs{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr}.home .hg{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.vehs{grid-template-columns:1fr}.kp{grid-template-columns:1fr 1fr}.home .hg{grid-template-columns:1fr 1fr}.home .hg .hc{min-height:0}.phone{width:min(300px,calc(100vw - 24px))}.wn .btn{min-width:0;flex:1}.wn{gap:8px}.cbl{max-height:240px}}
+.dock .dkt{display:none;place-items:center;width:46px;height:46px;border-radius:50%;color:#fff;font-weight:700;font-size:11px;gap:4px}
+.dock .dkc{display:contents}
+/* Móvil real: el celular ocupa toda la pantalla, sin marco */
+@media(max-width:520px){
+  .app[data-role=conductor] .main,.app[data-view=app] .main{padding:0;display:block;background:var(--night);place-items:stretch}
+  .app[data-role=conductor] .drv,.app[data-view=app] .drv{width:100%}
+  .app[data-view=app] .side,.app[data-view=app] .tbar{display:none}
+  .app[data-view=app] .stage,.app[data-role=conductor] .stage{grid-template-columns:minmax(0,1fr)}
+  .drv{height:100vh;height:100dvh}
+  .app[data-role=conductor] .phone,.app[data-view=app] .phone{width:100%;height:100vh;height:100dvh;max-height:none;border:0;border-radius:0;box-shadow:none}
+  .phone .pstat{padding-top:max(8px,env(safe-area-inset-top,8px))}
+  .phone .ptabs{padding-bottom:env(safe-area-inset-bottom,0px)}
+  .phone.tabs .psheet{bottom:calc(56px + env(safe-area-inset-bottom,0px))}
+  .phone.tabs .fabs{bottom:calc(var(--peekh) + 68px + env(safe-area-inset-bottom,0px))}
+  .pbar{top:max(34px,calc(env(safe-area-inset-top,8px) + 28px))}
+  .pfull{padding-top:max(30px,calc(env(safe-area-inset-top,8px) + 24px))}
+  .pfull.glass{padding-top:max(26px,calc(env(safe-area-inset-top,8px) + 20px))}
+  .main{padding-bottom:0}
+  .dock{left:auto;right:10px;bottom:calc(68px + env(safe-area-inset-bottom,0px));transform:none;padding:0;border-radius:24px;flex-wrap:nowrap;max-width:calc(100vw - 20px);gap:0}
+  .dock .dkt{display:grid}
+  .dock .dkc{display:none}
+  .dock.open{border-radius:14px}
+  .dock.open .dkc{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:6px 10px 10px}
+  .dock.open .dkt{width:100%;height:36px;border-radius:0;justify-content:flex-end}
+  .app:not([data-role=conductor]):not([data-view=app]) .dock{bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+  body:has(.phone [data-a="aceptar"]) .dock:not(.open){bottom:auto;top:calc(8px + env(safe-area-inset-top,0px))}
+}
+
 </style>
 </head>
 <body>
@@ -504,9 +744,9 @@ body.glon .svgfb{display:none}
   </header>
   <div class="ctx" id="ctx"></div>
   <div class="live" id="live">
-    <section class="dcol"><div class="dlab"><b style="color:#6ea1ff">Cliente</b><span>WhatsApp y app</span></div><div class="lp" id="lcli"></div></section>
+    <section class="dcol"><div class="dlab"><b style="color:#6ea1ff">Cliente</b><span>WhatsApp para pedir, app para seguir</span></div><div class="lp" id="lcli"></div></section>
     <section class="tcol"><div class="dlab"><b style="color:#37d0c8">Torre de control</b><span id="tsub">Todo en tiempo real</span></div><div class="glwrap"><div id="gl"></div><div class="tkp" id="tkp"></div><div class="tnote" id="tnote"></div><div class="askov" id="askov"></div></div></section>
-    <section class="dcol"><div class="dlab"><b style="color:#ffab5e">Conductor</b><span>App en cabina</span></div><div class="phone lphone" id="lphone"><div class="pstat"><span>Flett</span><span>4G</span></div><div class="pbody" id="lpbody"></div></div></section>
+    <section class="dcol"><div class="dlab"><b style="color:#ffab5e">Conductor</b><span>App en cabina</span></div><div class="phone lphone" id="lphone" data-sh="peek"><div class="pmap" id="lpmap"></div><div class="pstat"><span>Flett</span><span>4G</span></div><div class="pui" id="lpbody"></div></div></section>
   </div>
   <div class="stage" id="stage">
     <nav class="side" id="side" aria-label="Módulos"></nav>
@@ -525,7 +765,7 @@ body.glon .svgfb{display:none}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><path id="mp"/></svg>
 <div class="home" id="home"></div>
 <div class="dock" id="dock"></div>
-<div id="glhold" aria-hidden="true"></div>
+<div id="glhold" aria-hidden="true"><div id="gm"></div><div id="gc"></div></div>
 <div class="ov" id="ov"><div class="modal" id="mod" role="dialog" aria-modal="true" aria-labelledby="mt"></div></div>
 <div class="toast" id="toast" role="status"></div>
 
@@ -537,11 +777,11 @@ const ROAD=[[-74.070283,4.709876],[-74.1059,4.7055],[-74.1297,4.7317],[-74.1543,
 const I={user:'M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8',tower:'M12 3v18M5 8c4-4 10-4 14 0M8 12c2-2 6-2 8 0',truck:'M2 7h12v9H2zM14 10h4l3 3v3h-7M6.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4M17.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4',chart:'M4 20V10M10 20V4M16 20v-7M21 20H3',money:'M3 7h18v11H3zM12 15.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6',tag:'M4 4h8l8 8-8 8-8-8zM8 8h.01',map:'M9 4 3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14',file:'M6 3h8l4 4v14H6zM14 3v5h4M9 13h6M9 17h6',send:'M21 3 10 14M21 3l-7 18-4-7-7-4z',docs:'M5 4h14v16H5zM9 9h6M9 13h6M9 17h3',back:'M4 8h12l4 4-4 4M4 16h9',shield:'M12 3 5 6v6c0 5 3 8 7 9 4-1 7-4 7-9V6zM9 12l2 2 4-4',law:'M12 3v18M6 21h12M4 8h16M4 8l-2 6h4zM20 8l-2 6h4z',pay:'M3 7h18v10H3zM3 11h18',gift:'M4 11h16v9H4zM3 7h18v4H3zM12 7v13M12 7S9 3 7 4s1 3 5 3zM12 7s3-4 5-3-1 3-5 3',home:'M4 11 12 4l8 7v9H4z'};
 const ic=n=>`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="${I[n]}"/></svg>`;
 const ROLES={
- cliente:{n:'Cliente',c:'#6ea1ff',i:'user',who:'Empresa que necesita mover carga',dev:'Portal web',nav:[['cotizar','Cotizar','tag'],['viajes','Mis viajes','map'],['docs','Cumplidos y facturas','file']],mods:'Cotizador · Rastreo · Cumplidos'},
- despacho:{n:'Despacho',c:'#37d0c8',i:'tower',who:'Coordinador de operación de la transportadora',dev:'Torre de control web',nav:[['torre','Torre de control','tower'],['asignar','Asignación','send'],['novedades','Novedades y esperas','clock'],['flota','Flota y documentos','docs'],['retornos','Retornos','back'],['alertas','Red de alertas','shield']],mods:'Despacho · Retornos · Seguridad'},
+ cliente:{n:'Cliente',c:'#6ea1ff',i:'user',who:'Empresa que necesita mover carga',dev:'App y portal web',nav:[['app','App del cliente','phone'],['cotizar','Solicitar carga (web)','tag'],['viajes','Mis viajes','map'],['docs','Cumplidos y facturas','file']],mods:'App · Cotizador · Rastreo · Cumplidos'},
+ despacho:{n:'Despacho',c:'#37d0c8',i:'tower',who:'Coordinador de operación de la transportadora',dev:'Torre de control web',nav:[['torre','Torre de control','tower'],['asignar','Asignación','send'],['novedades','Novedades y esperas','clock'],['flota','Flota y documentos','docs'],['retornos','Retornos','back'],['alertas','Red de alertas','shield'],['soporte','Soporte','chat']],mods:'Despacho · Retornos · Seguridad'},
  conductor:{n:'Conductor',c:'#ffab5e',i:'truck',who:'Conductor o propietario del vehículo',dev:'App en el celular',nav:[['app','Celular de Jairo','truck']],mods:'App del conductor · Pagos · Servicios a la red'},
- finanzas:{n:'Finanzas',c:'#f48fc0',i:'money',who:'Área financiera de la transportadora',dev:'Motor de pagos web',nav:[['pagos','Pagos a propietarios','pay'],['cartera','Cartera de clientes','file'],['liq','Liquidación Flett','tag']],mods:'Pagos y liquidez'},
- gerencia:{n:'Gerencia',c:'#b39dff',i:'chart',who:'Dueño o gerente de la empresa',dev:'Panel web',nav:[['resumen','Resumen','chart'],['utilidad','Utilidad por carro','truck'],['legal','Cumplimiento legal','law']],mods:'Utilidad · Cumplimiento legal'},
+ finanzas:{n:'Finanzas',c:'#f48fc0',i:'money',who:'Área financiera de la transportadora',dev:'Motor de pagos web',nav:[['pagos','Pagos a propietarios','pay'],['cartera','Cartera de clientes','file'],['liq','Liquidación Flett','tag'],['integ','Integraciones','docs']],mods:'Pagos y liquidez'},
+ gerencia:{n:'Gerencia',c:'#b39dff',i:'chart',who:'Dueño o gerente de la empresa',dev:'Panel web',nav:[['resumen','Resumen','chart'],['utilidad','Utilidad','truck'],['legal','Cumplimiento legal','law'],['red','Red Flett','map'],['acceso','Usuarios y bitácora','id']],mods:'Utilidad · Cumplimiento legal · Red'},
 };
 const CITY={'Santa Marta':[11.24,-74.2],'Barranquilla':[10.98,-74.8],'Cartagena':[10.4,-75.51],'Cúcuta':[7.89,-72.5],'Bucaramanga':[7.12,-73.12],'Medellín':[6.25,-75.56],'Pereira':[4.81,-75.69],'Ibagué':[4.44,-75.23],'Bogotá':[4.71,-74.07],'Villavicencio':[4.14,-73.63],'Buenaventura':[3.88,-77.03],'Cali':[3.45,-76.53],'Neiva':[2.93,-75.28],'Pasto':[1.21,-77.28]};
 const E=[['Barranquilla','Cartagena',120,0],['Barranquilla','Santa Marta',95,0],['Cartagena','Medellín',640,1],['Santa Marta','Bucaramanga',590,2],['Barranquilla','Bucaramanga',590,1],['Bucaramanga','Cúcuta',195,2],['Bucaramanga','Bogotá',400,1],['Medellín','Bogotá',415,1],['Medellín','Pereira',215,0],['Pereira','Cali',215,0],['Pereira','Ibagué',170,1],['Ibagué','Bogotá',200,0],['Ibagué','Cali',265,1],['Bogotá','Villavicencio',120,1],['Cali','Buenaventura',125,2],['Ibagué','Neiva',205,0],['Bogotá','Neiva',310,0],['Cali','Pasto',390,2]];
@@ -682,7 +922,7 @@ function reset(){
     mode:'home',wa:0,asked:false,askTxt:'',ao:'',ad:'',role:'cliente',view:{cliente:'cotizar',despacho:'torre',conductor:'app',finanzas:'pagos',gerencia:'resumen'},ph:'inicio',
     o:'Bogotá',d:'Barranquilla',v:5,k:1,pct:100,stage:'none',id:1047,prog:0,run:false,alerts:seed(),aid:3,log:[],badge:{},
     ant:false,sal:false,fac:false,pf:{f:false,s:false},alertUsed:false,stopped:false,tipo:0,ret:false,
-    tried:false,cbq:'',cbo:false,cbi:-1,ff:'all',tf:'all',of:'todas',sort:'rec',nov:[],ckin:{last:'hace 40 min',ok:true,late:false},sheet:null,sun:false,reg:null,wamsgs:[],incident:false};
+    online:true,sub:0,sh:'peek',celebrate:false,cph:'inicio',cw:1,csh:'peek',cq:'',ctried:false,rate:0,tried:false,cbq:'',cbo:false,cbi:-1,ff:'all',tf:'all',of:'todas',sort:'rec',nov:[],ckin:{last:'hace 40 min',ok:true,late:false},sheet:null,sun:false,reg:null,wamsgs:[],incident:false};
   log('sistema','Flett en línea. 18 viajes activos.');$('ov').classList.remove('on');render();
 }
 const TY=()=>TYPES[S.f.tipo]||TYPES.gen;
@@ -719,6 +959,7 @@ function map(o={}){
 /* ---------- Cliente ---------- */
 const VIEWS={
 cliente:{
+ app(){return `<div class="drv"><div class="exp"><h2>App del cliente</h2><p>La misma cuenta que el portal web, en el celular.</p></div><div class="phone tabs lightp" id="cphone" data-sh="${S.csh}"><div class="pmap" id="cpmap"></div><div class="pstat"><span>Flett</span><span>4G</span></div><div class="pui" id="cpbody"></div><div class="ptabs">${[['inicio','Inicio','home'],['pedir','Pedir','plus'],['viajes','Viajes','map'],['cuenta','Cuenta','user']].map(x=>`<button data-a="cpgo" data-v="${x[0]}" aria-current="${(T()&&x[0]==='inicio')||(!T()&&S.cph===x[0])?'page':'false'}">${ic(x[2])}${x[1]}</button>`).join('')}</div></div></div>`},
  cotizar(){
   if(S.stage!=='none')return `<div class="head"><div><h1>Viaje ST-${S.id} reservado</h1><p class="sub">${S.o} → ${S.d} · ${T().v.n} ${T().v.cfg} · ${T().tipoN}</p></div></div><div class="note ok">Tu reserva ya está en Despacho. Sigue el viaje en Mis viajes.</div><p></p><div class="actions"><button class="btn" data-a="nav" data-v="cliente|viajes">Ver mis viajes</button><button class="ghost" data-a="nueva">Solicitar otra carga</button></div>`;
   const q=quote(),F=S.f,t=TY(),w=S.w,bad=q.price<q.min,E=S.tried?valid(w):{};
@@ -794,7 +1035,7 @@ cliente:{
  },
  docs(){
   if(!ix('cumplido'))return `<h1>Cumplidos y facturas</h1><p class="sub">Cada entrega llega con foto, GPS y firma.</p><div class="card"><div class="emp2">${ic('file')}<b>Todavía no hay cumplidos</b><p>El cumplido digital aparece aquí apenas el conductor entregue. La factura sale el mismo día.</p></div></div>`;
-  return `<h1>Cumplidos y facturas</h1><p class="sub">Soportes listos para tu contabilidad y auditorías.</p><div class="g2"><div class="card"><h2>Cumplido ST-${S.id} <span class="st ok">Aprobado</span></h2><div class="ln"><span>Foto de la entrega</span><b>Lista</b></div><div class="ln"><span>Ubicación GPS</span><b>${T().ad}, ${S.d}</b></div><div class="ln"><span>Firma</span><b>Recibido a conformidad</b></div><div class="ln"><span>Manifiesto RNDC</span><b>Cumplido reportado</b></div><div class="actions" style="margin-top:8px"><button class="ghost sm" data-a="toast" data-v="PDF del cumplido descargado (simulado)">Descargar PDF</button></div></div>
+  return `<h1>Cumplidos y facturas</h1><p class="sub">Soportes listos para tu contabilidad y auditorías.</p><div class="g2"><div class="card"><h2>Cumplido ST-${S.id} <span class="st ok">Aprobado</span></h2><div class="ln"><span>Foto de la entrega</span><b>Lista</b></div><div class="ln"><span>Ubicación GPS</span><b>${T().ad}, ${S.d}</b></div><div class="ln"><span>Firma</span><b>Recibido a conformidad</b></div><div class="ln"><span>Manifiesto RNDC</span><b>Cumplido reportado</b></div>${S.k===1?'<div class="ln"><span>Registro de temperatura</span><b>Cada 5 min · −25 a −18 °C · sin desvíos</b></div>':''}<div class="actions" style="margin-top:8px"><button class="ghost sm" data-a="toast" data-v="PDF del cumplido descargado (simulado)">Descargar PDF</button></div></div>
   <div class="card"><h2>Factura electrónica <span class="st ${S.fac?'ok':'warn'}">${S.fac?'Emitida':'En proceso'}</span></h2><div class="ln"><span>Valor</span><b>${money(T().price)}</b></div><div class="ln"><span>Emisor</span><b>Safe Trip S.A.S.</b></div><div class="ln"><span>Plazo de pago</span><b>5 días hábiles tras la entrega</b></div></div></div>`;
  }},
 /* ---------- Despacho ---------- */
@@ -812,7 +1053,7 @@ despacho:{
   ${S.stage==='alerta'?`<div class="note bad">Alerta en la ruta de ST-${S.id}: ${S.aw}. Conductor ${S.stopped?'detenido en punto recomendado':'avisado'}.</div>`:''}
   ${S.stage==='reservado'?`<div class="note info">Viaje ST-${S.id} sin asignar hace 2 min. <button class="ghost sm" data-a="nav" data-v="despacho|asignar">Asignar ahora</button></div>`:''}
   ${pend?`<div class="note warn">${pend} novedad${pend>1?'es':''} por revisar. <button class="ghost sm" data-a="nav" data-v="despacho|novedades">Ver novedades</button></div>`:''}
-  ${on?`<div class="card"><h2>Seguridad de ST-${S.id} <span>Check-in cada 2 horas</span></h2><div class="ln"><span>Último check-in</span><b class="${S.ckin.late?'crit':'ok'}">${S.ckin.late?'Sin respuesta hace 7 min':'Respondió '+S.ckin.last}</b></div><div class="ln"><span>Si no responde en 5 min</span><b>Incidente automático</b></div><div class="ln"><span>Identidad</span><b class="ok">Verificada al iniciar el turno</b></div>${!S.incident&&S.stage==='ruta'?`<div class="actions" style="margin-top:8px"><button class="ghost sm" data-a="sinresp">Simular sin respuesta</button></div>`:''}</div>`:''}
+  ${on?`<div class="card"><h2>Seguridad de ST-${S.id} <span>Check-in cada 2 horas</span></h2><div class="ln"><span>Último check-in</span><b class="${S.ckin.late?'crit':'ok'}">${S.ckin.late?'Sin respuesta hace 7 min':'Respondió '+S.ckin.last}</b></div><div class="ln"><span>Si no responde en 5 min</span><b>Incidente automático</b></div><div class="ln"><span>Identidad</span><b class="ok">Verificada al iniciar el turno</b></div><div class="ln"><span>Geocerca de ruta</span><b class="${S.stage==='alerta'?'warn':'ok'}">${S.stage==='alerta'?'Parada en punto seguro':'En ruta, sin desvíos ni paradas largas'}</b></div>${S.k===1&&ix('ruta')?'<div class="ln"><span>Cadena de frío</span><b class="ok">−18,4 °C · en rango · registro cada 5 min</b></div>':''}<div class="ln"><span>Horas al volante (PESV)</span><b>6 h 20 min · descanso en 1 h 40 min</b></div><div class="ln"><span>Monitoreo satelital</span><b class="ok">Central 24/7 conectada</b></div>${!S.incident&&S.stage==='ruta'?`<div class="actions" style="margin-top:8px"><button class="ghost sm" data-a="sinresp">Simular sin respuesta</button></div>`:''}</div>`:''}
   <div class="card tw"><h2>Viajes <span>${list.length} de ${trips.length}</span></h2><div class="flt" role="tablist">${Object.entries(F).map(([k,v])=>`<button class="ch" role="tab" data-a="tf" data-v="${k}" aria-pressed="${S.tf===k}">${v}<em>${cnt(k)}</em></button>`).join('')}</div>${list.length?`<table><thead><tr><th>Viaje</th><th>Ruta</th><th>Vehículo</th><th>Estado</th></tr></thead><tbody>${list.slice(0,6).map(t=>`<tr class="${t[0]==='ST-'+S.id?'me':''}"><td>${t[0]}</td><td>${t[1]}</td><td>${t[2]}<br><small class="mut">${t[3]}</small></td><td><span class="st ${t[5]}">${t[4]}</span></td></tr>`).join('')}</tbody></table>`:`<div class="emp2">${ic('truck')}<b>Ningún viaje en este estado</b><p>Cambia el filtro para ver el resto de la operación.</p></div>`}</div></div></div>`;
  },
  asignar(){
@@ -837,7 +1078,10 @@ despacho:{
  retornos(){return `<h1>Retornos</h1><p class="sub">Cada regreso vacío se convierte en carga para otra empresa.</p><div class="kp"><div class="k"><small>Regresos vacíos este mes</small><b>14</b></div><div class="k"><small>Llenados</small><b>${S.ret?8:7}</b></div><div class="k"><small>Ingreso extra</small><b>${S.ret?'$24 M':'$21 M'}</b></div><div class="k"><small>Comisión Flett</small><b>8%</b></div></div><div class="card tw"><h2>Disponibles</h2><table><thead><tr><th>Ruta</th><th>Vehículo</th><th>Sale</th><th class="r">Oferta</th><th></th></tr></thead><tbody>
   <tr class="${ix('pagado')?'me':''}"><td>${ix('cumplido')?S.d+' → '+S.o:'Barranquilla → Bogotá'}</td><td>XKT 482</td><td>Mañana 6:00</td><td class="r">$3.000.000</td><td class="r">${S.ret?'<span class="st ok">Llenado</span>':ix('cumplido')?'<button class="btn sm" data-a="retorno">Publicar y llenar</button>':'<span class="mut">Disponible al entregar</span>'}</td></tr>
   <tr><td>Cartagena → Medellín</td><td>TSM 219</td><td>Hoy 18:00</td><td class="r">$2.100.000</td><td class="r"><span class="st warn">Buscando</span></td></tr></tbody></table></div>`},
- alertas(){return `<h1>Red de alertas</h1><p class="sub">Reportes de camioneros de todo el país. Se difunden solo con confirmaciones y caducan solos.</p><div class="g2"><div class="mapbox" style="height:min(60vh,470px)">${map({route:active()?T().r:null,alerts:true})}</div><div class="stack"><div class="card"><h2>Alertas <span>${S.alerts.filter(a=>!a.done).length} activas</span></h2><div class="stack" style="gap:8px">${S.alerts.slice(0,5).map(a=>`<div class="ln" style="align-items:center"><span><b>${a.t}</b> <span class="pill ${a.done?'ok':a.ok?'crit':'warn'}">${a.done?'Resuelta':a.ok?'Confirmada':'Por confirmar'}</span><br><small>${a.w} · ${a.ago} · ${a.conf||(a.ok?3:1)} confirmaci${(a.conf||(a.ok?3:1))===1?'ón':'ones'} · ${a.done?'cerrada':'vence en '+(a.exp||'2 h')}</small><br><small class="mut">Reportó: ${a.rep||'conductor verificado'}</small></span>${a.done?'':a.ok?`<span class="st crit">Avisó a ${a.n}</span>`:`<button class="ghost sm" data-a="confirmar" data-v="${a.id}">Confirmar</button>`}</div>`).join('')}</div></div>${active()&&!S.alertUsed?'<button class="btn" data-a="robo">Simular robo adelante del camión</button>':''}<p class="hp" style="margin:0;color:var(--mut);font-size:11.5px">Un reporte solo se difunde cuando lo confirma la torre o dos conductores más. Las alertas caducan a las 2 horas si nadie las renueva.</p></div></div>`},
+ alertas(){return `<h1>Red de alertas</h1><p class="sub">Reportes de camioneros de todo el país. Se difunden solo con confirmaciones y caducan solos.</p><div class="g2"><div class="mapbox" style="height:min(60vh,470px)">${map({route:active()?T().r:null,alerts:true})}</div><div class="stack"><div class="card"><h2>Alertas <span>${S.alerts.filter(a=>!a.done).length} activas</span></h2><div class="stack" style="gap:8px">${S.alerts.slice(0,5).map(a=>`<div class="ln" style="align-items:center"><span><b>${a.t}</b> <span class="pill ${a.done?'ok':a.ok?'crit':'warn'}">${a.done?'Resuelta':a.ok?'Confirmada':'Por confirmar'}</span><br><small>${a.w} · ${a.ago} · ${a.conf||(a.ok?3:1)} confirmaci${(a.conf||(a.ok?3:1))===1?'ón':'ones'} · ${a.done?'cerrada':'vence en '+(a.exp||'24 h')}</small><br><small class="mut">Reportó: ${a.rep||'conductor verificado'}</small></span>${a.done?'':a.ok?`<span class="st crit">Avisó a ${a.n}</span>`:`<button class="ghost sm" data-a="confirmar" data-v="${a.id}">Confirmar</button>`}</div>`).join('')}</div></div>${active()&&!S.alertUsed?'<button class="btn" data-a="robo">Simular robo adelante del camión</button>':''}<p class="hp" style="margin:0;color:var(--mut);font-size:11.5px">Un reporte solo se difunde cuando lo confirma la torre o dos conductores más. Las alertas duran 24 horas si nadie las renueva. No reemplazan a la Policía: ante una emergencia, 123.</p></div></div>
+  <div class="card tw" style="margin-top:12px"><h2>Riesgo por corredor <span>Antes de salir · datos simulados</span></h2><table><thead><tr><th>Corredor</th><th>Riesgo</th><th>Horario crítico</th><th>Tipo más frecuente</th><th>Recomendación</th></tr></thead><tbody>${E.filter(e=>e[3]>0).slice(0,7).map(e=>`<tr><td><b>${e[0]} – ${e[1]}</b><br><small class="mut">${e[2]} km</small></td><td><span class="sem ${['ok','warn','crit'][e[3]]}">${RN[e[3]]}</span></td><td>${e[3]===2?'10 p. m. a 4 a. m.':'8 p. m. a 2 a. m.'}</td><td>${e[3]===2?'Retén falso y robo de carga':'Bloqueo de vía'}</td><td>${e[3]===2?'Salir de día y parar solo en puntos recomendados':'Revisar bloqueos antes de salir'}</td></tr>`).join('')}</tbody></table></div>`},
+ soporte(){const C=[['Jairo R.','Conductor · ST-1047','No me abren la bodega','hace 2 min','warn','Camila'],['Laura M.','Cliente · Alimentos Ejemplo','¿A qué hora llega?','hace 9 min','ok','HalconBot → Camila'],['Mario G.','Conductor · ST-1041','Peaje adicional, adjunto recibo','hace 40 min','ok','Andrés'],['Diego L.','Conductor · NHR 204','¿Cómo renuevo el SOAT para volver a recibir viajes?','ayer','ok','HalconBot']];
+  return `<h1>Soporte</h1><p class="sub">WhatsApp primero. HalconBot responde lo repetitivo y una persona toma lo demás en menos de 2 minutos.</p><div class="kp"><div class="k"><small>Conversaciones abiertas</small><b>${C.length}</b></div><div class="k"><small>Tiempo de primera respuesta</small><b>1 min 40 s</b></div><div class="k"><small>Resueltas por HalconBot</small><b>62%</b></div><div class="k"><small>Satisfacción</small><b class="ok">4,8</b></div></div><div class="card tw"><table><thead><tr><th>Quién</th><th>Mensaje</th><th>Hace</th><th>Atiende</th><th></th></tr></thead><tbody>${C.map(c=>`<tr><td><b>${c[0]}</b><br><small class="mut">${c[1]}</small></td><td>${c[2]}</td><td><span class="sem ${c[4]}">${c[3]}</span></td><td>${c[5]}</td><td class="r"><button class="ghost sm" data-a="toast" data-v="Abre la conversación de WhatsApp (simulado)">Abrir</button></td></tr>`).join('')}</tbody></table></div><p></p><div class="note info">Identidad verificada en ambos lados: nadie recibe mensajes de números que no estén en Flett. Prototipo con conversaciones simuladas.</div>`},
  novedades(){const rows=S.nov;const EX=[{t:'Espera en descargue',w:'ST-1041 · Mario G.',d:'2 h 40 min',v:'$120.000',ok:true,ev:'Foto + GPS'},{t:'Peaje adicional',w:'ST-1039 · Hugo V.',d:'Desvío por cierre',v:'$38.400',ok:true,ev:'Foto del recibo'}];
   return `<h1>Novedades y esperas</h1><p class="sub">Cada espera, peaje o daño queda con foto, hora y GPS. Sin discusiones al pagar.</p>
   <div class="kp"><div class="k"><small>Por revisar</small><b class="${rows.filter(n=>!n.ok).length?'warn':''}">${rows.filter(n=>!n.ok).length}</b></div><div class="k"><small>Aprobadas este mes</small><b>${23+rows.filter(n=>n.ok).length}</b></div><div class="k"><small>Espera promedio en cargue</small><b class="sm">1 h 20 min</b></div><div class="k"><small>Reembolsado a conductores</small><b class="sm">$2,4 M</b></div></div>
@@ -847,9 +1091,9 @@ despacho:{
 conductor:{
  app(){
   const ex={inicio:['Inicio','Lo primero que ve el conductor: su vehículo, sus documentos y la seguridad de su zona.'],viajes:['Viajes','Ofertas claras: sabe cuánto gana antes de aceptar.'],seg:['Seguridad','Gratis para todo camionero del país. Por aquí entra a la red.'],pagos:['Pagos','Anticipo al cargar y saldo tras el cumplido. Cada peso a la vista.'],mas:['Más','Documentos, beneficios y soporte con personas reales.']}[S.ph]||['App','La misma app para todo tipo de vehículo.'];
-  const tab=S.stage==='ofertado'&&S.ph==='inicio'?'viajes':S.ph;
+  const tab=S.ph;
   return `<div class="drv"><div class="exp"><h2>${ex[0]}</h2><p>${ex[1]}</p><ul><li>Funciona con poca señal</li><li>Para camión pequeño o tractomula</li><li>Conectada con Despacho y Finanzas</li></ul></div>
-  <div class="phone${S.sun?' sun':''}" id="phone"><div class="pstat"><span>Flett</span><span class="sig" title="Señal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px;opacity:.3"></i> 4G</span></div><div class="pbody" id="pbody"></div><div class="ptabs">${[['inicio','Inicio','home'],['viajes','Viajes','truck'],['seg','Seguridad','shield'],['pagos','Pagos','pay'],['mas','Más','list']].map(t=>`<button data-a="ptab" data-v="${t[0]}" aria-current="${tab===t[0]?'page':'false'}">${ic(t[2])}${t[1]}${t[0]==='viajes'&&S.stage==='ofertado'?'<em></em>':''}</button>`).join('')}</div></div>
+  <div class="phone tabs${S.sun?' sun':''}${S.online?'':' off'}" id="phone" data-sh="${S.sh}"><div class="pmap" id="pmap"></div><div class="pstat"><span>Flett</span><span class="sig" title="Señal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px;opacity:.3"></i> 4G</span></div><div class="pui" id="pbody"></div><div class="ptabs">${[['inicio','Inicio','home'],['viajes','Viajes','truck'],['pagos','Pagos','pay'],['mas','Más','list']].map(t=>`<button data-a="ptab" data-v="${t[0]}" aria-current="${tab===t[0]?'page':'false'}">${ic(t[2])}${t[1]}${t[0]==='viajes'&&S.stage==='ofertado'?'<em></em>':''}</button>`).join('')}</div></div>
   <div class="exp"><h2>Lo que pasa detrás</h2><p>${behind()}</p></div></div>`;
  }},
 /* ---------- Finanzas ---------- */
@@ -859,28 +1103,48 @@ finanzas:{
   return `<h1>Pagos a propietarios</h1><p class="sub">Anticipos y saldos dentro del plazo legal, solo a cuentas validadas.</p><div class="kp"><div class="k"><small>Por pagar hoy</small><b>${money(ix('aceptado')&&!S.ant?own/2+6.2e6:6.2e6)}</b></div><div class="k"><small>Vencen en 2 días</small><b>$9.400.000</b></div><div class="k"><small>Plazo legal</small><b>5 días</b></div><div class="k"><small>Meta de pago</small><b>48 h</b></div></div>
   <div class="card tw"><table><thead><tr><th>Viaje</th><th>Propietario</th><th>Concepto</th><th class="r">Valor</th><th>Plazo</th><th></th></tr></thead><tbody>
   ${ix('aceptado')?`<tr class="me"><td>ST-${S.id}</td><td>Jairo R.</td><td>Anticipo 50%</td><td class="r">${money(own/2)}</td><td>Hoy</td><td class="r">${S.ant?'<span class="st ok">Pagado</span>':'<button class="btn sm" data-a="anticipo">Pagar anticipo</button>'}</td></tr>`:''}
-  ${ix('cumplido')?`<tr class="me"><td>ST-${S.id}</td><td>Jairo R.</td><td>Saldo tras cumplido</td><td class="r">${money(own/2)}</td><td>48 h</td><td class="r">${S.sal?'<span class="st ok">Pagado</span>':'<button class="btn sm" data-a="saldo">Aprobar pago</button>'}</td></tr>`:''}
+  ${ix('cumplido')?`<tr class="me"><td>ST-${S.id}</td><td>Jairo R.</td><td>Saldo tras cumplido ${own/2>2.5e6?'<span class="pill warn">Doble aprobación</span>':''}</td><td class="r">${money(own/2)}</td><td>48 h</td><td class="r">${S.sal?'<span class="st ok">Pagado</span>':'<button class="btn sm" data-a="saldo">Aprobar pago</button>'}</td></tr>`:''}
   ${S.nov.filter(n=>n.ok).map(n=>`<tr class="me"><td>ST-${S.id}</td><td>Jairo R.</td><td>Novedad: ${n.t.toLowerCase()} <span class="evi">${ic('cam')}con evidencia</span></td><td class="r">${n.v}</td><td>Con el saldo</td><td class="r"><span class="st ok">Aprobada</span></td></tr>`).join('')}
   <tr><td>ST-1041</td><td>Mario G.</td><td>Saldo</td><td class="r">$3.696.000</td><td>2 días</td><td class="r"><span class="st warn">Programado</span></td></tr>
   <tr><td>ST-1041</td><td>Mario G.</td><td>Novedad: espera en descargue <span class="evi">${ic('cam')}con evidencia</span></td><td class="r">$120.000</td><td>2 días</td><td class="r"><span class="st warn">Programado</span></td></tr>
-  <tr><td>ST-1039</td><td>Hugo V.</td><td>Saldo</td><td class="r">$2.530.000</td><td>Hoy</td><td class="r"><span class="st ok">Pagado</span></td></tr></tbody></table></div><p></p><div class="note info">Solo se paga a la cuenta validada del propietario. Plazo legal: 5 días hábiles tras la entrega (Decreto 1017 de 2025). Meta de Flett: 48 horas.</div>`;
+  <tr><td>ST-1039</td><td>Hugo V.</td><td>Saldo</td><td class="r">$2.530.000</td><td>Hoy</td><td class="r"><span class="st ok">Pagado</span></td></tr></tbody></table><div class="actions" style="margin-top:10px"><button class="ghost sm" data-a="toast" data-v="Lote de 3 pagos enviado al banco con doble aprobación (simulado)">Pagar lote del día</button><button class="ghost sm" data-a="toast" data-v="Archivo para el banco descargado (simulado)">Exportar para el banco</button></div></div><p></p><div class="note info">Solo se paga a la cuenta validada del propietario; un cambio de cuenta exige doble verificación y los pagos grandes, doble aprobación. Plazo legal: 5 días hábiles tras la entrega (Decreto 1017 de 2025). Meta de Flett: 48 horas.</div>`;
  },
  cartera(){return `<h1>Cartera de clientes</h1><p class="sub">Cada factura con su cumplido, lista para cobrar o convertir en liquidez.</p><div class="kp"><div class="k"><small>Por cobrar</small><b>${ix('cumplido')?'$'+Math.round((48.2e6+T().price)/1e6)+' M':'$48 M'}</b></div><div class="k"><small>Vencida</small><b class="warn">$6 M</b></div><div class="k"><small>Días promedio</small><b>28</b></div><div class="k"><small>Clientes bloqueados</small><b>1</b></div></div>
-  <div class="card tw"><table><thead><tr><th>Cliente</th><th>Factura</th><th class="r">Valor</th><th>Estado</th><th></th></tr></thead><tbody>
-  ${ix('cumplido')?`<tr class="me"><td>Cliente de ejemplo</td><td>ST-${S.id}</td><td class="r">${money(T().price)}</td><td><span class="st ${S.fac?'ok':'warn'}">${S.fac?'Facturada':'Lista para facturar'}</span></td><td class="r">${S.fac?'<span class="mut">Con cumplido digital</span>':'<button class="btn sm" data-a="facturar">Facturar</button>'}</td></tr>`:''}
-  <tr><td>Alimentos Ejemplo S.A.</td><td>FE-2291</td><td class="r">$12.400.000</td><td><span class="st ok">Al día</span></td><td class="r"><button class="ghost sm" data-a="factoring">Pasar a factoring</button></td></tr>
-  <tr><td>Manufacturas Demo</td><td>FE-2274</td><td class="r">$6.150.000</td><td><span class="st crit">Vencida 9 días</span></td><td class="r mut">Reservas bloqueadas</td></tr></tbody></table></div>`},
+  <div class="card tw"><table><thead><tr><th>Cliente</th><th>Condición</th><th>Factura</th><th class="r">Valor</th><th>Estado</th><th></th></tr></thead><tbody>
+  ${ix('cumplido')?`<tr class="me"><td><b>Alimentos Ejemplo S.A.</b><br><small class="mut">Cliente nuevo · SARLAFT al día</small></td><td>Prepago 50%</td><td>ST-${S.id}</td><td class="r">${money(T().price)}</td><td><span class="st ${S.fac?'ok':'warn'}">${S.fac?'Facturada':'Lista para facturar'}</span></td><td class="r">${S.fac?'<span class="mut">Con cumplido digital</span>':'<button class="btn sm" data-a="facturar">Facturar</button>'}</td></tr>`:''}
+  <tr><td><b>Alimentos Ejemplo S.A.</b><br><small class="mut">SARLAFT al día</small></td><td>Cupo $40 M · 30 días</td><td>FE-2291</td><td class="r">$12.400.000</td><td><span class="st ok">Al día</span></td><td class="r"><button class="ghost sm" data-a="factoring">Pasar a factoring</button></td></tr>
+  <tr><td><b>Manufacturas Demo</b><br><small class="mut">SARLAFT al día</small></td><td>Cupo $10 M · 30 días</td><td>FE-2274</td><td class="r">$6.150.000</td><td><span class="st crit">Vencida 9 días</span></td><td class="r mut">Reservas bloqueadas por mora</td></tr>
+  <tr><td><b>Distribuidora Prueba</b><br><small class="mut">Cliente nuevo · verificación SARLAFT en curso</small></td><td>Prepago 100%</td><td>—</td><td class="r">—</td><td><span class="st warn">Sin cupo aún</span></td><td class="r mut">Paga antes del cargue</td></tr></tbody></table></div><p></p><div class="note info">Clientes nuevos pagan por adelantado hasta tener cupo. La mora bloquea reservas nuevas. El manifiesto cumplido sirve como título para cobrar y la factura puede pasar a factoring por RADIAN. Prototipo con datos simulados.</div>`},
+ integ(){const I=[['Software contable y administrativo de Safe Trip','Facturas, pagos y terceros se sincronizan sin cambiar su sistema','Por conectar · se define con su sistema actual','warn'],['RNDC (Ministerio de Transporte)','Manifiesto electrónico, remesa, cumplido y tiempos logísticos','Simulado en el prototipo','warn'],['Monitoreo satelital actual (GPS)','Ubicación, geocercas y botón de pánico a la central 24/7','Simulado en el prototipo','warn'],['Facturación electrónica (proveedor DIAN)','Factura con el cumplido adjunto y envío al cliente','Simulado en el prototipo','warn'],['Banco y pasarela de pagos','Pagos por lote a cuentas validadas; la app no guarda dinero','Simulado en el prototipo','warn'],['WhatsApp con HalconBot','Cotización, soporte y avisos automáticos','En operación en otros clientes de We Rock','ok'],['Exportar a Excel o CSV','Viajes, pagos, cartera y utilidad por carro','Disponible desde el día 90','ok']];
+  return `<h1>Integraciones</h1><p class="sub">Flett se conecta con lo que Safe Trip ya usa. No reemplaza su software administrativo ni su monitoreo.</p><div class="card tw"><table><thead><tr><th>Sistema</th><th>Qué se conecta</th><th>Estado</th><th></th></tr></thead><tbody>${I.map(i=>`<tr><td><b>${i[0]}</b></td><td>${i[1]}</td><td><span class="sem ${i[3]}">${i[2]}</span></td><td class="r"><button class="ghost sm" data-a="toast" data-v="La conexión se configura con el equipo de Safe Trip (simulado)">${i[3]==='ok'?'Ver':'Configurar'}</button></td></tr>`).join('')}</tbody></table></div><p></p><div class="note info">Accesos por rol y bitácora de quién ve y cambia qué, con autorización de datos según la Ley 1581 de 2012. La conexión administrativa se define con el sistema actual de Safe Trip en la sesión de descubrimiento.</div>`},
  liq(){const p=T()&&ix('cumplido')?T().price:0,fl=Math.max(p*.06,15000);return `<h1>Liquidación Flett</h1><p class="sub">Comisiones calculadas viaje por viaje. Sin discusiones a fin de mes.</p><div class="g2"><div class="card"><h2>Este viaje${p?` <span>ST-${S.id} · cliente nuevo</span>`:''}</h2>${p?`<div class="stack" style="gap:6px"><div class="ln"><span>Flete</span><b>${money(p)}</b></div><div class="ln"><span>Propietario del vehículo (88%)</span><b>${money(p*.88)}</b></div><div class="ln"><span>Safe Trip (6%)</span><b>${money(p*.06)}</b></div><div class="ln"><span>Flett, cliente nuevo (6%, mínimo $15.000)</span><b>${money(fl)}</b></div>${S.ret?`<div class="ln"><span>Flett, retorno llenado (8% de $3.000.000)</span><b>${money(240000)}</b></div>`:''}</div>`:`<div class="emp2">${ic('tag')}<b>Aparece cuando el viaje se cumple</b><p>Cada comisión se calcula sobre el flete real del viaje, con el cumplido como soporte.</p></div>`}</div><div class="card"><h2>Tarifas de Flett <span>Solo cuando hay viaje</span></h2><div class="stack" style="gap:6px"><div class="ln"><span>Viaje de un cliente actual de Safe Trip</span><b>2%</b></div><div class="ln"><span>Viaje de un cliente nuevo</span><b>6%</b></div><div class="ln"><span>Retorno llenado</span><b>8%</b></div><div class="ln"><span>Servicios a la red (convenios)</span><b>1%</b></div><div class="ln"><span>Mínimo por viaje</span><b>$15.000</b></div></div><p class="hp" style="margin:10px 0 0;color:var(--mut);font-size:12px">Otras transportadoras: $9 M de entrada y 6% por viaje. Sin mensualidad.</p></div></div>`}
 },
 /* ---------- Gerencia ---------- */
 gerencia:{
  resumen(){const add=ix('pagado')?T().price:0,mg=add*.06,base=[182,196,188,214,231];const cur=(248e6+add)/1e6;
-  return `<h1>Resumen de la operación</h1><p class="sub">El negocio completo en una pantalla.</p><div class="kp"><div class="k"><small>Facturado del mes</small><b>$${Math.round(cur)} M</b></div><div class="k"><small>Margen</small><b>$${Math.round(31+mg/1e6)} M</b></div><div class="k"><small>Retornos llenos</small><b>${S.ret?8:7}</b></div><div class="k"><small>Pagos a tiempo</small><b class="ok">100%</b></div></div>
+  return `<h1>Resumen de la operación</h1><p class="sub">El negocio completo en una pantalla.</p><div class="kp"><div class="k"><small>Facturado del mes</small><b>$${Math.round(cur)} M</b></div><div class="k"><small>Margen</small><b>$${Math.round(31+mg/1e6)} M</b></div><div class="k"><small>Clientes nuevos (meta 8)</small><b>${ix('pagado')?3:2}</b></div><div class="k"><small>Pagos a tiempo</small><b class="ok">100%</b></div></div>
+  <div class="card" style="margin-bottom:12px"><h2>Metas del piloto <span>Día 34 de 90 · datos simulados</span></h2><div class="g2" style="gap:8px 18px">${[['Uso: viajes de las rutas piloto por la app','68%','80%',68/80],['Clientes nuevos con primer viaje',ix('pagado')?'3':'2','8',(ix('pagado')?3:2)/8],['Viajes nuevos, con retornos',S.ret?'11':'10','25',(S.ret?11:10)/25],['Posibles clientes con interés real','31','80',31/80]].map(m=>`<div><div class="ln"><span>${m[0]}</span><b>${m[1]} <small class="mut">/ ${m[2]}</small></b></div><div class="bar"><i style="width:${Math.round(m[3]*100)}%"></i></div></div>`).join('')}</div></div>
   <div class="g2"><div class="card"><h2>Facturación <span>Millones por mes</span></h2><div class="bars">${['Jun','Jul','Ago','Sep','Oct'].map((m,i)=>`<div><b>${base[i]}</b><i style="height:${base[i]/3.2}px"></i><small>${m}</small></div>`).join('')}<div class="now"><b>${Math.round(cur)}</b><i style="height:${cur/3.2}px"></i><small>Nov</small></div></div></div>
   <div class="stack"><div id="askbox">${askHTML()}</div><div class="card"><h2>Lo que necesita atención</h2><div class="stack" style="gap:6px"><div class="ln"><span>SKL 055 gasta 18% más ACPM</span><b class="warn">Revisar</b></div><div class="ln"><span>SOAT vencido en NHR 204</span><b class="crit">Bloqueado</b></div><div class="ln"><span>Factura vencida 9 días</span><b class="warn">Cobrar</b></div></div></div>${add?`<div class="note ok">ST-${S.id} cerrado: ${money(add)} facturados y ${money(mg)} de margen.</div>`:''}</div></div>`},
- utilidad(){const rows=[['XKT 118','Propio',9,58.2,36.1],['TSM 219','Propio',8,49.6,33.9],['WDN 731','Aliado',11,61.4,53.8],['SKL 055','Propio',6,34.8,29.3]];if(ix('pagado'))rows.unshift([T().v.p,'Aliado',1,T().price/1e6,T().price*.94/1e6,1]);
-  return `<h1>Utilidad por carro</h1><p class="sub">Cuánto deja cada vehículo, después de ACPM, peajes, conductor y mantenimiento.</p><div class="card tw"><table><thead><tr><th>Vehículo</th><th>Vínculo</th><th class="r">Viajes</th><th class="r">Facturado</th><th class="r">Costos</th><th class="r">Utilidad</th><th class="r">Margen</th></tr></thead><tbody>${rows.map(r=>{const u=r[3]-r[4],m=u/r[3]*100;return`<tr class="${r[5]?'me':''}"><td>${r[0]}</td><td>${r[1]}</td><td class="r">${r[2]}</td><td class="r">$${r[3].toFixed(1).replace('.',',')} M</td><td class="r">$${r[4].toFixed(1).replace('.',',')} M</td><td class="r"><b>$${u.toFixed(1).replace('.',',')} M</b></td><td class="r ${m<15?'warn':'ok'}">${Math.round(m)}%</td></tr>`}).join('')}</tbody></table></div>`},
- legal(){const c=(t,d,s,k)=>`<div class="card"><h2>${t} <span class="st ${k||'ok'}">${s}</span></h2><p class="sub" style="margin:0">${d}</p></div>`;return `<h1>Cumplimiento legal</h1><p class="sub">Las reglas del transporte de carga, vigiladas viaje por viaje.</p><div class="g2">${c('Costo eficiente mínimo','Ningún viaje se pacta por debajo del SICE-TAC de la ruta. Decreto 1017 de 2025.','0 infracciones')}${c('Plazo de pago','Cinco días hábiles tras la entrega. El motor de pagos avisa antes de que venza. Decreto 1017 de 2025.','100% a tiempo')}${c('Tiempos logísticos','Llegada, inicio y fin de cargue y salida, registrados por GPS y reportados al RNDC.','Registrados')}${c('Manifiesto y cumplido','Manifiesto electrónico en el RNDC emitido por Safe Trip como transportadora habilitada. Resolución 377 de 2013.','Con soporte')}${c('Mercancías peligrosas','Hoja de seguridad, tarjeta de emergencia, rotulado NTC 1692 y conductor con curso vigente. Decreto 1609 de 2002 y Resolución 1223 de 2014.','4 viajes este mes')}${c('Documentos de la flota','SOAT, tecnomecánica y póliza vigentes para recibir ofertas. Un vehículo bloqueado.','1 bloqueado','warn')}</div><p></p><div class="note info">Prototipo: las reglas y textos legales se validan con el asesor jurídico antes del lanzamiento.</div>`}
+ utilidad(){const u=S.ut||'carro';const f=x=>'$'+x.toFixed(1).replace('.',',')+' M';
+  const carro=[['XKT 118','Propio',9,58.2,36.1],['TSM 219','Propio',8,49.6,33.9],['WDN 731','Aliado',11,61.4,53.8],['SKL 055','Propio',6,34.8,29.3]];if(ix('pagado'))carro.unshift([T().v.p,'Aliado',1,T().price/1e6,T().price*.94/1e6,1]);
+  const viaje=[['ST-1042','Bogotá → Cartagena','XKT 118',6.4,4.1],['ST-1043','Medellín → Bogotá','TSM 219',3.1,2.2],['ST-1044','Cali → Buenaventura','WDN 731',1.9,1.6],['ST-1041','Barranquilla → Bogotá','XKT 482',4.2,3.7]];if(ix('pagado'))viaje.unshift(['ST-'+S.id,S.o+' → '+S.d,T().v.p,T().price/1e6,T().price*.94/1e6,1]);
+  const ruta=[['Bogotá → Barranquilla',990,14,61.2,44.9],['Bogotá → Cartagena',1055,9,58.2,43.0],['Medellín → Bogotá',415,12,38.9,27.6],['Cali → Buenaventura',125,16,30.1,25.4],['Bogotá → Bucaramanga',400,7,18.4,13.9]];
+  const tab=`<div class="flt" role="tablist">${[['carro','Por carro'],['viaje','Por viaje'],['ruta','Por ruta']].map(x=>`<button class="ch" role="tab" data-a="ut" data-v="${x[0]}" aria-pressed="${u===x[0]}">${x[1]}</button>`).join('')}</div>`;
+  const row=(cells,fac,cos,me)=>{const ut=fac-cos,m=ut/fac*100;return`<tr class="${me?'me':''}">${cells.map(c=>`<td>${c}</td>`).join('')}<td class="r">${f(fac)}</td><td class="r">${f(cos)}</td><td class="r"><b>${f(ut)}</b></td><td class="r ${m<15?'warn':'ok'}">${Math.round(m)}%</td></tr>`};
+  let th,body;
+  if(u==='carro'){th='<th>Vehículo</th><th>Vínculo</th><th class="r">Viajes</th>';body=carro.map(r=>row([`<b>${r[0]}</b>`,r[1],`<span class="r" style="display:block;text-align:right">${r[2]}</span>`],r[3],r[4],r[5])).join('')}
+  else if(u==='viaje'){th='<th>Viaje</th><th>Ruta</th><th>Vehículo</th>';body=viaje.map(r=>row([`<b>${r[0]}</b>`,r[1],r[2]],r[3],r[4],r[5])).join('')}
+  else{th='<th>Ruta</th><th class="r">km</th><th class="r">Viajes</th>';body=ruta.map(r=>row([`<b>${r[0]}</b>`,`<span style="display:block;text-align:right">${r[1]}</span>`,`<span style="display:block;text-align:right">${r[2]}</span>`],r[3],r[4])).join('')}
+  return `<h1>Utilidad</h1><p class="sub">Cuánto deja cada carro, cada viaje y cada ruta, después de ACPM, peajes, conductor y mantenimiento.</p><div class="card tw">${tab}<table><thead><tr>${th}<th class="r">Facturado</th><th class="r">Costos</th><th class="r">Utilidad</th><th class="r">Margen</th></tr></thead><tbody>${body}</tbody></table></div><p></p><div class="note info">Costos simulados. En producción salen del SICE-TAC de cada ruta, los peajes reales y lo que registre el conductor.</div>`},
+ legal(){const c=(t,d,s,k)=>`<div class="card"><h2>${t} <span class="st ${k||'ok'}">${s}</span></h2><p class="sub" style="margin:0">${d}</p></div>`;return `<h1>Cumplimiento legal</h1><p class="sub">Las reglas del transporte de carga, vigiladas viaje por viaje.</p><div class="g2">${c('Costo eficiente mínimo','Ningún viaje se pacta por debajo del SICE-TAC de la ruta. Decreto 1017 de 2025.','0 infracciones')}${c('Plazo de pago','Cinco días hábiles tras la entrega. El motor de pagos avisa antes de que venza. Decreto 1017 de 2025.','100% a tiempo')}${c('Tiempos logísticos','Llegada, inicio y fin de cargue y salida, registrados por GPS y reportados al RNDC.','Registrados')}${c('Manifiesto y cumplido','Manifiesto electrónico en el RNDC emitido por Safe Trip como transportadora habilitada. Resolución 377 de 2013.','Con soporte')}${c('Mercancías peligrosas','Hoja de seguridad, tarjeta de emergencia, rotulado NTC 1692 y conductor con curso vigente. Decreto 1609 de 2002 y Resolución 1223 de 2014.','4 viajes este mes')}${c('Documentos de la flota','SOAT, tecnomecánica y póliza vigentes para recibir ofertas. Un vehículo bloqueado.','1 bloqueado','warn')}${c('Seguridad vial (PESV) y SG-SST','Horas al volante, descansos y check-ins por conductor. Plan Estratégico de Seguridad Vial (Resolución 40595 de 2022) y estándares mínimos SG-SST (Resolución 0312 de 2019), que Safe Trip ya declara.','Al día')}${c('SARLAFT','Clientes, conductores y propietarios consultados en listas restrictivas antes de operar y cada renovación.','Sin alertas')}${c('Pólizas','RCE y RCC de la transportadora vigentes; seguro de la mercancía por viaje cuando el cliente lo pide.','Vigentes')}${c('Datos personales','Autorización de tratamiento (Ley 1581 de 2012) en el registro, accesos por rol y bitácora de cambios.','Con bitácora')}</div><p></p><div class="note info">Prototipo: las reglas y textos legales se validan con el asesor jurídico antes del lanzamiento. Los estados son simulados.</div>`},
+ red(){const O=[['Safe Trip S.A.S.','Bogotá y la Sabana · prioridad en su zona y tipo de carga','Operador fundador',40,'ok'],['Transportadora Ejemplo 2','Antioquia · carga seca','Entró con $9 M · 6% por viaje · mes 14',12,'ok'],['Transportadora Ejemplo 3','Valle · contenedores','En vinculación · documentos en revisión',0,'warn']];const serv=[['ACPM con convenio','312 tanqueos','$1,9 M'],['Llantas','18 juegos','$0,6 M'],['Seguro por viaje','57 pólizas','$0,4 M'],['Pronto pago','23 adelantos','$0,3 M']];
+  return `<h1>Red Flett</h1><p class="sub">Otras transportadoras operan con la app y Safe Trip gana la mitad de lo que dejan. Datos simulados.</p><div class="kp"><div class="k"><small>Operadores activos</small><b>2</b></div><div class="k"><small>Viajes de la red este mes</small><b>52</b></div><div class="k"><small>Ingreso de Flett por la red</small><b>$14,6 M</b></div><div class="k"><small>Servicios a la red (1%)</small><b>$3,2 M</b></div></div>
+  <div class="g2"><div class="card tw"><h2>Operadores <span>$9 M de entrada · 6% por viaje · sin mensualidad</span></h2><table><thead><tr><th>Transportadora</th><th>Zona</th><th class="r">Viajes</th><th>Estado</th></tr></thead><tbody>${O.map(o=>`<tr><td><b>${o[0]}</b><br><small class="mut">${o[2]}</small></td><td>${o[1]}</td><td class="r">${o[3]}</td><td><span class="sem ${o[4]}">${o[4]==='ok'?'Activa':'En vinculación'}</span></td></tr>`).join('')}</tbody></table></div>
+  <div class="stack"><div class="card"><h2>Servicios a la red <span>Convenios · desde el mes 13</span></h2>${serv.map(s=>`<div class="ln"><span>${s[0]} <small class="mut">· ${s[1]}</small></span><b>${s[2]}</b></div>`).join('')}</div><div class="card"><h2>Módulo a su medida</h2><p class="sub" style="margin:0 0 8px">Lo que su operación necesite y no esté aquí, se valida con su equipo y se construye dentro de Flett.</p><div class="actions"><button class="ghost sm" data-a="toast" data-v="Solicitud registrada para la sesión con Safe Trip (simulado)">Proponer un módulo</button></div></div></div></div>`},
+ acceso(){const U=[['Gerencia','GG','Gerencia · todo','Hoy 8:12'],['Coordinación','ST','Despacho · asignar, alertas, novedades','Hoy 9:40'],['Finanzas','FN','Pagos, cartera, liquidación','Hoy 9:05'],['Laura Méndez','AE','Cliente · Alimentos Ejemplo S.A.','Ayer'],['Jairo R.','JR','Conductor · su celular','Hoy 9:52']];
+  return `<h1>Usuarios y bitácora</h1><p class="sub">Cada persona ve solo lo suyo. Todo cambio queda registrado con quién, cuándo y qué.</p><div class="g2"><div class="card tw"><h2>Usuarios y roles</h2><table><thead><tr><th>Usuario</th><th>Permisos</th><th>Último acceso</th></tr></thead><tbody>${U.map(u=>`<tr><td><span class="av" style="display:inline-grid;width:26px;height:26px;font-size:10px;margin-right:8px;vertical-align:middle">${u[1]}</span><b>${u[0]}</b></td><td>${u[2]}</td><td>${u[3]}</td></tr>`).join('')}</tbody></table><div class="actions" style="margin-top:10px"><button class="ghost sm" data-a="toast" data-v="Invitación enviada por WhatsApp (simulado)">Invitar usuario</button></div></div>
+  <div class="card"><h2>Bitácora <span>${S.log.length} eventos</span></h2><div class="feed" style="max-height:360px">${S.log.slice(0,14).map(e=>`<div class="ev" style="--c:${e.c}"><b>${e.n}</b>${e.t}</div>`).join('')}</div><p class="hp" style="margin:8px 0 0;color:var(--mut)">Accesos por rol y autorización de datos (Ley 1581 de 2012). En producción la bitácora es inmutable y exportable.</p></div></div>`}
 }};
 const ORDER=['none','reservado','ofertado','aceptado','ruta','entrega','cumplido','pagado'];
 function ix(st){const cur=S.stage==='alerta'?'ruta':S.stage;return ORDER.indexOf(cur)>=ORDER.indexOf(st)}
@@ -903,48 +1167,134 @@ const OFFERS=[
 function sheetHTML(){
   const s=S.sheet;if(!s)return'';
   if(s.t==='nov'){const O=[['Espera en cargue','Pasó el tiempo incluido'],['Espera en descargue','No me reciben todavía'],['Peaje adicional','Desvío o peaje no previsto'],['Vía cerrada','Derrumbe, paro o accidente'],['Falla mecánica','Necesito grúa o repuesto'],['Otra novedad','La describo con audio']];
-   if(!s.pick)return`<div class="sheet"><div class="grip"></div><h3>¿Qué pasó?</h3><p class="ps">Queda con foto, hora y GPS. Despacho lo revisa y Finanzas lo paga con el saldo.</p><div class="opts">${O.map(o=>`<button data-a="novpick" data-v="${o[0]}"><span>${o[0]}</span><small>${o[1]}</small></button>`).join('')}</div><button class="pb ghost2" data-a="sheetclose">Cancelar</button></div>`;
-   return`<div class="sheet"><div class="grip"></div><h3>${s.pick}</h3><div class="chk d">Foto tomada <em>Lista</em></div><div class="chk d">Ubicación GPS <em>${S.o} · ${dirOf('o').split(',')[0]}</em></div><div class="chk d">Hora <em>${new Date().toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'})}</em></div><p class="ps">${s.pick.startsWith('Espera')?'El tiempo corre desde tu llegada registrada por GPS.':'Puedes agregar un audio si quieres.'}</p><button class="pb go" data-a="novsend">Enviar novedad</button><button class="pb ghost2" data-a="sheetclose">Cancelar</button></div>`}
+   if(!s.pick)return`<h2 class="ph2">¿Qué pasó?</h2><p class="psub">Queda con foto, hora y GPS. Despacho lo revisa y Finanzas lo paga con el saldo.</p><div class="opts">${O.map(o=>`<button data-a="novpick" data-v="${o[0]}"><span>${o[0]}</span><small>${o[1]}</small></button>`).join('')}</div><button class="pb ghost2" data-a="sheetclose">Cancelar</button>`;
+   return`<h2 class="ph2">${s.pick}</h2><div class="chk d">Foto tomada <em>Lista</em></div><div class="chk d">Ubicación GPS <em>${S.o} · ${dirOf('o').split(',')[0]}</em></div><div class="chk d">Hora <em>${new Date().toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'})}</em></div><p class="psub">${s.pick.startsWith('Espera')?'El tiempo corre desde tu llegada registrada por GPS.':'Puedes agregar un audio si quieres.'}</p><button class="pb go" data-a="novsend">${ic('send')}Enviar novedad</button><button class="pb ghost2" data-a="sheetclose">Cancelar</button>`}
   if(s.t==='rep'){const O=[['Retén sospechoso','Personas sin uniforme o sin placa'],['Bloqueo de vía','Paro, derrumbe o manifestación'],['Robo','Intento o robo en curso'],['Accidente','Vía parcialmente cerrada'],['Zona sin señal','Para que otros avisen antes']];
-   return`<div class="sheet"><div class="grip"></div><h3>Reportar en dos toques</h3><p class="ps">Tu ubicación va automática. Se difunde cuando la torre o dos conductores lo confirman.</p><div class="opts">${O.map(o=>`<button data-a="reportar" data-v="${o[0]}"><span>${o[0]}</span><small>${o[1]}</small></button>`).join('')}</div><button class="pb ghost2" data-a="sheetclose">Cancelar</button></div>`}
+   return`<h2 class="ph2">Reportar en dos toques</h2><p class="psub">Tu ubicación va automática. Se difunde cuando la torre o dos conductores lo confirman.</p><div class="opts">${O.map(o=>`<button data-a="reportar" data-v="${o[0]}"><span>${o[0]}</span><small>${o[1]}</small></button>`).join('')}</div><button class="pb ghost2" data-a="sheetclose">Cancelar</button>`}
+  if(s.t==='seg'){const al=S.alerts.filter(a=>!a.done).slice(0,3);
+   return`<h2 class="ph2">Seguridad</h2><p class="psub">Red de camioneros · gratis para todos</p>${al.map(a=>`<div class="pc"><div class="prow" style="border:0;padding:0"><b style="text-align:left">${a.t}</b><span class="pill ${a.ok?'crit':'warn'}">${a.ok?'Confirmada':'Por confirmar'}</span></div><small>${a.w}</small><small>${a.ago} · ${a.conf||(a.ok?3:1)} confirmaci${(a.conf||(a.ok?3:1))===1?'ón':'ones'} · vence en ${a.exp||'24 h'}</small></div>`).join('')}<button class="pb no" data-a="rep">${ic('alert')}Reportar en dos toques</button><button class="panic" id="pan" aria-label="Botón de pánico: mantener dos segundos"><i id="pbr"></i><span>Mantén 2 segundos para PÁNICO</span></button><button class="pb ghost2" data-a="sheetclose">Cerrar</button>`}
   return'';
 }
+/* Ganancias simuladas del conductor */
+const ERN={hoy:1240000,sem:8350000,wk:[1.9,2.2,0,2.8,1.4,0,0],viajes:[['ST-1032','Cartagena → Bogotá','29 oct',2840000],['ST-1028','Bogotá → Cali','27 oct',2210000],['ST-1021','Medellín → Bogotá','24 oct',1930000]]};
+const fmtH=d=>d.toLocaleTimeString('es-CO',{hour:'numeric',minute:'2-digit'});
+const etaTxt=()=>T()?fmtH(new Date(Date.now()+T().h*(1-S.prog)*3600e3)):'';
+function nextCity(){if(!T())return null;const p=T().r.path,done=T().r.km*S.prog;let acc=0;for(let i=1;i<p.length;i++){acc+=edge(p[i-1],p[i])[2];if(acc>done)return{c:p[i],km:Math.round(acc-done)}}return{c:p[p.length-1],km:0}}
+const slide=(act,label,ok,dis)=>`<div class="slide${ok?' ok':''}" data-slide="${act}" role="button" tabindex="0" aria-disabled="${!!dis}" aria-label="${label}"><i class="kn">${ic('chev')}</i><span>${label}</span></div>`;
+function stageBar(){const i=ix('cumplido')?5:S.stage==='entrega'?4:ix('ruta')?3:(S.sub||0);const L=['Llegué','Cargado','En ruta','Llegué','Entregado'];return`<div class="stg">${L.map((_,k)=>`<i class="${k<i?'d':k===i?'n':''}"></i>`).join('')}</div><div class="stgl">${L.map(l=>`<span>${l}</span>`).join('')}</div>`}
 function phone(){
-  const el=$(S.mode==='live'?'lpbody':'pbody');if(!el)return;el.className='pbody';
-  const live=S.mode==='live';
-  const pay=T()?T().price*.88:0,ty=T()?(TYPES[T().tipo]||TYPES.gen):TY();
-  const top=(title,sub,color)=>`<div class="ptop"><div>${sub?`<p class="ps"${color?` style="color:${color}"`:''}>${sub}</p>`:''}<h2 class="ph">${title}</h2></div>${live?'':`<button class="ib2" data-a="sun" aria-pressed="${!!S.sun}" aria-label="Modo sol: letras más grandes y más contraste" title="Modo sol">${ic('sun')}</button>`}</div>`;
-  const ckin=()=>!live&&ix('aceptado')&&!ix('entrega')&&S.stage!=='alerta'?`<div class="ckin${S.ckin.late?' late':''}"><b>${S.ckin.late?'¿Todo bien, Jairo?':'Check-in de seguridad'}</b><small>${S.ckin.late?'Responde en 5 minutos o la central abre un incidente y te llama.':'Respondiste '+S.ckin.last+'. El próximo es en 1 h 20 min.'}</small>${S.ckin.late?`<button class="pb ok" data-a="ckin">${ic('check')}Todo bien</button>`:`<button class="pb no" data-a="ckin" style="min-height:44px">Responder ahora</button>`}</div>`:'';
-  const sup=()=>`<button class="pb wa" data-a="wasup">${ic('chat')}Hablar con Safe Trip por WhatsApp</button>`;
-  const sh=sheetHTML();
-  if(S.stage==='alerta'&&!S.stopped){el.className='pbody red';el.innerHTML=`<div><p class="ps" style="color:#ffb3b5">Alerta confirmada · ${S.aw}</p><h2 class="ph">Robo adelante</h2></div><div class="cop"><small><span class="wv"><i></i><i></i><i></i><i></i></span>Copiloto Flett</small><p>Jairo, hay un robo confirmado a 38 kilómetros. ¿Te llevo a un punto seguro?</p></div><p class="ps" style="color:#ffd9da">Reportado hace 3 min · 2 conductores y la torre lo confirmaron.</p><div class="sp"><button class="pb white" data-a="parar">Sí, llévame a un punto seguro</button></div>`;return}
-  if(S.stage==='alerta'&&S.stopped){el.innerHTML=`<div><p class="ps">Punto recomendado</p><h2 class="ph">Parado en zona segura</h2></div><div class="pc"><small>Estado</small><b id="wait">Esperando confirmación de vía</b></div><p class="ps">La central sabe dónde estás. Un asesor te llama en un minuto.</p>${sup()}`;return}
-  if(S.ph==='soporte'){el.innerHTML=`${top('Soporte Safe Trip','Persona real · responde en menos de 2 min')}<div class="pc" style="padding:8px 12px"><small>Camila Ruiz · Coordinación Safe Trip</small><b class="ver" style="font-size:13px">${ic('shield')}Identidad verificada por Flett</b></div><div class="wa-wrap">${S.wamsgs.length?S.wamsgs.map(m=>m.me?`<div class="wa-msg">${m.t}</div>`:`<div class="wa-in"><b>Camila:</b> ${m.t}</div>`).join(''):'<div class="wa-in">Hola, Jairo. Soy Camila, de Safe Trip. ¿En qué te ayudo?</div>'}${S.watyping?'<div class="wa-in"><span class="dotsy"><i></i><i></i><i></i></span></div>':''}</div><div class="sel-mini">${['Llevo 2 horas esperando en el cargue','No me abren la bodega','Tengo una duda del anticipo'].map(x=>`<button data-a="wasend" data-v="${x}">${x}</button>`).join('')}</div><button class="pb ghost2" data-a="ptab" data-v="inicio">Volver</button>`;return}
-  if(S.ph==='registro'){el.innerHTML=regHTML();return}
-  if(S.ph==='viajes'){
-    const hot=S.stage==='ofertado';
-    if(hot){const t=T(),rq=t.rq||[];el.innerHTML=`${top(`${S.o} → ${S.d}`,'Oferta verificada · Safe Trip S.A.S.',"#8fb2ff")}<div class="pc"><small>Te pagan (neto para ti)</small><div class="pay">${money(pay)}</div><small>Anticipo ${money(pay/2)} al cargar · Saldo en 48 h · Flete total ${money(t.price)}</small></div><div class="pc"><small>Carga</small><b style="font-size:14.5px">${KI[ty.k]} ${t.ton} t de ${t.tipoN.toLowerCase()}${t.tmin!=null&&ty.k!=='seca'&&(ty.k==='refri'||ty.k==='cong')?` · ${t.tmin} a ${t.tmax} °C`:''}${ty.k==='pel'?` · Clase ONU ${t.un||'—'}`:''}</b><small>Vehículo</small><b style="font-size:14.5px">${t.v.n} ${t.v.cfg} · ${BODY[ty.b][0]}</b></div><div class="pc"><small>Cargue · ${t.fecha}, ${t.hora}</small><b style="font-size:14.5px">${t.ao}, ${S.o}</b><small>Espera promedio en este sitio: ${siteOf(S.o).esp} · ${siteOf(S.o).cal} ★ · ${t.cita} incluidas</small><small style="margin-top:6px">Entrega</small><b style="font-size:14.5px">${t.ad}, ${S.d}</b></div><div class="pc"><small>Distancia y riesgo</small><b>${t.r.km.toLocaleString('es-CO')} km · ${t.h} h · riesgo ${RN[t.risk].toLowerCase()}</b></div>${rq.length?`<div class="pc"><small>Requisitos del viaje</small>${rq.map(k=>`<b style="font-size:13.5px;display:block">· ${REQ[k].t}</b>`).join('')}</div>`:''}<div class="pc"><small>Quién te ofrece</small><b class="ver" style="font-size:14px">${ic('shield')}Despacho Safe Trip S.A.S. · código 4F7K</b><small>Transportadora habilitada. Nadie te pedirá dinero por fuera.</small></div><div class="sp"><button class="pb go" data-a="aceptar">${ic('check')}Aceptar viaje</button><button class="pb ghost2" data-a="rechazar">Rechazar sin castigo · 9:40</button></div>`;return}
-    const FI=[['todas','Todas'],['cerca','Cerca de mí'],['pago','Mejor pago'],['casa','Vuelve a casa']];const lst=OFFERS.filter(o=>S.of==='todas'||(S.of==='cerca'&&o.tags.includes('Cerca'))||(S.of==='pago'&&o.tags.includes('Mejor pago'))||(S.of==='casa'&&o.tags.includes('Vuelve a casa')));
-    el.innerHTML=`${top('Viajes para ti','Solo cargas que tu tractomula puede llevar')}<div class="pfl" role="tablist">${FI.map(f=>`<button role="tab" data-a="of" data-v="${f[0]}" aria-pressed="${S.of===f[0]}">${f[1]}</button>`).join('')}</div>${lst.length?`<div class="plist">${lst.map(o=>{const t=TYPES[o.ty];return`<button class="ofc" data-a="toast" data-v="En el prototipo, la oferta activa llega desde Despacho"><div class="r1"><b>${o.o} → ${o.d}</b><span class="pay" style="font-size:16px">${money(o.pay*.88)}</span></div><small>${KI[t.k]} ${t.n} · ${o.km.toLocaleString('es-CO')} km · ${o.when}</small><small>Espera en cargue: ${o.esp} · Oferta verificada</small><div class="rsn">${o.tags.map(x=>`<span>${x}</span>`).join('')}</div></button>`}).join('')}</div>`:`<div class="emp2">${ic('truck')}<b>Nada con ese filtro</b><p>Prueba otro filtro o activa las alertas para tu ruta favorita.</p></div>`}<p class="ps" style="margin-top:auto;font-size:12px">Lo que ves es lo que te pagan a ti. Sin membresías ni cobros por mirar.</p>`;return}
-  if(S.ph==='seg'){el.innerHTML=`${top('Seguridad','Red de camioneros · gratis para todos')}${S.alerts.filter(a=>!a.done).slice(0,3).map(a=>`<div class="pc"><div class="prow" style="border:0;padding:0"><b style="text-align:left">${a.t}</b><span class="pill ${a.ok?'crit':'warn'}">${a.ok?'Confirmada':'Por confirmar'}</span></div><small>${a.w}</small><small>${a.ago} · ${a.conf||(a.ok?3:1)} confirmaci${(a.conf||(a.ok?3:1))===1?'ón':'ones'} · vence en ${a.exp||'2 h'}</small></div>`).join('')}${ckin()}<div class="sp"><button class="pb no" data-a="rep">${ic('alert')}Reportar en dos toques</button><button class="panic" id="pan" aria-label="Botón de pánico: mantener dos segundos"><i id="pbr"></i><span>Mantén 2 segundos para PÁNICO</span></button></div>${sh}`;bindPanic();return}
-  if(S.ph==='pagos'){const novs=S.nov.filter(n=>n.ok);el.innerHTML=`${top('Mis pagos','Cada peso a la vista')}${T()&&ix('aceptado')?`<div class="pc"><small>Viaje ST-${S.id} · ${S.o} → ${S.d}</small><div class="prow"><span>Flete del viaje</span><b>${money(T().price)}</b></div><div class="prow"><span>Tu parte (88%)</span><b>${money(pay)}</b></div><div class="prow"><span>Anticipo 50%</span><b class="${S.ant?'ok':'warn'}">${S.ant?money(pay/2)+' · recibido':'al cargar'}</b></div><div class="prow"><span>Saldo 50%</span><b class="${S.sal?'ok':''}">${S.sal?money(pay/2)+' · recibido':ix('cumplido')?'llega en 48 h':'tras el cumplido'}</b></div>${novs.map(n=>`<div class="prow"><span>${n.t}</span><b class="ok">+${n.v}</b></div>`).join('')}${S.nov.filter(n=>!n.ok).map(n=>`<div class="prow"><span>${n.t}</span><b class="warn">en revisión</b></div>`).join('')}</div>`:''}<div class="pc"><small>Saldo ST-1032 · Cartagena → Bogotá</small><b>$2.840.000</b><small class="ok">Recibido el 29 de octubre</small></div><div class="pc"><small>Este mes</small><b>11 viajes · $31.200.000 · Nivel Plata</b><small>Cuenta validada: Bancolombia ····4821</small></div><p class="ps" style="margin-top:auto;font-size:12px">Sin descuentos escondidos. Si algo no cuadra, lo reclamas aquí y una persona te responde.</p>`;return}
-  if(S.ph==='mas'){const D=[['Licencia C3','Vigente hasta 2028','ok'],['SOAT XKT 482','Vence en 94 días','ok'],['Tecnomecánica','Vence en 41 días','warn'],['Curso mercancías peligrosas','Vigente · renovar en 2027','ok'],['Póliza RCE','Vigente','ok']];el.innerHTML=`${top('Más','Documentos, beneficios y ayuda')}<div class="pc"><small>Mis documentos</small>${D.map(d=>`<div class="prow"><span style="color:var(--pink)">${d[0]}</span><b class="${d[1].startsWith('Vence en 4')?'warn':'ok'}">${d[1]}</b></div>`).join('')}<small style="margin-top:6px">Te avisamos 30 días antes de cada vencimiento.</small></div><div class="pc"><small>Beneficios de la red</small><div class="prow"><span>ACPM con convenio</span><b>Descuento por galón</b></div><div class="prow"><span>Llantas</span><b>Precio de red</b></div><div class="prow"><span>Seguro por viaje</span><b>Desde el anticipo</b></div><div class="prow"><span>Pronto pago</span><b>Saldo en 48 h</b></div></div>${sup()}<button class="pb no" data-a="regstart">${ic('id')}Ver cómo se registra un conductor</button><button class="pb ghost2" data-a="sun">${ic('sun')}Modo sol: ${S.sun?'activado':'desactivado'}</button>`;return}
-  if(S.stage==='ofertado'){S.ph='viajes';return phone()}
-  if(S.stage==='aceptado'){el.innerHTML=`${top('Listo para cargar',`Viaje ST-${S.id}`)}<div class="pc"><small>Anticipo</small><b class="${S.ant?'ok':'warn'}">${S.ant?money(pay/2)+' recibido en tu cuenta':'En proceso · Finanzas lo paga antes de cargar'}</b></div><div class="pc"><small>Sitio de cargue · ${T().fecha}, ${T().hora}</small><b>${T().ao}</b><small>${S.o} · espera promedio ${siteOf(S.o).esp} · ${T().cita} incluidas</small></div><div class="pc"><small>Contacto en bodega</small><b class="ver" style="font-size:14px">${ic('shield')}${T().co||'Laura M.'} · verificado por Flett</b><small>Solo habla con contactos verificados en la app.</small></div>${ckin()}<div class="sp"><button class="pb go" data-a="cargar" ${S.ant?'':'disabled'}>${ic('cam')}Registrar cargue con fotos</button><button class="pb no" data-a="nov">${ic('clock')}Registrar espera o novedad</button></div>${sh}`;return}
-  if(S.stage==='ruta'){el.innerHTML=`${top('<span data-live="km">0 km</span>',`En ruta a ${S.d} · llegas aprox. en ${Math.max(1,Math.round(T().h*(1-S.prog)))} h`)}<p class="ps" style="margin-top:-4px">${T().ad}</p><div class="pc"><div class="prow"><span>Pago del viaje</span><b class="pay" style="font-size:18px">${money(pay)}</b></div><div class="prow"><span>Alertas en tu ruta</span><b>${S.alertUsed?'1 resuelta':'Ninguna'}</b></div>${S.k===1?`<div class="prow"><span>Temperatura del equipo</span><b class="ok">−18,4 °C</b></div>`:''}</div>${ckin()}<div class="sp"><button class="pb no" data-a="nov">${ic('clock')}Registrar espera o novedad</button>${sup()}<button class="panic" id="pan" aria-label="Botón de pánico: mantener dos segundos"><i id="pbr"></i><span>Mantén 2 segundos para PÁNICO</span></button></div>${sh}`;bindPanic();return}
-  if(S.stage==='entrega'){const c=S.pf,ok=c.f&&c.s;el.innerHTML=`${top('Cumplido digital',`Llegaste a ${T().ad}`)}<button class="chk ${c.f?'d':''}" data-a="pf" data-v="f">Foto de la entrega <em>${c.f?'Lista':'Tomar'}</em></button><div class="chk d">Ubicación GPS <em>Lista</em></div><button class="chk ${c.s?'d':''}" data-a="pf" data-v="s">Firma de quien recibe <em>${c.s?'Lista':'Firmar'}</em></button><p class="ps">Sin papeles. Con esto Finanzas factura hoy y tu saldo sale en 48 horas.</p><div class="sp"><button class="pb no" data-a="nov">${ic('clock')}Registrar espera en descargue</button><button class="pb ok" data-a="cumplir" ${ok?'':'disabled'}>${ic('send')}Enviar cumplido</button></div>${sh}`;return}
-  if(ix('cumplido')){el.innerHTML=`${top('Entrega aprobada',`Viaje ST-${S.id}`)}<div class="pc"><small>Saldo</small><div class="pay">${money(pay/2)}</div><small class="${S.sal?'ok':''}">${S.sal?'Recibido en tu cuenta validada':'Llega en 48 horas'}</small></div>${S.nov.filter(n=>n.ok).map(n=>`<div class="pc"><small>${n.t}</small><b class="ok">+${n.v} aprobado</b></div>`).join('')}<div class="pc"><small>Calificación del cliente</small><b>4,9 ★ · Subes a Nivel Oro</b></div><div class="pc"><small>Retorno disponible</small><b>${S.d} → ${S.o} · $2.640.000 para ti</b><small>${S.ret?'Ya lo tienes asignado.':'Despacho lo publica en un momento.'}</small></div>`;return}
-  el.innerHTML=`${top('Hola, Jairo','Buenos días')}<div class="pc"><small>Tu vehículo</small><b>XKT 482 · Tractomula 3S3</b><small class="ok">Documentos al día · tecnomecánica vence en 41 días</small></div><div class="pc"><small>Tu zona</small><b>Sin alertas cerca</b><small>${S.alerts.filter(a=>!a.done).length} alertas activas en el país</small></div><div class="pc"><small>Este mes</small><b>11 viajes · $31.200.000 · Nivel Plata</b></div><div class="pc"><small>Ofertas para ti</small><b>${OFFERS.length} viajes disponibles</b><small>2 te devuelven a Barranquilla</small></div><div class="sp"><button class="pb go" data-a="ptab" data-v="viajes">${ic('truck')}Ver viajes</button>${sup()}</div>`;
+  const live=S.mode==='live',el=$(live?'lpbody':'pbody');if(!el)return;el.className='pui';
+  const ph=el.parentElement;ph.dataset.sh=S.sh;ph.classList.toggle('sun',!live&&!!S.sun);ph.classList.toggle('off',!live&&!S.online&&S.stage==='none');
+  const pm=ph.querySelector('.pmap');if(pm){pm.classList.toggle('ld',!!gm.loaded);if(!gm.loaded&&!pm.querySelector('svg'))pm.insertAdjacentHTML('afterbegin',map({route:T()?T().r:null,alerts:true}).replace('class="glslot"','class="pslot"'))}
+  const pay=T()?T().price*.88:0,ty=T()?(TYPES[T().tipo]||TYPES.gen):TY(),trip=ix('aceptado')&&!ix('cumplido');
+  const sunBtn=live?'':`<button class="ib2" data-a="sun" aria-pressed="${!!S.sun}" aria-label="Modo sol: letras más grandes y más contraste" title="Modo sol">${ic('sun')}</button>`;
+  const man=(i,b,s,cls)=>`<div class="man ${cls||''}"><span class="mi">${i.length>2?ic(i):i}</span><span><b>${b}</b><small>${s}</small></span></div>`;
+  const ckin=()=>!live&&trip&&S.stage!=='alerta'?`<div class="ckin${S.ckin.late?' late':''}"><b>${S.ckin.late?'¿Todo bien, Jairo?':'Check-in de seguridad'}</b><small>${S.ckin.late?'Responde en 5 minutos o la central abre un incidente y te llama.':'Respondiste '+S.ckin.last+'. El próximo es en 1 h 20 min.'}</small>${S.ckin.late?`<button class="pb ok" data-a="ckin">${ic('check')}Todo bien</button>`:`<button class="pb no" data-a="ckin" style="min-height:44px">Responder ahora</button>`}</div>`:'';
+  const fabs=S.sh==='open'?'':`<div class="fabs">${trip?`<button class="fab" data-a="nov" aria-label="Registrar espera o novedad">${ic('clock')}</button>`:''}<button class="fab wa" data-a="wasup" aria-label="WhatsApp con Safe Trip">${ic('chat')}</button><button class="fab sos" id="pan" aria-label="Seguridad. Toca para ver alertas, mantén 2 segundos para pánico"><i id="pbr"></i>${ic('sos')}</button></div>`;
+  const sheet=(inner,peek)=>{ph.style.setProperty('--peekh',(peek||190)+'px');return`<div class="psheet"><div class="grip" data-grip><i></i></div><div class="pin">${inner}</div></div>`};
+  /* Pantallas completas */
+  if(S.stage==='alerta'&&!S.stopped){el.innerHTML=`<div class="pfull red"><p class="ps" style="color:#ffb3b5;margin:0">Alerta confirmada · ${S.aw}</p><h2 class="ph2">Robo adelante</h2><div class="cop"><small><span class="wv"><i></i><i></i><i></i><i></i></span>Copiloto Flett</small><p>Jairo, hay un robo confirmado a 38 kilómetros. ¿Te llevo a un punto seguro?</p></div><p class="ps" style="color:#ffd9da">Reportado hace 3 min · 2 conductores y la torre lo confirmaron.</p><div class="sp"><button class="pb white" data-a="parar">${ic('shield')}Sí, llévame a un punto seguro</button></div></div>`;return}
+  if(S.stage==='alerta'&&S.stopped){el.innerHTML=`<div class="pbar">${man('check','Parado en zona segura','La central sabe dónde estás','ok')}${sunBtn}</div>${sheet(`<h2 class="ph2">Punto recomendado</h2><div class="pc"><small>Estado</small><b id="wait">Esperando confirmación de vía</b></div><p class="psub">Un asesor te llama en un minuto. No te muevas del sitio.</p><button class="pb wa" data-a="wasup">${ic('chat')}Hablar con Safe Trip</button>`,230)}`;bindPhone();return}
+  if(S.ph==='soporte'){el.innerHTML=`<div class="pfull"><div><p class="psub">Persona real · responde en menos de 2 min</p><h2 class="ph2">Soporte Safe Trip</h2></div><div class="pc" style="padding:8px 12px"><small>Camila Ruiz · Coordinación Safe Trip</small><b class="ver" style="font-size:13px">${ic('shield')}Identidad verificada por Flett</b></div><div class="wa-wrap">${S.wamsgs.length?S.wamsgs.map(m=>m.me?`<div class="wa-msg">${m.t}</div>`:`<div class="wa-in"><b>Camila:</b> ${m.t}</div>`).join(''):'<div class="wa-in">Hola, Jairo. Soy Camila, de Safe Trip. ¿En qué te ayudo?</div>'}${S.watyping?'<div class="wa-in"><span class="dotsy"><i></i><i></i><i></i></span></div>':''}</div><div class="sel-mini">${['Llevo 2 horas esperando en el cargue','No me abren la bodega','Tengo una duda del anticipo'].map(x=>`<button data-a="wasend" data-v="${x}">${x}</button>`).join('')}</div><button class="pb ghost2" data-a="ptab" data-v="inicio">Volver</button></div>`;return}
+  if(S.ph==='registro'){el.innerHTML=`<div class="pfull">${regHTML()}</div>`;return}
+  if(S.celebrate&&ix('cumplido')){const cf=Array.from({length:26},(_,i)=>`<i style="left:${(i*37)%100}%;background:${['#35c98d','#3d7bff','#f5b93a','#fff','#ff8fa3'][i%5]};animation-delay:${(i*.17)%2.6}s;animation-duration:${2.2+(i%4)*.4}s"></i>`).join('');
+    el.innerHTML=`<div class="pfull"><div class="conf">${cf}</div><div class="cele"><div class="bigok">${ic('check')}</div><h2 class="ph2">¡Entregado, Jairo!</h2><p class="psub">Cumplido enviado con foto, GPS y firma</p><div class="money xl">${money(pay)}</div><p class="psub">Anticipo ${money(pay/2)} ya en tu cuenta · Saldo ${money(pay/2)} ${S.sal?'recibido':'en 48 horas'}</p><div class="chips" style="justify-content:center"><span>${ic('star')}4,9 del cliente</span><span>${ic('back')}Retorno ${S.d} → ${S.o}</span></div></div><button class="pb go" data-a="celeok">${ic('check')}Listo</button></div>`;return}
+  if(S.stage==='ofertado'){const t=T(),rq=t.rq||[];
+    el.innerHTML=`<div class="pfull glass"><div class="ofh"><div class="cring" style="--dur:90s"><svg viewBox="0 0 72 72"><circle class="bg" cx="36" cy="36" r="32"/><circle class="fg" cx="36" cy="36" r="32"/></svg><b>1:30</b></div><div><small>Nueva oferta verificada</small><b class="ver" style="font-size:13px">${ic('shield')}Safe Trip S.A.S. · 4F7K</b><small>${t.fecha}, ${t.hora}</small></div></div>
+    <div><small class="psub" style="font-weight:700">Para ti, neto · anticipo ${money(pay/2)} al cargar</small><div class="money xl">${money(pay)}</div></div>
+    <div class="od"><i></i><span><b>${t.ao}</b><small>${S.o} · espera ${siteOf(S.o).esp}</small></span><span class="ln2"></span><span></span><i class="b"></i><span><b>${t.ad}</b><small>${S.d}</small></span></div>
+    <div class="chips g2c"><span>${ic('map')}${t.r.km.toLocaleString('es-CO')} km · ${t.h} h</span><span>${KI[ty.k]} ${t.ton} t · ${t.tipoN}</span>${ty.k==='refri'||ty.k==='cong'?`<span>${ic('temp')}${t.tmin} a ${t.tmax} °C</span>`:''}${ty.k==='pel'?`<span>${ic('alert')}Clase ONU ${t.un||'—'}</span>`:''}<span>${ic('truck')}${t.v.n} ${t.v.cfg}</span>${rq.length?`<span>${ic('file')}${rq.length} papeles del cliente</span>`:''}${t.risk===2?`<span style="color:#ffb3b5">${ic('alert')}Riesgo alto: sal de día</span>`:''}</div>
+    <div class="sp"><button class="pb go" data-a="aceptar" style="min-height:56px;font-size:17px">${ic('check')}Aceptar viaje</button><button class="pb ghost2" data-a="rechazar">Rechazar sin castigo</button></div></div>`;return}
+  /* Barra superior */
+  let bar='';
+  if(S.stage==='aceptado')bar=S.sub?man('check','Estás en el cargue',`Espera incluida: ${T().cita} · ${T().ao}`,'ok'):man('pin','Ve al cargue',`${T().ao}, ${S.o}`);
+  else if(S.stage==='ruta'){const nc=nextCity();bar=man('chev',`Hacia ${nc.c}`,`${nc.km} km · entrega en ${T().ad}`)}
+  else if(S.stage==='entrega')bar=man('check','Llegaste',T().ad,'ok');
+  else bar=man('👋',S.ph==='inicio'?'Hola, Jairo':S.ph==='viajes'?'Viajes para ti':S.ph==='pagos'?'Mis ganancias':'Más',S.online?'En línea · recibes ofertas':'Desconectado · no recibes ofertas','hi');
+  /* Hoja inferior */
+  let inner='',peek=190;
+  if(S.sheet){inner=sheetHTML();peek=300}
+  else if(S.ph==='viajes'){const FI=[['todas','Todas'],['cerca','Cerca de mí'],['pago','Mejor pago'],['casa','Vuelve a casa']];const lst=OFFERS.filter(o=>S.of==='todas'||(S.of==='cerca'&&o.tags.includes('Cerca'))||(S.of==='pago'&&o.tags.includes('Mejor pago'))||(S.of==='casa'&&o.tags.includes('Vuelve a casa')));
+    inner=`<h2 class="ph2">Viajes para ti</h2><p class="psub">Solo cargas que tu tractomula puede llevar</p><div class="pfl" role="tablist">${FI.map(f=>`<button role="tab" data-a="of" data-v="${f[0]}" aria-pressed="${S.of===f[0]}">${f[1]}</button>`).join('')}</div>${lst.length?`<div class="plist">${lst.map(o=>{const t=TYPES[o.ty];return`<button class="ofc" data-a="toast" data-v="En el prototipo, la oferta activa llega desde Despacho"><div class="r1"><b>${o.o} → ${o.d}</b><span class="pay" style="font-size:16px">${money(o.pay*.88)}</span></div><small>${KI[t.k]} ${t.n} · ${o.km.toLocaleString('es-CO')} km · ${o.when}</small><small>Espera en cargue: ${o.esp} · Oferta verificada</small><div class="rsn">${o.tags.map(x=>`<span>${x}</span>`).join('')}</div></button>`}).join('')}</div>`:`<div class="emp2">${ic('truck')}<b>Nada con ese filtro</b><p>Prueba otro filtro o activa las alertas para tu ruta favorita.</p></div>`}<p class="psub" style="font-size:12px">Lo que ves es lo que te pagan a ti. Sin membresías ni cobros por mirar.</p>`;peek=260}
+  else if(S.ph==='pagos'){const novs=S.nov.filter(n=>n.ok),mx=Math.max(...ERN.wk,.1),sem=ERN.sem+(S.sal?pay:0),hoy=ERN.hoy+(S.sal?pay:0);const D=['L','M','M','J','V','S','D'];
+    inner=`<p class="psub">Esta semana</p><div class="money xl">${money(sem)}</div><div class="ern"><div><small>Hoy</small><b class="g">${money(hoy)}</b></div><div><small>Próximo pago</small><b>Viernes</b><small>Cuenta ····4821</small></div></div><div class="pc"><div class="wk">${ERN.wk.map((v,i)=>`<div class="${i===3?'now':''}"><i style="height:${Math.max(3,(i===3?v+(S.sal?pay/1e6:0):v)/mx*80)}px"></i><small>${D[i]}</small></div>`).join('')}</div></div>${T()&&ix('aceptado')?`<div class="pc"><small>Viaje ST-${S.id} · ${S.o} → ${S.d}</small><div class="prow"><span>Tu parte (88% de ${money(T().price)})</span><b>${money(pay)}</b></div><div class="prow"><span>Anticipo 50%</span><b class="${S.ant?'ok':'warn'}">${S.ant?'recibido':'al cargar'}</b></div><div class="prow"><span>Saldo 50%</span><b class="${S.sal?'ok':''}">${S.sal?'recibido':ix('cumplido')?'en 48 h':'tras el cumplido'}</b></div>${novs.map(n=>`<div class="prow"><span>${n.t}</span><b class="ok">+${n.v}</b></div>`).join('')}${S.nov.filter(n=>!n.ok).map(n=>`<div class="prow"><span>${n.t}</span><b class="warn">en revisión</b></div>`).join('')}</div>`:''}<div class="pc"><small>Viajes recientes</small>${ERN.viajes.map(v=>`<div class="trow"><span><b>${v[1]}</b><small>${v[0]} · ${v[2]}</small></span><span class="v g">${money(v[3])}</span></div>`).join('')}</div><p class="psub" style="font-size:12px">Sin descuentos escondidos. Si algo no cuadra, lo reclamas aquí y una persona te responde.</p>`;peek=260}
+  else if(S.ph==='mas'){const D=[['Licencia C3','Vigente hasta 2028','ok'],['SOAT XKT 482','Vence en 94 días','ok'],['Tecnomecánica','Vence en 41 días','warn'],['Curso mercancías peligrosas','Vigente · renovar en 2027','ok'],['Póliza RCE','Vigente','ok']];
+    inner=`<h2 class="ph2">Más</h2><div class="pc"><small>Mis documentos</small>${D.map(d=>`<div class="prow"><span style="color:var(--pink)">${d[0]}</span><b class="${d[2]}">${d[1]}</b></div>`).join('')}<small style="margin-top:6px">Te avisamos 30 días antes de cada vencimiento.</small></div><div class="pc"><small>Beneficios de la red</small><div class="prow"><span>ACPM con convenio</span><b>Descuento por galón</b></div><div class="prow"><span>Llantas</span><b>Precio de red</b></div><div class="prow"><span>Seguro por viaje</span><b>Desde el anticipo</b></div><div class="prow"><span>Pronto pago</span><b>Saldo en 48 h</b></div></div><button class="pb no" data-a="segsheet">${ic('shield')}Red de seguridad y alertas</button><button class="pb wa" data-a="wasup">${ic('chat')}Hablar con Safe Trip por WhatsApp</button><button class="pb no" data-a="toast" data-v="Videos cortos de seguridad vial y uso de la app (simulado)">${ic('star')}Capacitación: seguridad vial y app</button><button class="pb no" data-a="regstart">${ic('id')}Ver cómo se registra un conductor</button><button class="pb ghost2" data-a="sun">${ic('sun')}Modo sol: ${S.sun?'activado':'desactivado'}</button><button class="pb ghost2" data-a="offline">${ic('wave')}Simular poca señal: ${S.offline?'activada':'desactivada'}</button>`;peek=260}
+  else if(S.stage==='aceptado'){
+    if(!S.sub)inner=`${stageBar()}<div class="eta"><b>Llegas ${fmtH(new Date(Date.now()+22*60e3))}</b><small>12 km al cargue<br>${T().fecha}, ${T().hora}</small></div>${slide('arrive1','Llegué al cargue')}<div class="pc"><small>Anticipo</small><b class="${S.ant?'ok':'warn'}">${S.ant?money(pay/2)+' recibido en tu cuenta':'En proceso · Finanzas lo paga antes de cargar'}</b></div><div class="pc"><small>Contacto en bodega</small><b class="ver" style="font-size:14px">${ic('shield')}${T().co||'Laura M.'} · verificado por Flett</b><small>Solo habla con contactos verificados en la app.</small></div>${ckin()}`;
+    else inner=`${stageBar()}<div class="eta"><b>Cargando</b><small>Espera incluida ${T().cita}<br>desde tu llegada por GPS</small></div><button class="chk ${S.pf.c?'d':''}" data-a="pfc">${ic('cam')} Foto del cargue <em>${S.pf.c?'Lista':'Tomar'}</em></button>${slide('cargar','Cargado, salgo a ruta',true,!(S.ant&&S.pf.c))}${S.ant?'':'<p class="psub">El anticipo debe estar en tu cuenta antes de salir.</p>'}<div class="pc"><small>Anticipo</small><b class="${S.ant?'ok':'warn'}">${S.ant?money(pay/2)+' recibido':'En proceso'}</b></div>${ckin()}`;
+    peek=S.sub?300:250}
+  else if(S.stage==='ruta'){inner=`<div class="eta"><b>Llegas ${etaTxt()}</b><small><span data-live="km">0 km</span> · ${T().ad}</small></div>${stageBar()}${slide('llegar','Llegué a la entrega')}<div class="pc"><div class="prow"><span>Pago del viaje</span><b class="pay" style="font-size:18px">${money(pay)}</b></div><div class="prow"><span>Alertas en tu ruta</span><b>${S.alertUsed?'1 resuelta':'Ninguna'}</b></div>${S.k===1?`<div class="prow"><span>Temperatura del equipo</span><b class="ok">−18,4 °C</b></div>`:''}</div>${ckin()}`;peek=235}
+  else if(S.stage==='entrega'){const c=S.pf,ok=c.f&&c.s;inner=`${stageBar()}<h2 class="ph2">Entrega sin papeles</h2><button class="chk ${c.f?'d':''}" data-a="pf" data-v="f">${ic('cam')} Foto de la entrega <em>${c.f?'Lista':'Tomar'}</em></button><button class="chk ${c.s?'d':''}" data-a="pf" data-v="s">${ic('user')} Firma de quien recibe <em>${c.s?'Lista':'Firmar'}</em></button><div class="chk d">${ic('pin')} Ubicación GPS <em>Lista</em></div>${slide('cumplir','Entregado',true,!ok)}<p class="psub">Con esto Finanzas factura hoy y tu saldo sale en 48 horas.</p>`;peek=330}
+  else if(ix('cumplido')){inner=`<h2 class="ph2">Entrega aprobada</h2><div class="ern"><div><small>Saldo ST-${S.id}</small><b class="g">${money(pay/2)}</b><small>${S.sal?'Recibido':'Llega en 48 h'}</small></div><div><small>Calificación</small><b>4,9 ★</b><small>Subes a Nivel Oro</small></div></div>${S.nov.filter(n=>n.ok).map(n=>`<div class="pc"><small>${n.t}</small><b class="ok">+${n.v} aprobado</b></div>`).join('')}<button class="cor" data-a="toast" data-v="Despacho publica el retorno en un momento"><span class="ti">${ic('back')}</span><span><b>Retorno ${S.d} → ${S.o}</b><small>${S.ret?'Ya lo tienes asignado':'Mañana 6:00 · sin regresar vacío'}</small></span><span class="n">$2.640.000</span></button>`;peek=200}
+  else{inner=`<button class="onl" data-a="online" aria-pressed="${!!S.online}"><span><b>${S.online?'En línea':'Desconectado'}</b><small>${S.online?'Recibes ofertas de Safe Trip y de la red':'Toca para recibir ofertas'}</small></span><span class="sw"></span></button><div class="ern"><div><small>Hoy</small><b class="g">${money(ERN.hoy)}</b></div><div><small>Esta semana</small><b>${money(ERN.sem)}</b><small>3 viajes</small></div></div><button class="warnchip" data-a="ptab" data-v="mas">${ic('alert')}Tecnomecánica vence en 41 días · renuévala a tiempo</button><p class="psub" style="font-weight:700;color:var(--pink)">Carga cerca de ti</p>${CORR.map(c=>`<button class="cor" data-a="ptab" data-v="viajes"><span class="ti">${ic('truck')}</span><span><b>${c.o} → ${c.d}</b><small>${c.n} cargas · desde ${money(c.desde)}</small></span><span class="n">${ic('chev')}</span></button>`).join('')}`;peek=S.online?200:200}
+  el.innerHTML=`<div class="pbar">${bar}${sunBtn}</div>${S.offline&&!live?`<div class="offb">${ic('wave')} Sin señal · tus cambios se guardan y se envían al reconectar</div>`:''}${fabs}${sheet(inner,peek)}`;
+  bindPhone();
+}
+/* ===== App del cliente (celular) ===== */
+const CLI_HIST=[['ST-1032','Bogotá → Cartagena','29 oct','Alimentos congelados · 28 t',6480000],['ST-1019','Bogotá → Medellín','21 oct','Carga seca paletizada · 18 t',3120000],['ST-1004','Cali → Bogotá','12 oct','Bebidas · 24 t',2980000]];
+const CLI_FREQ=[{n:'Congelados a Barranquilla',d:'30 t · Tractomula refrigerada · cada semana',tipo:'cong',ton:30,o:'Bogotá',dd:'Barranquilla'},{n:'Seca a Medellín',d:'18 t · Doble troque · quincenal',tipo:'seca',ton:18,o:'Bogotá',dd:'Medellín'}];
+function fldc(k,lab,inner,hp,E){return `<div class="fld${E&&E[k]?' bad':''}">${lab?`<label for="f_${k}">${lab}</label>`:''}${inner}${hp?`<p class="hp">${hp}</p>`:''}<p class="er" role="alert">${(E&&E[k])||''}</p></div>`}
+const stars=n=>[1,2,3,4,5].map(i=>`<button class="star${i<=n?' on':''}" data-a="rate" data-v="${i}" aria-label="${i} estrellas">${ic('star')}</button>`).join('');
+function cphone(){
+  const live=S.mode==='live',el=$(live?'lcbody':'cpbody');if(!el)return;el.className='pui';
+  const ph=el.parentElement;ph.dataset.sh=S.csh;
+  const pm=ph.querySelector('.pmap');if(pm){pm.classList.toggle('ld',!!gc.loaded);if(!gc.loaded&&!pm.querySelector('svg'))pm.insertAdjacentHTML('afterbegin',map({route:T()?T().r:null,alerts:false}).replace('class="glslot"','class="pslot"'))}
+  const sheet=(inner,peek,foot)=>{ph.style.setProperty('--peekh',(peek||200)+'px');return `<div class="psheet"><div class="grip" data-grip="csh"><i></i></div><div class="pin">${inner}</div>${foot?`<div class="pfoot">${foot}</div>`:''}</div>`};
+  const man=(i,b,s,cls)=>`<div class="man ${cls||''}"><span class="mi">${i.length>2?ic(i):i}</span><span><b>${b}</b><small>${s}</small></span></div>`;
+  const t=T()?(TYPES[T().tipo]||TYPES.gen):TY();
+  let bar='',inner='',peek=200,foot='';
+  if(T()){
+    const tr=T(),st=[['Reservado',true],['Conductor asignado',ix('aceptado')],['Cargue con fotos',ix('ruta')],['En ruta',ix('entrega')],['Entrega y cumplido',ix('cumplido')]],now=!ix('aceptado')?1:!ix('ruta')?2:!ix('entrega')?3:!ix('cumplido')?4:9;
+    bar=S.stage==='alerta'?man('alert','Novedad en la ruta','El conductor va a un punto seguro. Carga monitoreada','warnm'):!ix('aceptado')?man('search','Buscando tu conductor','Solo con documentos al día'):S.stage==='aceptado'?man('pin','Jairo va al cargue',tr.ao):S.stage==='ruta'?man('truck','Tu carga va en camino','Llega '+etaTxt()):S.stage==='entrega'?man('check','Llegó a destino','Esperando foto y firma','ok'):man('check','Entregada','Cumplido con foto, GPS y firma','ok');
+    const drv=ix('aceptado')?`<div class="drow"><span class="av" style="width:44px;height:44px;font-size:15px">JR</span><span><b>Jairo R. <span class="ver">${ic('shield')}verificado</span></b><small>${tr.v.n} ${tr.v.cfg} · placa ${tr.v.p} · 4,9 ★</small></span><button class="rbtn" data-a="toast" data-v="Llamada por la app, con número oculto (simulado)" aria-label="Llamar">${ic('phone')}</button><button class="rbtn wa" data-a="wacli" aria-label="WhatsApp">${ic('chat')}</button></div>`:`<div class="drow"><span class="spin"></span><span><b>Buscando conductor</b><small>Por cercanía, calificación y documentos</small></span></div>`;
+    if(ix('cumplido')){inner=`<h2 class="ph2">Entregada</h2><p class="psub">${tr.ad}, ${S.d}</p><div class="chips"><span>${ic('cam')}Foto</span><span>${ic('pin')}GPS</span><span>${ic('user')}Firma</span><span>${ic('file')}RNDC</span>${S.k===1?`<span>${ic('temp')}Registro de frío</span>`:''}</div><div class="pc"><small>Califica a Jairo R.</small><div class="stars">${stars(S.rate||0)}</div>${S.rate?'<small class="ok">Gracias. Tu calificación ayuda a toda la red.</small>':''}</div><div class="pc"><div class="prow"><span>Factura electrónica</span><b class="${S.fac?'ok':'warn'}">${S.fac?'Emitida · '+money(tr.price):'En proceso'}</b></div><div class="prow"><span>Plazo de pago</span><b>5 días hábiles</b></div></div>${drv}<button class="pb go" data-a="crepeat" data-v="0">${ic('back')}Pedir de nuevo</button>`;peek=250}
+    else{inner=`<div class="eta"><b>${ix('ruta')&&!ix('entrega')?'Llega '+etaTxt():S.stage==='entrega'?'En destino':S.stage==='aceptado'?'Cargue '+tr.fecha.toLowerCase()+', '+tr.hora:'Confirmando'}</b><small>${ix('ruta')&&!ix('entrega')?`faltan <span data-live="km">${tr.r.km.toLocaleString('es-CO')} km</span>`:'ST-'+S.id+' · '+tr.r.km.toLocaleString('es-CO')+' km'}</small></div>${drv}<ul class="tl">${st.map((x,i)=>`<li class="${i===now?'n':x[1]?'d':''}">${x[0]}</li>`).join('')}</ul>${S.k===1&&ix('ruta')?`<div class="pc"><div class="prow"><span>Temperatura del equipo</span><b class="ok">−18,4 °C</b></div><small>Rango pedido: ${tr.tmin} a ${tr.tmax} °C</small></div>`:''}<div class="pc"><small>Carga</small><b>${KI[t.k]} ${tr.ton} t de ${tr.tipoN.toLowerCase()}</b><small>${tr.ao}, ${S.o} → ${tr.ad}, ${S.d}</small></div>${S.nov.filter(n=>n.cliente).map(n=>`<div class="pc"><small>Novedad</small><b>${n.t}</b><small class="${n.ok?'ok':'warn'}">${n.ok?'Aprobada por Safe Trip':'En revisión'}</small></div>`).join('')}<button class="pb wa" data-a="wacli">${ic('chat')}Hablar con Safe Trip</button>`;peek=ix('aceptado')?220:190}
+  }
+  else if(S.cph==='pedir'){
+    const w=S.cw,F=S.f,E=S.ctried?valid(w-1):{},q=quote(),L=['Tipo','Carga','Ruta','Cuándo'];
+    const steps=`<div class="stg c4">${L.map((_,k)=>`<i class="${k+1<w?'d':k+1===w?'n':''}"></i>`).join('')}</div>`;
+    if(w===1){const norm=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');const nq=norm(S.cq||'');let list='';CG.forEach(([g,arr])=>{const m=arr.filter(a=>!nq||norm(a[1]+' '+a[2]+' '+g+' '+KN[a[3]]).includes(nq));if(!m.length)return;list+=`<h4 class="gh">${g}</h4>`+m.map(a=>`<button class="cor" data-a="ctype" data-v="${a[0]}"><span class="ti">${KI[a[3]]}</span><span><b>${a[1]}</b><small>${a[2]}</small></span><span class="n">${ic('chev')}</span></button>`).join('')});
+      inner=`${steps}<h2 class="ph2">¿Qué vas a mover?</h2><div class="cbx"><span>${ic('search')}</span><input class="txt" id="cq" placeholder="Busca: café, cemento, vacunas, ganado…" value="${S.cq||''}" autocomplete="off"></div><div class="plist">${list||`<div class="emp2">${ic('box')}<b>Nada con esa palabra</b><p>Prueba otra o elige "Otro tipo de carga".</p></div>`}</div>`}
+    else if(w===2){const vi=vehIdx(),rec=vehFor(F.ton),ex=[];
+      if(t.k==='refri'||t.k==='cong')ex.push(fldc('temp','Temperatura requerida',`<div class="g2" style="gap:8px"><div class="unit"><input class="txt" id="f_tmin" type="number" inputmode="numeric" value="${F.tmin}" aria-label="Mínima"><i>°C mín.</i></div><div class="unit"><input class="txt" id="f_tmax" type="number" inputmode="numeric" value="${F.tmax}" aria-label="Máxima"><i>°C máx.</i></div></div>`,'',E));
+      if(t.k==='pel')ex.push(fldc('un','Clase ONU',`<select id="f_un"><option value="">Elige la clase…</option>${UN.map(u=>`<option value="${u[0]}"${F.un===u[0]?' selected':''}>Clase ${u[0]} · ${u[1]}</option>`).join('')}</select>`,'',E));
+      if(t.k==='extra')ex.push(fldc('dim','Medidas en metros',`<div class="g3"><input class="txt" id="f_dl" type="number" step="0.1" placeholder="Largo" value="${F.dl}"><input class="txt" id="f_da" type="number" step="0.1" placeholder="Ancho" value="${F.da}"><input class="txt" id="f_dh" type="number" step="0.1" placeholder="Alto" value="${F.dh}"></div>`,'',E));
+      if(t.k==='viva')ex.push(fldc('cant','Cantidad de animales',`<div class="g2" style="gap:8px"><input class="txt" id="f_cant" type="number" inputmode="numeric" placeholder="Ej.: 28" value="${F.cant}"><input class="txt" id="f_esp" placeholder="Especie" value="${F.esp}"></div>`,'',E));
+      if(t.k==='val'||t.id==='arte'||t.id==='elec')ex.push(fldc('valor','Valor declarado',`<div class="unit"><input class="txt" id="f_valor" type="number" inputmode="numeric" placeholder="80000000" value="${F.valor}"><i>COP</i></div>`,'',E));
+      inner=`${steps}<div class="sel-type"><span class="ti">${KI[t.k]}</span><span><b>${t.n}</b><small>${KN[t.k]}</small></span><button class="ghost sm" data-a="cw" data-v="1">Cambiar</button></div><div class="g2" style="gap:8px">${fldc('ton','Peso total',`<div class="unit"><input class="txt" id="f_ton" type="number" inputmode="decimal" min="0.5" step="0.5" value="${F.ton}"><i>t</i></div>`,'',E)}${fldc('unid','Cantidad',`<div class="g2" style="gap:6px"><input class="txt" id="f_unid" inputmode="numeric" placeholder="22" value="${F.unid}" aria-label="Cantidad"><select id="f_emb" aria-label="Embalaje">${EMB.map(x=>`<option${F.emb===x?' selected':''}>${x}</option>`).join('')}</select></div>`,'',E)}</div>${ex.join('')}<div class="fld${E.veh?' bad':''}"><div class="req-lbl"><span class="lab">Vehículo</span><span class="pill acc">${BODY[t.b][0]}</span></div><div class="pfl">${V.map((v,i)=>`<button data-a="setveh" data-v="${i}" aria-pressed="${i===vi}" ${F.ton>v.cap?'disabled style="opacity:.4"':''}>${v.n} ${v.cfg}${i===rec?' ★':''}</button>`).join('')}</div><p class="er" role="alert">${E.veh||''}</p></div>`}
+    else if(w===3){inner=`${steps}<h2 class="ph2">¿De dónde a dónde?</h2><div class="g2" style="gap:8px"><div class="fld"><label for="fo">Cargue</label><select id="fo"></select></div><div class="fld"><label for="fd">Entrega</label><select id="fd"></select></div></div>${fldc('ao','Dirección de cargue',`<input class="txt" id="ao" autocomplete="off" value="${dirOf('o')}">`,`Espera promedio ${siteOf(S.o).esp} · ${siteOf(S.o).cal} ★`,E)}${fldc('ad','Dirección de entrega',`<input class="txt" id="ad" autocomplete="off" value="${dirOf('d')}">`,`Espera promedio ${siteOf(S.d).esp} · ${siteOf(S.d).cal} ★`,E)}<div class="g2" style="gap:8px">${fldc('co','Contacto en cargue',`<input class="txt" id="f_co" placeholder="Nombre" value="${F.co}">`,'',E)}${fldc('ct','Celular',`<input class="txt" id="f_ct" inputmode="tel" placeholder="300 000 0000" value="${F.ct}">`,'',E)}</div><div class="note ${q.risk===2?'warn':'info'}">${q.r.km.toLocaleString('es-CO')} km · ${q.h} h · riesgo ${RN[q.risk].toLowerCase()}</div>`}
+    else{const rq=reqList(),docs=rq.filter(r=>!r.auto),auto=rq.filter(r=>r.auto);const tog=(k,l,d,lock)=>`<button class="tg" data-a="togf" data-v="${k}" aria-pressed="${lock?'true':!!F[k]}" ${lock?'disabled':''}><span><b>${l}</b><small>${d}</small></span><i></i></button>`;
+      inner=`${steps}<h2 class="ph2">¿Cuándo?</h2><div class="g3"><div class="fld"><label for="fe">Fecha</label><select id="fe">${['Hoy','Mañana','Pasado mañana','Esta semana'].map(x=>`<option${F.fecha===x?' selected':''}>${x}</option>`).join('')}</select></div><div class="fld"><label for="fh">Hora</label><select id="fh">${['6:00 a. m.','8:00 a. m.','10:00 a. m.','2:00 p. m.','4:00 p. m.'].map(x=>`<option${F.hora===x?' selected':''}>${x}</option>`).join('')}</select></div><div class="fld"><label for="fc">Cargue</label><select id="fc">${['2 horas','4 horas','6 horas'].map(x=>`<option${F.cita===x?' selected':''}>${x}</option>`).join('')}</select></div></div><div class="pfl">${['Viaje completo','Carga parcial','Retorno'].map(x=>`<button data-a="setf" data-v="viaje|${x}" aria-pressed="${F.viaje===x}">${x}</button>`).join('')}</div><div class="tgs">${tog('seguro','Seguro de la carga','1% del flete')}${tog('ayuda','Ayudantes','$180.000')}${tog('escolta','Escolta','$450.000',t.e)}</div><div class="fld${E.ack?' bad':''}"><div class="req-lbl"><span class="lab">Papeles que entregas tú · ${docs.filter(r=>F.ack[r.k]).length}/${docs.length}</span><button class="ghost sm" data-a="ackall">Todos</button></div><div class="reqs">${docs.map(r=>`<div class="rq${r.v?'':' gen'}">${ic(r.v?'file':'alert')}<span><b>${r.t}</b></span><button class="tg tg2" data-a="ack" data-v="${r.k}" aria-pressed="${!!F.ack[r.k]}" aria-label="${r.t}"><i></i></button></div>`).join('')}</div><p class="er" role="alert">${E.ack||''}</p></div><p class="hp">${auto.length} requisitos los resuelve Safe Trip: manifiesto en el RNDC y piso SICE-TAC${t.k==='pel'?', conductor con curso':''}.</p><div class="brk"><div class="ln"><span>Flete base</span><b>${money(q.base)}</b></div>${q.ex.seg?`<div class="ln"><span>Seguro (1%)</span><b>${money(q.ex.seg)}</b></div>`:''}${q.ex.ayu?`<div class="ln"><span>Ayudantes</span><b>${money(q.ex.ayu)}</b></div>`:''}${q.ex.esc?`<div class="ln"><span>Escolta</span><b>${money(q.ex.esc)}</b></div>`:''}<div class="ln tot"><span>Total</span><b>${money(q.price)}</b></div></div>`}
+    if(w>1)foot=`<div><small>Precio estimado</small><b>${money(q.price)}</b><small>${q.v.n} ${q.v.cfg} · ${q.r.km.toLocaleString('es-CO')} km</small></div>${w<4?`<button class="pb go" data-a="cw" data-v="${w+1}">Continuar ${ic('chev')}</button>`:`<button class="pb go" data-a="reservar">${ic('check')}Reservar</button>`}`;
+    bar=man(['box','box','map','clock'][w-1],['Tipo de mercancía','Tu carga','Ruta y contactos','Cuándo y papeles'][w-1],`Paso ${w} de 4${w>1?' · '+t.n:''}`);peek=300}
+  else if(S.cph==='viajes'){inner=`<h2 class="ph2">Mis viajes</h2>${CLI_HIST.map(h=>`<div class="trow"><span><b>${h[1]}</b><small>${h[0]} · ${h[2]} · ${h[3]}</small></span><span class="v">${money(h[4])}</span></div>`).join('')}<p class="psub">Cada viaje con su cumplido, factura y manifiesto.</p>`;bar=man('map','Mis viajes','3 entregados este mes','hi');peek=260}
+  else if(S.cph==='cuenta'){inner=`<h2 class="ph2">Mi cuenta</h2><div class="pc"><small>Empresa</small><b>Alimentos Ejemplo S.A.</b><small>NIT 900.000.000-1 · Bogotá · datos simulados</small></div><div class="pc"><div class="prow"><span>Usuarios</span><b>3</b></div><div class="prow"><span>Facturación</span><b>Mensual · 30 días</b></div><div class="prow"><span>Pago</span><b>Transferencia · PSE</b></div><div class="prow"><span>Facturas pendientes</span><b class="ok">0</b></div><div class="prow"><span>Verificación SARLAFT</span><b class="ok">Al día</b></div><div class="prow"><span>Datos personales (Ley 1581)</span><b>Autorizados</b></div></div><button class="pb wa" data-a="wacli">${ic('chat')}Hablar con Safe Trip</button><button class="pb no" data-a="toast" data-v="Cerrar sesión (simulado)">Cerrar sesión</button>`;bar=man('user','Laura Méndez','Alimentos Ejemplo S.A.','hi');peek=260}
+  else{bar=man('👋','Hola, Laura','Alimentos Ejemplo S.A.','hi');
+    inner=`<button class="ask2" data-a="cpgo" data-v="pedir"><b>¿Qué vas a mover hoy?</b><span class="od"><i></i><span>${dirOf('o').split(',')[0]}, ${S.o}</span><span class="ln2"></span><span></span><i class="b"></i><span>${dirOf('d').split(',')[0]}, ${S.d}</span></span></button><p class="psub" style="font-weight:700;color:var(--pink)">Cargas frecuentes</p>${CLI_FREQ.map((f,i)=>`<button class="cor" data-a="crepeat" data-v="${i}"><span class="ti">${KI[TYPES[f.tipo].k]}</span><span><b>${f.n}</b><small>${f.d}</small></span><span class="n">Pedir</span></button>`).join('')}<div class="ern"><div><small>Este mes</small><b>3 viajes</b><small>$12,6 M</small></div><div><small>Entregas a tiempo</small><b class="g">100%</b></div></div>`;peek=215}
+  el.innerHTML=`<div class="pbar">${bar}</div>${sheet(inner,peek,foot)}`;
+  bindPhone();
+  if(S.cph==='pedir'&&!T()){bindQuote();const cq=$('cq');if(cq){cq.oninput=()=>{S.cq=cq.value;cphone();const i=$('cq');if(i){i.focus();const n=i.value.length;i.setSelectionRange(n,n)}}}}
 }
 /* Registro de conductor con validación de documentos (simulado) */
 const RDOCS=[['ced','Cédula de ciudadanía','Frente y respaldo'],['lic','Licencia de conducción C2 o C3','Vigente'],['tp','Tarjeta de propiedad','Del vehículo o del tráiler'],['soat','SOAT','Vigente'],['tm','Revisión tecnomecánica','Vigente'],['pol','Póliza RCE y RCC','De la transportadora o propia'],['mp','Curso de mercancías peligrosas','Opcional, abre más viajes']];
 function regHTML(){const R=S.reg||(S.reg={step:1,docs:{}});const bar=`<div class="pstp">${[1,2,3,4,5].map(i=>`<i class="${i<=R.step?'d':''}"></i>`).join('')}</div>`;
-  if(R.step===1)return`${bar}<div><p class="ps">Paso 1 de 5</p><h2 class="ph">Cuéntanos quién eres</h2></div><div class="pc"><small>Nombre completo</small><b>Jairo Rodríguez Pérez</b></div><div class="pc"><small>Cédula</small><b>79.456.123</b></div><div class="pc"><small>Celular (WhatsApp)</small><b>310 555 0147 <span class="pill ok">Verificado</span></b></div><div class="pc"><small>Soy</small><div class="sel-mini"><button aria-pressed="true">Conductor y propietario</button><button>Solo conductor</button><button>Propietario</button></div></div><p class="ps">Datos de ejemplo. El registro real toma menos de 10 minutos y no hay que ir a ninguna oficina.</p><div class="sp"><button class="pb go" data-a="regnext">Continuar</button><button class="pb ghost2" data-a="regexit">Salir</button></div>`;
+  if(R.step===1)return`${bar}<div><p class="ps">Paso 1 de 5</p><h2 class="ph">Cuéntanos quién eres</h2></div><div class="pc"><small>Nombre completo</small><b>Jairo Rodríguez Pérez</b></div><div class="pc"><small>Cédula</small><b>79.456.123</b></div><div class="pc"><small>Celular (WhatsApp)</small><b>310 555 0147 <span class="pill ok">Verificado</span></b></div><div class="pc"><small>Soy</small><div class="sel-mini"><button aria-pressed="true">Conductor y propietario</button><button>Solo conductor</button><button>Propietario</button></div></div><div class="chk d" style="font-size:13px">Autorizo el uso de mis datos (Ley 1581) y la consulta en listas restrictivas (SARLAFT) <em>Sí</em></div><p class="ps">Datos de ejemplo. El registro real toma menos de 10 minutos y no hay que ir a ninguna oficina.</p><div class="sp"><button class="pb go" data-a="regnext">Continuar</button><button class="pb ghost2" data-a="regexit">Salir</button></div>`;
   if(R.step===2){const all=RDOCS.filter(d=>d[0]!=='mp').every(d=>R.docs[d[0]]==='ok');return`${bar}<div><p class="ps">Paso 2 de 5</p><h2 class="ph">Toma foto a tus papeles</h2></div><p class="ps" style="margin-top:-4px">Flett lee la foto y la cruza con el RUNT. Si algo no se ve, te lo decimos al momento.</p>${RDOCS.map(d=>{const st=R.docs[d[0]];return`<button class="docrow" data-a="regdoc" data-v="${d[0]}" ${st==='val'?'disabled':''}><span>${ic(st==='ok'?'check':st==='rev'?'alert':'cam')}</span><span><b>${d[1]}</b><small>${st==='rev'?'La fecha no se lee. Toma la foto de nuevo.':st==='ok'?'Validado con el RUNT':d[2]}</small></span><span class="stt ${st==='ok'?'ok':st==='rev'?'warn':''}">${st==='val'?'<span class="mini"></span>':st==='ok'?'Listo':st==='rev'?'Repetir':'Tomar'}</span></button>`}).join('')}<div class="sp"><button class="pb go" data-a="regnext" ${all?'':'disabled'}>Continuar</button></div>`}
   if(R.step===3)return`${bar}<div><p class="ps">Paso 3 de 5</p><h2 class="ph">Una selfie para confirmar que eres tú</h2></div><div class="pc" style="display:grid;place-items:center;min-height:150px"><div style="width:96px;height:96px;border-radius:50%;border:3px dashed #3d7bff;display:grid;place-items:center;color:#8fb2ff">${ic('user')}</div><small style="margin-top:8px">Se compara con la foto de tu cédula. No se comparte con nadie.</small></div><div class="sp"><button class="pb go" data-a="regnext">${ic('cam')}Tomar selfie</button></div>`;
   if(R.step===4)return`${bar}<div><p class="ps">Paso 4 de 5</p><h2 class="ph">¿A qué cuenta te pagamos?</h2></div><div class="pc"><small>Banco</small><b>Bancolombia</b></div><div class="pc"><small>Cuenta de ahorros</small><b>···· ···· 4821</b></div><div class="pc"><small>Titular</small><b>Jairo Rodríguez Pérez <span class="pill ok">Coincide con tu cédula</span></b></div><p class="ps">Solo pagamos a cuentas del propietario validado. Así nadie se queda con tu dinero.</p><div class="sp"><button class="pb go" data-a="regnext">Validar cuenta</button></div>`;
-  return`${bar}<div class="bigok">${ic('check')}</div><div style="text-align:center"><h2 class="ph">Ya estás habilitado</h2><p class="ps">Tus papeles están al día. Desde hoy recibes ofertas de Safe Trip y de la red Flett.</p></div><div class="pc"><div class="prow"><span>Documentos validados</span><b class="ok">6 de 6</b></div><div class="prow"><span>Curso mercancías peligrosas</span><b>${R.docs.mp==='ok'?'Validado':'Pendiente (opcional)'}</b></div><div class="prow"><span>Próximo vencimiento</span><b>Tecnomecánica · 41 días</b></div></div><div class="sp"><button class="pb go" data-a="regexit">Ir a mi inicio</button></div>`}
-function bindPanic(){const b=$('pan'),bar=$('pbr');if(!b)return;let raf=0,t0=0;const stop=()=>{cancelAnimationFrame(raf);bar.style.transform='scaleX(0)'};const h=t=>{const p=Math.min(1,(t-t0)/2000);bar.style.transform=`scaleX(${p})`;if(p>=1){stop();A.panico();return}raf=requestAnimationFrame(h)};const go=e=>{e.preventDefault();t0=performance.now();raf=requestAnimationFrame(h)};b.addEventListener('pointerdown',go);['pointerup','pointerleave','pointercancel'].forEach(n=>b.addEventListener(n,stop));b.addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&!e.repeat)go(e)});b.addEventListener('keyup',stop)}
+  return`${bar}<div class="bigok">${ic('check')}</div><div style="text-align:center"><h2 class="ph">Ya estás habilitado</h2><p class="ps">Tus papeles están al día. Desde hoy recibes ofertas de Safe Trip y de la red Flett.</p></div><div class="pc"><div class="prow"><span>Documentos validados</span><b class="ok">6 de 6</b></div><div class="prow"><span>Listas restrictivas (SARLAFT)</span><b class="ok">Sin coincidencias</b></div><div class="prow"><span>Antecedentes y licencia (RUNT)</span><b class="ok">Al día</b></div><div class="prow"><span>Curso mercancías peligrosas</span><b>${R.docs.mp==='ok'?'Validado':'Pendiente (opcional)'}</b></div><div class="prow"><span>Próximo vencimiento</span><b>Tecnomecánica · 41 días</b></div></div><div class="sp"><button class="pb go" data-a="regexit">Ir a mi inicio</button></div>`}
+function bindPanic(){const b=$('pan'),bar=$('pbr');if(!b)return;let raf=0,t0=0,fired=false;const stop=()=>{cancelAnimationFrame(raf);bar.style.transform='scaleX(0)'};const h=t=>{const p=Math.min(1,(t-t0)/2000);bar.style.transform=`scaleX(${p})`;if(p>=1){stop();fired=true;A.panico();return}raf=requestAnimationFrame(h)};const go=e=>{e.preventDefault();fired=false;t0=performance.now();raf=requestAnimationFrame(h)};const up=()=>{stop();if(t0&&!fired&&b.classList.contains('fab')&&performance.now()-t0<350)A.segsheet();t0=0};b.addEventListener('pointerdown',go);b.addEventListener('pointerup',up);['pointerleave','pointercancel'].forEach(n=>b.addEventListener(n,stop));b.addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&!e.repeat)go(e)});b.addEventListener('keyup',up)}
+function bindPhone(){
+  bindPanic();
+  document.querySelectorAll('.slide').forEach(s=>{const kn=s.querySelector('.kn'),act=s.dataset.slide;if(s.getAttribute('aria-disabled')==='true')return;let x0=0,on=false,max=0,done=false;const fire=()=>{if(done)return;done=true;kn.style.transform=`translateX(${max}px)`;setTimeout(()=>{if(A[act])A[act]()},140)};
+    kn.addEventListener('pointerdown',e=>{on=true;x0=e.clientX;max=s.clientWidth-60;s.classList.add('drag');try{kn.setPointerCapture(e.pointerId)}catch(err){}});
+    kn.addEventListener('pointermove',e=>{if(!on)return;kn.style.transform=`translateX(${Math.max(0,Math.min(max,e.clientX-x0))}px)`});
+    const end=e=>{if(!on)return;on=false;s.classList.remove('drag');const dx=Math.max(0,Math.min(max,e.clientX-x0));if(dx>max*.7)fire();else kn.style.transform=''};
+    kn.addEventListener('pointerup',end);kn.addEventListener('pointercancel',end);
+    s.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();max=s.clientWidth-60;fire()}})});
+  document.querySelectorAll('[data-grip]').forEach(g=>{const key=g.dataset.grip==='csh'?'csh':'sh';let y0=null;g.addEventListener('pointerdown',e=>{y0=e.clientY;try{g.setPointerCapture(e.pointerId)}catch(err){}});g.addEventListener('pointerup',e=>{if(y0==null)return;const dy=e.clientY-y0;y0=null;if(Math.abs(dy)<8){S[key]=S[key]==='open'?'peek':'open';render()}else if(dy<-16&&S[key]!=='open'){S[key]='open';render()}else if(dy>16&&S[key]!=='peek'){S[key]='peek';render()}})});
+}
 
 /* Acciones: cada una mueve el mismo viaje en todos los entornos */
 const A={
@@ -963,14 +1313,26 @@ const A={
  nueva(){toast('El prototipo sigue un solo viaje. Reinicia desde el dock para cotizar otra carga.')},
  toast(v){toast(v)},
  wacli(){toast('Se abre WhatsApp con Safe Trip. Personas reales con identidad verificada.');log('cliente','Escribió a Safe Trip por WhatsApp.')},
- tf(v){S.tf=v;render()},sort(v){S.sort=v;render()},ff(v){S.ff=v;render()},of(v){S.of=v;render()},
- ptab(v){S.ph=v;S.sheet=null;render()},
+ tf(v){S.tf=v;render()},sort(v){S.sort=v;render()},ff(v){S.ff=v;render()},of(v){S.of=v;render()},ut(v){S.ut=v;render()},
+ offline(){S.offline=!S.offline;render();toast(S.offline?'Sin señal: la app guarda todo y lo envía al reconectar.':'Señal recuperada: 2 cambios enviados a Despacho.')},
+ ptab(v){S.ph=v;S.sheet=null;S.sh=v==='inicio'?'peek':'open';render()},
  sun(){S.sun=!S.sun;render()},
- sheetclose(){S.sheet=null;render()},
- nov(){S.sheet={t:'nov'};render()},
- rep(){S.sheet={t:'rep'};render()},
+ sheetclose(){S.sheet=null;S.sh='peek';render()},
+ nov(){S.sheet={t:'nov'};S.sh='open';render()},
+ rep(){S.sheet={t:'rep'};S.sh='open';render()},
+ segsheet(){S.sheet={t:'seg'};S.sh='open';render()},
+ online(){S.online=!S.online;render();toast(S.online?'En línea. Recibes ofertas de Safe Trip y de la red.':'Desconectado. No recibes ofertas hasta que vuelvas.')},
+ shtog(){S.sh=S.sh==='open'?'peek':'open';render()},
+ arrive1(){S.sub=1;log('conductor','Llegó al cargue. La espera incluida empieza a contar por GPS.');bump('despacho');S.sh='peek';render();toast('Llegada registrada. Espera incluida: '+(T()?T().cita:'2 horas'))},
+ pfc(){S.pf.c=!S.pf.c;render()},
+ celeok(){S.celebrate=false;S.sh='peek';render()},
+ cpgo(v){S.cph=v;S.csh=v==='inicio'?'peek':'open';if(v==='pedir'){S.cw=TYPES[S.f.tipo]?2:1;S.ctried=false;S.cq=''}render()},
+ cw(v){v=+v;if(v>S.cw){const e=valid(S.cw-1);if(Object.keys(e).length){S.ctried=true;render();const b=document.querySelector('.pui .fld.bad');if(b)b.scrollIntoView({block:'center',behavior:'smooth'});return}}S.cw=v;S.ctried=false;S.csh='open';render()},
+ ctype(id){A.cbpick(id);S.cw=2;S.cq='';S.csh='open';render()},
+ crepeat(i){if(T()){toast('El prototipo sigue un solo viaje. Reinicia desde el dock para pedir otra carga.');return}const f=CLI_FREQ[+i]||CLI_FREQ[0];A.cbpick(f.tipo);S.f.ton=f.ton;S.o=f.o;S.d=f.dd;S.ao='';S.ad='';S.f.veh=null;reqList().filter(r=>!r.auto).forEach(r=>S.f.ack[r.k]=true);S.cph='pedir';S.cw=4;S.csh='open';render();toast('Carga frecuente lista. Revisa y reserva.')},
+ rate(v){S.rate=+v;render();toast('Gracias por calificar a Jairo R.')},
  novpick(v){S.sheet={t:'nov',pick:v};render()},
- novsend(){const p=S.sheet&&S.sheet.pick;if(!p)return;const esp=p.startsWith('Espera');const n={id:Date.now(),t:p,w:esp?(p.includes('cargue')?'Llegó 6:02 a. m. · lleva 2 h 35 min · incluidas 2 h':'Llegó 4:10 p. m. · lleva 1 h 50 min'):p==='Peaje adicional'?'Desvío por cierre en la vía':'Reportado desde la app',h:new Date().toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'}),v:esp?'$45.000':p==='Peaje adicional'?'$38.400':'Por definir',ok:false,ago:'ahora',cliente:true};S.nov.unshift(n);S.sheet=null;log('conductor',`Registró novedad: ${p.toLowerCase()}, con foto y GPS.`);bump('despacho');render();toast('Novedad enviada a Despacho con foto, hora y GPS')},
+ novsend(){const p=S.sheet&&S.sheet.pick;if(!p)return;S.sh='peek';const esp=p.startsWith('Espera');const n={id:Date.now(),t:p,w:esp?(p.includes('cargue')?'Llegó 6:02 a. m. · lleva 2 h 35 min · incluidas 2 h':'Llegó 4:10 p. m. · lleva 1 h 50 min'):p==='Peaje adicional'?'Desvío por cierre en la vía':'Reportado desde la app',h:new Date().toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'}),v:esp?'$45.000':p==='Peaje adicional'?'$38.400':'Por definir',ok:false,ago:'ahora',cliente:true};S.nov.unshift(n);S.sheet=null;log('conductor',`Registró novedad: ${p.toLowerCase()}, con foto y GPS.`);bump('despacho');render();toast('Novedad enviada a Despacho con foto, hora y GPS')},
  aprobar(id){const n=S.nov.find(x=>x.id==id);if(!n)return;n.ok=true;log('despacho',`Aprobó la novedad "${n.t}" de Jairo R. Finanzas la paga con el saldo.`);bump('finanzas');bump('conductor');bump('cliente');render();toast('Novedad aprobada. Se paga con el saldo del viaje.')},
  ckin(){const was=S.incident;S.ckin.late=false;S.ckin.last='ahora';if(was){S.incident=false;log('conductor','Respondió el check-in. Incidente cerrado.')}else log('conductor','Respondió el check-in de seguridad: todo bien.');render();toast('Check-in recibido. La torre lo ve al instante.')},
  sinresp(){S.ckin.late=true;log('despacho','Check-in sin respuesta. Esperando 5 minutos antes de abrir incidente.');bump('conductor');render();setTimeout(()=>{if(S.ckin.late&&!S.incident){S.incident=true;log('despacho','Sin respuesta al check-in. Incidente abierto automáticamente: la central llama y avisa a la Policía.');bump('conductor');render()}},2500)},
@@ -982,21 +1344,21 @@ const A={
  regexit(){S.reg=null;S.ph='inicio';render()},
  regdoc(k){const R=S.reg;if(!R)return;R.docs[k]='val';render();setTimeout(()=>{if(!S.reg)return;R.docs[k]=(k==='tm'&&!R.tmRetry)?'rev':'ok';if(k==='tm'&&!R.tmRetry)R.tmRetry=true;render()},900)},
  rechazar(){S.stage='reservado';log('conductor','Rechazó la oferta sin castigo. Despacho busca otro conductor.');bump('despacho');S.ph='inicio';render();toast('Rechazaste sin castigo. Puedes seguir viendo ofertas.')},
- reservar(){const q=quote(),F=S.f,t=TY();S.trip={r:q.r,v:q.v,vi:S.v,price:q.price,risk:q.risk,h:q.h,ao:dirOf('o'),ad:dirOf('d'),ton:F.ton,tipo:t.id,tipoN:t.n,tmin:F.tmin,tmax:F.tmax,un:F.un,rq:reqList().filter(r=>!r.auto&&r.k!=='seg').map(r=>r.k),co:F.co,cita:F.cita,fecha:F.fecha,hora:F.hora,viaje:F.viaje};S.stage='reservado';log('cliente',`Reservó ST-${S.id}: ${S.o} → ${S.d}, ${t.n.toLowerCase()}, ${money(q.price)}.`);bump('despacho');render();toast('Reserva enviada a Despacho')},
+ reservar(){const q=quote(),F=S.f,t=TY();S.trip={r:q.r,v:q.v,vi:S.v,price:q.price,risk:q.risk,h:q.h,ao:dirOf('o'),ad:dirOf('d'),ton:F.ton,tipo:t.id,tipoN:t.n,tmin:F.tmin,tmax:F.tmax,un:F.un,rq:reqList().filter(r=>!r.auto&&r.k!=='seg').map(r=>r.k),co:F.co,cita:F.cita,fecha:F.fecha,hora:F.hora,viaje:F.viaje};S.stage='reservado';S.cph='inicio';S.csh='peek';log('cliente',`Reservó ST-${S.id}: ${S.o} → ${S.d}, ${t.n.toLowerCase()}, ${money(q.price)}.`);bump('despacho');render();toast('Reserva enviada a Despacho')},
  ofertar(v){S.stage='ofertado';S.ph='viajes';S.sheet=null;log('despacho',`Ofertó ST-${S.id} a Jairo R.: cerca, 4,9 de calificación y documentos al día.`);bump('conductor');render();ring();if(v&&v!=='Jairo R.')toast('En el prototipo la oferta siempre llega a Jairo R.')},
  aceptar(){S.stage='aceptado';S.ph='inicio';S.sheet=null;log('conductor',`Jairo R. aceptó ST-${S.id}.`);bump('finanzas');bump('cliente');render()},
  anticipo(){S.ant=true;log('finanzas',`Pagó anticipo de ${money(T().price*.44)} a cuenta validada.`);bump('conductor');render()},
- cargar(){S.stage='ruta';S.run=true;S.prog=0;log('conductor','Registró cargue con fotos y salió a ruta.');bump('cliente');render()},
+ cargar(){S.stage='ruta';S.run=true;S.prog=0;S.sub=2;S.pf.c=true;S.sh='peek';S.sheet=null;log('conductor','Registró cargue con fotos y salió a ruta.');bump('cliente');render()},
  robo(){const p=Math.min(S.prog+.16,.95),m=$('mp'),pt=m.getPointAtLength(m.getTotalLength()*p);let acc=0,i=1;const path=T().r.path;for(;i<path.length;i++){acc+=edge(path[i-1],path[i])[2];if(acc/T().r.km>=p)break}i=Math.min(i,path.length-1);S.aw=path[i-1]+' – '+path[i];const a={id:++S.aid,t:'Robo',w:S.aw,e:E[0],ok:true,ago:'ahora',n:214,xy:[pt.x,pt.y],mine:true};S.alerts.unshift(a);S.alertUsed=true;S.run=false;S.stage='alerta';S.ph='inicio';log('despacho',`Robo confirmado en ${S.aw}. Avisó a 214 conductores.`);bump('conductor');bump('cliente');render();ring()},
  parar(){S.stopped=true;log('conductor','Jairo R. paró en un punto recomendado.');render();setTimeout(()=>{if(!S.stopped)return;const w=$('wait');if(w)w.textContent='Vía despejada. Puede seguir.'},2200);setTimeout(()=>{if(!S.stopped)return;S.stopped=false;const a=S.alerts.find(x=>x.mine);if(a){a.done=true;a.ago='Vía despejada'}S.stage='ruta';S.run=true;log('despacho','Vía despejada. El viaje continúa.');render()},3800)},
  llegar(){S.prog=1;arrive()},
  pf(v){S.pf[v]=true;render()},
- cumplir(){S.stage='cumplido';log('conductor','Envió el cumplido con foto, GPS y firma.');bump('cliente');bump('finanzas');render()},
+ cumplir(){S.stage='cumplido';S.celebrate=true;S.sheet=null;S.sh='peek';log('conductor','Envió el cumplido con foto, GPS y firma.');bump('cliente');bump('finanzas');render()},
  facturar(){S.fac=true;log('finanzas',`Facturó ST-${S.id} con el cumplido adjunto.`);bump('cliente');render()},
  saldo(){S.sal=true;S.stage='pagado';log('finanzas',`Pagó saldo de ${money(T().price*.44)} a Jairo R.`);bump('conductor');bump('gerencia');render()},
  retorno(){S.ret=true;log('despacho',`Llenó el retorno ${S.d} → ${S.o}.`);bump('gerencia');render()},
  confirmar(v){const a=S.alerts.find(x=>x.id==v);if(a){a.ok=true;a.n=183;a.ago='ahora';log('despacho',`Confirmó ${a.t} en ${a.w}. Avisó a 183 conductores.`)}render()},
- reportar(v){const e=E[7],t=v||'Retén sospechoso',a={id:++S.aid,t,w:e[0]+' – '+e[1],e,ok:false,ago:'ahora',n:0,conf:1,exp:'2 h',rep:'Jairo R., verificado'};S.alerts.unshift(a);S.sheet=null;log('conductor',`Reportó: ${t.toLowerCase()}. Queda por confirmar.`);bump('despacho');render();toast('Reporte enviado. Se difunde cuando lo confirmen.')},
+ reportar(v){const e=E[7],t=v||'Retén sospechoso',a={id:++S.aid,t,w:e[0]+' – '+e[1],e,ok:false,ago:'ahora',n:0,conf:1,exp:'24 h',rep:'Jairo R., verificado'};S.alerts.unshift(a);S.sheet=null;S.sh='peek';log('conductor',`Reportó: ${t.toLowerCase()}. Queda por confirmar.`);bump('despacho');render();toast('Reporte enviado. Se difunde cuando lo confirmen.')},
  factoring(){toast('La factura pasa a factoring con un aliado financiero');log('finanzas','Solicitó liquidez sobre una factura.')},
  panico(){const was=S.run;S.run=false;log('conductor','Pánico silencioso activado.');bump('despacho');$('mod').innerHTML=`<h2 id="mt">Pánico silencioso</h2><p>Jairo R. · ${T()?T().v.p:'XKT 482'} · Ubicación recibida</p><ul id="il"><li>Central 24/7 recibe la ubicación</li><li>Llamada de verificación</li><li>Contacto con la Policía</li><li>Conductores cercanos avisados</li></ul><button class="ghost" id="ic">Cerrar simulación</button>`;$('ov').classList.add('on');[...$('il').children].forEach((l,i)=>setTimeout(()=>l.classList.add('d'),400+i*700));$('ic').onclick=()=>{$('ov').classList.remove('on');S.run=was;log('despacho','Incidente cerrado.')};$('ic').focus()},
  bell(){document.querySelector('.rail').classList.toggle('on')},
@@ -1005,7 +1367,7 @@ const A={
 function arrive(){if(S.stage!=='ruta')return;S.run=false;S.stage='entrega';S.ph='inicio';log('conductor',`Llegó a ${S.d}.`);bump('conductor');render()}
 function ring(){const p=$(S.mode==='live'?'lphone':'phone');if(p){p.classList.remove('ring');void p.offsetWidth;p.classList.add('ring')}}
 let tt;function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2800)}
-function go(r,v){S.mode='explore';S.role=r;if(v)S.view[r]=v;delete S.badge[r];render();$('main').scrollTop=0}
+function go(r,v){S.mode='explore';S.role=r;if(v)S.view[r]=v;else if(r==='cliente'&&innerWidth<=520)S.view.cliente='app';delete S.badge[r];render();$('main').scrollTop=0}
 
 /* Vista en vivo */
 const say=t=>{try{const u=new SpeechSynthesisUtterance(t);u.lang='es-CO';u.rate=1.02;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}};
@@ -1027,6 +1389,38 @@ function doneCoords(p){const d=p*rlen.t,o=[];for(let i=0;i<RD.length&&rlen.c[i]<
 const ll=c=>[CITY[c][1],CITY[c][0]];
 const midLL=e=>{const a=ll(e[0]),b=ll(e[1]);return[(a[0]+b[0])/2,(a[1]+b[1])/2]};
 let gl=null,glOK=false,tm=null,am=[],glTried=false;
+/* Mapas de celular: una instancia por marco (conductor: gm, cliente: gc). Siguen al camión en ruta. */
+const CORR=[{o:'Bogotá',d:'Medellín',n:3,desde:2700000},{o:'Bogotá',d:'Barranquilla',n:2,desde:4200000},{o:'Bogotá',d:'Bucaramanga',n:2,desde:2650000}];
+function PM(id){const P={id,ok:false,m:null,tm:null,am:[],lm:[],slot:null,key:null,o:{},fc:0};
+ P.init=style=>{P.m=new maplibregl.Map({container:id,style,center:[-74.1,4.7],zoom:5,attributionControl:false});P.m.on('style.load',()=>{if(!P.m.getSource('r2')){P.m.addSource('r2',{type:'geojson',data:lineGJ(RD)});P.m.addSource('d2',{type:'geojson',data:lineGJ([RD[0]])});P.m.addLayer({id:'r2',type:'line',source:'r2',paint:{'line-color':'#3d7bff','line-width':8,'line-opacity':.4},layout:{'line-cap':'round','line-join':'round'}});P.m.addLayer({id:'d2',type:'line',source:'d2',paint:{'line-color':'#1f5fe0','line-width':5},layout:{'line-cap':'round','line-join':'round'}})}if(!P.tm){const e=document.createElement('div');e.className='tmk2';P.tm=new maplibregl.Marker({element:e}).setLngLat(RD[0])}P.ok=true;mountGM()});P.m.once('idle',()=>{P.loaded=true;if(P.slot)P.slot.classList.add('ld')})};
+ P.hold=()=>{const g=$(id);if(g&&g.parentElement!==$('glhold'))$('glhold').appendChild(g);P.slot=null};
+ P.mount=(slot,o)=>{if(!P.ok)return;const g=$(id);if(!slot){P.hold();return}const moved=g.parentElement!==slot;if(moved)slot.appendChild(g);P.slot=slot;P.o=o;P.m.resize();
+  const p=T()?T().r.path:null;P.m.getSource('r2').setData(lineGJ(p?RD:[[-74,5],[-74,5]]));P.m.getSource('d2').setData(lineGJ(p&&ix('ruta')?doneCoords(S.prog):[RD[0]]));
+  P.am.forEach(m=>m.remove());P.am=o.alerts?S.alerts.filter(a=>!a.done).map(a=>{const e=document.createElement('div');e.className='amk'+(a.ok?'':' w');e.title=a.t+', '+a.w;return new maplibregl.Marker({element:e}).setLngLat(a.ll||midLL(a.e)).addTo(P.m)}):[];
+  P.lm.forEach(m=>m.remove());P.lm=[];
+  const key=(S.stage||'')+'|'+(S.mode||'')+'|'+(p?1:0)+'|'+(o.k||'')+'|'+S.o+S.d,fresh=moved||P.key!==key;
+  if(!p){if(o.corr)CORR.forEach((c,i)=>{const e=document.createElement('div');e.className='lmk';e.innerHTML=`${c.o} → ${c.d} <b>${c.n}</b>`;P.lm.push(new maplibregl.Marker({element:e,offset:[i===2?60:i===0?-50:0,i===1?-10:0]}).setLngLat(midLL([c.o,c.d])).addTo(P.m))});
+   if(o.pins){[['o','cpin'],['d','cpin b']].forEach(([k,c])=>{const e=document.createElement('div');e.className=c;P.lm.push(new maplibregl.Marker({element:e}).setLngLat(ll(S[k])).addTo(P.m))})}
+   P.tm.remove();if(fresh){if(o.pins){const r=route(S.o,S.d).path.map(ll);P.fitC(r,0)}else P.m.jumpTo({center:o.center||[-74.6,6.4],zoom:o.zoom||5.1,pitch:0,bearing:0})}}
+  else if(ix('ruta')&&!ix('entrega')){P.tm.setLngLat(posAt(S.prog)).addTo(P.m);if(fresh){if(o.follow)P.follow(0);else P.fitC(RD,0)}}
+  else{P.tm.remove();if(fresh)P.fitC(RD,moved?0:700)}
+  P.key=key};
+ P.fitC=(c,d)=>{const xs=c.map(p=>p[0]),ys=c.map(p=>p[1]);P.m.fitBounds([[Math.min(...xs),Math.min(...ys)],[Math.max(...xs),Math.max(...ys)]],{padding:{top:100,bottom:P.o.pad||250,left:30,right:30},duration:d,pitch:0,bearing:0})};
+ P.follow=d=>{const p=posAt(S.prog),q=posAt(Math.min(1,S.prog+.012));const br=Math.atan2(q[0]-p[0],q[1]-p[1])*180/Math.PI;P.m.easeTo({center:p,zoom:8.4,pitch:52,bearing:br,duration:d,padding:{bottom:190,top:60}})};
+ P.frame=()=>{if(!P.ok||!P.slot||!ix('ruta')||ix('entrega'))return;P.fc++;const p=posAt(S.prog);P.tm.setLngLat(p);if(P.fc%20===0)P.m.getSource('d2').setData(lineGJ(doneCoords(S.prog)));if(S.run&&P.fc%80===0){if(P.o.follow)P.follow(1300);else if(P.fc%400===0)P.fitC(RD,900)}};
+ return P}
+/* Vigilante: si a los 6 s un mapa montado no tiene teselas, recarga el estilo; si las tiene, fuerza un repintado */
+/* Empujón: resize + salto de cámara mínimo. Despierta el bucle de pintado cuando el canvas cambió de contenedor. */
+function nudge(m){try{m.resize();m.jumpTo({center:m.getCenter(),zoom:m.getZoom()+0.0001,bearing:m.getBearing(),pitch:m.getPitch()})}catch(e){}}
+function mapWatch(m,on){if(!m)return;[400,2500].forEach(t=>setTimeout(()=>{if(on())nudge(m)},t));setTimeout(()=>{try{if(!on())return;const sc=m.style&&m.style.sourceCaches&&m.style.sourceCaches.openmaptiles;if(sc&&!Object.keys(sc._tiles||{}).length)m.setStyle(wantStyle());else nudge(m)}catch(e){}},6000)}
+const gm=PM('gm'),gc=PM('gc');
+function mountGM(){
+  const cond=S.mode==='live'?$('lpmap'):(S.mode==='explore'&&S.role==='conductor'?$('pmap'):null);
+  const cli=S.mode==='live'?$('lcmap'):(S.mode==='explore'&&S.role==='cliente'&&S.view.cliente==='app'?$('cpmap'):null);
+  gm.mount(cond,{alerts:true,corr:true,follow:true});
+  gc.mount(cli,{alerts:false,corr:false,follow:false,pins:true,pad:240,k:'c'});
+}
+function frameGM(){gm.frame();gc.frame()}
 const lineGJ=c=>({type:'Feature',geometry:{type:'LineString',coordinates:c.length>1?c:[c[0],c[0]]}});
 let glStyle='';
 const wantStyle=()=>'https://tiles.openfreemap.org/styles/positron';
@@ -1035,14 +1429,14 @@ function addLayers(){
     gl.addLayer({id:'rt',type:'line',source:'rt',paint:{'line-color':'#3d7bff','line-width':7,'line-opacity':.35},layout:{'line-cap':'round','line-join':'round'}});
     gl.addLayer({id:'dn',type:'line',source:'dn',paint:{'line-color':'#1f5fe0','line-width':4},layout:{'line-cap':'round','line-join':'round'}})}
   if(!tm){const e=document.createElement('div');e.className='tmk';tm=new maplibregl.Marker({element:e}).setLngLat(RD[0])}
-  glOK=true;document.body.classList.add('glon');mountGL()
+  glOK=true;mountGL();gl.once('idle',()=>document.body.classList.add('glon'))
 }
 function fitRoad(d){if(!glOK)return;const xs=RD.map(p=>p[0]),ys=RD.map(p=>p[1]);gl.fitBounds([[Math.min(...xs),Math.min(...ys)],[Math.max(...xs),Math.max(...ys)]],{padding:{top:70,bottom:80,left:50,right:50},duration:d||0})}
 function mountGL(){
   const g=$('gl');if(!glOK){return}
   const slot=S.mode==='live'?document.querySelector('.glwrap'):document.querySelector('.glslot');
   if(!slot)return;
-  if(g.parentElement!==slot){if(S.mode==='live')slot.prepend(g);else slot.appendChild(g)}
+  if(g.parentElement!==slot){if(S.mode==='live')slot.prepend(g);else slot.appendChild(g);mapWatch(gl,()=>!$('glhold').contains($('gl')))}
   const w=wantStyle();if(w!==glStyle){glStyle=w;gl.setStyle(w)}
   const p=T()?T().r.path:(S.mode==='live'||S.view[S.role]==='cotizar'?route(S.o,S.d).path:null);
   if(p)setRoad(p);
@@ -1060,6 +1454,7 @@ function loadGL(){
     glStyle=wantStyle();
     gl=new maplibregl.Map({container:'gl',style:glStyle,center:[-74.4,7.7],zoom:5.2,attributionControl:{compact:true}});
     gl.on('style.load',addLayers);
+    gm.init(glStyle);gc.init(glStyle);
     setTimeout(()=>{if(!glOK){gl.remove();gl=null;fallbackMap()}},12000);
   }catch(err){gl=null;fallbackMap()}};
   document.head.appendChild(sc);
@@ -1075,8 +1470,11 @@ function frameGL(force){if(!glOK||!ix('ruta'))return;const p=posAt(S.prog);tm.se
 function cli(){
   const q=T()||quote(),el=$('lcli');
   if(S.stage==='none'){
+    if($('gc')&&el.contains($('gc')))$('glhold').appendChild($('gc'));el.classList.remove('cl');
     const msg='Necesito mover 30 toneladas refrigeradas de Bogotá a Barranquilla mañana';
     el.innerHTML='<div class="lh"><i>F</i><div>Flett<small>WhatsApp · con HalconBot</small></div></div><div class="chat">'+(S.wa?'<div class="mm me">'+msg+'</div>':'<div class="mm">Hola. ¿Qué carga quieres mover hoy?</div>')+(S.wa===1?'<div class="mm"><span class="dotsy"><i></i><i></i><i></i></span></div>':'')+(S.wa===2?'<div class="mm"><b>Listo.</b> '+S.o+' → '+S.d+', '+q.v.n.toLowerCase()+' '+q.v.cfg+' con '+BODY[(q.t||TY()).b][0].toLowerCase()+'.<br><b>'+money(q.price)+'</b> · '+q.h+' horas.<br>Precio sobre el costo eficiente del SICE-TAC, y la ruta evita el tramo de mayor riesgo. Se emite manifiesto en el RNDC. ¿Reservo?</div>':'')+'</div><div class="cmp">'+(S.wa===0?'<button data-a="wa">Enviar mensaje</button>':S.wa===2?'<button data-a="reservar">Sí, reservar</button>':'<button disabled style="opacity:.5">Flett está escribiendo</button>')+'</div>';return}
+  if(!$('lcmap')){el.innerHTML='<div class="pmap" id="lcmap"></div><div class="pstat"><span>Flett · app del cliente</span><span>4G</span></div><div class="pui" id="lcbody"></div>';el.classList.add('cl')}
+  cphone();return;
   const steps=[ix('aceptado'),ix('ruta'),ix('entrega'),ix('cumplido')].map(x=>'<i class="'+(x?'d':'')+'"></i>').join('');
   let h='<div class="ca"><div class="cst">'+steps+'</div>';
   if(!ix('aceptado'))h+='<h3>Buscando tu conductor</h3><div class="cc" style="display:flex;gap:10px;align-items:center"><div class="spin"></div><div><b>Vehículos cercanos</b><small>Solo con documentos al día</small></div></div>';
@@ -1101,7 +1499,7 @@ function liveNext(){const s=LIVE.find(x=>!x.done());if(!s||(s.wait&&s.wait()))re
 function renderLive(){
   $('roles').innerHTML=rolesHTML();
   if(T())$('mp').setAttribute('d',pathD(T().r.path));
-  cli();phone();loadGL();mountGL();
+  cli();phone();loadGL();mountGL();mountGM();
   const on=ix('aceptado')&&!ix('entrega');
   $('tkp').innerHTML='<div><small>Viajes activos</small><b>'+(on?19:18)+'</b></div><div><small>Alertas</small><b class="crit">'+S.alerts.filter(a=>!a.done).length+'</b></div><div><small>A tiempo</small><b>96%</b></div>';
   const n=[];
@@ -1162,11 +1560,12 @@ function renderHome(){const h=$('home');h.innerHTML='<div class="hl">'+brandSvg(
 function dock(){
   const d=$('dock');d.classList.toggle('on',S.mode==='explore');if(S.mode!=='explore')return;
   const i=STEPS.findIndex(x=>!x.done()),st=STEPS[i],here=st&&S.role===st.r&&S.view[st.r]===st.v,w=st&&st.wait&&st.wait();
-  d.innerHTML='<b>Prototipo</b><select id="asr" aria-label="Ver como">'+Object.entries(ROLES).map(([k,r])=>'<option value="'+k+'"'+(k===S.role?' selected':'')+'>'+r.n+'</option>').join('')+'</select><span class="dh">'+(st?(i+1)+'/'+STEPS.length+' · '+st.t:'Recorrido completo')+'</span>'+(st?'<button class="btn" id="dn"'+(w?' disabled':'')+'>'+(w?'Un momento…':here?st.x:'Ir a '+ROLES[st.r].n)+'</button>':'')+'<button class="gh" data-a="live">En vivo</button><button class="gh" data-a="home">Inicio</button>';
-  $('asr').onchange=e=>go(e.target.value);const n=$('dn');if(n)n.onclick=next;
+  d.classList.toggle('open',!!S.dk);
+  d.innerHTML='<button class="dkt" id="dkt" aria-label="Menú del prototipo" aria-expanded="'+(!!S.dk)+'">'+(S.dk?ic('x'):ic('list'))+'</button><div class="dkc"><b>Prototipo</b><select id="asr" aria-label="Ver como">'+Object.entries(ROLES).map(([k,r])=>'<option value="'+k+'"'+(k===S.role?' selected':'')+'>'+r.n+'</option>').join('')+'</select><span class="dh">'+(st?(i+1)+'/'+STEPS.length+' · '+st.t:'Recorrido completo')+'</span>'+(st?'<button class="btn" id="dn"'+(w?' disabled':'')+'>'+(w?'Un momento…':here?st.x:'Ir a '+ROLES[st.r].n)+'</button>':'')+'<button class="gh" data-a="live">En vivo</button><button class="gh" data-a="home">Inicio</button></div>';
+  $('asr').onchange=e=>go(e.target.value);const n=$('dn');if(n)n.onclick=next;$('dkt').onclick=()=>{S.dk=!S.dk;dock()};
 }
 A.home=()=>{S.mode='home';render()};
-function holdGL(){const g=$('gl');if(g&&$('main').contains(g))$('glhold').appendChild(g)}
+function holdGL(){['gl','gm','gc'].forEach(id=>{const g=$(id);if(g&&$('main').contains(g))$('glhold').appendChild(g)})}
 function render(){
   holdGL();
   const light=S.mode==='explore'&&!['despacho','conductor'].includes(S.role);
@@ -1185,11 +1584,12 @@ function render(){
   $('side').innerHTML=`<div class="sb">${brandSvg()}</div>`+R.nav.map(n=>`<button class="nv" data-a="nav" data-v="${S.role}|${n[0]}" aria-current="${S.view[S.role]===n[0]?'page':'false'}">${ic(n[2])}${n[1]}</button>`).join('')+`<div class="acct"><span class="av">${W[0]}</span><span><b>${W[1]}</b><small>${W[2]}</small></span></div>`;
   const nb=S.badge[S.role]||0;
   $('tbar').innerHTML=`<label class="srch">${ic('search')}<input type="search" placeholder="Buscar viaje, placa o cliente" aria-label="Buscar viaje, placa o cliente"></label><span class="sp2"></span><button class="ib" data-a="bell" aria-label="Actividad">${ic('shield')}${S.log.length>1?`<em>${Math.min(S.log.length-1,9)}</em>`:''}</button><span class="av">${W[0]}</span>`;
-  const view=S.view[S.role];$('main').innerHTML=VIEWS[S.role][view]();
+  const view=S.view[S.role];$('app').dataset.view=view;$('main').innerHTML=VIEWS[S.role][view]();
   if(S.role==='conductor')phone();
+  if(S.role==='cliente'&&view==='app')cphone();
   if(S.role==='cliente'&&view==='cotizar'&&S.stage==='none')bindQuote();
   if(T())$('mp').setAttribute('d',pathD(T().r.path));
-  drawFeed();frame();loadGL();mountGL();
+  drawFeed();frame();loadGL();mountGL();mountGM();
 }
 function cbList(){const norm=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');const nq=norm(S.cbq.trim());let out='',n=0;
   CG.forEach(([g,arr])=>{const m=arr.filter(a=>!nq||norm(a[1]+' '+a[2]+' '+g+' '+KN[a[3]]).includes(nq));if(!m.length)return;out+=`<h4>${g}</h4>`+m.map(a=>{const i=n++;return`<button role="option" id="cbo${i}" data-a="cbpick" data-v="${a[0]}" aria-selected="${i===S.cbi}"><span class="ti">${KI[a[3]]}</span><span><b>${a[1]}</b><small>${a[2]}</small></span><span class="ky">${KN[a[3]]}</span></button>`}).join('')});
@@ -1216,8 +1616,10 @@ function bindQuote(){
   on('pr','oninput',e=>{S.pct=+e.target.value;const q=quote(),bad=q.price<q.min;$('pv').textContent=money(q.price);$('pv2').textContent=money(q.price);$('pct').textContent=S.pct+'%';const bf=$('bfl');if(bf)bf.textContent=money(q.base);const n=$('nt');n.className='note '+(bad?'bad':'ok');n.textContent=bad?'Bloqueado: queda por debajo del costo eficiente de la ruta. Decreto 1017 de 2025.':'Precio dentro de la norma. El conductor recibe el 88% y Safe Trip emite el manifiesto.';const b=$('res');b.disabled=bad;b.textContent='Reservar por '+money(q.price)});
 }
 document.addEventListener('pointerdown',e=>{if(S&&S.cbo&&!e.target.closest('#cbx')){S.cbo=false;const l=$('cbl');if(l)l.classList.remove('on')}});
+let rpc=0;
 function frame(){
-  frameGL();
+  frameGL();frameGM();
+  if(S.mode==='live'&&++rpc%120===0){[gl,gm.m,gc.m].forEach(m=>{try{if(m)m.triggerRepaint()}catch(e){}})}
   const m=$('mp');
   if(T()&&m.getAttribute('d')){
     const len=m.getTotalLength(),show=ix('ruta'),pt=m.getPointAtLength(len*S.prog);
@@ -1237,7 +1639,7 @@ function loop(t){
 }
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b||b.disabled)return;const f=A[b.dataset.a];if(f)f(b.dataset.v)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')$('ov').classList.remove('on')});
-window.__flett={A,next,live:liveNext,get S(){return S}};
+window.__flett={A,next,live:liveNext,get S(){return S},get gl(){return gl},gm,gc};
 reset();requestAnimationFrame(loop);
 })();
 </script>
