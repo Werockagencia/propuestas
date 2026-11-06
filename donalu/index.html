@@ -522,7 +522,7 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   const split = v => [v*.5, v*.3, v*.2, 0];
   const G1 = [['Manual de marca y logo final','taller, vector, paleta, tono',[1200000,0,0,0]],['Sistema de etiquetas','3 procesos y cápsulas',[600000,0,0,0]],['Tienda online B2C + B2B','WooCommerce, cotizador · suscripción en fase 2',[2400000,2400000,0,0]],['Kit comercial B2B','portafolio, propuesta, caja de cata',[700000,0,0,0]],['Programa Casas que honran','sello, QR, punto de venta, mapa',split(1000000)],['CRM + HalconBot','configuración · aporte de We Rock',null]];
   const G2 = [['Expedición a la finca','2 jornadas en Arabia, producto incluido',[3200000,0,0,0]]];
-  const G3 = [['Contenido Instagram y LinkedIn','8 piezas al mes',[0,900000,900000,900000]],['Motor comercial B2B','prospección, contacto y seguimiento',[0,1100000,1100000,1100000]],['Webmaster de la tienda','desde el lanzamiento',[0,0,550000,550000]]];
+  const G3 = [['Contenido Instagram y LinkedIn','8 piezas al mes',[0,900000,900000,900000]],['Motor comercial B2B','venta a negocios: prospección y seguimiento, no es pauta',[0,1100000,1100000,1100000]],['Webmaster de la tienda','desde el lanzamiento',[0,0,550000,550000]]];
   const G4 = [['Dominio y hosting','primer año · estimado',[520000,0,0,0]],['Viáticos de la expedición','transporte y hospedaje · estimado',[1200000,0,0,0]],['Licencia HalconBot Starter','US$49 al mes',[0,200900,200900,200900]]];
   const sum = g => [0,1,2,3].map(i=>g.reduce((a,r)=>a+(r[2]?r[2][i]:0),0));
   const add = (...a) => [0,1,2,3].map(i=>a.reduce((s,x)=>s+x[i],0));
