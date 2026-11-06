@@ -468,14 +468,14 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
     <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:8px">Menos de entrada. <em>Ganamos cuando ustedes venden.</em></h2>
     <p class="lead rv" style="--d:1;color:#cfcbc2;max-width:860px">No es nuestra forma habitual de trabajar. Se lo proponemos a Doña Lú porque creemos en este café.</p>
     <div class="soc rv" style="--d:2">
-      <div class="soc-c"><small>Plan fijo</small><b>$18.600.000</b><p>El plan de 4 meses, tal como está en la página anterior.</p></div>
-      <div class="soc-c on"><small>Modelo socio</small><b>$11.160.000 <em>+ 7 %</em></b><p>El mismo plan con el 60 % del valor, más el 7 % de las ventas nuevas durante 12 meses.</p></div>
+      <div class="soc-c"><small>Plan fijo</small><b>$18.150.000</b><p>El plan de 4 meses, tal como está en la página anterior.</p></div>
+      <div class="soc-c on"><small>Modelo socio · el que recomendamos</small><b>$10.890.000 <em>+ 7 %</em></b><p>El mismo plan con el 60 % del valor, más el 7 % de las ventas nuevas durante 12 meses. Pagan $7.260.000 menos de entrada y el resto depende de lo que vendan.</p></div>
     </div>
     <table class="soc-t rv" style="--d:3">
       <thead><tr><th>Ventas nuevas al mes</th><th>7 % en 12 meses</th><th>Total a We Rock</th></tr></thead>
-      <tbody><tr><td>$5.000.000</td><td>$4.200.000</td><td>$15.360.000</td></tr><tr><td>$9.000.000</td><td>$7.560.000</td><td>$18.720.000</td></tr><tr><td>$30.000.000 (la meta)</td><td>$25.200.000</td><td>$36.360.000</td></tr></tbody>
+      <tbody><tr><td>$5.000.000</td><td>$4.200.000</td><td>$15.090.000</td></tr><tr><td>$9.000.000</td><td>$7.560.000</td><td>$18.450.000</td></tr><tr><td>$30.000.000 (la meta)</td><td>$25.200.000</td><td>$36.090.000</td></tr></tbody>
     </table>
-    <p class="src" style="margin-top:8px">Ventas nuevas: las de la tienda online y Casas que honran, antes de IVA y sobre una línea base que fijamos juntos antes de empezar. Lo que ya venden hoy no cuenta. Liquidación mensual con reporte de pedidos y facturación. Si terminan antes de los 12 meses, pagan lo que falte de los $7.440.000 descontados del plan fijo. Proveedores aparte, igual que en el plan fijo. El porcentaje se ajusta cuando revisemos juntos su margen.</p>
+    <p class="src" style="margin-top:8px">Ventas nuevas: las de la tienda online y Casas que honran, antes de IVA y sobre una línea base que fijamos juntos antes de empezar. Lo que ya venden hoy no cuenta. Liquidación mensual con reporte de pedidos y facturación. Si terminan antes de los 12 meses, pagan lo que falte de los $7.260.000 descontados del plan fijo. Proveedores aparte, igual que en el plan fijo. El porcentaje se ajusta cuando revisemos juntos su margen.</p>
   </div>
 </section>
 
@@ -522,7 +522,7 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   const split = v => [v*.5, v*.3, v*.2, 0];
   const G1 = [['Manual de marca y logo final','taller, vector, paleta, tono',[1200000,0,0,0]],['Sistema de etiquetas','3 procesos y cápsulas',[600000,0,0,0]],['Tienda online B2C + B2B','WooCommerce, cotizador · suscripción en fase 2',[2400000,2400000,0,0]],['Kit comercial B2B','portafolio, propuesta, caja de cata',[700000,0,0,0]],['Programa Casas que honran','sello, QR, punto de venta, mapa',split(1000000)],['CRM + HalconBot','configuración · aporte de We Rock',null]];
   const G2 = [['Expedición a la finca','2 jornadas en Arabia, producto incluido',[3200000,0,0,0]]];
-  const G3 = [['Contenido Instagram y LinkedIn','8 piezas al mes',[0,900000,900000,900000]],['Motor comercial B2B','venta a negocios: prospección y seguimiento, no es pauta',[0,1100000,1100000,1100000]],['Webmaster de la tienda','desde el lanzamiento',[0,0,550000,550000]]];
+  const G3 = [['Contenido Instagram y LinkedIn','8 piezas al mes',[0,900000,900000,900000]],['Motor comercial B2B','venta a negocios: prospección y seguimiento, no es pauta',[0,950000,950000,950000]],['Webmaster de la tienda','desde el lanzamiento',[0,0,550000,550000]]];
   const G4 = [['Dominio y hosting','primer año · estimado',[520000,0,0,0]],['Viáticos de la expedición','transporte y hospedaje · estimado',[1200000,0,0,0]],['Licencia HalconBot Starter','US$49 al mes',[0,200900,200900,200900]]];
   const sum = g => [0,1,2,3].map(i=>g.reduce((a,r)=>a+(r[2]?r[2][i]:0),0));
   const add = (...a) => [0,1,2,3].map(i=>a.reduce((s,x)=>s+x[i],0));
