@@ -175,8 +175,10 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
 /* cierre */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:24px 0}.st{background:var(--dk3);padding:22px}.st b{color:var(--red);font-size:30px;font-weight:900;display:block;margin-bottom:4px}.st span{font-size:15px;color:#ddd;line-height:1.4;display:block}.foot{margin-top:18px;font-size:12px;color:rgba(255,255,255,.4)}
 
+.stats.col{grid-template-columns:1fr;margin-top:10px}.stats.col .stat{padding:12px 16px;display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center}.stats.col .stat b{font-size:clamp(24px,min(2.4vw,4vh),34px);margin:0;white-space:nowrap}.stats.col .stat>span{font-size:13.5px}
+.bench.big{margin-top:26px}.bench.big .bc{padding:26px 24px 22px;min-height:min(40vh,320px)}.bench.big .bc h3{font-size:21px;margin-bottom:10px}.bench.big .bc p{font-size:15px;line-height:1.42}.bench.big .bc p.take{margin-top:12px}
 .swipe-hint{display:none}
-@media(max-width:1100px){.slide{padding:88px 44px 80px}.dots{display:none}.bench{grid-template-columns:repeat(2,1fr)}.casas{grid-template-columns:1fr}.seal{display:none}}
+@media(max-width:1100px){.slide{padding:88px 44px 80px}.dots{display:none}.bench:not(.big){grid-template-columns:repeat(2,1fr)}.bench.big{grid-template-columns:repeat(2,1fr)}.casas{grid-template-columns:1fr}.seal{display:none}}
 @media(max-width:768px){
  html{scroll-snap-type:none}.slide{padding:84px 22px 84px;min-height:auto}.slide.cover{min-height:100svh;padding-top:300px;align-items:flex-end}
  .cover::after{background:linear-gradient(180deg,transparent 0%,rgba(10,10,10,.1) 32%,rgba(10,10,10,.94) 56%)}
@@ -187,7 +189,7 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
  .swipe-hint{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}.dk .swipe-hint,.dk2 .swipe-hint{color:var(--text-dk2)}.swipe-hint svg{width:14px}.swipe-hint .bar2{flex:1;height:2px;background:rgba(128,128,128,.3);position:relative;overflow:hidden}.swipe-hint .bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--red);width:var(--w,30%);transform:translateX(var(--x,0))}
  .device-phone{width:118px;right:-6px;border-radius:22px;padding:5px}.device-phone-screen{border-radius:18px}.frame{max-height:none;width:100%}.fun div{width:100%!important}
  .inv thead{display:none}.inv,.inv tbody,.inv tr,.inv td{display:block;width:100%}.inv{background:none}.inv tr{background:var(--dk3);margin-bottom:3px;padding:10px 13px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:2px 8px}.inv td{padding:0;border:0!important;text-align:left;font-size:10.5px}.inv td:first-child{grid-column:1/-1;font-size:13.5px;margin-bottom:3px}.inv td.tt{grid-column:1/-1;font-size:14px;font-weight:800;color:#fff;margin-top:3px}.inv td[data-m]::before{content:attr(data-m);display:block;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.55}.inv tr.grp{background:none;display:block;padding:12px 0 2px}.inv tr.grp td{font-size:10px}.inv tr.tot{border-top:2px solid var(--red)}.inv tr.tot td{font-size:10.5px;border:0}.inv tr.tot td.tt{font-size:18px}.inv .note2{display:block;margin:2px 0 0}
- .bb.g,.bb.c{min-height:150px}
+ .bb.g,.bb.c{min-height:150px}.bench.big .bc{min-height:0}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.rv,.rv-3d{opacity:1;transform:none}}
 
@@ -195,6 +197,7 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
 .soc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:2px;margin-top:18px}.soc-c{background:var(--dk3);padding:20px 22px;border-top:3px solid rgba(255,255,255,.2)}.soc-c.on{border-top-color:var(--red)}.soc-c small{display:block;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--text-dk2);margin-bottom:8px}.soc-c b{display:block;font-size:clamp(22px,min(2.5vw,4.2vh),34px);font-weight:900;color:#fff;line-height:1.08;font-variant-numeric:tabular-nums}.soc-c b em{color:var(--red);font-style:normal}.soc-c p{font-size:14px;line-height:1.4;color:var(--text-dk2);margin-top:8px}
 .soc-t{width:100%;border-collapse:collapse;margin-top:2px;background:var(--dk3)}.soc-t th,.soc-t td{padding:9px 22px;text-align:right;font-size:14px;color:var(--text-dk2);font-variant-numeric:tabular-nums;border-bottom:1px solid rgba(255,255,255,.08)}.soc-t th{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.soc-t th:first-child,.soc-t td:first-child{text-align:left}.soc-t td:last-child{font-weight:800;color:#fff}
 @media(max-width:768px){.soc{grid-template-columns:minmax(0,1fr)}.soc-t th,.soc-t td{padding:9px 10px;font-size:12.5px}.soc-t th{font-size:9.5px;letter-spacing:.06em}}
+@media(min-width:769px) and (max-height:830px){#s-calc,#s-escuchamos{padding-top:72px;padding-bottom:44px}}
 </style>
 </head>
 <body>
@@ -219,157 +222,100 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
     <img class="cover-wm rv" src="img/wordmark-crema.svg" alt="Doña Lú">
     <div class="cover-tag rv" style="--d:1">Café que se honra</div>
     <h1 class="rv" style="--d:2">De la montaña a <em>30 mesas.</em></h1>
-    <p class="sub rv" style="--d:3">Una marca que se siente como la finca, una tienda que vende a hogares y negocios, y un motor comercial para que su café llegue a donde merece estar.</p>
+    <p class="sub rv" style="--d:3">Marca, tienda para hogares y negocios, y un motor comercial para llegar a 30 casas aliadas.</p>
     <div class="cover-cta rv" style="--d:4"><a class="btn" href="tienda/" target="_blank" rel="noopener">Ver la demo de su tienda</a></div>
     <div class="cover-who rv" style="--d:5">Preparado para <b>Diana Zamudio</b>, Gerente General · por <b>We Rock</b></div>
   </div></div>
 </section>
 
 <!-- 02 -->
-<section class="slide lt has-photo" id="s-escuchamos" data-title="Lo que escuchamos">
-  <div class="photo-half" style="background-image:url(img/recolector.webp)" role="img" aria-label="Recolector de café entre los cafetos"></div>
-  <div class="inner"><div class="heard">
-    <div class="lbl rv">Lo que escuchamos</div>
-    <blockquote class="rv" style="--d:1">El café es <em>tiempo.</em> Y casi nadie lo cuenta.</blockquote>
-    <p class="lead rv" style="--d:2">Ustedes recorrieron todo el proceso para entender cómo sale un buen café. Por eso no quieren una marca comercial más: quieren transmitir lo que se vive en un cafetal.</p>
-    <ul class="rv" style="--d:3">
-      <li><b>Volver a lo básico.</b> La tierra, la paciencia, el momento compartido.</li>
-      <li><b>Admiración por quien recolecta.</b> Protagonistas de la historia, nunca motivo de lástima.</li>
-      <li><b>Café como el vino.</b> Procesos meticulosos, notas y sabores que merecen explicarse.</li>
-      <li><b>Cercanos, no comerciales.</b> Contar historias antes que vender.</li>
-    </ul>
-  </div></div>
-</section>
-
 <!-- 03 -->
-<section class="slide dk tex-grid-dk" id="s-activos" data-title="Lo que ya tienen">
+<section class="slide dk noise" id="s-escuchamos" data-title="Lo que escuchamos">
+  <div class="bg-photo" style="background-image:url(img/recolector.webp);background-position:center 22%" aria-hidden="true"></div>
   <div class="inner">
-    <div class="lbl rv">Lo que ya tienen</div>
-    <h2 class="h2 rv" style="--d:1">Una finca, tres procesos.<br><em>Muy pocas marcas</em> pueden decir esto.</h2>
-    <div class="trio-bags">
-      <article class="tb rv" style="--d:2"><img src="img/bolsa-lavado.webp" alt="Bolsa azul de café Lavado" loading="lazy"><div><h3>Lavado</h3><p>Limpio y equilibrado. El que más piden hoy las cafeterías.</p><small>500 g $42.000 · 2,5 kg $168.000</small></div></article>
-      <article class="tb rv" style="--d:3"><img src="img/bolsa-honey.webp" alt="Bolsa roja de café Honey" loading="lazy"><div><h3>Honey</h3><p>Se seca con su propia miel. Más suave, dulce, con notas a panela.</p><small>250 g $25.000 · 500 g $47.000 · 2,5 kg $200.000</small></div></article>
-      <article class="tb rv" style="--d:4"><img src="img/bolsa-natural.webp" alt="Bolsa negra de café Natural" loading="lazy"><div><h3>Natural</h3><p>Se seca en cereza. Afrutado, vinoso, intenso.</p><small>250 g $38.000 · 500 g $63.000 · 2,5 kg $250.000</small></div></article>
+    <div class="lbl rv">Lo que escuchamos</div>
+    <h2 class="h2 rv" style="--d:1">El café es <em>tiempo.</em> Y casi nadie lo cuenta.</h2>
+    <p class="lead rv" style="--d:2;color:#cfcbc2">Ustedes tienen finca propia en Arabia, Risaralda, y controlan del germinador al empaque. No quieren una marca comercial más: quieren transmitir lo que se vive en un cafetal.</p>
+    <div class="trio-bags" style="margin-top:20px">
+      <article class="tb rv" style="--d:3"><img src="img/bolsa-lavado.webp" alt="Bolsa azul de café Lavado" loading="lazy"><div><h3>Lavado</h3><p>Limpio y equilibrado. El que más piden las cafeterías.</p></div></article>
+      <article class="tb rv" style="--d:4"><img src="img/bolsa-honey.webp" alt="Bolsa roja de café Honey" loading="lazy"><div><h3>Honey</h3><p>Se seca con su propia miel. Suave, con notas a panela.</p></div></article>
+      <article class="tb rv" style="--d:5"><img src="img/bolsa-natural.webp" alt="Bolsa negra de café Natural" loading="lazy"><div><h3>Natural</h3><p>Se seca en cereza. Afrutado, vinoso, intenso.</p></div></article>
     </div>
-    <div class="facts rv" style="--d:5">
-      <div><b>Finca propia</b><span>Arabia, Risaralda. Café Castillo en terreno empinado.</span></div>
-      <div><b>Control total</b><span>Del germinador al empaque, en 10 pasos documentados.</span></div>
-      <div><b>Máquinas propias</b><span>Con instalación, mantenimiento y capacitación.</span></div>
-      <div><b>Cápsulas biodegradables</b><span>Compatibles con Nespresso, en cajas de 15 y 35.</span></div>
+    <div class="facts rv" style="--d:6">
+      <div><b>Sitio web</b><span>Sin tienda y con textos genéricos.</span></div>
+      <div><b>Marca</b><span>Dos logos, dos nombres y dos usuarios en redes.</span></div>
+      <div><b>Origen</b><span>Se cuenta distinto en cada pieza.</span></div>
+      <div><b>Venta a negocios</b><span>Aún no se puede cotizar máquina y café en línea.</span></div>
     </div>
   </div>
 </section>
 
 <!-- 04 -->
-<section class="slide lt tex-dots" id="s-mercado" data-title="El mercado">
-  <div class="inner">
-    <div class="lbl rv">El mercado</div>
-    <h2 class="h2 rv" style="--d:1">Colombia apenas está<br>aprendiendo a <em>tomar buen café.</em></h2>
-    <p class="lead rv" style="--d:2">Lo que Diana siente, que la mayoría no valora lo que hay detrás de una taza, también se ve en los números. Hay mucho espacio por educar y por crecer.</p>
-    <div class="stats">
-      <div class="stat rv" style="--d:3"><b>$<span class="cnt" data-to="3.05" data-dec="2">3,05</span> bill.</b><span>Ventas de café en retail en Colombia, 27,9 % más que el año anterior</span></div>
-      <div class="stat rv" style="--d:4"><b>~<span class="cnt" data-to="10">10</span> %</b><span>Pesa hoy el segmento premium, el que más crece en la categoría</span></div>
-      <div class="stat rv" style="--d:5"><b>~<span class="cnt" data-to="70">70</span> %</b><span>Del consumo ocurre en el hogar: la tienda B2C no es un extra</span></div>
-      <div class="stat rv" style="--d:6"><b><span class="cnt" data-to="2.2" data-dec="1">2,2</span> kg</b><span>Por persona al año. Aún muy por debajo de los vecinos</span></div>
-    </div>
-    <div class="percap rv" style="--d:7">
-      <div class="pc hot"><span>Colombia</span><i style="--w:37%"></i><span>2,2 kg</span></div>
-      <div class="pc"><span>Costa Rica</span><i style="--w:68%"></i><span>4 kg</span></div>
-      <div class="pc"><span>Brasil</span><i style="--w:100%"></i><span>5,9 kg</span></div>
-    </div>
-    <p class="src">Fuentes: Nielsen 2025 citado por la FNC en <a href="https://forbes.co/2026/04/22/red-forbes/el-cafe-que-no-nos-tomamos/" target="_blank" rel="noopener">Forbes, abr. 2026</a> (cifra en valor: incluye el efecto del alza de precios); <a href="https://www.portafolio.co/negocios/empresas/juan-valdez-apunta-cerrar-el-ano-con-700-tiendas-y-acelera-su-expansion-internacional-504524" target="_blank" rel="noopener">Portafolio 2026</a>; <a href="https://www.portafolio.co/negocios/empresas/esta-es-la-marca-colombiana-de-cafe-de-especialidad-que-evalua-llegar-hasta-china-con-una-tienda-505371" target="_blank" rel="noopener">Portafolio 2026</a>; FNC en <a href="https://www.elcolombiano.com/negocios/consumo-de-cafe-en-colombia-debe-aumentar-CI30292189" target="_blank" rel="noopener">El Colombiano 2025</a>.</p>
-  </div>
-</section>
+
 
 <!-- 05 -->
-<section class="slide dk glow-tr" id="s-ahora" data-title="Por qué ahora">
-  <div class="inner">
-    <div class="lbl rv">Por qué ahora</div>
-    <h2 class="h2 rv" style="--d:1">“El mejor café colombiano también<br>debe <em>quedarse en Colombia</em>.”</h2>
-    <p class="lead rv" style="--d:2">Esa frase ya está en su material. Hoy tiene más fuerza que nunca, y hay una ventana abierta para decirla primero.</p>
-    <div class="cards3">
-      <div class="c3 rv" style="--d:3"><b class="n">1,61 M</b><h3>Sacos importados en un año</h3><p>Frente a un consumo interno de 2,32 M de sacos. Su mensaje de origen responde a una realidad que el mercado apenas empieza a notar.</p></div>
-      <div class="c3 rv" style="--d:4"><b class="n">−15 %</b><h3>Cayó la cosecha 2025/26</h3><p>12,65 M de sacos, con precios internacionales aún altos. Quien controla su finca y su suministro le da tranquilidad a un negocio.</p></div>
-      <div class="c3 rv" style="--d:5"><b class="n">Oct. 2026</b><h3>Llegan los famosos</h3><p>Selva Dulce se lanzó en redes con un discurso de autenticidad. El tema está caliente, y ustedes tienen lo que nadie puede comprar: años de finca real.</p></div>
-    </div>
-    <p class="src">Fuentes: <a href="https://www.portafolio.co/economia/agro/produccion-de-cafe-en-colombia-cayo-15-en-el-ano-cafetero-y-cerro-en-12-65-millones-de-sacos-504163" target="_blank" rel="noopener">Portafolio, oct. 2026</a>; <a href="https://www.vanguardia.com/entretenimiento/tendencias/2026/10/19/kathy-saenz-y-sebastian-martinez-presentan-su-nuevo-emprendimiento-tras-20-anos-juntos-de-que-se-trata/" target="_blank" rel="noopener">Vanguardia, oct. 2026</a>.</p>
-  </div>
-</section>
-
 <!-- 06 -->
-<section class="slide lt tex-grid" id="s-precio" data-title="Dónde están parados">
+<section class="slide lt tex-grid" id="s-precio" data-title="Mercado y precio">
   <div class="inner split" style="grid-template-columns:1.25fr .75fr;gap:48px">
     <div>
-      <div class="lbl rv">Una señal que no esperábamos</div>
+      <div class="lbl rv">Mercado y precio</div>
       <h2 class="h2 rv" style="--d:1">Su Lavado de finca cuesta <em>menos que un café de supermercado.</em></h2>
       <div class="tiny rv" style="--d:2;margin-bottom:10px">Precio por cada 100 g</div>
       <div class="bars" id="bars"></div>
-      <p class="src">Cálculo We Rock sobre precios públicos consultados en nov. 2026: <a href="https://www.farmatodo.com.co/producto/500024433-cafe-340gr-tueste-medio-molido-san-alberto-bolsa-x-1" target="_blank" rel="noopener">San Alberto 340 g $71.000</a>; <a href="https://cafeamorperfecto.com/" target="_blank" rel="noopener">Amor Perfecto 350 g desde $54.900</a>; <a href="https://www.falabella.com.co/falabella-co/brand/MATIZ" target="_blank" rel="noopener">Matiz 340 g $34.900</a> (dato sin fecha); Doña Lú según su lista vigente.</p>
     </div>
-    <div class="rv" style="--d:4">
-      <div class="note"><b>No es un problema de precio. Es de historia.</b> El café ya está a la altura; lo que falta es que el cliente entienda qué está comprando. Cuando la marca cuente la finca, hay espacio para que el valor percibido suba, sobre todo en Lavado y Honey.</div>
-      <p class="lead" style="font-size:15px;margin-top:14px">No proponemos cambiar precios hoy. Proponemos construir la razón para poder hacerlo cuando ustedes decidan.</p>
+    <div class="rv" style="--d:3">
+      <div class="note"><b>No es un tema de precio, es de historia.</b> Cuando la marca cuente la finca, hay espacio para que el valor percibido suba. No proponemos cambiar precios hoy.</div>
+      <div class="stats col">
+        <div class="stat"><b>~<span class="cnt" data-to="70">70</span> %</b><span>Del consumo ocurre en el hogar: la tienda no es un extra</span></div>
+        <div class="stat"><b>~<span class="cnt" data-to="10">10</span> %</b><span>Pesa el segmento premium, el que más crece</span></div>
+        <div class="stat"><b>1,61 M</b><span>Sacos importados en un año, frente a 2,32 M de consumo interno</span></div>
+      </div>
     </div>
+    <p class="src" style="grid-column:1/-1;margin-top:0">Precios públicos consultados en nov. 2026: <a href="https://www.farmatodo.com.co/producto/500024433-cafe-340gr-tueste-medio-molido-san-alberto-bolsa-x-1" target="_blank" rel="noopener">San Alberto</a>, <a href="https://cafeamorperfecto.com/" target="_blank" rel="noopener">Amor Perfecto</a>, <a href="https://www.falabella.com.co/falabella-co/brand/MATIZ" target="_blank" rel="noopener">Matiz</a> (dato sin fecha) y lista vigente de Doña Lú. Mercado: <a href="https://forbes.co/2026/04/22/red-forbes/el-cafe-que-no-nos-tomamos/" target="_blank" rel="noopener">Forbes, abr. 2026</a>; <a href="https://www.portafolio.co/negocios/empresas/juan-valdez-apunta-cerrar-el-ano-con-700-tiendas-y-acelera-su-expansion-internacional-504524" target="_blank" rel="noopener">Portafolio 2026</a>; <a href="https://www.portafolio.co/negocios/empresas/esta-es-la-marca-colombiana-de-cafe-de-especialidad-que-evalua-llegar-hasta-china-con-una-tienda-505371" target="_blank" rel="noopener">Portafolio 2026</a>; <a href="https://www.portafolio.co/economia/agro/produccion-de-cafe-en-colombia-cayo-15-en-el-ano-cafetero-y-cerro-en-12-65-millones-de-sacos-504163" target="_blank" rel="noopener">Portafolio, oct. 2026</a>.</p>
   </div>
 </section>
 
 <!-- 07 -->
+
+
+<!-- 08 -->
+
+
+<!-- 09 -->
+<!-- 10 -->
 <section class="slide dk2" id="s-benchmark" data-title="Benchmark">
   <div class="inner">
     <div class="lbl rv">Benchmark</div>
-    <h2 class="h2 rv" style="--d:1">Las marcas que admiran,<br>y lo que <em>vale la pena</em> aprender de cada una.</h2>
-    <div class="bench">
+    <h2 class="h2 rv" style="--d:1">Cuatro marcas, <em>cuatro lecciones.</em></h2>
+    <div class="bench big">
       <article class="bc rv" style="--d:2"><h3>San Alberto</h3><p>El café empacado supera el 60 % de sus ventas; las tiendas pesan cerca de 25 %.</p><p class="take">ganar primero en empaque, antes que en locales.</p><a href="https://www.portafolio.co/negocios/empresas/esta-es-la-marca-colombiana-de-cafe-de-especialidad-que-evalua-llegar-hasta-china-con-una-tienda-505371" target="_blank" rel="noopener">Ver caso</a></article>
-      <article class="bc rv" style="--d:2"><h3>Mesa de los Santos</h3><p>Hacienda con tiendas, web, catas y recorridos en finca.</p><p class="take">la finca también es un producto para clientes B2B.</p><a href="https://forbes.co/2026/03/30/negocios/la-hacienda-santandereana-que-llevo-el-cafe-de-esa-region-a-la-lista-de-los-mejores-del-mundo/" target="_blank" rel="noopener">Ver caso</a></article>
       <article class="bc rv" style="--d:3"><h3>Amor Perfecto</h3><p>Tiendas, centros de experiencia y distribución de equipos. Es el modelo comercial que les llama.</p><p class="take">poner al productor en el centro del empaque.</p><a href="https://cafeamorperfecto.com/" target="_blank" rel="noopener">Ver sitio</a></article>
-      <article class="bc rv" style="--d:3"><h3>Matiz</h3><p>Premium masivo de Grupo Nutresa, con gran presencia en supermercado.</p><p class="take">es el piso de precio: la diferencia se justifica con finca y frescura.</p><a href="https://www.falabella.com.co/falabella-co/brand/MATIZ" target="_blank" rel="noopener">Ver precios</a></article>
       <article class="bc rv" style="--d:4"><h3>Hermanos</h3><p>Desde Londres: suscripción flexible, cápsulas, mayoristas y comercio directo.</p><p class="take">un mismo sitio para hogares y negocios.</p><a href="https://hermanoscoffeeroasters.com/" target="_blank" rel="noopener">Ver sitio</a></article>
-      <article class="bc rv" style="--d:4"><h3>Dios Mío Coffee</h3><p>Una historia simple y una persona visible. Funciona, aunque no sea su estilo.</p><p class="take">rostro propio, con dignidad: la familia y sus recolectores.</p><a href="https://www.retaildive.com/news/sofia-vergara-launches-coffee-brand-dios-mio-walmart-online/718182/" target="_blank" rel="noopener">Ver caso</a></article>
-      <article class="bc rv" style="--d:5"><h3>Selva Dulce</h3><p>Café de Boyacá de Sebastián Martínez y Kathy Sáenz, con un discurso cercano al de ustedes.</p><p class="take">su ventaja es años de finca real, no un lanzamiento.</p><a href="https://www.vanguardia.com/entretenimiento/tendencias/2026/10/19/kathy-saenz-y-sebastian-martinez-presentan-su-nuevo-emprendimiento-tras-20-anos-juntos-de-que-se-trata/" target="_blank" rel="noopener">Ver caso</a></article>
       <article class="bc fail rv" style="--d:5"><h3>Compass Coffee · lección</h3><p>En enero de 2026 se acogió a Chapter 11; su salto a distribución fue uno de varios factores.</p><p class="take">validar cada canal antes de sumarle costos fijos.</p><a href="https://www.nrn.com/restaurant-finance/compass-coffee-files-for-chapter-11-bankruptcy" target="_blank" rel="noopener">Ver caso</a></article>
     </div>
   </div>
 </section>
 
-<!-- 08 -->
-<section class="slide lt tex-dots" id="s-diagnostico" data-title="Hoy">
-  <div class="inner diag">
-    <div>
-      <div class="device-browser rv-3d tilt"><div class="device-browser-bar"><div class="db-dots"><span></span><span></span><span></span></div><div class="db-url">donalu.com.co</div></div><img src="img/sitio-hoy.webp" alt="Sitio web actual de Doña Lú" loading="lazy"></div>
-      <div class="marks rv" style="--d:3"><img src="img/logo-antes.webp" alt="Logo anterior con la ilustración" loading="lazy"><p>El catálogo aún circula con la ilustración que ustedes ya decidieron dejar atrás. El cambio a “Doña Lú, café que se honra” fue el paso correcto: falta terminarlo.</p></div>
-    </div>
-    <div>
-      <div class="lbl rv">Dónde están hoy</div>
-      <h2 class="h2 rv" style="--d:1">Tienen un gran café.<br>Lo digital <em>aún no lo cuenta.</em></h2>
-      <ul class="dlist rv" style="--d:2">
-        <li><b>Sitio web</b>Sin tienda, con textos genéricos y una sección de pulpa de fruta que hoy distrae.</li>
-        <li><b>Marca</b>Conviven dos logos, dos nombres (Coffee y Café) y dos usuarios: @donalucol y @donalucoffee.</li>
-        <li><b>Origen</b>Se cuenta distinto en cada pieza: Eje Cafetero, Valle del Cauca, Suramérica, Arabia.</li>
-        <li><b>Instagram</b>98 seguidores. Lo bueno: la cuenta está activa y ya habla de finca propia.</li>
-        <li><b>Imágenes</b>Las fotos reales son potentes, pero se mezclan con imágenes que no parecen de la finca.</li>
-        <li><b>Venta B2B</b>Sin ruta clara: hoy un negocio no puede cotizar máquina y café en línea.</li>
-      </ul>
-    </div>
-  </div>
-</section>
+<!-- 11 -->
 
-<!-- 09 -->
+
+<!-- 12 -->
 <section class="slide dk noise" id="s-idea" data-title="La gran idea">
   <div class="bg-photo" style="background-image:url(img/manos.webp)" aria-hidden="true"></div>
   <div class="inner">
     <div class="lbl rv">La gran idea</div>
-    <h2 class="h2 rv" style="--d:1;max-width:900px">“Café que se honra” deja de ser una frase y se vuelve <em>la forma de hacer todo.</em></h2>
-    <p class="lead rv" style="--d:2">Ya tienen la mejor idea posible en su tagline. Nuestro trabajo es convertirla en sistema: cada foto, cada empaque, cada visita comercial honra algo concreto.</p>
+    <h2 class="h2 rv" style="--d:1;max-width:900px">“Café que se honra” ya es la idea. <em>La volvemos sistema.</em></h2>
+    <p class="lead rv" style="--d:2">Cada foto, cada empaque y cada visita comercial honran algo concreto.</p>
     <div class="honra">
-      <article class="hn rv" style="--d:3"><small>Honrar</small><h3>La tierra</h3><p>Finca, terreno empinado, abono propio, cascarilla que vuelve como combustible.</p></article>
-      <article class="hn rv" style="--d:4"><small>Honrar</small><h3>Las manos</h3><p>Recolectores con nombre, oficio y voz. Con admiración, siempre con su permiso.</p></article>
-      <article class="hn rv" style="--d:5"><small>Honrar</small><h3>El tiempo</h3><p>Seis meses de vivero, secados lentos. Sin afanes. El café como el vino.</p></article>
-      <article class="hn rv" style="--d:6"><small>Honrar</small><h3>La mesa</h3><p>Familia, amigos, negocios, la oficina, el perro bajo la mesa. Cada momento compartido.</p></article>
+      <article class="hn rv" style="--d:3"><small>Honrar</small><h3>La tierra</h3><p>Finca, terreno empinado, abono propio.</p></article>
+      <article class="hn rv" style="--d:4"><small>Honrar</small><h3>Las manos</h3><p>Recolectores con nombre y voz, siempre con su permiso.</p></article>
+      <article class="hn rv" style="--d:5"><small>Honrar</small><h3>El tiempo</h3><p>Seis meses de vivero y secados lentos. El café como el vino.</p></article>
+      <article class="hn rv" style="--d:6"><small>Honrar</small><h3>La mesa</h3><p>Familia, amigos, oficina, negocio: cada momento compartido.</p></article>
     </div>
   </div>
 </section>
 
-<!-- 10 -->
+<!-- 13 -->
 <section class="slide dk2 glow-bl" id="s-casas" data-title="Casas que honran">
   <div class="inner casas">
     <div class="seal rv-3d">
@@ -377,28 +323,28 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
       <img src="img/wordmark-crema.svg" alt="Sello Casa que honra de Doña Lú">
     </div>
     <div>
-      <div class="lbl rv">El programa B2B</div>
+      <div class="lbl rv">Venta a negocios</div>
       <h2 class="h2 rv" style="--d:1">Casas que honran:<br>30 aliados, <em>no 30 cuentas.</em></h2>
-      <p class="lead rv" style="--d:2">Ustedes lo dijeron: de los negocios saldrán los clientes finales. Por eso cada cafetería, oficina u hotel entra a un programa con nombre propio, y se convierte en vitrina de la marca.</p>
+      <p class="lead rv" style="--d:2">De los negocios saldrán los clientes finales, como ustedes dijeron. Los proveedores de máquinas que revisamos venden costo por taza; aquí el negocio también recibe una historia que contar.</p>
       <div class="incl rv" style="--d:3">
-        <div><b>Máquina y café</b><span>Coffee Machine Leasing + Supply, con instalación y mantenimiento.</span></div>
+        <div><b>Máquina y café</b><span>Con instalación y mantenimiento, pensado también para el negocio que empieza.</span></div>
         <div><b>Sello en la puerta</b><span>Una distinción que el negocio quiere mostrar.</span></div>
         <div><b>QR en cada mesa</b><span>La historia del lote y la tienda, a un toque.</span></div>
         <div><b>Capacitación y visita a finca</b><span>Baristas que saben contar lo que sirven.</span></div>
       </div>
-      <div class="chips rv" style="--d:4"><span>Cafés de especialidad</span><span>Sitios de onces</span><span>Oficinas</span><span>Hoteles boutique</span><span>Restaurantes</span><span>Negocios pet friendly</span><span>Coworkings</span></div>
+      <div class="chips rv" style="--d:4"><span>Cafés de especialidad</span><span>Sitios de onces</span><span>Oficinas</span><span>Hoteles boutique</span><span>Restaurantes</span><span>Coworkings</span></div>
     </div>
   </div>
 </section>
 
-<!-- 11 -->
+<!-- 14 -->
 <section class="slide lt tex-grid" id="s-marca" data-title="Marca">
   <div class="inner split">
     <div>
-      <div class="lbl rv">Frente 1 · Marca</div>
+      <div class="lbl rv">Marca</div>
       <h2 class="h2 rv" style="--d:1">Terminar lo que <em>ya empezaron.</em></h2>
-      <p class="lead rv" style="--d:2">El wordmark nuevo va por muy buen camino, y la paleta de tres bolsas es una gran idea de producto. No proponemos empezar de cero: proponemos pulirlo, definirlo y volverlo manual.</p>
-      <ul class="delv rv" style="--d:3"><li>Logo final en vector y variantes</li><li>Paleta, tipografía y tono de voz</li><li>Sello “Casas que honran”</li><li>Etiquetas de los 3 procesos y cápsulas</li><li>Relato de origen único</li><li>Manual de marca e imagen corporativa</li><li>Papelería, uniforme y material de punto de venta</li><li>Migración de redes a un solo usuario</li></ul>
+      <p class="lead rv" style="--d:2">El wordmark nuevo y la paleta de tres bolsas van bien. No empezamos de cero: lo pulimos y lo volvemos manual.</p>
+      <ul class="delv rv" style="--d:3"><li>Logo final en vector y variantes</li><li>Paleta, tipografía y tono de voz</li><li>Etiquetas de los 3 procesos y cápsulas</li><li>Sello “Casas que honran”</li><li>Relato de origen único</li><li>Manual y un solo usuario en redes</li></ul>
     </div>
     <div class="brand-board rv-3d" style="--d:2">
       <div class="bb g"><img src="img/wordmark-crema.svg" alt="Doña Lú sobre verde"></div>
@@ -408,18 +354,17 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   </div>
 </section>
 
-<!-- 12 -->
+<!-- 15 -->
 <section class="slide dk tex-grid-dk" id="s-tienda" data-title="Demo de la tienda">
   <div class="inner shop">
     <div>
-      <div class="lbl rv">Frente 2 · Tienda online</div>
+      <div class="lbl rv">Tienda online</div>
       <h2 class="h2 rv" style="--d:1">Una demo de<br><em>nuestra visión.</em></h2>
       <p class="lead rv" style="--d:2">Así imaginamos su tienda, navegable y con sus productos y precios reales.</p>
       <ul class="feat rv" style="--d:3">
         <li><b>Hogares:</b> compra por proceso, grano o molido, y suscripción.</li>
-        <li><b>Negocios:</b> calculadora de consumo y solicitud de máquina.</li>
-        <li><b>Origen:</b> la historia del lote detrás de cada bolsa.</li>
-        <li><b>Mapa de casas:</b> dónde tomar Doña Lú.</li>
+        <li><b>Negocios:</b> máquinas, calculadora de consumo y solicitud de cata.</li>
+        <li><b>Origen:</b> la historia de cada lote y el mapa de casas aliadas.</li>
         <li><b>Pagos colombianos:</b> Wompi con tarjeta, Nequi y PSE.</li>
       </ul>
       <a class="btn rv" style="--d:4" href="tienda/" target="_blank" rel="noopener">Abrir la demo</a>
@@ -431,94 +376,51 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   </div>
 </section>
 
-<!-- 13 -->
-<section class="slide lt tex-dots" id="s-b2b" data-title="Venta a negocios">
-  <div class="inner">
-    <div class="lbl rv">Máquina + café</div>
-    <h2 class="h2 rv" style="--d:1">Todos ofrecen una máquina.<br><em>Nadie ofrece una finca.</em></h2>
-    <p class="lead rv" style="--d:2;max-width:860px">Revisamos a Vélez Coffee, Nescafé Professional, Mundo Kafe, Supercoffee, Cuppa Club e Innovending. Hablan de costo, en sus páginas no publican precios y varios exigen mínimos de 15 a 25 personas. Ahí hay un espacio.</p>
-    <div class="vs rv" style="--d:3">
-      <div class="a"><h3>El comodato de siempre</h3><ul><li>Vende una máquina y un costo por taza</li><li>Café de origen poco claro</li><li>Mínimos que dejan fuera a la oficina pequeña</li></ul></div>
-      <div class="b"><h3>El comodato de Doña Lú</h3><ul><li>Vende una historia que el negocio puede contar</li><li>Del productor a la taza, con lote y proceso</li><li>Pensado para el negocio que empieza: “te pongo la máquina y te doy un buen café”</li></ul></div>
-    </div>
-    <div class="flow rv" style="--d:4">
-      <div class="fl"><b>01</b><span>Calcula en línea</span><small>Tazas al día, kilos al mes</small></div>
-      <div class="fl"><b>02</b><span>Cata en su negocio</span><small>Los 3 procesos, en su mesa</small></div>
-      <div class="fl"><b>03</b><span>Instalación</span><small>Máquina y capacitación</small></div>
-      <div class="fl"><b>04</b><span>Reposición</span><small>Pedido recurrente, factura electrónica</small></div>
-      <div class="fl"><b>05</b><span>Casa aliada</span><small>Sello, QR y mapa</small></div>
-    </div>
-    <p class="src">Fuentes: sitios de cada empresa consultados en nov. 2026. Algunas condiciones vienen de resultados de búsqueda y deben validarse con cotizaciones reales antes de usarse en la venta.</p>
-  </div>
-</section>
+<!-- 16 -->
 
-<!-- 14 -->
-<section class="slide dk noise" id="s-av" data-title="Producción audiovisual">
+
+<!-- 17 -->
+<!-- 18 -->
+<section class="slide dk noise" id="s-av" data-title="Audiovisual y contenido">
   <div class="bg-photo" style="background-image:url(img/tueste.webp)" aria-hidden="true"></div>
   <div class="inner av">
     <div>
-      <div class="lbl rv">Frente 3 · Producción audiovisual</div>
-      <h2 class="h2 rv" style="--d:1">La expedición<br>a <em>Arabia.</em></h2>
-      <p class="lead rv" style="--d:2;color:#cfcbc2">Dos jornadas en la finca, en temporada de cosecha, y una sesión de producto y aliados en Bogotá y Cajicá. De ahí sale el material de meses, con imágenes 100 % de ustedes.</p>
+      <div class="lbl rv">Audiovisual y contenido</div>
+      <h2 class="h2 rv" style="--d:1">Dos jornadas en la finca.<br><em>Contenido para meses.</em></h2>
+      <p class="lead rv" style="--d:2;color:#cfcbc2">En temporada de cosecha, más una sesión de producto y aliados en Bogotá y Cajicá. Imágenes 100 % de ustedes.</p>
       <div class="shots rv" style="--d:3;margin-top:18px">
         <div><b>Película de marca</b><span>90 segundos: el tiempo de una taza.</span></div>
         <div><b>Serie “Las manos”</b><span>Retratos y voces de quienes recolectan.</span></div>
-        <div><b>10 reels verticales</b><span>Procesos, cata y vida de la finca.</span></div>
-        <div><b>Banco de 60 fotos</b><span>Finca, proceso y personas.</span></div>
-        <div><b>Foto de producto</b><span>Para la tienda y las etiquetas nuevas.</span></div>
-        <div><b>Casos de aliados</b><span>Las primeras casas, en su ambiente.</span></div>
+        <div><b>10 reels y 60 fotos</b><span>Finca, procesos, cata y personas.</span></div>
+        <div><b>12 piezas al mes</b><span>Instagram y LinkedIn, sin pauta.</span></div>
       </div>
     </div>
     <div class="frame rv-3d" style="--d:2;background-image:url(img/cosecha.webp)" role="img" aria-label="Recolección en la finca"></div>
   </div>
 </section>
 
-<!-- 15 -->
-<section class="slide lt2 tex-grid" id="s-contenido" data-title="Contenido">
-  <div class="inner">
-    <div class="lbl rv">Frente 4 · Contenido sin pauta</div>
-    <h2 class="h2 rv" style="--d:1">Una marca cercana se gana<br><em>contando, no anunciando.</em></h2>
-    <p class="lead rv" style="--d:2;max-width:800px">Este plan no incluye pauta, como lo conversamos. Crecemos con historias, aliados que etiquetan y comparten, y LinkedIn para los compradores de empresa. 12 piezas al mes, con los cuatro honores como columna.</p>
-    <div class="posts">
-      <div class="post rv" style="--d:3;background-image:url(img/recolector.webp);background-position:center 18%"><small>Las manos</small><b>“A este lote lo conozco de memoria.”</b></div>
-      <div class="post rv" style="--d:4;background-image:url(img/secado.webp)"><small>El tiempo</small><b>Lo que pasa antes de la primera taza</b></div>
-      <div class="post g rv" style="--d:5"><img src="img/wordmark-crema.svg" alt=""><small>La mesa</small><b>Natural, honey, lavado: ¿cuál eres tú?</b></div>
-      <div class="post rv" style="--d:6;background-image:url(img/tueste.webp)"><small>La tierra</small><b>Del árbol a la tostión, sin intermediarios</b></div>
-    </div>
-    <p class="src">Ejemplos de dirección creativa. Los testimonios se graban con personas reales y con autorización.</p>
-  </div>
-</section>
+<!-- 19 -->
 
-<!-- 16 -->
-<section class="slide dk tex-grid-dk" id="s-motor" data-title="Motor comercial">
-  <div class="inner motor">
+
+<!-- 20 -->
+
+
+<!-- 21 -->
+<!-- 22 -->
+<section class="slide lt tex-dots" id="s-calc" data-title="Motor comercial">
+  <div class="inner calc">
     <div>
-      <div class="lbl rv">Frente 5 · Motor comercial B2B</div>
-      <h2 class="h2 rv" style="--d:1">30 casas no llegan solas.<br><em>Se buscan una por una.</em></h2>
-      <div class="fun rv" style="--d:2">
+      <div class="lbl rv">Motor comercial</div>
+      <h2 class="h2 rv" style="--d:1">30 casas × 6 bolsas = <em>$30,2 M al mes.</em></h2>
+      <p class="lead rv" style="--d:2">Unas 60 tazas al día por negocio. Las casas se consiguen una por una:</p>
+      <div class="fun rv" style="--d:3;margin-top:14px">
         <div style="--w:100%"><b>300</b><span>negocios mapeados en Cajicá, Bogotá y Sabana Norte</span></div>
         <div style="--w:86%"><b>120</b><span>conversaciones por WhatsApp, correo y LinkedIn</span></div>
         <div style="--w:72%"><b>60</b><span>catas en el negocio</span></div>
         <div style="--w:58%"><b>30</b><span>casas aliadas en 12 meses</span></div>
       </div>
-      <p class="src">Embudo de trabajo, no una promesa. Las tasas reales se ajustan con los primeros 60 días.</p>
-    </div>
-    <div class="rv" style="--d:3">
-      <div class="hb"><h3>HalconBot, el CRM incluido</h3><p>Un asistente con IA en WhatsApp que atiende 24/7, cotiza consumo, agenda catas y guarda cada contacto. Maneja etapas con etiquetas, chat en vivo con su equipo, envíos por segmento y atención en la web.</p><p class="proof">Caso real, Vanity: 74 % de las conversaciones resueltas por IA (1.954 frente a 682 en una semana).</p></div>
-      <ul class="delv" style="grid-template-columns:1fr;margin-top:16px"><li>Base de prospectos por nicho, zona y consumo</li><li>Secuencias de contacto y seguimiento semanal</li><li>Caja de cata y guion comercial para visitas</li><li>Google Business y SEO local en Cajicá y Bogotá</li></ul>
-    </div>
-  </div>
-</section>
-
-<!-- 17 -->
-<section class="slide lt tex-dots" id="s-calc" data-title="La cuenta">
-  <div class="inner calc">
-    <div>
-      <div class="lbl rv">La cuenta</div>
-      <h2 class="h2 rv" style="--d:1">Su meta cabe en <em>una sola línea.</em></h2>
-      <div class="eq rv" style="--d:2"><span>30 casas</span><span>×</span><span>6 bolsas</span><span>=</span><span><em>$30,2 M</em></span></div>
-      <p class="lead rv" style="--d:3">Seis bolsas de 2,5 kg de Lavado al mes son 15 kg: unas 60 tazas al día en un negocio. Es un volumen posible para una cafetería. Mueva los controles y vea qué tan cerca está.</p>
-      <p class="src">Supuestos: leemos la meta como $30 M de ventas al mes; precio de lista sin descuento mayorista (ajustable cuando definan tarifa B2B); 8 g por taza. Es una simulación, no una proyección garantizada.</p>
+      <div class="hb rv" style="--d:4;margin-top:3px"><p><b style="color:#fff">HalconBot, el CRM incluido.</b> Asistente con IA en WhatsApp que atiende 24/7, agenda catas y guarda cada contacto. Caso Vanity: 74 % de las conversaciones resueltas por IA.</p></div>
+      <p class="src">Simulación, no promesa: leemos la meta como $30 M de ventas al mes, a precio de lista y 8 g por taza. Las tasas del embudo se ajustan con los primeros 60 días.</p>
     </div>
     <div class="panel corner-fx rv-3d" style="--d:2">
       <div class="seg" role="group" aria-label="Café principal"><button data-p="168000" class="act">Lavado</button><button data-p="200000">Honey</button><button data-p="250000">Natural</button></div>
@@ -531,30 +433,30 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   </div>
 </section>
 
-<!-- 18 -->
-<section class="slide dk glow-tr" id="s-ruta" data-title="Hoja de ruta">
+<!-- 23 -->
+<section class="slide lt2 tex-grid" id="s-ruta" data-title="Hoja de ruta">
   <div class="inner">
     <div class="lbl rv">Hoja de ruta</div>
     <h2 class="h2 rv" style="--d:1">Sin afanes,<br>pero con <em>fechas.</em></h2>
     <div class="phases">
-      <article class="ph rv" style="--d:2"><small>Mes 1</small><h3>Germinador</h3><ul><li>Taller de marca con Diana</li><li>Relato de origen único</li><li>Expedición a la finca</li><li>Mapa de 300 negocios</li></ul></article>
-      <article class="ph rv" style="--d:3"><small>Mes 2</small><h3>Vivero</h3><ul><li>Manual, etiquetas y sello</li><li>Tienda en construcción</li><li>Kit comercial y caja de cata</li><li>Arranca el contenido</li></ul></article>
-      <article class="ph rv" style="--d:4"><small>Mes 3</small><h3>Siembra</h3><ul><li>Tienda en vivo</li><li>HalconBot atendiendo</li><li>Primeras catas y visitas</li><li>Primeras casas aliadas</li></ul></article>
-      <article class="ph rv" style="--d:5"><small>Mes 4</small><h3>Primera cosecha</h3><ul><li>Lectura de resultados</li><li>Ajuste de oferta y tarifas</li><li>Casos de aliados en video</li><li>Plan hacia Medellín</li></ul></article>
+      <article class="ph rv" style="--d:2"><small>Mes 1</small><h3>Germinador</h3><ul><li>Taller de marca con Diana</li><li>Expedición a la finca</li><li>Mapa de 300 negocios</li></ul></article>
+      <article class="ph rv" style="--d:3"><small>Mes 2</small><h3>Vivero</h3><ul><li>Manual, etiquetas y sello</li><li>Tienda y kit comercial</li><li>Arranca el contenido</li></ul></article>
+      <article class="ph rv" style="--d:4"><small>Mes 3</small><h3>Siembra</h3><ul><li>Tienda y HalconBot en vivo</li><li>Primeras catas y visitas</li><li>Primeras casas aliadas</li></ul></article>
+      <article class="ph rv" style="--d:5"><small>Mes 4</small><h3>Primera cosecha</h3><ul><li>Lectura de resultados</li><li>Ajuste de oferta y tarifas</li><li>Plan hacia Medellín</li></ul></article>
     </div>
     <div class="goal rv" style="--d:6"><span>Meta de trabajo al mes 4: 8 casas activas</span><span>Meta a 12 meses: 30 casas y $30 M al mes</span></div>
-    <p class="src">Metas de trabajo definidas en conjunto, no garantías: dependen de capacidad de finca, máquinas disponibles y tarifa B2B. La fecha de la expedición se ajusta a su calendario real de cosecha.</p>
+    <p class="src">Metas de trabajo, no garantías: dependen de capacidad de finca, máquinas y tarifa B2B. La expedición se ajusta a su calendario de cosecha.</p>
   </div>
 </section>
 
-<!-- 19 -->
+<!-- 24 -->
 <section class="slide dk" id="s-inversion" data-title="Inversión" style="padding-top:70px;padding-bottom:56px">
   <svg class="brand-mark" style="top:-60px;right:-40px" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
   <div class="inner">
     <div class="lbl rv" style="margin-bottom:8px">Inversión · plan de arranque, 4 meses</div>
-    <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:0">La inversión baja cada mes <em>a medida que la marca empieza a vender.</em></h2>
+    <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:0">La inversión <em>baja cada mes.</em></h2>
     <div class="inv-wrap rv" style="--d:2"><table class="inv" id="inv"></table></div>
-    <p class="src" style="margin-top:8px">Pesos colombianos, antes de IVA. Sin pauta, como lo acordamos. Viáticos, comisiones de pasarela (Wompi avanzado 2,65 % + $700 + IVA por venta), impresos y muestras de café se pagan directo o corren por cuenta de Doña Lú. Licencia con TRM de referencia $4.100.</p>
+    <p class="src" style="margin-top:8px">Pesos colombianos, antes de IVA. Sin pauta, como lo acordamos. Viáticos, comisiones de pasarela (Wompi avanzado 2,65 % + $700 + IVA por venta), impresos y muestras de café se pagan directo o corren por cuenta de Doña Lú. Licencia con TRM de referencia $4.100. Cada frente se puede contratar por separado. Si más adelante suman pauta, la gestión es de $850.000 al mes por canal, con la inversión en plataforma aparte.</p>
   </div>
 </section>
 
@@ -575,37 +477,19 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   </div>
 </section>
 
-<!-- 20 -->
-<section class="slide lt tex-grid" id="s-servicios" data-title="Servicios">
-  <div class="inner">
-    <div class="lbl rv">¿Prefieren armar su propio plan?</div>
-    <h2 class="h2 rv" style="--d:1;font-size:clamp(28px,min(3.4vw,5.6vh),48px)">Cada frente se puede <em>contratar por separado.</em></h2>
-    <div class="svc" id="svc"></div>
-    <p class="src">Contexto: una persona interna de mercadeo cuesta entre $4 M y $8 M al mes en salario, sin prestaciones, y solo cubriría una parte de estos frentes.</p>
-  </div>
-</section>
+<!-- 25 -->
 
-<!-- 21 -->
-<section class="slide dk glow-bl" id="s-werock" data-title="Por qué We Rock">
-  <svg class="brand-mark" style="bottom:-60px;right:30px" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
-  <div class="inner">
-    <div class="lbl rv">Por qué We Rock</div>
-    <h2 class="h2 rv" style="--d:1">No hacemos publicaciones.<br>Diseñamos <em>sistemas de crecimiento.</em></h2>
-    <p class="lead rv" style="--d:2">Marca, tecnología, audiovisual y comercial en un solo equipo. Y una conversación directa con quien dirige: David Higuera, más de 15 años en estrategia digital.</p>
-    <div class="why">
-      <div class="wy rv" style="--d:3"><b>2018</b><span>Año en que nace We Rock, firma de crecimiento estratégico con sede en Bogotá.</span></div>
-      <div class="wy rv" style="--d:4"><b>MUSE</b><span>Sitios desarrollados con reconocimiento MUSE en diseño.</span></div>
-      <div class="wy rv" style="--d:5"><b>74 %</b><span>De conversaciones resueltas por IA con HalconBot en el caso Vanity.</span></div>
-    </div>
-  </div>
-</section>
 
-<!-- 22 -->
+<!-- 26 -->
+
+
+<!-- 27 -->
 <section class="slide dk noise" id="s-cierre" data-title="Cierre">
   <div class="bg-photo" style="background-image:url(img/taza.webp)" aria-hidden="true"></div>
   <div class="inner">
     <img class="rv" src="img/wordmark-crema.svg" alt="Doña Lú" style="width:200px;margin-bottom:18px">
-    <h2 class="h2 rv" style="--d:1;max-width:820px">Ustedes ya hicieron lo difícil: <em>el café.</em> Ahora hagamos que el país lo sepa.</h2>
+    <h2 class="h2 rv" style="--d:1;max-width:820px">El café ya está. <em>Falta contarlo y venderlo.</em></h2>
+    <p class="lead rv" style="--d:1;color:#cfcbc2;max-width:760px">We Rock, desde 2018: marca, tecnología, audiovisual y comercial en un solo equipo, con sitios reconocidos por los premios MUSE y conversación directa con David Higuera, más de 15 años en estrategia digital.</p>
     <div class="steps">
       <div class="st rv" style="--d:2"><b>1</b><span>Conversamos la propuesta y navegan juntos la demo.</span></div>
       <div class="st rv" style="--d:3"><b>2</b><span>Definimos alcance, tarifa B2B y fecha de cosecha.</span></div>
@@ -653,12 +537,6 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
     sub('Subtotal We Rock',wr)+
     grp('Proveedores · pago directo')+G4.map(row).join('')+
     sub('Total mes a mes',all,'tot')+'</tbody>';
-
-  // Servicios sueltos
-  const S = [['Marca y etiquetas','Logo final, manual, sistema de etiquetas.','$1.800.000',' pago único'],['Tienda online B2C + B2B','Tienda, suscripción, cotizador, Wompi.','$5.600.000',' pago único'],['Kit comercial B2B','Portafolio, propuesta y guion de cata.','$900.000',' pago único'],['Casas que honran','Sello, QR, punto de venta y mapa.','$1.200.000',' pago único'],['Producción audiovisual','Por jornada, con edición. Viáticos aparte.','$1.600.000',' / jornada'],['Contenido','Estrategia y 12 piezas al mes.','$1.300.000',' / mes'],['Motor comercial B2B','Prospección, contacto y seguimiento.','$1.300.000',' / mes'],['Webmaster','Soporte, seguridad y cambios de la tienda.','$550.000',' / mes']];
-  const O = [['Más adelante · Meta o Google Ads','Si deciden sumar pauta. La inversión en plataforma va aparte.','$850.000',' / mes por canal']];
-  $('svc').innerHTML = S.map((s,i)=>`<article class="sc rv" style="--d:${2+i%4}"><h3>${s[0]}</h3><p>${s[1]}</p><b>${s[2]}<small>${s[3]}</small></b></article>`).join('');
-  $('svc').insertAdjacentHTML('afterend', `<div class="note rv" style="--d:6;margin-top:2px;font-size:14px"><b>${O[0][0]}.</b> ${O[0][1]} Gestión: ${O[0][2]}${O[0][3]}.</div>`);
 
   // Motor del deck
   const slides = [...document.querySelectorAll('.slide')], dotsEl = $('dots'), cNow = $('cNow');
