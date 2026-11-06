@@ -190,6 +190,11 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
  .bb.g,.bb.c{min-height:150px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.rv,.rv-3d{opacity:1;transform:none}}
+
+/* modelo socio */
+.soc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:2px;margin-top:18px}.soc-c{background:var(--dk3);padding:20px 22px;border-top:3px solid rgba(255,255,255,.2)}.soc-c.on{border-top-color:var(--red)}.soc-c small{display:block;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--text-dk2);margin-bottom:8px}.soc-c b{display:block;font-size:clamp(22px,min(2.5vw,4.2vh),34px);font-weight:900;color:#fff;line-height:1.08;font-variant-numeric:tabular-nums}.soc-c b em{color:var(--red);font-style:normal}.soc-c p{font-size:14px;line-height:1.4;color:var(--text-dk2);margin-top:8px}
+.soc-t{width:100%;border-collapse:collapse;margin-top:2px;background:var(--dk3)}.soc-t th,.soc-t td{padding:9px 22px;text-align:right;font-size:14px;color:var(--text-dk2);font-variant-numeric:tabular-nums;border-bottom:1px solid rgba(255,255,255,.08)}.soc-t th{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.soc-t th:first-child,.soc-t td:first-child{text-align:left}.soc-t td:last-child{font-weight:800;color:#fff}
+@media(max-width:768px){.soc{grid-template-columns:minmax(0,1fr)}.soc-t th,.soc-t td{padding:9px 10px;font-size:12.5px}.soc-t th{font-size:9.5px;letter-spacing:.06em}}
 </style>
 </head>
 <body>
@@ -408,8 +413,8 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   <div class="inner shop">
     <div>
       <div class="lbl rv">Frente 2 · Tienda online</div>
-      <h2 class="h2 rv" style="--d:1">Ya la construimos,<br><em>para que la vean.</em></h2>
-      <p class="lead rv" style="--d:2">Esto no es un boceto: es una demo navegable con sus productos y precios reales.</p>
+      <h2 class="h2 rv" style="--d:1">Una demo de<br><em>nuestra visión.</em></h2>
+      <p class="lead rv" style="--d:2">Así imaginamos su tienda, navegable y con sus productos y precios reales.</p>
       <ul class="feat rv" style="--d:3">
         <li><b>Hogares:</b> compra por proceso, grano o molido, y suscripción.</li>
         <li><b>Negocios:</b> calculadora de consumo y solicitud de máquina.</li>
@@ -550,6 +555,23 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
     <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:0">La inversión baja cada mes <em>a medida que la marca empieza a vender.</em></h2>
     <div class="inv-wrap rv" style="--d:2"><table class="inv" id="inv"></table></div>
     <p class="src" style="margin-top:8px">Pesos colombianos, antes de IVA. Sin pauta, como lo acordamos. Viáticos, comisiones de pasarela (Wompi avanzado 2,65 % + $700 + IVA por venta), impresos y muestras de café se pagan directo o corren por cuenta de Doña Lú. Licencia con TRM de referencia $4.100.</p>
+  </div>
+</section>
+
+<section class="slide dk2 noise" id="s-socio" data-title="Modelo socio" style="padding-top:70px;padding-bottom:56px">
+  <div class="inner">
+    <div class="lbl rv" style="margin-bottom:8px">Otra forma de hacerlo · modelo socio</div>
+    <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:8px">Menos de entrada. <em>Ganamos cuando ustedes venden.</em></h2>
+    <p class="lead rv" style="--d:1;color:#cfcbc2;max-width:860px">No es nuestra forma habitual de trabajar. Se lo proponemos a Doña Lú porque creemos en este café.</p>
+    <div class="soc rv" style="--d:2">
+      <div class="soc-c"><small>Plan fijo</small><b>$23.200.000</b><p>El plan de 4 meses, tal como está en la página anterior.</p></div>
+      <div class="soc-c on"><small>Modelo socio</small><b>$13.920.000 <em>+ 7 %</em></b><p>El mismo plan con el 60 % del valor, más el 7 % de las ventas nuevas durante 12 meses.</p></div>
+    </div>
+    <table class="soc-t rv" style="--d:3">
+      <thead><tr><th>Ventas nuevas al mes</th><th>7 % en 12 meses</th><th>Total a We Rock</th></tr></thead>
+      <tbody><tr><td>$5.000.000</td><td>$4.200.000</td><td>$18.120.000</td></tr><tr><td>$11.000.000</td><td>$9.240.000</td><td>$23.160.000</td></tr><tr><td>$30.000.000 (la meta)</td><td>$25.200.000</td><td>$39.120.000</td></tr></tbody>
+    </table>
+    <p class="src" style="margin-top:8px">Ventas nuevas: las de la tienda online y Casas que honran, antes de IVA y sobre una línea base que fijamos juntos antes de empezar. Lo que ya venden hoy no cuenta. Liquidación mensual con reporte de pedidos y facturación. Si terminan antes de los 12 meses, pagan lo que falte de los $9.280.000 descontados del plan fijo. Proveedores aparte, igual que en el plan fijo. El porcentaje se ajusta cuando revisemos juntos su margen.</p>
   </div>
 </section>
 
