@@ -441,8 +441,8 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
     <div class="lbl rv">Hoja de ruta</div>
     <h2 class="h2 rv" style="--d:1">Sin afanes,<br>pero con <em>fechas.</em></h2>
     <div class="phases">
-      <article class="ph rv" style="--d:2"><small>Mes 1</small><h3>Germinador</h3><ul><li>Taller de marca con Diana</li><li>Expedición a la finca</li><li>Mapa de 300 negocios</li></ul></article>
-      <article class="ph rv" style="--d:3"><small>Mes 2</small><h3>Vivero</h3><ul><li>Manual, etiquetas y sello</li><li>Tienda y kit comercial</li><li>Arranca el contenido</li></ul></article>
+      <article class="ph rv" style="--d:2"><small>Mes 1</small><h3>Germinador</h3><ul><li>Taller, manual y etiquetas</li><li>Expedición y kit comercial</li><li>Mapa de 300 negocios</li></ul></article>
+      <article class="ph rv" style="--d:3"><small>Mes 2</small><h3>Vivero</h3><ul><li>Tienda lista y sello</li><li>Sesión de producto y aliados</li><li>Arranca el contenido</li></ul></article>
       <article class="ph rv" style="--d:4"><small>Mes 3</small><h3>Siembra</h3><ul><li>Tienda y HalconBot en vivo</li><li>Primeras catas y visitas</li><li>Primeras casas aliadas</li></ul></article>
       <article class="ph rv" style="--d:5"><small>Mes 4</small><h3>Primera cosecha</h3><ul><li>Lectura de resultados</li><li>Ajuste de oferta y tarifas</li><li>Plan hacia Medellín</li></ul></article>
     </div>
@@ -520,7 +520,7 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   // Tabla de inversión: las sumas se calculan aquí para que nunca se descuadren
   const M = (t,n)=>({t,n});
   const split = v => [v*.5, v*.3, v*.2, 0];
-  const G1 = [['Manual de marca y logo final','taller, vector, paleta, tono',[1200000,0,0,0]],['Sistema de etiquetas','3 procesos y cápsulas',split(600000)],['Tienda online B2C + B2B','WooCommerce, suscripción, cotizador',split(5600000)],['Kit comercial B2B','portafolio, propuesta, caja de cata',split(900000)],['Programa Casas que honran','sello, QR, punto de venta, mapa',split(1200000)],['CRM + HalconBot','configuración · aporte de We Rock',null]];
+  const G1 = [['Manual de marca y logo final','taller, vector, paleta, tono',[1200000,0,0,0]],['Sistema de etiquetas','3 procesos y cápsulas',[600000,0,0,0]],['Tienda online B2C + B2B','WooCommerce, suscripción, cotizador',[2800000,2800000,0,0]],['Kit comercial B2B','portafolio, propuesta, caja de cata',[900000,0,0,0]],['Programa Casas que honran','sello, QR, punto de venta, mapa',split(1200000)],['CRM + HalconBot','configuración · aporte de We Rock',null]];
   const G2 = [['Expedición a la finca','2 jornadas en Arabia',[3200000,0,0,0]],['Sesión de producto y aliados','1 jornada en Bogotá y Cajicá',[0,1600000,0,0]]];
   const G3 = [['Contenido Instagram y LinkedIn','12 piezas al mes',[0,1300000,1300000,1300000]],['Motor comercial B2B','prospección, contacto y seguimiento',[0,1300000,1300000,1300000]],['Webmaster de la tienda','desde el lanzamiento',[0,0,550000,550000]]];
   const G4 = [['Dominio y hosting','primer año · estimado',[520000,0,0,0]],['Viáticos de la expedición','transporte y hospedaje · estimado',[1200000,0,0,0]],['Licencia HalconBot Starter','US$49 al mes',[0,200900,200900,200900]]];
@@ -533,7 +533,7 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   const grp = t => `<tr class="grp"><td colspan="6">${t}</td></tr>`;
   const s1=sum(G1), s2=sum(G2), s3=sum(G3), s4=sum(G4), wr=add(s1,s2,s3), all=add(wr,s4);
   $('inv').innerHTML = `<thead><tr><th>Rubro</th><th>Mes 1</th><th>Mes 2</th><th>Mes 3</th><th>Mes 4</th><th>Total</th></tr></thead><tbody>`+
-    grp('We Rock · implementación, pago por hitos 50 / 30 / 20, manual en mes 1')+G1.map(row).join('')+
+    grp('We Rock · implementación')+G1.map(row).join('')+
     grp('We Rock · producción audiovisual')+G2.map(row).join('')+
     grp('We Rock · servicios mensuales')+G3.map(row).join('')+
     sub('Subtotal We Rock',wr)+
