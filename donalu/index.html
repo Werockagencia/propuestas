@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doña Lú · De la montaña a 30 mesas · Propuesta We Rock</title>
+<meta name="description" content="Propuesta de We Rock para Doña Lú, café que se honra: marca, tienda online B2C y B2B, producción audiovisual, contenido y motor comercial para llegar a 30 clientes institucionales.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#E8000A;--red-h:#FF1A22;--dk:#0A0A0A;--dk2:#111;--dk3:#161616;--lt:#F5F2EB;--lt2:#EDE9DF;--lt3:#E4DFD4;--gray:#888;--text-dk:#E8E4DC;--text-dk2:#AAA;--ink:#0A0A0A;--ink2:#3a3a3a;--ink3:#777;--green:#0F3B26;--ease:cubic-bezier(.16,1,.3,1);--bounce:cubic-bezier(.34,1.56,.64,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth;background:var(--dk);color-scheme:dark}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--dk);color:var(--text-dk);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(max-width:900px),(max-height:680px){html{scroll-snap-type:y proximity}}
+h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}a{color:inherit}button{font-family:inherit;cursor:pointer;touch-action:manipulation}img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--red);z-index:100;transition:width .5s var(--ease)}
+.deck-top{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:18px 34px;pointer-events:none}
+.deck-top>*{pointer-events:auto}.deck-top .logo{height:32px;display:block}.deck-top .logo-c{display:none;mix-blend-mode:multiply}
+body.on-light .deck-top .logo-w{display:none}body.on-light .deck-top .logo-c{display:block}
+.deck-meta{display:flex;align-items:center;gap:18px;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dk2);transition:color .4s}
+body.on-light .deck-meta{color:var(--ink3)}
+.fs-btn{background:none;border:1px solid rgba(255,255,255,.22);color:inherit;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;transition:border-color .3s,transform .3s var(--bounce)}
+.fs-btn:hover{border-color:var(--red);transform:scale(1.08)}body.on-light .fs-btn{border-color:rgba(0,0,0,.18)}.fs-btn svg{width:15px;height:15px}
+.dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:9px}
+.dots button{width:9px;height:9px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:transparent;padding:0;position:relative;transition:transform .35s var(--ease),background-color .35s,border-color .35s}
+body.on-light .dots button{border-color:rgba(0,0,0,.28)}.dots button.act{background:var(--red);border-color:var(--red);transform:scale(1.35)}
+.dots button span{position:absolute;right:22px;top:50%;transform:translate(8px,-50%);white-space:nowrap;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--dk);padding:5px 10px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.dots button:hover span,.dots button:focus-visible span{opacity:1;transform:translate(0,-50%)}
+.counter{position:fixed;left:34px;bottom:26px;z-index:90;font-size:11px;font-weight:800;letter-spacing:.2em;color:var(--text-dk2);font-variant-numeric:tabular-nums;transition:color .4s}
+.counter b{color:var(--red);font-size:15px}body.on-light .counter{color:var(--ink3)}
+.nav-arrows{position:fixed;right:30px;bottom:24px;z-index:90;display:flex;gap:8px}
+.nav-arrows button{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#fff;display:grid;place-items:center;backdrop-filter:blur(8px);transition:background .3s,transform .3s var(--bounce)}
+.nav-arrows button:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px)}
+body.on-light .nav-arrows button{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.16);color:var(--ink)}body.on-light .nav-arrows button:hover{background:var(--red);color:#fff}
+.nav-arrows svg{width:16px;height:16px}
+#cur,#cur2{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;mix-blend-mode:difference;display:none}
+#cur{width:7px;height:7px;background:#fff;margin:-3.5px 0 0 -3.5px}#cur2{width:34px;height:34px;border:1px solid rgba(255,255,255,.6);margin:-17px 0 0 -17px;transition:width .25s,height .25s,margin .25s}#cur2.big{width:56px;height:56px;margin:-28px 0 0 -28px}
+
+.slide{position:relative;min-height:100vh;min-height:100svh;scroll-snap-align:start;display:flex;align-items:center;overflow:hidden;padding:92px 90px 84px}
+.slide.dk{background:var(--dk);color:var(--text-dk)}.slide.dk2{background:var(--dk2);color:var(--text-dk)}.slide.lt{background:var(--lt);color:var(--ink)}.slide.lt2{background:var(--lt2);color:var(--ink)}
+.inner{width:100%;max-width:1240px;margin:0 auto;position:relative;z-index:2}
+.lbl{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+.lbl::before{content:'';width:28px;height:2px;background:var(--red)}
+.h2{font-size:clamp(30px,min(4.2vw,6.8vh),60px);font-weight:800;line-height:1.03;letter-spacing:-.02em;margin-bottom:18px}.h2 em{font-style:normal;color:var(--red)}
+.lead{font-size:clamp(16px,1.35vw,19px);line-height:1.5;max-width:700px;color:var(--ink2)}.dk .lead,.dk2 .lead{color:var(--text-dk2)}
+.src{font-size:11px;color:var(--ink3);margin-top:16px;line-height:1.5}.dk .src,.dk2 .src{color:rgba(255,255,255,.38)}.src a{text-underline-offset:2px}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*100ms)}.slide.on .rv{opacity:1;transform:none}
+.rv-3d{opacity:0;transform:perspective(1200px) rotateX(10deg) translateY(50px) scale(.94);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*100ms)}.slide.on .rv-3d{opacity:1;transform:none}
+.tex-grid{background-image:linear-gradient(rgba(0,0,0,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.025) 1px,transparent 1px);background-size:58px 58px}
+.tex-dots{background-image:radial-gradient(rgba(0,0,0,.05) 1px,transparent 1.6px);background-size:24px 24px}
+.tex-grid-dk{background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);background-size:64px 64px}
+.glow-tr::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 100% 0%,rgba(232,0,10,.15),transparent 62%);pointer-events:none}
+.glow-bl::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 0% 100%,rgba(232,0,10,.12),transparent 62%);pointer-events:none}
+.noise::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.brand-mark{position:absolute;z-index:1;pointer-events:none;fill:var(--red);opacity:.05;width:320px;height:450px;transform:rotate(9deg)}
+.ghost-num{position:absolute;font-weight:900;line-height:.8;letter-spacing:-.05em;pointer-events:none;z-index:1;user-select:none}.dk .ghost-num,.dk2 .ghost-num{color:rgba(255,255,255,.035)}.lt .ghost-num,.lt2 .ghost-num{color:rgba(0,0,0,.04)}
+.corner-fx{position:relative}.corner-fx::before,.corner-fx::after{content:'';position:absolute;width:22px;height:22px;pointer-events:none;opacity:.7;z-index:3}
+.corner-fx::before{top:14px;left:14px;border-top:2px solid var(--red);border-left:2px solid var(--red)}.corner-fx::after{bottom:14px;right:14px;border-bottom:2px solid var(--red);border-right:2px solid var(--red)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;text-decoration:none;font-weight:800;font-size:14px;letter-spacing:.04em;padding:14px 24px;transition:background .3s,transform .3s var(--bounce)}.btn:hover{background:var(--red-h);transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.3)}.btn.ghost:hover{border-color:var(--red);background:transparent}
+.btn svg{width:17px;height:17px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+
+/* portada */
+.cover{padding-top:110px}#net{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.cover::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(10,10,10,.94) 0%,rgba(10,10,10,.72) 36%,rgba(10,10,10,.05) 62%,transparent 100%)}
+.cover .inner{z-index:3}.cover-txt{max-width:620px}
+.cover-wm{width:min(260px,44vw);margin-bottom:6px}.cover-tag{font-size:11px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:#E8E4DC;margin-bottom:30px;padding-left:4px}
+.cover h1{font-size:clamp(44px,min(6.4vw,10.5vh),92px);font-weight:900;line-height:.96;letter-spacing:-.03em;color:#fff;margin-bottom:22px}.cover h1 em{font-style:normal;color:var(--red)}
+.cover p.sub{font-size:clamp(16px,1.4vw,20px);line-height:1.45;color:var(--text-dk2);max-width:540px;margin-bottom:26px}
+.cover-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}.cover-who{font-size:12px;letter-spacing:.06em;color:rgba(255,255,255,.5)}.cover-who b{color:#fff;font-weight:700}
+
+/* escuchamos */
+.photo-half{position:absolute;top:0;right:0;bottom:0;width:44%;z-index:1;background-size:cover;background-position:center 22%}
+.photo-half::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--lt) 0%,rgba(245,242,235,0) 22%)}
+.heard{max-width:640px}.heard blockquote{font-size:clamp(34px,min(4.6vw,7.4vh),66px);font-weight:800;line-height:1.02;letter-spacing:-.02em;margin-bottom:22px}.heard blockquote em{font-style:normal;color:var(--red)}
+.heard ul{list-style:none;margin-top:22px;display:grid;gap:0}.heard li{padding:12px 0;border-top:1px solid rgba(0,0,0,.1);font-size:16px;line-height:1.4;color:var(--ink2)}.heard li b{color:var(--ink)}
+
+/* activos */
+.trio-bags{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:6px}
+.tb{background:var(--dk3);padding:22px;display:grid;grid-template-columns:136px 1fr;gap:16px;align-items:center;transition:background .3s}.tb:hover{background:#1c1c1c}
+.tb img{width:136px;transition:transform .5s var(--bounce)}.tb:hover img{transform:translateY(-5px) rotate(-2deg)}
+.tb h3{font-size:21px;font-weight:800;color:#fff;margin-bottom:4px}.tb p{font-size:13.5px;line-height:1.4;color:var(--text-dk2)}.tb small{display:block;margin-top:8px;font-size:12px;color:#fff;font-weight:600;font-variant-numeric:tabular-nums}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:2px}.facts div{background:var(--dk3);padding:16px 20px;border-top:3px solid var(--red)}.facts b{display:block;color:#fff;font-size:16px;font-weight:700;margin-bottom:3px}.facts span{font-size:13px;color:var(--text-dk2);line-height:1.35;display:block}
+
+/* mercado */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:22px}.stat{background:#fff;padding:26px 24px;border-top:3px solid var(--red)}
+.stat b{display:block;font-size:clamp(38px,min(4.2vw,7vh),60px);font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:10px}.stat>span{font-size:14.5px;line-height:1.4;color:var(--ink2);display:block}
+.percap{display:grid;gap:9px;margin-top:22px;max-width:820px}.pc{display:grid;grid-template-columns:110px 1fr 70px;gap:12px;align-items:center;font-size:14px;font-weight:600}.pc i{display:block;height:14px;background:var(--lt3);width:var(--w);transform-origin:left;transform:scaleX(0);transition:transform 1.2s var(--ease) .3s}.slide.on .pc i{transform:none}.pc.hot i{background:var(--red)}.pc span{font-variant-numeric:tabular-nums}
+
+/* ahora */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:22px}.c3{background:var(--dk3);padding:28px 26px;border-top:3px solid var(--red)}.c3 b.n{display:block;font-size:clamp(36px,min(3.8vw,6.4vh),54px);font-weight:900;color:#fff;line-height:1;margin-bottom:12px;letter-spacing:-.02em}.c3 h3{font-size:18px;font-weight:700;color:#fff;margin-bottom:8px}.c3 p{font-size:14.5px;line-height:1.45;color:var(--text-dk2)}
+
+/* precio */
+.bars{display:grid;gap:8px;margin-top:6px}.bar{display:grid;grid-template-columns:210px 1fr 92px;gap:14px;align-items:center;font-size:14px}.bar .tr{height:26px;background:rgba(0,0,0,.04)}.bar .tr i{display:block;height:100%;width:var(--w);background:#B9B3A6;transform-origin:left;transform:scaleX(0);transition:transform 1.1s var(--ease);transition-delay:calc(var(--d,0)*70ms)}.slide.on .bar .tr i{transform:none}
+.bar.me .tr i{background:var(--red)}.bar.me{font-weight:700}.bar b{font-variant-numeric:tabular-nums;font-weight:800;text-align:right}
+.note{background:var(--lt2);border-left:3px solid var(--red);padding:16px 20px;font-size:15px;line-height:1.45;color:var(--ink2)}.note b{color:var(--ink)}
+
+/* benchmark */
+.bench{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:18px}.bc{background:var(--dk3);padding:18px 18px 16px;display:flex;flex-direction:column;transition:background .3s,transform .4s var(--ease)}.bc:hover{background:#1c1c1c;transform:translateY(-3px)}
+.bc h3{font-size:16.5px;font-weight:800;color:#fff;margin-bottom:5px}.bc p{font-size:13px;line-height:1.38;color:var(--text-dk2);flex:1}.bc p.take{color:#fff;margin-top:7px;flex:none}.bc p.take::before{content:'Para Doña Lú: ';color:var(--red);font-weight:700}
+.bc a{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dk2);margin-top:8px;text-decoration:none}.bc a:hover{color:var(--red)}.bc.fail{border-top:3px solid var(--red)}
+
+/* diagnostico */
+.diag{display:grid;grid-template-columns:.95fr 1.05fr;gap:50px;align-items:center}
+.device-browser{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08),0 30px 60px -22px rgba(0,0,0,.45);transform-style:preserve-3d;transition:transform .2s}
+.device-browser-bar{display:flex;align-items:center;gap:14px;padding:10px 14px;background:linear-gradient(#f7f7f5,#e9e8e4);border-bottom:1px solid rgba(0,0,0,.08)}.db-dots{display:flex;gap:6px}.db-dots span{width:10px;height:10px;border-radius:50%}.db-dots span:nth-child(1){background:#FF5F57}.db-dots span:nth-child(2){background:#FFBD2E}.db-dots span:nth-child(3){background:#28C840}
+.db-url{flex:1;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:6px;padding:4px 12px;font-size:11px;color:var(--ink3);text-align:center}
+.marks{display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:center;margin-top:18px;background:#fff;padding:14px 18px}.marks img{width:90px;border-radius:6px}.marks p{font-size:13.5px;line-height:1.4;color:var(--ink2)}
+.dlist{list-style:none;display:grid}.dlist li{padding:13px 0;border-top:1px solid rgba(0,0,0,.1);display:grid;grid-template-columns:150px 1fr;gap:16px;font-size:14.5px;line-height:1.4;color:var(--ink2)}.dlist li b{color:var(--ink);font-weight:800}
+
+/* idea */
+.bg-photo{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}.bg-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.93) 0%,rgba(10,10,10,.8) 50%,rgba(10,10,10,.55) 100%)}
+.honra{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:26px}.hn{background:rgba(10,10,10,.62);backdrop-filter:blur(6px);padding:24px 22px;border-top:3px solid var(--red)}.hn small{display:block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dk2);margin-bottom:6px}.hn h3{font-size:25px;font-weight:800;color:#fff;margin-bottom:8px}.hn p{font-size:14px;line-height:1.42;color:#cfcbc2}
+
+/* casas */
+.casas{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center}.seal{width:300px;height:300px;position:relative;margin:auto}.seal svg.ring{width:100%;height:100%;animation:spin 40s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.seal img{position:absolute;left:50%;top:50%;width:150px;transform:translate(-50%,-50%)}
+.incl{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:18px}.incl div{background:var(--dk3);padding:15px 18px}.incl b{display:block;color:#fff;font-size:15.5px;margin-bottom:3px}.incl span{font-size:13.5px;line-height:1.38;color:var(--text-dk2);display:block}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}.chips span{border:1px solid rgba(255,255,255,.2);font-size:12.5px;padding:6px 12px;border-radius:30px;color:#ddd}
+
+/* marca */
+.brand-board{display:grid;grid-template-columns:1.1fr .9fr;gap:2px}.bb{padding:26px;background:#fff}.bb.g{background:var(--green);display:grid;place-items:center;min-height:190px}.bb.c{background:#F3ECDF;display:grid;place-items:center;min-height:190px}.bb.g img,.bb.c img{width:min(280px,80%)}
+.bb small,.tiny{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+.swatches{display:flex;gap:6px;margin-top:10px}.swatches i{flex:1;height:52px;display:block}.swatches i:nth-child(5){box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+.delv{list-style:none;margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}.delv li{font-size:14.5px;line-height:1.35;color:var(--ink2);padding-left:18px;position:relative}.delv li::before{content:'';position:absolute;left:0;top:7px;width:8px;height:2px;background:var(--red)}.dk .delv li,.dk2 .delv li{color:var(--text-dk2)}
+
+/* tienda */
+.shop{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}.dev-wrap{position:relative;padding-bottom:30px}.dev-wrap .device-browser img{width:100%}
+.device-phone{width:176px;background:linear-gradient(155deg,#2b2b2b,#0a0a0a);border-radius:32px;padding:7px;box-shadow:0 30px 55px -18px rgba(0,0,0,.7);position:absolute;right:-22px;bottom:0;z-index:3}.device-phone-screen{border-radius:26px;overflow:hidden;background:#fff;aspect-ratio:9/19}.device-phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top}
+.feat{list-style:none;margin:18px 0 22px;display:grid;gap:8px}.feat li{font-size:15px;line-height:1.38;color:var(--text-dk2);padding-left:20px;position:relative}.feat li b{color:#fff}.feat li::before{content:'';position:absolute;left:0;top:8px;width:9px;height:2px;background:var(--red)}
+
+/* b2b */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:18px}.vs>div{padding:22px 24px}.vs .a{background:var(--lt3)}.vs .b{background:var(--dk);color:#fff}.vs h3{font-size:16px;font-weight:800;margin-bottom:10px}.vs ul{list-style:none;display:grid;gap:7px}.vs li{font-size:14.5px;line-height:1.35}.vs .a li{color:var(--ink2)}.vs .b li{color:#d9d5cc}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:2px}.fl{background:#fff;padding:15px 16px;position:relative}.fl b{display:block;font-size:11px;color:var(--red);font-weight:800;letter-spacing:.14em;margin-bottom:3px}.fl span{font-size:14.5px;font-weight:700;display:block;line-height:1.2}.fl small{font-size:12.5px;color:var(--ink2);line-height:1.3;display:block;margin-top:3px}
+
+/* av */
+.av{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}.shots div{background:rgba(10,10,10,.68);backdrop-filter:blur(6px);padding:15px 17px}.shots b{color:#fff;font-size:15.5px;display:block;margin-bottom:2px}.shots span{font-size:13.2px;color:#cfcbc2;line-height:1.36;display:block}
+.frame{position:relative;aspect-ratio:1/1;width:min(100%,62vh);border-radius:50%;background-size:cover;background-position:center 20%;margin-left:auto}
+
+/* contenido */
+.posts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}.post{aspect-ratio:4/5;position:relative;overflow:hidden;background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;color:#fff;transition:transform .4s var(--ease)}.post:hover{transform:translateY(-4px)}.post::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.78) 100%)}.post>*{position:relative}
+.post small{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.85;margin-bottom:5px}.post b{font-size:clamp(16px,1.5vw,20px);font-weight:800;line-height:1.12}.post.g{background:var(--green)}.post.g::before{display:none}.post.g img{position:absolute;right:16px;top:16px;width:68px}
+
+/* motor */
+.motor{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}.fun{display:grid;gap:3px}.fun div{background:var(--dk3);padding:12px 18px;display:flex;align-items:baseline;gap:14px;width:var(--w);border-left:3px solid var(--red);transform-origin:left}.fun b{font-size:clamp(26px,3vw,38px);font-weight:900;color:#fff;font-variant-numeric:tabular-nums;min-width:66px}.fun span{font-size:14px;color:var(--text-dk2);line-height:1.3}
+.hb{background:var(--dk3);padding:22px 24px}.hb h3{font-size:19px;color:#fff;font-weight:800;margin-bottom:6px}.hb p{font-size:14px;line-height:1.42;color:var(--text-dk2)}.hb .proof{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);font-size:13.5px;color:#fff}
+
+/* calc */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}.eq{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;font-weight:900;font-size:clamp(24px,min(2.9vw,5vh),42px);letter-spacing:-.02em;margin-bottom:12px}.eq em{font-style:normal;color:var(--red)}.eq small{font-size:13px;font-weight:600;letter-spacing:0;color:var(--ink2);display:block}.eq span{display:inline-block}
+.panel{background:var(--dk);color:#fff;padding:26px 28px}.ctrl{margin-bottom:15px}.ctrl label{display:flex;justify-content:space-between;font-size:14px;color:#cfcbc2;margin-bottom:7px}.ctrl label b{color:#fff;font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:linear-gradient(90deg,var(--red) var(--p,50%),rgba(255,255,255,.18) var(--p,50%));outline-offset:6px}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--red);cursor:pointer}input[type=range]::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:#fff;border:3px solid var(--red)}
+.seg{display:flex;gap:2px;margin-bottom:15px}.seg button{flex:1;background:rgba(255,255,255,.07);border:0;color:#ddd;padding:9px 6px;font-size:13px;font-weight:700}.seg button.act{background:var(--red);color:#fff}
+.out{border-top:1px solid rgba(255,255,255,.14);padding-top:14px}.out .big{font-size:clamp(34px,3.6vw,48px);font-weight:900;line-height:1;font-variant-numeric:tabular-nums}.out p{font-size:13px;color:var(--text-dk2);margin-top:6px}.meter{height:7px;background:rgba(255,255,255,.12);margin-top:10px}.meter i{display:block;height:100%;background:var(--red);transition:width .4s var(--ease)}
+
+/* ruta */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:20px;position:relative}.ph{background:var(--dk3);padding:22px 20px;border-top:3px solid var(--red)}.ph small{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--red);text-transform:uppercase}.ph h3{font-size:22px;font-weight:800;color:#fff;margin:5px 0 8px}.ph ul{list-style:none;display:grid;gap:5px}.ph li{font-size:13.5px;line-height:1.35;color:var(--text-dk2)}
+.goal{margin-top:2px;background:var(--red);color:#fff;padding:15px 22px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-weight:700;font-size:15px}
+
+/* inversión */
+.inv-wrap{margin-top:12px}.inv{width:100%;border-collapse:collapse;background:var(--dk3)}.inv th,.inv td{padding:4.6px 12px;text-align:right;font-size:12.6px;font-variant-numeric:tabular-nums;white-space:nowrap}.inv th:first-child,.inv td:first-child{text-align:left;white-space:normal}
+.inv thead th{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dk2);border-bottom:2px solid rgba(255,255,255,.2)}.inv tbody td{color:var(--text-dk2);border-bottom:1px solid rgba(255,255,255,.07)}.inv td.dash{color:rgba(255,255,255,.22)}.inv td:first-child{color:#e8e4dc}
+.inv .note2{display:inline;font-size:11px;color:rgba(255,255,255,.4);margin-left:6px}.inv tr.grp td{font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--red);padding-top:9px;border-bottom:none}
+.inv tr.sub td{font-weight:800;color:#fff;background:rgba(255,255,255,.04)}.inv tr.tot td{font-weight:900;color:#fff;font-size:14.5px;border-top:2px solid var(--red);border-bottom:none}.inv tr.tot td:first-child{color:var(--red)}
+
+/* servicios */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:16px}.sc{background:#fff;padding:17px 18px;border-top:3px solid var(--red);display:flex;flex-direction:column}.sc.opt{border-top-color:#bbb}.sc h3{font-size:15.5px;font-weight:800;margin-bottom:5px;line-height:1.15}.sc p{font-size:12.8px;line-height:1.36;color:var(--ink2);flex:1}.sc b{display:block;margin-top:8px;font-size:17px;font-weight:900;font-variant-numeric:tabular-nums}.sc b small{font-size:11.5px;font-weight:600;color:var(--ink3)}
+
+/* we rock */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:22px}.wy{background:var(--dk3);padding:24px}.wy b{display:block;font-size:clamp(34px,3.6vw,50px);font-weight:900;color:#fff;line-height:1;margin-bottom:8px}.wy span{font-size:14.5px;color:var(--text-dk2);line-height:1.42;display:block}
+/* cierre */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:24px 0}.st{background:var(--dk3);padding:22px}.st b{color:var(--red);font-size:30px;font-weight:900;display:block;margin-bottom:4px}.st span{font-size:15px;color:#ddd;line-height:1.4;display:block}.foot{margin-top:18px;font-size:12px;color:rgba(255,255,255,.4)}
+
+.swipe-hint{display:none}
+@media(max-width:1100px){.slide{padding:88px 44px 80px}.dots{display:none}.bench{grid-template-columns:repeat(2,1fr)}.casas{grid-template-columns:1fr}.seal{display:none}}
+@media(max-width:768px){
+ html{scroll-snap-type:none}.slide{padding:84px 22px 84px;min-height:auto}.slide.cover{min-height:100svh;padding-top:300px;align-items:flex-end}
+ .cover::after{background:linear-gradient(180deg,transparent 0%,rgba(10,10,10,.1) 32%,rgba(10,10,10,.94) 56%)}
+ .deck-top{padding:12px 16px;background:rgba(10,10,10,.8);backdrop-filter:blur(8px)}body.on-light .deck-top{background:rgba(245,242,235,.9)}.deck-meta span{display:none}.counter{left:16px;bottom:16px}.nav-arrows{right:14px;bottom:12px}
+ .split,.diag,.shop,.av,.motor,.calc,.brand-board{grid-template-columns:minmax(0,1fr)!important;gap:26px!important}.photo-half{position:relative;width:calc(100% + 44px);margin:-84px -22px 24px;height:300px;inset:auto}.slide.has-photo{display:block}.photo-half::after{background:linear-gradient(0deg,var(--lt),transparent 30%)}
+ .stats,.facts,.flow,.delv,.incl{grid-template-columns:1fr 1fr}.vs{grid-template-columns:1fr}.posts{grid-template-columns:1fr 1fr}.bar{grid-template-columns:128px 1fr 66px;gap:8px;font-size:12.5px}.dlist li{grid-template-columns:1fr;gap:3px}
+ .m-swipe{display:grid!important;grid-auto-flow:column;grid-auto-columns:84%;grid-template-columns:none!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;margin-right:-22px;padding-right:22px;scrollbar-width:none}.m-swipe::-webkit-scrollbar{display:none}.m-swipe>*{scroll-snap-align:start}
+ .swipe-hint{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}.dk .swipe-hint,.dk2 .swipe-hint{color:var(--text-dk2)}.swipe-hint svg{width:14px}.swipe-hint .bar2{flex:1;height:2px;background:rgba(128,128,128,.3);position:relative;overflow:hidden}.swipe-hint .bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--red);width:var(--w,30%);transform:translateX(var(--x,0))}
+ .device-phone{width:118px;right:-6px;border-radius:22px;padding:5px}.device-phone-screen{border-radius:18px}.frame{max-height:none;width:100%}.fun div{width:100%!important}
+ .inv thead{display:none}.inv,.inv tbody,.inv tr,.inv td{display:block;width:100%}.inv{background:none}.inv tr{background:var(--dk3);margin-bottom:3px;padding:10px 13px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:2px 8px}.inv td{padding:0;border:0!important;text-align:left;font-size:10.5px}.inv td:first-child{grid-column:1/-1;font-size:13.5px;margin-bottom:3px}.inv td.tt{grid-column:1/-1;font-size:14px;font-weight:800;color:#fff;margin-top:3px}.inv td[data-m]::before{content:attr(data-m);display:block;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.55}.inv tr.grp{background:none;display:block;padding:12px 0 2px}.inv tr.grp td{font-size:10px}.inv tr.tot{border-top:2px solid var(--red)}.inv tr.tot td{font-size:10.5px;border:0}.inv tr.tot td.tt{font-size:18px}.inv .note2{display:block;margin:2px 0 0}
+ .bb.g,.bb.c{min-height:150px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.rv,.rv-3d{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur2"></div><div id="prog"></div>
+<header class="deck-top">
+  <div><img class="logo logo-w" src="we-rock.png" alt="We Rock"><img class="logo logo-c" src="we-rock-v1.png" alt="We Rock"></div>
+  <div class="deck-meta"><span>Propuesta para Doña Lú · Noviembre 2026</span>
+    <button class="fs-btn" id="fsBtn" aria-label="Pantalla completa"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4"/></svg></button></div>
+</header>
+<nav class="dots" id="dots" aria-label="Diapositivas"></nav>
+<div class="counter" aria-hidden="true"><b id="cNow">01</b> / <span id="cAll">01</span></div>
+<div class="nav-arrows">
+  <button id="prevBtn" aria-label="Anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4"/></svg></button>
+  <button id="nextBtn" aria-label="Siguiente"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></button>
+</div>
+
+<main>
+<!-- 01 -->
+<section class="slide dk cover" id="s-portada" data-title="Portada">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="inner"><div class="cover-txt">
+    <img class="cover-wm rv" src="img/wordmark-crema.svg" alt="Doña Lú">
+    <div class="cover-tag rv" style="--d:1">Café que se honra</div>
+    <h1 class="rv" style="--d:2">De la montaña a <em>30 mesas.</em></h1>
+    <p class="sub rv" style="--d:3">Una marca que se siente como la finca, una tienda que vende a hogares y negocios, y un motor comercial para que su café llegue a donde merece estar.</p>
+    <div class="cover-cta rv" style="--d:4"><a class="btn" href="tienda/" target="_blank" rel="noopener">Ver la demo de su tienda</a></div>
+    <div class="cover-who rv" style="--d:5">Preparado para <b>Diana Zamudio</b>, Gerente General · por <b>We Rock</b></div>
+  </div></div>
+</section>
+
+<!-- 02 -->
+<section class="slide lt has-photo" id="s-escuchamos" data-title="Lo que escuchamos">
+  <div class="photo-half" style="background-image:url(img/recolector.webp)" role="img" aria-label="Recolector de café entre los cafetos"></div>
+  <div class="inner"><div class="heard">
+    <div class="lbl rv">Lo que escuchamos</div>
+    <blockquote class="rv" style="--d:1">El café es <em>tiempo.</em> Y casi nadie lo cuenta.</blockquote>
+    <p class="lead rv" style="--d:2">Ustedes recorrieron todo el proceso para entender cómo sale un buen café. Por eso no quieren una marca comercial más: quieren transmitir lo que se vive en un cafetal.</p>
+    <ul class="rv" style="--d:3">
+      <li><b>Volver a lo básico.</b> La tierra, la paciencia, el momento compartido.</li>
+      <li><b>Admiración por quien recolecta.</b> Protagonistas de la historia, nunca motivo de lástima.</li>
+      <li><b>Café como el vino.</b> Procesos meticulosos, notas y sabores que merecen explicarse.</li>
+      <li><b>Cercanos, no comerciales.</b> Contar historias antes que vender.</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- 03 -->
+<section class="slide dk tex-grid-dk" id="s-activos" data-title="Lo que ya tienen">
+  <div class="inner">
+    <div class="lbl rv">Lo que ya tienen</div>
+    <h2 class="h2 rv" style="--d:1">Una finca, tres procesos.<br><em>Muy pocas marcas</em> pueden decir esto.</h2>
+    <div class="trio-bags">
+      <article class="tb rv" style="--d:2"><img src="img/bolsa-lavado.webp" alt="Bolsa azul de café Lavado" loading="lazy"><div><h3>Lavado</h3><p>Limpio y equilibrado. El que más piden hoy las cafeterías.</p><small>500 g $42.000 · 2,5 kg $168.000</small></div></article>
+      <article class="tb rv" style="--d:3"><img src="img/bolsa-honey.webp" alt="Bolsa roja de café Honey" loading="lazy"><div><h3>Honey</h3><p>Se seca con su propia miel. Más suave, dulce, con notas a panela.</p><small>250 g $25.000 · 500 g $47.000 · 2,5 kg $200.000</small></div></article>
+      <article class="tb rv" style="--d:4"><img src="img/bolsa-natural.webp" alt="Bolsa negra de café Natural" loading="lazy"><div><h3>Natural</h3><p>Se seca en cereza. Afrutado, vinoso, intenso.</p><small>250 g $38.000 · 500 g $63.000 · 2,5 kg $250.000</small></div></article>
+    </div>
+    <div class="facts rv" style="--d:5">
+      <div><b>Finca propia</b><span>Arabia, Risaralda. Café Castillo en terreno empinado.</span></div>
+      <div><b>Control total</b><span>Del germinador al empaque, en 10 pasos documentados.</span></div>
+      <div><b>Máquinas propias</b><span>Con instalación, mantenimiento y capacitación.</span></div>
+      <div><b>Cápsulas biodegradables</b><span>Compatibles con Nespresso, en cajas de 15 y 35.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="slide lt tex-dots" id="s-mercado" data-title="El mercado">
+  <div class="inner">
+    <div class="lbl rv">El mercado</div>
+    <h2 class="h2 rv" style="--d:1">Colombia apenas está<br>aprendiendo a <em>tomar buen café.</em></h2>
+    <p class="lead rv" style="--d:2">Lo que Diana siente, que la mayoría no valora lo que hay detrás de una taza, también se ve en los números. Hay mucho espacio por educar y por crecer.</p>
+    <div class="stats">
+      <div class="stat rv" style="--d:3"><b>$<span class="cnt" data-to="3.05" data-dec="2">3,05</span> bill.</b><span>Ventas de café en retail en Colombia, 27,9 % más que el año anterior</span></div>
+      <div class="stat rv" style="--d:4"><b>~<span class="cnt" data-to="10">10</span> %</b><span>Pesa hoy el segmento premium, el que más crece en la categoría</span></div>
+      <div class="stat rv" style="--d:5"><b>~<span class="cnt" data-to="70">70</span> %</b><span>Del consumo ocurre en el hogar: la tienda B2C no es un extra</span></div>
+      <div class="stat rv" style="--d:6"><b><span class="cnt" data-to="2.2" data-dec="1">2,2</span> kg</b><span>Por persona al año. Aún muy por debajo de los vecinos</span></div>
+    </div>
+    <div class="percap rv" style="--d:7">
+      <div class="pc hot"><span>Colombia</span><i style="--w:37%"></i><span>2,2 kg</span></div>
+      <div class="pc"><span>Costa Rica</span><i style="--w:68%"></i><span>4 kg</span></div>
+      <div class="pc"><span>Brasil</span><i style="--w:100%"></i><span>5,9 kg</span></div>
+    </div>
+    <p class="src">Fuentes: Nielsen 2025 citado por la FNC en <a href="https://forbes.co/2026/04/22/red-forbes/el-cafe-que-no-nos-tomamos/" target="_blank" rel="noopener">Forbes, abr. 2026</a> (cifra en valor: incluye el efecto del alza de precios); <a href="https://www.portafolio.co/negocios/empresas/juan-valdez-apunta-cerrar-el-ano-con-700-tiendas-y-acelera-su-expansion-internacional-504524" target="_blank" rel="noopener">Portafolio 2026</a>; <a href="https://www.portafolio.co/negocios/empresas/esta-es-la-marca-colombiana-de-cafe-de-especialidad-que-evalua-llegar-hasta-china-con-una-tienda-505371" target="_blank" rel="noopener">Portafolio 2026</a>; FNC en <a href="https://www.elcolombiano.com/negocios/consumo-de-cafe-en-colombia-debe-aumentar-CI30292189" target="_blank" rel="noopener">El Colombiano 2025</a>.</p>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="slide dk glow-tr" id="s-ahora" data-title="Por qué ahora">
+  <div class="inner">
+    <div class="lbl rv">Por qué ahora</div>
+    <h2 class="h2 rv" style="--d:1">“El mejor café colombiano también<br>debe <em>quedarse en Colombia</em>.”</h2>
+    <p class="lead rv" style="--d:2">Esa frase ya está en su material. Hoy tiene más fuerza que nunca, y hay una ventana abierta para decirla primero.</p>
+    <div class="cards3">
+      <div class="c3 rv" style="--d:3"><b class="n">1,61 M</b><h3>Sacos importados en un año</h3><p>Frente a un consumo interno de 2,32 M de sacos. Su mensaje de origen responde a una realidad que el mercado apenas empieza a notar.</p></div>
+      <div class="c3 rv" style="--d:4"><b class="n">−15 %</b><h3>Cayó la cosecha 2025/26</h3><p>12,65 M de sacos, con precios internacionales aún altos. Quien controla su finca y su suministro le da tranquilidad a un negocio.</p></div>
+      <div class="c3 rv" style="--d:5"><b class="n">Oct. 2026</b><h3>Llegan los famosos</h3><p>Selva Dulce se lanzó en redes con un discurso de autenticidad. El tema está caliente, y ustedes tienen lo que nadie puede comprar: años de finca real.</p></div>
+    </div>
+    <p class="src">Fuentes: <a href="https://www.portafolio.co/economia/agro/produccion-de-cafe-en-colombia-cayo-15-en-el-ano-cafetero-y-cerro-en-12-65-millones-de-sacos-504163" target="_blank" rel="noopener">Portafolio, oct. 2026</a>; <a href="https://www.vanguardia.com/entretenimiento/tendencias/2026/10/19/kathy-saenz-y-sebastian-martinez-presentan-su-nuevo-emprendimiento-tras-20-anos-juntos-de-que-se-trata/" target="_blank" rel="noopener">Vanguardia, oct. 2026</a>.</p>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="slide lt tex-grid" id="s-precio" data-title="Dónde están parados">
+  <div class="inner split" style="grid-template-columns:1.25fr .75fr;gap:48px">
+    <div>
+      <div class="lbl rv">Una señal que no esperábamos</div>
+      <h2 class="h2 rv" style="--d:1">Su Lavado de finca cuesta <em>menos que un café de supermercado.</em></h2>
+      <div class="tiny rv" style="--d:2;margin-bottom:10px">Precio por cada 100 g</div>
+      <div class="bars" id="bars"></div>
+      <p class="src">Cálculo We Rock sobre precios públicos consultados en nov. 2026: <a href="https://www.farmatodo.com.co/producto/500024433-cafe-340gr-tueste-medio-molido-san-alberto-bolsa-x-1" target="_blank" rel="noopener">San Alberto 340 g $71.000</a>; <a href="https://cafeamorperfecto.com/" target="_blank" rel="noopener">Amor Perfecto 350 g desde $54.900</a>; <a href="https://www.falabella.com.co/falabella-co/brand/MATIZ" target="_blank" rel="noopener">Matiz 340 g $34.900</a> (dato sin fecha); Doña Lú según su lista vigente.</p>
+    </div>
+    <div class="rv" style="--d:4">
+      <div class="note"><b>No es un problema de precio. Es de historia.</b> El café ya está a la altura; lo que falta es que el cliente entienda qué está comprando. Cuando la marca cuente la finca, hay espacio para que el valor percibido suba, sobre todo en Lavado y Honey.</div>
+      <p class="lead" style="font-size:15px;margin-top:14px">No proponemos cambiar precios hoy. Proponemos construir la razón para poder hacerlo cuando ustedes decidan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="slide dk2" id="s-benchmark" data-title="Benchmark">
+  <div class="inner">
+    <div class="lbl rv">Benchmark</div>
+    <h2 class="h2 rv" style="--d:1">Las marcas que admiran,<br>y lo que <em>vale la pena</em> aprender de cada una.</h2>
+    <div class="bench">
+      <article class="bc rv" style="--d:2"><h3>San Alberto</h3><p>El café empacado supera el 60 % de sus ventas; las tiendas pesan cerca de 25 %.</p><p class="take">ganar primero en empaque, antes que en locales.</p><a href="https://www.portafolio.co/negocios/empresas/esta-es-la-marca-colombiana-de-cafe-de-especialidad-que-evalua-llegar-hasta-china-con-una-tienda-505371" target="_blank" rel="noopener">Ver caso</a></article>
+      <article class="bc rv" style="--d:2"><h3>Mesa de los Santos</h3><p>Hacienda con tiendas, web, catas y recorridos en finca.</p><p class="take">la finca también es un producto para clientes B2B.</p><a href="https://forbes.co/2026/03/30/negocios/la-hacienda-santandereana-que-llevo-el-cafe-de-esa-region-a-la-lista-de-los-mejores-del-mundo/" target="_blank" rel="noopener">Ver caso</a></article>
+      <article class="bc rv" style="--d:3"><h3>Amor Perfecto</h3><p>Tiendas, centros de experiencia y distribución de equipos. Es el modelo comercial que les llama.</p><p class="take">poner al productor en el centro del empaque.</p><a href="https://cafeamorperfecto.com/" target="_blank" rel="noopener">Ver sitio</a></article>
+      <article class="bc rv" style="--d:3"><h3>Matiz</h3><p>Premium masivo de Grupo Nutresa, con gran presencia en supermercado.</p><p class="take">es el piso de precio: la diferencia se justifica con finca y frescura.</p><a href="https://www.falabella.com.co/falabella-co/brand/MATIZ" target="_blank" rel="noopener">Ver precios</a></article>
+      <article class="bc rv" style="--d:4"><h3>Hermanos</h3><p>Desde Londres: suscripción flexible, cápsulas, mayoristas y comercio directo.</p><p class="take">un mismo sitio para hogares y negocios.</p><a href="https://hermanoscoffeeroasters.com/" target="_blank" rel="noopener">Ver sitio</a></article>
+      <article class="bc rv" style="--d:4"><h3>Dios Mío Coffee</h3><p>Una historia simple y una persona visible. Funciona, aunque no sea su estilo.</p><p class="take">rostro propio, con dignidad: la familia y sus recolectores.</p><a href="https://www.retaildive.com/news/sofia-vergara-launches-coffee-brand-dios-mio-walmart-online/718182/" target="_blank" rel="noopener">Ver caso</a></article>
+      <article class="bc rv" style="--d:5"><h3>Selva Dulce</h3><p>Café de Boyacá de Sebastián Martínez y Kathy Sáenz, con un discurso cercano al de ustedes.</p><p class="take">su ventaja es años de finca real, no un lanzamiento.</p><a href="https://www.vanguardia.com/entretenimiento/tendencias/2026/10/19/kathy-saenz-y-sebastian-martinez-presentan-su-nuevo-emprendimiento-tras-20-anos-juntos-de-que-se-trata/" target="_blank" rel="noopener">Ver caso</a></article>
+      <article class="bc fail rv" style="--d:5"><h3>Compass Coffee · lección</h3><p>En enero de 2026 se acogió a Chapter 11; su salto a distribución fue uno de varios factores.</p><p class="take">validar cada canal antes de sumarle costos fijos.</p><a href="https://www.nrn.com/restaurant-finance/compass-coffee-files-for-chapter-11-bankruptcy" target="_blank" rel="noopener">Ver caso</a></article>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="slide lt tex-dots" id="s-diagnostico" data-title="Hoy">
+  <div class="inner diag">
+    <div>
+      <div class="device-browser rv-3d tilt"><div class="device-browser-bar"><div class="db-dots"><span></span><span></span><span></span></div><div class="db-url">donalu.com.co</div></div><img src="img/sitio-hoy.webp" alt="Sitio web actual de Doña Lú" loading="lazy"></div>
+      <div class="marks rv" style="--d:3"><img src="img/logo-antes.webp" alt="Logo anterior con la ilustración" loading="lazy"><p>El catálogo aún circula con la ilustración que ustedes ya decidieron dejar atrás. El cambio a “Doña Lú, café que se honra” fue el paso correcto: falta terminarlo.</p></div>
+    </div>
+    <div>
+      <div class="lbl rv">Dónde están hoy</div>
+      <h2 class="h2 rv" style="--d:1">Tienen un gran café.<br>Lo digital <em>aún no lo cuenta.</em></h2>
+      <ul class="dlist rv" style="--d:2">
+        <li><b>Sitio web</b>Sin tienda, con textos genéricos y una sección de pulpa de fruta que hoy distrae.</li>
+        <li><b>Marca</b>Conviven dos logos, dos nombres (Coffee y Café) y dos usuarios: @donalucol y @donalucoffee.</li>
+        <li><b>Origen</b>Se cuenta distinto en cada pieza: Eje Cafetero, Valle del Cauca, Suramérica, Arabia.</li>
+        <li><b>Instagram</b>98 seguidores. Lo bueno: la cuenta está activa y ya habla de finca propia.</li>
+        <li><b>Imágenes</b>Las fotos reales son potentes, pero se mezclan con imágenes que no parecen de la finca.</li>
+        <li><b>Venta B2B</b>Sin ruta clara: hoy un negocio no puede cotizar máquina y café en línea.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 09 -->
+<section class="slide dk noise" id="s-idea" data-title="La gran idea">
+  <div class="bg-photo" style="background-image:url(img/manos.webp)" aria-hidden="true"></div>
+  <div class="inner">
+    <div class="lbl rv">La gran idea</div>
+    <h2 class="h2 rv" style="--d:1;max-width:900px">“Café que se honra” deja de ser una frase y se vuelve <em>la forma de hacer todo.</em></h2>
+    <p class="lead rv" style="--d:2">Ya tienen la mejor idea posible en su tagline. Nuestro trabajo es convertirla en sistema: cada foto, cada empaque, cada visita comercial honra algo concreto.</p>
+    <div class="honra">
+      <article class="hn rv" style="--d:3"><small>Honrar</small><h3>La tierra</h3><p>Finca, terreno empinado, abono propio, cascarilla que vuelve como combustible.</p></article>
+      <article class="hn rv" style="--d:4"><small>Honrar</small><h3>Las manos</h3><p>Recolectores con nombre, oficio y voz. Con admiración, siempre con su permiso.</p></article>
+      <article class="hn rv" style="--d:5"><small>Honrar</small><h3>El tiempo</h3><p>Seis meses de vivero, secados lentos. Sin afanes. El café como el vino.</p></article>
+      <article class="hn rv" style="--d:6"><small>Honrar</small><h3>La mesa</h3><p>Familia, amigos, negocios, la oficina, el perro bajo la mesa. Cada momento compartido.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide dk2 glow-bl" id="s-casas" data-title="Casas que honran">
+  <div class="inner casas">
+    <div class="seal rv-3d">
+      <svg class="ring" viewBox="0 0 300 300" aria-hidden="true"><defs><path id="circ" d="M150 150m-122 0a122 122 0 1 1 244 0a122 122 0 1 1-244 0"/></defs><circle cx="150" cy="150" r="146" fill="none" stroke="#E8E4DC" stroke-width="1"/><circle cx="150" cy="150" r="100" fill="none" stroke="#E8E4DC" stroke-width="1"/><text fill="#E8E4DC" font-family="Barlow" font-size="19" font-weight="700" letter-spacing="5.6"><textPath href="#circ">AQUÍ SE HONRA EL CAFÉ · CASA ALIADA · ARABIA, RISARALDA ·</textPath></text></svg>
+      <img src="img/wordmark-crema.svg" alt="Sello Casa que honra de Doña Lú">
+    </div>
+    <div>
+      <div class="lbl rv">El programa B2B</div>
+      <h2 class="h2 rv" style="--d:1">Casas que honran:<br>30 aliados, <em>no 30 cuentas.</em></h2>
+      <p class="lead rv" style="--d:2">Ustedes lo dijeron: de los negocios saldrán los clientes finales. Por eso cada cafetería, oficina u hotel entra a un programa con nombre propio, y se convierte en vitrina de la marca.</p>
+      <div class="incl rv" style="--d:3">
+        <div><b>Máquina y café</b><span>Coffee Machine Leasing + Supply, con instalación y mantenimiento.</span></div>
+        <div><b>Sello en la puerta</b><span>Una distinción que el negocio quiere mostrar.</span></div>
+        <div><b>QR en cada mesa</b><span>La historia del lote y la tienda, a un toque.</span></div>
+        <div><b>Capacitación y visita a finca</b><span>Baristas que saben contar lo que sirven.</span></div>
+      </div>
+      <div class="chips rv" style="--d:4"><span>Cafés de especialidad</span><span>Sitios de onces</span><span>Oficinas</span><span>Hoteles boutique</span><span>Restaurantes</span><span>Negocios pet friendly</span><span>Coworkings</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide lt tex-grid" id="s-marca" data-title="Marca">
+  <div class="inner split">
+    <div>
+      <div class="lbl rv">Frente 1 · Marca</div>
+      <h2 class="h2 rv" style="--d:1">Terminar lo que <em>ya empezaron.</em></h2>
+      <p class="lead rv" style="--d:2">El wordmark nuevo va por muy buen camino, y la paleta de tres bolsas es una gran idea de producto. No proponemos empezar de cero: proponemos pulirlo, definirlo y volverlo manual.</p>
+      <ul class="delv rv" style="--d:3"><li>Logo final en vector y variantes</li><li>Paleta, tipografía y tono de voz</li><li>Sello “Casas que honran”</li><li>Etiquetas de los 3 procesos y cápsulas</li><li>Relato de origen único</li><li>Manual de marca e imagen corporativa</li><li>Papelería, uniforme y material de punto de venta</li><li>Migración de redes a un solo usuario</li></ul>
+    </div>
+    <div class="brand-board rv-3d" style="--d:2">
+      <div class="bb g"><img src="img/wordmark-crema.svg" alt="Doña Lú sobre verde"></div>
+      <div class="bb c"><img src="img/wordmark.svg" alt="Doña Lú sobre crema"></div>
+      <div class="bb" style="grid-column:1/-1"><small>Paleta de partida: finca + tres procesos</small><div class="swatches" aria-hidden="true"><i style="background:#0F3B26"></i><i style="background:#1E3D78"></i><i style="background:#B5161F"></i><i style="background:#1D1B1A"></i><i style="background:#F3ECDF"></i></div><p class="src" style="margin-top:10px">Wordmark redibujado por We Rock a partir de su pieza actual, solo para esta propuesta. El vector final se entrega con el manual.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="slide dk tex-grid-dk" id="s-tienda" data-title="Demo de la tienda">
+  <div class="inner shop">
+    <div>
+      <div class="lbl rv">Frente 2 · Tienda online</div>
+      <h2 class="h2 rv" style="--d:1">Ya la construimos,<br><em>para que la vean.</em></h2>
+      <p class="lead rv" style="--d:2">Esto no es un boceto: es una demo navegable con sus productos y precios reales.</p>
+      <ul class="feat rv" style="--d:3">
+        <li><b>Hogares:</b> compra por proceso, grano o molido, y suscripción.</li>
+        <li><b>Negocios:</b> calculadora de consumo y solicitud de máquina.</li>
+        <li><b>Origen:</b> la historia del lote detrás de cada bolsa.</li>
+        <li><b>Mapa de casas:</b> dónde tomar Doña Lú.</li>
+        <li><b>Pagos colombianos:</b> Wompi con tarjeta, Nequi y PSE.</li>
+      </ul>
+      <a class="btn rv" style="--d:4" href="tienda/" target="_blank" rel="noopener">Abrir la demo</a>
+    </div>
+    <div class="dev-wrap rv-3d" style="--d:2">
+      <div class="device-browser tilt"><div class="device-browser-bar"><div class="db-dots"><span></span><span></span><span></span></div><div class="db-url">donalu.com.co</div></div><img src="img/demo-home.webp" alt="Demo de la tienda Doña Lú en escritorio" loading="lazy"></div>
+      <div class="device-phone"><div class="device-phone-screen"><img src="img/demo-movil.webp" alt="Demo de la tienda Doña Lú en celular" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="slide lt tex-dots" id="s-b2b" data-title="Venta a negocios">
+  <div class="inner">
+    <div class="lbl rv">Máquina + café</div>
+    <h2 class="h2 rv" style="--d:1">Todos ofrecen una máquina.<br><em>Nadie ofrece una finca.</em></h2>
+    <p class="lead rv" style="--d:2;max-width:860px">Revisamos a Vélez Coffee, Nescafé Professional, Mundo Kafe, Supercoffee, Cuppa Club e Innovending. Hablan de costo, en sus páginas no publican precios y varios exigen mínimos de 15 a 25 personas. Ahí hay un espacio.</p>
+    <div class="vs rv" style="--d:3">
+      <div class="a"><h3>El comodato de siempre</h3><ul><li>Vende una máquina y un costo por taza</li><li>Café de origen poco claro</li><li>Mínimos que dejan fuera a la oficina pequeña</li></ul></div>
+      <div class="b"><h3>El comodato de Doña Lú</h3><ul><li>Vende una historia que el negocio puede contar</li><li>Del productor a la taza, con lote y proceso</li><li>Pensado para el negocio que empieza: “te pongo la máquina y te doy un buen café”</li></ul></div>
+    </div>
+    <div class="flow rv" style="--d:4">
+      <div class="fl"><b>01</b><span>Calcula en línea</span><small>Tazas al día, kilos al mes</small></div>
+      <div class="fl"><b>02</b><span>Cata en su negocio</span><small>Los 3 procesos, en su mesa</small></div>
+      <div class="fl"><b>03</b><span>Instalación</span><small>Máquina y capacitación</small></div>
+      <div class="fl"><b>04</b><span>Reposición</span><small>Pedido recurrente, factura electrónica</small></div>
+      <div class="fl"><b>05</b><span>Casa aliada</span><small>Sello, QR y mapa</small></div>
+    </div>
+    <p class="src">Fuentes: sitios de cada empresa consultados en nov. 2026. Algunas condiciones vienen de resultados de búsqueda y deben validarse con cotizaciones reales antes de usarse en la venta.</p>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="slide dk noise" id="s-av" data-title="Producción audiovisual">
+  <div class="bg-photo" style="background-image:url(img/tueste.webp)" aria-hidden="true"></div>
+  <div class="inner av">
+    <div>
+      <div class="lbl rv">Frente 3 · Producción audiovisual</div>
+      <h2 class="h2 rv" style="--d:1">La expedición<br>a <em>Arabia.</em></h2>
+      <p class="lead rv" style="--d:2;color:#cfcbc2">Dos jornadas en la finca, en temporada de cosecha, y una sesión de producto y aliados en Bogotá y Cajicá. De ahí sale el material de meses, con imágenes 100 % de ustedes.</p>
+      <div class="shots rv" style="--d:3;margin-top:18px">
+        <div><b>Película de marca</b><span>90 segundos: el tiempo de una taza.</span></div>
+        <div><b>Serie “Las manos”</b><span>Retratos y voces de quienes recolectan.</span></div>
+        <div><b>10 reels verticales</b><span>Procesos, cata y vida de la finca.</span></div>
+        <div><b>Banco de 60 fotos</b><span>Finca, proceso y personas.</span></div>
+        <div><b>Foto de producto</b><span>Para la tienda y las etiquetas nuevas.</span></div>
+        <div><b>Casos de aliados</b><span>Las primeras casas, en su ambiente.</span></div>
+      </div>
+    </div>
+    <div class="frame rv-3d" style="--d:2;background-image:url(img/cosecha.webp)" role="img" aria-label="Recolección en la finca"></div>
+  </div>
+</section>
+
+<!-- 15 -->
+<section class="slide lt2 tex-grid" id="s-contenido" data-title="Contenido">
+  <div class="inner">
+    <div class="lbl rv">Frente 4 · Contenido sin pauta</div>
+    <h2 class="h2 rv" style="--d:1">Una marca cercana se gana<br><em>contando, no anunciando.</em></h2>
+    <p class="lead rv" style="--d:2;max-width:800px">Este plan no incluye pauta, como lo conversamos. Crecemos con historias, aliados que etiquetan y comparten, y LinkedIn para los compradores de empresa. 12 piezas al mes, con los cuatro honores como columna.</p>
+    <div class="posts">
+      <div class="post rv" style="--d:3;background-image:url(img/recolector.webp);background-position:center 18%"><small>Las manos</small><b>“A este lote lo conozco de memoria.”</b></div>
+      <div class="post rv" style="--d:4;background-image:url(img/secado.webp)"><small>El tiempo</small><b>Lo que pasa antes de la primera taza</b></div>
+      <div class="post g rv" style="--d:5"><img src="img/wordmark-crema.svg" alt=""><small>La mesa</small><b>Natural, honey, lavado: ¿cuál eres tú?</b></div>
+      <div class="post rv" style="--d:6;background-image:url(img/tueste.webp)"><small>La tierra</small><b>Del árbol a la tostión, sin intermediarios</b></div>
+    </div>
+    <p class="src">Ejemplos de dirección creativa. Los testimonios se graban con personas reales y con autorización.</p>
+  </div>
+</section>
+
+<!-- 16 -->
+<section class="slide dk tex-grid-dk" id="s-motor" data-title="Motor comercial">
+  <div class="inner motor">
+    <div>
+      <div class="lbl rv">Frente 5 · Motor comercial B2B</div>
+      <h2 class="h2 rv" style="--d:1">30 casas no llegan solas.<br><em>Se buscan una por una.</em></h2>
+      <div class="fun rv" style="--d:2">
+        <div style="--w:100%"><b>300</b><span>negocios mapeados en Cajicá, Bogotá y Sabana Norte</span></div>
+        <div style="--w:86%"><b>120</b><span>conversaciones por WhatsApp, correo y LinkedIn</span></div>
+        <div style="--w:72%"><b>60</b><span>catas en el negocio</span></div>
+        <div style="--w:58%"><b>30</b><span>casas aliadas en 12 meses</span></div>
+      </div>
+      <p class="src">Embudo de trabajo, no una promesa. Las tasas reales se ajustan con los primeros 60 días.</p>
+    </div>
+    <div class="rv" style="--d:3">
+      <div class="hb"><h3>HalconBot, el CRM incluido</h3><p>Un asistente con IA en WhatsApp que atiende 24/7, cotiza consumo, agenda catas y guarda cada contacto. Maneja etapas con etiquetas, chat en vivo con su equipo, envíos por segmento y atención en la web.</p><p class="proof">Caso real, Vanity: 74 % de las conversaciones resueltas por IA (1.954 frente a 682 en una semana).</p></div>
+      <ul class="delv" style="grid-template-columns:1fr;margin-top:16px"><li>Base de prospectos por nicho, zona y consumo</li><li>Secuencias de contacto y seguimiento semanal</li><li>Caja de cata y guion comercial para visitas</li><li>Google Business y SEO local en Cajicá y Bogotá</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- 17 -->
+<section class="slide lt tex-dots" id="s-calc" data-title="La cuenta">
+  <div class="inner calc">
+    <div>
+      <div class="lbl rv">La cuenta</div>
+      <h2 class="h2 rv" style="--d:1">Su meta cabe en <em>una sola línea.</em></h2>
+      <div class="eq rv" style="--d:2"><span>30 casas</span><span>×</span><span>6 bolsas</span><span>=</span><span><em>$30,2 M</em></span></div>
+      <p class="lead rv" style="--d:3">Seis bolsas de 2,5 kg de Lavado al mes son 15 kg: unas 60 tazas al día en un negocio. Es un volumen posible para una cafetería. Mueva los controles y vea qué tan cerca está.</p>
+      <p class="src">Supuestos: leemos la meta como $30 M de ventas al mes; precio de lista sin descuento mayorista (ajustable cuando definan tarifa B2B); 8 g por taza. Es una simulación, no una proyección garantizada.</p>
+    </div>
+    <div class="panel corner-fx rv-3d" style="--d:2">
+      <div class="seg" role="group" aria-label="Café principal"><button data-p="168000" class="act">Lavado</button><button data-p="200000">Honey</button><button data-p="250000">Natural</button></div>
+      <div class="ctrl"><label for="cA">Casas aliadas <b id="oA">30</b></label><input type="range" id="cA" min="5" max="60" value="30"></div>
+      <div class="ctrl"><label for="cB">Bolsas de 2,5 kg al mes por casa <b id="oB">6</b></label><input type="range" id="cB" min="1" max="15" value="6"></div>
+      <div class="ctrl"><label for="cC">Pedidos de hogares al mes <b id="oC">0</b></label><input type="range" id="cC" min="0" max="300" step="10" value="0"></div>
+      <div class="ctrl"><label for="cD">Compra promedio en tienda <b id="oD">$80.000</b></label><input type="range" id="cD" min="40000" max="200000" step="5000" value="80000"></div>
+      <div class="out"><div class="big" id="outV">$30.240.000</div><p>Ventas estimadas al mes · <span id="outP">101</span> % de la meta · <span id="outT">60</span> tazas al día por casa</p><div class="meter"><i id="outM" style="width:100%"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 -->
+<section class="slide dk glow-tr" id="s-ruta" data-title="Hoja de ruta">
+  <div class="inner">
+    <div class="lbl rv">Hoja de ruta</div>
+    <h2 class="h2 rv" style="--d:1">Sin afanes,<br>pero con <em>fechas.</em></h2>
+    <div class="phases">
+      <article class="ph rv" style="--d:2"><small>Mes 1</small><h3>Germinador</h3><ul><li>Taller de marca con Diana</li><li>Relato de origen único</li><li>Expedición a la finca</li><li>Mapa de 300 negocios</li></ul></article>
+      <article class="ph rv" style="--d:3"><small>Mes 2</small><h3>Vivero</h3><ul><li>Manual, etiquetas y sello</li><li>Tienda en construcción</li><li>Kit comercial y caja de cata</li><li>Arranca el contenido</li></ul></article>
+      <article class="ph rv" style="--d:4"><small>Mes 3</small><h3>Siembra</h3><ul><li>Tienda en vivo</li><li>HalconBot atendiendo</li><li>Primeras catas y visitas</li><li>Primeras casas aliadas</li></ul></article>
+      <article class="ph rv" style="--d:5"><small>Mes 4</small><h3>Primera cosecha</h3><ul><li>Lectura de resultados</li><li>Ajuste de oferta y tarifas</li><li>Casos de aliados en video</li><li>Plan hacia Medellín</li></ul></article>
+    </div>
+    <div class="goal rv" style="--d:6"><span>Meta de trabajo al mes 4: 8 casas activas</span><span>Meta a 12 meses: 30 casas y $30 M al mes</span></div>
+    <p class="src">Metas de trabajo definidas en conjunto, no garantías: dependen de capacidad de finca, máquinas disponibles y tarifa B2B. La fecha de la expedición se ajusta a su calendario real de cosecha.</p>
+  </div>
+</section>
+
+<!-- 19 -->
+<section class="slide dk" id="s-inversion" data-title="Inversión" style="padding-top:70px;padding-bottom:56px">
+  <svg class="brand-mark" style="top:-60px;right:-40px" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="inner">
+    <div class="lbl rv" style="margin-bottom:8px">Inversión · plan de arranque, 4 meses</div>
+    <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:0">La inversión baja cada mes <em>a medida que la marca empieza a vender.</em></h2>
+    <div class="inv-wrap rv" style="--d:2"><table class="inv" id="inv"></table></div>
+    <p class="src" style="margin-top:8px">Pesos colombianos, antes de IVA. Sin pauta, como lo acordamos. Viáticos, comisiones de pasarela (Wompi avanzado 2,65 % + $700 + IVA por venta), impresos y muestras de café se pagan directo o corren por cuenta de Doña Lú. Licencia con TRM de referencia $4.100.</p>
+  </div>
+</section>
+
+<!-- 20 -->
+<section class="slide lt tex-grid" id="s-servicios" data-title="Servicios">
+  <div class="inner">
+    <div class="lbl rv">¿Prefieren armar su propio plan?</div>
+    <h2 class="h2 rv" style="--d:1;font-size:clamp(28px,min(3.4vw,5.6vh),48px)">Cada frente se puede <em>contratar por separado.</em></h2>
+    <div class="svc" id="svc"></div>
+    <p class="src">Contexto: una persona interna de mercadeo cuesta entre $4 M y $8 M al mes en salario, sin prestaciones, y solo cubriría una parte de estos frentes.</p>
+  </div>
+</section>
+
+<!-- 21 -->
+<section class="slide dk glow-bl" id="s-werock" data-title="Por qué We Rock">
+  <svg class="brand-mark" style="bottom:-60px;right:30px" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="inner">
+    <div class="lbl rv">Por qué We Rock</div>
+    <h2 class="h2 rv" style="--d:1">No hacemos publicaciones.<br>Diseñamos <em>sistemas de crecimiento.</em></h2>
+    <p class="lead rv" style="--d:2">Marca, tecnología, audiovisual y comercial en un solo equipo. Y una conversación directa con quien dirige: David Higuera, más de 15 años en estrategia digital.</p>
+    <div class="why">
+      <div class="wy rv" style="--d:3"><b>2018</b><span>Año en que nace We Rock, firma de crecimiento estratégico con sede en Bogotá.</span></div>
+      <div class="wy rv" style="--d:4"><b>MUSE</b><span>Sitios desarrollados con reconocimiento MUSE en diseño.</span></div>
+      <div class="wy rv" style="--d:5"><b>74 %</b><span>De conversaciones resueltas por IA con HalconBot en el caso Vanity.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 -->
+<section class="slide dk noise" id="s-cierre" data-title="Cierre">
+  <div class="bg-photo" style="background-image:url(img/taza.webp)" aria-hidden="true"></div>
+  <div class="inner">
+    <img class="rv" src="img/wordmark-crema.svg" alt="Doña Lú" style="width:200px;margin-bottom:18px">
+    <h2 class="h2 rv" style="--d:1;max-width:820px">Ustedes ya hicieron lo difícil: <em>el café.</em> Ahora hagamos que el país lo sepa.</h2>
+    <div class="steps">
+      <div class="st rv" style="--d:2"><b>1</b><span>Conversamos la propuesta y navegan juntos la demo.</span></div>
+      <div class="st rv" style="--d:3"><b>2</b><span>Definimos alcance, tarifa B2B y fecha de cosecha.</span></div>
+      <div class="st rv" style="--d:4"><b>3</b><span>Arrancamos con el taller de marca y la expedición.</span></div>
+    </div>
+    <div class="cover-cta rv" style="--d:5;margin-bottom:0">
+      <a class="btn" href="https://wa.me/573125766056?text=Hola%20David,%20queremos%20hablar%20de%20la%20propuesta%20de%20Do%C3%B1a%20L%C3%BA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.3-.5.1-1.2.1-1.9-.1-3-1-5.2-3.4-6-5.2-.5-1-.6-2 .1-2.9.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.7.9c-.1.2-.2.3 0 .6.5.9 1.7 2.1 3 2.7.3.1.4.1.6-.1l.8-1c.2-.2.3-.2.5-.1l1.9.9c.3.1.4.2.5.3.1.2.1.6-.1 1.2z"/></svg>Hablar con David</a>
+      <a class="btn ghost" href="tienda/" target="_blank" rel="noopener">Ver la demo</a>
+    </div>
+    <p class="foot">David Higuera · +57 312 576 6056 · davidh@werock.space · werock.space · Bogotá, Colombia</p>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = id => document.getElementById(id);
+  const cop = v => '$' + Math.round(v).toLocaleString('es-CO');
+
+  // Precio por 100 g
+  const P = [['San Alberto 340 g',71000/3.4],['Amor Perfecto 350 g',54900/3.5],['Doña Lú Natural 250 g',38000/2.5,1],['Doña Lú Natural 500 g',63000/5,1],['Matiz 340 g',34900/3.4],['Doña Lú Honey 500 g',47000/5,1],['Doña Lú Lavado 500 g',42000/5,1]];
+  const mx = Math.max(...P.map(p=>p[1]));
+  $('bars').innerHTML = P.map((p,i)=>`<div class="bar${p[2]?' me':''}"><span>${p[0]}</span><div class="tr"><i style="--w:${p[1]/mx*100}%;--d:${i}"></i></div><b>${cop(Math.round(p[1]/100)*100)}</b></div>`).join('');
+
+  // Tabla de inversión: las sumas se calculan aquí para que nunca se descuadren
+  const M = (t,n)=>({t,n});
+  const split = v => [v*.5, v*.3, v*.2, 0];
+  const G1 = [['Manual de marca y logo final','taller, vector, paleta, tono',split(1200000)],['Sistema de etiquetas','3 procesos y cápsulas',split(600000)],['Tienda online B2C + B2B','WooCommerce, suscripción, cotizador',split(5600000)],['Kit comercial B2B','portafolio, propuesta, caja de cata',split(900000)],['Programa Casas que honran','sello, QR, punto de venta, mapa',split(1200000)],['CRM + HalconBot','configuración · aporte de We Rock',null]];
+  const G2 = [['Expedición a la finca','2 jornadas en Arabia',[3200000,0,0,0]],['Sesión de producto y aliados','1 jornada en Bogotá y Cajicá',[0,1600000,0,0]]];
+  const G3 = [['Contenido Instagram y LinkedIn','12 piezas al mes',[0,1300000,1300000,1300000]],['Motor comercial B2B','prospección, contacto y seguimiento',[0,1300000,1300000,1300000]],['Webmaster de la tienda','desde el lanzamiento',[0,0,550000,550000]]];
+  const G4 = [['Dominio y hosting','primer año · estimado',[520000,0,0,0]],['Viáticos de la expedición','transporte y hospedaje · estimado',[1200000,0,0,0]],['Licencia HalconBot Starter','US$49 al mes',[0,200900,200900,200900]]];
+  const sum = g => [0,1,2,3].map(i=>g.reduce((a,r)=>a+(r[2]?r[2][i]:0),0));
+  const add = (...a) => [0,1,2,3].map(i=>a.reduce((s,x)=>s+x[i],0));
+  const tot = a => a.reduce((x,y)=>x+y,0);
+  const cell = (v,i) => v ? `<td data-m="Mes ${i+1}">${cop(v)}</td>` : `<td class="dash" data-m="Mes ${i+1}">—</td>`;
+  const row = r => r[2] ? `<tr><td>${r[0]}<span class="note2">${r[1]}</span></td>${r[2].map(cell).join('')}<td class="tt">${cop(tot(r[2]))}</td></tr>` : `<tr><td>${r[0]}<span class="note2">${r[1]}</span></td>${[0,1,2,3].map(i=>cell(0,i)).join('')}<td class="tt">Incluido</td></tr>`;
+  const sub = (t,a,c) => `<tr class="${c||'sub'}"><td>${t}</td>${a.map(cell).join('')}<td class="tt">${cop(tot(a))}</td></tr>`;
+  const grp = t => `<tr class="grp"><td colspan="6">${t}</td></tr>`;
+  const s1=sum(G1), s2=sum(G2), s3=sum(G3), s4=sum(G4), wr=add(s1,s2,s3), all=add(wr,s4);
+  $('inv').innerHTML = `<thead><tr><th>Rubro</th><th>Mes 1</th><th>Mes 2</th><th>Mes 3</th><th>Mes 4</th><th>Total</th></tr></thead><tbody>`+
+    grp('We Rock · implementación, pago por hitos 50 / 30 / 20')+G1.map(row).join('')+
+    grp('We Rock · producción audiovisual')+G2.map(row).join('')+
+    grp('We Rock · servicios mensuales')+G3.map(row).join('')+
+    sub('Subtotal We Rock',wr)+
+    grp('Proveedores · pago directo')+G4.map(row).join('')+
+    sub('Total mes a mes',all,'tot')+'</tbody>';
+
+  // Servicios sueltos
+  const S = [['Marca y etiquetas','Logo final, manual, sistema de etiquetas.','$1.800.000',' pago único'],['Tienda online B2C + B2B','Tienda, suscripción, cotizador, Wompi.','$5.600.000',' pago único'],['Kit comercial B2B','Portafolio, propuesta y guion de cata.','$900.000',' pago único'],['Casas que honran','Sello, QR, punto de venta y mapa.','$1.200.000',' pago único'],['Producción audiovisual','Por jornada, con edición. Viáticos aparte.','$1.600.000',' / jornada'],['Contenido','Estrategia y 12 piezas al mes.','$1.300.000',' / mes'],['Motor comercial B2B','Prospección, contacto y seguimiento.','$1.300.000',' / mes'],['Webmaster','Soporte, seguridad y cambios de la tienda.','$550.000',' / mes']];
+  const O = [['Más adelante · Meta o Google Ads','Si deciden sumar pauta. La inversión en plataforma va aparte.','$850.000',' / mes por canal']];
+  $('svc').innerHTML = S.map((s,i)=>`<article class="sc rv" style="--d:${2+i%4}"><h3>${s[0]}</h3><p>${s[1]}</p><b>${s[2]}<small>${s[3]}</small></b></article>`).join('');
+  $('svc').insertAdjacentHTML('afterend', `<div class="note rv" style="--d:6;margin-top:2px;font-size:14px"><b>${O[0][0]}.</b> ${O[0][1]} Gestión: ${O[0][2]}${O[0][3]}.</div>`);
+
+  // Motor del deck
+  const slides = [...document.querySelectorAll('.slide')], dotsEl = $('dots'), cNow = $('cNow');
+  $('cAll').textContent = String(slides.length).padStart(2,'0');
+  let cur = 0;
+  slides.forEach((s,i)=>{const b=document.createElement('button');b.setAttribute('aria-label',(i+1)+'. '+s.dataset.title);b.innerHTML='<span>'+String(i+1).padStart(2,'0')+' · '+s.dataset.title+'</span>';b.addEventListener('click',()=>go(i));dotsEl.appendChild(b);});
+  const dots=[...dotsEl.children];
+  function go(i){i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});}
+  function setActive(i){cur=i;dots.forEach((d,k)=>d.classList.toggle('act',k===i));cNow.textContent=String(i+1).padStart(2,'0');$('prog').style.width=((i+1)/slides.length*100)+'%';const s=slides[i];document.body.classList.toggle('on-light',s.classList.contains('lt')||s.classList.contains('lt2'));}
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');if(e.intersectionRatio>=.5||e.target.offsetHeight>innerHeight)setActive(slides.indexOf(e.target));e.target.querySelectorAll('.cnt:not(.done)').forEach(countUp);}});},{threshold:[.15,.5]});
+  slides.forEach(s=>io.observe(s));
+  addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'||e.metaKey||e.ctrlKey||e.altKey)return;const k=e.key;if(['ArrowDown','ArrowRight','PageDown',' '].includes(k)){e.preventDefault();go(cur+1);}else if(['ArrowUp','ArrowLeft','PageUp'].includes(k)){e.preventDefault();go(cur-1);}else if(k==='Home'){e.preventDefault();go(0);}else if(k==='End'){e.preventDefault();go(slides.length-1);}else if(k==='f'||k==='F'){toggleFs();}});
+  $('nextBtn').addEventListener('click',()=>go(cur+1));$('prevBtn').addEventListener('click',()=>go(cur-1));
+  function toggleFs(){if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen().catch(()=>{});}else{document.exitFullscreen&&document.exitFullscreen();}}
+  $('fsBtn').addEventListener('click',toggleFs);
+  function countUp(el){el.classList.add('done');const to=+el.dataset.to,dec=+(el.dataset.dec||0);const out=v=>v.toLocaleString('es-CO',{minimumFractionDigits:dec,maximumFractionDigits:dec});if(reduce){el.textContent=out(to);return;}const t0=performance.now(),dur=1500;(function tick(t){const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=out(to*e);if(p<1)requestAnimationFrame(tick);})(t0);}
+
+  if(!reduce&&matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.tilt').forEach(el=>{let raf=null;el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;if(raf)cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{el.style.transform=`perspective(1200px) rotateX(${(-py*6).toFixed(2)}deg) rotateY(${(px*8).toFixed(2)}deg)`;});});el.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);el.style.transform='none';});});
+    const c1=$('cur'),c2=$('cur2');c1.style.display=c2.style.display='block';let x=0,y=0,x2=0,y2=0;
+    addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY;c1.style.transform=`translate(${x}px,${y}px)`;});
+    (function loop(){x2+=(x-x2)*.18;y2+=(y-y2)*.18;c2.style.transform=`translate(${x2}px,${y2}px)`;requestAnimationFrame(loop);})();
+    document.querySelectorAll('a,button,input').forEach(el=>{el.addEventListener('mouseenter',()=>c2.classList.add('big'));el.addEventListener('mouseleave',()=>c2.classList.remove('big'));});
+  }
+
+  // Carruseles en celular
+  (function(){const arrow='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
+    document.querySelectorAll('.bench,.trio-bags,.cards3,.honra,.phases,.svc,.why,.steps').forEach(g=>{const n=g.children.length;if(n<3)return;g.classList.add('m-swipe');const h=document.createElement('div');h.className='swipe-hint';h.setAttribute('aria-hidden','true');h.innerHTML='<span>Desliza</span>'+arrow+'<span class="bar2"><i></i></span><b>1 / '+n+'</b>';g.parentNode.insertBefore(h,g);const bar=h.querySelector('i'),num=h.querySelector('b');bar.style.setProperty('--w',(100/n)+'%');g.addEventListener('scroll',()=>{const max=g.scrollWidth-g.clientWidth,p=max>0?g.scrollLeft/max:0,i=Math.round(p*(n-1));num.textContent=(i+1)+' / '+n;bar.style.setProperty('--x',(p*(n-1)*100)+'%');},{passive:true});});
+  })();
+
+  // Calculadora
+  let price=168000;const ids=['cA','cB','cC','cD'].map($);
+  function calc(){ids.forEach(r=>r.style.setProperty('--p',((r.value-r.min)/(r.max-r.min)*100)+'%'));const [A,B,C,D]=ids.map(r=>+r.value);$('oA').textContent=A;$('oB').textContent=B;$('oC').textContent=C;$('oD').textContent=cop(D);const v=A*B*price+C*D;$('outV').textContent=cop(v);const p=Math.round(v/30000000*100);$('outP').textContent=p;$('outT').textContent=Math.round(B*2500/8/30);$('outM').style.width=Math.min(p,100)+'%';}
+  ids.forEach(r=>r.addEventListener('input',calc));
+  document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.seg button').forEach(x=>x.classList.remove('act'));b.classList.add('act');price=+b.dataset.p;calc();}));calc();
+
+  // Portada: la cordillera hecha de neuronas; desde la finca salen pulsos que encienden 30 mesas
+  (function(){
+    const cv=$('net'),ctx=cv.getContext('2d');let W=0,H=0,M=false,s=null,t0=performance.now();const mouse={x:-999,y:-999};
+    function rnd(i){const x=Math.sin(i*127.1)*43758.5453;return x-Math.floor(x);}
+    function build(){
+      const lim=M?Math.max(document.querySelector('#s-portada .inner').offsetTop+document.querySelector('.cover-txt').offsetTop-20,250):H;
+      const x0=M?W*.03:W*.47,x1=M?W*.97:W*.985,top=M?84:H*.2,base=M?Math.min(lim,285)-52:H*.72,tableY=M?Math.min(lim,285)-18:H*.86;
+      const ridges=[],px=x0+(x1-x0)*.56;
+      [[.3,.2,.62,1],[.82,.2,.5,2],[.56,.27,.92,3]].forEach(([c,w,A,sd],L)=>{const n=M?15:26,pts=[];for(let i=0;i<=n;i++){const u=i/n,xx=x0+(x1-x0)*u;const g=Math.exp(-Math.pow((u-c)/w,2));const noise=(rnd(i*3+sd*11)-.5)*.1+Math.sin(u*11+sd)*.035;const hh=Math.min(1,Math.max(.03,A*g+noise*(.5+g)+.1));pts.push({x:xx,y:base-(base-top)*hh,b:rnd(i+sd*5)*6.3});}ridges.push(pts);});
+      const r=ridges[2];let pk=r[0];r.forEach(p=>{if(p.y<pk.y)pk=p;});
+      const cities=[['CAJICÁ',10,.0,.33],['BOGOTÁ',14,.36,.76],['MEDELLÍN',6,.8,1]],tables=[];
+      cities.forEach(([n,c,a,b])=>{for(let i=0;i<c;i++){const k=tables.length;tables.push({x:x0+(x1-x0)*(a+(b-a)*(i+.5)/c),y:tableY+(rnd(k+40)-.5)*(M?16:30),lit:0,on:false});}});
+      const dust=Array.from({length:M?40:80},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.3,vy:-(Math.random()*.18+.04),a:Math.random()*.2+.05}));
+      return{ridges,pk,tables,dust,pulses:[],cities,x0,x1,tableY,next:0,lit:0,hold:0};
+    }
+    function size(){const d=Math.min(devicePixelRatio||1,2);W=cv.offsetWidth;H=cv.offsetHeight;M=innerWidth<769;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);s=build();}
+    size();addEventListener('resize',size);document.fonts&&document.fonts.ready.then(size);
+    cv.parentElement.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+    function link(a,b,al){const nm=Math.min(Math.hypot(a.x-mouse.x,a.y-mouse.y),Math.hypot(b.x-mouse.x,b.y-mouse.y)),m=nm<180?(1-nm/180)*.5:0;ctx.strokeStyle='rgba(232,0,10,'+Math.min(al+m,1)+')';ctx.lineWidth=.7+m;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+    function node(x,y,r,hot){const g=ctx.createRadialGradient(x,y,r*.4,x,y,r*(hot?8:5));g.addColorStop(0,'rgba(232,0,10,'+(hot?.5:.2)+')');g.addColorStop(1,'rgba(232,0,10,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r*(hot?8:5),0,7);ctx.fill();ctx.fillStyle=hot?'#ff2a31':'#E8000A';ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();}
+    function label(t,x,y,hot,al){ctx.font=(hot?'800 ':'700 ')+'10px Barlow, sans-serif';ctx.textBaseline='middle';ctx.textAlign=al||'center';ctx.fillStyle=hot?'#fff':'rgba(255,255,255,.5)';ctx.fillText(t.split('').join(String.fromCharCode(8202)),x,y);ctx.textAlign='left';}
+    function frame(now){
+      const t=(now-t0)/1000;ctx.clearRect(0,0,W,H);
+      s.dust.forEach(d=>{d.y+=d.vy;if(d.y<0)d.y=H;ctx.fillStyle='rgba(255,255,255,'+d.a+')';ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,7);ctx.fill();});
+      s.ridges.forEach((R,L)=>{const pts=R.map(p=>({x:p.x,y:p.y+Math.sin(t*.5+p.b)*1.6}));for(let i=1;i<pts.length;i++){link(pts[i-1],pts[i],.14+L*.16);if(L<2){const o=s.ridges[L+1][i];link(pts[i],{x:o.x,y:o.y},.05);}}pts.forEach((p,i)=>{if(i%2===0||L===2)node(p.x,p.y,L===2?1.7:1.1,false);});});
+      node(s.pk.x,s.pk.y,3.6,true);label('FINCA · ARABIA',s.pk.x,s.pk.y-20,true);
+      if(reduce){s.tables.forEach(q=>{q.on=true;q.lit=1;});s.lit=30;}
+      else if(t>s.next&&s.lit+s.pulses.length<30){const free=s.tables.filter(q=>!q.on&&!q.busy);if(free.length){const q=free[Math.floor(Math.random()*free.length)];q.busy=true;s.pulses.push({q,p:0,cx:(s.pk.x+q.x)/2+(Math.random()-.5)*90,cy:(s.pk.y+q.y)/2+30});s.next=t+.24;}}
+      s.pulses=s.pulses.filter(u=>{u.p+=.012;const k=Math.min(u.p,1),a=1-k,x=a*a*s.pk.x+2*a*k*u.cx+k*k*u.q.x,y=a*a*s.pk.y+2*a*k*u.cy+k*k*u.q.y;ctx.strokeStyle='rgba(232,0,10,.16)';ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(s.pk.x,s.pk.y);ctx.quadraticCurveTo(u.cx,u.cy,x,y);ctx.stroke();const g=ctx.createRadialGradient(x,y,0,x,y,10);g.addColorStop(0,'rgba(255,240,220,.9)');g.addColorStop(.4,'rgba(255,120,50,.35)');g.addColorStop(1,'rgba(232,0,10,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,10,0,7);ctx.fill();if(k>=1){u.q.on=true;u.q.lit=1;u.q.busy=false;s.lit++;return false;}return true;});
+      s.tables.forEach((q,i)=>{if(i&&Math.hypot(q.x-s.tables[i-1].x,q.y-s.tables[i-1].y)<(M?36:70))link(q,s.tables[i-1],q.on?.3:.08);if(q.on)node(q.x,q.y,2.6,true);else{ctx.fillStyle='rgba(255,255,255,.22)';ctx.beginPath();ctx.arc(q.x,q.y,1.7,0,7);ctx.fill();}});
+      if(!M||W>360){s.cities.forEach(([n,c,a,b])=>label(n,s.x0+(s.x1-s.x0)*(a+b)/2,s.tableY+(M?17:30),false));}
+      label(s.lit+' / 30 MESAS',s.x1-4,s.pk.y-20,true,'right');
+      if(s.lit>=30&&!reduce){if(!s.hold)s.hold=t+3.2;if(t>s.hold){s.tables.forEach(q=>{q.on=false;q.lit=0;});s.lit=0;s.hold=0;s.next=t+.4;}}
+      if(!reduce)requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+})();
+</script>
+</body>
+</html>
