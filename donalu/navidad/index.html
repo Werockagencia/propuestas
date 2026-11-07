@@ -142,7 +142,8 @@ footer{background:var(--g2);color:var(--c2);padding:26px 0;font-size:14px}footer
     <h2>La pauta, <i>semana a semana.</i></h2>
     <p class="lead">Se paga directo a las plataformas. Sale más fuerte cuando las empresas están decidiendo.</p>
     <div class="tbw"><table><thead><tr><th>Semana</th><th>Foco</th><th>Pauta</th><th>Cajas acumuladas</th></tr></thead><tbody id="wk"></tbody><tfoot><tr><td>Total</td><td></td><td id="wkT"></td><td id="wkC"></td></tr></tfoot></table></div>
-    <p class="note">Fechas sujetas a aprobar la campaña esta semana. El último día de pedidos se define con su capacidad de despacho.</p>
+    <div class="tbw"><table><thead><tr><th>Canal</th><th>Para qué</th><th>Participación</th><th>Pauta</th></tr></thead><tbody id="ch"></tbody></table></div>
+    <p class="note">Valores antes de impuestos de las plataformas. La pauta se libera por etapas: primero las dos semanas de prueba, y el resto si los costos se sostienen. Fechas sujetas a aprobar la campaña esta semana. El último día de pedidos se define con su capacidad de despacho.</p>
   </div>
 </section>
 
@@ -182,11 +183,13 @@ footer{background:var(--g2);color:var(--c2);padding:26px 0;font-size:14px}footer
   const $=id=>document.getElementById(id), cop=v=>'$'+Math.round(v).toLocaleString('es-CO');
   const TICKET=119000, B2B=.7, POR_EMPRESA=14, COSTO_HOGAR=2500/.08, COSTO_EMPRESA=18000/.1, MINIMO=1500000;
   const WK=[['16 al 22 de noviembre','Prueba y empresas',.15,.05],['23 al 29 de noviembre','Empresas y Black Friday',.2,.2],['30 de noviembre al 6 de diciembre','Empresas al máximo',.3,.5],['7 al 13 de diciembre','Hogares y recordatorio',.25,.85],['14 al 20 de diciembre','Últimos pedidos',.1,1]];
+  const CH=[['Instagram y Facebook','Regalos de hogares a WhatsApp',.41],['LinkedIn','Quien decide en la empresa',.29],['Instagram y Facebook','Empresas a cotización',.2],['Instagram y Facebook','Recordatorio a interesados',.1]];
   function set(m){
     const emp=Math.ceil(m*B2B/POR_EMPRESA), cajasE=Math.round(m*B2B), hog=m-cajasE, ventas=m*TICKET;
     const pauta=Math.max(MINIMO,Math.round((hog*COSTO_HOGAR+emp*COSTO_EMPRESA)/1e5)*1e5);
     $('kV').textContent=cop(ventas);$('kE').textContent=emp+(emp===1?' empresa':' empresas');$('kEs').textContent=cajasE+' cajas para empresas, unas '+POR_EMPRESA+' por pedido';$('kH').textContent=hog+' regalos';$('kP').textContent=cop(pauta);$('kPs').textContent='Pauta total, '+Math.round(pauta/ventas*100)+' % de las ventas estimadas';
     $('wk').innerHTML=WK.map(w=>`<tr><td>${w[0]}</td><td>${w[1]}</td><td>${cop(pauta*w[2])}</td><td>${Math.round(m*w[3])}</td></tr>`).join('');
+    $('ch').innerHTML=CH.map(c=>`<tr><td>${c[0]}</td><td>${c[1]}</td><td>${Math.round(c[2]*100)} %</td><td>${cop(pauta*c[2])}</td></tr>`).join('');
     $('wkT').textContent=cop(pauta);$('wkC').textContent=m;
     document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m==m));
   }
