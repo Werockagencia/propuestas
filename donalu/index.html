@@ -206,6 +206,8 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
 .inc4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;margin-top:2px}.inc-c{background:var(--dk3);padding:14px 16px}.inc-c h3{font-size:14px;font-weight:800;color:#fff;margin-bottom:6px}.inc-c ul{list-style:none;display:grid;gap:4px}.inc-c li{font-size:12.8px;line-height:1.32;color:var(--text-dk2)}
 #s-navidad .phases{grid-template-columns:repeat(3,minmax(0,1fr))}#s-navidad .ph{background:rgba(22,22,22,.9)}
 @media(max-width:768px){.inc4{grid-template-columns:minmax(0,1fr)}}
+.mk-l{margin-top:20px;margin-bottom:8px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+@media(max-width:768px){#s-plataformas .soc{grid-template-columns:minmax(0,1fr)!important}}
 </style>
 </head>
 <body>
@@ -493,7 +495,7 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
     <div class="lbl rv" style="margin-bottom:8px">Inversión · plan de arranque, 4 meses</div>
     <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:0">Lo mismo incluido. <em>Dos formas de pagarlo.</em></h2>
     <div class="soc rv" style="--d:2">
-      <div class="soc-c"><small>Plan fijo</small><b>$18.150.000</b><p>Todo el plan de 4 meses, sin porcentaje sobre ventas.</p></div>
+      <div class="soc-c"><small>Plan normal</small><b>$18.150.000</b><p>Todo el plan de 4 meses, sin porcentaje sobre ventas.</p></div>
       <div class="soc-c on"><small>Plan Socio</small><b>$10.890.000 <em>+ 7 %</em></b><p>El mismo plan con el 60 % del valor, más el 7 % de las ventas nuevas durante 12 meses.</p></div>
     </div>
     <div class="inc4 rv" style="--d:3">
@@ -512,24 +514,32 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
     <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:8px">Menos de entrada. <em>Ganamos cuando ustedes venden.</em></h2>
     <p class="lead rv" style="--d:1;color:#cfcbc2;max-width:860px">No es nuestra forma habitual de trabajar. Se lo proponemos a Doña Lú porque creemos en este café.</p>
     <div class="soc rv" style="--d:2">
-      <div class="soc-c on"><small>De entrada</small><b>$7.260.000 menos</b><p>Es lo que dejan de pagar frente al plan fijo durante los 4 meses.</p></div>
+      <div class="soc-c on"><small>De entrada</small><b>$7.260.000 menos</b><p>Es lo que dejan de pagar frente al plan normal durante los 4 meses.</p></div>
       <div class="soc-c"><small>Después</small><b>7 % de ventas nuevas</b><p>Solo sobre lo que vendan de más, durante 12 meses. Si no hay ventas nuevas, no hay porcentaje.</p></div>
     </div>
     <table class="soc-t rv" style="--d:3">
       <thead><tr><th>Ventas nuevas al mes</th><th>7 % en 12 meses</th><th>Total a We Rock</th></tr></thead>
       <tbody><tr><td>$5.000.000</td><td>$4.200.000</td><td>$15.090.000</td></tr><tr><td>$9.000.000</td><td>$7.560.000</td><td>$18.450.000</td></tr><tr><td>$30.000.000 (la meta)</td><td>$25.200.000</td><td>$36.090.000</td></tr></tbody>
     </table>
-    <p class="src" style="margin-top:8px">Ventas nuevas: las de la tienda online, Casas que honran y las cajas navideñas, antes de IVA y sobre una línea base que fijamos juntos antes de empezar. Lo que ya venden hoy no cuenta. Liquidación mensual con reporte de pedidos y facturación. Si terminan antes de los 12 meses, pagan lo que falte de los $7.260.000 descontados del plan fijo. El porcentaje se ajusta cuando revisemos juntos su margen.</p>
+    <p class="src" style="margin-top:8px">Ventas nuevas: las de la tienda online, Casas que honran y las cajas navideñas, antes de IVA y sobre una línea base que fijamos juntos antes de empezar. Lo que ya venden hoy no cuenta. Liquidación mensual con reporte de pedidos y facturación. Si terminan antes de los 12 meses, pagan lo que falte de los $7.260.000 descontados del plan normal. El porcentaje se ajusta cuando revisemos juntos su margen.</p>
   </div>
 </section>
 
-<section class="slide dk" id="s-plataformas" data-title="Plataformas y pagos" style="padding-top:70px;padding-bottom:56px">
+<section class="slide dk" id="s-plataformas" data-title="Plataformas y marketing" style="padding-top:70px;padding-bottom:56px">
   <div class="inner">
     <div class="lbl rv" style="margin-bottom:8px">Plataformas y marketing digital</div>
     <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:8px">El Plan Socio <em>cubre la pauta.</em></h2>
-    <p class="lead rv" style="--d:1;color:#cfcbc2;max-width:900px">$950.000 al mes en Meta y LinkedIn durante 3 meses, pagados directo a las plataformas. Los $7.260.000 que no pagan de entrada cubren los $2.850.000 de pauta y les sobran $4.410.000.</p>
-    <div class="inv-wrap rv" style="--d:2"><table class="inv" id="inv"></table></div>
-    <p class="src" style="margin-top:8px">Pesos colombianos, antes de IVA. El 7 % de ventas nuevas se liquida aparte, cada mes. Licencia con TRM de referencia $4.100. Comisiones de pasarela (Wompi avanzado 2,65 % + $700 + IVA por venta), impresos y muestras de café corren por cuenta de Doña Lú.</p>
+    <p class="lead rv" style="--d:1;color:#cfcbc2;max-width:900px">Los dos planes incluyen todo: marca, tienda, audiovisual, contenido y comercial.</p>
+    <div class="soc rv" style="--d:2;grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div class="soc-c"><small>Total plan normal</small><b>$18.150.000</b></div>
+      <div class="soc-c on"><small>Total Plan Socio</small><b>$10.890.000 <em>+ 7 %</em></b></div>
+    </div>
+    <div class="mk-l rv" style="--d:3">Aparte · presupuesto para invertir en marketing</div>
+    <div class="soc rv" style="--d:3;margin-top:0;grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div class="soc-c on"><small>Pauta en Meta y LinkedIn</small><b>$2.850.000</b><p>$950.000 al mes durante 3 meses, pagados directo a las plataformas.</p></div>
+      <div class="soc-c"><small>Plataformas y viáticos</small><b>$2.322.700</b><p>Dominio, hosting, licencia de HalconBot y viáticos de la expedición.</p></div>
+    </div>
+    <p class="src" style="margin-top:8px">Pesos colombianos, antes de IVA. Con el Plan Socio pagan $7.260.000 menos de entrada: eso cubre la pauta y les sobran $4.410.000. El presupuesto de la campaña de Navidad va aparte, en su propia página.</p>
   </div>
 </section>
 
@@ -570,20 +580,6 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   const P = [['San Alberto 340 g',71000/3.4],['Amor Perfecto 350 g',54900/3.5],['Doña Lú Natural 250 g',38000/2.5,1],['Doña Lú Natural 500 g',63000/5,1],['Matiz 340 g',34900/3.4],['Doña Lú Honey 500 g',47000/5,1],['Doña Lú Lavado 500 g',42000/5,1]];
   const mx = Math.max(...P.map(p=>p[1]));
   $('bars').innerHTML = P.map((p,i)=>`<div class="bar${p[2]?' me':''}"><span>${p[0]}</span><div class="tr"><i style="--w:${p[1]/mx*100}%;--d:${i}"></i></div><b>${cop(Math.round(p[1]/100)*100)}</b></div>`).join('');
-
-  // Pagos con Plan Socio: las sumas se calculan aquí para que nunca se descuadren
-  const FIJO = [5400000,4550000,5800000,2400000], SOCIO = FIJO.map(v=>v*.6);
-  const PROV = [['Pauta en Meta y LinkedIn','Cajicá, Bogotá y Sabana Norte',[0,950000,950000,950000]],['Dominio, hosting y licencia HalconBot','primer año y US$49 al mes',[520000,200900,200900,200900]],['Viáticos de la expedición','transporte y hospedaje · estimado',[0,0,1200000,0]]];
-  const add = (...a) => [0,1,2,3].map(i=>a.reduce((s,x)=>s+x[i],0));
-  const tot = a => a.reduce((x,y)=>x+y,0);
-  const cell = (v,i) => v ? `<td data-m="Mes ${i+1}">${cop(v)}</td>` : `<td class="dash" data-m="Mes ${i+1}">—</td>`;
-  const row = r => `<tr><td>${r[0]}<span class="note2">${r[1]}</span></td>${r[2].map(cell).join('')}<td class="tt">${cop(tot(r[2]))}</td></tr>`;
-  const sub = (t,a,c) => `<tr class="${c||'sub'}"><td>${t}</td>${a.map(cell).join('')}<td class="tt">${cop(tot(a))}</td></tr>`;
-  const prov = add(...PROV.map(r=>r[2]));
-  $('inv').innerHTML = `<thead><tr><th>Pagos</th><th>Mes 1</th><th>Mes 2</th><th>Mes 3</th><th>Mes 4</th><th>Total</th></tr></thead><tbody>`+
-    row(['Pago a We Rock','Plan Socio',SOCIO])+PROV.map(row).join('')+
-    sub('Total con Plan Socio',add(SOCIO,prov),'tot')+
-    sub('Comparación: total con plan fijo',add(FIJO,prov))+'</tbody>';
 
   // Motor del deck
   const slides = [...document.querySelectorAll('.slide')], dotsEl = $('dots'), cNow = $('cNow');
