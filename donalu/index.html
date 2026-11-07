@@ -204,10 +204,16 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
 
 /* comparativo */
 .inc4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;margin-top:2px}.inc-c{background:var(--dk3);padding:14px 16px}.inc-c h3{font-size:14px;font-weight:800;color:#fff;margin-bottom:6px}.inc-c ul{list-style:none;display:grid;gap:4px}.inc-c li{font-size:12.8px;line-height:1.32;color:var(--text-dk2)}
-#s-navidad .phases{grid-template-columns:repeat(3,minmax(0,1fr))}#s-navidad .ph{background:rgba(22,22,22,.9)}
 @media(max-width:768px){.inc4{grid-template-columns:minmax(0,1fr)}}
 .mk-l{margin-top:20px;margin-bottom:8px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
 @media(max-width:768px){#s-plataformas .soc{grid-template-columns:minmax(0,1fr)!important}}
+
+/* navidad */
+#s-navidad{background:radial-gradient(110% 95% at 72% 40%,#17503a 0%,#0F3B26 48%,#0A2A1B 100%)}#s-navidad .lbl{color:#C9A45C}#s-navidad .lbl::before{background:#C9A45C}#s-navidad .h2 em{color:#E7CF97}#s-navidad .lead{color:#EADFC9;max-width:560px}#s-navidad .src{color:rgba(246,239,225,.72);max-width:600px}
+#s-navidad .btn{background:#C9A45C;color:#0A2A1B;border-color:#C9A45C}#s-navidad .btn.ghost{background:transparent;color:#F6EFE1;border:1px solid #C9A45C}
+.nv{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:48px;align-items:center}.nst{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}.nst div{border-top:2px solid #C9A45C;padding-top:10px}.nst small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#E7CF97;min-height:26px;line-height:1.25}.nst b{display:block;font-size:20px;font-weight:800;color:#fff;margin:4px 0 2px}.nst span{display:block;font-size:13.5px;line-height:1.32;color:#EADFC9}
+.fan{position:relative;height:min(70vh,560px)}.fan img{position:absolute;height:auto;box-shadow:0 18px 44px rgba(0,0,0,.5)}.fan .f1{width:47%;left:0;top:7%;transform:rotate(-6deg)}.fan .f2{width:38%;right:0;top:0;transform:rotate(5deg)}.fan .f3{width:54%;left:24%;bottom:0;z-index:2}
+@media(max-width:768px){.nv{grid-template-columns:minmax(0,1fr);gap:30px}.nst{grid-template-columns:minmax(0,1fr);gap:12px}.nst small{min-height:0}.fan{height:400px}}
 </style>
 </head>
 <body>
@@ -244,7 +250,7 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   <div class="bg-photo" style="background-image:url(img/recolector.webp);background-position:center 22%" aria-hidden="true"></div>
   <div class="inner">
     <div class="lbl rv">Lo que escuchamos</div>
-    <h2 class="h2 rv" style="--d:1">El café es <em>tiempo.</em> Y casi nadie lo cuenta.</h2>
+    <h2 class="h2 rv" style="--d:1">El café es <em>tiempo.</em> Y merece contarse.</h2>
     <p class="lead rv" style="--d:2;color:#cfcbc2">Ustedes tienen finca propia en Arabia, Risaralda, y controlan del germinador al empaque. No quieren una marca comercial más: quieren transmitir lo que se vive en un cafetal.</p>
     <div class="trio-bags" style="margin-top:20px">
       <article class="tb rv" style="--d:3"><img src="img/bolsa-lavado.webp" alt="Bolsa azul de café Lavado" loading="lazy"><div><h3>Lavado</h3><p>Limpio y equilibrado. El que más piden las cafeterías.</p></div></article>
@@ -252,10 +258,10 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
       <article class="tb rv" style="--d:5"><img src="img/bolsa-natural.webp" alt="Bolsa negra de café Natural" loading="lazy"><div><h3>Natural</h3><p>Se seca en cereza. Afrutado, vinoso, intenso.</p></div></article>
     </div>
     <div class="facts rv" style="--d:6">
-      <div><b>Sitio web</b><span>Sin tienda y con textos genéricos.</span></div>
-      <div><b>Marca</b><span>Dos logos, dos nombres y dos usuarios en redes.</span></div>
-      <div><b>Origen</b><span>Se cuenta distinto en cada pieza.</span></div>
-      <div><b>Venta a negocios</b><span>Aún no se puede cotizar máquina y café en línea.</span></div>
+      <div><b>Sitio web</b><span>Listo para sumar tienda online.</span></div>
+      <div><b>Marca</b><span>Con identidad propia, lista para unificarse.</span></div>
+      <div><b>Origen</b><span>Una historia real para contar en una sola voz.</span></div>
+      <div><b>Venta a negocios</b><span>Espacio para cotizar máquina y café en línea.</span></div>
     </div>
   </div>
 </section>
@@ -269,7 +275,7 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   <div class="inner split" style="grid-template-columns:1.25fr .75fr;gap:48px">
     <div>
       <div class="lbl rv">Mercado y precio</div>
-      <h2 class="h2 rv" style="--d:1">Su Lavado de finca cuesta <em>menos que un café de supermercado.</em></h2>
+      <h2 class="h2 rv" style="--d:1">Su café de finca tiene <em>espacio para valer más.</em></h2>
       <div class="tiny rv" style="--d:2;margin-bottom:10px">Precio por cada 100 g</div>
       <div class="bars" id="bars"></div>
     </div>
@@ -352,14 +358,14 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   <div class="inner split">
     <div>
       <div class="lbl rv">Marca</div>
-      <h2 class="h2 rv" style="--d:1">Terminar lo que <em>ya empezaron.</em></h2>
-      <p class="lead rv" style="--d:2">El wordmark nuevo y la paleta de tres bolsas van bien. No empezamos de cero: lo pulimos y lo volvemos manual.</p>
+      <h2 class="h2 rv" style="--d:1">Partimos de lo que <em>ya construyeron.</em></h2>
+      <p class="lead rv" style="--d:2">El wordmark y la paleta de tres bolsas son una gran base. Sobre ella construimos el manual.</p>
       <ul class="delv rv" style="--d:3"><li>Logo final en vector y variantes</li><li>Paleta, tipografía y tono de voz</li><li>Etiquetas de los 3 procesos y cápsulas</li><li>Sello “Casas que honran”</li><li>Relato de origen único</li><li>Manual y un solo usuario en redes</li></ul>
     </div>
     <div class="brand-board rv-3d" style="--d:2">
       <div class="bb g"><img src="img/wordmark-crema.svg" alt="Doña Lú sobre verde"></div>
       <div class="bb c"><img src="img/wordmark.svg" alt="Doña Lú sobre crema"></div>
-      <div class="bb" style="grid-column:1/-1"><small>Paleta de partida: finca + tres procesos</small><div class="swatches" aria-hidden="true"><i style="background:#0F3B26"></i><i style="background:#1E3D78"></i><i style="background:#B5161F"></i><i style="background:#1D1B1A"></i><i style="background:#F3ECDF"></i></div><p class="src" style="margin-top:10px">Wordmark redibujado por We Rock a partir de su pieza actual, solo para esta propuesta. El vector final se entrega con el manual.</p></div>
+      <div class="bb" style="grid-column:1/-1"><small>Paleta de partida: finca + tres procesos</small><div class="swatches" aria-hidden="true"><i style="background:#0F3B26"></i><i style="background:#1E3D78"></i><i style="background:#B5161F"></i><i style="background:#1D1B1A"></i><i style="background:#F3ECDF"></i></div><p class="src" style="margin-top:10px">Wordmark trazado por We Rock a partir de su pieza actual, solo para esta propuesta. El vector final se entrega con el manual.</p></div>
     </div>
   </div>
 </section>
@@ -444,18 +450,24 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
 </section>
 
 <section class="slide dk noise" id="s-navidad" data-title="Navidad">
-  <div class="bg-photo" style="background-image:url(img/cerezas.webp)" aria-hidden="true"></div>
-  <div class="inner">
-    <div class="lbl rv">Navidad · cierre de año</div>
-    <h2 class="h2 rv" style="--d:1">Diciembre puede <em>ayudar a pagar 2027.</em></h2>
-    <p class="lead rv" style="--d:1;color:#cfcbc2;max-width:800px">Las cajas navideñas van primero. Ya rediseñamos su catálogo y dejamos lista la campaña: públicos, piezas y pauta.</p>
-    <div class="phases">
-      <article class="ph rv" style="--d:2"><small>Esta semana</small><h3>La base</h3><ul><li>Catálogo nuevo en PDF</li><li>10 piezas listas para pautar</li><li>Meta de cajas confirmada</li></ul></article>
-      <article class="ph rv" style="--d:3"><small>Desde el 16 de noviembre</small><h3>Empresas</h3><ul><li>LinkedIn y Meta</li><li>Lista de 250 empresas</li><li>Cotización por WhatsApp</li></ul></article>
-      <article class="ph rv" style="--d:4"><small>Diciembre</small><h3>Hogares</h3><ul><li>Instagram y Facebook a WhatsApp</li><li>Recordatorio a interesados</li><li>Últimos pedidos</li></ul></article>
+  <div class="inner nv">
+    <div>
+      <div class="lbl rv">Navidad · cierre de año</div>
+      <h2 class="h2 rv" style="--d:1">Una Navidad que <em>impulsa 2027.</em></h2>
+      <p class="lead rv" style="--d:1">Sus cajas navideñas van primero. Partimos de su catálogo y preparamos la campaña: públicos, piezas y pauta.</p>
+      <div class="nst rv" style="--d:2">
+        <div><small>Esta semana</small><b>La base</b><span>Catálogo y 10 piezas listas</span></div>
+        <div><small>Desde el 16 de noviembre</small><b>Empresas</b><span>LinkedIn, Meta y contacto directo</span></div>
+        <div><small>Diciembre</small><b>Hogares</b><span>Instagram y Facebook a WhatsApp</span></div>
+      </div>
+      <div class="cover-cta rv" style="--d:3;margin:22px 0 0"><a class="btn" href="navidad/" target="_blank" rel="noopener">Ver la campaña de Navidad</a><a class="btn ghost" href="navidad/catalogo/catalogo-navidad-dona-lu-2026.pdf" target="_blank" rel="noopener">Ver el catálogo</a></div>
+      <p class="src rv" style="--d:4">Con el Plan Socio, nuestro trabajo en esta campaña va incluido: ganamos con el 7 % de lo vendido. La pauta se paga directo a las plataformas.</p>
     </div>
-    <div class="cover-cta rv" style="--d:5;margin:18px 0 0"><a class="btn" href="navidad/" target="_blank" rel="noopener">Ver la campaña de Navidad</a><a class="btn ghost" href="navidad/catalogo/catalogo-navidad-dona-lu-2026.pdf" target="_blank" rel="noopener">Ver el catálogo nuevo</a></div>
-    <p class="src" style="color:rgba(255,255,255,.72)">Con el Plan Socio, nuestro trabajo en esta campaña va incluido: ganamos con el 7 % de lo vendido. La pauta se paga directo a las plataformas.</p>
+    <div class="fan rv-3d" style="--d:2" aria-hidden="true">
+      <img class="f1" src="navidad/catalogo/pagina-01.jpg" alt="" width="827" height="1170" loading="lazy">
+      <img class="f2" src="navidad/ads/ad-02-story-cestas.png" alt="" width="1080" height="1920" loading="lazy">
+      <img class="f3" src="navidad/ads/ad-01-feed-regala.png" alt="" width="1080" height="1350" loading="lazy">
+    </div>
   </div>
 </section>
 
@@ -554,7 +566,7 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   <div class="bg-photo" style="background-image:url(img/taza.webp)" aria-hidden="true"></div>
   <div class="inner">
     <img class="rv" src="img/wordmark-crema.svg" alt="Doña Lú" style="width:200px;margin-bottom:18px">
-    <h2 class="h2 rv" style="--d:1;max-width:820px">El café ya está. <em>Falta contarlo y venderlo.</em></h2>
+    <h2 class="h2 rv" style="--d:1;max-width:820px">El café ya está. <em>Ahora, a contarlo juntos.</em></h2>
     <p class="lead rv" style="--d:1;color:#cfcbc2;max-width:760px">We Rock, desde 2018: marca, tecnología, audiovisual y comercial en un solo equipo, con sitios reconocidos por los premios MUSE y conversación directa con David Higuera, más de 15 años en estrategia digital.</p>
     <div class="steps">
       <div class="st rv" style="--d:2"><b>1</b><span>Conversamos la propuesta y navegan juntos la demo.</span></div>
