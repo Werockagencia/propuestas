@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Campaña de Navidad · Doña Lú</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0F3B26;--g2:#0A2A1B;--g3:#154a31;--c:#F6EFE1;--c2:#EADFC9;--gold:#C9A45C;--gold2:#E7CF97;--ink:#2B1D12;--gold3:#8a6a2a}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Jost',system-ui,sans-serif;font-size:18px;line-height:1.55;color:var(--ink);background:var(--c);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}a{color:inherit}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.012em;line-height:1.06;text-wrap:balance}
+h1 i,h2 i{font-weight:300}
+.top{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;align-items:center;gap:24px;padding:12px 32px;background:rgba(10,42,27,.94);backdrop-filter:blur(8px);color:var(--c)}
+.top img{width:92px}.top nav{display:flex;gap:22px;margin-left:auto;font-size:14.5px}.top nav a{text-decoration:none;opacity:.86}.top nav a:hover{opacity:1;color:var(--gold2)}
+.top .back{font-size:14px;border:1px solid var(--gold);padding:7px 14px;text-decoration:none;white-space:nowrap}
+.wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+section{padding:92px 0}.dk{background:radial-gradient(110% 80% at 50% 0%,var(--g3) 0%,var(--g) 50%,var(--g2) 100%);color:var(--c)}.c2{background:var(--c2)}
+.eye{display:block;font-size:13px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--gold3);margin-bottom:14px}.dk .eye{color:var(--gold)}
+h2{font-size:clamp(34px,4.4vw,56px);color:var(--g);margin-bottom:16px}.dk h2{color:#fff}.dk h2 i{color:var(--gold2)}h2 i{color:var(--gold3)}
+.lead{font-size:21px;line-height:1.45;max-width:760px}.dk .lead{color:var(--c2)}
+.note{font-size:14px;line-height:1.5;opacity:.72;margin-top:18px;max-width:880px}
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding:110px 0 70px}.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;width:100%}
+.hero h1{font-size:clamp(46px,6.2vw,84px);color:#fff;margin-bottom:22px}.hero h1 i{color:var(--gold2)}
+.oval{border-radius:50%;overflow:hidden;background:var(--c2)}.oval img{width:100%;height:100%;object-fit:cover;transform:scale(1.06)}
+.rim{border:1.5px solid var(--gold);border-radius:50%;padding:12px;width:min(100%,430px);aspect-ratio:3/4;margin:0 auto}.rim .oval{width:100%;height:100%}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--gold);color:var(--g2);font-weight:600;font-size:16.5px;padding:14px 24px;text-decoration:none;border:1px solid var(--gold);cursor:pointer;font-family:inherit;touch-action:manipulation}.btn:hover{background:var(--gold2)}.btn.gh{background:transparent;color:inherit}.btn.gh:hover{background:rgba(201,164,92,.16)}.btn.dkb{background:var(--g);border-color:var(--g);color:var(--c)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+/* meta */
+.seg{display:inline-flex;margin:24px 0 8px;border:1px solid var(--gold)}.seg button{font:inherit;font-weight:500;background:none;color:inherit;border:0;padding:11px 20px;cursor:pointer;touch-action:manipulation}.seg button[aria-pressed=true]{background:var(--gold);color:var(--g2)}
+.kp{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:20px}.kp div{background:rgba(255,255,255,.06);padding:24px 22px;border-top:2px solid var(--gold)}.kp b{display:block;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(26px,2.7vw,36px);line-height:1.05;color:#fff;font-variant-numeric:tabular-nums}.kp span{display:block;margin-top:8px;font-size:15.5px;line-height:1.36;color:var(--c2)}
+/* tarjetas */
+.g3,.g4{display:grid;gap:18px;margin-top:32px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.cd{background:#fffaf0;padding:24px 22px;border-top:3px solid var(--gold)}.cd h3{font-size:24px;color:var(--g);margin-bottom:8px}.cd p{font-size:16px;line-height:1.42}.cd dl{margin-top:12px;font-size:15px;line-height:1.38}.cd dt{font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold3);margin-top:10px}
+.pct{font-family:'Fraunces',serif;font-size:40px;line-height:1;color:var(--gold3);display:block;margin-bottom:8px;font-variant-numeric:tabular-nums}
+/* piezas */
+.pz{columns:3;column-gap:18px;margin-top:32px}.pz figure{break-inside:avoid;margin-bottom:18px;background:rgba(255,255,255,.06);padding:10px}.pz img{width:100%;height:auto}.pz figcaption{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 4px 2px;font-size:14px;line-height:1.3;color:var(--c2)}.pz figcaption a{flex:none;font-weight:600;color:var(--gold2);text-underline-offset:3px}
+/* catálogo */
+.cat{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center}.pages{display:flex;gap:12px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory;scrollbar-color:var(--gold) transparent}.pages img{flex:none;width:300px;height:auto;scroll-snap-align:start;box-shadow:0 8px 24px rgba(43,29,18,.22)}
+/* tablas */
+.tbw{overflow-x:auto;margin-top:28px}table{width:100%;border-collapse:collapse;min-width:640px;background:#fffaf0}th,td{padding:12px 16px;text-align:right;font-variant-numeric:tabular-nums;font-size:16.5px;border-bottom:1px solid var(--c2)}th:first-child,td:first-child{text-align:left}th{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold3)}tfoot td{font-weight:600;color:var(--g);border-top:2px solid var(--gold);border-bottom:0}
+.rules{display:grid;gap:2px;margin-top:28px}.rules div{display:grid;grid-template-columns:1fr 1fr;gap:22px;background:rgba(255,255,255,.06);padding:15px 20px;font-size:16.5px;line-height:1.38}.rules b{font-weight:500;color:var(--gold2)}
+.deal{display:grid;grid-template-columns:1.2fr .8fr;gap:42px;align-items:center}.need{list-style:none;columns:1}.need li{padding:10px 0;border-top:1px solid rgba(201,164,92,.5);font-size:16.5px;line-height:1.36}
+footer{background:var(--g2);color:var(--c2);padding:26px 0;font-size:14px}footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:900px){.top nav{display:none}.top .back{margin-left:auto}.hero .wrap,.cat,.deal{grid-template-columns:minmax(0,1fr)}.kp,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:minmax(0,1fr)}.pz{columns:2}.rim{width:min(76%,340px)}section{padding:66px 0}.wrap{padding:0 20px}.top{padding:10px 20px}}
+@media(max-width:560px){.pz{columns:1}.kp,.g4{grid-template-columns:minmax(0,1fr)}.rules div{grid-template-columns:minmax(0,1fr);gap:4px}.seg button{padding:10px 14px}.pages img{width:250px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+  <img src="../img/wordmark-crema.svg" alt="Doña Lú" width="92" height="40">
+  <nav aria-label="Secciones"><a href="#meta">Meta</a><a href="#publicos">Públicos</a><a href="#campanas">Campañas</a><a href="#piezas">Piezas</a><a href="#catalogo">Catálogo</a><a href="#presupuesto">Presupuesto</a></nav>
+  <a class="back" href="../">Volver a la propuesta</a>
+</header>
+
+<main>
+<section class="dk hero">
+  <div class="wrap">
+    <div>
+      <span class="eye">Campaña de Navidad 2026</span>
+      <h1>Las cajas ya existen. <i>Ahora, a venderlas.</i></h1>
+      <p class="lead">Dejamos listos el catálogo, 10 piezas, los públicos y el presupuesto de pauta para salir apenas ustedes lo aprueben.</p>
+      <div class="cta"><a class="btn" href="#piezas">Ver las piezas</a><a class="btn gh" href="catalogo/catalogo-navidad-dona-lu-2026.pdf" download>Descargar catálogo</a></div>
+    </div>
+    <div class="rim"><div class="oval"><img src="img/ref-09.jpg" alt="Caja Doña Lú de madera con dos bolsas de café" width="858" height="1149"></div></div>
+  </div>
+</section>
+
+<section class="dk" id="meta" style="background:var(--g2)">
+  <div class="wrap">
+    <span class="eye">La meta</span>
+    <h2>Todo se calcula <i>desde las cajas que hay que vender.</i></h2>
+    <p class="lead">El catálogo promedia $119.000 por caja. Elijan la meta y el plan se ajusta.</p>
+    <div class="seg" role="group" aria-label="Meta de cajas"><button data-m="50" aria-pressed="false">50 cajas</button><button data-m="250" aria-pressed="false">250 cajas</button><button data-m="500" aria-pressed="true">500 cajas</button></div>
+    <div class="kp" aria-live="polite">
+      <div><b id="kV">$59.500.000</b><span>Ventas estimadas, IVA incluido</span></div>
+      <div><b id="kE">25 empresas</b><span id="kEs">350 cajas para empresas, unas 14 por pedido</span></div>
+      <div><b id="kH">150 regalos</b><span>Cajas para hogares por WhatsApp</span></div>
+      <div><b id="kP">$9.200.000</b><span id="kPs">Pauta total, 15 % de las ventas estimadas</span></div>
+    </div>
+    <p class="note">Simulación, no promesa. Supone 70 % de cajas para empresas, $2.500 por conversación con 8 % de cierre en hogares, y $18.000 por contacto calificado con 10 % de cierre en empresas. La primera semana reemplaza estos supuestos por datos reales.</p>
+  </div>
+</section>
+
+<section id="publicos">
+  <div class="wrap">
+    <span class="eye">Públicos</span>
+    <h2>Primero empresas, <i>porque una compra vale por catorce.</i></h2>
+    <p class="lead">Una empresa decide una vez y compra muchas cajas. Por eso la campaña empieza por ahí, mientras los hogares calientan diciembre.</p>
+    <div class="g4">
+      <article class="cd"><h3>Quien decide en la empresa</h3><p>Gerencia, talento humano y compras de pymes en Bogotá, Cajicá y Sabana Norte.</p><dl><dt>Quiere</dt><dd>Quedar bien sin complicarse</dd><dt>Mensaje</dt><dd>Un regalo que sí van a abrir</dd></dl></article>
+      <article class="cd"><h3>Quien regala en casa</h3><p>Personas de 28 a 55 años en Bogotá y Sabana Norte, con interés en regalos, gastronomía y hogar.</p><dl><dt>Quiere</dt><dd>Un regalo bonito y listo</dd><dt>Mensaje</dt><dd>Regala café que se honra</dd></dl></article>
+      <article class="cd"><h3>Quien ama el café</h3><p>Seguidores de cafés de origen, métodos de preparación y marcas de especialidad.</p><dl><dt>Quiere</dt><dd>Probar algo con historia</dd><dt>Mensaje</dt><dd>Los tres procesos en una caja</dd></dl></article>
+      <article class="cd"><h3>Quien ya los conoce</h3><p>Clientes actuales, seguidores de @donalucoffee y personas que vieron el catálogo.</p><dl><dt>Quiere</dt><dd>Un empujón para decidir</dd><dt>Mensaje</dt><dd>¿Ya elegiste tu caja?</dd></dl></article>
+    </div>
+  </div>
+</section>
+
+<section class="c2" id="campanas">
+  <div class="wrap">
+    <span class="eye">Campañas</span>
+    <h2>Tres campañas, <i>un solo cierre por WhatsApp.</i></h2>
+    <div class="g3">
+      <article class="cd"><span class="pct">49 %</span><h3>Empresas</h3><p>LinkedIn y Meta llevan a cotización. En paralelo contactamos una lista de 250 empresas uno a uno.</p><dl><dt>Objetivo</dt><dd>Contactos calificados</dd><dt>Piezas</dt><dd>Feed empresas y LinkedIn</dd></dl></article>
+      <article class="cd"><span class="pct">41 %</span><h3>Regalo de temporada</h3><p>Instagram y Facebook llevan directo a WhatsApp con el catálogo listo para enviar.</p><dl><dt>Objetivo</dt><dd>Conversaciones de compra</dd><dt>Piezas</dt><dd>Feed, historia y carrusel</dd></dl></article>
+      <article class="cd"><span class="pct">10 %</span><h3>Recordatorio</h3><p>Vuelve a quienes vieron el catálogo o escribieron y no cerraron. Sube en diciembre.</p><dl><dt>Objetivo</dt><dd>Pedidos cerrados</dd><dt>Piezas</dt><dd>Historia y feed de recordatorio</dd></dl></article>
+    </div>
+  </div>
+</section>
+
+<section class="dk" id="piezas">
+  <div class="wrap">
+    <span class="eye">Piezas</span>
+    <h2>Listas para <i>pautar.</i></h2>
+    <p class="lead">Hechas con sus fotos y precios reales, en los formatos que pide cada plataforma.</p>
+    <div class="cta"><a class="btn" href="ads/ads-navidad-dona-lu.zip" download>Descargar las 10 piezas</a></div>
+    <div class="pz" id="pz"></div>
+  </div>
+</section>
+
+<section id="catalogo">
+  <div class="wrap cat">
+    <div>
+      <span class="eye">Catálogo rediseñado</span>
+      <h2>El mismo portafolio, <i>a la altura del café.</i></h2>
+      <p class="lead">Las 10 referencias, ordenadas por presupuesto, con una página para empresas y los dos WhatsApp con un clic.</p>
+      <div class="cta"><a class="btn dkb" href="catalogo/catalogo-navidad-dona-lu-2026.pdf" download>Descargar PDF</a><a class="btn gh" href="catalogo/catalogo-navidad-dona-lu-2026.pdf" target="_blank" rel="noopener">Abrir</a></div>
+    </div>
+    <div class="pages" id="pages" tabindex="0" aria-label="Páginas del catálogo"></div>
+  </div>
+</section>
+
+<section class="c2" id="presupuesto">
+  <div class="wrap">
+    <span class="eye">Presupuesto en redes</span>
+    <h2>La pauta, <i>semana a semana.</i></h2>
+    <p class="lead">Se paga directo a las plataformas. Sale más fuerte cuando las empresas están decidiendo.</p>
+    <div class="tbw"><table><thead><tr><th>Semana</th><th>Foco</th><th>Pauta</th><th>Cajas acumuladas</th></tr></thead><tbody id="wk"></tbody><tfoot><tr><td>Total</td><td></td><td id="wkT"></td><td id="wkC"></td></tr></tfoot></table></div>
+    <p class="note">Fechas sujetas a aprobar la campaña esta semana. El último día de pedidos se define con su capacidad de despacho.</p>
+  </div>
+</section>
+
+<section class="dk" id="control">
+  <div class="wrap">
+    <span class="eye">Cómo cuidamos la meta</span>
+    <h2>Cada lunes miramos los números <i>y corregimos.</i></h2>
+    <div class="rules">
+      <div><span>Si la conversación cuesta más de $4.000</span><b>Cambiamos pieza y público esa misma semana</b></div>
+      <div><span>Si menos de 5 de cada 100 conversaciones compran</span><b>Revisamos respuesta, precio y catálogo en WhatsApp</b></div>
+      <div><span>Si al 29 de noviembre van menos de 5 empresas</span><b>Subimos prospección directa y movemos pauta a hogares</b></div>
+      <div><span>Si una caja vende mucho más que las otras</span><b>Le damos más pauta y confirmamos inventario</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="trato">
+  <div class="wrap deal">
+    <div>
+      <span class="eye">Cómo lo hacemos</span>
+      <h2>Ganamos <i>si ustedes venden.</i></h2>
+      <p class="lead">Con el Plan Socio, la campaña de Navidad va dentro del trabajo de We Rock. Ustedes pagan la pauta directo a las plataformas y nosotros ganamos con el 7 % de lo que se venda.</p>
+      <div class="cta"><a class="btn dkb" href="https://wa.me/573125766056?text=Hola%20David,%20queremos%20hablar%20de%20la%20campa%C3%B1a%20de%20Navidad" target="_blank" rel="noopener">Arrancar con David</a><a class="btn gh" href="../">Volver a la propuesta</a></div>
+    </div>
+    <div>
+      <h3 style="font-size:26px;color:var(--g);margin-bottom:12px">Lo que necesitamos para salir</h3>
+      <ul class="need"><li>Meta de cajas confirmada</li><li>Inventario de café, mugs y madera</li><li>Último día de pedidos y costo de envío</li><li>Quién atiende WhatsApp cada día</li><li>Acceso a Meta Business e Instagram</li></ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>Propuesta para Doña Lú · Noviembre 2026</span><a href="https://werock.space" target="_blank" rel="noopener">Hecho por We Rock · werock.space</a></div></footer>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id), cop=v=>'$'+Math.round(v).toLocaleString('es-CO');
+  const TICKET=119000, B2B=.7, POR_EMPRESA=14, COSTO_HOGAR=2500/.08, COSTO_EMPRESA=18000/.1, MINIMO=1500000;
+  const WK=[['16 al 22 de noviembre','Prueba y empresas',.15,.05],['23 al 29 de noviembre','Empresas y Black Friday',.2,.2],['30 de noviembre al 6 de diciembre','Empresas al máximo',.3,.5],['7 al 13 de diciembre','Hogares y recordatorio',.25,.85],['14 al 20 de diciembre','Últimos pedidos',.1,1]];
+  function set(m){
+    const emp=Math.ceil(m*B2B/POR_EMPRESA), cajasE=Math.round(m*B2B), hog=m-cajasE, ventas=m*TICKET;
+    const pauta=Math.max(MINIMO,Math.round((hog*COSTO_HOGAR+emp*COSTO_EMPRESA)/1e5)*1e5);
+    $('kV').textContent=cop(ventas);$('kE').textContent=emp+(emp===1?' empresa':' empresas');$('kEs').textContent=cajasE+' cajas para empresas, unas '+POR_EMPRESA+' por pedido';$('kH').textContent=hog+' regalos';$('kP').textContent=cop(pauta);$('kPs').textContent='Pauta total, '+Math.round(pauta/ventas*100)+' % de las ventas estimadas';
+    $('wk').innerHTML=WK.map(w=>`<tr><td>${w[0]}</td><td>${w[1]}</td><td>${cop(pauta*w[2])}</td><td>${Math.round(m*w[3])}</td></tr>`).join('');
+    $('wkT').textContent=cop(pauta);$('wkC').textContent=m;
+    document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m==m));
+  }
+  document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>set(+b.dataset.m)));
+  set(500);
+  const A=[['ad-01-feed-regala','Feed hogares · 4:5',1080,1350],['ad-03-feed-empresas','Feed empresas · 4:5',1080,1350],['ad-02-story-cestas','Historia cestas · 9:16',1080,1920],['ad-04-linkedin-empresas','LinkedIn empresas',1200,627],['ad-05a-carrusel-gancho','Carrusel 1 · 1:1',1080,1080],['ad-05b-carrusel-cesta','Carrusel 2 · 1:1',1080,1080],['ad-05c-carrusel-caja','Carrusel 3 · 1:1',1080,1080],['ad-05d-carrusel-cierre','Carrusel 4 · 1:1',1080,1080],['ad-06-story-llegas','Historia recordatorio · 9:16',1080,1920],['ad-07-feed-remarketing','Feed recordatorio · 4:5',1080,1350]];
+  $('pz').innerHTML=A.map(a=>`<figure><img loading="lazy" src="ads/${a[0]}.png" alt="${a[1]}" width="${a[2]}" height="${a[3]}"><figcaption><span>${a[1]}</span><a href="ads/${a[0]}.png" download>Descargar</a></figcaption></figure>`).join('');
+  $('pages').innerHTML=Array.from({length:10},(_,i)=>`<img loading="lazy" src="catalogo/pagina-${String(i+1).padStart(2,'0')}.jpg" alt="Página ${i+1} del catálogo" width="827" height="1170">`).join('');
+})();
+</script>
+</body>
+</html>
