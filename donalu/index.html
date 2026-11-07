@@ -201,6 +201,11 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
 .hb-logo{display:flex;align-items:center;gap:20px}.hb-logo img{width:150px;height:auto;flex:none;padding-right:20px;box-sizing:content-box;border-right:1px solid rgba(255,255,255,.14)}
 @media(max-width:768px){.hb-logo{flex-direction:column;align-items:flex-start;gap:12px}.hb-logo img{padding-right:0;border-right:0}}
 @media(max-width:768px){#s-casos .why{grid-template-columns:minmax(0,1fr)}}
+
+/* comparativo */
+.inc4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;margin-top:2px}.inc-c{background:var(--dk3);padding:14px 16px}.inc-c h3{font-size:14px;font-weight:800;color:#fff;margin-bottom:6px}.inc-c ul{list-style:none;display:grid;gap:4px}.inc-c li{font-size:12.8px;line-height:1.32;color:var(--text-dk2)}
+#s-navidad .phases{grid-template-columns:repeat(3,minmax(0,1fr))}#s-navidad .ph{background:rgba(22,22,22,.9)}
+@media(max-width:768px){.inc4{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -436,6 +441,21 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   </div>
 </section>
 
+<section class="slide dk noise" id="s-navidad" data-title="Navidad">
+  <div class="bg-photo" style="background-image:url(img/cerezas.webp)" aria-hidden="true"></div>
+  <div class="inner">
+    <div class="lbl rv">Navidad · cierre de año</div>
+    <h2 class="h2 rv" style="--d:1">Diciembre puede <em>ayudar a pagar 2027.</em></h2>
+    <p class="lead rv" style="--d:1;color:#cfcbc2;max-width:800px">Las cajas navideñas van primero. Salen con el café y el material que ya existen, sin esperar la tienda ni la expedición.</p>
+    <div class="phases">
+      <article class="ph rv" style="--d:2"><small>Primera quincena de noviembre</small><h3>La caja</h3><ul><li>Contenido y precio</li><li>Meta de cajas, definida con ustedes</li><li>Revisión del material disponible</li></ul></article>
+      <article class="ph rv" style="--d:3"><small>Segunda quincena de noviembre</small><h3>El catálogo</h3><ul><li>Catálogo digital de cajas</li><li>Piezas con el material actual</li><li>Pedidos por WhatsApp</li></ul></article>
+      <article class="ph rv" style="--d:4"><small>Diciembre</small><h3>La venta</h3><ul><li>Anuncios en canales digitales</li><li>Regalos para empresas y negocios</li><li>Entregas antes del 24</li></ul></article>
+    </div>
+    <p class="src" style="color:rgba(255,255,255,.72)">Precio de la caja, meta de unidades e inversión en pauta se definen juntos. Esta campaña corre aparte del plan de 4 meses.</p>
+  </div>
+</section>
+
 <!-- 23 -->
 <section class="slide lt2 tex-grid" id="s-ruta" data-title="Hoja de ruta">
   <div class="inner">
@@ -448,7 +468,7 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
       <article class="ph rv" style="--d:5"><small>Mes 4</small><h3>Primera cosecha</h3><ul><li>Lectura de resultados</li><li>Ajuste de oferta y tarifas</li><li>Plan hacia Medellín</li></ul></article>
     </div>
     <div class="goal rv" style="--d:6"><span>Meta de trabajo al mes 4: 8 casas activas</span><span>Meta a 12 meses: 30 casas y $30 M al mes</span></div>
-    <p class="src">Metas de trabajo, no garantías: dependen de capacidad de finca, máquinas y tarifa B2B. La expedición se ajusta a su calendario de cosecha.</p>
+    <p class="src">Metas de trabajo, no garantías: dependen de capacidad de finca, máquinas y tarifa B2B. La expedición se ajusta a su calendario de cosecha. La campaña de Navidad corre antes y aparte.</p>
   </div>
 </section>
 
@@ -466,30 +486,49 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   </div>
 </section>
 
-<section class="slide dk" id="s-inversion" data-title="Inversión" style="padding-top:70px;padding-bottom:56px">
+<section class="slide dk" id="s-inversion" data-title="Comparativo" style="padding-top:70px;padding-bottom:56px">
   <svg class="brand-mark" style="top:-60px;right:-40px" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
   <div class="inner">
     <div class="lbl rv" style="margin-bottom:8px">Inversión · plan de arranque, 4 meses</div>
-    <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:0">La inversión, <em>mes a mes.</em></h2>
-    <div class="inv-wrap rv" style="--d:2"><table class="inv" id="inv"></table></div>
-    <p class="src" style="margin-top:8px">Pesos colombianos, antes de IVA. La pauta se paga directo a las plataformas y su gestión va incluida en el Motor comercial. Viáticos, comisiones de pasarela (Wompi avanzado 2,65 % + $700 + IVA por venta), impresos y muestras de café se pagan directo o corren por cuenta de Doña Lú. Licencia con TRM de referencia $4.100. Cada frente se puede contratar por separado.</p>
+    <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:0">Lo mismo incluido. <em>Dos formas de pagarlo.</em></h2>
+    <div class="soc rv" style="--d:2">
+      <div class="soc-c"><small>Plan fijo</small><b>$18.150.000</b><p>Todo el plan de 4 meses, sin porcentaje sobre ventas.</p></div>
+      <div class="soc-c on"><small>Plan Socio · el que recomendamos</small><b>$10.890.000 <em>+ 7 %</em></b><p>El mismo plan con el 60 % del valor, más el 7 % de las ventas nuevas durante 12 meses.</p></div>
+    </div>
+    <div class="inc4 rv" style="--d:3">
+      <div class="inc-c"><h3>Marca</h3><ul><li>Manual de marca y logo final</li><li>Etiquetas: 3 procesos y cápsulas</li><li>Kit comercial B2B y caja de cata</li></ul></div>
+      <div class="inc-c"><h3>Tienda y tecnología</h3><ul><li>Tienda online B2C + B2B con cotizador</li><li>Webmaster desde el lanzamiento</li><li>CRM + HalconBot, configuración incluida</li></ul></div>
+      <div class="inc-c"><h3>Audiovisual y contenido</h3><ul><li>Expedición de 2 jornadas a la finca</li><li>8 piezas al mes en Instagram y LinkedIn</li><li>Gestión de campañas en Meta y LinkedIn</li></ul></div>
+      <div class="inc-c"><h3>Comercial</h3><ul><li>Motor comercial B2B: prospección, contacto y seguimiento</li><li>Casas que honran: sello, QR, punto de venta y mapa</li></ul></div>
+    </div>
+    <p class="src" style="margin-top:8px">Pesos colombianos, antes de IVA. Pauta, plataformas y viáticos van aparte y son iguales en los dos planes. Cada frente también se puede cotizar por separado.</p>
   </div>
 </section>
 
-<section class="slide dk2 noise" id="s-socio" data-title="Modelo socio" style="padding-top:70px;padding-bottom:56px">
+<section class="slide dk2 noise" id="s-socio" data-title="Plan Socio" style="padding-top:70px;padding-bottom:56px">
   <div class="inner">
-    <div class="lbl rv" style="margin-bottom:8px">Otra forma de hacerlo · modelo socio</div>
+    <div class="lbl rv" style="margin-bottom:8px">Otra forma de hacerlo · Plan Socio</div>
     <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:8px">Menos de entrada. <em>Ganamos cuando ustedes venden.</em></h2>
     <p class="lead rv" style="--d:1;color:#cfcbc2;max-width:860px">No es nuestra forma habitual de trabajar. Se lo proponemos a Doña Lú porque creemos en este café.</p>
     <div class="soc rv" style="--d:2">
-      <div class="soc-c"><small>Plan fijo</small><b>$18.150.000</b><p>El plan de 4 meses, tal como está en la página anterior.</p></div>
-      <div class="soc-c on"><small>Modelo socio · el que recomendamos</small><b>$10.890.000 <em>+ 7 %</em></b><p>El mismo plan con el 60 % del valor, más el 7 % de las ventas nuevas durante 12 meses. Pagan $7.260.000 menos de entrada: eso cubre los $2.850.000 de pauta y les sobran $4.410.000.</p></div>
+      <div class="soc-c on"><small>De entrada</small><b>$7.260.000 menos</b><p>Es lo que dejan de pagar frente al plan fijo durante los 4 meses.</p></div>
+      <div class="soc-c"><small>Después</small><b>7 % de ventas nuevas</b><p>Solo sobre lo que vendan de más, durante 12 meses. Si no hay ventas nuevas, no hay porcentaje.</p></div>
     </div>
     <table class="soc-t rv" style="--d:3">
       <thead><tr><th>Ventas nuevas al mes</th><th>7 % en 12 meses</th><th>Total a We Rock</th></tr></thead>
       <tbody><tr><td>$5.000.000</td><td>$4.200.000</td><td>$15.090.000</td></tr><tr><td>$9.000.000</td><td>$7.560.000</td><td>$18.450.000</td></tr><tr><td>$30.000.000 (la meta)</td><td>$25.200.000</td><td>$36.090.000</td></tr></tbody>
     </table>
-    <p class="src" style="margin-top:8px">Ventas nuevas: las de la tienda online y Casas que honran, antes de IVA y sobre una línea base que fijamos juntos antes de empezar. Lo que ya venden hoy no cuenta. Liquidación mensual con reporte de pedidos y facturación. Si terminan antes de los 12 meses, pagan lo que falte de los $7.260.000 descontados del plan fijo. Proveedores y pauta aparte, igual que en el plan fijo. El porcentaje se ajusta cuando revisemos juntos su margen.</p>
+    <p class="src" style="margin-top:8px">Ventas nuevas: las de la tienda online y Casas que honran, antes de IVA y sobre una línea base que fijamos juntos antes de empezar. Lo que ya venden hoy no cuenta. Liquidación mensual con reporte de pedidos y facturación. Si terminan antes de los 12 meses, pagan lo que falte de los $7.260.000 descontados del plan fijo. El porcentaje se ajusta cuando revisemos juntos su margen.</p>
+  </div>
+</section>
+
+<section class="slide dk" id="s-plataformas" data-title="Plataformas y pagos" style="padding-top:70px;padding-bottom:56px">
+  <div class="inner">
+    <div class="lbl rv" style="margin-bottom:8px">Plataformas y marketing digital</div>
+    <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:8px">El Plan Socio <em>cubre la pauta.</em></h2>
+    <p class="lead rv" style="--d:1;color:#cfcbc2;max-width:900px">$950.000 al mes en Meta y LinkedIn durante 3 meses, pagados directo a las plataformas. Los $7.260.000 que no pagan de entrada cubren los $2.850.000 de pauta y les sobran $4.410.000.</p>
+    <div class="inv-wrap rv" style="--d:2"><table class="inv" id="inv"></table></div>
+    <p class="src" style="margin-top:8px">Pesos colombianos, antes de IVA. El 7 % de ventas nuevas se liquida aparte, cada mes. Licencia con TRM de referencia $4.100. Comisiones de pasarela (Wompi avanzado 2,65 % + $700 + IVA por venta), impresos y muestras de café corren por cuenta de Doña Lú.</p>
   </div>
 </section>
 
@@ -531,28 +570,19 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   const mx = Math.max(...P.map(p=>p[1]));
   $('bars').innerHTML = P.map((p,i)=>`<div class="bar${p[2]?' me':''}"><span>${p[0]}</span><div class="tr"><i style="--w:${p[1]/mx*100}%;--d:${i}"></i></div><b>${cop(Math.round(p[1]/100)*100)}</b></div>`).join('');
 
-  // Tabla de inversión: las sumas se calculan aquí para que nunca se descuadren
-  const M = (t,n)=>({t,n});
-  const split = v => [v*.5, v*.3, v*.2, 0];
-  const G1 = [['Manual de marca y logo final','taller, vector, paleta, tono',[1200000,0,0,0]],['Sistema de etiquetas','3 procesos y cápsulas',[600000,0,0,0]],['Tienda online B2C + B2B','WooCommerce, cotizador · suscripción en fase 2',[2400000,2400000,0,0]],['Kit comercial B2B','portafolio, propuesta, caja de cata',[700000,0,0,0]],['Programa Casas que honran','sello, QR, punto de venta, mapa',split(1000000)],['CRM + HalconBot','configuración · aporte de We Rock',null]];
-  const G2 = [['Expedición a la finca','2 jornadas en Arabia, después del 20 de enero',[0,0,3200000,0]]];
-  const G3 = [['Contenido Instagram y LinkedIn','8 piezas al mes',[0,900000,900000,900000]],['Motor comercial B2B','prospección, seguimiento y gestión de pauta',[0,950000,950000,950000]],['Webmaster de la tienda','desde el lanzamiento',[0,0,550000,550000]]];
-  const G4 = [['Dominio y hosting','primer año · estimado',[520000,0,0,0]],['Viáticos de la expedición','transporte y hospedaje · estimado',[0,0,1200000,0]],['Licencia HalconBot Starter','US$49 al mes',[0,200900,200900,200900]],['Pauta en Meta y LinkedIn','Cajicá, Bogotá y Sabana Norte',[0,950000,950000,950000]]];
-  const sum = g => [0,1,2,3].map(i=>g.reduce((a,r)=>a+(r[2]?r[2][i]:0),0));
+  // Pagos con Plan Socio: las sumas se calculan aquí para que nunca se descuadren
+  const FIJO = [5400000,4550000,5800000,2400000], SOCIO = FIJO.map(v=>v*.6);
+  const PROV = [['Pauta en Meta y LinkedIn','Cajicá, Bogotá y Sabana Norte',[0,950000,950000,950000]],['Dominio, hosting y licencia HalconBot','primer año y US$49 al mes',[520000,200900,200900,200900]],['Viáticos de la expedición','transporte y hospedaje · estimado',[0,0,1200000,0]]];
   const add = (...a) => [0,1,2,3].map(i=>a.reduce((s,x)=>s+x[i],0));
   const tot = a => a.reduce((x,y)=>x+y,0);
   const cell = (v,i) => v ? `<td data-m="Mes ${i+1}">${cop(v)}</td>` : `<td class="dash" data-m="Mes ${i+1}">—</td>`;
-  const row = r => r[2] ? `<tr><td>${r[0]}<span class="note2">${r[1]}</span></td>${r[2].map(cell).join('')}<td class="tt">${cop(tot(r[2]))}</td></tr>` : `<tr><td>${r[0]}<span class="note2">${r[1]}</span></td>${[0,1,2,3].map(i=>cell(0,i)).join('')}<td class="tt">Incluido</td></tr>`;
+  const row = r => `<tr><td>${r[0]}<span class="note2">${r[1]}</span></td>${r[2].map(cell).join('')}<td class="tt">${cop(tot(r[2]))}</td></tr>`;
   const sub = (t,a,c) => `<tr class="${c||'sub'}"><td>${t}</td>${a.map(cell).join('')}<td class="tt">${cop(tot(a))}</td></tr>`;
-  const grp = t => `<tr class="grp"><td colspan="6">${t}</td></tr>`;
-  const s1=sum(G1), s2=sum(G2), s3=sum(G3), s4=sum(G4), wr=add(s1,s2,s3), all=add(wr,s4);
-  $('inv').innerHTML = `<thead><tr><th>Rubro</th><th>Mes 1</th><th>Mes 2</th><th>Mes 3</th><th>Mes 4</th><th>Total</th></tr></thead><tbody>`+
-    grp('We Rock · implementación')+G1.map(row).join('')+
-    grp('We Rock · producción audiovisual')+G2.map(row).join('')+
-    grp('We Rock · servicios mensuales')+G3.map(row).join('')+
-    sub('Subtotal We Rock',wr)+
-    grp('Proveedores y pauta · pago directo')+G4.map(row).join('')+
-    sub('Total mes a mes',all,'tot')+'</tbody>';
+  const prov = add(...PROV.map(r=>r[2]));
+  $('inv').innerHTML = `<thead><tr><th>Pagos</th><th>Mes 1</th><th>Mes 2</th><th>Mes 3</th><th>Mes 4</th><th>Total</th></tr></thead><tbody>`+
+    row(['Pago a We Rock','Plan Socio',SOCIO])+PROV.map(row).join('')+
+    sub('Total con Plan Socio',add(SOCIO,prov),'tot')+
+    sub('Comparación: total con plan fijo',add(FIJO,prov))+'</tbody>';
 
   // Motor del deck
   const slides = [...document.querySelectorAll('.slide')], dotsEl = $('dots'), cNow = $('cNow');
