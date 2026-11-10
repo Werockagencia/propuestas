@@ -88,6 +88,24 @@ blockquote cite{display:block;margin-top:8px;font-size:14px;font-style:normal;fo
 .kg figure{background:#141414;overflow:hidden}.kg img{width:100%;aspect-ratio:1;object-fit:cover}.kg .pk img{object-fit:contain;padding:6px}
 .kg figcaption{font-size:13px;color:var(--tx2);padding:10px 12px}
 .dk2{background:var(--dk2)}
+/* identidades */
+.bg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:46px}
+.bc{background:#fff;border:1px solid #e2ddd2;display:flex;flex-direction:column;transition:transform .35s var(--ease),border-color .25s}
+.bc:hover{transform:translateY(-3px);border-color:#bbb}
+.bc .im{aspect-ratio:4/3;overflow:hidden;background:#eee;position:relative}
+.bc .im img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.bc:hover .im img{transform:scale(1.03)}
+.bc .im.ct img{object-fit:contain;padding:12%}
+.bc .bd{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1}
+.bc .kd{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.bc h3{font-size:23px}.bc p{font-size:16px;line-height:1.45;color:var(--ink2);margin-top:8px}
+.bc .lk a{color:var(--ink)}
+.bc.wide{grid-column:span 2}.bc.wide .im{aspect-ratio:16/8.2}
+.lw{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:2px;margin-top:2px;background:#e2ddd2;border:1px solid #e2ddd2}
+.lw figure{background:#fff;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.lw img{width:100%;height:100%;object-fit:cover}.lw .ct img{object-fit:contain;padding:18%}
+.lw figcaption{position:absolute;left:0;right:0;bottom:0;padding:6px 8px;font-size:12px;font-weight:600;color:var(--ink3);background:rgba(255,255,255,.88);text-align:center}
+.lwh{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin:56px 0 14px}
 /* vanity */
 .vn{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:center}
 .big{display:grid;grid-template-columns:1fr 1fr;gap:2px}
@@ -109,8 +127,8 @@ footer{border-top:1px solid #222;padding:28px 0;font-size:14px;color:var(--tx2)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{text-decoration:none;font-weight:600;color:#fff}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.rv.in{opacity:1;transform:none}
-@media(max-width:1000px){.top nav{display:none}.stats,.sv{grid-template-columns:repeat(2,minmax(0,1fr))}.bx,.vn{grid-template-columns:minmax(0,1fr);gap:44px}.grid.g3{grid-template-columns:repeat(2,minmax(0,1fr))}.kh{grid-template-columns:minmax(0,1fr);gap:36px}.kg{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:680px){.wrap{width:calc(100% - 32px)}section{padding:76px 0}.hero{padding:120px 0 64px}.grid,.grid.g3,.sv{grid-template-columns:minmax(0,1fr)}.stats{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.facts li{grid-template-columns:minmax(0,1fr);gap:4px}.top .btn{padding:9px 13px;font-size:13.5px}.big{grid-template-columns:minmax(0,1fr)}.kn{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1000px){.top nav{display:none}.stats,.sv{grid-template-columns:repeat(2,minmax(0,1fr))}.bx,.vn{grid-template-columns:minmax(0,1fr);gap:44px}.grid.g3{grid-template-columns:repeat(2,minmax(0,1fr))}.kh{grid-template-columns:minmax(0,1fr);gap:36px}.kg{grid-template-columns:repeat(2,minmax(0,1fr))}.bg{grid-template-columns:repeat(2,minmax(0,1fr))}.lw{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:680px){.wrap{width:calc(100% - 32px)}section{padding:76px 0}.hero{padding:120px 0 64px}.grid,.grid.g3,.sv{grid-template-columns:minmax(0,1fr)}.stats{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.facts li{grid-template-columns:minmax(0,1fr);gap:4px}.top .btn{padding:9px 13px;font-size:13.5px}.big{grid-template-columns:minmax(0,1fr)}.kn{grid-template-columns:repeat(2,minmax(0,1fr))}.bg{grid-template-columns:minmax(0,1fr)}.bc.wide{grid-column:auto}.bc.wide .im{aspect-ratio:4/3}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.pj,.shot img{transition:none}}
 </style>
 </head>
@@ -128,13 +146,13 @@ footer a{text-decoration:none;font-weight:600;color:#fff}
   <div class="wrap">
     <span class="eye">Portafolio · David Higuera · We Rock</span>
     <h1>Marcas que <em>venden</em><br>en internet.</h1>
-    <p class="lead">Más de 15 años en estrategia digital. Marca, sitios, e-commerce, pauta y automatización para empresas en Colombia, Australia y Estados Unidos. Desde 2018 lo hacemos con We Rock.</p>
-    <div class="cta"><a class="btn" href="#boxi">Ver el caso Boxi</a><a class="btn gh" href="#sitios">Ver sitios en vivo</a></div>
+    <p class="lead">Más de 15 años en estrategia digital. Branding, sitios, e-commerce, pauta y automatización para empresas en Colombia, Australia, Estados Unidos y Nueva Zelanda. Desde 2018 lo hacemos con We Rock.</p>
+    <div class="cta"><a class="btn" href="#boxi">Ver el caso Boxi</a><a class="btn gh" href="#branding">Ver branding</a><a class="btn gh" href="#sitios">Ver sitios en vivo</a></div>
     <div class="stats">
       <div><b>15+</b><span>Años en estrategia digital</span></div>
       <div><b>€4,5 M</b><span>Inversión levantada por Boxi, donde fui CSO</span></div>
       <div><b>Oro</b><span>MUSE Creative Awards 2025, con Think Creative Agency</span></div>
-      <div><b>3</b><span>Países con clientes: Colombia, Australia y Estados Unidos</span></div>
+      <div><b>4</b><span>Países con clientes: Colombia, Australia, Estados Unidos y Nueva Zelanda</span></div>
     </div>
   </div>
 </section>
@@ -172,8 +190,8 @@ footer a{text-decoration:none;font-weight:600;color:#fff}
   <div class="wrap">
     <div class="kh">
       <div class="rv">
-        <span class="eye">Branding · La Kasa x La Ventana</span>
-        <h2>Un festival con <em>identidad propia.</em></h2>
+        <span class="eye">Diseño de branding · Caso destacado</span>
+        <h2>La Kasa x La Ventana: <em>un festival con identidad propia.</em></h2>
         <p class="lead">Festival cultural boutique en Tabio, Cundinamarca: música, arte, naturaleza y la Feria Kreativa con marcas locales. Diseñamos su marca y la línea gráfica que vive en tarima, carteles, redes y la propuesta para patrocinadores.</p>
         <div class="kn">
           <div><b>2015</b><span>Primera edición</span></div>
@@ -193,7 +211,35 @@ footer a{text-decoration:none;font-weight:600;color:#fff}
   </div>
 </section>
 
-<section class="lt" id="australia">
+<section id="identidades" class="lt">
+  <div class="wrap">
+    <span class="eye">Diseño de branding · Identidades</span>
+    <h2>Marcas que diseñamos <em>desde cero.</em></h2>
+    <p class="lead">Logotipo, manual, papelería, empaques y piezas para salir a vender. En Colombia, Australia y Nueva Zelanda, para restaurantes, gimnasios, firmas, fundaciones y marcas de consumo.</p>
+    <div class="bg">
+      <article class="bc rv"><div class="im"><img src="img/marcas/latidos-1.jpg" alt="Portada del manual de marca de Latidos" width="1200" height="849" loading="lazy"></div><div class="bd"><span class="kd">Colombia · Manual de marca</span><h3>Latidos · Experiencias corporativas</h3><p>Logotipo en 16 versiones, manual de 34 páginas, papelería para imprenta y patrones de marca, todo descargable.</p><div class="lk"><a href="https://werockagencia.github.io/latidos-branding/" target="_blank" rel="noopener">Ver manual de marca</a></div></div></article>
+      <article class="bc rv"><div class="im"><img src="img/marcas/balmoral-1.jpg" alt="Logo de Balmoral Fitness Group en vinilo negro" width="1200" height="869" loading="lazy"></div><div class="bd"><span class="kd">Sídney, Australia · Identidad completa</span><h3>Balmoral Fitness Group</h3><p>Gimnasio de salud, rendimiento y rehabilitación. Logo, tarjetas, brochure, camisetas, vinilos para el estudio y sitio web.</p></div></article>
+      <article class="bc rv"><div class="im"><img src="img/marcas/koi-1.jpg" alt="Propuesta Kin de identidad para KOI Flowers" width="1400" height="875" loading="lazy"></div><div class="bd"><span class="kd">Colombia · Propuestas de identidad</span><h3>KOI Flowers</h3><p>Tres universos de marca presentados en web: concepto, versiones del logo, color, tipografía, usos y mockups.</p></div></article>
+      <article class="bc rv"><div class="im ct" style="background:#F7F2E8"><img src="img/marcas/baked.png" alt="Logo de Baked, hecho al horno" width="1200" height="1200" loading="lazy"></div><div class="bd"><span class="kd">Colombia · Logo y comunicación</span><h3>Baked · Hecho al horno</h3><p>Restaurante a domicilio. Logo ilustrado con el gallo, key visual, redes sociales, menú diario e impresos.</p></div></article>
+      <article class="bc rv"><div class="im"><img src="img/marcas/west-1.jpg" alt="Manual de marca de West" width="1200" height="675" loading="lazy"></div><div class="bd"><span class="kd">Cajicá · Identidad y manual</span><h3>West 24 Horas</h3><p>Identidad y manual de marca desde 2019. La misma marca que hoy vende por su sitio y por WhatsApp las 24 horas.</p></div></article>
+      <article class="bc rv"><div class="im"><img src="img/marcas/morena-1.jpg" alt="Logo de Morena Gardens" width="1200" height="868" loading="lazy"></div><div class="bd"><span class="kd">Nueva Zelanda · Logo y papelería</span><h3>Morena Gardens</h3><p>Empresa de jardinería y mantenimiento de jardines. Logo, isotipo y tarjeta de presentación.</p></div></article>
+      <article class="bc rv"><div class="im"><img src="img/marcas/pop-1.jpg" alt="Ilustración de servicios contables para Pop Business" width="1200" height="749" loading="lazy"></div><div class="bd"><span class="kd">Australia · Diseño y marketing</span><h3>Pop Business</h3><p>Firma contable. Ilustraciones de servicios, flyers, email marketing y el rediseño del home del sitio.</p></div></article>
+      <article class="bc rv"><div class="im"><img style="object-position:top" src="img/marcas/casacolombia-2.jpg" alt="Pitch de Casa Colombia" width="675" height="1200" loading="lazy"></div><div class="bd"><span class="kd">Colombia · Marca y pitch</span><h3>Casa Colombia</h3><p>Comunidad y ONG. Logo, manual de marca y pitch para aliados e inversionistas.</p></div></article>
+      <article class="bc rv"><div class="im ct" style="background:#0E2C55"><img src="img/marcas/hbrothers.png" alt="Logo de H Brothers Plumbing" width="298" height="199" loading="lazy"></div><div class="bd"><span class="kd">Logo y piezas</span><h3>H Brothers Plumbing</h3><p>Empresa de plomería. Logo, brochure, firmas de correo e imágenes para el sitio.</p></div></article>
+    </div>
+    <p class="lwh">Más logos</p>
+    <div class="lw">
+      <figure class="rv"><img src="img/marcas/glamping.jpg" alt="Logo de Glamping Ya" width="1366" height="768" loading="lazy"><figcaption>Glamping Ya</figcaption></figure>
+      <figure class="rv"><img src="img/marcas/light.jpg" alt="Logo de Light" width="1366" height="768" loading="lazy"><figcaption>Light</figcaption></figure>
+      <figure class="rv"><img src="img/marcas/siloe.jpg" alt="Logo de Siloé Café" width="675" height="1200" loading="lazy"><figcaption>Siloé Café</figcaption></figure>
+      <figure class="ct rv"><img src="img/marcas/zion.png" alt="Logo de Zion" width="155" height="153" loading="lazy"><figcaption>Zion</figcaption></figure>
+      <figure class="ct rv"><img src="img/marcas/casacolombia-1.jpg" alt="Logo de Casa Colombia" width="227" height="227" loading="lazy"><figcaption>Casa Colombia</figcaption></figure>
+      <figure class="ct rv"><img src="img/marcas/urutau.jpg" alt="Logo de Urutau" width="295" height="312" loading="lazy"><figcaption>Urutau</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="australia">
   <div class="wrap">
     <span class="eye">Australia · Think Creative Agency, Sídney</span>
     <h2>Sitios premiados <em>y accesibles.</em></h2>
@@ -204,11 +250,11 @@ footer a{text-decoration:none;font-weight:600;color:#fff}
       <article class="pj rv"><div class="shot"><img src="img/sitios/freedom.jpg" alt="Sitio web de Freedom Solutions" width="1440" height="900" loading="lazy"><span class="tag">WCAG 2.2 AA</span></div><div class="bd"><span class="kd">Organización sin ánimo de lucro · Tienda</span><h3>Freedom Solutions</h3><p>Diseña y fabrica tecnología de asistencia, como bicicletas adaptadas. Sitio accesible para lectores de pantalla, con tienda y donaciones.</p><div class="lk"><a href="https://freedomsolutions.org.au/" target="_blank" rel="noopener">Ver sitio</a><a href="https://thinkcreativeagency.com.au/work/freedom-solutions-website-development/" target="_blank" rel="noopener">Caso de estudio</a></div></div></article>
       <article class="pj rv"><div class="shot"><img src="img/sitios/whiteley.jpg" alt="Sitio web de Whiteley" width="1440" height="900" loading="lazy"></div><div class="bd"><span class="kd">Sitio corporativo · Catálogo</span><h3>Whiteley</h3><p>Fabricante australiano de productos de prevención de infecciones desde 1933. Catálogo de productos, distribuidores y contacto comercial.</p><div class="lk"><a href="https://whiteley.com.au/" target="_blank" rel="noopener">Ver sitio</a><a href="https://thinkcreativeagency.com.au/work/whiteley/" target="_blank" rel="noopener">Caso de estudio</a></div></div></article>
     </div>
-    <p class="note">Premios y estándares según los casos de estudio publicados por Think Creative Agency. Portafolio completo de la agencia: <a href="https://thinkcreativeagency.com.au/our-work" target="_blank" rel="noopener">thinkcreativeagency.com.au/our-work</a>.</p>
+    <p class="note">También con Think Creative: Advance Trolleys, Advantage Industries, Allied Finishes, Controllaview, Durotank, Okkular, Plants and Gardens Rentals, Specialised Access, StreamLined y Tuffa. Premios y estándares según los casos de estudio publicados por Think Creative Agency. Portafolio completo de la agencia: <a href="https://thinkcreativeagency.com.au/our-work" target="_blank" rel="noopener">thinkcreativeagency.com.au/our-work</a>.</p>
   </div>
 </section>
 
-<section id="sitios">
+<section class="lt" id="sitios">
   <div class="wrap">
     <span class="eye">Sitios en vivo · 2026</span>
     <h2>Hechos a la medida, <em>en vivo hoy.</em></h2>
@@ -226,7 +272,7 @@ footer a{text-decoration:none;font-weight:600;color:#fff}
   </div>
 </section>
 
-<section class="lt" id="marcas">
+<section id="marcas" class="dk2">
   <div class="wrap">
     <span class="eye">Más marcas y proyectos</span>
     <h2>Exportadores, industria, <em>cultura y producto propio.</em></h2>
@@ -242,7 +288,7 @@ footer a{text-decoration:none;font-weight:600;color:#fff}
   </div>
 </section>
 
-<section id="campanas" class="dk2">
+<section class="lt" id="campanas">
   <div class="wrap">
     <span class="eye">Campañas, pauta y contenido</span>
     <h2>Piezas que salen <em>a la calle y a redes.</em></h2>
@@ -256,7 +302,7 @@ footer a{text-decoration:none;font-weight:600;color:#fff}
   </div>
 </section>
 
-<section class="lt" id="automatizacion">
+<section id="automatizacion">
   <div class="wrap vn">
     <div class="rv">
       <span class="eye">Automatización con IA · HalconBot</span>
@@ -272,7 +318,7 @@ footer a{text-decoration:none;font-weight:600;color:#fff}
   </div>
 </section>
 
-<section id="servicios">
+<section id="servicios" class="dk2">
   <div class="wrap">
     <span class="eye">Qué hacemos</span>
     <h2>Un solo equipo, <em>de la marca a la venta.</em></h2>
@@ -290,7 +336,7 @@ footer a{text-decoration:none;font-weight:600;color:#fff}
     <span class="eye">Con quién hemos trabajado</span>
     <h2>Clientes <em>y proyectos.</em></h2>
     <div class="cl">
-      <span>Boxi Sleep</span><span>Think Creative Agency</span><span>Remarkable</span><span>Polytex</span><span>Freedom Solutions</span><span>Whiteley</span><span>Fundación Solidaridad por Colombia</span><span>EPC Cajicá</span><span>Azulado Inmobiliaria · Montserrat II</span><span>Kassa Apartamentos</span><span>Tribeca 94</span><span>Tribeca Park</span><span>Pet Empire</span><span>Esperanza Arcila</span><span>West 24 Horas</span><span>Yo Amo la Empanada</span><span>Alma House</span><span>Vanity</span><span>La Kasa x La Ventana</span><span>Infinity Farms</span><span>Colrieles</span><span>Aluna · Gimnasio Fontana</span><span>Da Get Up</span><span>Java Producciones</span><span>Tirano Fajardo Abogados</span><span>Emet Outsourcing</span><span>Desatino Controlado</span>
+      <span>Boxi Sleep</span><span>Think Creative Agency</span><span>Remarkable</span><span>Polytex</span><span>Freedom Solutions</span><span>Whiteley</span><span>Fundación Solidaridad por Colombia</span><span>EPC Cajicá</span><span>Azulado Inmobiliaria · Montserrat II</span><span>Kassa Apartamentos</span><span>Tribeca 94</span><span>Tribeca Park</span><span>Pet Empire</span><span>Esperanza Arcila</span><span>West 24 Horas</span><span>Yo Amo la Empanada</span><span>Alma House</span><span>Vanity</span><span>La Kasa x La Ventana</span><span>Infinity Farms</span><span>Colrieles</span><span>Aluna · Gimnasio Fontana</span><span>Da Get Up</span><span>Java Producciones</span><span>Tirano Fajardo Abogados</span><span>Emet Outsourcing</span><span>Desatino Controlado</span><span>Balmoral Fitness Group</span><span>Pop Business</span><span>Morena Gardens</span><span>H Brothers Plumbing</span><span>Latidos</span><span>KOI Flowers</span><span>Baked</span><span>Casa Colombia</span><span>Glamping Ya</span><span>Siloé Café</span><span>Durotank</span><span>Okkular</span><span>Tuffa</span>
     </div>
   </div>
 </section>
