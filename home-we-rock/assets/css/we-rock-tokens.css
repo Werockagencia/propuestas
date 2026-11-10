@@ -1,0 +1,285 @@
+/* ==========================================================================
+   WE ROCK · TOKENS DE MARCA · v2.1 (noviembre 2026)
+   Manual de Marca 2.0. Reemplaza a we-rock-colores.css (Brand Kit v1.0).
+
+   Tres capas:
+   1. PRIMITIVOS   valores crudos. No se usan directo en componentes.
+   2. SEMÁNTICOS   intención (fondo, texto, acción, dato, vivo). Cambian por tema.
+   3. TEMAS        [data-tema="oscuro" | "tinta" | "noche" | "claro" | "rojo"]
+
+   v2.1: se agrega el azul. Azul noche como superficie y ultramar como
+   acento de interacción y segunda serie de datos. El rojo sigue mandando.
+
+   Contrastes medidos con la fórmula de luminancia relativa de WCAG 2.2.
+   AA texto normal >= 4,5:1 · AA texto grande (>= 24 px, o >= 18,5 px bold) >= 3:1
+   · elementos de interfaz >= 3:1.
+   ========================================================================== */
+
+:root {
+  /* ---------- 1. PRIMITIVOS ---------- */
+
+  /* Núcleo. No se modifica. */
+  --wr-rojo:            #E8000A;  /* RGB 232 0 10 · CMYK 0 100 96 9 · Pantone 485 C (ref.) */
+  --wr-negro:           #0A0A0A;  /* RGB 10 10 10 · CMYK 60 40 40 100 */
+  --wr-crema:           #F5F2EB;  /* RGB 245 242 235 · CMYK 0 1 4 4 */
+  --wr-blanco:          #FFFFFF;
+
+  /* Rojos funcionales. Mismo tono, otra luminancia, para cumplir contraste. */
+  --wr-rojo-profundo:   #B80008;  /* texto pequeño sobre crema 6,18:1 · hover de botón (blanco 6,90:1) */
+  --wr-rojo-claro:      #FF4A47;  /* texto pequeño sobre negro 5,96:1 · tinta 5,24:1 · tinta 2 4,67:1 */
+
+  /* Neutros cálidos, lado oscuro */
+  --wr-tinta:           #1B1A17;  /* sección alterna, tablero */
+  --wr-tinta-2:         #26241F;  /* superficie elevada: tarjetas, hover */
+  --wr-linea-oscura:    #3A3732;  /* divisores decorativos sobre oscuro */
+  --wr-piedra-2:        #8F8A80;  /* bordes de campos sobre oscuro 5,77:1 */
+  --wr-piedra:          #B5B0A6;  /* texto terciario sobre negro 9,17:1 */
+  --wr-piedra-oscura:   #C4C0B6;  /* texto secundario sobre negro 10,90:1 */
+  --wr-crema-apagada:   #D9D3C6;  /* pulso en reposo, líneas 13,28:1 */
+
+  /* Neutros cálidos, lado claro */
+  --wr-crema-2:         #EDE9DF;  /* sección alterna clara */
+  --wr-crema-3:         #E4DFD4;  /* superficies hundidas */
+  --wr-linea-clara:     #CFC8B9;  /* divisores decorativos sobre crema */
+  --wr-carbon-claro:    #6E6A63;  /* notas y bordes de campos sobre crema 4,81:1. No usar sobre crema 2 */
+  --wr-carbon:          #5A5650;  /* texto secundario sobre crema 6,52:1 */
+
+  /* Azul (v2.1). El complemento frío del sistema.
+     REGLA: ultramar y rojo nunca se tocan. Ni azul sobre rojo ni rojo sobre ultramar: vibran.
+     Sobre azul noche, el Rojo Rock solo va en titulares de 24 px o más (3,68:1).
+     En texto pequeño sobre azul noche: rojo claro (5,24:1). */
+  --wr-azul-noche:      #0E1A2E;  /* superficie oscura alterna. Crema encima 15,58:1 · blanco 17,41:1 */
+  --wr-azul-noche-2:    #14233D;  /* tarjetas y hover sobre azul noche. Crema encima 14,04:1 */
+  --wr-linea-noche:     #26385A;  /* divisores decorativos sobre azul noche */
+  --wr-ultramar:        #2747E0;  /* INTERACCIÓN sobre claro: enlaces, foco. Sobre crema 6,13:1 · blanco encima 6,85:1 */
+  --wr-ultramar-claro:  #7A93FF;  /* INTERACCIÓN sobre oscuro. Negro 7,02:1 · tinta 6,17:1 · azul noche 6,17:1 · azul noche 2 5,57:1 */
+
+  /* Acentos de señal. Ámbar + verde: 1 % de la superficie. Ultramar: 2 %. */
+  --wr-ambar:           #F2B600;  /* DATO. Sobre negro 10,81:1 */
+  --wr-ambar-oscuro:    #8A5A00;  /* DATO sobre crema 5,30:1 */
+  --wr-verde:           #2EC4B6;  /* EN VIVO. Sobre negro 9,13:1 */
+  --wr-verde-oscuro:    #0B6B5D;  /* EN VIVO sobre crema 5,73:1 */
+
+  /* Color de datos: gráficas con dos series. Ámbar + ultramar.
+     Par validado para daltonismo: dE OKLab 29,0 en protanopia sobre oscuro,
+     31,2 sobre claro. Contraste >= 3:1 con la superficie. */
+  --wr-serie-1-oscuro:  #B88A00;  /* ámbar de gráfica */
+  --wr-serie-2-oscuro:  #7A93FF;  /* ultramar claro */
+  --wr-serie-1-claro:   #8A5A00;
+  --wr-serie-2-claro:   #2747E0;  /* ultramar */
+
+  /* Tipografía */
+  --wr-fuente:       "Barlow", "Arial Narrow", Arial, Helvetica, sans-serif;
+  --wr-fuente-dato:  "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --wr-peso-ligero:  300;
+  --wr-peso-texto:   400;
+  --wr-peso-fuerte:  700;
+  --wr-peso-seccion: 800;
+  --wr-peso-titular: 900;
+
+  /* Escala tipográfica fluida (375 px a 1440 px) */
+  --wr-t-monumental: clamp(4rem, 13.5vw, 15rem);     /* portadas. 900, mayúsculas, interlineado .82 */
+  --wr-t-portada:    clamp(3rem, 8.4vw, 9rem);       /* aperturas de capítulo */
+  --wr-t-h1:         clamp(2.5rem, 6vw, 6rem);
+  --wr-t-h2:         clamp(2rem, 4.2vw, 4rem);
+  --wr-t-h3:         clamp(1.375rem, 2.2vw, 2rem);
+  --wr-t-h4:         1.25rem;
+  --wr-t-entrada:    clamp(1.1875rem, 1.6vw, 1.5rem);  /* lead */
+  --wr-t-texto:      1.0625rem;                        /* 17 px */
+  --wr-t-nota:       0.875rem;                         /* 14 px */
+  --wr-t-etiqueta:   0.75rem;                          /* 12 px. Mínimo absoluto */
+
+  --wr-il-titular:   0.86;
+  --wr-il-seccion:   1;
+  --wr-il-texto:     1.6;
+  --wr-tr-titular:   -0.025em;
+  --wr-tr-etiqueta:  0.12em;
+
+  /* Espacio. Base 4 px. */
+  --wr-e-1: 4px;   --wr-e-2: 8px;   --wr-e-3: 12px;  --wr-e-4: 16px;
+  --wr-e-5: 24px;  --wr-e-6: 32px;  --wr-e-7: 48px;  --wr-e-8: 64px;
+  --wr-e-9: 96px;  --wr-e-10: 128px; --wr-e-11: 192px;
+
+  /* Retícula */
+  --wr-columnas:  12;
+  --wr-canal:     clamp(16px, 1.7vw, 24px);
+  --wr-margen:    clamp(20px, 5vw, 80px);
+  --wr-ancho:     1280px;
+  --wr-medida:    62ch;   /* largo máximo de línea para lectura */
+
+  /* Forma. La marca es de filo recto. */
+  --wr-radio:      2px;
+  --wr-radio-chip: 999px;
+  --wr-trazo:      1.5px;   /* pulso, iconos, líneas de dato */
+  --wr-angulo:     80deg;   /* inclinación del rayo. Rige el pulso y los cortes */
+
+  /* Movimiento. Rejilla de tiempo a 125 BPM: un pulso = 480 ms. */
+  --wr-d-micro:    120ms;   /* 1/16. Hover, foco, presionar */
+  --wr-d-interfaz: 240ms;   /* 1/8. Menús, pestañas, acordeones */
+  --wr-d-entrada:  480ms;   /* 1/4. Entrada de bloques y titulares */
+  --wr-d-golpe:    960ms;   /* 1/2. Contadores, trazo del pulso */
+  --wr-d-compas:   1920ms;  /* 1 compás. Latido "en vivo" */
+  --wr-d-escalon:  60ms;    /* 1/32. Desfase entre elementos de una lista */
+
+  --wr-c-entrada:  cubic-bezier(.16, 1, .3, 1);   /* llega con golpe y se asienta */
+  --wr-c-estandar: cubic-bezier(.2, 0, .38, .9);  /* cambios de estado dentro de la pantalla */
+  --wr-c-salida:   cubic-bezier(.4, 0, 1, 1);     /* sale sin ruido */
+  --wr-c-pulso:    cubic-bezier(.7, 0, .2, 1);    /* trazo del pulso */
+
+  /* Capas */
+  --wr-z-barra: 50;  --wr-z-indice: 60;  --wr-z-aviso: 70;
+}
+
+/* ---------- 2 y 3. SEMÁNTICOS POR TEMA ---------- */
+
+:root,
+[data-tema="oscuro"] {
+  color-scheme: dark;
+  --fondo:        var(--wr-negro);
+  --fondo-2:      var(--wr-tinta);
+  --superficie:   var(--wr-tinta-2);
+  --texto:        var(--wr-crema);
+  --texto-fuerte: var(--wr-blanco);
+  --texto-2:      var(--wr-piedra-oscura);
+  --texto-3:      var(--wr-piedra);
+  --linea:        var(--wr-linea-oscura);
+  --linea-fuerte: var(--wr-piedra-2);
+  --marca:        var(--wr-rojo);          /* solo titulares grandes, botones y gráficos */
+  --marca-texto:  var(--wr-rojo-claro);    /* rojo para texto pequeño */
+  --accion:       var(--wr-rojo);
+  --accion-hover: var(--wr-rojo-profundo);
+  --accion-texto: var(--wr-blanco);
+  --dato:         var(--wr-ambar);
+  --vivo:         var(--wr-verde);
+  --pulso:        var(--wr-crema-apagada);
+  --foco:         var(--wr-ultramar-claro);
+  --enlace:       var(--wr-ultramar-claro);
+  --serie-1:      var(--wr-serie-1-oscuro);
+  --serie-2:      var(--wr-serie-2-oscuro);
+  --serie-contexto: var(--wr-piedra-2);
+}
+
+[data-tema="tinta"] {
+  color-scheme: dark;
+  --fondo:        var(--wr-tinta);
+  --fondo-2:      var(--wr-negro);
+  --superficie:   var(--wr-tinta-2);
+  --texto:        var(--wr-crema);
+  --texto-fuerte: var(--wr-blanco);
+  --texto-2:      var(--wr-piedra-oscura);
+  --texto-3:      var(--wr-piedra);
+  --linea:        var(--wr-linea-oscura);
+  --linea-fuerte: var(--wr-piedra-2);
+  --marca:        var(--wr-rojo);
+  --marca-texto:  var(--wr-rojo-claro);
+  --accion:       var(--wr-rojo);
+  --accion-hover: var(--wr-rojo-profundo);
+  --accion-texto: var(--wr-blanco);
+  --dato:         var(--wr-ambar);
+  --vivo:         var(--wr-verde);
+  --pulso:        var(--wr-crema-apagada);
+  --foco:         var(--wr-ultramar-claro);
+  --enlace:       var(--wr-ultramar-claro);
+  --serie-1:      var(--wr-serie-1-oscuro);
+  --serie-2:      var(--wr-serie-2-oscuro);
+  --serie-contexto: var(--wr-piedra-2);
+}
+
+/* Azul noche: la superficie fría. Para secciones de sistema, datos y aplicaciones. */
+[data-tema="noche"] {
+  color-scheme: dark;
+  --fondo:        var(--wr-azul-noche);
+  --fondo-2:      var(--wr-azul-noche-2);
+  --superficie:   var(--wr-azul-noche-2);
+  --texto:        var(--wr-crema);
+  --texto-fuerte: var(--wr-blanco);
+  --texto-2:      var(--wr-piedra-oscura);
+  --texto-3:      var(--wr-piedra);
+  --linea:        var(--wr-linea-noche);
+  --linea-fuerte: var(--wr-piedra-2);
+  --marca:        var(--wr-rojo);          /* solo titulares de 24 px o más: 3,68:1 */
+  --marca-texto:  var(--wr-rojo-claro);
+  --accion:       var(--wr-rojo);
+  --accion-hover: var(--wr-rojo-profundo);
+  --accion-texto: var(--wr-blanco);
+  --dato:         var(--wr-ambar);
+  --vivo:         var(--wr-verde);
+  --pulso:        var(--wr-crema-apagada);
+  --foco:         var(--wr-ultramar-claro);
+  --enlace:       var(--wr-ultramar-claro);
+  --serie-1:      var(--wr-serie-1-oscuro);
+  --serie-2:      var(--wr-serie-2-oscuro);
+  --serie-contexto: var(--wr-piedra-2);
+}
+
+[data-tema="claro"] {
+  color-scheme: light;
+  --fondo:        var(--wr-crema);
+  --fondo-2:      var(--wr-crema-2);
+  --superficie:   var(--wr-blanco);
+  --texto:        var(--wr-negro);
+  --texto-fuerte: var(--wr-negro);
+  --texto-2:      var(--wr-carbon);
+  --texto-3:      var(--wr-carbon);
+  --linea:        var(--wr-linea-clara);
+  --linea-fuerte: var(--wr-carbon-claro);
+  --marca:        var(--wr-rojo);
+  --marca-texto:  var(--wr-rojo-profundo);
+  --accion:       var(--wr-rojo);
+  --accion-hover: var(--wr-rojo-profundo);
+  --accion-texto: var(--wr-blanco);
+  --dato:         var(--wr-ambar-oscuro);
+  --vivo:         var(--wr-verde-oscuro);
+  --pulso:        var(--wr-negro);
+  --foco:         var(--wr-ultramar);
+  --enlace:       var(--wr-ultramar);
+  --serie-1:      var(--wr-serie-1-claro);
+  --serie-2:      var(--wr-serie-2-claro);
+  --serie-contexto: var(--wr-carbon-claro);
+}
+
+/* Sobre rojo solo van titulares, cifras grandes y botones negros.
+   Texto corrido: blanco (4,73:1) desde 16 px. Nunca ámbar ni verde. */
+[data-tema="rojo"] {
+  color-scheme: dark;
+  --fondo:        var(--wr-rojo);
+  --fondo-2:      var(--wr-rojo-profundo);
+  --superficie:   var(--wr-rojo-profundo);
+  --texto:        var(--wr-blanco);
+  --texto-fuerte: var(--wr-blanco);
+  --texto-2:      var(--wr-blanco);
+  --texto-3:      var(--wr-blanco);
+  --linea:        rgba(255, 255, 255, .35);
+  --linea-fuerte: var(--wr-blanco);
+  --marca:        var(--wr-negro);
+  --marca-texto:  var(--wr-blanco);
+  --accion:       var(--wr-negro);
+  --accion-hover: var(--wr-tinta-2);
+  --accion-texto: var(--wr-blanco);
+  --dato:         var(--wr-blanco);
+  --vivo:         var(--wr-blanco);
+  --pulso:        var(--wr-negro);
+  --foco:         var(--wr-blanco);   /* sobre rojo el foco es blanco: nunca azul */
+  --enlace:       var(--wr-blanco);
+}
+
+/* ---------- Movimiento: respeto por la preferencia del sistema ---------- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --wr-d-micro: 0ms; --wr-d-interfaz: 0ms; --wr-d-entrada: 0ms;
+    --wr-d-golpe: 0ms; --wr-d-compas: 0ms;  --wr-d-escalon: 0ms;
+  }
+}
+
+/* ---------- Fuentes autoalojadas (ajustar la ruta al tema de WordPress) ----------
+@font-face{font-family:"Barlow";font-weight:300;font-display:swap;src:url("fonts/barlow-300.woff2") format("woff2")}
+@font-face{font-family:"Barlow";font-weight:400;font-display:swap;src:url("fonts/barlow-400.woff2") format("woff2")}
+@font-face{font-family:"Barlow";font-weight:700;font-display:swap;src:url("fonts/barlow-700.woff2") format("woff2")}
+@font-face{font-family:"Barlow";font-weight:800;font-display:swap;src:url("fonts/barlow-800.woff2") format("woff2")}
+@font-face{font-family:"Barlow";font-weight:900;font-display:swap;src:url("fonts/barlow-900.woff2") format("woff2")}
+@font-face{font-family:"Barlow";font-weight:900;font-style:italic;font-display:swap;src:url("fonts/barlow-900i.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;font-display:swap;src:url("fonts/plex-mono-400.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:700;font-display:swap;src:url("fonts/plex-mono-700.woff2") format("woff2")}
+Barlow e IBM Plex Mono: SIL Open Font License 1.1.
+----------------------------------------------------------------------------- */
