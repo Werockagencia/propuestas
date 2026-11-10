@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portafolio · We Rock · David Higuera</title>
+<meta name="description" content="Portafolio de David Higuera y We Rock: estrategia digital, marca, sitios web, e-commerce y campañas en Colombia, Australia y Estados Unidos.">
+<meta property="og:title" content="Portafolio · We Rock">
+<meta property="og:description" content="Estrategia, marca y tecnología. Casos en Colombia, Australia y Estados Unidos.">
+<meta property="og:image" content="img/sitios/remarkable.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--red:#E8000A;--red-h:#FF1A22;--dk:#0A0A0A;--dk2:#121212;--dk3:#1a1a1a;--lt:#F5F2EB;--lt2:#EDE9DF;--ink:#0A0A0A;--ink2:#3a3a3a;--ink3:#6f6f6f;--tx:#E8E4DC;--tx2:#A9A59D;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--dk);color:var(--tx);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{width:min(1240px,100% - 48px);margin:0 auto}
+/* menú fijo */
+.top{position:fixed;inset:0 0 auto;z-index:50;background:rgba(10,10,10,.92);backdrop-filter:blur(10px);border-bottom:1px solid #222}
+.top .wrap{display:flex;align-items:center;gap:28px;height:64px}
+.logo{font-weight:900;font-size:21px;letter-spacing:.04em;text-decoration:none;text-transform:uppercase}.logo b{color:var(--red)}
+.top nav{display:flex;gap:22px;margin-left:auto}.top nav a{text-decoration:none;font-size:15px;font-weight:500;color:var(--tx2)}.top nav a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:.02em;padding:12px 20px;border:1px solid var(--red);transition:background .2s}
+.btn:hover{background:var(--red-h)}.btn.gh{background:transparent;border-color:#444}.btn.gh:hover{border-color:#fff}
+.lt .btn.gh{border-color:#bbb;color:var(--ink)}.lt .btn.gh:hover{border-color:var(--ink)}
+section{padding:110px 0}
+.lt{background:var(--lt);color:var(--ink)}
+.eye{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}.eye::before{content:"";width:26px;height:2px;background:var(--red)}
+h1,h2{font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
+h1{font-size:clamp(46px,7.4vw,104px);margin:22px 0 26px}
+h2{font-size:clamp(36px,5vw,66px);margin:16px 0 20px}
+h1 em,h2 em{font-style:normal;color:var(--red)}
+h3{font-size:24px;font-weight:800;line-height:1.15}
+.lead{font-size:clamp(19px,1.6vw,22px);font-weight:300;max-width:760px;color:var(--tx2)}.lt .lead{color:var(--ink2)}
+.note{font-size:14px;color:var(--tx2);margin-top:22px;max-width:900px}.lt .note{color:var(--ink3)}
+/* hero */
+.hero{padding:170px 0 90px;background:radial-gradient(70% 80% at 85% 10%,rgba(232,0,10,.16),transparent 60%),var(--dk)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:70px}
+.stats div{background:var(--dk3);padding:24px 22px;border-top:2px solid var(--red)}
+.stats b{display:block;font-size:clamp(30px,3.2vw,44px);font-weight:900;line-height:1;color:#fff}
+.stats span{display:block;margin-top:10px;font-size:15px;line-height:1.35;color:var(--tx2)}
+/* boxi */
+.bx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
+.facts{list-style:none;margin-top:28px;border-top:1px solid #cfc9bd}
+.facts li{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid #cfc9bd;font-size:17px;line-height:1.4}
+.facts span{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);padding-top:3px}
+.mag{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mag figure:first-child{grid-column:1/-1}
+.mag img{width:100%;box-shadow:0 18px 40px rgba(0,0,0,.18)}
+.mag figure:first-child img{max-width:420px;margin:0 auto}
+.mag figcaption{font-size:13px;color:var(--ink3);margin-top:8px}
+blockquote{margin-top:30px;padding-left:20px;border-left:3px solid var(--red);font-size:21px;font-weight:300;font-style:italic;line-height:1.4}
+blockquote cite{display:block;margin-top:8px;font-size:14px;font-style:normal;font-weight:600;color:var(--ink3)}
+.press{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.press a{font-size:14px;font-weight:600;text-decoration:none;border:1px solid #bdb6a8;padding:8px 12px}.press a:hover{border-color:var(--ink)}
+/* tarjetas de proyecto */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;margin-top:46px}
+.grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pj{background:var(--dk2);border:1px solid #222;display:flex;flex-direction:column;transition:border-color .25s,transform .35s var(--ease)}
+.pj:hover{border-color:#444;transform:translateY(-3px)}
+.lt .pj{background:#fff;border-color:#e2ddd2}.lt .pj:hover{border-color:#bbb}
+.shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#000}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .8s var(--ease)}
+.pj:hover .shot img{transform:scale(1.03)}
+.tag{position:absolute;left:14px;top:14px;background:var(--red);color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px}
+.tag.lv::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:7px;vertical-align:1px}
+.pj .bd{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
+.pj .kd{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tx2);margin-bottom:8px}.lt .pj .kd{color:var(--ink3)}
+.pj p{font-size:16.5px;line-height:1.45;color:var(--tx2);margin-top:10px}.lt .pj p{color:var(--ink2)}
+.aw{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.aw span{font-size:13px;font-weight:600;padding:5px 10px;background:rgba(232,0,10,.12);color:#ff6b70;border:1px solid rgba(232,0,10,.35)}
+.lt .aw span{background:#fbe9e9;color:#a10007;border-color:#efc0c2}
+.lk{display:flex;flex-wrap:wrap;gap:16px;margin-top:auto;padding-top:20px}
+.lk a{font-size:15px;font-weight:700;text-decoration:none;color:#fff;border-bottom:2px solid var(--red);padding-bottom:2px}.lt .lk a{color:var(--ink)}
+.lk a:hover{color:var(--red-h)}
+/* vanity */
+.vn{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:center}
+.big{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.big div{background:var(--dk3);padding:28px 24px;border-top:2px solid var(--red)}
+.big b{display:block;font-size:clamp(34px,4vw,54px);font-weight:900;line-height:1;color:#fff}
+.big span{display:block;margin-top:10px;font-size:15px;color:var(--tx2);line-height:1.35}
+/* clientes */
+.cl{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.cl span{font-size:16px;font-weight:600;padding:10px 16px;border:1px solid #d3cdc1;background:#fff}
+/* servicios */
+.sv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;margin-top:46px}
+.sv div{background:var(--dk2);padding:28px 24px;border-top:2px solid var(--red)}
+.sv b{display:block;font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--red);margin-bottom:14px}
+.sv h3{font-size:22px;margin-bottom:10px}.sv p{font-size:16px;color:var(--tx2);line-height:1.45}
+/* cierre */
+.end{text-align:left;background:radial-gradient(60% 90% at 10% 100%,rgba(232,0,10,.18),transparent 60%),var(--dk)}
+.end .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+footer{border-top:1px solid #222;padding:28px 0;font-size:14px;color:var(--tx2)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{text-decoration:none;font-weight:600;color:#fff}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.rv.in{opacity:1;transform:none}
+@media(max-width:1000px){.top nav{display:none}.stats,.sv{grid-template-columns:repeat(2,minmax(0,1fr))}.bx,.vn{grid-template-columns:minmax(0,1fr);gap:44px}.grid.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.wrap{width:calc(100% - 32px)}section{padding:76px 0}.hero{padding:120px 0 64px}.grid,.grid.g3,.sv{grid-template-columns:minmax(0,1fr)}.stats{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.facts li{grid-template-columns:minmax(0,1fr);gap:4px}.top .btn{padding:9px 13px;font-size:13.5px}.big{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.pj,.shot img{transition:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio">We <b>Rock</b></a>
+    <nav aria-label="Secciones"><a href="#boxi">Boxi</a><a href="#australia">Australia</a><a href="#sitios">Sitios</a><a href="#campanas">Campañas</a><a href="#automatizacion">IA</a><a href="#clientes">Clientes</a></nav>
+    <a class="btn" href="https://wa.me/573125766056?text=Hola%20David,%20vi%20tu%20portafolio" target="_blank" rel="noopener">Hablemos</a>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap">
+    <span class="eye">Portafolio · David Higuera · We Rock</span>
+    <h1>Marcas que <em>venden</em><br>en internet.</h1>
+    <p class="lead">Más de 15 años en estrategia digital. Marca, sitios, e-commerce, pauta y automatización para empresas en Colombia, Australia y Estados Unidos. Desde 2018 lo hacemos con We Rock.</p>
+    <div class="cta"><a class="btn" href="#boxi">Ver el caso Boxi</a><a class="btn gh" href="#sitios">Ver sitios en vivo</a></div>
+    <div class="stats">
+      <div><b>15+</b><span>Años en estrategia digital</span></div>
+      <div><b>€4,5 M</b><span>Inversión levantada por Boxi, donde fui CSO</span></div>
+      <div><b>Oro</b><span>MUSE Creative Awards 2025, con Think Creative Agency</span></div>
+      <div><b>3</b><span>Países con clientes: Colombia, Australia y Estados Unidos</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="lt" id="boxi">
+  <div class="wrap bx">
+    <div class="rv">
+      <span class="eye">Caso destacado · Boxi Sleep</span>
+      <h2>Colchones en caja, <em>vendidos por internet.</em></h2>
+      <p class="lead">Boxi llevó a Colombia el colchón comprimido al vacío que llega a la casa en una caja. Fui su CSO: dirigí marketing, desarrollo y área comercial, y creé la identidad visual de la marca.</p>
+      <ul class="facts">
+        <li><span>Cargo</span>CSO · Director de marketing, desarrollo y comercial</li>
+        <li><span>Marca</span>Identidad visual, empaque y lenguaje de la marca desde el inicio</li>
+        <li><span>Ventas</span>Unas 200 unidades y cerca de $320 millones de pesos al mes, según la revista P&amp;M (abril de 2017)</li>
+        <li><span>Premio</span>Finalista de los eCommerce Awards Colombia 2017, categoría Mejor Pyme de eCommerce</li>
+        <li><span>Inversión</span>Ronda con Axon Partners Group (España) en cuatro fases, por 4,5 millones de euros</li>
+      </ul>
+      <blockquote>“Buscamos dar visibilidad y reconocimiento a la marca, combinando recursos online y offline.”<cite>David Higuera, CSO de Boxi · Revista P&amp;M, abril de 2017</cite></blockquote>
+      <div class="press">
+        <a href="http://www.ecommerceday.co/2018/2017/09/13/finalistas-de-los-ecommerce-awards-colombia-2017/" target="_blank" rel="noopener">eCommerce Awards 2017 ↗</a>
+        <a href="https://capital-riesgo.es/es/articles/axon-partners-group-invierte-en-boxi-para-escalar-su-producci-n-en-colombia-/" target="_blank" rel="noopener">Capital Riesgo ↗</a>
+        <a href="https://www.portafolio.co/innovacion/boxi-sleep-la-tecnologia-al-servicio-de-la-comodidad-510045" target="_blank" rel="noopener">Portafolio ↗</a>
+        <a href="https://www.elespectador.com/economia/boxisleep-el-emprendimiento-colombiano-que-innova-en-la-industria-del-sueno-articulo-821086" target="_blank" rel="noopener">El Espectador ↗</a>
+      </div>
+    </div>
+    <div class="mag rv">
+      <figure><img src="img/boxi/pym-pag16.webp" alt="Revista P&amp;M, abril de 2017: artículo Descanso a domicilio sobre Boxi" width="720" height="960" loading="lazy"><figcaption>P&amp;M · “Descanso a domicilio”, pág. 16</figcaption></figure>
+      <figure><img src="img/boxi/pym-portada.webp" alt="Portada de la revista P&amp;M Publicidad y Mercadeo, abril de 2017" width="720" height="960" loading="lazy"><figcaption>Portada P&amp;M · abril de 2017</figcaption></figure>
+      <figure><img src="img/boxi/pym-pag17.webp" alt="Revista P&amp;M, página 17: Santiago Varenkow, Felipe Orjuela y David Higuera de Boxi" width="720" height="960" loading="lazy"><figcaption>Pág. 17 · Santiago Varenkow, Felipe Orjuela y David Higuera</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="australia">
+  <div class="wrap">
+    <span class="eye">Australia · Think Creative Agency, Sídney</span>
+    <h2>Sitios premiados <em>y accesibles.</em></h2>
+    <p class="lead">Diseño y desarrollo web para Think Creative Agency en Sídney: e-commerce industrial, tecnología para personas con discapacidad y sitios con estándar de accesibilidad WCAG 2.2.</p>
+    <div class="grid">
+      <article class="pj rv"><div class="shot"><img src="img/sitios/remarkable.jpg" alt="Sitio web de Remarkable" width="1440" height="900" loading="lazy"><span class="tag">Oro MUSE 2025</span></div><div class="bd"><span class="kd">Marca y sitio web · Accesibilidad</span><h3>Remarkable</h3><p>Aceleradora de startups de tecnología para personas con discapacidad. Marca con nivel WCAG 2.2 AAA y sitio WCAG 2.2 AA.</p><div class="aw"><span>MUSE Creative Awards 2025 · Oro</span><span>Nominado a los Webby 2025</span></div><div class="lk"><a href="https://www.remarkable.org/" target="_blank" rel="noopener">Ver sitio</a><a href="https://thinkcreativeagency.com.au/work/remarkable/" target="_blank" rel="noopener">Caso de estudio</a></div></div></article>
+      <article class="pj rv"><div class="shot"><img src="img/sitios/polytex.jpg" alt="Sitio web de Polytex" width="1440" height="900" loading="lazy"><span class="tag">Plata MUSE 2025</span></div><div class="bd"><span class="kd">E-commerce industrial</span><h3>Polytex</h3><p>Fabricante australiano de coberturas para granos, heno y ganado. Tienda en línea con catálogo técnico y cotización.</p><div class="aw"><span>MUSE Creative Awards 2025 · Plata, Website E-Commerce</span></div><div class="lk"><a href="https://polytex.net.au/" target="_blank" rel="noopener">Ver sitio</a><a href="https://thinkcreativeagency.com.au/work/polytex/" target="_blank" rel="noopener">Caso de estudio</a></div></div></article>
+      <article class="pj rv"><div class="shot"><img src="img/sitios/freedom.jpg" alt="Sitio web de Freedom Solutions" width="1440" height="900" loading="lazy"><span class="tag">WCAG 2.2 AA</span></div><div class="bd"><span class="kd">Organización sin ánimo de lucro · Tienda</span><h3>Freedom Solutions</h3><p>Diseña y fabrica tecnología de asistencia, como bicicletas adaptadas. Sitio accesible para lectores de pantalla, con tienda y donaciones.</p><div class="lk"><a href="https://freedomsolutions.org.au/" target="_blank" rel="noopener">Ver sitio</a><a href="https://thinkcreativeagency.com.au/work/freedom-solutions-website-development/" target="_blank" rel="noopener">Caso de estudio</a></div></div></article>
+      <article class="pj rv"><div class="shot"><img src="img/sitios/whiteley.jpg" alt="Sitio web de Whiteley" width="1440" height="900" loading="lazy"></div><div class="bd"><span class="kd">Sitio corporativo · Catálogo</span><h3>Whiteley</h3><p>Fabricante australiano de productos de prevención de infecciones desde 1933. Catálogo de productos, distribuidores y contacto comercial.</p><div class="lk"><a href="https://whiteley.com.au/" target="_blank" rel="noopener">Ver sitio</a><a href="https://thinkcreativeagency.com.au/work/whiteley/" target="_blank" rel="noopener">Caso de estudio</a></div></div></article>
+    </div>
+    <p class="note">Premios y estándares según los casos de estudio publicados por Think Creative Agency. Portafolio completo de la agencia: <a href="https://thinkcreativeagency.com.au/our-work" target="_blank" rel="noopener">thinkcreativeagency.com.au/our-work</a>.</p>
+  </div>
+</section>
+
+<section class="lt" id="sitios">
+  <div class="wrap">
+    <span class="eye">Sitios en vivo · 2026</span>
+    <h2>Hechos a la medida, <em>en vivo hoy.</em></h2>
+    <p class="lead">Temas de WordPress propios, sin plantillas compradas: rápidos, editables por el cliente y listos para vender por WhatsApp o pasarela de pago.</p>
+    <div class="grid">
+      <article class="pj rv"><div class="shot"><img src="img/sitios/petempire.jpg" alt="Sitio web de Pet Empire" width="1440" height="900" loading="lazy"><span class="tag lv">Estados Unidos</span></div><div class="bd"><span class="kd">Sitio bilingüe · Reservas · Contenido</span><h3>Pet Empire Mobile Grooming</h3><p>Peluquería canina a domicilio en Brooklyn y Connecticut. Sitio en inglés y español, precios por tamaño, membresías y reservas por WhatsApp.</p><div class="lk"><a href="https://petempire.pet/" target="_blank" rel="noopener">Ver sitio</a></div></div></article>
+      <article class="pj rv"><div class="shot"><img src="img/sitios/esperanza.jpg" alt="Tienda en línea de Esperanza Arcila" width="1440" height="900" loading="lazy"><span class="tag lv">En vivo</span></div><div class="bd"><span class="kd">Tienda en línea · Fotografía · Reels</span><h3>Esperanza Arcila</h3><p>Arte en MDF pintado a mano. Tienda con WooCommerce y Wompi, sesión de fotos con giros 360 por producto y una serie de Reels contando su historia.</p><div class="lk"><a href="https://esperanzaarcila.com/" target="_blank" rel="noopener">Ver tienda</a></div></div></article>
+      <article class="pj rv"><div class="shot"><img src="img/sitios/west24.jpg" alt="Sitio web de West 24 Horas" width="1440" height="900" loading="lazy"><span class="tag lv">En vivo</span></div><div class="bd"><span class="kd">Catálogo · Pedidos por WhatsApp</span><h3>West 24 Horas</h3><p>Domicilios las 24 horas en Cajicá y Chía. Catálogo real de licores, mercado, farmacia y restaurante, con carrito que arma el pedido en WhatsApp.</p><div class="lk"><a href="https://west24horas.com/" target="_blank" rel="noopener">Ver sitio</a></div></div></article>
+      <article class="pj rv"><div class="shot"><img src="img/sitios/yoamo.jpg" alt="Sitio web de Yo Amo la Empanada" width="1440" height="900" loading="lazy"><span class="tag lv">En vivo</span></div><div class="bd"><span class="kd">Toma-pedidos · Campaña</span><h3>Yo Amo la Empanada</h3><p>Empanadas y lasañas congeladas en Cajicá. Toma-pedidos visual al estilo de las apps de domicilios, más la campaña de congelados en redes.</p><div class="lk"><a href="https://yoamolaempanada.com/" target="_blank" rel="noopener">Ver sitio</a><a href="https://werockagencia.github.io/yo-amo-la-empanada-contenidos-octubre/" target="_blank" rel="noopener">Ver campaña</a></div></div></article>
+    </div>
+    <div class="grid g3">
+      <article class="pj rv"><div class="shot"><img src="img/sitios/epc.jpg" alt="Nuevo portal de EPC Cajicá" width="1440" height="900" loading="lazy"><span class="tag">En desarrollo</span></div><div class="bd"><span class="kd">Sector público · Portal institucional</span><h3>EPC Cajicá</h3><p>Nuevo portal de la empresa de servicios públicos de Cajicá: transparencia, atención a la ciudadanía, pagos y trámites, con los requisitos que revisa la Procuraduría.</p><div class="lk"><a href="https://werockagencia.github.io/EPC/index.html" target="_blank" rel="noopener">Ver diseño aprobado</a></div></div></article>
+      <article class="pj rv"><div class="shot"><img src="img/sitios/solidaridad.jpg" alt="Rediseño del sitio de la Fundación Solidaridad por Colombia" width="1440" height="900" loading="lazy"><span class="tag">Fundación</span></div><div class="bd"><span class="kd">Webmaster · Rediseño</span><h3>Fundación Solidaridad por Colombia</h3><p>Webmaster de la fundación y rediseño completo de 10 páginas, con donaciones en línea y el programa Padrino Solidario.</p><div class="lk"><a href="https://werockagencia.github.io/propuestas/solidaridad/" target="_blank" rel="noopener">Ver rediseño</a></div></div></article>
+      <article class="pj rv"><div class="shot"><img src="img/sitios/werock.jpg" alt="Sitio web de We Rock" width="1440" height="900" loading="lazy"><span class="tag lv">En vivo</span></div><div class="bd"><span class="kd">Marca propia · SEO y AEO</span><h3>We Rock</h3><p>Nuestro sitio, posicionado en Google y preparado para aparecer en respuestas de inteligencia artificial en Cajicá, Chía, Zipaquirá y Tabio.</p><div class="lk"><a href="https://werock.space/" target="_blank" rel="noopener">Ver sitio</a></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="campanas">
+  <div class="wrap">
+    <span class="eye">Campañas, pauta y contenido</span>
+    <h2>Piezas que salen <em>a la calle y a redes.</em></h2>
+    <p class="lead">Proyectos inmobiliarios, marcas de consumo y negocios de servicio: desde una valla en el aeropuerto hasta la parrilla mensual de Instagram y la pauta en Meta.</p>
+    <div class="grid">
+      <article class="pj rv"><div class="shot"><img src="img/sitios/montserrat.jpg" alt="Brochure de Montserrat Etapa II" width="1440" height="900" loading="lazy"><span class="tag">Inmobiliario</span></div><div class="bd"><span class="kd">Brochure · Vallas · Aeropuerto · Manual</span><h3>Montserrat II · Azulado Inmobiliaria</h3><p>Campaña de apartamentos en Floridablanca: brochure, valla, caja de luz, pantallas en el Hospital Internacional de Colombia, pieza para el aeropuerto de Bucaramanga, señalización y manual de marca.</p></div></article>
+      <article class="pj rv"><div class="shot"><img src="img/sitios/kassa.jpg" alt="Anuncios de Meta para Kassa Apartamentos" width="1440" height="900" loading="lazy"><span class="tag">Inmobiliario</span></div><div class="bd"><span class="kd">Meta Ads · Creativos · Reportes</span><h3>Kassa, Tribeca 94 y Tribeca Park</h3><p>Pauta y creativos para proyectos de vivienda. En Kassa manejamos Meta Ads con fotos reales del apartamento modelo, reportes mensuales y públicos por nicho, como el sector salud.</p><div class="lk"><a href="https://werockagencia.github.io/kassa-reportes/creativos/" target="_blank" rel="noopener">Ver anuncios</a></div></div></article>
+      <article class="pj rv"><div class="shot"><img src="img/sitios/petcont.jpg" alt="Parrilla de Instagram de Pet Empire" width="1440" height="900" loading="lazy"><span class="tag">Estados Unidos</span></div><div class="bd"><span class="kd">Parrilla de Instagram · Meta Ads</span><h3>Pet Empire · Contenido</h3><p>Seis carruseles de proceso y cuidado dental en inglés, con anuncios para Meta en formato feed e historia.</p><div class="lk"><a href="https://werockagencia.github.io/propuestas/petempire-contenidos/" target="_blank" rel="noopener">Ver parrilla</a></div></div></article>
+      <article class="pj rv"><div class="shot"><img src="img/sitios/alma.jpg" alt="Campaña Miércoles de Octubre de Alma House" width="1440" height="900" loading="lazy"><span class="tag">Belleza</span></div><div class="bd"><span class="kd">Campaña · Contenido · Sitio</span><h3>Alma House Nails Bar</h3><p>Sitio en WordPress, contenidos por capítulos y la campaña Miércoles de Octubre, con piezas para feed, historias y promoción en el local.</p><div class="lk"><a href="https://werockagencia.github.io/alma-house-miercoles-de-amigas/" target="_blank" rel="noopener">Ver campaña</a></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="lt" id="automatizacion">
+  <div class="wrap vn">
+    <div class="rv">
+      <span class="eye">Automatización con IA · HalconBot</span>
+      <h2>Vanity: de $7 M <em>a $24 M al mes.</em></h2>
+      <p class="lead">HalconBot atiende WhatsApp con inteligencia artificial: responde, cotiza y agenda, y pasa a una persona solo cuando hace falta. En Vanity, en Bogotá, acompañó un salto en ventas mensuales de $7 millones a $24 millones.</p>
+    </div>
+    <div class="big rv">
+      <div><b>3,4×</b><span>Ventas mensuales, de $7 M a $24 M</span></div>
+      <div><b>74 %</b><span>Mensajes resueltos por IA en una semana</span></div>
+      <div><b>1.954</b><span>Mensajes atendidos esa semana</span></div>
+      <div><b>682</b><span>Necesitaron a una persona</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="wrap">
+    <span class="eye">Qué hacemos</span>
+    <h2>Un solo equipo, <em>de la marca a la venta.</em></h2>
+    <div class="sv">
+      <div class="rv"><b>01</b><h3>Estrategia y marca</h3><p>Posicionamiento, identidad visual, manual de marca y mensajes.</p></div>
+      <div class="rv"><b>02</b><h3>Sitios y e-commerce</h3><p>WordPress a la medida, tiendas con pasarela, catálogos y pedidos por WhatsApp.</p></div>
+      <div class="rv"><b>03</b><h3>Pauta y contenido</h3><p>Meta, Google y LinkedIn, parrillas de redes, Reels y piezas impresas.</p></div>
+      <div class="rv"><b>04</b><h3>Automatización</h3><p>HalconBot, SEO y AEO para aparecer en Google y en respuestas de IA.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="lt" id="clientes">
+  <div class="wrap">
+    <span class="eye">Con quién hemos trabajado</span>
+    <h2>Clientes <em>y proyectos.</em></h2>
+    <div class="cl">
+      <span>Boxi Sleep</span><span>Think Creative Agency</span><span>Remarkable</span><span>Polytex</span><span>Freedom Solutions</span><span>Whiteley</span><span>Fundación Solidaridad por Colombia</span><span>EPC Cajicá</span><span>Azulado Inmobiliaria · Montserrat II</span><span>Kassa Apartamentos</span><span>Tribeca 94</span><span>Tribeca Park</span><span>Pet Empire</span><span>Esperanza Arcila</span><span>West 24 Horas</span><span>Yo Amo la Empanada</span><span>Alma House</span><span>Vanity</span>
+    </div>
+  </div>
+</section>
+
+<section class="end">
+  <div class="wrap">
+    <span class="eye">Hablemos</span>
+    <h2>¿Su marca es <em>la siguiente?</em></h2>
+    <p class="lead">Escríbanos y le contamos cómo empezaríamos con su empresa.</p>
+    <div class="cta"><a class="btn" href="https://wa.me/573125766056?text=Hola%20David,%20vi%20tu%20portafolio" target="_blank" rel="noopener">Escribir por WhatsApp</a><a class="btn gh" href="https://werock.space" target="_blank" rel="noopener">werock.space</a></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>David Higuera · We Rock · Cajicá, Colombia</span><a href="https://werock.space" target="_blank" rel="noopener">Sitio desarrollado por werock.space</a></div></footer>
+
+<script>
+(function(){const els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});els.forEach(e=>io.observe(e))})();
+</script>
+</body>
+</html>
