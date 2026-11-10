@@ -130,10 +130,10 @@
       return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2];
     };
     var razon = function (a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
-    var fondos = [['Negro', '--wr-negro'], ['Tinta', '--wr-tinta'], ['Tinta 2', '--wr-tinta-2'], ['Crema', '--wr-crema'], ['Crema 2', '--wr-crema-2'], ['Rojo', '--wr-rojo']];
+    var fondos = [['Negro', '--wr-negro'], ['Tinta', '--wr-tinta'], ['Tinta 2', '--wr-tinta-2'], ['Azul noche', '--wr-azul-noche'], ['Azul noche 2', '--wr-azul-noche-2'], ['Crema', '--wr-crema'], ['Crema 2', '--wr-crema-2'], ['Rojo', '--wr-rojo']];
     var textos = [['Blanco', '--wr-blanco'], ['Crema', '--wr-crema'], ['Negro', '--wr-negro'], ['Rojo Rock', '--wr-rojo'], ['Rojo profundo', '--wr-rojo-profundo'], ['Rojo claro', '--wr-rojo-claro'],
       ['Piedra oscura', '--wr-piedra-oscura'], ['Piedra', '--wr-piedra'], ['Carbón', '--wr-carbon'], ['Carbón claro', '--wr-carbon-claro'],
-      ['Ámbar', '--wr-ambar'], ['Ámbar oscuro', '--wr-ambar-oscuro'], ['Verde', '--wr-verde'], ['Verde oscuro', '--wr-verde-oscuro']];
+      ['Ámbar', '--wr-ambar'], ['Ámbar oscuro', '--wr-ambar-oscuro'], ['Verde', '--wr-verde'], ['Verde oscuro', '--wr-verde-oscuro'], ['Ultramar', '--wr-ultramar'], ['Ultramar claro', '--wr-ultramar-claro']];
     var h = '<thead><tr><th scope="col">Texto / fondo</th>' + fondos.map(function (f) { return '<th scope="col"><i style="background:' + tok(f[1]) + '"></i>' + f[0] + '</th>'; }).join('') + '</tr></thead><tbody>';
     textos.forEach(function (t) {
       var ht = tok(t[1]);

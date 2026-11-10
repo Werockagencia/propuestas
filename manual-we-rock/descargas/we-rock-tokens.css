@@ -1,11 +1,14 @@
 /* ==========================================================================
-   WE ROCK · TOKENS DE MARCA · v2.0 (noviembre 2026)
+   WE ROCK · TOKENS DE MARCA · v2.1 (noviembre 2026)
    Manual de Marca 2.0. Reemplaza a we-rock-colores.css (Brand Kit v1.0).
 
    Tres capas:
    1. PRIMITIVOS   valores crudos. No se usan directo en componentes.
    2. SEMÁNTICOS   intención (fondo, texto, acción, dato, vivo). Cambian por tema.
-   3. TEMAS        [data-tema="oscuro" | "tinta" | "claro" | "rojo"]
+   3. TEMAS        [data-tema="oscuro" | "tinta" | "noche" | "claro" | "rojo"]
+
+   v2.1: se agrega el azul. Azul noche como superficie y ultramar como
+   acento de interacción y segunda serie de datos. El rojo sigue mandando.
 
    Contrastes medidos con la fórmula de luminancia relativa de WCAG 2.2.
    AA texto normal >= 4,5:1 · AA texto grande (>= 24 px, o >= 18,5 px bold) >= 3:1
@@ -41,18 +44,29 @@
   --wr-carbon-claro:    #6E6A63;  /* notas y bordes de campos sobre crema 4,81:1. No usar sobre crema 2 */
   --wr-carbon:          #5A5650;  /* texto secundario sobre crema 6,52:1 */
 
-  /* Acentos funcionales. Máximo 3 % de la superficie. */
+  /* Azul (v2.1). El complemento frío del sistema.
+     REGLA: ultramar y rojo nunca se tocan. Ni azul sobre rojo ni rojo sobre ultramar: vibran.
+     Sobre azul noche, el Rojo Rock solo va en titulares de 24 px o más (3,68:1).
+     En texto pequeño sobre azul noche: rojo claro (5,24:1). */
+  --wr-azul-noche:      #0E1A2E;  /* superficie oscura alterna. Crema encima 15,58:1 · blanco 17,41:1 */
+  --wr-azul-noche-2:    #14233D;  /* tarjetas y hover sobre azul noche. Crema encima 14,04:1 */
+  --wr-linea-noche:     #26385A;  /* divisores decorativos sobre azul noche */
+  --wr-ultramar:        #2747E0;  /* INTERACCIÓN sobre claro: enlaces, foco. Sobre crema 6,13:1 · blanco encima 6,85:1 */
+  --wr-ultramar-claro:  #7A93FF;  /* INTERACCIÓN sobre oscuro. Negro 7,02:1 · tinta 6,17:1 · azul noche 6,17:1 · azul noche 2 5,57:1 */
+
+  /* Acentos de señal. Ámbar + verde: 1 % de la superficie. Ultramar: 2 %. */
   --wr-ambar:           #F2B600;  /* DATO. Sobre negro 10,81:1 */
   --wr-ambar-oscuro:    #8A5A00;  /* DATO sobre crema 5,30:1 */
   --wr-verde:           #2EC4B6;  /* EN VIVO. Sobre negro 9,13:1 */
   --wr-verde-oscuro:    #0B6B5D;  /* EN VIVO sobre crema 5,73:1 */
 
-  /* Color de datos: gráficas con dos series. Par validado para daltonismo
-     (dE OKLab 26,9 en protanopia) y contraste >= 3:1 con la superficie. */
+  /* Color de datos: gráficas con dos series. Ámbar + ultramar.
+     Par validado para daltonismo: dE OKLab 29,0 en protanopia sobre oscuro,
+     31,2 sobre claro. Contraste >= 3:1 con la superficie. */
   --wr-serie-1-oscuro:  #B88A00;  /* ámbar de gráfica */
-  --wr-serie-2-oscuro:  #4F8FE8;  /* azul señal */
+  --wr-serie-2-oscuro:  #7A93FF;  /* ultramar claro */
   --wr-serie-1-claro:   #8A5A00;
-  --wr-serie-2-claro:   #2F5FB0;
+  --wr-serie-2-claro:   #2747E0;  /* ultramar */
 
   /* Tipografía */
   --wr-fuente:       "Barlow", "Arial Narrow", Arial, Helvetica, sans-serif;
@@ -139,7 +153,8 @@
   --dato:         var(--wr-ambar);
   --vivo:         var(--wr-verde);
   --pulso:        var(--wr-crema-apagada);
-  --foco:         var(--wr-blanco);
+  --foco:         var(--wr-ultramar-claro);
+  --enlace:       var(--wr-ultramar-claro);
   --serie-1:      var(--wr-serie-1-oscuro);
   --serie-2:      var(--wr-serie-2-oscuro);
   --serie-contexto: var(--wr-piedra-2);
@@ -164,7 +179,35 @@
   --dato:         var(--wr-ambar);
   --vivo:         var(--wr-verde);
   --pulso:        var(--wr-crema-apagada);
-  --foco:         var(--wr-blanco);
+  --foco:         var(--wr-ultramar-claro);
+  --enlace:       var(--wr-ultramar-claro);
+  --serie-1:      var(--wr-serie-1-oscuro);
+  --serie-2:      var(--wr-serie-2-oscuro);
+  --serie-contexto: var(--wr-piedra-2);
+}
+
+/* Azul noche: la superficie fría. Para secciones de sistema, datos y aplicaciones. */
+[data-tema="noche"] {
+  color-scheme: dark;
+  --fondo:        var(--wr-azul-noche);
+  --fondo-2:      var(--wr-azul-noche-2);
+  --superficie:   var(--wr-azul-noche-2);
+  --texto:        var(--wr-crema);
+  --texto-fuerte: var(--wr-blanco);
+  --texto-2:      var(--wr-piedra-oscura);
+  --texto-3:      var(--wr-piedra);
+  --linea:        var(--wr-linea-noche);
+  --linea-fuerte: var(--wr-piedra-2);
+  --marca:        var(--wr-rojo);          /* solo titulares de 24 px o más: 3,68:1 */
+  --marca-texto:  var(--wr-rojo-claro);
+  --accion:       var(--wr-rojo);
+  --accion-hover: var(--wr-rojo-profundo);
+  --accion-texto: var(--wr-blanco);
+  --dato:         var(--wr-ambar);
+  --vivo:         var(--wr-verde);
+  --pulso:        var(--wr-crema-apagada);
+  --foco:         var(--wr-ultramar-claro);
+  --enlace:       var(--wr-ultramar-claro);
   --serie-1:      var(--wr-serie-1-oscuro);
   --serie-2:      var(--wr-serie-2-oscuro);
   --serie-contexto: var(--wr-piedra-2);
@@ -189,7 +232,8 @@
   --dato:         var(--wr-ambar-oscuro);
   --vivo:         var(--wr-verde-oscuro);
   --pulso:        var(--wr-negro);
-  --foco:         var(--wr-negro);
+  --foco:         var(--wr-ultramar);
+  --enlace:       var(--wr-ultramar);
   --serie-1:      var(--wr-serie-1-claro);
   --serie-2:      var(--wr-serie-2-claro);
   --serie-contexto: var(--wr-carbon-claro);
@@ -216,7 +260,8 @@
   --dato:         var(--wr-blanco);
   --vivo:         var(--wr-blanco);
   --pulso:        var(--wr-negro);
-  --foco:         var(--wr-blanco);
+  --foco:         var(--wr-blanco);   /* sobre rojo el foco es blanco: nunca azul */
+  --enlace:       var(--wr-blanco);
 }
 
 /* ---------- Movimiento: respeto por la preferencia del sistema ---------- */
