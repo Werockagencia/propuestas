@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Kasa Crea × We Rock — Plan de crecimiento</title>
+<meta name="description" content="Plan de acción de We Rock para La Kasa Crea: correo con dominio, trazabilidad de leads, web, red de aliados y captación orgánica.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E8000A;--red-h:#FF1A22;--dk:#0A0A0A;--dk2:#111;--dk3:#161616;
+  --lt:#F5F2EB;--lt2:#EDE9DF;--lt3:#E4DFD4;--white:#fff;--gray:#888;--gray2:#555;
+  --text-dk:#E8E4DC;--text-dk2:#AAAAAA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--dk);color:var(--text-dk);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media (hover:hover) and (pointer:fine){body{cursor:none}a,button{cursor:none}}
+a{color:inherit}
+#cur,#cur2{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;border-radius:50%;transform:translate(-50%,-50%)}
+#cur{width:8px;height:8px;background:#fff}
+#cur2{width:36px;height:36px;border:1px solid rgba(255,255,255,.6);transition:transform .15s ease-out}
+@media (hover:none){#cur,#cur2{display:none}}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--red);z-index:1000;width:0}
+#nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;transition:background .3s}
+#nav.scrolled{background:rgba(245,242,235,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav-logo .logo-w{height:34px;display:block}.nav-logo .logo-c{height:34px;display:none;mix-blend-mode:multiply}
+#nav.scrolled .logo-w{display:none}#nav.scrolled .logo-c{display:block}
+.nav-tag{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--text-dk2)}
+#nav.scrolled .nav-tag{color:var(--gray2)}
+#counter{position:fixed;bottom:28px;left:40px;z-index:800;font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--gray);mix-blend-mode:difference}
+#dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:800;display:flex;flex-direction:column;gap:10px}
+#dots button{width:9px;height:9px;border-radius:50%;border:1px solid var(--gray);background:transparent;padding:0}
+#dots button.on{background:var(--red);border-color:var(--red);transform:scale(1.3)}
+#arrows{position:fixed;bottom:22px;right:24px;z-index:800;display:flex;gap:8px}
+#arrows button{width:42px;height:42px;border:1px solid rgba(136,136,136,.5);background:rgba(10,10,10,.6);color:#fff;font:700 16px 'Barlow';transition:background .2s}
+#arrows button:hover{background:var(--red);border-color:var(--red)}
+#arrows button:focus-visible,#dots button:focus-visible,.btn:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+.slide{min-height:100vh;min-height:100svh;scroll-snap-align:start;position:relative;display:flex;align-items:center;padding:110px 7vw 90px;overflow:hidden}
+.slide.dk{background:var(--dk)}.slide.dk2{background:var(--dk2)}
+.slide.lt{background:var(--lt);color:#1a1a1a}.slide.lt2{background:var(--lt2);color:#1a1a1a}
+.wrap{width:100%;max-width:1180px;margin:0 auto;position:relative;z-index:2}
+.wm{position:absolute;right:-4vw;bottom:-6vw;font-weight:900;font-size:24vw;line-height:.8;letter-spacing:-.04em;color:currentColor;opacity:.035;pointer-events:none;z-index:1;white-space:nowrap}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.sec-label::before{content:"";width:28px;height:2px;background:var(--red)}
+.sec-title{font-size:clamp(34px,4.4vw,60px);font-weight:800;line-height:1.02;letter-spacing:-.02em;margin-bottom:20px}
+.sec-title em{font-style:normal;color:var(--red)}
+.sec-lead{font-size:clamp(16px,1.5vw,20px);line-height:1.5;max-width:760px;opacity:.85;margin-bottom:34px}
+.badge{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;margin-bottom:16px}
+
+/* COVER */
+.cover{background:#000}
+.cover .bg{position:absolute;inset:0;background:url('hero.jpg') center/cover no-repeat;opacity:.38;transform:scale(1.05);animation:kb 18s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.14) translate(-1.5%,-1%)}}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(0,0,0,.92) 30%,rgba(232,0,10,.35) 100%);z-index:1}
+.cover .grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;animation:gm 20s linear infinite}
+@keyframes gm{to{background-position:64px 64px}}
+.cover-title{font-size:clamp(42px,6vw,92px);font-weight:900;line-height:.95;letter-spacing:-.03em;color:#fff;margin-bottom:26px}
+.cover-title span{color:var(--red)}
+.cover-sub{font-size:clamp(17px,1.7vw,22px);max-width:720px;line-height:1.5;color:var(--text-dk)}
+.cover-bar{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.15)}
+.cover-bar div{padding:22px 18px 0 0}
+.cover-bar b{display:block;font-size:clamp(26px,3vw,40px);font-weight:900;color:#fff}
+.cover-bar small{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dk2)}
+
+/* MODEL */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:10px;position:relative}
+.flow .st{padding:28px 24px;border:1px solid rgba(255,255,255,.1);background:var(--dk3);position:relative}
+.flow .st:not(:last-child)::after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);width:28px;height:28px;background:var(--red);color:#fff;font-weight:900;display:grid;place-items:center;z-index:3;border-radius:50%;font-size:14px}
+.flow .n{font-size:12px;font-weight:800;color:var(--red);letter-spacing:.2em}
+.flow h4{font-size:20px;font-weight:700;margin:10px 0 8px;color:#fff}
+.flow p{font-size:14.5px;line-height:1.5;color:var(--text-dk2)}
+.big10{display:flex;align-items:center;gap:30px;margin-top:36px;padding:28px 32px;border-left:4px solid var(--red);background:rgba(232,0,10,.08)}
+.big10 b{font-size:clamp(56px,7vw,96px);font-weight:900;color:var(--red);line-height:1}
+.big10 p{font-size:17px;line-height:1.5;max-width:640px}
+
+/* SPLIT with photo */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.photo{position:relative;aspect-ratio:4/5;background:#222 center/cover no-repeat;box-shadow:24px 24px 0 var(--red)}
+.photo.landscape{aspect-ratio:4/3}
+.photo figcaption{position:absolute;left:0;bottom:-34px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.lines{display:grid;gap:14px}
+.line{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid rgba(0,0,0,.12)}
+.line .num{font-size:30px;font-weight:900;color:var(--red);line-height:1}
+.line h4{font-size:20px;font-weight:700;margin-bottom:4px}
+.line p{font-size:15px;line-height:1.5;opacity:.75}
+.pk{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.pk span{font-size:12px;font-weight:700;letter-spacing:.06em;padding:8px 12px;background:#1a1a1a;color:#fff}
+
+/* MAILBOXES */
+.mail-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mbox{background:#fff;border:1px solid var(--lt3);padding:24px 20px;position:relative;transition:transform .25s,box-shadow .25s}
+.mbox:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.08)}
+.mbox.key{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+.mbox .addr{font-size:15px;font-weight:800;word-break:break-all;margin:8px 0 10px}
+.mbox.key .addr{color:var(--red-h)}
+.mbox p{font-size:14px;line-height:1.45;opacity:.75}
+.mbox .ic{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.steps div{font-size:14.5px;line-height:1.45;padding:16px 18px;background:var(--lt2);border-left:3px solid var(--red)}
+.steps b{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px}
+
+/* TRACE */
+.trace{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.sheet{background:var(--dk3);border:1px solid rgba(255,255,255,.08);font-size:13px;overflow:hidden}
+.sheet .hd{background:#1f1f1f;padding:10px 14px;display:flex;gap:6px;align-items:center}
+.sheet .hd i{width:9px;height:9px;border-radius:50%;background:#444;display:block}
+.sheet .hd span{margin-left:10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
+.sheet table{width:100%;border-collapse:collapse}
+.sheet th,.sheet td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,.06);white-space:nowrap}
+.sheet th{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);font-weight:700}
+.sheet td.ok{color:#5ad17a;font-weight:700}.sheet td.pc{color:var(--red-h);font-weight:800}
+.sheet .scroll{overflow-x:auto}
+.checks{list-style:none;display:grid;gap:14px}
+.checks li{display:grid;grid-template-columns:28px 1fr;gap:12px;font-size:16px;line-height:1.45}
+.checks li::before{content:"";width:22px;height:22px;border:2px solid var(--red);display:block;margin-top:1px;background:linear-gradient(var(--red),var(--red)) center/10px 10px no-repeat}
+.checks li b{color:#fff}
+.slide.lt .checks li b,.slide.lt2 .checks li b{color:#111}
+
+/* TIMELINE */
+.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:16px}
+.tl::before{content:"";position:absolute;top:22px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),rgba(232,0,10,.2))}
+.tl .ph{padding:0 16px 0 0;position:relative}
+.tl .dot{width:46px;height:46px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:900;font-size:15px;margin-bottom:18px;position:relative;z-index:2;box-shadow:0 0 0 6px var(--lt)}
+.tl .d{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.tl h4{font-size:19px;font-weight:700;margin:6px 0 8px}
+.tl p{font-size:14px;line-height:1.5;opacity:.75}
+.menu{display:flex;flex-wrap:wrap;gap:0;margin-top:40px;border:1px solid var(--lt3);background:#fff;width:fit-content;max-width:100%}
+.menu span{padding:12px 16px;font-size:13px;font-weight:700;border-right:1px solid var(--lt3)}
+.menu span:last-child{background:var(--red);color:#fff;border:0}
+
+/* ORGANIC */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.oc{background:var(--dk3);border:1px solid rgba(255,255,255,.08);padding:30px 26px;position:relative;overflow:hidden}
+.oc::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--red);transform:scaleX(.18);transform-origin:left;transition:transform .4s}
+.oc:hover::before{transform:scaleX(1)}
+.oc h4{font-size:22px;font-weight:700;color:#fff;margin:10px 0 10px}
+.oc p,.oc li{font-size:14.5px;line-height:1.55;color:var(--text-dk2)}
+.oc ul{list-style:none;margin-top:12px;display:grid;gap:6px}
+.oc li::before{content:"— ";color:var(--red);font-weight:800}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:22px}
+.kpis div{text-align:center;padding:16px 6px;border:1px solid rgba(255,255,255,.1)}
+.kpis b{display:block;font-size:30px;font-weight:900;color:#fff}
+.kpis small{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+
+/* ARTIST */
+.artist .bg{position:absolute;inset:0;background:url('foto6.jpg') center/cover no-repeat;opacity:.18;filter:grayscale(1)}
+.artist::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--dk) 45%,rgba(10,10,10,.6));z-index:1}
+.targets{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
+.tg{padding:20px 22px;border:1px solid rgba(255,255,255,.12);background:rgba(22,22,22,.85)}
+.tg .s{font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.tg .s.hot{color:var(--red-h)}.tg .s.on{color:#5ad17a}.tg .s.pd{color:#e6b34a}
+.tg h4{font-size:19px;font-weight:700;color:#fff;margin:6px 0 4px}
+.tg p{font-size:14px;color:var(--text-dk2);line-height:1.45}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+
+/* ASKS */
+.asks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ask{background:#fff;padding:24px 22px;border:1px solid var(--lt3)}
+.ask .n{font-size:40px;font-weight:900;color:var(--red);line-height:1}
+.ask h4{font-size:18px;font-weight:700;margin:10px 0 6px}
+.ask p{font-size:14px;line-height:1.5;opacity:.72}
+
+/* CLOSE */
+.close .bg{position:absolute;inset:0;background:url('foto3.jpg') center/cover no-repeat;opacity:.25}
+.close::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 40%,rgba(232,0,10,.35),rgba(0,0,0,.92) 60%);z-index:1}
+.next3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:10px 0 40px}
+.next3 div{padding:22px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.45)}
+.next3 b{font-size:12px;letter-spacing:.2em;color:var(--red-h);text-transform:uppercase}
+.next3 p{font-size:16px;color:#fff;margin-top:8px;line-height:1.45}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;text-decoration:none;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:13px;padding:16px 26px;transition:background .2s,transform .2s;border:0}
+.btn:hover{background:var(--red-h);transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.4)}
+.btn.ghost:hover{border-color:var(--red);background:rgba(232,0,10,.15)}
+.foot{margin-top:46px;font-size:13px;color:var(--text-dk2);display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+.foot img{height:30px}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.cover .bg,.cover .grid{animation:none}html{scroll-behavior:auto}}
+
+@media (max-width:1000px){
+  .flow,.mail-grid{grid-template-columns:repeat(2,1fr)}
+  .flow .st:not(:last-child)::after{display:none}
+  .tl{grid-template-columns:1fr;gap:22px}.tl::before{display:none}
+  .tl .ph{display:grid;grid-template-columns:46px 1fr;gap:0 16px}.tl .dot{margin:0;grid-row:span 3}
+  .kpis{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:760px){
+  html{scroll-snap-type:none}
+  .slide{padding:96px 16px 80px;min-height:auto}
+  .cover{min-height:100svh}
+  #nav{padding:14px 16px}.nav-tag{display:none}
+  #dots,#counter{display:none}
+  #arrows{right:16px;bottom:16px}
+  .cover-bar{grid-template-columns:repeat(2,1fr)}
+  .split,.trace{grid-template-columns:1fr;gap:40px}
+  .photo{aspect-ratio:16/10;box-shadow:12px 12px 0 var(--red)}
+  .flow,.mail-grid,.steps,.cards3,.targets,.asks,.next3{grid-template-columns:1fr}
+  .big10{flex-direction:column;align-items:flex-start;gap:10px;padding:22px}
+  .wm{font-size:40vw}
+}
+</style>
+</head>
+<body>
+<div id="cur" aria-hidden="true"></div><div id="cur2" aria-hidden="true"></div>
+<div id="prog" aria-hidden="true"></div>
+
+<header id="nav">
+  <div class="nav-logo">
+    <img class="logo-w" src="we-rock.png" alt="We Rock" onerror="this.style.display='none'">
+    <img class="logo-c" src="we-rock-v1.png" alt="We Rock" onerror="this.style.display='none'">
+  </div>
+  <div class="nav-tag">La Kasa Crea · Plan de crecimiento · Nov 2026</div>
+</header>
+
+<nav id="dots" aria-label="Diapositivas"></nav>
+<div id="counter" aria-hidden="true">01 / 10</div>
+<div id="arrows"><button id="prev" aria-label="Diapositiva anterior">↑</button><button id="next" aria-label="Diapositiva siguiente">↓</button></div>
+
+<main>
+<!-- 01 COVER -->
+<section class="slide cover dk" id="s1" data-title="Portada">
+  <div class="bg" aria-hidden="true"></div><div class="grid" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-label rv">La Kasa Crea × We Rock</div>
+    <h1 class="cover-title rv">El talento correcto.<br>La producción perfecta.<br><span>Ahora, con un sistema que trae los eventos.</span></h1>
+    <p class="cover-sub rv">Plan de acción para convertir a La Kasa Crea en una máquina de cotizaciones: correo con dominio, cada lead medido, una web que vende y una red de aliados que trae eventos de forma orgánica.</p>
+    <div class="cover-bar rv">
+      <div><b>4</b><small>Fases</small></div>
+      <div><b>21</b><small>Días web nueva</small></div>
+      <div><b>60</b><small>Aliados contactados / 30 días</small></div>
+      <div><b>10%</b><small>Modelo por evento</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 MODEL -->
+<section class="slide dk2" id="s2" data-title="El modelo">
+  <div class="wm" aria-hidden="true">10%</div>
+  <div class="wrap">
+    <div class="sec-label rv">01 · El modelo</div>
+    <h2 class="sec-title rv">Ganamos cuando <em>La Kasa Crea</em> gana.</h2>
+    <p class="sec-lead rv">No hay fee fijo de arranque. We Rock pone la estrategia, la operación de marketing y los canales; La Kasa Crea pone el talento y la producción. Lo que entra por nuestro ecosistema se mide y se comparte.</p>
+    <div class="flow rv">
+      <div class="st"><span class="n">01</span><h4>Atraemos</h4><p>Instagram, web, red de aliados y referidos con contenido orgánico.</p></div>
+      <div class="st"><span class="n">02</span><h4>Registramos</h4><p>Cada contacto llega a eventos@lakasacrea.com con su origen marcado.</p></div>
+      <div class="st"><span class="n">03</span><h4>La Kasa cierra</h4><p>La Kasa Crea cotiza, negocia y produce el evento.</p></div>
+      <div class="st"><span class="n">04</span><h4>Compartimos</h4><p>Evento cerrado que vino del ecosistema → 10 % para We Rock.</p></div>
+    </div>
+    <div class="big10 rv"><b>10%</b><p>sobre el valor de cada evento cerrado que entre por el ecosistema We Rock. Por eso la <strong>trazabilidad es lo primero</strong>: sin registro claro no hay forma justa de medir para ninguno de los dos.</p></div>
+  </div>
+</section>
+
+<!-- 03 WHAT IS LKC -->
+<section class="slide lt" id="s3" data-title="La Kasa Crea">
+  <div class="wm" aria-hidden="true">KASA</div>
+  <div class="wrap split">
+    <div>
+      <div class="sec-label rv">02 · Lo que vamos a vender</div>
+      <h2 class="sec-title rv">Booking primero. <em>Producción</em> para cerrar.</h2>
+      <p class="sec-lead rv">Tomado del catálogo y la guía que preparó Juan Esteban. El diferenciador es el booking y la curaduría; la técnica completa la solución.</p>
+      <div class="lines rv">
+        <div class="line"><span class="num">01</span><div><h4>Booking y curaduría artística</h4><p>DJs, solistas, bandas, tropical, rock, pop y shows especiales según público y presupuesto.</p></div></div>
+        <div class="line"><span class="num">02</span><div><h4>Producción técnica</h4><p>Sonido, iluminación, backline, video, tarimas y operación de principio a fin.</p></div></div>
+        <div class="line"><span class="num">03</span><div><h4>Alquiler de equipos</h4><p>Inventario propio + aliados, confirmado en cada cotización.</p></div></div>
+      </div>
+      <div class="pk rv"><span>Kasa Técnica Esencial</span><span>Kasa DJ Experience</span><span>Kasa Live Experience</span><span>Kasa Producción Integral</span></div>
+    </div>
+    <figure class="photo rv" style="background-image:url('foto2.jpg')"><figcaption>Archivo La Kasa x La Ventana</figcaption></figure>
+  </div>
+</section>
+
+<!-- 04 EMAIL -->
+<section class="slide lt2" id="s4" data-title="Correo">
+  <div class="wrap">
+    <span class="badge rv">Fase 0 · Esta semana</span>
+    <h2 class="sec-title rv">Primero, el <em>correo con dominio</em>.</h2>
+    <p class="sec-lead rv">Hoy todo llega a lakasacrea@gmail.com. Separar por buzón da imagen profesional, ordena la atención y deja registro de cada solicitud.</p>
+    <div class="mail-grid rv">
+      <div class="mbox key"><span class="ic">Cotizaciones</span><div class="addr">eventos@lakasacrea.com</div><p>Formulario web y botón "Cotiza tu evento". Aquí se mide el ecosistema.</p></div>
+      <div class="mbox"><span class="ic">Artistas</span><div class="addr">booking@lakasacrea.com</div><p>Solicitudes de disponibilidad de artistas y formatos.</p></div>
+      <div class="mbox"><span class="ic">Red de aliados</span><div class="addr">aliados@lakasacrea.com</div><p>Registros y conversaciones con proveedores, venues y agencias.</p></div>
+      <div class="mbox"><span class="ic">General</span><div class="addr">hola@lakasacrea.com</div><p>Reemplaza al Gmail en la web, el catálogo y las redes.</p></div>
+    </div>
+    <div class="steps rv">
+      <div><b>1 · Acceso</b>Juan da acceso de colaborador en Hostinger (hPanel → Accesos). Sin compartir contraseñas.</div>
+      <div><b>2 · Configuración</b>We Rock crea los buzones, configura MX, SPF, DKIM y DMARC, y la firma de marca.</div>
+      <div><b>3 · Prueba</b>Envío y recepción verificados, sin spam, y copia de eventos@ para el control de leads.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 TRACE -->
+<section class="slide dk" id="s5" data-title="Trazabilidad">
+  <div class="wm" aria-hidden="true">LEADS</div>
+  <div class="wrap trace">
+    <div>
+      <span class="badge rv">Fase 1 · Semana 1</span>
+      <h2 class="sec-title rv">Cada lead, con <em>nombre y origen</em>.</h2>
+      <p class="sec-lead rv">Una hoja compartida y reglas claras desde el día uno. Transparente para los dos.</p>
+      <ul class="checks rv">
+        <li><span><b>Acuerdo de una página:</b> qué es un lead de We Rock, base del 10 %, fecha de pago y vigencia del lead.</span></li>
+        <li><span><b>Formulario de cotización</b> con los campos de la guía + "¿Cómo nos conociste?".</span></li>
+        <li><span><b>WhatsApp con texto precargado</b> y etiqueta de origen por canal (Instagram, web, aliado).</span></li>
+        <li><span><b>Medición</b> de clics a WhatsApp, formularios, teléfono y correo (Google Analytics).</span></li>
+      </ul>
+    </div>
+    <div class="sheet rv" role="img" aria-label="Ejemplo de hoja de leads compartida">
+      <div class="hd"><i></i><i></i><i></i><span>Hoja de leads · ejemplo</span></div>
+      <div class="scroll"><table>
+        <thead><tr><th>Fecha</th><th>Canal</th><th>Servicio</th><th>Estado</th><th>10%</th></tr></thead>
+        <tbody>
+          <tr><td>Dic 02</td><td>Instagram</td><td>Kasa DJ Experience</td><td class="ok">Cerrado</td><td class="pc">✓</td></tr>
+          <tr><td>Dic 05</td><td>Aliado · planner</td><td>Boda · Live</td><td>Cotizado</td><td>—</td></tr>
+          <tr><td>Dic 09</td><td>Web · form</td><td>Producción integral</td><td>Nuevo</td><td>—</td></tr>
+          <tr><td>Dic 12</td><td>Referido</td><td>Alquiler sonido</td><td class="ok">Cerrado</td><td class="pc">✓</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 WEB -->
+<section class="slide lt" id="s6" data-title="Web">
+  <div class="wrap">
+    <span class="badge rv">Fase 2 · Días 1–21</span>
+    <h2 class="sec-title rv">La web pasa de vitrina a <em>herramienta de venta</em>.</h2>
+    <p class="sec-lead rv">Ejecutamos la guía de implementación de Juan Esteban: propuesta clara, botón de WhatsApp en todo el sitio y un formulario que sí sirve para cotizar.</p>
+    <div class="tl rv">
+      <div class="ph"><div class="dot">1</div><span class="d">Días 1–3</span><h4>Comercial</h4><p>Aprobar slogan, menú, textos de portada y llamados a la acción.</p></div>
+      <div class="ph"><div class="dot">2</div><span class="d">Días 4–7</span><h4>Contenido</h4><p>Fotos y videos reales, inventario publicable, artistas y paquetes costeados.</p></div>
+      <div class="ph"><div class="dot">3</div><span class="d">Días 8–14</span><h4>Edición</h4><p>Inicio, Booking, Producción, Paquetes, Experiencias y Contacto. Revisión técnica previa del WordPress.</p></div>
+      <div class="ph"><div class="dot">4</div><span class="d">Días 15–17</span><h4>Conversión</h4><p>Probar WhatsApp, formulario → eventos@, botones y medición.</p></div>
+      <div class="ph"><div class="dot">5</div><span class="d">Días 18–21</span><h4>Lanzamiento</h4><p>SEO, velocidad, checklist, copia de seguridad y publicación.</p></div>
+    </div>
+    <div class="menu rv" aria-label="Menú propuesto"><span>Inicio</span><span>Booking</span><span>Producción</span><span>Paquetes</span><span>Experiencias</span><span>Nosotros</span><span>Cotiza tu evento</span></div>
+  </div>
+</section>
+
+<!-- 07 ORGANIC -->
+<section class="slide dk2" id="s7" data-title="Captación orgánica">
+  <div class="wrap">
+    <span class="badge rv">Fase 3 · Primeros 30 días</span>
+    <h2 class="sec-title rv">Tres motores de <em>eventos orgánicos</em>.</h2>
+    <p class="sec-lead rv">Sin pauta al inicio. Relaciones, contenido y prueba social con lo que La Kasa Crea ya hizo.</p>
+    <div class="cards3 rv">
+      <div class="oc"><span class="badge">Red de aliados</span><h4>Gente que trae eventos</h4><p>Implementamos el kit de Juan: formulario, matriz de puntaje y los 6 mensajes de convocatoria.</p><ul><li>Wedding planners y agencias BTL</li><li>Hoteles, haciendas y venues</li><li>Código de referido por aliado</li></ul></div>
+      <div class="oc"><span class="badge">Instagram</span><h4>Contenido con prueba real</h4><p>Parrilla mensual con tres pilares, hecha con el método We Rock.</p><ul><li>Booking: artistas y formatos</li><li>Producción: detrás de escena del montaje</li><li>Prueba social: festival La Kasa x La Ventana</li></ul></div>
+      <div class="oc"><span class="badge">Bodas</span><h4>El segmento de mayor ticket</h4><p>Landing "Personaliza tu boda con artistas en vivo" y catálogo PDF para enviar desde eventos@.</p><ul><li>Ceremonia, cóctel y fiesta</li><li>Paquetes Live y DJ Experience</li><li>Alianzas con planners</li></ul></div>
+    </div>
+    <div class="kpis rv" aria-label="Metas del kit de aliados a 30 días">
+      <div><b>60</b><small>Contactos</small></div><div><b>30</b><small>Formularios</small></div><div><b>25</b><small>Perfiles revisados</small></div>
+      <div><b>15</b><small>Calificados</small></div><div><b>10</b><small>Reuniones</small></div><div><b>5</b><small>Aliados activos</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 ARTIST -->
+<section class="slide artist dk" id="s8" data-title="Frente artista">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="badge rv">Frente 2 · Da Get Up</span>
+    <h2 class="sec-title rv">Medellín Takeover · <em>13–26 nov</em>.</h2>
+    <p class="sec-lead rv">Juan Esteban acompaña además la carrera de Da Get Up (David) como manager. Prioridades para esta gira:</p>
+    <div class="targets rv">
+      <div class="tg"><span class="s hot">Prioridad · sin contactar</span><h4>Mad Radio Medellín</h4><p>Clave para presencia en la ciudad, aunque sea una visita. Definir quién escribe y cuándo.</p></div>
+      <div class="tg"><span class="s pd">Por confirmar</span><h4>Comuna 13 + un bar</h4><p>Dos fechas nuevas en conversación: confirmar fechas, fee y producción.</p></div>
+      <div class="tg"><span class="s pd">Pitch de booking</span><h4>Envy Rooftop</h4><p>Venue de alto alcance (113 mil seguidores). Enviar el EPK con las fechas de la gira.</p></div>
+      <div class="tg"><span class="s on">En el radar</span><h4>Medellín Music Week</h4><p>Aplicar o buscar contacto para la programación.</p></div>
+    </div>
+    <div class="links rv">
+      <a class="btn ghost" href="https://werock.space/dagetup/es.html" target="_blank" rel="noopener">EPK Da Get Up</a>
+      <a class="btn ghost" href="https://werockagencia.github.io/dagetup-medellin/" target="_blank" rel="noopener">Medellín Takeover</a>
+    </div>
+  </div>
+</section>
+
+<!-- 09 ASKS -->
+<section class="slide lt2" id="s9" data-title="Lo que necesitamos">
+  <div class="wrap">
+    <div class="sec-label rv">Para arrancar</div>
+    <h2 class="sec-title rv">Lo que necesitamos de <em>Juan Esteban</em>.</h2>
+    <div class="asks rv">
+      <div class="ask"><span class="n">01</span><h4>Acceso a Hostinger</h4><p>Colaborador en hPanel para lakasacrea.com. Confirmar si el plan incluye correo.</p></div>
+      <div class="ask"><span class="n">02</span><h4>Buzones y responsables</h4><p>Aprobar los 4 correos y quién responde cada uno.</p></div>
+      <div class="ask"><span class="n">03</span><h4>Acuerdo del 10 %</h4><p>Una página firmada y la hoja de leads compartida.</p></div>
+      <div class="ask"><span class="n">04</span><h4>Material real</h4><p>Fotos y videos con permiso de uso, inventario propio y de aliados.</p></div>
+      <div class="ask"><span class="n">05</span><h4>Paquetes costeados</h4><p>Alcance y precio base de los 4 paquetes Kasa.</p></div>
+      <div class="ask"><span class="n">06</span><h4>Artistas confirmados</h4><p>Representados, aliados y de contratación puntual, por separado.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 CLOSE -->
+<section class="slide close dk" id="s10" data-title="Siguientes pasos">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-label rv">Siguientes pasos</div>
+    <h2 class="sec-title rv" style="color:#fff">Arrancamos <em>esta semana</em>.</h2>
+    <div class="next3 rv">
+      <div><b>Paso 1</b><p>Acceso a Hostinger → correos activos en 24 horas.</p></div>
+      <div><b>Paso 2</b><p>Acuerdo del 10 % y hoja de leads compartida.</p></div>
+      <div><b>Paso 3</b><p>Arranca la web (días 1–3) y la convocatoria de aliados.</p></div>
+    </div>
+    <a class="btn rv" href="https://wa.me/573125766056?text=Hola%20David%2C%20vi%20el%20plan%20de%20La%20Kasa%20Crea" target="_blank" rel="noopener">Hablemos por WhatsApp →</a>
+    <div class="foot rv">
+      <img src="we-rock.png" alt="We Rock" onerror="this.style.display='none'">
+      <span>David Higuera · +57 312 576 6056 · davidh@werock.space · werock.space</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var dots=document.getElementById('dots'),counter=document.getElementById('counter'),nav=document.getElementById('nav'),prog=document.getElementById('prog');
+  var cur=0;
+  slides.forEach(function(s,i){var b=document.createElement('button');b.setAttribute('aria-label',(i+1)+'. '+(s.dataset.title||''));b.onclick=function(){go(i)};dots.appendChild(b)});
+  var db=dots.children;
+  function pad(n){return (n<10?'0':'')+n}
+  function go(i){i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:'smooth'})}
+  function upd(){
+    var y=window.scrollY,h=window.innerHeight,best=0;
+    slides.forEach(function(s,i){if(s.offsetTop-h*.45<=y)best=i});
+    cur=best;counter.textContent=pad(cur+1)+' / '+pad(slides.length);
+    for(var i=0;i<db.length;i++)db[i].classList.toggle('on',i===cur);
+    var max=document.documentElement.scrollHeight-h;prog.style.width=(max>0?y/max*100:0)+'%';
+    var light=slides[cur].classList.contains('lt')||slides[cur].classList.contains('lt2');
+    nav.classList.toggle('scrolled',light);
+  }
+  window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+  document.getElementById('prev').onclick=function(){go(cur-1)};
+  document.getElementById('next').onclick=function(){go(cur+1)};
+  document.addEventListener('keydown',function(e){
+    if(['ArrowDown','PageDown',' '].indexOf(e.key)>-1){e.preventDefault();go(cur+1)}
+    else if(['ArrowUp','PageUp'].indexOf(e.key)>-1){e.preventDefault();go(cur-1)}
+    else if(e.key==='f'||e.key==='F'){if(!document.fullscreenElement)document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();else document.exitFullscreen()}
+  });
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%6)*60+'ms';io.observe(el)});
+  var c1=document.getElementById('cur'),c2=document.getElementById('cur2');
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    document.addEventListener('mousemove',function(e){c1.style.left=c2.style.left=e.clientX+'px';c1.style.top=c2.style.top=e.clientY+'px'});
+    document.querySelectorAll('a,button,.mbox,.oc').forEach(function(el){el.addEventListener('mouseenter',function(){c2.style.transform='translate(-50%,-50%) scale(1.6)'});el.addEventListener('mouseleave',function(){c2.style.transform='translate(-50%,-50%)'})});
+  }
+})();
+</script>
+</body>
+</html>
