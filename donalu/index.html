@@ -520,6 +520,15 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   </div>
 </section>
 
+<section class="slide dk2" id="s-mes" data-title="Plan normal mes a mes" style="padding-top:70px;padding-bottom:56px">
+  <div class="inner">
+    <div class="lbl rv" style="margin-bottom:8px">Plan normal · $18.150.000 sin porcentaje sobre ventas</div>
+    <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:0">El plan normal, <em>mes a mes.</em></h2>
+    <div class="inv-wrap rv" style="--d:2"><table class="inv" id="inv"></table></div>
+    <p class="src" style="margin-top:8px">Pesos colombianos, antes de IVA. Pauta, plataformas y viáticos van aparte y se pagan directo (ver Plataformas y marketing). Con el Plan Socio cada mes se paga el 60 % de este valor, más el 7 % de las ventas nuevas durante 12 meses.</p>
+  </div>
+</section>
+
 <section class="slide dk2 noise" id="s-socio" data-title="Plan Socio" style="padding-top:70px;padding-bottom:56px">
   <div class="inner">
     <div class="lbl rv" style="margin-bottom:8px">Otra forma de hacerlo · Plan Socio</div>
@@ -592,6 +601,26 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;
   const P = [['San Alberto 340 g',71000/3.4],['Amor Perfecto 350 g',54900/3.5],['Doña Lú Natural 250 g',38000/2.5,1],['Doña Lú Natural 500 g',63000/5,1],['Matiz 340 g',34900/3.4],['Doña Lú Honey 500 g',47000/5,1],['Doña Lú Lavado 500 g',42000/5,1]];
   const mx = Math.max(...P.map(p=>p[1]));
   $('bars').innerHTML = P.map((p,i)=>`<div class="bar${p[2]?' me':''}"><span>${p[0]}</span><div class="tr"><i style="--w:${p[1]/mx*100}%;--d:${i}"></i></div><b>${cop(Math.round(p[1]/100)*100)}</b></div>`).join('');
+
+  // Plan normal mes a mes: las sumas se calculan aquí para que nunca se descuadren
+  const split = v => [v*.5, v*.3, v*.2, 0];
+  const G1 = [['Manual de marca y logo final','taller, vector, paleta, tono',[1200000,0,0,0]],['Sistema de etiquetas','3 procesos y cápsulas',[600000,0,0,0]],['Tienda online B2C + B2B','WooCommerce y cotizador',[2400000,2400000,0,0]],['Kit comercial B2B','portafolio, propuesta, caja de cata',[700000,0,0,0]],['Programa Casas que honran','sello, QR, punto de venta, mapa',split(1000000)],['CRM + HalconBot','configuración · aporte de We Rock',null]];
+  const G2 = [['Expedición a la finca','2 jornadas en Arabia, después del 20 de enero',[0,0,3200000,0]]];
+  const G3 = [['Contenido Instagram y LinkedIn','8 piezas al mes',[0,900000,900000,900000]],['Motor comercial B2B','prospección, contacto, seguimiento y gestión de campañas',[0,950000,950000,950000]],['Webmaster de la tienda','desde el lanzamiento',[0,0,550000,550000]]];
+  const sum = g => [0,1,2,3].map(i=>g.reduce((a,r)=>a+(r[2]?r[2][i]:0),0));
+  const add = (...a) => [0,1,2,3].map(i=>a.reduce((s,x)=>s+x[i],0));
+  const tot = a => a.reduce((x,y)=>x+y,0);
+  const cell = (v,i) => v ? `<td data-m="Mes ${i+1}">${cop(v)}</td>` : `<td class="dash" data-m="Mes ${i+1}">—</td>`;
+  const row = r => r[2] ? `<tr><td>${r[0]}<span class="note2">${r[1]}</span></td>${r[2].map(cell).join('')}<td class="tt">${cop(tot(r[2]))}</td></tr>` : `<tr><td>${r[0]}<span class="note2">${r[1]}</span></td>${[0,1,2,3].map(i=>cell(0,i)).join('')}<td class="tt">Incluido</td></tr>`;
+  const sub = (t,a,c) => `<tr class="${c||'sub'}"><td>${t}</td>${a.map(cell).join('')}<td class="tt">${cop(tot(a))}</td></tr>`;
+  const grp = t => `<tr class="grp"><td colspan="6">${t}</td></tr>`;
+  const all = add(sum(G1),sum(G2),sum(G3));
+  if($('inv')) $('inv').innerHTML = `<thead><tr><th>Rubro</th><th>Mes 1</th><th>Mes 2</th><th>Mes 3</th><th>Mes 4</th><th>Total</th></tr></thead><tbody>`+
+    grp('Implementación')+G1.map(row).join('')+
+    grp('Producción audiovisual')+G2.map(row).join('')+
+    grp('Servicios mensuales')+G3.map(row).join('')+
+    sub('Total plan normal',all,'tot')+
+    sub('Con Plan Socio · 60 % + 7 % de ventas nuevas',all.map(v=>v*.6))+'</tbody>';
 
   // Motor del deck
   const slides = [...document.querySelectorAll('.slide')], dotsEl = $('dots'), cNow = $('cNow');
