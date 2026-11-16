@@ -15,7 +15,7 @@
 :root{
   --crema:#F4EDE0;--papel:#FBF8F1;--arena:#EAE0CD;--card:#F4EDE0;
   --verde:#0F3B26;--hoja:#4B5A3A;--tierra:#A67C52;--tostado:#6B4E34;--dorado:#C9A45C;
-  --lavado:#1E3C72;--honey:#A61E26;--natural:#24211D;
+  --lavado:#35525C;--honey:#8C3F2F;--natural:#2F241B;
   --ink:#2A231B;--ink2:#5E5345;--line:rgba(42,35,27,.14);
   --serif:"Cormorant Garamond",Georgia,serif;--sans:"Jost",system-ui,sans-serif;
   --g:clamp(16px,4vw,48px);--max:1240px;--dvh:clamp(34px,6vw,96px);
@@ -174,7 +174,7 @@ p+p{margin-top:1em}
 .marq::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22240%22%20height%3D%22240%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%22.85%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20values%3D%220%200%200%200%20.32%20%200%200%200%200%20.25%20%200%200%200%200%20.17%20%200%200%200%20.55%200%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url(%23n)%22%2F%3E%3C%2Fsvg%3E");opacity:.35;mix-blend-mode:multiply;pointer-events:none}
 .mq{display:flex;width:max-content;animation:mq 60s linear infinite}
 .mq span{display:flex;align-items:center;gap:clamp(22px,3vw,40px);padding-right:clamp(22px,3vw,40px);font:italic 400 clamp(30px,4vw,54px)/1 var(--serif);white-space:nowrap}
-.mq svg{width:clamp(28px,3vw,40px);height:clamp(28px,3vw,40px);color:#0F3B26;--acc:#A61E26;flex:none}
+.mq svg{width:clamp(28px,3vw,40px);height:clamp(28px,3vw,40px);color:#0F3B26;--acc:#8C3F2F;flex:none}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* plataforma */
@@ -222,12 +222,12 @@ p+p{margin-top:1em}
 .pairc{grid-area:1/1;display:grid;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s}
 .pairc.on{opacity:1;visibility:visible}
 .pairc>div{padding:clamp(26px,4vw,56px)}
-.pairc .no{background:rgba(166,30,38,.045);border-bottom:1px solid var(--line)}
+.pairc .no{background:rgba(140,63,47,.045);border-bottom:1px solid var(--line)}
 .pairc .lbl{font:500 11.5px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px}
 .pairc .no .lbl{color:var(--honey)}
 .pairc .si .lbl{color:var(--hoja)}
 .pairc .no p:not(.lbl){font:400 clamp(18px,1.8vw,21px)/1.45 var(--sans);color:#8a7e70}
-.pairc .no s{text-decoration-color:rgba(166,30,38,.55);text-decoration-thickness:1px}
+.pairc .no s{text-decoration-color:rgba(140,63,47,.55);text-decoration-thickness:1px}
 .pairc .si p:not(.lbl){font:400 clamp(30px,3.4vw,46px)/1.12 var(--serif);color:#0F3B26}
 @media(min-width:860px){.pairc{grid-template-columns:5fr 7fr}.pairc .no{border-bottom:0;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}.pairc .si{display:flex;flex-direction:column;justify-content:center;min-height:270px}}
 .deck-ctl{display:flex;align-items:center;gap:14px;padding:14px clamp(18px,3vw,28px);border-top:1px solid var(--line)}
@@ -265,14 +265,14 @@ p+p{margin-top:1em}
 .tile{position:relative;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;padding:clamp(28px,4vw,52px) 24px;min-height:260px;overflow:hidden}
 .tile>small{position:absolute;left:16px;bottom:12px;right:16px;font:400 12.5px/1.3 var(--sans);letter-spacing:.04em;color:var(--ink2)}
 .tile.g{background:#0F3B26;border-color:#0F3B26}.tile.g>small{color:rgba(244,237,224,.7)}
-.tile.d{background:#24211D;border-color:#24211D}.tile.d>small{color:rgba(244,237,224,.7)}
+.tile.d{background:#2F241B;border-color:#2F241B}.tile.d>small{color:rgba(244,237,224,.7)}
 .tile.a{background:#EAE0CD}
 .f-main .wm{width:min(440px,78%);color:#0F3B26}
 .lock{color:#0F3B26;width:min(260px,70vw);text-align:center}
 .lock .tg{font:500 11px/1 var(--sans);letter-spacing:.34em;margin-top:7%;padding-left:.34em}
 .lock .og{font:400 10px/1 var(--sans);letter-spacing:.3em;color:#A67C52;margin-top:10px;padding-left:.3em}
 .hz{display:flex;align-items:center;gap:clamp(12px,2vw,20px);color:#0F3B26}
-.hz .i{width:clamp(54px,6vw,72px);height:clamp(54px,6vw,72px);--acc:#A61E26;flex:none}
+.hz .i{width:clamp(54px,6vw,72px);height:clamp(54px,6vw,72px);--acc:#8C3F2F;flex:none}
 .hz .wm{width:clamp(110px,14vw,170px)}
 .hz .rl{width:1px;align-self:stretch;background:rgba(15,59,38,.3)}
 .hz .tg{font:500 10px/1.6 var(--sans);letter-spacing:.28em;white-space:nowrap}
@@ -282,26 +282,26 @@ p+p{margin-top:1em}
 @media(min-width:900px){.fam{grid-template-columns:repeat(6,1fr)}.f-main{grid-column:span 4;grid-row:span 2}.f-st{grid-column:span 2}.f-hz{grid-column:span 3}.f-iso{grid-column:span 3}.f-g{grid-column:span 2}.f-d,.f-se{grid-column:span 3}}
 .isonote{display:grid;gap:18px;margin-top:12px;background:#0F3B26;color:#F4EDE0;padding:clamp(24px,4vw,44px);position:relative;overflow:hidden}
 .isonote .big{font:400 clamp(24px,2.6vw,34px)/1.2 var(--serif)}
-.isonote .big i{color:#E07A7F}
+.isonote .big i{color:#D9967E}
 .isonote .note{color:rgba(244,237,224,.75);margin:0}
 .isonote .demo{display:flex;align-items:center;justify-content:center}
-.isonote .demo svg{width:clamp(120px,14vw,170px);height:clamp(120px,14vw,170px);color:#F4EDE0;--acc:#C9454C}
+.isonote .demo svg{width:clamp(120px,14vw,170px);height:clamp(120px,14vw,170px);color:#F4EDE0;--acc:#B8694F}
 @media(min-width:900px){.isonote{grid-template-columns:auto 1fr;align-items:center;gap:48px}}
 .uses{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
 .use{background:#EAE0CD;border:1px solid var(--line);aspect-ratio:1;display:grid;place-items:center;position:relative;overflow:hidden}
 .use>small{position:absolute;left:12px;bottom:10px;right:12px;font:400 12.5px/1.2 var(--sans);color:#5E5345}
 @media(min-width:900px){.uses{grid-template-columns:repeat(4,1fr)}}
 .u-av{width:44%;aspect-ratio:1;border-radius:50%;background:#F4EDE0;display:grid;place-items:center;box-shadow:0 0 0 3px #EAE0CD,0 0 0 4.5px #C9A45C}
-.u-av svg{width:74%;height:74%;color:#0F3B26;--acc:#A61E26}
+.u-av svg{width:74%;height:74%;color:#0F3B26;--acc:#8C3F2F}
 .u-tab{width:84%;background:#dcd4c6;border-radius:12px 12px 0 0;padding:10px 10px 0}
 .u-tab .tb{background:#fff;border-radius:9px 9px 0 0;display:flex;align-items:center;gap:8px;padding:9px 12px;font:400 12px/1 -apple-system,"Segoe UI",sans-serif;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.u-tab .tb span{overflow:hidden;text-overflow:ellipsis}
 .u-tab .tb i{width:16px;height:16px;border-radius:4px;background:#0F3B26;display:grid;place-items:center;flex:none}
 .u-tab .tb i svg{width:15px;height:15px;color:#F4EDE0;--acc:#C9A45C}
 .u-tab .bar{background:#fff;height:30px;border-top:1px solid #eee;display:flex;align-items:center;padding:0 10px}
 .u-tab .bar span{flex:1;height:16px;border-radius:8px;background:#f1f1f1}
-.wax{width:48%;aspect-ratio:1;border-radius:49% 51% 47% 53%/52% 47% 53% 48%;background:radial-gradient(circle at 34% 28%,#d0444a 0,#a3242b 34%,#7e161c 70%,#5f0f14 100%);box-shadow:inset 0 0 0 6px rgba(0,0,0,.08),inset 0 -6px 12px rgba(0,0,0,.25),0 8px 14px rgba(60,10,10,.35);display:grid;place-items:center;position:relative}
+.wax{width:48%;aspect-ratio:1;border-radius:49% 51% 47% 53%/52% 47% 53% 48%;background:radial-gradient(circle at 34% 28%,#b4604a 0,#93432f 34%,#743123 70%,#57241a 100%);box-shadow:inset 0 0 0 6px rgba(0,0,0,.08),inset 0 -6px 12px rgba(0,0,0,.25),0 8px 14px rgba(60,10,10,.35);display:grid;place-items:center;position:relative}
 .wax::before{content:"";position:absolute;inset:14%;border-radius:50%;box-shadow:inset 0 2px 3px rgba(0,0,0,.35),0 1px 0 rgba(255,255,255,.18)}
-.wax svg{width:64%;height:64%;color:#82171d;filter:drop-shadow(0 1px 0 rgba(255,255,255,.22)) drop-shadow(0 -1px 0 rgba(0,0,0,.35))}
+.wax svg{width:64%;height:64%;color:#6c2c20;filter:drop-shadow(0 1px 0 rgba(255,255,255,.22)) drop-shadow(0 -1px 0 rgba(0,0,0,.35))}
 .lidt{width:56%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#45403a,#24211d 70%);box-shadow:0 10px 18px rgba(0,0,0,.3),inset 0 0 0 7px #2e2a25,inset 0 0 0 9px #3d3832;display:grid;place-items:center;position:relative}
 .lidt::after{content:"";position:absolute;top:13%;left:50%;width:22%;height:8%;transform:translateX(-50%);border-radius:20px;background:#141210}
 .lidt svg{width:44%;height:44%;margin-top:10%;color:#1c1a17;filter:drop-shadow(0 1px 0 rgba(255,255,255,.12))}
@@ -319,7 +319,7 @@ p+p{margin-top:1em}
 .donts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%}
 .donts>div{background:#F4EDE0;border:1px solid var(--line);aspect-ratio:3/2;display:grid;place-items:center;position:relative;overflow:hidden}
 .donts .wm{width:60%;margin-top:-10px}
-.donts small{position:absolute;left:8px;bottom:6px;right:8px;font:400 11.5px/1.25 var(--sans);color:#A61E26;text-align:left}
+.donts small{position:absolute;left:8px;bottom:6px;right:8px;font:400 11.5px/1.25 var(--sans);color:#8C3F2F;text-align:left}
 @media(min-width:900px){.rules2{grid-template-columns:1fr 1fr 1.4fr}}
 
 /* color */
@@ -346,6 +346,16 @@ p+p{margin-top:1em}
 .legend span{display:flex;align-items:center;gap:8px}
 .legend i{width:12px;height:12px;border-radius:50%;box-shadow:0 0 0 1px rgba(244,237,224,.3)}
 
+.aa{margin:12px 0;background:#F4EDE0;color:#2A231B;padding:clamp(22px,3vw,36px);display:grid;gap:22px}
+.aa-t{font:400 clamp(22px,2.2vw,28px)/1.25 var(--serif);margin-top:10px;max-width:760px}
+.aa-g{display:grid;gap:12px}
+.aa-col{background:#FBF8F1;border:1px solid rgba(42,35,27,.12);padding:18px 16px 14px}
+.aa-col .k{color:#6B4E34}
+.aa-col.old .k{color:#8a7e70}
+.aa-col .row{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,2vw,22px);margin-top:14px;align-items:end;padding:0 4%}
+.aa-col .pouch{width:100%;height:auto}
+.aa-col .hx{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font:500 11.5px/1.3 var(--sans);text-align:center;color:#5E5345;margin-top:10px}
+@media(min-width:800px){.aa-g{grid-template-columns:1fr 1fr}}
 /* tipografía */
 .type{display:grid;gap:12px}
 .type>div{background:var(--card);border:1px solid var(--line);padding:clamp(24px,4vw,44px);overflow:hidden}
@@ -402,7 +412,7 @@ p+p{margin-top:1em}
 @media(min-width:900px){.grules{grid-template-columns:repeat(3,1fr);gap:40px}}
 .rules{display:grid;gap:10px;margin-top:36px;font-size:15px;color:var(--ink2)}
 .rules li{list-style:none;padding-left:22px;position:relative}
-.rules li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:10px;border-radius:50%;background:#C9454C}
+.rules li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:10px;border-radius:50%;background:#B8694F}
 .rules li.ok::before{background:#9DB07F}
 @media(min-width:900px){.rules{grid-template-columns:1fr 1fr;column-gap:48px}}
 
@@ -412,7 +422,7 @@ p+p{margin-top:1em}
 .ig .top{display:flex;align-items:center;justify-content:center;padding:14px 16px;font-weight:600;font-size:15px;border-bottom:1px solid #efefef}
 .ig .prof{display:flex;gap:20px;align-items:center;padding:18px 18px 8px}
 .ig .av{width:86px;height:86px;border-radius:50%;flex:none;background:#F4EDE0;display:grid;place-items:center;box-shadow:0 0 0 3px #fff,0 0 0 5px #C9A45C}
-.ig .av svg{width:72px;height:72px;color:#0F3B26;--acc:#A61E26}
+.ig .av svg{width:72px;height:72px;color:#0F3B26;--acc:#8C3F2F}
 .ig .nm{font-weight:600;font-size:15px}
 .ig .bio{padding:4px 18px 0;font-size:14px;line-height:1.45}
 .ig .bio .c{color:#737373}
@@ -458,16 +468,16 @@ p+p{margin-top:1em}
 .story .bar i.on{background:#fff}
 .story .who{position:absolute;top:8.5cqw;left:4cqw;display:flex;align-items:center;gap:3cqw;z-index:2;font:600 5.6cqw/1 -apple-system,"Segoe UI",sans-serif}
 .story .who i{width:11cqw;height:11cqw;border-radius:50%;background:#F4EDE0;display:grid;place-items:center}
-.story .who i svg{width:9cqw;height:9cqw;color:#0F3B26;--acc:#A61E26}
+.story .who i svg{width:9cqw;height:9cqw;color:#0F3B26;--acc:#8C3F2F}
 .story .sh,.reel .sh{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 30%,transparent 50%,rgba(10,30,20,.82))}
 .story .ct{position:absolute;left:8cqw;right:8cqw;bottom:12cqw;z-index:2}
 .story .big{font:400 14cqw/1 var(--serif)}
 .story .sm{font:400 5.6cqw/1.4 var(--sans);margin-top:4cqw;opacity:.92}
 .story .poll{background:#fff;color:#111;border-radius:4cqw;padding:5cqw;margin-top:6cqw;font:600 5.6cqw/1.2 -apple-system,"Segoe UI",sans-serif;text-align:center}
 .story .poll span{display:block;border:1px solid #ddd;border-radius:10cqw;padding:3.4cqw;margin-top:3cqw;font-weight:500}
-.story .poll span:nth-of-type(1){border-color:#1E3C72;color:#1E3C72}
-.story .poll span:nth-of-type(2){border-color:#A61E26;color:#A61E26}
-.story .poll span:nth-of-type(3){border-color:#24211D;color:#24211D}
+.story .poll span:nth-of-type(1){border-color:#35525C;color:#35525C}
+.story .poll span:nth-of-type(2){border-color:#8C3F2F;color:#8C3F2F}
+.story .poll span:nth-of-type(3){border-color:#2F241B;color:#2F241B}
 .story.cr{background:#F4EDE0;color:#0F3B26}
 .story.cr .bar i{background:rgba(15,59,38,.25)}.story.cr .bar i.on{background:#0F3B26}
 .story.cr .who{color:#2A231B}
@@ -534,6 +544,8 @@ p+p{margin-top:1em}
 .pp .beans i.on{background:#F4EDE0}
 @media(min-width:960px){.prod{grid-template-columns:1.5fr 1fr;gap:64px}}
 
+.next{margin-top:clamp(36px,5vw,56px);display:flex;flex-wrap:wrap;align-items:center;gap:12px;font:400 15.5px/1.5 var(--sans);color:rgba(244,237,224,.88);padding:16px 20px;border:1px dashed rgba(244,237,224,.4);max-width:760px}
+.next span{display:none}
 /* aplicaciones */
 .trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,3vw,48px);align-items:end;padding:clamp(28px,5vw,72px) clamp(8px,6vw,96px) clamp(16px,2vw,24px);background:linear-gradient(180deg,#FBF8F1 0 78%,#DCCFB7 78%);border:1px solid var(--line)}
 .trio .pouch{width:100%;height:auto}
@@ -557,8 +569,8 @@ p+p{margin-top:1em}
 .box .band small{font:500 1.75cqw/1 var(--sans);letter-spacing:.16em;white-space:nowrap;margin-top:2.4cqw;color:#C9A45C}
 .box .lid .band{left:39%;width:25.8%;transform:skewX(-21.8deg)}
 .box .rama{position:absolute;left:5%;top:8%;height:84%;width:auto;mix-blend-mode:multiply;opacity:.7}
-.box .wx{position:absolute;left:50.5%;bottom:9%;width:13cqw;height:13cqw;transform:translateX(-50%);z-index:2;border-radius:49% 51% 47% 53%/52% 47% 53% 48%;background:radial-gradient(circle at 34% 28%,#d0444a,#8e1a20 70%);box-shadow:0 2px 4px rgba(0,0,0,.35);display:grid;place-items:center}
-.box .wx svg{width:70%;height:70%;color:#7c151b;filter:drop-shadow(0 1px 0 rgba(255,255,255,.2))}
+.box .wx{position:absolute;left:50.5%;bottom:9%;width:13cqw;height:13cqw;transform:translateX(-50%);z-index:2;border-radius:49% 51% 47% 53%/52% 47% 53% 48%;background:radial-gradient(circle at 34% 28%,#b4604a,#7a3426 70%);box-shadow:0 2px 4px rgba(0,0,0,.35);display:grid;place-items:center}
+.box .wx svg{width:70%;height:70%;color:#6a2a1e;filter:drop-shadow(0 1px 0 rgba(255,255,255,.2))}
 .cup{width:min(170px,50%);container-type:inline-size;position:relative;filter:drop-shadow(0 22px 18px rgba(42,35,27,.3))}
 .cup .lid{height:10cqw;background:linear-gradient(180deg,#3a352e,#24211d);border-radius:4cqw 4cqw 1cqw 1cqw;margin:0 -4cqw;position:relative;z-index:2}
 .cup .lid::after{content:"";position:absolute;left:3cqw;right:3cqw;bottom:-3cqw;height:4cqw;background:#2e2a25;border-radius:0 0 2cqw 2cqw}
@@ -622,7 +634,7 @@ p+p{margin-top:1em}
 .hoja h4{font:500 10.5px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#A67C52;margin-bottom:12px}
 .hoja .lg{display:flex;align-items:center;gap:18px;color:#0F3B26}
 .hoja .lg .wm{width:140px}
-.hoja .lg svg.i{width:52px;height:52px;--acc:#A61E26}
+.hoja .lg svg.i{width:52px;height:52px;--acc:#8C3F2F}
 .hoja .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .hoja .cols div{font:400 11px/1.3 var(--sans);color:#5E5345}
 .hoja .cols i{display:block;height:34px;margin-bottom:5px;border:1px solid rgba(0,0,0,.06)}
@@ -901,8 +913,8 @@ p+p{margin-top:1em}
       <div class="tile g f-g"><svg class="wm" style="width:78%;color:#F4EDE0"><use href="#wm"/></svg><small>Sobre verde</small></div>
       <div class="tile f-hz"><div class="hz"><svg class="i" viewBox="0 0 1200 1200"><use href="#isoc"/></svg><svg class="wm"><use href="#wm"/></svg><span class="rl"></span><span class="tg">CAFÉ QUE<br>SE HONRA</span></div><small>Firma horizontal</small></div>
       <div class="tile a f-iso"><div class="isos">
-        <svg viewBox="0 0 1200 1200" style="color:#0F3B26;--acc:#A61E26"><use href="#iso"/></svg>
-        <svg viewBox="0 0 1200 1200" style="color:#0F3B26;--acc:#A61E26"><use href="#isoc"/></svg>
+        <svg viewBox="0 0 1200 1200" style="color:#0F3B26;--acc:#8C3F2F"><use href="#iso"/></svg>
+        <svg viewBox="0 0 1200 1200" style="color:#0F3B26;--acc:#8C3F2F"><use href="#isoc"/></svg>
         <svg viewBox="0 0 1200 1200" style="color:#F4EDE0;--acc:#C9A45C;background:#0F3B26;border-radius:50%"><use href="#isoc"/></svg>
       </div><small>Isotipo “Lú” · solo, con anillo y en verde</small></div>
       <div class="tile d f-d"><svg viewBox="0 0 1200 1200" style="width:42%;height:auto;color:#F4EDE0;--acc:#C9A45C"><use href="#isoc"/></svg><small>Sobre oscuro</small></div>
@@ -921,7 +933,7 @@ p+p{margin-top:1em}
     </div>
     <div class="rules2 rv">
       <div><div class="clear"><span class="xm"></span><span class="xl">x</span><svg class="wm"><use href="#wm"/></svg></div><p>Área de reserva: <b>x</b> es la altura de la “a”. Nada entra en ese margen.</p></div>
-      <div><div class="mins"><div><svg width="96" height="34"><use href="#wm"/></svg>96 px · 24 mm<br>wordmark</div><div><svg width="34" height="34" viewBox="0 0 1200 1200" style="--acc:#A61E26"><use href="#iso"/></svg>16 px · 8 mm<br>isotipo</div></div><p>Por debajo de estos tamaños se usa el isotipo, nunca el wordmark reducido.</p></div>
+      <div><div class="mins"><div><svg width="96" height="34"><use href="#wm"/></svg>96 px · 24 mm<br>wordmark</div><div><svg width="34" height="34" viewBox="0 0 1200 1200" style="--acc:#8C3F2F"><use href="#iso"/></svg>16 px · 8 mm<br>isotipo</div></div><p>Por debajo de estos tamaños se usa el isotipo, nunca el wordmark reducido.</p></div>
       <div><div class="donts">
         <div><svg class="wm" style="color:#0F3B26;transform:scaleX(1.35)"><use href="#wm"/></svg><small>× No deformar</small></div>
         <div><svg class="wm" style="color:#E07B2A"><use href="#wm"/></svg><small>× Colores fuera de paleta</small></div>
@@ -934,13 +946,13 @@ p+p{margin-top:1em}
 </section>
 
 <!-- 05 COLOR -->
-<section class="ch th-dark tx-grain" id="color" data-dark style="--bg:#24211D">
+<section class="ch th-dark tx-grain" id="color" data-dark style="--bg:#2F241B">
   <svg class="dv" aria-hidden="true"><use href="#dv-ladera"/></svg>
   <div class="w">
     <header class="chh rv"><div class="cn" aria-hidden="true"><span><b>0</b></span><span><b>5</b></span></div><div class="cm"><p class="k">Capítulo cinco</p><i class="cr"></i><p class="k">Color</p></div></header>
     <div class="hd">
       <h2 class="rv" data-split>Verde de finca, crema de mesa y <i>tres procesos.</i></h2>
-      <p class="lead rv">Toque cualquier código para copiarlo. La base viene de su paleta actual; los colores de proceso, de sus propias bolsas.</p>
+      <p class="lead rv">Una paleta cerrada: seis colores base y tres acentos de proceso, todos de la misma familia. Toque cualquier código para copiarlo.</p>
     </div>
     <div class="pal rv">
       <div class="sw big"><div class="c" style="background:#0F3B26;color:#F4EDE0;box-shadow:inset 0 0 0 1px rgba(244,237,224,.12)">Verde Doña Lú</div><div class="i"><button class="cp" type="button" data-hex="#0F3B26">#0F3B26</button>El color del wordmark. Firma, bandas, botones.</div></div>
@@ -950,19 +962,164 @@ p+p{margin-top:1em}
       <div class="sw"><div class="c" style="background:#6B4E34;color:#F4EDE0">Tostado</div><div class="i"><button class="cp" type="button" data-hex="#6B4E34">#6B4E34</button>De su paleta actual.</div></div>
       <div class="sw"><div class="c" style="background:#C9A45C;color:#0F3B26">Dorado cosecha</div><div class="i"><button class="cp" type="button" data-hex="#C9A45C">#C9A45C</button>Detalles y sellos.</div></div>
     </div>
+    <div class="aa rv"><div><p class="k" style="color:#6B4E34">Ajuste tras su revisión · Antes / Ahora</p><p class="aa-t">Los colores de bolsa se cerraron dentro de la familia: menos saturados, más de tierra y con buen contraste sobre la etiqueta crema.</p></div><div class="aa-g"><div class="aa-col old"><p class="k">Antes</p><div class="row"><svg class="pouch old" viewBox="0 0 300 464" style="--bc:#1E3C72" role="img" aria-label="Bolsa Doña Lú lavado">
+<ellipse cx="150" cy="450" rx="132" ry="9" fill="#000" fill-opacity=".38" filter="url(#pblur)"/>
+<g clip-path="url(#pclip)">
+<rect width="300" height="464" style="fill:var(--bc)"/>
+<use href="#topo" x="-120" y="-40" width="540" height="560" style="color:rgba(255,255,255,.075)"/>
+<rect width="300" height="464" fill="url(#pshade)"/><rect width="300" height="464" fill="url(#pvshade)"/>
+<rect width="300" height="464" filter="url(#pgrain)" opacity=".22" style="mix-blend-mode:overlay"/>
+<rect width="300" height="44" fill="url(#pseal)"/><rect y="44" width="300" height="1.2" fill="#000" fill-opacity=".28"/>
+<line x1="16" x2="284" y1="58" y2="58" stroke="#fff" stroke-opacity=".2" stroke-dasharray="3 4"/>
+<path d="M0 404Q150 380 300 404V464H0Z" fill="#000" fill-opacity=".16"/><path d="M6 404Q150 381 294 404" fill="none" stroke="#fff" stroke-opacity=".16"/>
+</g>
+<g transform="translate(150 86)"><circle r="11.5" fill="#000" fill-opacity=".22"/><circle r="9.5" style="fill:var(--bc)" stroke="#fff" stroke-opacity=".28"/><circle r="4.4" fill="none" stroke="#fff" stroke-opacity=".3"/><circle r="1.3" fill="#fff" fill-opacity=".35"/></g>
+<g class="etiqueta" data-swap="etiqueta-comun"><g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
+<rect x="62" y="118" width="176" height="238" rx="2" filter="url(#pgrain)" opacity=".1"/>
+<use href="#wm" x="87" y="140" width="126" height="44.1" style="color:#0F3B26"/>
+<text x="150" y="202" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6.6" letter-spacing="2.3" fill="#0F3B26">CAFÉ QUE SE HONRA</text>
+<line x1="139" x2="161" y1="216" y2="216" stroke="#A67C52" stroke-width=".8"/>
+<text x="150" y="242" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="17" fill="#6B4E34">Danubio</text>
+<text class="pn" x="150" y="267" text-anchor="middle" font-family="Cormorant Garamond,serif" font-weight="500" font-size="22" letter-spacing="1.6" style="fill:var(--bc)">LAVADO</text>
+<text class="pt" x="150" y="287" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="12.5" fill="#5E5345">Limpio y brillante</text>
+<circle class="pd0" cx="138" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd1" cx="150" cy="304" r="3.4" style="stroke:var(--bc);fill:transparent" stroke-width="1"/><circle class="pd2" cx="162" cy="304" r="3.4" style="stroke:var(--bc);fill:transparent" stroke-width="1"/>
+<text x="150" y="330" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">ARABIA, RISARALDA</text>
+<text x="150" y="342" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">500 G</text>
+</g>
+</svg><svg class="pouch old" viewBox="0 0 300 464" style="--bc:#A61E26" role="img" aria-label="Bolsa Doña Lú honey">
+<ellipse cx="150" cy="450" rx="132" ry="9" fill="#000" fill-opacity=".38" filter="url(#pblur)"/>
+<g clip-path="url(#pclip)">
+<rect width="300" height="464" style="fill:var(--bc)"/>
+<use href="#topo" x="-120" y="-40" width="540" height="560" style="color:rgba(255,255,255,.075)"/>
+<rect width="300" height="464" fill="url(#pshade)"/><rect width="300" height="464" fill="url(#pvshade)"/>
+<rect width="300" height="464" filter="url(#pgrain)" opacity=".22" style="mix-blend-mode:overlay"/>
+<rect width="300" height="44" fill="url(#pseal)"/><rect y="44" width="300" height="1.2" fill="#000" fill-opacity=".28"/>
+<line x1="16" x2="284" y1="58" y2="58" stroke="#fff" stroke-opacity=".2" stroke-dasharray="3 4"/>
+<path d="M0 404Q150 380 300 404V464H0Z" fill="#000" fill-opacity=".16"/><path d="M6 404Q150 381 294 404" fill="none" stroke="#fff" stroke-opacity=".16"/>
+</g>
+<g transform="translate(150 86)"><circle r="11.5" fill="#000" fill-opacity=".22"/><circle r="9.5" style="fill:var(--bc)" stroke="#fff" stroke-opacity=".28"/><circle r="4.4" fill="none" stroke="#fff" stroke-opacity=".3"/><circle r="1.3" fill="#fff" fill-opacity=".35"/></g>
+<g class="etiqueta" data-swap="etiqueta-comun"><g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
+<rect x="62" y="118" width="176" height="238" rx="2" filter="url(#pgrain)" opacity=".1"/>
+<use href="#wm" x="87" y="140" width="126" height="44.1" style="color:#0F3B26"/>
+<text x="150" y="202" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6.6" letter-spacing="2.3" fill="#0F3B26">CAFÉ QUE SE HONRA</text>
+<line x1="139" x2="161" y1="216" y2="216" stroke="#A67C52" stroke-width=".8"/>
+<text x="150" y="242" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="17" fill="#6B4E34">Danubio</text>
+<text class="pn" x="150" y="267" text-anchor="middle" font-family="Cormorant Garamond,serif" font-weight="500" font-size="22" letter-spacing="1.6" style="fill:var(--bc)">HONEY</text>
+<text class="pt" x="150" y="287" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="12.5" fill="#5E5345">Dulce, con cuerpo</text>
+<circle class="pd0" cx="138" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd1" cx="150" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd2" cx="162" cy="304" r="3.4" style="stroke:var(--bc);fill:transparent" stroke-width="1"/>
+<text x="150" y="330" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">ARABIA, RISARALDA</text>
+<text x="150" y="342" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">500 G</text>
+</g>
+</svg><svg class="pouch old" viewBox="0 0 300 464" style="--bc:#24211D" role="img" aria-label="Bolsa Doña Lú natural">
+<ellipse cx="150" cy="450" rx="132" ry="9" fill="#000" fill-opacity=".38" filter="url(#pblur)"/>
+<g clip-path="url(#pclip)">
+<rect width="300" height="464" style="fill:var(--bc)"/>
+<use href="#topo" x="-120" y="-40" width="540" height="560" style="color:rgba(255,255,255,.075)"/>
+<rect width="300" height="464" fill="url(#pshade)"/><rect width="300" height="464" fill="url(#pvshade)"/>
+<rect width="300" height="464" filter="url(#pgrain)" opacity=".22" style="mix-blend-mode:overlay"/>
+<rect width="300" height="44" fill="url(#pseal)"/><rect y="44" width="300" height="1.2" fill="#000" fill-opacity=".28"/>
+<line x1="16" x2="284" y1="58" y2="58" stroke="#fff" stroke-opacity=".2" stroke-dasharray="3 4"/>
+<path d="M0 404Q150 380 300 404V464H0Z" fill="#000" fill-opacity=".16"/><path d="M6 404Q150 381 294 404" fill="none" stroke="#fff" stroke-opacity=".16"/>
+</g>
+<g transform="translate(150 86)"><circle r="11.5" fill="#000" fill-opacity=".22"/><circle r="9.5" style="fill:var(--bc)" stroke="#fff" stroke-opacity=".28"/><circle r="4.4" fill="none" stroke="#fff" stroke-opacity=".3"/><circle r="1.3" fill="#fff" fill-opacity=".35"/></g>
+<g class="etiqueta" data-swap="etiqueta-comun"><g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
+<rect x="62" y="118" width="176" height="238" rx="2" filter="url(#pgrain)" opacity=".1"/>
+<use href="#wm" x="87" y="140" width="126" height="44.1" style="color:#0F3B26"/>
+<text x="150" y="202" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6.6" letter-spacing="2.3" fill="#0F3B26">CAFÉ QUE SE HONRA</text>
+<line x1="139" x2="161" y1="216" y2="216" stroke="#A67C52" stroke-width=".8"/>
+<text x="150" y="242" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="17" fill="#6B4E34">Danubio</text>
+<text class="pn" x="150" y="267" text-anchor="middle" font-family="Cormorant Garamond,serif" font-weight="500" font-size="22" letter-spacing="1.6" style="fill:var(--bc)">NATURAL</text>
+<text class="pt" x="150" y="287" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="12.5" fill="#5E5345">Frutal y profundo</text>
+<circle class="pd0" cx="138" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd1" cx="150" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd2" cx="162" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/>
+<text x="150" y="330" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">ARABIA, RISARALDA</text>
+<text x="150" y="342" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">500 G</text>
+</g>
+</svg></div><div class="hx"><span>#1E3C72</span><span>#A61E26</span><span>#24211D</span></div></div><div class="aa-col"><p class="k">Ahora</p><div class="row"><svg class="pouch " viewBox="0 0 300 464" style="--bc:#35525C" role="img" aria-label="Bolsa Doña Lú lavado">
+<ellipse cx="150" cy="450" rx="132" ry="9" fill="#000" fill-opacity=".38" filter="url(#pblur)"/>
+<g clip-path="url(#pclip)">
+<rect width="300" height="464" style="fill:var(--bc)"/>
+<use href="#topo" x="-120" y="-40" width="540" height="560" style="color:rgba(255,255,255,.075)"/>
+<rect width="300" height="464" fill="url(#pshade)"/><rect width="300" height="464" fill="url(#pvshade)"/>
+<rect width="300" height="464" filter="url(#pgrain)" opacity=".22" style="mix-blend-mode:overlay"/>
+<rect width="300" height="44" fill="url(#pseal)"/><rect y="44" width="300" height="1.2" fill="#000" fill-opacity=".28"/>
+<line x1="16" x2="284" y1="58" y2="58" stroke="#fff" stroke-opacity=".2" stroke-dasharray="3 4"/>
+<path d="M0 404Q150 380 300 404V464H0Z" fill="#000" fill-opacity=".16"/><path d="M6 404Q150 381 294 404" fill="none" stroke="#fff" stroke-opacity=".16"/>
+</g>
+<g transform="translate(150 86)"><circle r="11.5" fill="#000" fill-opacity=".22"/><circle r="9.5" style="fill:var(--bc)" stroke="#fff" stroke-opacity=".28"/><circle r="4.4" fill="none" stroke="#fff" stroke-opacity=".3"/><circle r="1.3" fill="#fff" fill-opacity=".35"/></g>
+<g class="etiqueta" data-swap="etiqueta-comun"><g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
+<rect x="62" y="118" width="176" height="238" rx="2" filter="url(#pgrain)" opacity=".1"/>
+<use href="#wm" x="87" y="140" width="126" height="44.1" style="color:#0F3B26"/>
+<text x="150" y="202" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6.6" letter-spacing="2.3" fill="#0F3B26">CAFÉ QUE SE HONRA</text>
+<line x1="139" x2="161" y1="216" y2="216" stroke="#A67C52" stroke-width=".8"/>
+<text x="150" y="242" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="17" fill="#6B4E34">Danubio</text>
+<text class="pn" x="150" y="267" text-anchor="middle" font-family="Cormorant Garamond,serif" font-weight="500" font-size="22" letter-spacing="1.6" style="fill:var(--bc)">LAVADO</text>
+<text class="pt" x="150" y="287" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="12.5" fill="#5E5345">Limpio y brillante</text>
+<circle class="pd0" cx="138" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd1" cx="150" cy="304" r="3.4" style="stroke:var(--bc);fill:transparent" stroke-width="1"/><circle class="pd2" cx="162" cy="304" r="3.4" style="stroke:var(--bc);fill:transparent" stroke-width="1"/>
+<text x="150" y="330" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">ARABIA, RISARALDA</text>
+<text x="150" y="342" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">500 G</text>
+</g>
+</svg><svg class="pouch " viewBox="0 0 300 464" style="--bc:#8C3F2F" role="img" aria-label="Bolsa Doña Lú honey">
+<ellipse cx="150" cy="450" rx="132" ry="9" fill="#000" fill-opacity=".38" filter="url(#pblur)"/>
+<g clip-path="url(#pclip)">
+<rect width="300" height="464" style="fill:var(--bc)"/>
+<use href="#topo" x="-120" y="-40" width="540" height="560" style="color:rgba(255,255,255,.075)"/>
+<rect width="300" height="464" fill="url(#pshade)"/><rect width="300" height="464" fill="url(#pvshade)"/>
+<rect width="300" height="464" filter="url(#pgrain)" opacity=".22" style="mix-blend-mode:overlay"/>
+<rect width="300" height="44" fill="url(#pseal)"/><rect y="44" width="300" height="1.2" fill="#000" fill-opacity=".28"/>
+<line x1="16" x2="284" y1="58" y2="58" stroke="#fff" stroke-opacity=".2" stroke-dasharray="3 4"/>
+<path d="M0 404Q150 380 300 404V464H0Z" fill="#000" fill-opacity=".16"/><path d="M6 404Q150 381 294 404" fill="none" stroke="#fff" stroke-opacity=".16"/>
+</g>
+<g transform="translate(150 86)"><circle r="11.5" fill="#000" fill-opacity=".22"/><circle r="9.5" style="fill:var(--bc)" stroke="#fff" stroke-opacity=".28"/><circle r="4.4" fill="none" stroke="#fff" stroke-opacity=".3"/><circle r="1.3" fill="#fff" fill-opacity=".35"/></g>
+<g class="etiqueta" data-swap="etiqueta-comun"><g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
+<rect x="62" y="118" width="176" height="238" rx="2" filter="url(#pgrain)" opacity=".1"/>
+<use href="#wm" x="87" y="140" width="126" height="44.1" style="color:#0F3B26"/>
+<text x="150" y="202" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6.6" letter-spacing="2.3" fill="#0F3B26">CAFÉ QUE SE HONRA</text>
+<line x1="139" x2="161" y1="216" y2="216" stroke="#A67C52" stroke-width=".8"/>
+<text x="150" y="242" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="17" fill="#6B4E34">Danubio</text>
+<text class="pn" x="150" y="267" text-anchor="middle" font-family="Cormorant Garamond,serif" font-weight="500" font-size="22" letter-spacing="1.6" style="fill:var(--bc)">HONEY</text>
+<text class="pt" x="150" y="287" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="12.5" fill="#5E5345">Dulce, con cuerpo</text>
+<circle class="pd0" cx="138" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd1" cx="150" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd2" cx="162" cy="304" r="3.4" style="stroke:var(--bc);fill:transparent" stroke-width="1"/>
+<text x="150" y="330" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">ARABIA, RISARALDA</text>
+<text x="150" y="342" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">500 G</text>
+</g>
+</svg><svg class="pouch " viewBox="0 0 300 464" style="--bc:#2F241B" role="img" aria-label="Bolsa Doña Lú natural">
+<ellipse cx="150" cy="450" rx="132" ry="9" fill="#000" fill-opacity=".38" filter="url(#pblur)"/>
+<g clip-path="url(#pclip)">
+<rect width="300" height="464" style="fill:var(--bc)"/>
+<use href="#topo" x="-120" y="-40" width="540" height="560" style="color:rgba(255,255,255,.075)"/>
+<rect width="300" height="464" fill="url(#pshade)"/><rect width="300" height="464" fill="url(#pvshade)"/>
+<rect width="300" height="464" filter="url(#pgrain)" opacity=".22" style="mix-blend-mode:overlay"/>
+<rect width="300" height="44" fill="url(#pseal)"/><rect y="44" width="300" height="1.2" fill="#000" fill-opacity=".28"/>
+<line x1="16" x2="284" y1="58" y2="58" stroke="#fff" stroke-opacity=".2" stroke-dasharray="3 4"/>
+<path d="M0 404Q150 380 300 404V464H0Z" fill="#000" fill-opacity=".16"/><path d="M6 404Q150 381 294 404" fill="none" stroke="#fff" stroke-opacity=".16"/>
+</g>
+<g transform="translate(150 86)"><circle r="11.5" fill="#000" fill-opacity=".22"/><circle r="9.5" style="fill:var(--bc)" stroke="#fff" stroke-opacity=".28"/><circle r="4.4" fill="none" stroke="#fff" stroke-opacity=".3"/><circle r="1.3" fill="#fff" fill-opacity=".35"/></g>
+<g class="etiqueta" data-swap="etiqueta-comun"><g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
+<rect x="62" y="118" width="176" height="238" rx="2" filter="url(#pgrain)" opacity=".1"/>
+<use href="#wm" x="87" y="140" width="126" height="44.1" style="color:#0F3B26"/>
+<text x="150" y="202" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6.6" letter-spacing="2.3" fill="#0F3B26">CAFÉ QUE SE HONRA</text>
+<line x1="139" x2="161" y1="216" y2="216" stroke="#A67C52" stroke-width=".8"/>
+<text x="150" y="242" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="17" fill="#6B4E34">Danubio</text>
+<text class="pn" x="150" y="267" text-anchor="middle" font-family="Cormorant Garamond,serif" font-weight="500" font-size="22" letter-spacing="1.6" style="fill:var(--bc)">NATURAL</text>
+<text class="pt" x="150" y="287" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="12.5" fill="#5E5345">Frutal y profundo</text>
+<circle class="pd0" cx="138" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd1" cx="150" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd2" cx="162" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/>
+<text x="150" y="330" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">ARABIA, RISARALDA</text>
+<text x="150" y="342" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">500 G</text>
+</g>
+</svg></div><div class="hx"><span>Pizarra #35525C</span><span>Cereza #8C3F2F</span><span>Espresso #2F241B</span></div></div></div></div>
     <div class="procs rv">
-      <div class="sw"><div class="c" style="background:#1E3C72">Lavado<span>Limpio y brillante</span></div><div class="i"><button class="cp" type="button" data-hex="#1E3C72">#1E3C72 · Azul Lavado</button>Tomado de su bolsa azul, un punto más profundo.</div></div>
-      <div class="sw"><div class="c" style="background:#A61E26">Honey<span>Dulce, con cuerpo</span></div><div class="i"><button class="cp" type="button" data-hex="#A61E26">#A61E26 · Rojo Honey</button>El rojo de su bolsa, llevado al tono de la cereza madura.</div></div>
-      <div class="sw"><div class="c" style="background:#24211D;box-shadow:inset 0 0 0 1px rgba(244,237,224,.18)">Natural<span>Frutal y profundo</span></div><div class="i"><button class="cp" type="button" data-hex="#24211D">#24211D · Negro Natural</button>Cercano a su negro profundo, cálido y nunca plano.</div></div>
+      <div class="sw"><div class="c" style="background:#35525C">Lavado<span>Limpio y brillante</span></div><div class="i"><button class="cp" type="button" data-hex="#35525C">#35525C · Pizarra Lavado</button>El azul de su bolsa llevado a pizarra, para que conviva con el verde.</div></div>
+      <div class="sw"><div class="c" style="background:#8C3F2F">Honey<span>Dulce, con cuerpo</span></div><div class="i"><button class="cp" type="button" data-hex="#8C3F2F">#8C3F2F · Cereza Honey</button>El rojo de su bolsa llevado a cereza seca, más cerca de la tierra.</div></div>
+      <div class="sw"><div class="c" style="background:#2F241B;box-shadow:inset 0 0 0 1px rgba(244,237,224,.18)">Natural<span>Frutal y profundo</span></div><div class="i"><button class="cp" type="button" data-hex="#2F241B">#2F241B · Espresso Natural</button>Un negro tostado y cálido, de la familia del tostado.</div></div>
     </div>
     <div class="ratio rv" aria-hidden="true">
       <div style="flex:58;background:#F4EDE0;color:#0F3B26">Crema 58 %</div>
       <div style="flex:24;background:#0F3B26;color:#F4EDE0">Verde 24 %</div>
       <div style="flex:10;background:#A67C52;color:#F4EDE0">10 %</div>
       <div style="flex:5;background:#C9A45C"></div>
-      <div style="flex:3;background:#A61E26"></div>
+      <div style="flex:3;background:#8C3F2F"></div>
     </div>
-    <div class="legend rv"><span><i style="background:#F4EDE0"></i>Crema 58 %</span><span><i style="background:#0F3B26"></i>Verde 24 %</span><span><i style="background:#A67C52"></i>Tierra y tostado 10 %</span><span><i style="background:#C9A45C"></i>Dorado 5 %</span><span><i style="background:#A61E26"></i>Color de proceso 3 %</span></div>
+    <div class="legend rv"><span><i style="background:#F4EDE0"></i>Crema 58 %</span><span><i style="background:#0F3B26"></i>Verde 24 %</span><span><i style="background:#A67C52"></i>Tierra y tostado 10 %</span><span><i style="background:#C9A45C"></i>Dorado 5 %</span><span><i style="background:#8C3F2F"></i>Color de proceso 3 %</span></div>
     <p class="note rv">Su propia regla se mantiene: en la marca mandan los tonos tierra y los verdes cálidos, y el oscuro nunca domina. Los colores de proceso viven en el empaque y en las piezas de cada café.</p>
     <p class="sr" aria-live="polite" id="cplive"></p>
   </div>
@@ -1062,13 +1219,13 @@ p+p{margin-top:1em}
         <div class="grid">
           <div class="post"><img src="img/recolector.webp" width="810" height="1140" alt="" loading="lazy"><svg class="ico" viewBox="0 0 24 24" aria-label="Reel"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 8h18M9 3l2.5 5M14.5 3L17 8"/><path d="M10 11.5v5l4.5-2.5z" fill="#fff"/></svg><div class="ov"><p class="lb">Quienes lo hacen</p><p class="q">Aquí no hay pobrecitos.</p></div></div>
           <div class="post typ"><p class="qm">“</p><p class="q s">Un buen café no se acelera.</p><p class="by">Frase de la casa</p></div>
-          <div class="post proc" style="background:#A61E26"><p class="lb">Danubio</p><div><p class="pn">Honey</p><p class="pd">Dulce, con cuerpo.</p></div><div class="dots"><i class="on"></i><i class="on"></i><i></i></div></div>
+          <div class="post proc" style="background:#8C3F2F"><p class="lb">Danubio</p><div><p class="pn">Honey</p><p class="pd">Dulce, con cuerpo.</p></div><div class="dots"><i class="on"></i><i class="on"></i><i></i></div></div>
           <div class="post"><img src="img/cerezas.webp" width="1080" height="1558" alt="" loading="lazy"><svg class="ico" viewBox="0 0 24 24" aria-label="Carrusel"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M17 17v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h2"/></svg><div class="ov"><p class="lb">Carrusel · 1 de 6</p><p class="q s">Grano por grano.</p></div></div>
           <div class="post green"><svg class="t" aria-hidden="true"><use href="#topo"/></svg><div class="in"><p class="q s">Los invasores somos nosotros.</p><p class="by">Un trabajador de la finca</p></div></div>
           <div class="post"><img src="img/mesa-cafetal.webp" width="1080" height="721" alt="" loading="lazy" style="object-position:40% 50%"><div class="ov"><p class="lb">La mesa</p><p class="q s">Servido donde nace.</p></div></div>
-          <div class="post proc" style="background:#1E3C72"><p class="lb">Danubio</p><div><p class="pn">Lavado</p><p class="pd">Limpio y brillante.</p></div><div class="dots"><i class="on"></i><i></i><i></i></div></div>
+          <div class="post proc" style="background:#35525C"><p class="lb">Danubio</p><div><p class="pn">Lavado</p><p class="pd">Limpio y brillante.</p></div><div class="dots"><i class="on"></i><i></i><i></i></div></div>
           <div class="post"><img src="img/tueste.webp" width="1563" height="1044" alt="" loading="lazy"><div class="ov"><p class="lb">Tostión</p><p class="q s">La curva decide el aroma.</p></div></div>
-          <div class="post proc" style="background:#24211D"><p class="lb">Danubio</p><div><p class="pn">Natural</p><p class="pd">Frutal y profundo.</p></div><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+          <div class="post proc" style="background:#2F241B"><p class="lb">Danubio</p><div><p class="pn">Natural</p><p class="pd">Frutal y profundo.</p></div><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
         </div>
       </div>
       <div class="side">
@@ -1114,7 +1271,7 @@ p+p{margin-top:1em}
 </section>
 
 <!-- 09 EMPAQUE -->
-<section class="ch th-dark tx-grain" id="empaque" data-dark style="--bg:#1E3C72">
+<section class="ch th-dark tx-grain" id="empaque" data-dark style="--bg:#35525C">
   <svg class="dv" aria-hidden="true"><use href="#dv-contour"/></svg>
   <svg class="ctopo" aria-hidden="true" style="color:#F4EDE0"><use href="#topo"/></svg>
   <div class="w">
@@ -1126,7 +1283,7 @@ p+p{margin-top:1em}
     <div class="prod rv">
       <div class="stage" id="stage">
         <img class="bgp" src="img/mesa-cafetal.webp" width="1080" height="721" alt="" loading="lazy">
-        <svg class="pouch hero" viewBox="0 0 300 464" style="--bc:#1E3C72" role="img" aria-label="Bolsa Doña Lú lavado">
+        <svg class="pouch hero" viewBox="0 0 300 464" style="--bc:#35525C" role="img" aria-label="Bolsa Doña Lú lavado">
 <ellipse cx="150" cy="450" rx="132" ry="9" fill="#000" fill-opacity=".38" filter="url(#pblur)"/>
 <g clip-path="url(#pclip)">
 <rect width="300" height="464" style="fill:var(--bc)"/>
@@ -1138,7 +1295,7 @@ p+p{margin-top:1em}
 <path d="M0 404Q150 380 300 404V464H0Z" fill="#000" fill-opacity=".16"/><path d="M6 404Q150 381 294 404" fill="none" stroke="#fff" stroke-opacity=".16"/>
 </g>
 <g transform="translate(150 86)"><circle r="11.5" fill="#000" fill-opacity=".22"/><circle r="9.5" style="fill:var(--bc)" stroke="#fff" stroke-opacity=".28"/><circle r="4.4" fill="none" stroke="#fff" stroke-opacity=".3"/><circle r="1.3" fill="#fff" fill-opacity=".35"/></g>
-<g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
+<g class="etiqueta" data-swap="etiqueta-comun"><g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
 <rect x="62" y="118" width="176" height="238" rx="2" filter="url(#pgrain)" opacity=".1"/>
 <use href="#wm" x="87" y="140" width="126" height="44.1" style="color:#0F3B26"/>
 <text x="150" y="202" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6.6" letter-spacing="2.3" fill="#0F3B26">CAFÉ QUE SE HONRA</text>
@@ -1149,25 +1306,27 @@ p+p{margin-top:1em}
 <circle class="pd0" cx="138" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd1" cx="150" cy="304" r="3.4" style="stroke:var(--bc);fill:transparent" stroke-width="1"/><circle class="pd2" cx="162" cy="304" r="3.4" style="stroke:var(--bc);fill:transparent" stroke-width="1"/>
 <text x="150" y="330" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">ARABIA, RISARALDA</text>
 <text x="150" y="342" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">500 G</text>
+</g>
 </svg>
       </div>
       <div class="pp" id="pp">
         <p class="k">Elija un proceso</p>
         <div class="seg" role="radiogroup" aria-label="Proceso">
-          <button type="button" role="radio" aria-checked="true" data-p="lavado" style="--c:#1E3C72"><i></i>Lavado</button>
-          <button type="button" role="radio" aria-checked="false" tabindex="-1" data-p="honey" style="--c:#A61E26"><i></i>Honey</button>
-          <button type="button" role="radio" aria-checked="false" tabindex="-1" data-p="natural" style="--c:#24211D"><i></i>Natural</button>
+          <button type="button" role="radio" aria-checked="true" data-p="lavado" style="--c:#35525C"><i></i>Lavado</button>
+          <button type="button" role="radio" aria-checked="false" tabindex="-1" data-p="honey" style="--c:#8C3F2F"><i></i>Honey</button>
+          <button type="button" role="radio" aria-checked="false" tabindex="-1" data-p="natural" style="--c:#2F241B"><i></i>Natural</button>
         </div>
         <h3 id="p-n">Lavado</h3>
         <p class="pt" id="p-t">Limpio y brillante</p>
         <p class="pdsc" id="p-d">Se despulpa y se lava antes de secar. Es la taza más clara de la casa.</p>
         <dl>
           <dt>Código</dt><dd><span class="beans" id="p-b"><i class="on"></i><i></i><i></i></span></dd>
-          <dt>Bolsa</dt><dd id="p-c">Azul Lavado · #1E3C72</dd>
+          <dt>Bolsa</dt><dd id="p-c">Pizarra Lavado · #35525C</dd>
           <dt>Formatos</dt><dd id="p-f">500 g · 2,5 kg</dd>
         </dl>
       </div>
     </div>
+    <p class="next rv">Próximo ajuste: unificar con el diseño de bolsa que nos compartieron.</p>
   </div>
   <div class="folio"><div class="w"><span>Doña Lú · Propuesta de identidad</span><span>09</span></div></div>
 </section>
@@ -1182,7 +1341,7 @@ p+p{margin-top:1em}
       <p class="lead rv">La familia de bolsas, una caja de regalo, el vaso de feria y la tarjeta. Cada pieza usa las mismas reglas.</p>
     </div>
     <div class="rv">
-      <div class="trio"><svg class="pouch " viewBox="0 0 300 464" style="--bc:#1E3C72" role="img" aria-label="Bolsa Doña Lú lavado">
+      <div class="trio"><svg class="pouch " viewBox="0 0 300 464" style="--bc:#35525C" role="img" aria-label="Bolsa Doña Lú lavado">
 <ellipse cx="150" cy="450" rx="132" ry="9" fill="#000" fill-opacity=".38" filter="url(#pblur)"/>
 <g clip-path="url(#pclip)">
 <rect width="300" height="464" style="fill:var(--bc)"/>
@@ -1194,7 +1353,7 @@ p+p{margin-top:1em}
 <path d="M0 404Q150 380 300 404V464H0Z" fill="#000" fill-opacity=".16"/><path d="M6 404Q150 381 294 404" fill="none" stroke="#fff" stroke-opacity=".16"/>
 </g>
 <g transform="translate(150 86)"><circle r="11.5" fill="#000" fill-opacity=".22"/><circle r="9.5" style="fill:var(--bc)" stroke="#fff" stroke-opacity=".28"/><circle r="4.4" fill="none" stroke="#fff" stroke-opacity=".3"/><circle r="1.3" fill="#fff" fill-opacity=".35"/></g>
-<g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
+<g class="etiqueta" data-swap="etiqueta-comun"><g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
 <rect x="62" y="118" width="176" height="238" rx="2" filter="url(#pgrain)" opacity=".1"/>
 <use href="#wm" x="87" y="140" width="126" height="44.1" style="color:#0F3B26"/>
 <text x="150" y="202" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6.6" letter-spacing="2.3" fill="#0F3B26">CAFÉ QUE SE HONRA</text>
@@ -1205,7 +1364,8 @@ p+p{margin-top:1em}
 <circle class="pd0" cx="138" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd1" cx="150" cy="304" r="3.4" style="stroke:var(--bc);fill:transparent" stroke-width="1"/><circle class="pd2" cx="162" cy="304" r="3.4" style="stroke:var(--bc);fill:transparent" stroke-width="1"/>
 <text x="150" y="330" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">ARABIA, RISARALDA</text>
 <text x="150" y="342" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">500 G</text>
-</svg><svg class="pouch " viewBox="0 0 300 464" style="--bc:#A61E26" role="img" aria-label="Bolsa Doña Lú honey">
+</g>
+</svg><svg class="pouch " viewBox="0 0 300 464" style="--bc:#8C3F2F" role="img" aria-label="Bolsa Doña Lú honey">
 <ellipse cx="150" cy="450" rx="132" ry="9" fill="#000" fill-opacity=".38" filter="url(#pblur)"/>
 <g clip-path="url(#pclip)">
 <rect width="300" height="464" style="fill:var(--bc)"/>
@@ -1217,7 +1377,7 @@ p+p{margin-top:1em}
 <path d="M0 404Q150 380 300 404V464H0Z" fill="#000" fill-opacity=".16"/><path d="M6 404Q150 381 294 404" fill="none" stroke="#fff" stroke-opacity=".16"/>
 </g>
 <g transform="translate(150 86)"><circle r="11.5" fill="#000" fill-opacity=".22"/><circle r="9.5" style="fill:var(--bc)" stroke="#fff" stroke-opacity=".28"/><circle r="4.4" fill="none" stroke="#fff" stroke-opacity=".3"/><circle r="1.3" fill="#fff" fill-opacity=".35"/></g>
-<g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
+<g class="etiqueta" data-swap="etiqueta-comun"><g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
 <rect x="62" y="118" width="176" height="238" rx="2" filter="url(#pgrain)" opacity=".1"/>
 <use href="#wm" x="87" y="140" width="126" height="44.1" style="color:#0F3B26"/>
 <text x="150" y="202" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6.6" letter-spacing="2.3" fill="#0F3B26">CAFÉ QUE SE HONRA</text>
@@ -1228,7 +1388,8 @@ p+p{margin-top:1em}
 <circle class="pd0" cx="138" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd1" cx="150" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd2" cx="162" cy="304" r="3.4" style="stroke:var(--bc);fill:transparent" stroke-width="1"/>
 <text x="150" y="330" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">ARABIA, RISARALDA</text>
 <text x="150" y="342" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">500 G</text>
-</svg><svg class="pouch " viewBox="0 0 300 464" style="--bc:#24211D" role="img" aria-label="Bolsa Doña Lú natural">
+</g>
+</svg><svg class="pouch " viewBox="0 0 300 464" style="--bc:#2F241B" role="img" aria-label="Bolsa Doña Lú natural">
 <ellipse cx="150" cy="450" rx="132" ry="9" fill="#000" fill-opacity=".38" filter="url(#pblur)"/>
 <g clip-path="url(#pclip)">
 <rect width="300" height="464" style="fill:var(--bc)"/>
@@ -1240,7 +1401,7 @@ p+p{margin-top:1em}
 <path d="M0 404Q150 380 300 404V464H0Z" fill="#000" fill-opacity=".16"/><path d="M6 404Q150 381 294 404" fill="none" stroke="#fff" stroke-opacity=".16"/>
 </g>
 <g transform="translate(150 86)"><circle r="11.5" fill="#000" fill-opacity=".22"/><circle r="9.5" style="fill:var(--bc)" stroke="#fff" stroke-opacity=".28"/><circle r="4.4" fill="none" stroke="#fff" stroke-opacity=".3"/><circle r="1.3" fill="#fff" fill-opacity=".35"/></g>
-<g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
+<g class="etiqueta" data-swap="etiqueta-comun"><g filter="url(#lshadow)"><rect x="62" y="118" width="176" height="238" rx="2" fill="#FBF8F1"/></g>
 <rect x="62" y="118" width="176" height="238" rx="2" filter="url(#pgrain)" opacity=".1"/>
 <use href="#wm" x="87" y="140" width="126" height="44.1" style="color:#0F3B26"/>
 <text x="150" y="202" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6.6" letter-spacing="2.3" fill="#0F3B26">CAFÉ QUE SE HONRA</text>
@@ -1251,8 +1412,9 @@ p+p{margin-top:1em}
 <circle class="pd0" cx="138" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd1" cx="150" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/><circle class="pd2" cx="162" cy="304" r="3.4" style="stroke:var(--bc);fill:var(--bc)" stroke-width="1"/>
 <text x="150" y="330" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">ARABIA, RISARALDA</text>
 <text x="150" y="342" text-anchor="middle" font-family="Jost,sans-serif" font-weight="500" font-size="6" letter-spacing="1.8" fill="#5E5345">500 G</text>
+</g>
 </svg></div>
-      <div class="triocap"><div><b>Lavado</b>Azul · un grano</div><div><b>Honey</b>Rojo · dos granos</div><div><b>Natural</b>Negro · tres granos</div></div>
+      <div class="triocap"><div><b>Lavado</b>Pizarra · un grano</div><div><b>Honey</b>Cereza · dos granos</div><div><b>Natural</b>Espresso · tres granos</div></div>
     </div>
     <div class="apps">
       <div class="app rv"><div class="st">
@@ -1270,7 +1432,7 @@ p+p{margin-top:1em}
 </section>
 
 <!-- 11 CASAS -->
-<section class="ch th-dark tx-bean" id="casas" data-dark style="--bg:#A61E26;--dorado:#F0CF8E">
+<section class="ch th-dark tx-bean" id="casas" data-dark style="--bg:#0F3B26">
   <svg class="dv" aria-hidden="true"><use href="#dv-ladera"/></svg>
   <div class="w">
     <header class="chh rv"><div class="cn" aria-hidden="true"><span><b>1</b></span><span><b>1</b></span></div><div class="cm"><p class="k">Capítulo once</p><i class="cr"></i><p class="k">Casas que honran</p></div></header>
@@ -1321,7 +1483,7 @@ p+p{margin-top:1em}
           <div><h4>Tipografía</h4><div class="ty"><span class="a1">Aa</span><p>Cormorant Garamond<br>títulos y frases</p><span class="a2">Aa</span><p>Jost<br>texto, datos y mayúsculas</p></div></div>
           <div class="full"><h4>Color</h4><div class="cols">
             <div><i style="background:#0F3B26"></i><b>Verde Doña Lú</b>#0F3B26</div><div><i style="background:#F4EDE0"></i><b>Crema mesa</b>#F4EDE0</div><div><i style="background:#A67C52"></i><b>Tierra</b>#A67C52</div>
-            <div><i style="background:#1E3C72"></i><b>Azul Lavado</b>#1E3C72</div><div><i style="background:#A61E26"></i><b>Rojo Honey</b>#A61E26</div><div><i style="background:#24211D"></i><b>Negro Natural</b>#24211D</div>
+            <div><i style="background:#35525C"></i><b>Pizarra Lavado</b>#35525C</div><div><i style="background:#8C3F2F"></i><b>Cereza Honey</b>#8C3F2F</div><div><i style="background:#2F241B"></i><b>Espresso Natural</b>#2F241B</div>
           </div></div>
           <div class="full"><h4>Tono en tres líneas</h4><ol><li>Contamos escenas: una cereza, una mañana, una mesa.</li><li>Hablamos de la gente con orgullo y por su nombre.</li><li>Invitamos con calma y explicamos lo que costó.</li></ol></div>
         </div>
@@ -1358,7 +1520,7 @@ var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function split(el){var n=0;(function walk(node){[].slice.call(node.childNodes).forEach(function(c){if(c.nodeType===3){var parts=c.textContent.split(/(\s+)/),f=document.createDocumentFragment();parts.forEach(function(p){if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}var o=document.createElement('span');o.className='wd';var i=document.createElement('span');i.textContent=p;i.style.setProperty('--i',n++);o.appendChild(i);f.appendChild(o)});c.parentNode.replaceChild(f,c)}else if(c.nodeType===1){walk(c)}})})(el)}
 document.querySelectorAll('[data-split],[data-split-now]').forEach(split);
 // Grano por grano
-var g=document.getElementById('gg');if(g){var ns='http://www.w3.org/2000/svg',ripe=[3,9,14,16,22,27,31,38,41,45],i=0;for(var r=0;r<5;r++)for(var c=0;c<10;c++){var x=16+c*23,y=20+r*30,on=ripe.indexOf(i)>-1,e=document.createElementNS(ns,'ellipse');e.setAttribute('cx',x);e.setAttribute('cy',y);e.setAttribute('rx',7.5);e.setAttribute('ry',9.5);e.setAttribute('fill',on?'#A61E26':'none');e.setAttribute('stroke',on?'#A61E26':'#4B5A3A');e.setAttribute('stroke-width','1.2');e.setAttribute('transform','rotate(18 '+x+' '+y+')');g.appendChild(e);var l=document.createElementNS(ns,'path');l.setAttribute('d','M'+(x-2)+' '+(y-7)+'Q'+(x+2.5)+' '+y+' '+(x-1)+' '+(y+7));l.setAttribute('fill','none');l.setAttribute('stroke',on?'#F4EDE0':'#4B5A3A');l.setAttribute('transform','rotate(18 '+x+' '+y+')');g.appendChild(l);i++}}
+var g=document.getElementById('gg');if(g){var ns='http://www.w3.org/2000/svg',ripe=[3,9,14,16,22,27,31,38,41,45],i=0;for(var r=0;r<5;r++)for(var c=0;c<10;c++){var x=16+c*23,y=20+r*30,on=ripe.indexOf(i)>-1,e=document.createElementNS(ns,'ellipse');e.setAttribute('cx',x);e.setAttribute('cy',y);e.setAttribute('rx',7.5);e.setAttribute('ry',9.5);e.setAttribute('fill',on?'#8C3F2F':'none');e.setAttribute('stroke',on?'#8C3F2F':'#4B5A3A');e.setAttribute('stroke-width','1.2');e.setAttribute('transform','rotate(18 '+x+' '+y+')');g.appendChild(e);var l=document.createElementNS(ns,'path');l.setAttribute('d','M'+(x-2)+' '+(y-7)+'Q'+(x+2.5)+' '+y+' '+(x-1)+' '+(y+7));l.setAttribute('fill','none');l.setAttribute('stroke',on?'#F4EDE0':'#4B5A3A');l.setAttribute('transform','rotate(18 '+x+' '+y+')');g.appendChild(l);i++}}
 // Menú
 var nav=document.querySelector('.nav'),b=document.querySelector('.idx'),m=document.getElementById('menu');b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});m.addEventListener('click',function(e){if(e.target.closest('a')){m.classList.remove('open');b.setAttribute('aria-expanded',false)}});
 // Aparición
@@ -1388,9 +1550,9 @@ document.querySelectorAll('.cp').forEach(function(bt){bt.setAttribute('aria-labe
 function fb(){var t=document.createElement('textarea');t.value=h;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy')}catch(e){}t.remove();done()}
 if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(h).then(done,fb)}else fb()})});
 // Selector de proceso
-var P={lavado:{n:'Lavado',N:'LAVADO',c:'#1E3C72',t:'Limpio y brillante',d:'Se despulpa y se lava antes de secar. Es la taza más clara de la casa.',k:1,b:'Azul Lavado · #1E3C72',f:'500 g · 2,5 kg'},
-honey:{n:'Honey',N:'HONEY',c:'#A61E26',t:'Dulce, con cuerpo',d:'Se seca con parte de la miel del grano. Por eso llega dulce y con cuerpo.',k:2,b:'Rojo Honey · #A61E26',f:'250 g · 500 g · 2,5 kg'},
-natural:{n:'Natural',N:'NATURAL',c:'#24211D',t:'Frutal y profundo',d:'Se seca con la cereza entera, sin prisa. Frutal, complejo y profundo.',k:3,b:'Negro Natural · #24211D',f:'250 g · 500 g · 2,5 kg'}};
+var P={lavado:{n:'Lavado',N:'LAVADO',c:'#35525C',t:'Limpio y brillante',d:'Se despulpa y se lava antes de secar. Es la taza más clara de la casa.',k:1,b:'Pizarra Lavado · #35525C',f:'500 g · 2,5 kg'},
+honey:{n:'Honey',N:'HONEY',c:'#8C3F2F',t:'Dulce, con cuerpo',d:'Se seca con parte de la miel del grano. Por eso llega dulce y con cuerpo.',k:2,b:'Cereza Honey · #8C3F2F',f:'250 g · 500 g · 2,5 kg'},
+natural:{n:'Natural',N:'NATURAL',c:'#2F241B',t:'Frutal y profundo',d:'Se seca con la cereza entera, sin prisa. Frutal, complejo y profundo.',k:3,b:'Espresso Natural · #2F241B',f:'250 g · 500 g · 2,5 kg'}};
 var emp=document.getElementById('empaque'),hero=document.querySelector('.pouch.hero'),seg=[].slice.call(document.querySelectorAll('.seg button'));
 function setP(key,focus){var p=P[key];seg.forEach(function(s){var on=s.dataset.p===key;s.setAttribute('aria-checked',on);s.tabIndex=on?0:-1;if(on&&focus)s.focus()});
 emp.style.setProperty('--bg',p.c);hero.style.setProperty('--bc',p.c);hero.querySelector('.pn').textContent=p.N;hero.querySelector('.pt').textContent=p.t;hero.setAttribute('aria-label','Bolsa Doña Lú '+p.n.toLowerCase());
