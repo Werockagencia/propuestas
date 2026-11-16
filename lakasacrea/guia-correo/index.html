@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Correo La Kasa en iPhone</title>
+<meta name="description" content="Guía para recibir y enviar correos de contacto@lakasacrea.com desde la app de Gmail en iPhone.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#E8000A;--dk:#0A0A0A;--dk3:#161616;--lt:#F5F2EB;--lt3:#E4DFD4;--kasa:#C8D400;--ink:#1a1a1a;--mut:#6b6b6b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Barlow',sans-serif;background:var(--lt);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+.top{background:var(--dk);color:#fff;padding:28px 16px 34px}
+.wrap{max-width:720px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.brand img{height:44px;width:44px}
+.brand span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#aaa;font-weight:700}
+h1{font-size:clamp(30px,7vw,46px);font-weight:900;line-height:1;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--kasa)}
+.top p{color:#ccc;margin-top:12px;font-size:17px}
+.addr{display:inline-block;margin-top:16px;background:var(--red);color:#fff;font-weight:800;padding:8px 14px;font-size:17px}
+main{padding:24px 16px 60px}
+.note{background:#fff;border-left:4px solid var(--red);padding:14px 16px;font-size:15px;margin-bottom:26px}
+.note b{display:block;margin-bottom:2px}
+h2{font-size:24px;font-weight:800;margin:30px 0 4px;letter-spacing:-.01em}
+h2 small{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;background:var(--kasa);color:#111;padding:3px 8px;vertical-align:middle;margin-left:6px}
+.lead{color:var(--mut);margin-bottom:14px}
+ol.steps{list-style:none;counter-reset:s;display:grid;gap:10px}
+ol.steps li{counter-increment:s;background:#fff;border:1px solid var(--lt3);padding:14px 14px 14px 56px;position:relative;font-size:16px}
+ol.steps li::before{content:counter(s);position:absolute;left:14px;top:13px;width:28px;height:28px;border-radius:50%;background:var(--dk);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
+ol.steps li b{font-weight:700}
+.tap{display:inline-block;background:#eef0ff;color:#1a3fd1;font-weight:700;padding:1px 7px;border-radius:5px;font-size:15px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--lt3);margin:10px 0 4px;font-size:15px}
+td{padding:10px 12px;border-bottom:1px solid var(--lt3);vertical-align:top}
+td:first-child{color:var(--mut);width:42%}
+td code{font-family:ui-monospace,Menlo,monospace;font-size:14px;background:#f3f1ec;padding:2px 6px;word-break:break-all}
+.th td{background:var(--dk);color:#fff;font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.ok{background:#eaf6ec;border:1px solid #b9dfc0;padding:12px 14px;margin-top:12px;font-size:15px}
+.warn{background:#fff6e6;border:1px solid #f0d49a;padding:12px 14px;margin-top:12px;font-size:15px}
+.faq{display:grid;gap:10px;margin-top:10px}
+.faq details{background:#fff;border:1px solid var(--lt3);padding:12px 14px}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{margin-top:8px;font-size:15px;color:#333}
+footer{margin-top:36px;font-size:13px;color:var(--mut);border-top:1px solid var(--lt3);padding-top:14px}
+footer a{color:var(--red)}
+@media (prefers-color-scheme:dark){
+ :root:not([data-theme="light"]){--lt:#0f0f0f;--lt3:#2a2a2a;--ink:#eee;--mut:#9a9a9a}
+ :root:not([data-theme="light"]) .note,:root:not([data-theme="light"]) ol.steps li,:root:not([data-theme="light"]) table,:root:not([data-theme="light"]) .faq details{background:#181818}
+ :root:not([data-theme="light"]) td code{background:#242424}
+ :root:not([data-theme="light"]) .faq p{color:#ccc}
+ :root:not([data-theme="light"]) .ok{background:#13261a;border-color:#24502f}
+ :root:not([data-theme="light"]) .warn{background:#2a2110;border-color:#5a4520}
+ :root:not([data-theme="light"]) .tap{background:#1d2547;color:#9db0ff}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand"><img src="../kasa-logo.svg" alt="La Kasa Crea"><span>Guía · noviembre 2026</span></div>
+  <h1>Tu correo de La Kasa <em>en el iPhone</em></h1>
+  <p>Recibe y envía correos de La Kasa desde la app de Gmail, en una bandeja aparte de tu correo personal.</p>
+  <div class="addr">contacto@lakasacrea.com</div>
+</div></header>
+
+<main><div class="wrap">
+  <div class="note"><b>Antes de empezar, ten a mano:</b>La contraseña de contacto@lakasacrea.com (te la pasa David por un canal privado) y la app <b>Gmail</b> actualizada desde el App Store.</div>
+
+  <h2>Agregar el correo a la app de Gmail <small>Recomendado</small></h2>
+  <p class="lead">Unos 3 minutos. El correo de La Kasa queda como una cuenta aparte dentro de Gmail, con su propia bandeja de entrada.</p>
+  <ol class="steps">
+    <li>Abre la app <b>Gmail</b> y toca tu <b>foto de perfil</b> (arriba a la derecha).</li>
+    <li>Toca <span class="tap">Añadir otra cuenta</span>.</li>
+    <li>Elige <span class="tap">Otra (IMAP)</span>. <b>No</b> elijas Google ni Outlook.</li>
+    <li>Escribe <b>contacto@lakasacrea.com</b> y toca <span class="tap">Siguiente</span>.</li>
+    <li>Si te pregunta el tipo de cuenta, elige <span class="tap">IMAP</span>.</li>
+    <li>Escribe la <b>contraseña</b> del correo y toca <span class="tap">Siguiente</span>.</li>
+    <li><b>Servidor de entrada:</b> llena los datos de la tabla de abajo (IMAP).</li>
+    <li><b>Servidor de salida:</b> llena los datos de la tabla de abajo (SMTP). Así puedes <b>enviar</b> correos desde contacto@.</li>
+    <li>Ponle tu nombre como remitente, por ejemplo <b>Juan Esteban · La Kasa Crea</b>, y toca <span class="tap">Siguiente</span>.</li>
+  </ol>
+
+  <table aria-label="Datos de configuración">
+    <tr class="th"><td colspan="2">Entrada · IMAP</td></tr>
+    <tr><td>Servidor</td><td><code>imap.hostinger.com</code></td></tr>
+    <tr><td>Puerto</td><td><code>993</code></td></tr>
+    <tr><td>Seguridad</td><td><code>SSL/TLS</code></td></tr>
+    <tr><td>Usuario</td><td><code>contacto@lakasacrea.com</code> (el correo completo)</td></tr>
+    <tr class="th"><td colspan="2">Salida · SMTP</td></tr>
+    <tr><td>Servidor</td><td><code>smtp.hostinger.com</code></td></tr>
+    <tr><td>Puerto</td><td><code>465</code></td></tr>
+    <tr><td>Seguridad</td><td><code>SSL/TLS</code></td></tr>
+    <tr><td>Usuario y contraseña</td><td>Los mismos del correo</td></tr>
+  </table>
+
+  <div class="ok"><b>¿Cómo lo uso?</b> Toca tu foto de perfil y cambia entre tu Gmail y <b>contacto@lakasacrea.com</b>. Cada cuenta tiene su propia bandeja de entrada. Cuando escribas desde la cuenta de La Kasa, el correo sale como contacto@lakasacrea.com.</div>
+
+  <h2>Ver la bandeja en el computador</h2>
+  <p class="lead">Desde cualquier navegador entra a <b>mail.hostinger.com</b> con el correo y la contraseña. Ahí ves la misma bandeja que en el iPhone.</p>
+
+  <h2>Lo que <em style="font-style:normal;color:var(--red)">no</em> hay que usar</h2>
+  <div class="warn">Las opciones de Gmail en computador <b>"Consultar el correo de otras cuentas" (POP)</b> y <b>Gmailify</b> están siendo retiradas por Google en 2026. No se pueden configurar nuevas y las que ya existen se apagan. Por eso esta guía usa IMAP desde la app, que sí sigue funcionando.</div>
+
+  <h2>Preguntas rápidas</h2>
+  <div class="faq">
+    <details><summary>Me sale "No se puede conectar con el servidor"</summary><p>Revisa que el usuario sea el correo completo, que los puertos sean 993 y 465 y que la seguridad esté en SSL/TLS. Si el envío falla, prueba la salida con puerto <code>587</code> y seguridad <b>STARTTLS</b>.</p></details>
+    <details><summary>¿Llegan notificaciones?</summary><p>Sí. En Gmail ve a <b>Configuración → contacto@lakasacrea.com → Notificaciones</b> y elige "Todos los correos nuevos".</p></details>
+    <details><summary>¿Lo que borro en el iPhone se borra en el servidor?</summary><p>Sí. Con IMAP todo se sincroniza: leído, borrado y enviado se ve igual en el iPhone y en mail.hostinger.com.</p></details>
+    <details><summary>Cambié la contraseña y dejó de funcionar</summary><p>En Gmail toca la cuenta contacto@ → <b>Administrar cuentas</b>, elimínala y vuelve a agregarla con la contraseña nueva siguiendo los pasos de arriba.</p></details>
+  </div>
+
+  <footer>Preparada por We Rock para La Kasa Crea · ¿Algo no funciona? Escríbele a David por <a href="https://wa.me/573125766056">WhatsApp</a>.<br>Fuentes: <a href="https://docs.hostinger.com/emails/setup-devices">Hostinger · configuración de dispositivos</a> · <a href="https://www.theregister.com/2026/01/05/gmail_dropping_pop3/">The Register · Gmail deja POP3</a></footer>
+</div></main>
+</body>
+</html>
