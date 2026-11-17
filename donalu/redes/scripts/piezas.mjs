@@ -175,26 +175,33 @@ Así se ve el nuevo empaque.`,
 // ───────────────────────────────── Nº 05 · Guía de procesos
 '05': {
   slides: [
-    { bg: 'kraft', html: `${pos({ l: 84, r: 84, t: 210 }, `<div style="display:flex;gap:40px">${['lavado', 'honey', 'natural'].map(p => `<div style="width:270px;height:270px;border:1.5px solid rgba(91,58,35,.4);border-radius:50%;display:flex;align-items:center;justify-content:center">${icon(p, 150, 'var(--cafe)', 1)}</div>`).join('')}</div>`)}
-      ${tx({ b: 190 }, `<div class="k">Guía para guardar</div><h1 class="d x2">Lavado, Honey <em>o Natural.</em></h1><p class="p">¿Qué cambia entre los tres? Se lo contamos sin palabras difíciles.</p>`)}`,
-      alt: 'Tres íconos grandes sobre papel kraft: gota, panal y cerezas. Texto: "Lavado, Honey o Natural. ¿Qué cambia entre los tres?"' },
-    { bg: 'crema', html: `${ph('cerezas-manos.jpg', { l: 0, t: 0, w: 1080, h: 640, pos: '50% 62%' })}<div class="shade-t" style="height:200px"></div>
-      ${tx({ b: 190 }, `<h2 class="d x4">Los tres son café de la finca. Lo que cambia es <em>qué se hace con la cereza</em> antes de secarla.</h2><p class="p s">Cada camino deja algo distinto en la taza.</p>`)}`, photoTop: true,
-      alt: 'Cerezas de café recién recogidas en una batea. Texto: "Los tres son café de la finca. Lo que cambia es qué se hace con la cereza antes de secarla."' },
-    ...['lavado', 'honey', 'natural'].map((p, i) => ({ bg: 'verde', html: `${topo()}<div class="num ghost" style="right:30px;top:120px;font-size:600px">0${i + 1}</div>
-      ${pos({ l: 84, t: 210 }, icon(p, 150, 'var(--oro)', 1.1))}
-      ${tx({ b: 190 }, `<div class="k">Proceso 0${i + 1} · ${PROC[p].i}</div><h2 class="d x1">${PROC[p].n}</h2><p class="it" style="color:var(--oro);font-size:56px">${PROC[p].t}.</p><p class="p">${PROC[p].d}</p>${beans(PROC[p].k)}`)}`,
-      alt: `Ícono dorado (${PROC[p].i.toLowerCase()}) y ${PROC[p].k} grano(s) llenos. Texto: "${PROC[p].n}. ${PROC[p].t}. ${PROC[p].d}"` })),
+    { bg: 'verde', html: `${topo()}${tx({ t: 150 }, `<div class="k">Guía para guardar</div><h1 class="d x2" style="margin-top:22px">Lavado, Honey <em>o Natural.</em></h1><p class="p" style="margin-top:20px">Tres maneras de tomar el café de la finca. Una sola bolsa.</p>`)}
+      <div style="position:absolute;left:150px;right:150px;top:1180px;height:70px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(0,0,0,.55),transparent 70%);filter:blur(10px);z-index:2"></div>
+      <img src="../../assets/photos/empaque-trio.webp" alt="" style="position:absolute;left:60px;top:560px;width:960px;z-index:3">`,
+      alt: 'Las tres bolsas del empaque único, una junto a otra: Lavado, Honey y Natural, sobre verde. Texto: "Lavado, Honey o Natural. Tres maneras de tomar el café de la finca. Una sola bolsa."' },
+    { bg: 'crema', photoTop: true, html: `${ph('recolector-cafetal.jpg', { l: 0, t: 0, w: 1080, h: 640, pos: '50% 45%' })}<div class="shade-t" style="height:200px"></div>
+      ${tx({ b: 190 }, `<h2 class="d x4">Los tres son café de la finca. Lo que cambia es <em>qué se hace con la cereza</em> antes de secarla.</h2><p class="p s">Cada camino deja algo distinto en la taza.</p>`)}`,
+      alt: 'Un recolector entre las matas de café con su recipiente de cerezas. Texto: "Los tres son café de la finca. Lo que cambia es qué se hace con la cereza antes de secarla."' },
+    ...[
+      ['lavado', 'mano-cereza.jpg', '62% 50%', 1840, 'Una mano escoge una cereza roja de la rama'],
+      ['honey', 'secado.jpg', '50% 55%', 1492, 'Café secándose en la marquesina de la finca'],
+      ['natural', 'cerezas-manos.jpg', '50% 45%', 1080, 'Manos con una batea llena de cerezas rojas y amarillas'],
+    ].map(([p, f, pp, nw, a], i) => ({ bg: 'verde', photoTop: true, html: `${ph(f, { l: 0, t: 0, w: 1080, h: 800, pos: pp })}
+      <div style="position:absolute;left:0;right:0;top:300px;height:520px;z-index:5;background:linear-gradient(180deg,rgba(15,59,38,0) 0%,rgba(15,59,38,.7) 55%,var(--verde) 100%)"></div><div class="shade-t" style="height:200px"></div>
+      ${bagAt('front', p, { l: 690, t: 430, w: 320, z: 9 })}
+      ${tx({ t: 520, r: 440 }, `<div style="display:flex;align-items:center;gap:18px">${icon(p, 54, 'var(--oro)', 1.3)}<span class="k">Proceso 0${i + 1} · ${PROC[p].i}</span></div><h2 class="d x1" style="margin-top:18px">${PROC[p].n}</h2><p class="it" style="color:var(--oro);font-size:54px;margin-top:10px">${PROC[p].t}.</p>`)}
+      ${tx({ b: 190 }, `<div class="rule"></div><p class="p">${PROC[p].d}</p><div style="display:flex;align-items:center;gap:22px">${beans(PROC[p].k)}<span class="k" style="color:var(--crema);opacity:.8">${['Un grano', 'Dos granos', 'Tres granos'][i]} en la bolsa</span></div>`)}`,
+      alt: `${a}; encima, la bolsa ${PROC[p].n} con su ícono dorado (${PROC[p].i.toLowerCase()}) y ${PROC[p].k} grano(s) llenos. Texto: "${PROC[p].n}. ${PROC[p].t}. ${PROC[p].d}"` })),
     { bg: 'crema', html: `${tx({ t: 150 }, `<div class="k">De un vistazo</div><h2 class="d x2">Los tres, <em>lado a lado.</em></h2>`)}
-      ${pos({ l: 84, r: 84, t: 480 }, `<ul class="rows">${['lavado', 'honey', 'natural'].map(p => `<li style="grid-template-columns:96px 250px 1fr 130px;padding:62px 0;border-color:rgba(166,124,82,.45)">${icon(p, 64, 'var(--tierra)', 1.2)}<span class="d x5">${PROC[p].n}</span><span class="it" style="font-size:38px;color:var(--cafe)">${PROC[p].t}</span>${beans(PROC[p].k, 'justify-content:flex-end;gap:10px')}</li>`).join('')}</ul>`)}
+      ${pos({ l: 84, r: 84, t: 500 }, `<ul class="rows">${[['lavado', 'mano-cereza.jpg', '64% 50%'], ['honey', 'secado.jpg', '50% 55%'], ['natural', 'cerezas-manos.jpg', '50% 40%']].map(([p, f, pp]) => `<li style="grid-template-columns:150px 1fr 120px;gap:30px;padding:24px 0;border-color:rgba(166,124,82,.45);align-items:center"><div class="ph" style="position:relative;width:150px;height:150px;border-radius:50%"><img src="../../assets/photos/${f}" alt="" style="object-position:${pp}"></div><div><div style="display:flex;align-items:center;gap:14px">${icon(p, 40, 'var(--tierra)', 1.3)}<span class="d x5">${PROC[p].n}</span></div><span class="it" style="font-size:38px;color:var(--cafe);display:block;margin-top:4px">${PROC[p].t}</span></div>${beans(PROC[p].k, 'justify-content:flex-end;gap:10px')}</li>`).join('')}</ul>`)}
       ${tx({ b: 190 }, `<p class="p s">Se puede pedir en grano o molido.</p>`)}`,
-      alt: 'Tabla comparativa: Lavado, limpio y brillante; Honey, dulce y con cuerpo; Natural, frutal y profundo, cada uno con su ícono y su código de granos.' },
+      alt: 'Tabla comparativa con una foto pequeña por proceso: Lavado (mano escogiendo una cereza), limpio y brillante; Honey (café secándose), dulce y con cuerpo; Natural (cerezas enteras), frutal y profundo; cada uno con su código de granos.' },
     { bg: 'verde', html: `${topo()}${tx({ t: 330 }, `<h2 class="d x1">¿Cuál es <em>el suyo?</em></h2><p class="p" style="max-width:800px;margin-left:auto;margin-right:auto">Escríbanos y le ayudamos a elegir según cómo lo prepara y a qué hora lo toma.</p><div class="btnlike">${WA}</div>`, 'c')}${sig('var(--crema)', 1060)}`,
       alt: 'Cierre en verde: "¿Cuál es el suyo? Escríbanos y le ayudamos a elegir." WhatsApp 322 470 2667.' },
     { story: true, bg: 'verde', file: 'historia-encuesta', html: `${topo()}${tx({ t: 400 }, `<div class="k">Encuesta</div><h1 class="d x2">¿Cuál toma <em>usted?</em></h1>`, 'c')}
-      ${['lavado', 'honey', 'natural'].map((p, i) => pos({ l: 120 + i * 290, t: 740, w: 260 }, `<div style="display:flex;flex-direction:column;align-items:center;gap:26px">${icon(p, 160, 'var(--oro)', 1.1)}<span class="k" style="color:var(--crema);font-size:24px">${PROC[p].n}</span><span class="it" style="font-size:34px;color:var(--oro);text-align:center">${PROC[p].t}</span></div>`)).join('')}
-      `,
-      alt: 'Historia con encuesta: "¿Cuál toma usted?" con los tres íconos de proceso.' },
+      <div style="position:absolute;left:150px;right:150px;top:1330px;height:70px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(0,0,0,.55),transparent 70%);filter:blur(10px);z-index:2"></div>
+      <img src="../../assets/photos/empaque-trio.webp" alt="" style="position:absolute;left:60px;top:700px;width:960px;z-index:3">`,
+      alt: 'Historia con encuesta: "¿Cuál toma usted?" con las tres bolsas: Lavado, Honey y Natural.' },
   ],
   caption: `Lavado, Honey o Natural. ¿Qué cambia?
 
@@ -209,7 +216,7 @@ En la bolsa lo reconoce por el código grano por grano: uno, dos o tres granos d
 Guárdelo para su próxima compra. ¿Cuál es el suyo? Le ayudamos a elegir por WhatsApp: 322 470 2667.`,
   corto: 'Lavado, Honey y Natural, explicados en una guía para guardar.',
   hashtags: '#DoñaLúCoffee #CaféQueSeHonra #ProcesoHoney #CaféNatural #CaféLavado #CaféDeOrigen #CaféDeColombia',
-  notas: ['Descripciones de proceso y notas de taza del manual v3 y el Resumen Maestro.', 'Historia: sticker de encuesta con Lavado / Honey / Natural en el área libre debajo de los íconos.', 'Validar si los tres procesos se venden en grano y molido (la bolsa dice "Café en grano o molido").'],
+  notas: ['Descripciones de proceso y notas de taza del manual v3 y el Resumen Maestro.', 'Historia: sticker de encuesta con Lavado / Honey / Natural en el área libre debajo de las bolsas (entre 1.420 y 1.540 px).', 'Fotos reales de la finca en cada proceso (Lavado: mano escogiendo cereza; Honey: secado; Natural: cerezas enteras), con la misma luz y grano del resto. Las bolsas son el render del empaque único de la tienda (portada e historia) y el SVG del manual (láminas de proceso): uso interno, sin rótulo en las láminas; el caption no las presenta como foto.', 'Validar si los tres procesos se venden en grano y molido (la bolsa dice "Café en grano o molido").'],
 },
 
 // ───────────────────────────────── Nº 06 · Puente a Navidad

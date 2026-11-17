@@ -25,6 +25,8 @@ const fotos = {
   [`${DL}/img/secado.webp`]: 'secado.jpg',
   [`${DL}/img/tueste.webp`]: 'tostion.jpg',
   [`${DL}/img/willys.webp`]: 'willys.jpg',
+  // Render del empaque único (las tres bolsas recortadas, fondo transparente) de la tienda: Nº 05
+  [`${WP}/ejemplo-danubio-trio-recorte.webp`]: null,
   // Kits de Navidad con el tratamiento nuevo (DonaLu/kits-fotos: mesa = mesa de regalos 1000×1000, cuadrado ≈670×670)
   [`${DL}/kits-fotos/kit-07-mesa.jpg`]: 'kit-07-mesa.jpg',
   ...Object.fromEntries(['01', '04', '09', '10'].map((k) => [`${DL}/kits-fotos/kit-${k}-cuadrado.jpg`, `kit-${k}-cuadrado.jpg`])),
@@ -38,7 +40,9 @@ const fotos = {
 
 await mkdir(OUT, { recursive: true });
 await mkdir(BR, { recursive: true });
+await copyFile(`${WP}/ejemplo-danubio-trio-recorte.webp`, path.join(OUT, 'empaque-trio.webp'));
 for (const [src, out] of Object.entries(fotos)) {
+  if (!out) continue;
   const info = await sharp(src).rotate().flatten({ background: '#ffffff' })
     .jpeg({ quality: 94, chromaSubsampling: '4:4:4', mozjpeg: true }).toFile(path.join(OUT, out));
   console.log(out.padEnd(24), `${info.width}x${info.height}`);
