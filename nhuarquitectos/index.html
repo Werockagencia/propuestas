@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NHU Arquitectos · Que la obra hable primero · Propuesta We Rock</title>
+<meta name="description" content="Propuesta de We Rock para NHU Arquitectos: rediseño completo del sitio web, hasta 10 páginas, portafolio de proyectos y migración de contenido.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#E8000A;--red-h:#FF1A22;--dk:#0A0A0A;--dk2:#111;--dk3:#161616;--lt:#F5F2EB;--lt2:#EDE9DF;--lt3:#E4DFD4;--gray:#888;--text-dk:#E8E4DC;--text-dk2:#AAA;--ink:#0A0A0A;--ink2:#3a3a3a;--ink3:#777;--green:#0F3B26;--ease:cubic-bezier(.16,1,.3,1);--bounce:cubic-bezier(.34,1.56,.64,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth;background:var(--dk);color-scheme:dark}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--dk);color:var(--text-dk);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(max-width:900px),(max-height:680px){html{scroll-snap-type:y proximity}}
+h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}a{color:inherit}button{font-family:inherit;cursor:pointer;touch-action:manipulation}img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--red);z-index:100;transition:width .5s var(--ease)}
+.deck-top{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:18px 34px;pointer-events:none}
+.deck-top>*{pointer-events:auto}.deck-top .logo{height:32px;display:block}.deck-top .logo-c{display:none;mix-blend-mode:multiply}
+body.on-light .deck-top .logo-w{display:none}body.on-light .deck-top .logo-c{display:block}
+.deck-meta{display:flex;align-items:center;gap:18px;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dk2);transition:color .4s}
+body.on-light .deck-meta{color:var(--ink3)}
+.fs-btn{background:none;border:1px solid rgba(255,255,255,.22);color:inherit;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;transition:border-color .3s,transform .3s var(--bounce)}
+.fs-btn:hover{border-color:var(--red);transform:scale(1.08)}body.on-light .fs-btn{border-color:rgba(0,0,0,.18)}.fs-btn svg{width:15px;height:15px}
+.dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:9px}
+.dots button{width:9px;height:9px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:transparent;padding:0;position:relative;transition:transform .35s var(--ease),background-color .35s,border-color .35s}
+body.on-light .dots button{border-color:rgba(0,0,0,.28)}.dots button.act{background:var(--red);border-color:var(--red);transform:scale(1.35)}
+.dots button span{position:absolute;right:22px;top:50%;transform:translate(8px,-50%);white-space:nowrap;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--dk);padding:5px 10px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.dots button:hover span,.dots button:focus-visible span{opacity:1;transform:translate(0,-50%)}
+.counter{position:fixed;left:34px;bottom:26px;z-index:90;font-size:11px;font-weight:800;letter-spacing:.2em;color:var(--text-dk2);font-variant-numeric:tabular-nums;transition:color .4s}
+.counter b{color:var(--red);font-size:15px}body.on-light .counter{color:var(--ink3)}
+.nav-arrows{position:fixed;right:30px;bottom:24px;z-index:90;display:flex;gap:8px}
+.nav-arrows button{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#fff;display:grid;place-items:center;backdrop-filter:blur(8px);transition:background .3s,transform .3s var(--bounce)}
+.nav-arrows button:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px)}
+body.on-light .nav-arrows button{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.16);color:var(--ink)}body.on-light .nav-arrows button:hover{background:var(--red);color:#fff}
+.nav-arrows svg{width:16px;height:16px}
+#cur,#cur2{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;mix-blend-mode:difference;display:none}
+#cur{width:7px;height:7px;background:#fff;margin:-3.5px 0 0 -3.5px}#cur2{width:34px;height:34px;border:1px solid rgba(255,255,255,.6);margin:-17px 0 0 -17px;transition:width .25s,height .25s,margin .25s}#cur2.big{width:56px;height:56px;margin:-28px 0 0 -28px}
+
+.slide{position:relative;min-height:100vh;min-height:100svh;scroll-snap-align:start;display:flex;align-items:center;overflow:hidden;padding:92px 90px 84px}
+.slide.dk{background:var(--dk);color:var(--text-dk)}.slide.dk2{background:var(--dk2);color:var(--text-dk)}.slide.lt{background:var(--lt);color:var(--ink)}.slide.lt2{background:var(--lt2);color:var(--ink)}
+.inner{width:100%;max-width:1240px;margin:0 auto;position:relative;z-index:2}
+.lbl{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+.lbl::before{content:'';width:28px;height:2px;background:var(--red)}
+.h2{font-size:clamp(30px,min(4.2vw,6.8vh),60px);font-weight:800;line-height:1.03;letter-spacing:-.02em;margin-bottom:18px}.h2 em{font-style:normal;color:var(--red)}
+.lead{font-size:clamp(16px,1.35vw,19px);line-height:1.5;max-width:700px;color:var(--ink2)}.dk .lead,.dk2 .lead{color:var(--text-dk2)}
+.src{font-size:11px;color:var(--ink3);margin-top:16px;line-height:1.5}.dk .src,.dk2 .src{color:rgba(255,255,255,.38)}.src a{text-underline-offset:2px}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*100ms)}.slide.on .rv{opacity:1;transform:none}
+.rv-3d{opacity:0;transform:perspective(1200px) rotateX(10deg) translateY(50px) scale(.94);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*100ms)}.slide.on .rv-3d{opacity:1;transform:none}
+.tex-grid{background-image:linear-gradient(rgba(0,0,0,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.025) 1px,transparent 1px);background-size:58px 58px}
+.tex-dots{background-image:radial-gradient(rgba(0,0,0,.05) 1px,transparent 1.6px);background-size:24px 24px}
+.tex-grid-dk{background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);background-size:64px 64px}
+.glow-tr::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 100% 0%,rgba(232,0,10,.15),transparent 62%);pointer-events:none}
+.glow-bl::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 0% 100%,rgba(232,0,10,.12),transparent 62%);pointer-events:none}
+.noise::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.brand-mark{position:absolute;z-index:1;pointer-events:none;fill:var(--red);opacity:.05;width:320px;height:450px;transform:rotate(9deg)}
+.ghost-num{position:absolute;font-weight:900;line-height:.8;letter-spacing:-.05em;pointer-events:none;z-index:1;user-select:none}.dk .ghost-num,.dk2 .ghost-num{color:rgba(255,255,255,.035)}.lt .ghost-num,.lt2 .ghost-num{color:rgba(0,0,0,.04)}
+.corner-fx{position:relative}.corner-fx::before,.corner-fx::after{content:'';position:absolute;width:22px;height:22px;pointer-events:none;opacity:.7;z-index:3}
+.corner-fx::before{top:14px;left:14px;border-top:2px solid var(--red);border-left:2px solid var(--red)}.corner-fx::after{bottom:14px;right:14px;border-bottom:2px solid var(--red);border-right:2px solid var(--red)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;text-decoration:none;font-weight:800;font-size:14px;letter-spacing:.04em;padding:14px 24px;transition:background .3s,transform .3s var(--bounce)}.btn:hover{background:var(--red-h);transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.3)}.btn.ghost:hover{border-color:var(--red);background:transparent}
+.btn svg{width:17px;height:17px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+
+/* portada */
+.cover{padding-top:110px}#net{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.cover::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(10,10,10,.94) 0%,rgba(10,10,10,.72) 36%,rgba(10,10,10,.05) 62%,transparent 100%)}
+.cover .inner{z-index:3}.cover-txt{max-width:620px}
+.cover-wm{width:min(260px,44vw);margin-bottom:6px}.cover-tag{font-size:11px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:#E8E4DC;margin-bottom:30px;padding-left:4px}
+.cover h1{font-size:clamp(44px,min(6.4vw,10.5vh),92px);font-weight:900;line-height:.96;letter-spacing:-.03em;color:#fff;margin-bottom:22px}.cover h1 em{font-style:normal;color:var(--red)}
+.cover p.sub{font-size:clamp(16px,1.4vw,20px);line-height:1.45;color:var(--text-dk2);max-width:540px;margin-bottom:26px}
+.cover-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}.cover-who{font-size:12px;letter-spacing:.06em;color:rgba(255,255,255,.5)}.cover-who b{color:#fff;font-weight:700}
+
+/* escuchamos */
+.photo-half{position:absolute;top:0;right:0;bottom:0;width:44%;z-index:1;background-size:cover;background-position:center 22%}
+.photo-half::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--lt) 0%,rgba(245,242,235,0) 22%)}
+.heard{max-width:640px}.heard blockquote{font-size:clamp(34px,min(4.6vw,7.4vh),66px);font-weight:800;line-height:1.02;letter-spacing:-.02em;margin-bottom:22px}.heard blockquote em{font-style:normal;color:var(--red)}
+.heard ul{list-style:none;margin-top:22px;display:grid;gap:0}.heard li{padding:12px 0;border-top:1px solid rgba(0,0,0,.1);font-size:16px;line-height:1.4;color:var(--ink2)}.heard li b{color:var(--ink)}
+
+/* activos */
+.trio-bags{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:6px}
+.tb{background:var(--dk3);padding:22px;display:grid;grid-template-columns:136px 1fr;gap:16px;align-items:center;transition:background .3s}.tb:hover{background:#1c1c1c}
+.tb img{width:136px;transition:transform .5s var(--bounce)}.tb:hover img{transform:translateY(-5px) rotate(-2deg)}
+.tb h3{font-size:21px;font-weight:800;color:#fff;margin-bottom:4px}.tb p{font-size:13.5px;line-height:1.4;color:var(--text-dk2)}.tb small{display:block;margin-top:8px;font-size:12px;color:#fff;font-weight:600;font-variant-numeric:tabular-nums}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:2px}.facts div{background:var(--dk3);padding:16px 20px;border-top:3px solid var(--red)}.facts b{display:block;color:#fff;font-size:16px;font-weight:700;margin-bottom:3px}.facts span{font-size:13px;color:var(--text-dk2);line-height:1.35;display:block}
+
+/* mercado */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:22px}.stat{background:#fff;padding:26px 24px;border-top:3px solid var(--red)}
+.stat b{display:block;font-size:clamp(38px,min(4.2vw,7vh),60px);font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:10px}.stat>span{font-size:14.5px;line-height:1.4;color:var(--ink2);display:block}
+.percap{display:grid;gap:9px;margin-top:22px;max-width:820px}.pc{display:grid;grid-template-columns:110px 1fr 70px;gap:12px;align-items:center;font-size:14px;font-weight:600}.pc i{display:block;height:14px;background:var(--lt3);width:var(--w);transform-origin:left;transform:scaleX(0);transition:transform 1.2s var(--ease) .3s}.slide.on .pc i{transform:none}.pc.hot i{background:var(--red)}.pc span{font-variant-numeric:tabular-nums}
+
+/* ahora */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:22px}.c3{background:var(--dk3);padding:28px 26px;border-top:3px solid var(--red)}.c3 b.n{display:block;font-size:clamp(36px,min(3.8vw,6.4vh),54px);font-weight:900;color:#fff;line-height:1;margin-bottom:12px;letter-spacing:-.02em}.c3 h3{font-size:18px;font-weight:700;color:#fff;margin-bottom:8px}.c3 p{font-size:14.5px;line-height:1.45;color:var(--text-dk2)}
+
+/* precio */
+.bars{display:grid;gap:8px;margin-top:6px}.bar{display:grid;grid-template-columns:210px 1fr 92px;gap:14px;align-items:center;font-size:14px}.bar .tr{height:26px;background:rgba(0,0,0,.04)}.bar .tr i{display:block;height:100%;width:var(--w);background:#B9B3A6;transform-origin:left;transform:scaleX(0);transition:transform 1.1s var(--ease);transition-delay:calc(var(--d,0)*70ms)}.slide.on .bar .tr i{transform:none}
+.bar.me .tr i{background:var(--red)}.bar.me{font-weight:700}.bar b{font-variant-numeric:tabular-nums;font-weight:800;text-align:right}
+.note{background:var(--lt2);border-left:3px solid var(--red);padding:16px 20px;font-size:15px;line-height:1.45;color:var(--ink2)}.note b{color:var(--ink)}
+
+/* benchmark */
+.bench{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:18px}.bc{background:var(--dk3);padding:18px 18px 16px;display:flex;flex-direction:column;transition:background .3s,transform .4s var(--ease)}.bc:hover{background:#1c1c1c;transform:translateY(-3px)}
+.bc h3{font-size:16.5px;font-weight:800;color:#fff;margin-bottom:5px}.bc p{font-size:13px;line-height:1.38;color:var(--text-dk2);flex:1}.bc p.take{color:#fff;margin-top:7px;flex:none}.bc p.take::before{content:'Para C1: ';color:var(--red);font-weight:700}
+.bc a{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dk2);margin-top:8px;text-decoration:none}.bc a:hover{color:var(--red)}.bc.fail{border-top:3px solid var(--red)}
+
+/* diagnostico */
+.diag{display:grid;grid-template-columns:.95fr 1.05fr;gap:50px;align-items:center}
+.device-browser{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08),0 30px 60px -22px rgba(0,0,0,.45);transform-style:preserve-3d;transition:transform .2s}
+.device-browser-bar{display:flex;align-items:center;gap:14px;padding:10px 14px;background:linear-gradient(#f7f7f5,#e9e8e4);border-bottom:1px solid rgba(0,0,0,.08)}.db-dots{display:flex;gap:6px}.db-dots span{width:10px;height:10px;border-radius:50%}.db-dots span:nth-child(1){background:#FF5F57}.db-dots span:nth-child(2){background:#FFBD2E}.db-dots span:nth-child(3){background:#28C840}
+.db-url{flex:1;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:6px;padding:4px 12px;font-size:11px;color:var(--ink3);text-align:center}
+.marks{display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:center;margin-top:18px;background:#fff;padding:14px 18px}.marks img{width:90px;border-radius:6px}.marks p{font-size:13.5px;line-height:1.4;color:var(--ink2)}
+.dlist{list-style:none;display:grid}.dlist li{padding:13px 0;border-top:1px solid rgba(0,0,0,.1);display:grid;grid-template-columns:150px 1fr;gap:16px;font-size:14.5px;line-height:1.4;color:var(--ink2)}.dlist li b{color:var(--ink);font-weight:800}
+
+/* idea */
+.bg-photo{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}.bg-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.93) 0%,rgba(10,10,10,.8) 50%,rgba(10,10,10,.55) 100%)}
+.honra{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:26px}.hn{background:rgba(10,10,10,.62);backdrop-filter:blur(6px);padding:24px 22px;border-top:3px solid var(--red)}.hn small{display:block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dk2);margin-bottom:6px}.hn h3{font-size:25px;font-weight:800;color:#fff;margin-bottom:8px}.hn p{font-size:14px;line-height:1.42;color:#cfcbc2}
+
+/* casas */
+.casas{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center}.seal{width:300px;height:300px;position:relative;margin:auto}.seal svg.ring{width:100%;height:100%;animation:spin 40s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.seal img{position:absolute;left:50%;top:50%;width:150px;transform:translate(-50%,-50%)}
+.incl{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:18px}.incl div{background:var(--dk3);padding:15px 18px}.incl b{display:block;color:#fff;font-size:15.5px;margin-bottom:3px}.incl span{font-size:13.5px;line-height:1.38;color:var(--text-dk2);display:block}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}.chips span{border:1px solid rgba(255,255,255,.2);font-size:12.5px;padding:6px 12px;border-radius:30px;color:#ddd}
+
+/* marca */
+.brand-board{display:grid;grid-template-columns:1.1fr .9fr;gap:2px}.bb{padding:26px;background:#fff}.bb.g{background:var(--green);display:grid;place-items:center;min-height:190px}.bb.c{background:#F3ECDF;display:grid;place-items:center;min-height:190px}.bb.g img,.bb.c img{width:min(280px,80%)}
+.bb small,.tiny{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+.swatches{display:flex;gap:6px;margin-top:10px}.swatches i{flex:1;height:52px;display:block}.swatches i:nth-child(5){box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+.delv{list-style:none;margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}.delv li{font-size:14.5px;line-height:1.35;color:var(--ink2);padding-left:18px;position:relative}.delv li::before{content:'';position:absolute;left:0;top:7px;width:8px;height:2px;background:var(--red)}.dk .delv li,.dk2 .delv li{color:var(--text-dk2)}
+
+/* tienda */
+.shop{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}.dev-wrap{position:relative;padding-bottom:30px}.dev-wrap .device-browser img{width:100%}
+.device-phone{width:176px;background:linear-gradient(155deg,#2b2b2b,#0a0a0a);border-radius:32px;padding:7px;box-shadow:0 30px 55px -18px rgba(0,0,0,.7);position:absolute;right:-22px;bottom:0;z-index:3}.device-phone-screen{border-radius:26px;overflow:hidden;background:#fff;aspect-ratio:9/19}.device-phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top}
+.feat{list-style:none;margin:18px 0 22px;display:grid;gap:8px}.feat li{font-size:15px;line-height:1.38;color:var(--text-dk2);padding-left:20px;position:relative}.feat li b{color:#fff}.feat li::before{content:'';position:absolute;left:0;top:8px;width:9px;height:2px;background:var(--red)}
+
+/* b2b */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:18px}.vs>div{padding:22px 24px}.vs .a{background:var(--lt3)}.vs .b{background:var(--dk);color:#fff}.vs h3{font-size:16px;font-weight:800;margin-bottom:10px}.vs ul{list-style:none;display:grid;gap:7px}.vs li{font-size:14.5px;line-height:1.35}.vs .a li{color:var(--ink2)}.vs .b li{color:#d9d5cc}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:2px}.fl{background:#fff;padding:15px 16px;position:relative}.fl b{display:block;font-size:11px;color:var(--red);font-weight:800;letter-spacing:.14em;margin-bottom:3px}.fl span{font-size:14.5px;font-weight:700;display:block;line-height:1.2}.fl small{font-size:12.5px;color:var(--ink2);line-height:1.3;display:block;margin-top:3px}
+
+/* av */
+.av{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}.shots div{background:rgba(10,10,10,.68);backdrop-filter:blur(6px);padding:15px 17px}.shots b{color:#fff;font-size:15.5px;display:block;margin-bottom:2px}.shots span{font-size:13.2px;color:#cfcbc2;line-height:1.36;display:block}
+.frame{position:relative;aspect-ratio:1/1;width:min(100%,62vh);border-radius:50%;background-size:cover;background-position:center 20%;margin-left:auto}
+
+/* contenido */
+.posts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}.post{aspect-ratio:4/5;position:relative;overflow:hidden;background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;color:#fff;transition:transform .4s var(--ease)}.post:hover{transform:translateY(-4px)}.post::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.78) 100%)}.post>*{position:relative}
+.post small{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.85;margin-bottom:5px}.post b{font-size:clamp(16px,1.5vw,20px);font-weight:800;line-height:1.12}.post.g{background:var(--green)}.post.g::before{display:none}.post.g img{position:absolute;right:16px;top:16px;width:68px}
+
+/* motor */
+.motor{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}.fun{display:grid;gap:3px}.fun div{background:var(--dk3);padding:12px 18px;display:flex;align-items:baseline;gap:14px;width:var(--w);border-left:3px solid var(--red);transform-origin:left}.fun b{font-size:clamp(26px,3vw,38px);font-weight:900;color:#fff;font-variant-numeric:tabular-nums;min-width:66px}.fun span{font-size:14px;color:var(--text-dk2);line-height:1.3}
+.hb{background:var(--dk3);padding:22px 24px}.hb h3{font-size:19px;color:#fff;font-weight:800;margin-bottom:6px}.hb p{font-size:14px;line-height:1.42;color:var(--text-dk2)}.hb .proof{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);font-size:13.5px;color:#fff}
+
+/* calc */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}.eq{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;font-weight:900;font-size:clamp(24px,min(2.9vw,5vh),42px);letter-spacing:-.02em;margin-bottom:12px}.eq em{font-style:normal;color:var(--red)}.eq small{font-size:13px;font-weight:600;letter-spacing:0;color:var(--ink2);display:block}.eq span{display:inline-block}
+.panel{background:var(--dk);color:#fff;padding:26px 28px}.ctrl{margin-bottom:15px}.ctrl label{display:flex;justify-content:space-between;font-size:14px;color:#cfcbc2;margin-bottom:7px}.ctrl label b{color:#fff;font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:linear-gradient(90deg,var(--red) var(--p,50%),rgba(255,255,255,.18) var(--p,50%));outline-offset:6px}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--red);cursor:pointer}input[type=range]::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:#fff;border:3px solid var(--red)}
+.seg{display:flex;gap:2px;margin-bottom:15px}.seg button{flex:1;background:rgba(255,255,255,.07);border:0;color:#ddd;padding:9px 6px;font-size:13px;font-weight:700}.seg button.act{background:var(--red);color:#fff}
+.out{border-top:1px solid rgba(255,255,255,.14);padding-top:14px}.out .big{font-size:clamp(34px,3.6vw,48px);font-weight:900;line-height:1;font-variant-numeric:tabular-nums}.out p{font-size:13px;color:var(--text-dk2);margin-top:6px}.meter{height:7px;background:rgba(255,255,255,.12);margin-top:10px}.meter i{display:block;height:100%;background:var(--red);transition:width .4s var(--ease)}
+
+/* ruta */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:20px;position:relative}.ph{background:var(--dk3);padding:22px 20px;border-top:3px solid var(--red)}.ph small{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--red);text-transform:uppercase}.ph h3{font-size:22px;font-weight:800;color:#fff;margin:5px 0 8px}.ph ul{list-style:none;display:grid;gap:5px}.ph li{font-size:13.5px;line-height:1.35;color:var(--text-dk2)}
+.goal{margin-top:2px;background:var(--red);color:#fff;padding:15px 22px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-weight:700;font-size:15px}
+
+/* inversión */
+.inv-wrap{margin-top:12px}.inv{width:100%;border-collapse:collapse;background:var(--dk3)}.inv th,.inv td{padding:4.6px 12px;text-align:right;font-size:12.6px;font-variant-numeric:tabular-nums;white-space:nowrap}.inv th:first-child,.inv td:first-child{text-align:left;white-space:normal}
+.inv thead th{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dk2);border-bottom:2px solid rgba(255,255,255,.2)}.inv tbody td{color:var(--text-dk2);border-bottom:1px solid rgba(255,255,255,.07)}.inv td.dash{color:rgba(255,255,255,.22)}.inv td:first-child{color:#e8e4dc}
+.inv .note2{display:inline;font-size:11px;color:rgba(255,255,255,.4);margin-left:6px}.inv tr.grp td{font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--red);padding-top:9px;border-bottom:none}
+.inv tr.sub td{font-weight:800;color:#fff;background:rgba(255,255,255,.04)}.inv tr.tot td{font-weight:900;color:#fff;font-size:14.5px;border-top:2px solid var(--red);border-bottom:none}.inv tr.tot td:first-child{color:var(--red)}
+
+/* servicios */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:16px}.sc{background:#fff;padding:17px 18px;border-top:3px solid var(--red);display:flex;flex-direction:column}.sc.opt{border-top-color:#bbb}.sc h3{font-size:15.5px;font-weight:800;margin-bottom:5px;line-height:1.15}.sc p{font-size:12.8px;line-height:1.36;color:var(--ink2);flex:1}.sc b{display:block;margin-top:8px;font-size:17px;font-weight:900;font-variant-numeric:tabular-nums}.sc b small{font-size:11.5px;font-weight:600;color:var(--ink3)}
+
+/* we rock */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:22px}.wy{background:var(--dk3);padding:24px}.wy b{display:block;font-size:clamp(34px,3.6vw,50px);font-weight:900;color:#fff;line-height:1;margin-bottom:8px}.wy span{font-size:14.5px;color:var(--text-dk2);line-height:1.42;display:block}
+/* cierre */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:24px 0}.st{background:var(--dk3);padding:22px}.st b{color:var(--red);font-size:30px;font-weight:900;display:block;margin-bottom:4px}.st span{font-size:15px;color:#ddd;line-height:1.4;display:block}.foot{margin-top:18px;font-size:12px;color:rgba(255,255,255,.4)}
+
+.stats.col{grid-template-columns:1fr;margin-top:10px}.stats.col .stat{padding:12px 16px;display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center}.stats.col .stat b{font-size:clamp(24px,min(2.4vw,4vh),34px);margin:0;white-space:nowrap}.stats.col .stat>span{font-size:13.5px}
+.bench.big{margin-top:26px}.bench.big .bc{padding:26px 24px 22px;min-height:min(40vh,320px)}.bench.big .bc h3{font-size:21px;margin-bottom:10px}.bench.big .bc p{font-size:15px;line-height:1.42}.bench.big .bc p.take{margin-top:12px}
+.swipe-hint{display:none}
+@media(max-width:1100px){.slide{padding:88px 44px 80px}.dots{display:none}.bench:not(.big){grid-template-columns:repeat(2,1fr)}.bench.big{grid-template-columns:repeat(2,1fr)}.casas{grid-template-columns:1fr}.seal{display:none}}
+@media(max-width:768px){
+ html{scroll-snap-type:none}.slide{padding:84px 22px 84px;min-height:auto}.slide.cover{min-height:100svh;padding-top:300px;align-items:flex-end}
+ .cover::after{background:linear-gradient(180deg,transparent 0%,rgba(10,10,10,.1) 32%,rgba(10,10,10,.94) 56%)}
+ .deck-top{padding:12px 16px;background:rgba(10,10,10,.8);backdrop-filter:blur(8px)}body.on-light .deck-top{background:rgba(245,242,235,.9)}.deck-meta span{display:none}.counter{left:16px;bottom:16px}.nav-arrows{right:14px;bottom:12px}
+ .split,.diag,.shop,.av,.motor,.calc,.brand-board{grid-template-columns:minmax(0,1fr)!important;gap:26px!important}.photo-half{position:relative;width:calc(100% + 44px);margin:-84px -22px 24px;height:300px;inset:auto}.slide.has-photo{display:block}.photo-half::after{background:linear-gradient(0deg,var(--lt),transparent 30%)}
+ .stats,.facts,.flow,.delv,.incl{grid-template-columns:1fr 1fr}.vs{grid-template-columns:1fr}.posts{grid-template-columns:1fr 1fr}.bar{grid-template-columns:128px 1fr 66px;gap:8px;font-size:12.5px}.dlist li{grid-template-columns:1fr;gap:3px}
+ .m-swipe{display:grid!important;grid-auto-flow:column;grid-auto-columns:84%;grid-template-columns:none!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;margin-right:-22px;padding-right:22px;scrollbar-width:none}.m-swipe::-webkit-scrollbar{display:none}.m-swipe>*{scroll-snap-align:start}
+ .swipe-hint{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}.dk .swipe-hint,.dk2 .swipe-hint{color:var(--text-dk2)}.swipe-hint svg{width:14px}.swipe-hint .bar2{flex:1;height:2px;background:rgba(128,128,128,.3);position:relative;overflow:hidden}.swipe-hint .bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--red);width:var(--w,30%);transform:translateX(var(--x,0))}
+ .device-phone{width:118px;right:-6px;border-radius:22px;padding:5px}.device-phone-screen{border-radius:18px}.frame{max-height:none;width:100%}.fun div{width:100%!important}
+ .inv thead{display:none}.inv,.inv tbody,.inv tr,.inv td{display:block;width:100%}.inv{background:none}.inv tr{background:var(--dk3);margin-bottom:3px;padding:10px 13px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:2px 8px}.inv td{padding:0;border:0!important;text-align:left;font-size:10.5px}.inv td:first-child{grid-column:1/-1;font-size:13.5px;margin-bottom:3px}.inv td.tt{grid-column:1/-1;font-size:14px;font-weight:800;color:#fff;margin-top:3px}.inv td[data-m]::before{content:attr(data-m);display:block;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.55}.inv tr.grp{background:none;display:block;padding:12px 0 2px}.inv tr.grp td{font-size:10px}.inv tr.tot{border-top:2px solid var(--red)}.inv tr.tot td{font-size:10.5px;border:0}.inv tr.tot td.tt{font-size:18px}.inv .note2{display:block;margin:2px 0 0}
+ .bb.g,.bb.c{min-height:150px}.bench.big .bc{min-height:0}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.rv,.rv-3d{opacity:1;transform:none}}
+
+/* modelo socio */
+.soc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:2px;margin-top:18px}.soc-c{background:var(--dk3);padding:20px 22px;border-top:3px solid rgba(255,255,255,.2)}.soc-c.on{border-top-color:var(--red)}.soc-c small{display:block;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--text-dk2);margin-bottom:8px}.soc-c b{display:block;font-size:clamp(22px,min(2.5vw,4.2vh),34px);font-weight:900;color:#fff;line-height:1.08;font-variant-numeric:tabular-nums}.soc-c b em{color:var(--red);font-style:normal}.soc-c p{font-size:14px;line-height:1.4;color:var(--text-dk2);margin-top:8px}
+.soc-t{width:100%;border-collapse:collapse;margin-top:2px;background:var(--dk3)}.soc-t th,.soc-t td{padding:9px 22px;text-align:right;font-size:14px;color:var(--text-dk2);font-variant-numeric:tabular-nums;border-bottom:1px solid rgba(255,255,255,.08)}.soc-t th{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.soc-t th:first-child,.soc-t td:first-child{text-align:left}.soc-t td:last-child{font-weight:800;color:#fff}
+@media(max-width:768px){.soc{grid-template-columns:minmax(0,1fr)}.soc-t th,.soc-t td{padding:9px 10px;font-size:12.5px}.soc-t th{font-size:9.5px;letter-spacing:.06em}}
+@media(min-width:769px) and (max-height:830px){#s-calc,#s-escuchamos{padding-top:72px;padding-bottom:44px}}
+.hb-logo{display:flex;align-items:center;gap:20px}.hb-logo img{width:150px;height:auto;flex:none;padding-right:20px;box-sizing:content-box;border-right:1px solid rgba(255,255,255,.14)}
+@media(max-width:768px){.hb-logo{flex-direction:column;align-items:flex-start;gap:12px}.hb-logo img{padding-right:0;border-right:0}}
+@media(max-width:768px){#s-casos .why{grid-template-columns:minmax(0,1fr)}}
+
+/* comparativo */
+.inc4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;margin-top:2px}.inc-c{background:var(--dk3);padding:14px 16px}.inc-c h3{font-size:14px;font-weight:800;color:#fff;margin-bottom:6px}.inc-c ul{list-style:none;display:grid;gap:4px}.inc-c li{font-size:12.8px;line-height:1.32;color:var(--text-dk2)}
+#s-navidad .phases{grid-template-columns:repeat(3,minmax(0,1fr))}#s-navidad .ph{background:rgba(22,22,22,.9)}
+@media(max-width:768px){.inc4{grid-template-columns:minmax(0,1fr)}}
+.mk-l{margin-top:20px;margin-bottom:8px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+@media(max-width:768px){#s-plataformas .soc{grid-template-columns:minmax(0,1fr)!important}}
+
+.bc p.take::before{content:'Para C1: '}
+.tree{margin-top:20px}.tree .root{width:max-content;margin:0 auto 26px;background:var(--dk);color:#fff;font-weight:800;padding:13px 34px;position:relative}.tree .root::after{content:'';position:absolute;left:50%;top:100%;height:26px;width:2px;background:var(--red)}
+.tree .kids{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;border-top:2px solid var(--red)}.tree .kids div{background:#fff;padding:16px 18px}.tree .kids b{display:block;font-size:17px;font-weight:800}.tree .kids span{font-size:13.5px;color:var(--ink2);line-height:1.35;display:block;margin-top:3px}.tree .kids .hot{background:var(--dk)}.tree .kids .hot b{color:#fff}.tree .kids .hot span{color:var(--text-dk2)}
+.foot{margin-top:18px;font-size:12px;color:rgba(255,255,255,.5)}
+.device-browser img,.device-phone img{width:100%;height:auto}
+.inv td.inc{color:#fff;font-weight:700}
+@media(max-width:768px){.tree .kids{grid-template-columns:repeat(2,minmax(0,1fr))}.incl{grid-template-columns:minmax(0,1fr)!important}#s-escuchamos img{width:62%!important}#s-marca .brand-board{grid-template-columns:repeat(2,minmax(0,1fr))!important}.flow{grid-template-columns:minmax(0,1fr)!important}.inv tr{grid-template-columns:repeat(3,minmax(0,1fr))!important}.inv td:first-child{grid-column:1/-1}.inv tr.grp{display:block}}
+.bc p.take::before{content:'Para NHU: '}
+
+/* NHU: detalle por página */
+.pages{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;margin-top:18px}
+.pg{background:#fff;padding:18px 18px 16px;border-top:3px solid var(--red);display:flex;flex-direction:column}
+.pg.new{border-top-color:var(--ink);background:#FBFAF6}
+.pg small{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.pg.new small{color:var(--ink3)}
+.pg h3{font-size:19px;font-weight:800;line-height:1.1;margin:4px 0 10px}
+.pg ul{list-style:none;display:grid;gap:5px;flex:1}
+.pg li{font-size:13px;line-height:1.34;color:var(--ink2);padding-left:14px;position:relative}
+.pg li::before{content:'';position:absolute;left:0;top:7px;width:7px;height:2px;background:var(--red)}
+.pg .inc{margin-top:12px;padding-top:10px;border-top:1px solid rgba(0,0,0,.1);font-size:12px;line-height:1.35;color:var(--ink)}
+.pg .inc b{color:var(--red);font-weight:800}
+.legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:14px;font-size:12.5px;color:var(--ink2)}
+.legend span{display:inline-flex;align-items:center;gap:8px}.legend i{width:22px;height:3px;background:var(--red);display:block}.legend i.n{background:var(--ink)}
+
+/* mapa del sitio con 10 nodos */
+.tree .kids.k5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.tree .kids .nw{background:#FBFAF6;outline:1.5px dashed rgba(0,0,0,.25);outline-offset:-6px}
+.tree .extra{display:flex;gap:2px;margin-top:2px}.tree .extra div{flex:1;background:var(--dk);color:#fff;padding:12px 18px;font-size:13.5px;line-height:1.35}.tree .extra b{color:#fff}.tree .extra span{color:var(--text-dk2)}
+
+/* mockup plantilla de proyecto */
+.pj{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;align-items:center}
+.mock{background:#fff;color:var(--ink)}
+.mk-nav{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid rgba(0,0,0,.07);font-size:9px;font-weight:800;letter-spacing:.14em}
+.mk-nav em{font-style:normal;display:flex;gap:12px;color:var(--ink3);font-weight:700}
+.mk-hero{height:150px;background:#1d1d1d;position:relative;overflow:hidden}
+.mk-hero svg{position:absolute;right:18px;bottom:0;width:58%;height:92%}
+.mk-hero div{position:absolute;left:16px;bottom:14px;color:#fff}.mk-hero small{font-size:8px;letter-spacing:.18em;color:#E8000A;font-weight:800;display:block}.mk-hero b{font-size:19px;font-weight:800;display:block;line-height:1.05}
+.mk-meta{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(0,0,0,.07)}.mk-meta div{padding:9px 14px;font-size:8.5px;color:var(--ink3);line-height:1.3}.mk-meta b{display:block;font-size:10.5px;color:var(--ink)}
+.mk-body{display:grid;grid-template-columns:1fr 1.25fr;gap:14px;padding:13px 16px 16px}
+.mk-body p{font-size:9px;line-height:1.45;color:var(--ink2)}.mk-body p i{display:block;height:5px;background:#ECE9E2;margin-top:5px}.mk-body p i:nth-child(odd){width:86%}
+.mk-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.mk-gal span{aspect-ratio:4/3;background:#D9D5CC;display:grid;place-items:center;font-size:7.5px;color:#777;font-weight:700;letter-spacing:.08em}.mk-gal span:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;background:#C9C4B9}
+.mk-cta{margin:0 16px 14px;background:#E8000A;color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;padding:8px 12px;display:flex;justify-content:space-between}
+.dev-wrap .device-phone .mk-hero{height:120px}.ph-scr{font-size:8px}
+.ph-scr .mk-gal{grid-template-columns:1fr 1fr;padding:8px}.ph-scr .mk-gal span:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
+
+/* cifras de experiencia */
+.xp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;margin-top:20px}
+.xp div{background:var(--dk3);padding:20px 22px;border-top:3px solid var(--red)}.xp b{display:block;font-size:clamp(30px,min(3.4vw,5.8vh),48px);font-weight:900;color:#fff;line-height:1;letter-spacing:-.02em;margin-bottom:8px;font-variant-numeric:tabular-nums}.xp span{font-size:14px;line-height:1.4;color:var(--text-dk2);display:block}
+.lines{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}.lines span{border:1px solid rgba(255,255,255,.2);font-size:12.5px;padding:6px 12px;border-radius:30px;color:#ddd}
+
+/* opcionales */
+.svc.s3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sc ul{list-style:none;display:grid;gap:4px;margin-top:8px;flex:1}.sc li{font-size:12.8px;line-height:1.35;color:var(--ink2);padding-left:14px;position:relative}.sc li::before{content:'';position:absolute;left:0;top:7px;width:7px;height:2px;background:var(--red)}
+.sc .tag{display:inline-block;align-self:flex-start;background:var(--ink);color:#fff;font-size:9.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:4px 9px;margin-bottom:10px}
+
+.pay{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;margin-top:2px}.pay div{background:var(--dk3);padding:14px 18px}.pay small{display:block;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dk2);margin-bottom:4px}.pay b{font-size:clamp(20px,2vw,26px);font-weight:900;color:#fff;font-variant-numeric:tabular-nums}.pay div.hot{background:var(--red)}.pay div.hot small{color:#fff}
+
+@media(max-width:1100px){.pages{grid-template-columns:repeat(3,minmax(0,1fr))}.tree .kids.k5{grid-template-columns:repeat(3,minmax(0,1fr))}.xp{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:768px){
+ .pj{grid-template-columns:minmax(0,1fr);gap:26px}.tree .kids.k5{grid-template-columns:repeat(2,minmax(0,1fr))}.tree .extra{flex-direction:column}
+ .xp{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.svc.s3,.pay{grid-template-columns:minmax(0,1fr)}
+ .mk-hero{height:120px}.mk-meta{grid-template-columns:1fr 1fr}.mk-body{grid-template-columns:1fr}
+}
+@media(min-width:769px) and (max-height:860px){#s-pag1,#s-pag2,#s-inversion,#s-mapa{padding-top:70px;padding-bottom:40px}.pg li{font-size:12.4px}.pg h3{margin-bottom:6px}}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur2"></div><div id="prog"></div>
+<header class="deck-top">
+  <div><img class="logo logo-w" src="we-rock.png" alt="We Rock"><img class="logo logo-c" src="we-rock-v1.png" alt="We Rock"></div>
+  <div class="deck-meta"><span>Propuesta para NHU Arquitectos · Noviembre 2026</span>
+    <button class="fs-btn" id="fsBtn" aria-label="Pantalla completa"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4"/></svg></button></div>
+</header>
+<nav class="dots" id="dots" aria-label="Diapositivas"></nav>
+<div class="counter" aria-hidden="true"><b id="cNow">01</b> / <span id="cAll">01</span></div>
+<div class="nav-arrows">
+  <button id="prevBtn" aria-label="Anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4"/></svg></button>
+  <button id="nextBtn" aria-label="Siguiente"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></button>
+</div>
+
+<main>
+<section class="slide dk cover" id="s-portada" data-title="Portada">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="inner"><div class="cover-txt">
+    <p class="cover-tag rv">Propuesta para NHU Arquitectos</p>
+    <h1 class="rv" style="--d:1">23 años de obra. <em>Un sitio a su altura.</em></h1>
+    <p class="sub rv" style="--d:2">Rediseño completo de nhuarquitectos.com: hasta 10 páginas, un portafolio que deja hablar a los proyectos y un contacto directo desde el celular.</p>
+    <div class="cover-cta rv" style="--d:3"><a class="btn" href="#s-pag1">Ver página por página</a><a class="btn ghost" href="#s-inversion">Ir a la inversión</a></div>
+    <p class="cover-who rv" style="--d:4">Para <b>Nicolás Huertas</b> · Por intermedio de <b>Jimena Beltrán</b> · Noviembre de 2026</p>
+  </div></div>
+</section>
+
+<section class="slide lt tex-grid" id="s-vimos" data-title="Lo que vimos">
+  <div class="inner split">
+    <div class="heard">
+      <div class="lbl rv">Lo que vimos</div>
+      <blockquote class="rv" style="--d:1">Diseño, construcción y gerencia. <em>Desde 2003.</em></blockquote>
+      <p class="lead rv" style="--d:2">NHU ya tiene lo más difícil: trayectoria, proyectos de infraestructura, vivienda, oficinas y urbanismo, y clientes que confían. Lo que se quedó atrás es la vitrina.</p>
+      <ul class="rv" style="--d:3">
+        <li><b>La experiencia existe.</b> Siete líneas de proyecto y más de 40 fichas publicadas hoy en el sitio.</li>
+        <li><b>La filosofía existe.</b> "Ideas que transforman espacios", y cuatro valores claros, empezando por la seguridad.</li>
+        <li><b>La vitrina es de 2017.</b> El sitio y su logo siguen hablando de los 15 años; en 2026 NHU cumple 23.</li>
+      </ul>
+    </div>
+    <div class="rv-3d" style="--d:2">
+      <div class="lbl" style="margin-bottom:12px">Las tres directrices de NHU</div>
+      <div class="vs" style="grid-template-columns:minmax(0,1fr);margin-top:0">
+        <div class="b"><h3>Diseño</h3><ul><li>Ideas que transforman espacios.</li></ul></div>
+        <div class="b" style="background:#1a1a1a"><h3>Construcción</h3><ul><li>Suministro y fabricación de procesos constructivos bajo una planificación.</li></ul></div>
+        <div class="b" style="background:#242424"><h3>Gerencia de proyectos</h3><ul><li>Experiencia, creatividad y seguimiento de actividades.</li></ul></div>
+      </div>
+      <p class="src">Textos tomados de nhuarquitectos.com, sección Empresa, consultada el 17 de noviembre de 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide lt2 tex-dots" id="s-diagnostico" data-title="Diagnóstico">
+  <div class="inner split" style="align-items:start">
+    <div>
+      <div class="lbl rv">Diagnóstico del sitio actual</div>
+      <h2 class="h2 rv" style="--d:1">Mucho contenido, <em>poco orden.</em></h2>
+      <p class="lead rv" style="--d:2">Recorrimos las 14 páginas del sitio. El contenido de fondo es bueno; el problema es cómo está organizado y presentado.</p>
+      <div class="note rv" style="--d:3;margin-top:20px"><b>Buena noticia:</b> casi todo lo que hace falta para el sitio nuevo ya está escrito y fotografiado. El rediseño ordena, mejora y amplía, no arranca de cero.</div>
+    </div>
+    <ul class="dlist rv" style="--d:2">
+      <li><b>Proyectos dispersos</b>Siete páginas de experiencia casi idénticas, más una galería aparte que repite los mismos proyectos.</li>
+      <li><b>Repeticiones</b>En Proyectos en ejecución, el CCO Barranquilla aparece dos veces. La página de Ambientales no muestra fichas.</li>
+      <li><b>Sin contacto directo</b>Solo un correo y un formulario. No hay WhatsApp, teléfono ni dirección visibles.</li>
+      <li><b>Google lo entiende poco</b>Las páginas no tienen descripción para buscadores y los títulos se repiten.</li>
+      <li><b>Portada pesada</b>Un carrusel animado de varias diapositivas, el formato que menos se mira y más tarda en cargar.</li>
+      <li><b>Señales de abandono</b>Pie de página con "2017", "Ejecucion" sin tilde y "Dónde encontarnos" en contacto.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide dk2 noise" id="s-ahora" data-title="Por qué ahora">
+  <div class="inner">
+    <div class="lbl rv">Por qué ahora</div>
+    <h2 class="h2 rv" style="--d:1">Antes de llamar, <em>el cliente revisa el sitio.</em></h2>
+    <div class="cards3 rv" style="--d:2">
+      <div class="c3"><b class="n">Celular</b><h3>Google mira primero la versión móvil</h3><p>Desde la indexación mobile first, Google usa la versión de celular de cada sitio para clasificarlo. Un sitio pensado para escritorio compite con desventaja.</p></div>
+      <div class="c3"><b class="n">23 años</b><h3>Una trayectoria que no se ve</h3><p>Un gerente de compras o un comité que evalúa proveedores busca pruebas: proyectos, metros, clientes. Hoy están, pero hay que excavar para encontrarlos.</p></div>
+      <div class="c3"><b class="n">0</b><h3>Botones de WhatsApp o llamada</h3><p>En el sitio actual no hay una forma de contacto inmediata desde el celular. Cada visita interesada depende de que alguien escriba un correo.</p></div>
+    </div>
+    <p class="src rv" style="--d:3">Fuentes: <a href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing" target="_blank" rel="noopener">Google Search Central, indexación mobile first</a> · revisión propia de nhuarquitectos.com, 17 de noviembre de 2026.</p>
+  </div>
+</section>
+
+<section class="slide lt tex-grid" id="s-vs" data-title="Hoy y mañana">
+  <div class="inner">
+    <div class="lbl rv">Sin esto, con esto</div>
+    <h2 class="h2 rv" style="--d:1">De folleto de 2017 <em>a portafolio vivo.</em></h2>
+    <div class="vs rv" style="--d:2">
+      <div class="a"><h3>Hoy</h3><ul><li>El visitante tiene que adivinar en cuál de siete páginas está el proyecto que busca.</li><li>Las fotos compiten con textos y carruseles.</li><li>Para contactar, hay que escribir un correo.</li><li>Actualizar un proyecto depende de quien hizo el sitio.</li><li>El sitio dice 15 años.</li></ul></div>
+      <div class="b"><h3>Con el sitio nuevo</h3><ul><li>Un solo portafolio con filtros por línea: infraestructura, vivienda, oficinas y más.</li><li>Cada proyecto tiene su ficha, con galería grande y datos clave.</li><li>WhatsApp y formulario a un toque, en cualquier página.</li><li>NHU sube y edita proyectos sin depender de nadie.</li><li>La marca habla del presente: 23 años y lo que viene.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dk noise glow-tr" id="s-idea" data-title="La idea">
+  <div class="inner">
+    <div class="lbl rv">La gran idea</div>
+    <h2 class="h2 rv" style="--d:1;max-width:940px">Que la obra <em>hable primero.</em></h2>
+    <p class="lead rv" style="--d:1">En arquitectura, el portafolio es la fachada. El sitio nuevo se construye alrededor de los proyectos, no de los menús.</p>
+    <div class="phases rv" style="--d:2">
+      <div class="ph"><small>1 · Muestra</small><h3>Imagen a sangre</h3><ul><li>Fotos grandes, sin carruseles, con un proyecto protagonista en portada.</li></ul></div>
+      <div class="ph"><small>2 · Ordena</small><h3>Un portafolio</h3><ul><li>Las siete líneas de experiencia se vuelven filtros de una sola galería.</li></ul></div>
+      <div class="ph"><small>3 · Demuestra</small><h3>Cifras y clientes</h3><ul><li>El cuadro de experiencia en metros se vuelve una infografía clara.</li></ul></div>
+      <div class="ph"><small>4 · Conecta</small><h3>Contacto directo</h3><ul><li>WhatsApp, formulario y teléfono a un toque, desde cualquier página.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dk2 tex-grid-dk" id="s-benchmark" data-title="Benchmark">
+  <div class="inner">
+    <div class="lbl rv">Benchmark</div>
+    <h2 class="h2 rv" style="--d:1">Lo que hacen bien los grandes, <em>y lo que hay que evitar.</em></h2>
+    <div class="bench big rv" style="--d:2">
+      <div class="bc"><h3>BIG · Bjarke Ingels Group</h3><p>El menú principal es Proyectos, organizado por tipología: cultura, educación, vivienda, infraestructura, paisaje y más.</p><p class="take">las siete líneas como filtros, no como siete páginas.</p><a href="https://big.dk/" target="_blank" rel="noopener">Ver sitio</a></div>
+      <div class="bc"><h3>Conconcreto</h3><p>Constructora colombiana que separa con claridad diseño integrado, gerencia y estructuración, construcción e infraestructura.</p><p class="take">diseño, construcción y gerencia, cada uno con su espacio.</p><a href="https://www.conconcreto.com/" target="_blank" rel="noopener">Ver sitio</a></div>
+      <div class="bc"><h3>Google Search Central</h3><p>Google clasifica los sitios a partir de su versión para celular, y pide el mismo contenido en móvil y escritorio.</p><p class="take">diseñar primero para celular, sin recortar contenido.</p><a href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing" target="_blank" rel="noopener">Ver guía</a></div>
+      <div class="bc fail"><h3>Lo que no: el carrusel</h3><p>Nielsen Norman Group documenta que los carruseles que avanzan solos molestan a los usuarios y reducen la visibilidad del contenido.</p><p class="take">una portada fija y poderosa, no cinco diapositivas que nadie alcanza a leer.</p><a href="https://www.nngroup.com/articles/auto-forwarding/" target="_blank" rel="noopener">Ver estudio</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide lt tex-grid" id="s-mapa" data-title="Mapa del sitio">
+  <div class="inner">
+    <div class="lbl rv">Mapa del sitio</div>
+    <h2 class="h2 rv" style="--d:1">Las secciones de siempre, <em>más espacio para lo nuevo.</em></h2>
+    <p class="lead rv" style="--d:1">Conservamos las siete secciones que NHU ya tiene y sumamos hasta tres páginas nuevas para el contenido que viene. Diez páginas en total.</p>
+    <div class="tree rv" style="--d:2">
+      <div class="root">nhuarquitectos.com</div>
+      <div class="kids k5">
+        <div><b>01 Inicio</b><span>Portada, cifras y proyectos destacados</span></div>
+        <div><b>02 Empresa</b><span>Perfil, misión, visión y valores</span></div>
+        <div><b>03 Experiencia</b><span>Cuadro de experiencia y siete líneas</span></div>
+        <div class="hot"><b>04 Galería de proyectos</b><span>Portafolio con filtros por línea</span></div>
+        <div><b>05 Proyectos en ejecución</b><span>Obras actuales y su avance</span></div>
+        <div><b>06 Clientes</b><span>Logos y relación de confianza</span></div>
+        <div><b>07 Contacto</b><span>Formulario, WhatsApp y ubicación</span></div>
+        <div class="nw"><b>08 Página nueva</b><span>Contenido nuevo por definir con NHU</span></div>
+        <div class="nw"><b>09 Página nueva</b><span>Contenido nuevo por definir con NHU</span></div>
+        <div class="nw"><b>10 Página nueva</b><span>Contenido nuevo por definir con NHU</span></div>
+      </div>
+      <div class="extra"><div><b>Además, sin contar en las 10:</b> <span>la plantilla de ficha de proyecto (una por cada proyecto), la política de tratamiento de datos y la página de error 404.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide lt2 tex-dots" id="s-pag1" data-title="Páginas 1 a 5">
+  <div class="inner">
+    <div class="lbl rv">Página por página · 1 a 5</div>
+    <h2 class="h2 rv" style="--d:1">Qué lleva cada página <em>y qué incluye.</em></h2>
+    <div class="pages rv" style="--d:2">
+      <div class="pg"><small>01 · Actual</small><h3>Inicio</h3><ul><li>Portada fija con un proyecto protagonista y la frase de marca</li><li>Las tres directrices: diseño, construcción y gerencia</li><li>Cifras de experiencia en metros diseñados y construidos</li><li>Seis proyectos destacados</li><li>Franja de logos de clientes</li><li>Llamado a contacto con WhatsApp</li></ul><p class="inc"><b>Incluye:</b> diseño a medida en escritorio y celular, textos ajustados y animaciones suaves.</p></div>
+      <div class="pg"><small>02 · Actual</small><h3>Empresa</h3><ul><li>Perfil de NHU y su historia desde 2003</li><li>Misión y visión</li><li>Las tres directrices explicadas</li><li>Los cuatro valores, con la seguridad en primer lugar</li><li>Espacio para equipo o directivos, si NHU lo entrega</li></ul><p class="inc"><b>Incluye:</b> corrección y ajuste de estilo de los textos actuales, sin cambiar su sentido.</p></div>
+      <div class="pg"><small>03 · Actual</small><h3>Experiencia</h3><ul><li>El cuadro de experiencia general convertido en infografía</li><li>Metros de diseño y construcción por tipo de proyecto</li><li>Las siete líneas con su alcance: infraestructura, comerciales, oficinas, vivienda, urbanos, diseño y gerencia, ambientales</li><li>Enlace directo a los proyectos de cada línea</li></ul><p class="inc"><b>Incluye:</b> las siete páginas de experiencia actuales quedan unificadas en una sola, más clara.</p></div>
+      <div class="pg"><small>04 · Actual</small><h3>Galería de proyectos</h3><ul><li>Todos los proyectos actuales del sitio en un solo portafolio</li><li>Filtros por línea, sin recargar la página</li><li>Tarjeta por proyecto: foto, nombre y línea</li><li>Cada tarjeta abre su ficha con galería</li></ul><p class="inc"><b>Incluye:</b> migración de las fichas actuales (más de 40) con fotos optimizadas.</p></div>
+      <div class="pg"><small>05 · Actual</small><h3>Proyectos en ejecución</h3><ul><li>Las obras en curso que hoy aparecen en el sitio</li><li>Ubicación, tipo de proyecto y estado</li><li>Fotos de avance que NHU puede ir subiendo</li><li>Sin duplicados</li></ul><p class="inc"><b>Incluye:</b> NHU podrá agregar, actualizar o pasar una obra a la galería cuando termine.</p></div>
+    </div>
+    <div class="legend rv" style="--d:3"><span><i></i>Sección actual, rediseñada</span><span><i class="n"></i>Página nueva</span></div>
+  </div>
+</section>
+
+<section class="slide lt tex-grid" id="s-pag2" data-title="Páginas 6 a 10">
+  <div class="inner">
+    <div class="lbl rv">Página por página · 6 a 10</div>
+    <h2 class="h2 rv" style="--d:1">Las de siempre, <em>y tres para lo que viene.</em></h2>
+    <div class="pages rv" style="--d:2">
+      <div class="pg"><small>06 · Actual</small><h3>Clientes</h3><ul><li>Logos de los clientes actuales del sitio, en un mismo formato y tamaño</li><li>El texto de agradecimiento, revisado</li><li>Espacio para testimonios, si NHU los consigue</li></ul><p class="inc"><b>Incluye:</b> limpieza y ajuste de los logos para que se vean parejos.</p></div>
+      <div class="pg"><small>07 · Actual</small><h3>Contacto</h3><ul><li>Formulario: nombre, empresa, tipo de proyecto y mensaje</li><li>Botón de WhatsApp y llamada directa</li><li>Correo info@nhuarquitectos.com</li><li>Dirección y mapa, si NHU los confirma</li></ul><p class="inc"><b>Incluye:</b> los mensajes llegan al correo de NHU, con protección contra spam.</p></div>
+      <div class="pg new"><small>08 · Nueva</small><h3>Página nueva</h3><ul><li>Para el contenido nuevo que NHU nos entregue</li><li>Ideas: servicios en detalle, seguridad y sostenibilidad, certificaciones, equipo, noticias o trabaja con nosotros</li></ul><p class="inc"><b>Incluye:</b> diseño, desarrollo y montaje del contenido entregado.</p></div>
+      <div class="pg new"><small>09 · Nueva</small><h3>Página nueva</h3><ul><li>Mismo alcance que la anterior</li><li>Se define con NHU en la semana 1</li></ul><p class="inc"><b>Incluye:</b> diseño, desarrollo y montaje del contenido entregado.</p></div>
+      <div class="pg new"><small>10 · Nueva</small><h3>Página nueva</h3><ul><li>Mismo alcance que la anterior</li><li>Si al final NHU necesita menos páginas, se descuenta su valor</li></ul><p class="inc"><b>Incluye:</b> diseño, desarrollo y montaje del contenido entregado.</p></div>
+    </div>
+    <div class="note rv" style="--d:3;margin-top:16px"><b>Claridad desde el inicio:</b> cada página nueva vale $250.000. Si NHU usa dos en lugar de tres, el total baja en ese mismo valor. Los textos y fotos del contenido nuevo los entrega NHU; nosotros los ajustamos y los montamos.</div>
+  </div>
+</section>
+
+<section class="slide dk tex-grid-dk" id="s-ficha" data-title="Ficha de proyecto">
+  <div class="inner pj">
+    <div>
+      <div class="lbl rv">La pieza clave</div>
+      <h2 class="h2 rv" style="--d:1">Una ficha por proyecto, <em>siempre igual de bien.</em></h2>
+      <ul class="feat rv" style="--d:2">
+        <li><b>Plantilla reutilizable:</b> se diseña una vez y sirve para todos los proyectos, los de hoy y los que vengan.</li>
+        <li><b>Datos clave a la vista:</b> línea, ciudad, año, metros y alcance (diseño, construcción o gerencia).</li>
+        <li><b>Galería grande</b> que se abre a pantalla completa y se desliza con el dedo en el celular.</li>
+        <li><b>Contacto al final</b> de cada ficha: "¿Tiene un proyecto parecido?"</li>
+        <li><b>NHU la llena sola</b> desde el administrador: sube fotos, escribe y publica.</li>
+      </ul>
+    </div>
+    <div class="dev-wrap rv-3d" style="--d:2">
+      <div class="device-browser tilt"><div class="device-browser-bar"><div class="db-dots"><span></span><span></span><span></span></div><div class="db-url">nhuarquitectos.com/proyectos/nombre-del-proyecto</div></div>
+        <div class="mock">
+          <div class="mk-nav"><span>NHU</span><em><span>EMPRESA</span><span>EXPERIENCIA</span><span>PROYECTOS</span><span>CONTACTO</span></em></div>
+          <div class="mk-hero"><svg viewBox="0 0 300 150" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1" aria-hidden="true"><path d="M40 150V60l60-30 60 30v90M100 30v120M40 90h120M40 120h120M180 150V85l50-25 50 25v65M230 60v90M180 110h100"/><path d="M0 150h300" stroke="#E8000A" stroke-width="2"/></svg><div><small>INFRAESTRUCTURA</small><b>Nombre del proyecto</b></div></div>
+          <div class="mk-meta"><div>Ciudad<b>Por definir</b></div><div>Año<b>Por definir</b></div><div>Área<b>m²</b></div><div>Alcance<b>Diseño y obra</b></div></div>
+          <div class="mk-body"><p>Descripción del proyecto, tomada de la ficha actual del sitio.<i></i><i></i><i></i><i></i></p><div class="mk-gal"><span>FOTO 1</span><span>FOTO 2</span><span>FOTO 3</span><span>FOTO 4</span><span>FOTO 5</span></div></div>
+          <div class="mk-cta"><span>¿TIENE UN PROYECTO PARECIDO?</span><span>WHATSAPP →</span></div>
+        </div>
+      </div>
+      <div class="device-phone"><div class="device-phone-screen ph-scr mock">
+        <div class="mk-nav" style="padding-top:26px"><span>NHU</span><em>☰</em></div>
+        <div class="mk-hero"><div><small>VIVIENDA</small><b>Nombre del proyecto</b></div></div>
+        <div class="mk-gal"><span>FOTO 1</span><span>FOTO 2</span><span>FOTO 3</span></div>
+        <div class="mk-cta" style="margin:4px 8px"><span>WHATSAPP</span><span>→</span></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dk2 noise" id="s-incluye" data-title="Siempre incluido">
+  <div class="inner">
+    <div class="lbl rv">Incluido en todo el sitio</div>
+    <h2 class="h2 rv" style="--d:1">Lo que no se ve, <em>pero se nota.</em></h2>
+    <div class="incl rv" style="--d:2;grid-template-columns:repeat(3,minmax(0,1fr))">
+      <div><b>Pensado primero para celular</b><span>Cada página se diseña para pantalla de teléfono, tableta y escritorio.</span></div>
+      <div><b>SEO base</b><span>Títulos y descripciones por página, URLs claras, mapa del sitio para Google y fotos con texto alternativo.</span></div>
+      <div><b>Formulario y WhatsApp</b><span>Botón flotante de WhatsApp en todas las páginas y formulario conectado al correo de NHU.</span></div>
+      <div><b>Migración del contenido</b><span>Pasamos textos, proyectos, fotos y logos de clientes del sitio actual al nuevo.</span></div>
+      <div><b>NHU lo administra</b><span>WordPress con tema propio, liviano, para editar textos, proyectos y fotos sin programar.</span></div>
+      <div><b>Capacitación</b><span>Una sesión con el equipo de NHU, grabada, para que puedan actualizar el sitio.</span></div>
+      <div><b>Dos rondas de revisión</b><span>Una sobre el diseño, antes de construir, y otra sobre el sitio terminado, antes de publicar.</span></div>
+      <div><b>Medición</b><span>Google Analytics y Search Console, para saber cuántos visitan y desde dónde.</span></div>
+      <div><b>Seguro y legal</b><span>Certificado SSL, respaldo al publicar y política de tratamiento de datos (Ley 1581 de 2012).</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dk noise" id="s-cifras" data-title="La experiencia, visible">
+  <div class="inner">
+    <div class="lbl rv">La experiencia, visible</div>
+    <h2 class="h2 rv" style="--d:1">Las cifras ya están. <em>Hay que dejarlas ver.</em></h2>
+    <p class="lead rv" style="--d:1">Hoy el cuadro de experiencia general es una tabla escondida. En el sitio nuevo será una de las primeras cosas que vea quien evalúa a NHU.</p>
+    <div class="xp rv" style="--d:2">
+      <div><b><span class="cnt" data-to="850000">0</span> m²</b><span>De diseño en urbanismo, según el cuadro de experiencia del sitio actual.</span></div>
+      <div><b><span class="cnt" data-to="453000">0</span> m²</b><span>De construcción en urbanismo.</span></div>
+      <div><b><span class="cnt" data-to="145050">0</span> m²</b><span>De diseño en vivienda.</span></div>
+      <div><b><span class="cnt" data-to="2003">0</span></b><span>Año de fundación de NHU Diseño, Construcción y Gerencia de Proyectos S.A.S.</span></div>
+    </div>
+    <div class="lines rv" style="--d:3"><span>Infraestructura</span><span>Comerciales</span><span>Oficinas</span><span>Vivienda</span><span>Urbanos</span><span>Diseño y gerencia</span><span>Ambientales</span></div>
+    <p class="src rv" style="--d:4">Cifras tomadas tal como aparecen en nhuarquitectos.com (Experiencia general de la compañía). Las validamos con NHU antes de publicarlas.</p>
+  </div>
+</section>
+
+<section class="slide lt2 tex-dots" id="s-calc" data-title="Calculadora">
+  <div class="inner calc">
+    <div>
+      <div class="lbl rv">Haz la cuenta</div>
+      <h2 class="h2 rv" style="--d:1">Un solo contrato <em>paga el sitio.</em></h2>
+      <p class="lead rv" style="--d:1">Mueva las barras con un contrato típico de NHU y su margen aproximado.</p>
+      <p class="src rv" style="--d:2">Simulación, no promesa. La inversión tomada es el rediseño completo de We Rock ($5.800.000).</p>
+    </div>
+    <div class="panel rv-3d" style="--d:2">
+      <div class="ctrl"><label for="cA">Valor de un contrato <b id="oA">$400.000.000</b></label><input type="range" id="cA" min="50000000" max="3000000000" step="50000000" value="400000000"></div>
+      <div class="ctrl"><label for="cB">Margen de utilidad <b id="oB">10 %</b></label><input type="range" id="cB" min="3" max="30" step="1" value="10"></div>
+      <div class="out"><div class="big" id="outV">$40.000.000</div><p>Utilidad de ese contrato · el sitio equivale al <b id="outM" style="color:#fff">15 %</b> de ella</p><div class="meter"><i id="outBar" style="width:15%"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dk tex-grid-dk" id="s-ruta" data-title="Hoja de ruta">
+  <div class="inner">
+    <div class="lbl rv">Hoja de ruta</div>
+    <h2 class="h2 rv" style="--d:1">Seis semanas, <em>sitio en vivo.</em></h2>
+    <div class="phases rv" style="--d:2">
+      <div class="ph"><small>Semana 1</small><h3>Inventario</h3><ul><li>Reunión de arranque con Nicolás.</li><li>Inventario de proyectos, textos y fotos actuales.</li><li>Definimos las páginas nuevas y su contenido.</li></ul></div>
+      <div class="ph"><small>Semana 2</small><h3>Diseño</h3><ul><li>Diseño de Inicio, ficha de proyecto y una página interior, en celular y escritorio.</li><li>Primera ronda de revisión.</li></ul></div>
+      <div class="ph"><small>Semanas 3 y 4</small><h3>Construcción</h3><ul><li>Desarrollo de las 10 páginas y la plantilla de proyecto.</li><li>Formulario, WhatsApp y SEO base.</li></ul></div>
+      <div class="ph"><small>Semanas 5 y 6</small><h3>Migración y lanzamiento</h3><ul><li>Migración de proyectos y fotos.</li><li>Segunda ronda de revisión.</li><li>Capacitación y salida al aire.</li></ul></div>
+    </div>
+    <div class="goal rv" style="--d:3"><span>Meta: el sitio nuevo en vivo en seis semanas desde el primer pago</span><span>El plazo depende de recibir el contenido nuevo en la semana 1</span></div>
+  </div>
+</section>
+
+<section class="slide dk2 noise" id="s-casos" data-title="Casos y trayectoria">
+  <svg class="brand-mark" style="top:-60px;right:-40px" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="inner">
+    <div class="lbl rv">Casos y trayectoria</div>
+    <h2 class="h2 rv" style="--d:1">Sitios que <em>ya hemos construido.</em></h2>
+    <p class="lead rv" style="--d:1;color:#cfcbc2;max-width:860px">David Higuera dirige We Rock desde 2018, con más de 15 años en estrategia digital, para marcas en Colombia y Australia.</p>
+    <div class="why rv" style="--d:2">
+      <div class="wy"><b>Oro MUSE</b><span><strong style="color:#fff">Remarkable.</strong> Premio internacional en Diseño y Desarrollo Web Accesible, con reconocimiento WCAG AAA.</span></div>
+      <div class="wy"><b>Plata MUSE</b><span><strong style="color:#fff">Polytex.</strong> MUSE 2025 Plata en la categoría Website E-Commerce, con Think Creative Agency.</span></div>
+      <div class="wy"><b>Australia</b><span><strong style="color:#fff">Polytex, Whiteley, Think Creative y Freedom Solutions.</strong> Marcas australianas que confían en David.</span></div>
+    </div>
+    <div class="cover-cta rv" style="--d:3;margin:22px 0 0"><a class="btn ghost" href="https://werockagencia.github.io/propuestas/portafolio/" target="_blank" rel="noopener">Ver portafolio de We Rock</a></div>
+  </div>
+</section>
+
+<section class="slide dk" id="s-inversion" data-title="Inversión" style="padding-top:70px;padding-bottom:56px">
+  <svg class="brand-mark" style="bottom:-120px;left:-60px;top:auto" viewBox="0 0 100 140" aria-hidden="true"><polygon points="55,0 10,60 40,60 25,140 90,50 55,50"/></svg>
+  <div class="inner">
+    <div class="lbl rv" style="margin-bottom:8px">Inversión</div>
+    <h2 class="h2 rv" style="--d:1;font-size:clamp(26px,min(3.2vw,5vh),44px);margin-bottom:6px">Todo desglosado, <em>sin letra pequeña.</em></h2>
+    <div class="inv-wrap rv" style="--d:2"><table class="inv" id="inv"></table></div>
+    <div class="pay rv" style="--d:3"><div><small>50 % al firmar</small><b id="p1">$2.900.000</b></div><div><small>50 % al entregar</small><b id="p2">$2.900.000</b></div><div class="hot"><small>Total · 6 semanas</small><b id="p3">$5.800.000</b></div></div>
+    <p class="src rv" style="--d:3;margin-top:10px">Pesos colombianos, antes de IVA. Dominio y hosting: se conserva el contratado hoy por NHU; si hubiera que cambiarlo, se paga directo al proveedor (referencia: desde $442.800 al año). Fotografía profesional nueva y traducción no están incluidas.</p>
+  </div>
+</section>
+
+<section class="slide lt tex-grid" id="s-opcionales" data-title="Opcionales">
+  <div class="inner">
+    <div class="lbl rv">Opcionales</div>
+    <h2 class="h2 rv" style="--d:1">Si NHU los quiere, <em>se suman aparte.</em></h2>
+    <p class="lead rv" style="--d:1">No hacen falta para lanzar. Cada uno se contrata por separado, cuando NHU lo decida.</p>
+    <div class="svc s3 rv" style="--d:2">
+      <div class="sc opt"><span class="tag">Mensual</span><h3>Webmaster</h3><p>Para que el sitio siga al día sin que NHU tenga que pensar en él.</p><ul><li>Hasta 4 cambios de contenido al mes, incluido subir proyectos nuevos</li><li>Actualizaciones de WordPress y seguridad</li><li>Respaldos y revisión de velocidad</li><li>Soporte por WhatsApp</li></ul><b>$550.000 <small>/ mes · mes a mes</small></b></div>
+      <div class="sc opt"><span class="tag">Pago único</span><h3>Versión en inglés</h3><p>Para clientes, socios o licitaciones internacionales.</p><ul><li>Traducción profesional de las 10 páginas</li><li>Traducción de hasta 20 fichas de proyecto</li><li>Selector de idioma y SEO en inglés</li></ul><b>$1.500.000 <small>/ pago único</small></b></div>
+      <div class="sc opt"><span class="tag">Por página</span><h3>Página adicional</h3><p>Si aparece más contenido nuevo después de las 10 páginas.</p><ul><li>Diseño y desarrollo con el mismo estilo del sitio</li><li>Montaje del contenido que entregue NHU</li><li>SEO base de la página</li></ul><b>$250.000 <small>/ página</small></b></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dk noise glow-bl" id="s-cierre" data-title="Cierre">
+  <div class="inner">
+    <div class="lbl rv">Siguiente paso</div>
+    <h2 class="h2 rv" style="--d:1;max-width:860px">La obra ya está hecha. <em>Falta mostrarla.</em></h2>
+    <div class="steps">
+      <div class="st rv" style="--d:2"><b>1</b><span>Revisan la propuesta y nos cuentan qué contenido nuevo tienen en mente.</span></div>
+      <div class="st rv" style="--d:3"><b>2</b><span>Confirmamos el número de páginas nuevas y el valor final.</span></div>
+      <div class="st rv" style="--d:4"><b>3</b><span>Con el primer pago arrancamos la semana 1.</span></div>
+    </div>
+    <div class="cover-cta rv" style="--d:5;margin-bottom:0">
+      <a class="btn" href="https://wa.me/573125766056?text=Hola%20David,%20vi%20la%20propuesta%20de%20NHU%20Arquitectos" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.4.2.5.3.1.2.1.7-.1 1.4Z"/></svg>Hablar con David</a>
+      <a class="btn ghost" href="#s-pag1">Volver al detalle</a>
+    </div>
+    <p class="foot">David Higuera · +57 312 576 6056 · davidh@werock.space · werock.space · Bogotá, Colombia</p>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = id => document.getElementById(id);
+  const cop = v => '$' + Math.round(v).toLocaleString('es-CO');
+  // Inversión: las sumas se calculan aquí para que nunca se descuadren
+  const H=[.5,.5], ITEMS=[
+    ['Estrategia y diseño visual','inventario, mapa del sitio y diseño en celular y escritorio',1200000],
+    ['Siete secciones actuales rediseñadas','Inicio, Empresa, Experiencia, Galería, En ejecución, Clientes y Contacto',2100000],
+    ['Tres páginas nuevas','$250.000 cada una · para el contenido nuevo de NHU',750000],
+    ['Portafolio y ficha de proyecto','filtros por línea y plantilla reutilizable con galería',700000],
+    ['Migración del contenido actual','más de 40 proyectos, fotos optimizadas, textos y logos',650000],
+    ['SEO base, formulario y WhatsApp','títulos, descripciones, Analytics y Search Console',400000]];
+  const FREE=[['Capacitación al equipo de NHU','una sesión grabada · sin costo, aporte de We Rock'],['Dos rondas de revisión','diseño y sitio terminado · sin costo, aporte de We Rock']];
+  const M=['Al firmar · 50 %','Al entregar · 50 %'];
+  const cell=(v,i)=>v?'<td data-m="'+M[i]+'">'+cop(v)+'</td>':'<td class="dash" data-m="'+M[i]+'">—</td>';
+  const row=r=>'<tr><td>'+r[0]+'<span class="note2">'+r[1]+'</span></td>'+H.map(h=>r[2]*h).map(cell).join('')+'<td class="tt">'+cop(r[2])+'</td></tr>';
+  const total=ITEMS.reduce((s,r)=>s+r[2],0), hitos=H.map(h=>total*h);
+  $('inv').innerHTML='<thead><tr><th>Rubro</th><th>Al firmar · 50 %</th><th>Al entregar · 50 %</th><th>Total</th></tr></thead><tbody>'+
+   '<tr class="grp"><td colspan="4">We Rock · rediseño completo, pago único: 50 % inicio · 50 % entrega</td></tr>'+ITEMS.map(row).join('')+
+   FREE.map(f=>'<tr><td>'+f[0]+'<span class="note2">'+f[1]+'</span></td>'+[0,0].map(cell).join('')+'<td class="tt inc">Incluido</td></tr>').join('')+
+   '<tr class="tot"><td>Total</td>'+hitos.map(cell).join('')+'<td class="tt">'+cop(total)+'</td></tr></tbody>';
+  $('p1').textContent=cop(hitos[0]);$('p2').textContent=cop(hitos[1]);$('p3').textContent=cop(total);
+
+  // Motor del deck
+  const slides = [...document.querySelectorAll('.slide')], dotsEl = $('dots'), cNow = $('cNow');
+  $('cAll').textContent = String(slides.length).padStart(2,'0');
+  let cur = 0;
+  slides.forEach((s,i)=>{const b=document.createElement('button');b.setAttribute('aria-label',(i+1)+'. '+s.dataset.title);b.innerHTML='<span>'+String(i+1).padStart(2,'0')+' · '+s.dataset.title+'</span>';b.addEventListener('click',()=>go(i));dotsEl.appendChild(b);});
+  const dots=[...dotsEl.children];
+  function go(i){i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});}
+  function setActive(i){cur=i;dots.forEach((d,k)=>d.classList.toggle('act',k===i));cNow.textContent=String(i+1).padStart(2,'0');$('prog').style.width=((i+1)/slides.length*100)+'%';const s=slides[i];document.body.classList.toggle('on-light',s.classList.contains('lt')||s.classList.contains('lt2'));}
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');if(e.intersectionRatio>=.5||e.target.offsetHeight>innerHeight)setActive(slides.indexOf(e.target));e.target.querySelectorAll('.cnt:not(.done)').forEach(countUp);}});},{threshold:[.15,.5]});
+  slides.forEach(s=>io.observe(s));
+  addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'||e.metaKey||e.ctrlKey||e.altKey)return;const k=e.key;if(['ArrowDown','ArrowRight','PageDown',' '].includes(k)){e.preventDefault();go(cur+1);}else if(['ArrowUp','ArrowLeft','PageUp'].includes(k)){e.preventDefault();go(cur-1);}else if(k==='Home'){e.preventDefault();go(0);}else if(k==='End'){e.preventDefault();go(slides.length-1);}else if(k==='f'||k==='F'){toggleFs();}});
+  $('nextBtn').addEventListener('click',()=>go(cur+1));$('prevBtn').addEventListener('click',()=>go(cur-1));
+  function toggleFs(){if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen().catch(()=>{});}else{document.exitFullscreen&&document.exitFullscreen();}}
+  $('fsBtn').addEventListener('click',toggleFs);
+  function countUp(el){el.classList.add('done');const to=+el.dataset.to,yr=to<3000;const out=v=>yr?String(Math.round(v)):Math.round(v).toLocaleString('es-CO');if(reduce){el.textContent=out(to);return;}const t0=performance.now(),dur=1500;(function tick(t){const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=out(to*e);if(p<1)requestAnimationFrame(tick);})(t0);}
+
+  if(!reduce&&matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.tilt').forEach(el=>{let raf=null;el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;if(raf)cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{el.style.transform=`perspective(1200px) rotateX(${(-py*6).toFixed(2)}deg) rotateY(${(px*8).toFixed(2)}deg)`;});});el.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);el.style.transform='none';});});
+    const c1=$('cur'),c2=$('cur2');c1.style.display=c2.style.display='block';let x=0,y=0,x2=0,y2=0;
+    addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY;c1.style.transform=`translate(${x}px,${y}px)`;});
+    (function loop(){x2+=(x-x2)*.18;y2+=(y-y2)*.18;c2.style.transform=`translate(${x2}px,${y2}px)`;requestAnimationFrame(loop);})();
+    document.querySelectorAll('a,button,input').forEach(el=>{el.addEventListener('mouseenter',()=>c2.classList.add('big'));el.addEventListener('mouseleave',()=>c2.classList.remove('big'));});
+  }
+
+  // Carruseles en celular
+  (function(){const arrow='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
+    if(innerWidth>768)return;
+    document.querySelectorAll('.bench,.cards3,.phases,.why,.steps,.pages,.svc').forEach(g=>{const n=g.children.length;if(n<3)return;g.classList.add('m-swipe');const h=document.createElement('div');h.className='swipe-hint';h.setAttribute('aria-hidden','true');h.innerHTML='<span>Desliza</span>'+arrow+'<span class="bar2"><i></i></span><b>1 / '+n+'</b>';g.parentNode.insertBefore(h,g);const bar=h.querySelector('i'),num=h.querySelector('b');bar.style.setProperty('--w',(100/n)+'%');g.addEventListener('scroll',()=>{const max=g.scrollWidth-g.clientWidth,p=max>0?g.scrollLeft/max:0,i=Math.round(p*(n-1));num.textContent=(i+1)+' / '+n;bar.style.setProperty('--x',(p*(n-1)*100)+'%');},{passive:true});});
+  })();
+
+  // Calculadora
+  const A=$('cA'),B=$('cB');
+  function calc(){[A,B].forEach(r=>r.style.setProperty('--p',((r.value-r.min)/(r.max-r.min)*100)+'%'));const u=A.value*B.value/100,pct=total/u*100;$('oA').textContent=cop(+A.value);$('oB').textContent=B.value+' %';$('outV').textContent=cop(u);$('outM').textContent=(pct<1?pct.toFixed(1).replace('.',','):Math.round(pct))+' %';$('outBar').style.width=Math.min(100,pct)+'%';}
+  [A,B].forEach(r=>r.addEventListener('input',calc));calc();
+
+  // Portada: planos que se vuelven edificio. Una red de nodos levanta un volumen piso a piso, en la grilla de NHU
+  (function(){
+    const cv=$('net'),ctx=cv.getContext('2d');let W=0,H2=0,Mb=false,s=null;const t0=performance.now(),mouse={x:-999,y:-999};
+    const rnd=i=>{const x=Math.sin(i*127.1)*43758.5453;return x-Math.floor(x)};
+    const NX=4,NZ=3,F=9;
+    function build(){const cx=Mb?W*.5:W*.72,base=Mb?262:H2*.84,u=Mb?20:Math.min(H2*.052,W*.03),fh=Mb?20:Math.min(H2*.062,W*.036);
+      const P=(i,j,f)=>({x:cx+(i-j)*u*1.7-(NX-NZ)*u*.85,y:base-f*fh+(i+j)*u*.98-(NX+NZ)*u*.49});
+      const nodes=[];for(let f=0;f<=F;f++)for(let i=0;i<=NX;i++)for(let j=0;j<=NZ;j++){const edge=i===0||i===NX||j===0||j===NZ;if(!edge)continue;nodes.push({i,j,f,...P(i,j,f)});}
+      const key=(i,j,f)=>i+'_'+j+'_'+f,map={};nodes.forEach((n,k)=>map[key(n.i,n.j,n.f)]=k);
+      const links=[];nodes.forEach((n,k)=>{[[1,0,0],[0,1,0],[0,0,1]].forEach(d=>{const m=map[key(n.i+d[0],n.j+d[1],n.f+d[2])];if(m!==undefined)links.push([k,m,d[2]===1]);});});
+      const ground=[];for(let i=-3;i<=NX+3;i++){ground.push([P(i,-3,0),P(i,NZ+3,0)]);}for(let j=-3;j<=NZ+3;j++){ground.push([P(-3,j,0),P(NX+3,j,0)]);}
+      const dust=Array.from({length:Mb?40:90},(_,i)=>({x:rnd(i)*W,y:rnd(i+99)*H2,r:rnd(i+7)*1.1+.3,a:rnd(i+3)*.2+.05}));
+      const verts=links.filter(l=>l[2]);
+      return{nodes,links,ground,dust,verts};}
+    function size(){const d=Math.min(devicePixelRatio||1,2);W=cv.offsetWidth;H2=cv.offsetHeight;Mb=innerWidth<769;cv.width=W*d;cv.height=H2*d;ctx.setTransform(d,0,0,d,0,0);s=build();}
+    size();addEventListener('resize',size);
+    cv.parentElement.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+    const LBL=['DISEÑO','CONSTRUCCIÓN','GERENCIA'];
+    function frame(now){const t=reduce?40:(now-t0)/1000;ctx.clearRect(0,0,W,H2);
+      s.dust.forEach(d=>{ctx.fillStyle='rgba(255,255,255,'+d.a+')';ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,7);ctx.fill();});
+      ctx.lineWidth=1;s.ground.forEach(g=>{ctx.strokeStyle='rgba(255,255,255,.05)';ctx.beginPath();ctx.moveTo(g[0].x,g[0].y);ctx.lineTo(g[1].x,g[1].y);ctx.stroke();});
+      const cyc=(F+5),lvl=reduce?F:Math.min(F,(t*1.1+4)%cyc);
+      const vis=n=>n.f<=lvl;
+      s.links.forEach(l=>{const a=s.nodes[l[0]],b=s.nodes[l[1]];if(!vis(a)||!vis(b))return;const mx=(a.x+b.x)/2,my=(a.y+b.y)/2,nm=Math.min(Math.hypot(mx-mouse.x,my-mouse.y),220);const top=Math.max(a.f,b.f)>=Math.floor(lvl);ctx.strokeStyle='rgba(232,0,10,'+((l[2]?.32:.22)+(220-nm)/220*.45+(top?.15:0))+')';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();});
+      s.nodes.forEach(p=>{if(!vis(p))return;const g=ctx.createRadialGradient(p.x,p.y,.5,p.x,p.y,9);g.addColorStop(0,'rgba(232,0,10,.3)');g.addColorStop(1,'rgba(232,0,10,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.x,p.y,9,0,7);ctx.fill();ctx.fillStyle='#E8000A';ctx.beginPath();ctx.arc(p.x,p.y,1.7,0,7);ctx.fill();});
+      if(!reduce){for(let k=0;k<6;k++){const l=s.verts[Math.floor(rnd(k*13+Math.floor(t/2.2))*s.verts.length)];const a=s.nodes[l[0]],b=s.nodes[l[1]];if(!vis(b))continue;const ph=((t*.9+k*.37)%1),x=a.x+(b.x-a.x)*ph,y=a.y+(b.y-a.y)*ph,g=ctx.createRadialGradient(x,y,0,x,y,10);g.addColorStop(0,'rgba(255,240,220,.85)');g.addColorStop(1,'rgba(232,0,10,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,10,0,7);ctx.fill();}}
+      if(!Mb){ctx.font='800 10px Barlow,sans-serif';ctx.textBaseline='middle';ctx.textAlign='left';const top=s.nodes.reduce((m,n)=>n.y<m.y?n:m,s.nodes[0]);
+        LBL.forEach((l,i)=>{const on=(Math.floor(t/1.6)%3)===i;ctx.fillStyle=on?'#E8000A':'rgba(255,255,255,.5)';ctx.fillText(l.split('').join(' '),Math.min(W-150,top.x+120),H2*.2+i*26);});}
+      if(!reduce)requestAnimationFrame(frame);}
+    requestAnimationFrame(frame);
+  })();
+})();</script>
+</body>
+</html>
