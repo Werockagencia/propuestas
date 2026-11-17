@@ -1,0 +1,139 @@
+/* Doña Lú · contenidos de lanzamiento: sistema editorial (tokens del manual de marca v3, paleta cerrada) */
+@font-face { font-family: 'Cormorant Garamond'; src: url(../brand/fonts/CormorantGaramond-VF.ttf) format('truetype'); font-weight: 300 700; font-style: normal; }
+@font-face { font-family: 'Cormorant Garamond'; src: url(../brand/fonts/CormorantGaramond-Italic-VF.ttf) format('truetype'); font-weight: 300 700; font-style: italic; }
+@font-face { font-family: 'Jost'; src: url(../brand/fonts/Jost-VF.ttf) format('truetype'); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: 'Jost'; src: url(../brand/fonts/Jost-Italic-VF.ttf) format('truetype'); font-weight: 100 900; font-style: italic; }
+
+:root {
+  --verde: #0F3B26;      /* Verde Doña Lú */
+  --bolsa: #173E2C;      /* Verde bolsa */
+  --kraft: #EBDFC8;      /* Kraft crema */
+  --crema: #F4EDE0;      /* Crema mesa */
+  --cafe: #5B3A23;       /* Café tostado */
+  --oro: #C9A45C;        /* Dorado cosecha */
+  --cereza: #9E2B25;     /* Rojo cereza: solo en la fruta */
+  --hoja: #4B5A3A;
+  --tierra: #A67C52;
+  --ink: #0F3B26;
+  --serif: 'Cormorant Garamond', Garamond, serif;
+  --sans: 'Jost', system-ui, sans-serif;
+  --m: 84px;             /* margen lateral */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .42 0 0 0 0 .3 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --paper: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035 .22' numOctaves='2' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .1 0 0 0 1.6 -.86'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #2a2a2a; }
+body { display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; font-family: var(--sans); -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; font-kerning: normal; }
+
+/* ---------- Lienzo ---------- */
+.slide { position: relative; width: 1080px; height: 1350px; overflow: hidden; color: var(--ink); background: var(--crema); flex: none; }
+.slide.story { height: 1920px; }
+.slide > * { position: absolute; }
+.bg-verde { background: var(--verde); color: var(--crema); }
+.bg-bolsa { background: var(--bolsa); color: var(--crema); }
+.bg-crema { background: var(--crema); }
+.bg-kraft { background: var(--kraft); color: var(--cafe); }
+.bg-cafe { background: #2B1C12; color: var(--crema); }
+/* papel: fibra del kraft y de la crema */
+.bg-crema::before, .bg-kraft::before { content: ""; position: absolute; inset: 0; background: var(--paper); opacity: .16; mix-blend-mode: multiply; z-index: 0; pointer-events: none; }
+.bg-kraft::before { opacity: .32; }
+.tx.mid { top: 150px; bottom: 150px; display: flex; flex-direction: column; justify-content: center; }
+.tx.c.mid { align-items: center; }
+/* grano de película sobre todo */
+.slide::after { content: ""; position: absolute; inset: 0; background: var(--grain); opacity: .16; mix-blend-mode: soft-light; pointer-events: none; z-index: 50; }
+.bg-verde::after, .bg-bolsa::after, .bg-cafe::after { opacity: .3; mix-blend-mode: overlay; }
+
+/* curvas de nivel (la ladera) */
+.topo { inset: -10%; width: 120%; height: 120%; color: rgba(244, 237, 224, .075); z-index: 0; }
+.topo use { stroke-width: 1.2px; }
+.topo.oro { color: rgba(201, 164, 92, .16); }
+.topo.ink { color: rgba(15, 59, 38, .07); }
+
+/* ---------- Cabecera y pie ---------- */
+.mast { left: var(--m); right: var(--m); top: 62px; display: flex; justify-content: space-between; align-items: center; font: 500 18px/1 var(--sans); letter-spacing: .28em; text-transform: uppercase; z-index: 20; }
+.mast::after { content: ""; position: absolute; left: 0; right: 0; top: 38px; height: 1px; background: currentColor; opacity: .28; }
+.mast b { font-weight: 500; }
+.mast .no { color: var(--oro); }
+.bg-crema .mast .no, .bg-kraft .mast .no { color: var(--tierra); }
+.foot { left: var(--m); right: var(--m); bottom: 58px; display: flex; justify-content: space-between; align-items: center; font: 500 18px/1 var(--sans); letter-spacing: .28em; text-transform: uppercase; z-index: 20; }
+.foot .fol { font: italic 400 30px/1 var(--serif); letter-spacing: .04em; text-transform: none; }
+.foot .sw { display: flex; align-items: center; gap: 16px; }
+.foot .sw svg { width: 46px; height: 14px; }
+.on-photo { color: var(--crema); }
+
+/* ---------- Tipografía ---------- */
+.k { font: 500 21px/1.2 var(--sans); letter-spacing: .3em; text-transform: uppercase; color: var(--oro); }
+.bg-crema .k, .bg-kraft .k { color: var(--tierra); }
+.d { font-family: var(--serif); font-weight: 300; line-height: .96; letter-spacing: -.012em; font-feature-settings: "liga", "dlig"; }
+.d em { font-style: italic; font-weight: 400; color: var(--oro); }
+.bg-crema .d em, .bg-kraft .d em, .crema-tx .d em { color: var(--cafe); }
+.x1 { font-size: 168px; } .x2 { font-size: 136px; } .x3 { font-size: 112px; } .x4 { font-size: 92px; } .x5 { font-size: 76px; } .x6 { font-size: 62px; }
+.p { font: 300 36px/1.42 var(--sans); letter-spacing: .005em; }
+.p.s { font-size: 31px; }
+.p b { font-weight: 500; }
+.it { font: italic 400 46px/1.25 var(--serif); }
+.rule { width: 64px; height: 1px; background: var(--oro); }
+.tx { left: var(--m); right: var(--m); z-index: 10; }
+.tx > * + * { margin-top: 34px; }
+.tx > .k + .d { margin-top: 30px; }
+.tx.c { text-align: center; }
+.tx.c .rule { margin-left: auto; margin-right: auto; }
+.cite { font: 500 19px/1.4 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: var(--oro); }
+.bg-crema .cite, .bg-kraft .cite { color: var(--tierra); }
+.q-mark { font: italic 300 260px/.6 var(--serif); color: var(--oro); }
+
+/* ---------- Fotografía: la luz Doña Lú ---------- */
+.ph { overflow: hidden; z-index: 1; background: #1d1a14; }
+.ph img { width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(.16) saturate(.86) contrast(1.07) brightness(1.03) hue-rotate(-5deg); }
+.ph::before { content: ""; position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(201,164,92,.14), rgba(107,78,52,.12)); mix-blend-mode: soft-light; pointer-events: none; }
+.ph::after { content: ""; position: absolute; inset: 0; z-index: 2; background: radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(30,20,10,.3) 100%); pointer-events: none; }
+.ph.raw img { filter: none; }            /* fotos de catálogo (kits): sin ajuste */
+.ph.raw::before, .ph.raw::after { display: none; }
+.full { inset: 0; }
+.shade-b { left: 0; right: 0; bottom: 0; height: 62%; z-index: 5; background: linear-gradient(180deg, rgba(10,33,21,0) 0%, rgba(10,33,21,.55) 38%, rgba(10,33,21,.93) 100%); }
+.shade-t { left: 0; right: 0; top: 0; height: 26%; z-index: 5; background: linear-gradient(0deg, rgba(10,33,21,0), rgba(10,33,21,.55)); }
+.shade-all { inset: 0; z-index: 5; background: rgba(10,33,21,.38); }
+.cap-ph { font: 500 16px/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: rgba(244,237,224,.8); z-index: 12; }
+
+/* marco editorial: foto con filete dorado */
+.framed { outline: 1px solid rgba(201,164,92,.55); outline-offset: 14px; }
+
+/* numeral gigante */
+.num { font: 300 560px/.78 var(--serif); color: var(--oro); letter-spacing: -.04em; z-index: 2; }
+.num.ghost { color: transparent; -webkit-text-stroke: 2px rgba(201,164,92,.55); }
+.bg-crema .num.ghost, .bg-kraft .num.ghost { -webkit-text-stroke: 2.5px rgba(166,124,82,.75); }
+.bg-crema .num, .bg-kraft .num { color: var(--tierra); }
+
+/* wordmark e isotipo */
+.wm { display: block; z-index: 10; }
+.iso { display: block; }
+
+/* código grano por grano */
+.beans { display: flex; gap: 18px; align-items: center; }
+.beans i { width: 26px; height: 34px; border: 2px solid var(--oro); border-radius: 50%; transform: rotate(20deg); display: block; }
+.beans i.on { background: var(--oro); }
+
+/* listas editoriales */
+.rows { list-style: none; }
+.rows li { display: grid; grid-template-columns: 210px 1fr; gap: 24px; padding: 26px 0; border-top: 1px solid rgba(201,164,92,.4); align-items: baseline; }
+.rows li:last-child { border-bottom: 1px solid rgba(201,164,92,.4); }
+.rows .k { font-size: 18px; }
+
+/* tachado con humor (pieza de voz) */
+.strike { text-decoration: line-through; text-decoration-color: var(--cereza); text-decoration-thickness: 5px; }
+
+/* etiqueta honesta para ilustraciones de empaque */
+.tag-ilu { font: 500 15px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; padding: 10px 14px; border: 1px solid currentColor; border-radius: 40px; opacity: .7; z-index: 20; }
+
+/* bolsas (SVG del manual) */
+.bag { display: block; overflow: visible; }
+
+/* historias: zonas seguras (arriba 250 px, abajo 340 px libres de texto clave) */
+.story .mast { top: 240px; }
+.story .foot { bottom: 300px; }
+.sticker { border: 2px dashed rgba(201,164,92,.75); border-radius: 26px; display: flex; align-items: center; justify-content: center; text-align: center; font: 500 18px/1.3 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: rgba(201,164,92,.95); z-index: 15; }
+.bg-crema .sticker, .bg-kraft .sticker { color: var(--tierra); border-color: rgba(166,124,82,.7); }
+
+.btnlike { display: inline-flex; align-items: center; gap: 18px; padding: 24px 40px; border-radius: 80px; background: var(--oro); color: var(--verde); font: 500 24px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; }
+.btnlike.ghost { background: transparent; color: var(--crema); border: 1.5px solid rgba(244,237,224,.6); }
+.slide.sq { height: 1080px; }

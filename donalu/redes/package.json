@@ -1,0 +1,16 @@
+{
+  "name": "dona-lu-contenidos-lanzamiento",
+  "private": true,
+  "type": "module",
+  "description": "Doña Lú Coffee: 12 contenidos de lanzamiento de marca para Instagram y Facebook (Nº 01 a Nº 12), 24 nov – 12 dic 2026.",
+  "scripts": {
+    "prep": "node scripts/prep-assets.mjs",
+    "build": "node scripts/build.mjs",
+    "render": "node scripts/render.mjs",
+    "preview": "node scripts/preview.mjs",
+    "grid": "node scripts/feed-grid.mjs",
+    "site": "node scripts/site.mjs",
+    "check": "node scripts/resolucion.mjs"
+  },
+  "devDependencies": { "puppeteer-core": "^23.0.0", "sharp": "^0.33.0" }
+}
