@@ -16,7 +16,7 @@ const METODO = {
 };
 const sig = (color = 'var(--crema)', t = 1110) => wm({ l: 390, t, w: 300, color });
 
-// Lámina de numeral (códigos, preparación)
+// Lámina de numeral (preparación)
 const numeral = (n, h, p, o = {}) => `${o.topo != null ? topo(o.topo) : ''}<div class="num${o.ghost ? ' ghost' : ''}" style="left:70px;top:${o.top ?? 150}px;font-size:${o.size ?? 520}px">${n}</div>
 ${tx({ b: o.b ?? 190 }, `${o.k ? `<div class="k">${o.k}</div>` : ''}<h2 class="d ${o.x || 'x4'}">${h}</h2>${p ? `<p class="p">${p}</p>` : ''}`)}`;
 
@@ -101,45 +101,42 @@ Guarde este post para cuando alguien le pregunte por qué un buen café vale lo 
   notas: ['Fijar como segunda publicación del perfil.', 'Los cuatro "honrar" vienen del concepto del manual (manos, tierra, tiempo, mesa).'],
 },
 
-// ───────────────────────────────── Nº 03 · Códigos de la casa
+// ───────────────────────────────── Nº 03 · Todo lo que hubo que cuidar (inventario de cuidados)
 '03': {
   slides: [
-    { bg: 'crema', html: `<div class="num ghost" style="right:40px;top:120px;font-size:900px;-webkit-text-stroke:2px rgba(166,124,82,.45)">7</div>
-      ${tx({ b: 190 }, `<div class="k">Doña Lú · la casa</div><h1 class="d x1">Toda casa tiene <em>sus códigos.</em></h1><p class="p">Siete que en la finca se cumplen, siempre.</p>`)}`,
-      alt: 'Fondo crema con un 7 gigante en filete. Texto: "Toda casa tiene sus códigos. Siete que en la finca se cumplen, siempre."' },
+    { bg: 'verde', photo: true, html: `${ph('caficultor-mesa.jpg', { pos: '50% 100%' })}<div class="shade-b" style="height:56%;background:linear-gradient(180deg,rgba(10,33,21,0) 0%,rgba(10,33,21,.78) 38%,rgba(10,33,21,.95) 100%)"></div><div class="shade-t"></div>
+      ${tx({ b: 190 }, `<div class="k">Un inventario de cuidados</div><h1 class="d x2" style="margin-top:24px">Todo lo que<br><em>hubo que cuidar.</em></h1>`)}`,
+      alt: 'Un caficultor con sombrero junto a una mesa servida en medio del cafetal. Texto: "Todo lo que hubo que cuidar."' },
     ...[
-      ['I', 'Solo se recogen los granos <em>maduros.</em>', 'Uno verde cambia la taza. Por eso se escoge grano por grano.'],
-      ['II', 'El secado <em>no se apura.</em>', 'El grano tiene que llegar a su humedad justa. Si se guarda antes, la recupera y pierde calidad.'],
-      ['III', 'A la gente se le muestra <em>con orgullo.</em>', 'Aquí no hay pobrecitos: hay conocimiento heredado.'],
-      ['IV', 'La finca <em>se comparte.</em>', 'Con monos aulladores, conejos y pájaros. Los invasores somos nosotros.'],
-      ['V', 'Un empaque para <em>los tres cafés.</em>', 'Lavado, Honey y Natural visten igual. Solo cambia la etiqueta.'],
-      ['VI', 'Del cultivo a su taza, <em>sin intermediarios.</em>', 'De la finca de la familia a su mesa.'],
-      ['VII', 'Aquí no se grita <em>“¡cómprelo ya!”.</em>', 'Le contamos lo que costó hacerlo. Usted decide.'],
-    ].map(([n, h, p], i) => ({ bg: ['verde', 'kraft', 'crema'][i % 3], html: numeral(n, h, p, { x: 'x2', size: n.length > 2 ? 560 : 680, top: 130, topo: i % 3 === 0 ? '' : null, ghost: i % 3 === 2 }),
-      alt: `Código ${n} de la casa, con el numeral romano grande. Texto: "${h.replace(/<[^>]+>/g, '')} ${p}"` })),
+      ['01', 'amanecer.jpg', '40% 50%', 'Se recoge antes de que <em>salga el sol.</em>', 'Silueta de una persona frente a las montañas al amanecer.'],
+      ['02', 'mano-cereza.jpg', '62% 50%', 'Solo las cerezas maduras, una por una. Recogerlas todas <em>daña la taza y la planta.</em>', 'Una mano escoge una cereza roja de la rama.'],
+      ['03', 'recolector-perfil.jpg', '50% 35%', 'Ocho meses entre la flor y <em>los primeros granos.</em>', 'Un recolector revisa las ramas cargadas de cerezas.'],
+      ['04', 'secado.jpg', '50% 55%', 'Se seca hasta la humedad exacta y se guarda <em>lejos del piso y de las paredes.</em>', 'Café secándose en la marquesina de la finca.'],
+      ['05', 'tostion.jpg', '50% 50%', 'Una curva de tostión para que aparezcan <em>sus aromas.</em>', 'Café recién tostado girando en la tostadora.'],
+      ['06', 'mesa-cafetal.jpg', '50% 40%', 'Alrededor, guaduales con monos aulladores. <em>Hasta pumas se han visto.</em>', 'Mesa servida en el cafetal, con el guadual al fondo.'],
+    ].map(([n, f, pp, line, a], i) => ({ bg: i % 2 ? 'crema' : 'verde', photoTop: true, html: `${ph(f, { l: 0, t: 0, w: 1080, h: 720, pos: pp })}<div class="shade-t" style="height:200px"></div>
+      <div class="num" style="left:66px;top:770px;font-size:230px;line-height:.8">${n}</div>
+      ${tx({ l: 400, t: 790 }, `<p class="d x5">${line}</p>`)}`,
+      alt: `${a} Numeral ${n}. Texto: "${line.replace(/<[^>]+>/g, '')}"` })),
+    { bg: 'verde', html: `${topo()}${tx({ mid: 1 }, `<h2 class="d x1">No vendemos café.</h2><p class="it" style="color:var(--oro);font-size:62px">Compartimos todo lo que hubo que cuidar para que exista.</p><div class="cite">Manifiesto de Doña Lú</div>`, 'c')}`,
+      alt: 'Cierre en verde: "No vendemos café. Compartimos todo lo que hubo que cuidar para que exista." Manifiesto de Doña Lú.' },
   ],
-  caption: `Toda casa tiene sus códigos. Estos son los de Doña Lú:
+  caption: `Todo lo que hubo que cuidar.
 
-I. Solo se recogen los granos maduros.
-II. El secado no se apura.
-III. A la gente se le muestra con orgullo.
-IV. La finca se comparte (los invasores somos nosotros).
-V. Un empaque para los tres cafés.
-VI. Del cultivo a su taza, sin intermediarios.
-VII. Aquí no se grita "¡cómprelo ya!".
+Se recoge antes de que salga el sol. Solo las cerezas maduras, una por una. Ocho meses entre la flor y los primeros granos. Un secado hasta la humedad exacta. Una curva de tostión para que aparezcan sus aromas. Y alrededor, guaduales con monos aulladores.
 
-¿Cuál le sorprendió más? Lo leemos en los comentarios.`,
-  corto: 'Siete códigos que en la finca se cumplen, siempre.',
-  hashtags: '#DoñaLúCoffee #CaféQueSeHonra #CaféDeColombia #CaféDeOrigen #CaféDeEspecialidadColombiano #EjeCafetero',
-  notas: ['Fijar como tercera publicación del perfil.', 'Código II sale del texto de Diana (humedad del secado). Código VI usa la frase "Del cultivo a tu taza. Sin intermediarios." del informe integral: validar que hoy todo el café vendido es de la finca familiar.'],
+No vendemos café. Compartimos todo lo que hubo que cuidar para que exista.`,
+  corto: 'Un inventario de lo que hubo que cuidar antes de su taza.',
+  hashtags: '#DoñaLúCoffee #CaféQueSeHonra #CaféDeColombia #CaféDeOrigen #CaféDeFinca #EjeCafetero',
+  notas: ['Fijar como tercera publicación del perfil.', 'Cada cuidado sale del texto de Diana ("qué significa este café para ti.pdf"): recolección antes del amanecer; solo los granos maduros (recoger todos daña la taza y la planta); 8 meses desde la flor hasta los granos; humedad exacta del secado y almacenamiento sin tocar piso ni paredes; curvas de tostión para resaltar aromas y sabores; guaduales con monos aulladores y pumas avistados. El cierre es la última línea del MANIFIESTO DE MARCA.pdf.', 'Validar que la foto de la tostión es de su proceso (o de su tostador aliado).'],
 },
 
-// ───────────────────────────────── Nº 04 · Una bolsa, tres cafés
+// ───────────────────────────────── Nº 04 · Limpio, dulce o frutal. La misma finca.
 '04': {
   slides: [
-    { bg: 'verde', html: `${topo()}${tx({ t: 150 }, `<div class="k">Nuevo empaque</div><h1 class="d x2">Una bolsa.<br><em>Tres cafés.</em></h1>`)}
-      ${bagAt('front', 'lavado', { l: 330, t: 530, w: 430 })}`,
-      alt: 'Ilustración del nuevo empaque Doña Lú: bolsa kraft crema con fuelles verdes, wordmark café y rama con cerezas. Texto: "Una bolsa. Tres cafés."' },
+    { bg: 'verde', html: `${topo()}${tx({ t: 150 }, `<div class="k">Lavado · Honey · Natural</div><h1 class="d" style="font-size:104px;margin-top:24px">Limpio, dulce o frutal.<br><em>La misma finca.</em></h1><p class="p" style="margin-top:22px">Una sola bolsa; cambia la etiqueta.</p>`)}
+      ${bagAt('front', 'lavado', { l: 340, t: 540, w: 400 })}`,
+      alt: 'Ilustración del nuevo empaque Doña Lú: bolsa kraft crema con fuelles verdes, wordmark café y rama con cerezas. Texto: "Limpio, dulce o frutal. La misma finca. Una sola bolsa; cambia la etiqueta."' },
     { bg: 'crema', html: `${tx({ t: 150 }, `<h2 class="d x4">Lavado, Honey y Natural ahora <em>visten igual.</em></h2><p class="p s">Kraft crema, el verde de la finca y la rama con cerezas.</p>`)}
       ${bagAt('front', 'lavado', { l: 36, t: 600, w: 336 })}${bagAt('front', 'honey', { l: 372, t: 600, w: 336 })}${bagAt('front', 'natural', { l: 708, t: 600, w: 336 })}`,
       alt: 'Ilustración de las tres bolsas iguales, una junto a otra: Lavado, Honey y Natural. Texto: "Lavado, Honey y Natural ahora visten igual."' },
@@ -155,11 +152,13 @@ VII. Aquí no se grita "¡cómprelo ya!".
     { bg: 'verde', html: `${topo()}${bagAt('side', 'natural', { l: 215, t: 180, w: 165 })}${bagAt('front', 'natural', { l: 405, t: 180, w: 460 })}
       ${tx({ b: 190 }, `<h2 class="d x3">Cambia el proceso. <em>El cuidado es el mismo.</em></h2>`, 'c')}`,
       alt: 'Ilustración del fuelle verde (Personas, Tierra, Proceso, Café) y el frente de la bolsa Natural. Texto: "Cambia el proceso. El cuidado es el mismo."' },
-    { story: true, bg: 'verde', file: 'historia', html: `${topo()}${tx({ t: 340 }, `<div class="k">Nuevo empaque</div><h1 class="d x2">Una bolsa.<br><em>Tres cafés.</em></h1>`, 'c')}
-      ${bagAt('front', 'honey', { l: 300, t: 720, w: 480 })}`,
-      alt: 'Historia: ilustración de la bolsa Honey sobre verde. "Una bolsa. Tres cafés."' },
+    { story: true, bg: 'verde', file: 'historia', html: `${topo()}${tx({ t: 340 }, `<div class="k">Lavado · Honey · Natural</div><h1 class="d" style="font-size:100px;margin-top:24px">Limpio, dulce o frutal.<br><em>La misma finca.</em></h1><p class="p" style="margin-top:22px">Una sola bolsa; cambia la etiqueta.</p>`, 'c')}
+      ${bagAt('front', 'honey', { l: 310, t: 720, w: 460 })}`,
+      alt: 'Historia: la bolsa Honey sobre verde. "Limpio, dulce o frutal. La misma finca."' },
   ],
-  caption: `Una bolsa. Tres cafés.
+  caption: `Limpio, dulce o frutal. La misma finca.
+
+Una sola bolsa; cambia la etiqueta.
 
 Lavado, Honey y Natural ahora visten igual: kraft crema, el verde de la finca y la rama con cerezas.
 Lo único que cambia es la banda de abajo: el nombre del proceso, su ícono dorado y el código grano por grano (uno, dos o tres granos).
@@ -410,38 +409,40 @@ Cómo funciona:
   notas: ['Programa definido en el manual v3 (capítulo Casas que honran y respuesta modelo de WhatsApp).', 'Validar antes de publicar: que llevan muestras y catan con el equipo; que la bolsa de 2,5 kg es el formato para negocios; si el hablador con QR y el sello de puerta ya existen (si no, quitar la lámina 5 o decir "próximamente"); zonas que atienden.', 'Historia: sticker de enlace a WhatsApp (wa.me/573224702667) en el área libre debajo del texto.', 'Si quieren, nombrar las casas actuales (Cajicá, Sopó, Tienda Balsa en Bogotá según el Resumen Maestro) con su permiso.'],
 },
 
-// ───────────────────────────────── Nº 11 · Voz con humor fino
+// ───────────────────────────────── Nº 11 · Este se quedó en casa (cierre del lanzamiento)
 '11': {
   slides: [
-    { bg: 'kraft', html: `${tx({ t: 230 }, `<div class="k">Doña Lú · la voz de la casa</div><h1 class="d x1">Cosas que nunca le vamos <em>a decir.</em></h1><p class="it" style="font-size:50px">(Y lo que decimos en su lugar.)</p>`)}
-      <img src="../../assets/brand/rama.png" alt="" style="position:absolute;right:-30px;bottom:100px;width:340px;z-index:1">`,
-      alt: 'Papel kraft con rama de café. Texto: "Cosas que nunca le vamos a decir. Y lo que decimos en su lugar."' },
+    { bg: 'verde', photoTop: true, html: `${ph('willys.jpg', { l: 0, t: 0, w: 1080, h: 720, pos: '50% 60%' })}<div class="shade-t" style="height:200px"></div>
+      <div style="position:absolute;left:0;right:0;top:420px;height:300px;z-index:5;background:linear-gradient(180deg,rgba(15,59,38,0),var(--verde))"></div>
+      ${tx({ b: 190 }, `<div class="k">Doña Lú · cierre</div><h1 class="d x1" style="margin-top:24px">Este se quedó <em>en casa.</em></h1>`)}`,
+      alt: 'Un Willys rojo junto al cafetal de la finca, con un caficultor de sombrero. Texto: "Este se quedó en casa."' },
     ...[
-      ['¡Compre ya! 20 % OFF solo por hoy.', 'Escríbanos y le contamos qué café va con usted.'],
-      ['Café premium de calidad exquisita y sabor único.', 'Un buen café no se acelera.'],
-      ['Notas complejas para paladares exigentes.', 'Este Honey se secó con la miel de su propio grano. Por eso es dulce y tiene cuerpo.'],
-      ['Apoye a nuestros humildes campesinos que lo dan todo.', 'Recoger es decidir: solo entran los granos maduros, uno por uno.'],
-      ['Somos una empresa 100 % comprometida con la excelencia.', 'De Arabia, Risaralda, a su mesa.'],
-    ].map(([no, si], i) => ({ bg: 'crema', html: `${tx({ t: 190 }, `<div class="k">Nunca va a oír</div><p class="d x3" style="color:rgba(15,59,38,.6)"><span class="strike">“${no}”</span></p>`)}
-      <div style="position:absolute;left:0;right:0;bottom:0;height:620px;background:var(--verde);z-index:3;overflow:hidden">${topo()}</div>
-      ${tx({ t: 800 }, `<div class="k">Aquí decimos</div><p class="d ${si.length > 50 ? 'x4' : 'x3'}"><em style="color:var(--oro)">${si}</em></p>`)}`, footLight: true,
-      alt: `Frase tachada: "${no}". Debajo, en verde, lo que dice Doña Lú: "${si}"` })),
-    { bg: 'verde', html: `${topo()}${tx({ t: 330 }, `<h2 class="d x1">Hablamos poco. <em>El café dice el resto.</em></h2>`, 'c')}${sig('var(--crema)', 1020)}`,
-      alt: 'Cierre: "Hablamos poco. El café dice el resto." Wordmark Doña Lú, Café que se honra.' },
+      ['crema', 'recolector-cafetal.jpg', '50% 45%', 'Del café de Colombia, el mejor suele irse lejos. <em>Aquí se queda la pasilla.</em>', 'Un recolector entre las matas de café con su recipiente de cerezas.'],
+      ['verde', 'cerezas-manos.jpg', '50% 40%', 'Este se recogió maduro, se secó sin prisa y se tostó con cuidado. <em>Y se quedó.</em>', 'Manos con una batea de cerezas recién recogidas.'],
+      ['crema', 'mesa-cafetal.jpg', '50% 55%', 'Se queda en <em>sus mañanas.</em>', 'Una mesa con mantel blanco servida en medio del cafetal.'],
+    ].map(([bg, f, pp, line, a]) => ({ bg, photoTop: true, html: `${ph(f, { l: 0, t: 0, w: 1080, h: 720, pos: pp })}<div class="shade-t" style="height:200px"></div>
+      ${tx({ b: 190 }, `<p class="d ${line.length > 60 ? 'x4' : 'x3'}">${line}</p>`)}`,
+      alt: `${a} Texto: "${line.replace(/<[^>]+>/g, '')}"` })),
+    { bg: 'verde', html: `${topo()}${ph('kit-07-mesa.jpg', { l: 210, t: 140, w: 660, h: 660, raw: true, cls: 'framed' })}
+      ${tx({ b: 190 }, `<p class="d x3">En un regalo <em>de Navidad.</em></p>`)}`,
+      alt: 'Caja de madera con tres bolsas de café Doña Lú sobre una mesa de regalos verde. Texto: "En un regalo de Navidad."' },
+    { bg: 'crema', html: `<div style="position:absolute;left:150px;right:150px;top:760px;height:60px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(43,28,18,.45),transparent 70%);filter:blur(10px);z-index:2"></div>
+      <img src="../../assets/photos/empaque-trio.webp" alt="" style="position:absolute;left:120px;top:190px;width:840px;z-index:3">
+      ${tx({ b: 190 }, `<p class="d x3">Y en las casas que <em>lo sirven.</em></p><p class="p s">Restaurantes, hoteles y oficinas: Casas que honran.</p>`)}`,
+      alt: 'Las tres bolsas Doña Lú: Lavado, Honey y Natural. Texto: "Y en las casas que lo sirven. Restaurantes, hoteles y oficinas: Casas que honran."' },
+    { bg: 'verde', html: `${topo()}${wm({ l: 240, t: 360, w: 600, color: 'var(--crema)' })}
+      ${tx({ t: 640 }, `<div class="k">Café que se honra</div><div class="rule" style="margin-top:34px"></div><p class="p" style="margin-top:34px">Pedidos por WhatsApp</p><p class="d x3" style="margin-top:10px;color:var(--oro)">(322) 470 2667</p>`, 'c')}`,
+      alt: 'Cierre en verde: wordmark Doña Lú, "Café que se honra". Pedidos por WhatsApp (322) 470 2667.' },
   ],
-  caption: `Cosas que nunca le vamos a decir (y lo que decimos en su lugar). 😌
+  caption: `Este se quedó en casa.
 
-"¡Compre ya! 20 % OFF solo por hoy." → Escríbanos y le contamos qué café va con usted.
-"Café premium de sabor único." → Un buen café no se acelera.
-"Notas complejas para paladares exigentes." → Este Honey se secó con la miel de su propio grano.
-"Apoye a nuestros humildes campesinos." → Recoger es decidir.
+Del café de Colombia, el mejor suele irse lejos. Este se recogió maduro, se secó sin prisa, se tostó con cuidado y se quedó aquí: en sus mañanas, en un regalo de Navidad y en las casas que lo sirven.
 
-Hablamos poco. El café dice el resto.
-
-¿Cuál frase de café ya no quiere volver a leer? Cuéntenos.`,
-  corto: 'Las frases de siempre del café, tachadas, y lo que Doña Lú dice en su lugar.',
-  hashtags: '#DoñaLúCoffee #CaféQueSeHonra #CaféDeColombia #CaféDeOrigen #AmantesDelCafé',
-  notas: ['Pares "Evitamos / Decimos" del capítulo Tono del manual v3. El tachón usa rojo cereza como detalle mínimo.', 'Cierra el lanzamiento: después del 11 dic, la parrilla de enero continúa con Dr. Bean y la finca.'],
+Doña Lú · Café que se honra.
+Pedidos por WhatsApp: (322) 470 2667`,
+  corto: 'Este se quedó en casa: en sus mañanas, en sus regalos y en las Casas que honran.',
+  hashtags: '#DoñaLúCoffee #CaféQueSeHonra #CaféDeColombia #CaféDeOrigen #RegalosDeNavidad #CasasQueHonran',
+  notas: ['Fuente: "qué significa este café para ti.pdf" (Diana): en Colombia "nos comemos la pasilla y vendemos el café realmente en el exterior". Se dice con orgullo, sin cifras ni ataques a nadie.', 'Validar con Diana que está cómoda con la observación sobre la exportación y la pasilla.', 'No se nombra "Finca Danubio": Danubio sigue sin confirmar como nombre de finca o de lote.', 'Cierra el lanzamiento. Las bolsas de la lámina 6 son el render del empaque único (uso interno, sin rótulo).'],
 },
 
 // ───────────────────────────────── Nº 12 · Historias + destacadas

@@ -35,29 +35,25 @@ Guarde este post para cuando alguien le pregunte por qué un buen café vale lo 
 
 ---
 
-## Nº 03 · Los códigos de la casa
+## Nº 03 · Todo lo que hubo que cuidar
 *lunes, 23 de noviembre · 7:20 p. m. · Carrusel de 8 (1080×1350)*
 
-Toda casa tiene sus códigos. Estos son los de Doña Lú:
+Todo lo que hubo que cuidar.
 
-I. Solo se recogen los granos maduros.
-II. El secado no se apura.
-III. A la gente se le muestra con orgullo.
-IV. La finca se comparte (los invasores somos nosotros).
-V. Un empaque para los tres cafés.
-VI. Del cultivo a su taza, sin intermediarios.
-VII. Aquí no se grita "¡cómprelo ya!".
+Se recoge antes de que salga el sol. Solo las cerezas maduras, una por una. Ocho meses entre la flor y los primeros granos. Un secado hasta la humedad exacta. Una curva de tostión para que aparezcan sus aromas. Y alrededor, guaduales con monos aulladores.
 
-¿Cuál le sorprendió más? Lo leemos en los comentarios.
+No vendemos café. Compartimos todo lo que hubo que cuidar para que exista.
 
-#DoñaLúCoffee #CaféQueSeHonra #CaféDeColombia #CaféDeOrigen #CaféDeEspecialidadColombiano #EjeCafetero
+#DoñaLúCoffee #CaféQueSeHonra #CaféDeColombia #CaféDeOrigen #CaféDeFinca #EjeCafetero
 
 ---
 
-## Nº 04 · Una bolsa. Tres cafés.
+## Nº 04 · Limpio, dulce o frutal. La misma finca.
 *miércoles, 25 de noviembre · 7:00 p. m. · Carrusel de 6 (1080×1350) + 1 historia (1080×1920)*
 
-Una bolsa. Tres cafés.
+Limpio, dulce o frutal. La misma finca.
+
+Una sola bolsa; cambia la etiqueta.
 
 Lavado, Honey y Natural ahora visten igual: kraft crema, el verde de la finca y la rama con cerezas.
 Lo único que cambia es la banda de abajo: el nombre del proceso, su ícono dorado y el código grano por grano (uno, dos o tres granos).
@@ -173,21 +169,17 @@ Cómo funciona:
 
 ---
 
-## Nº 11 · Lo que nunca va a oír aquí
+## Nº 11 · Este se quedó en casa.
 *viernes, 11 de diciembre · 7:00 p. m. · Carrusel de 7 (1080×1350)*
 
-Cosas que nunca le vamos a decir (y lo que decimos en su lugar). 😌
+Este se quedó en casa.
 
-"¡Compre ya! 20 % OFF solo por hoy." → Escríbanos y le contamos qué café va con usted.
-"Café premium de sabor único." → Un buen café no se acelera.
-"Notas complejas para paladares exigentes." → Este Honey se secó con la miel de su propio grano.
-"Apoye a nuestros humildes campesinos." → Recoger es decidir.
+Del café de Colombia, el mejor suele irse lejos. Este se recogió maduro, se secó sin prisa, se tostó con cuidado y se quedó aquí: en sus mañanas, en un regalo de Navidad y en las casas que lo sirven.
 
-Hablamos poco. El café dice el resto.
+Doña Lú · Café que se honra.
+Pedidos por WhatsApp: (322) 470 2667
 
-¿Cuál frase de café ya no quiere volver a leer? Cuéntenos.
-
-#DoñaLúCoffee #CaféQueSeHonra #CaféDeColombia #CaféDeOrigen #AmantesDelCafé
+#DoñaLúCoffee #CaféQueSeHonra #CaféDeColombia #CaféDeOrigen #RegalosDeNavidad #CasasQueHonran
 
 ---
 

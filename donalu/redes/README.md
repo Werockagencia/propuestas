@@ -20,10 +20,10 @@ El concepto ya estaba en las palabras de la familia: *“No vendemos café. Comp
 
 | Cap. | Línea madre | Piezas |
 |---|---|---|
-| I · Lo que hubo que cuidar | Qué es Doña Lú y qué quiere decir “Café que se honra” | Nº 01 Manifiesto · Nº 02 Café que se honra, explicado · Nº 03 Los códigos de la casa |
-| II · Tres maneras de tomarlo | Un empaque para los tres procesos: cambia la etiqueta, no el cuidado | Nº 04 Una bolsa, tres cafés · Nº 05 Guía Lavado, Honey, Natural · Nº 06 Los tres, en una caja (puente a Navidad) |
+| I · Lo que hubo que cuidar | Qué es Doña Lú y qué quiere decir “Café que se honra” | Nº 01 Manifiesto · Nº 02 Café que se honra, explicado · Nº 03 Todo lo que hubo que cuidar (inventario de cuidados) |
+| II · Tres maneras de tomarlo | Un empaque para los tres procesos: cambia la etiqueta, no el cuidado | Nº 04 Limpio, dulce o frutal. La misma finca. · Nº 05 Guía Lavado, Honey, Natural · Nº 06 Los tres, en una caja (puente a Navidad) |
 | III · Quienes lo hacen | La finca y su gente, con admiración | Nº 07 Los invasores somos nosotros (la finca) · Nº 08 Aquí no hay pobrecitos (gente y recolección) |
-| IV · Su mesa | Cómo prepararlo, a quién servírselo, cómo habla la casa | Nº 09 Un buen café no se acelera (preparación) · Nº 10 Casas que honran · Nº 11 Lo que nunca va a oír aquí (voz con humor) |
+| IV · Su mesa | Cómo prepararlo, a quién servírselo y dónde se queda | Nº 09 Un buen café no se acelera (preparación) · Nº 10 Casas que honran · Nº 11 Este se quedó en casa. (cierre) |
 | Historias | El camino corto a pedir | Nº 12 Cuatro historias (web, WhatsApp, preguntas, tienda) + 5 portadas de destacadas |
 
 ## Calendario (fuente única: `scripts/plan.mjs`)
@@ -47,9 +47,13 @@ El concepto ya estaba en las palabras de la familia: *“No vendemos café. Comp
 
 **Biografía sugerida** (del manual): *Doña Lú · Café que se honra / De Arabia, Risaralda, a su mesa. / Lavado · Honey · Natural. Grano por grano. / Pedidos y Casas que honran por WhatsApp*. Enlace: wa.me/573224702667 hasta que la tienda de donalu.com.co esté publicada.
 
+## Tono
+
+Elegante, premium y contenido para el comprador de 30 a 55 años de Bogotá y la Sabana: hechos concretos, una foto y una línea por lámina, sin adjetivos de relleno, sin humor, sin frases tachadas ni listas de reglas. Los hechos salen solo de los textos de la familia (manifiesto, historia fundacional y “qué significa este café para ti”).
+
 ## Sistema visual
 
-Del manual de marca v3 con la paleta cerrada del empaque único (`../EMPAQUE-UNICO.md`): verde #0F3B26, verde bolsa #173E2C, kraft #EBDFC8, crema #F4EDE0, café tostado #5B3A23, dorado #C9A45C; rojo cereza #9E2B25 solo en la fruta y el tachón de la pieza de voz. **Cormorant Garamond** (voz, títulos, itálica dorada para la palabra clave) y **Jost** (datos, mayúsculas espaciadas), descargadas de google/fonts en `assets/brand/fonts/` (licencia OFL incluida).
+Del manual de marca v3 con la paleta cerrada del empaque único (`../EMPAQUE-UNICO.md`): verde #0F3B26, verde bolsa #173E2C, kraft #EBDFC8, crema #F4EDE0, café tostado #5B3A23, dorado #C9A45C; rojo cereza #9E2B25 solo en la fruta. **Cormorant Garamond** (voz, títulos, itálica dorada para la palabra clave) y **Jost** (datos, mayúsculas espaciadas), descargadas de google/fonts en `assets/brand/fonts/` (licencia OFL incluida).
 
 Recursos: masthead *Doña Lú · Nº XX* + capítulo, folio, “Desliza”, curvas de nivel de la ladera, isotipo Lú, wordmark, código grano por grano, íconos de proceso (gota, panal, cerezas), rama en grabado del catálogo, grano de película y **la luz Doña Lú** (el ajuste de color del manual) sobre todas las fotos de la finca. Tres layouts alternados: foto a sangre, foto arriba con texto abajo y tipográfico con numeral gigante. Las bolsas son el SVG del manual (`scripts/lib/bag.cjs`). Por regla de David no llevan rótulo de “ejemplo” ni “ilustración” en las láminas; el caption del Nº 04 dice “Así se ve el nuevo empaque” y nunca las presenta como foto. Las historias salen limpias: la posición de cada sticker va en las notas de `copy.md`.
 
@@ -71,7 +75,8 @@ Fotos: reales de la finca (las del manual) y de los kits con el tratamiento nuev
 - [ ] **Origen:** la bolsa dice “Café de Colombia”; las piezas dicen finca de familia en **Arabia, Risaralda** (Nº 07, 10, 11, 12). Confirmar que se puede decir así (antes las bolsas decían “del Valle y del Eje Cafetero”).
 - [ ] **Nº 07:** “hace unos tres años” se volvió a sembrar; “la tierra donde nació la familia”; que el Willys es de la finca. No se mencionan el desplazamiento ni el terremoto (decisión de la familia).
 - [ ] **Nº 08:** nombre y permiso de cada persona que sale en las fotos (si quieren, nombrarlos en el caption).
-- [ ] **Nº 03 código VI:** “sin intermediarios”: que hoy todo el café vendido es de la finca familiar (al inicio se vendió café Linares).
+- [ ] **Nº 03:** que la foto de la tostión es de su proceso o de su tostador aliado.
+- [ ] **Nº 11:** que Diana está cómoda con la observación de que el mejor café de Colombia suele irse al exterior y aquí se queda la pasilla (sale de su propio texto). No se nombra “Finca Danubio” hasta confirmar si Danubio es finca o lote.
 - [ ] **Nº 05:** que los tres procesos se venden en grano y molido.
 - [ ] **Nº 06:** fecha límite de pedidos de Navidad y cobertura de envío (agregar al caption); enlace de la historia (landing de kits o WhatsApp).
 - [ ] **Nº 09:** medida (10 g por 180 ml) y temperatura (92 °C) con quien tuesta.
