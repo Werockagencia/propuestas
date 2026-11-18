@@ -48,6 +48,7 @@ section .m{color:var(--muted);font-size:15px;margin:0 0 18px;line-height:1.5}
 .sl{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px 16px;margin-top:12px}
 .sl label{font-size:13px;font-weight:700;display:flex;flex-direction:column;gap:6px}
 .sl input{accent-color:var(--or);width:100%}
+.sl[hidden]{display:none}
 .acts{display:flex;flex-wrap:wrap;gap:12px}
 .acts button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;color:#fff;background:var(--or);font-weight:700;font-size:15px;padding:12px 20px;border-radius:30px}
 .acts button.sec{background:transparent;border:2px solid rgba(255,255,255,.35);padding:10px 18px}
@@ -60,7 +61,7 @@ section .m{color:var(--muted);font-size:15px;margin:0 0 18px;line-height:1.5}
 .pv .fr{width:100%;overflow:hidden;border-radius:6px;box-shadow:0 20px 40px rgba(0,0,0,.35);background:#000}
 .pv .sc{transform-origin:0 0}
 .pv p{color:var(--muted);font-size:13px;margin:10px 0 0}
-@media (max-width:900px){.ed{grid-template-columns:1fr}.pv{position:static;order:-1;max-width:460px}}
+@media (max-width:900px){.ed{grid-template-columns:minmax(0,1fr)}.pv{position:static;order:-1;max-width:460px}}
 /* galería */
 .g{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end}
 .g button{all:unset;cursor:zoom-in;display:flex;flex-direction:column;gap:8px;min-width:0}
@@ -71,6 +72,48 @@ section .m{color:var(--muted);font-size:15px;margin:0 0 18px;line-height:1.5}
 .tall img{height:400px;width:auto}
 @media (max-width:700px){.tall img{height:280px}}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40px}
+/* ---------- UX v2: pasos, plantillas con miniatura, fotos con pestañas y subida ---------- */
+.grp{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:16px;padding:18px}
+.grp h3{display:flex;align-items:center;gap:10px}
+.grp h3 i{font-style:normal;display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--or);color:#fff;font-size:13px;letter-spacing:0}
+.tp-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tp-g button{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:8px;min-width:0;border-radius:12px;padding:8px;border:2px solid transparent;background:rgba(255,255,255,.04)}
+.tp-g img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 0;border-radius:8px}
+.tp-g b{font-size:14px;line-height:1.2}
+.tp-g small{display:block;color:var(--muted);font-size:12px;font-weight:500;margin-top:2px}
+.tp-g button[aria-pressed=true]{border-color:var(--or);background:rgba(238,128,35,.12)}
+.tp-g button:focus-visible,.fm-g button:focus-visible,.tabs button:focus-visible,.up:focus-within{outline:3px solid #fff;outline-offset:2px}
+.fm-g{display:flex;gap:12px;flex-wrap:wrap}
+.fm-g button{all:unset;cursor:pointer;display:flex;align-items:center;gap:14px;border:2px solid rgba(255,255,255,.22);border-radius:14px;padding:12px 18px}
+.fm-g button span.sh{display:block;width:30px;border:3px solid currentColor;border-radius:4px;opacity:.85}
+.fm-g button b{display:block;font-size:15px}.fm-g button small{display:block;color:var(--muted);font-size:12px}
+.fm-g button[aria-pressed=true]{background:var(--or);border-color:var(--or)}.fm-g button[aria-pressed=true] small{color:#fff}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.tabs button{all:unset;cursor:pointer;font-size:13px;font-weight:700;padding:7px 14px;border-radius:20px;background:rgba(255,255,255,.08);color:#dfe8e1}
+.tabs button[aria-pressed=true]{background:#fff;color:var(--bosque)}
+.tabs button em{font-style:normal;opacity:.6;margin-left:5px;font-weight:500}
+.ph-g{grid-template-columns:repeat(auto-fill,minmax(118px,1fr));max-height:430px;overflow:auto;padding:2px 4px 2px 2px}
+.ph-g .it{position:relative}
+.ph-g .del{all:unset;cursor:pointer;position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;background:rgba(0,0,0,.65);color:#fff;display:grid;place-items:center;font-size:15px;line-height:1}
+.up{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;aspect-ratio:4/3;border:2px dashed rgba(255,255,255,.4);border-radius:8px;color:#fff;font-size:12.5px;font-weight:700;text-align:center;padding:6px;cursor:pointer}
+.up svg{width:28px;height:28px;fill:var(--or)}
+.up input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.up.drag,.drop .up{border-color:var(--or);background:rgba(238,128,35,.15)}
+.tip{font-size:13px;color:var(--muted);margin:10px 0 0;line-height:1.45}
+.tip b{color:#fff}
+.pv .fr{cursor:grab;touch-action:none;position:relative}
+.pv .fr.grab{cursor:grabbing}
+.pv .hint{position:absolute;left:50%;top:26%;transform:translateX(-50%);background:rgba(0,0,0,.6);color:#fff;font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px;pointer-events:none;white-space:nowrap;z-index:2;transition:opacity .3s}
+.pv .fr:hover .hint{opacity:0}
+.pv .pacts{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.pv .pacts button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;background:var(--or);color:#fff;font-weight:700;font-size:15px;padding:12px 20px;border-radius:30px}
+.pv .pacts button.sec{background:transparent;border:2px solid rgba(255,255,255,.35);padding:10px 16px;font-size:14px}
+.pv .pacts button[disabled]{opacity:.55;cursor:progress}
+.pv .pacts svg{width:16px;height:16px;fill:#fff}
+.zm{display:flex;align-items:center;gap:12px;margin-top:12px;font-size:13px;font-weight:700}
+.zm input{flex:1;accent-color:var(--or)}
+.zm button{all:unset;cursor:pointer;font-size:13px;font-weight:700;padding:6px 12px;border-radius:16px;border:1px solid rgba(255,255,255,.3)}
+@media (max-width:600px){.grp{padding:14px}.tp-g{gap:8px}.tp-g button{padding:5px}.tp-g b{font-size:12.5px}.tp-g small{display:none}.fm-g button{padding:10px 12px;gap:10px}}
 .lb{position:fixed;inset:0;background:rgba(8,14,10,.97);display:flex;flex-direction:column;z-index:10}
 .lb[hidden]{display:none}
 .lb .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px}
@@ -199,19 +242,21 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
 <div class="how"><ol>
 <li><b><span>1</span>Elige la plantilla y el formato</b>Post para el feed (1080 × 1350) o historia (1080 × 1920).</li>
 <li><b><span>2</span>Cambia los textos</b>Nombre de la feria, fechas, lugar, stand… La vista previa se actualiza sola. Si dejas un campo vacío, ese elemento desaparece de la pieza.</li>
-<li><b><span>3</span>Escoge la foto (opcional)</b>Elige entre las fotos del proyecto y ajusta el encuadre con las barras.</li>
+<li><b><span>3</span>Escoge o sube la foto</b>Hay 20 fotos del proyecto, el apartamento modelo y familias. También puedes subir las tuyas: quedan en «Mis fotos». Arrastra la foto en la vista previa para encuadrarla.</li>
 <li><b><span>4</span>Descarga</b>Toca «Descargar PNG». Teléfonos, web, áreas y nota legal ya vienen fijos y no se tocan.</li>
 </ol></div>
 <main>
 <section><h2>Editor</h2><p class="m">Los cambios se guardan en este navegador. Los textos de ejemplo (nombre de la feria, fechas, lugar, stand) deben reemplazarse antes de publicar.</p>
 <div class="ed">
  <div class="ctl">
-  <div class="grp"><h3>Plantilla</h3><div class="seg" id="tpls"></div></div>
-  <div class="grp"><h3>Formato</h3><div class="seg" id="fmts"></div></div>
-  <div class="grp"><h3>Textos</h3><div class="fl-g" id="flds"></div></div>
-  <div class="grp"><h3>Foto</h3><div class="ph-g" id="phs"></div>
-   <div class="sl"><label>Mover foto a los lados<input type="range" id="fx" min="0" max="100" step="1"></label><label>Mover foto arriba / abajo<input type="range" id="fy" min="0" max="100" step="1"></label></div></div>
-  <div class="grp"><h3>Descargar</h3><div class="acts">
+  <div class="grp"><h3><i>1</i>Plantilla</h3><div class="tp-g" id="tpls"></div></div>
+  <div class="grp"><h3><i>2</i>Formato</h3><div class="fm-g" id="fmts"></div></div>
+  <div class="grp" id="fgrp"><h3><i>3</i>Foto</h3><div class="tabs" id="tabs"></div><div class="ph-g" id="phs"></div>
+   <p class="tip"><b>Sube tus fotos</b> con el recuadro «Subir foto» o arrastrándolas aquí: quedan guardadas en <b>Mis fotos</b> en este navegador. Para encuadrar, <b>arrastra la foto en la vista previa</b> y usa el zoom.</p>
+   <div class="zm"><span>Zoom</span><input type="range" id="fz" min="100" max="250" step="1" aria-label="Zoom de la foto"><button type="button" id="fc">Centrar</button></div>
+   <div class="sl" hidden><label>Mover foto a los lados<input type="range" id="fx" min="0" max="100" step="1"></label><label>Mover foto arriba / abajo<input type="range" id="fy" min="0" max="100" step="1"></label></div></div>
+  <div class="grp"><h3><i>4</i>Textos</h3><div class="fl-g" id="flds"></div></div>
+  <div class="grp"><h3><i>5</i>Descargar</h3><div class="acts">
    <button type="button" id="dl"><svg viewBox="0 0 24 24"><path d="M11 3h2v10.2l3.6-3.6 1.4 1.4-6 6-6-6 1.4-1.4 3.6 3.6z"/><path d="M4 19h16v2H4z"/></svg>Descargar PNG</button>
    <button type="button" id="dl2" class="sec">Descargar post e historia</button>
    <button type="button" id="rs" class="sec">Restablecer textos</button></div>
@@ -246,7 +291,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
    <div class="band"><div class="url"><small>Conoce todo el proyecto en</small><b>www.montserrat2<em>.com</em></b></div>
     <div class="marcas"><div class="mk"><span>Comercializa</span><img src="assets/logo_azulado.png" alt="AZULado Inmobiliario"></div><div class="sep"></div><div class="mk"><span>Gerencia y construye</span><img src="assets/logo_masc.png" alt="MASC Diseño y Construcción"></div></div></div>
   </div>
- </div></div><p id="pvt"></p></div>
+ </div><span class="hint" aria-hidden="true">Arrastra para encuadrar la foto</span></div><p id="pvt"></p>
+ <div class="pacts"><button type="button" id="dlq"><svg viewBox="0 0 24 24"><path d="M11 3h2v10.2l3.6-3.6 1.4 1.4-6 6-6-6 1.4-1.4 3.6 3.6z"/><path d="M4 19h16v2H4z"/></svg>Descargar PNG</button><button type="button" id="dlq2" class="sec">Post + historia</button></div></div>
 </div></section>
 
 <section><h2>Formatos de ejemplo</h2><p class="m">Así quedan las plantillas con los textos de ejemplo. Toca una para verla en grande.</p><div class="g tall" id="gal"></div></section>
@@ -255,18 +301,29 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40p
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true"><div class="bar"><div class="t" id="lt"></div><button id="lx" type="button">Cerrar ✕</button></div><div class="st" id="ls"><img id="li" alt=""></div></div>
 <script>
 var FOTOS=[
- {id:'fachada_piscina',n:'Fachada y piscina',x:50,y:62},
- {id:'torre_zonas_verdes',n:'Torre y zonas verdes',x:50,y:55},
- {id:'fachada_frontal',n:'Fachada frontal',x:50,y:40},
- {id:'senderos',n:'Senderos y parque',x:45,y:60},
- {id:'vista_aerea',n:'Vista aérea',x:50,y:50},
- {id:'apto_sala_terraza',n:'Apto. modelo · sala',x:40,y:55},
- {id:'apto_comedor',n:'Apto. modelo · comedor',x:45,y:55},
- {id:'apto_comedor_2',n:'Apto. modelo · comedor 2',x:50,y:60},
- {id:'apto_terraza',n:'Apto. modelo · terraza',x:55,y:60},
- {id:'familia',n:'Familia',x:50,y:30},
- {id:'familia_caminando',n:'Familia caminando',x:50,y:40}
+ {id:'fachada_piscina',n:'Fachada y piscina',x:50,y:62,c:'proy'},
+ {id:'torre_zonas_verdes',n:'Torre y zonas verdes',x:50,y:55,c:'proy'},
+ {id:'fachada_frontal',n:'Fachada frontal',x:50,y:40,c:'proy'},
+ {id:'senderos',n:'Senderos y parque',x:45,y:60,c:'proy'},
+ {id:'vista_aerea',n:'Vista aérea',x:50,y:50,c:'proy'},
+ {id:'paisaje_montana',n:'Paisaje y montaña',x:50,y:50,c:'proy'},
+ {id:'apto_sala_terraza',n:'Sala',x:40,y:55,c:'apto'},
+ {id:'apto_comedor',n:'Comedor',x:45,y:55,c:'apto'},
+ {id:'apto_comedor_2',n:'Comedor y sala',x:50,y:60,c:'apto'},
+ {id:'apto_cocina',n:'Cocina',x:50,y:55,c:'apto'},
+ {id:'apto_terraza',n:'Terraza',x:55,y:60,c:'apto'},
+ {id:'apto_alcoba',n:'Alcoba principal',x:50,y:60,c:'apto'},
+ {id:'apto_infantil',n:'Alcoba infantil',x:50,y:60,c:'apto'},
+ {id:'apto_estudio',n:'Estudio',x:50,y:55,c:'apto'},
+ {id:'apto_vestier',n:'Walking clóset',x:50,y:45,c:'apto'},
+ {id:'apto_bano',n:'Baño',x:50,y:50,c:'apto'},
+ {id:'familia',n:'Familia',x:50,y:30,c:'gente'},
+ {id:'familia_caminando',n:'Familia caminando',x:50,y:40,c:'gente'},
+ {id:'familia_2',n:'Familia feliz',x:50,y:35,c:'gente'},
+ {id:'pareja_diseno',n:'Diseñando el apto.',x:50,y:35,c:'gente'}
 ];
+var CATS=[['all','Todas'],['mis','Mis fotos'],['proy','Proyecto'],['apto','Apartamento modelo'],['gente','Personas']];
+var PH={hist:960,post:640},NAT={},UPL=[],cat='all';
 var EJ='ejemplo';
 var TPL={
  feria:{n:'Te esperamos en la feria',d:'Feria, fechas, lugar y stand',foto:'fachada_piscina',f:[
@@ -296,8 +353,23 @@ var TPL={
 var FMT={post:{n:'Post feed',d:'1080 × 1350 · 4:5',h:1350},hist:{n:'Historia',d:'1080 × 1920 · 9:16',h:1920}};
 var T1BASE={feria:{hist:150,post:108},proy:{hist:176,post:122},sala:{hist:140,post:104}};
 var KEY='montserratposts_v1',st;
-function defaults(){var s={tpl:'feria',fmt:'post',v:{}};for(var t in TPL){var o={foto:TPL[t].foto};TPL[t].f.forEach(function(f){o[f.k]=f.v});var p=foto(o.foto);o.fx=p.x;o.fy=p.y;s.v[t]=o}return s}
+function defaults(){var s={tpl:'feria',fmt:'post',v:{}};for(var t in TPL){var o={foto:TPL[t].foto};TPL[t].f.forEach(function(f){o[f.k]=f.v});var p=foto(o.foto);o.fx=p.x;o.fy=p.y;o.fz=100;s.v[t]=o}return s}
 function foto(id){for(var i=0;i<FOTOS.length;i++)if(FOTOS[i].id===id)return FOTOS[i];return FOTOS[0]}
+function upl(id){for(var i=0;i<UPL.length;i++)if(UPL[i].id===id)return UPL[i];return null}
+function srcOf(id){var u=upl(id);if(u)return u.url;return 'assets/fotos/'+foto(id).id+'.jpg'}
+function thumbOf(id){var u=upl(id);if(u)return u.url;return 'assets/fotos/min/'+id+'.jpg'}
+/* fotos subidas: se guardan en IndexedDB de este navegador */
+var DB=null;
+function db(){if(DB)return DB;DB=new Promise(function(res,rej){try{var r=indexedDB.open('montserratposts',1);r.onupgradeneeded=function(){r.result.createObjectStore('fotos',{keyPath:'id'})};r.onsuccess=function(){res(r.result)};r.onerror=function(){rej(r.error)}}catch(e){rej(e)}});return DB}
+function dbAll(){return db().then(function(d){return new Promise(function(res){var q=d.transaction('fotos').objectStore('fotos').getAll();q.onsuccess=function(){res(q.result||[])};q.onerror=function(){res([])}})}).catch(function(){return []})}
+function dbPut(o){return db().then(function(d){return new Promise(function(res){var tx=d.transaction('fotos','readwrite');tx.objectStore('fotos').put(o);tx.oncomplete=res;tx.onerror=res})}).catch(function(){})}
+function dbDel(id){return db().then(function(d){return new Promise(function(res){var tx=d.transaction('fotos','readwrite');tx.objectStore('fotos').delete(id);tx.oncomplete=res;tx.onerror=res})}).catch(function(){})}
+function shrinkFile(file){return new Promise(function(res,rej){var u=URL.createObjectURL(file),im=new Image();im.onload=function(){var M=2400,s=Math.min(1,M/Math.max(im.naturalWidth,im.naturalHeight)),w=Math.round(im.naturalWidth*s),h=Math.round(im.naturalHeight*s),c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(im,0,0,w,h);URL.revokeObjectURL(u);c.toBlob(function(b){b?res({blob:b,w:w,h:h}):rej(new Error('blob'))},'image/jpeg',.9)};im.onerror=function(){URL.revokeObjectURL(u);rej(new Error('img'))};im.src=u})}
+function addFiles(files){files=[].slice.call(files||[]).filter(function(f){return /^image\//.test(f.type)});if(!files.length)return;
+ $('ms').textContent='Cargando '+files.length+(files.length>1?' fotos…':' foto…');
+ var last=null,seq=Promise.resolve();
+ files.forEach(function(f){seq=seq.then(function(){return shrinkFile(f).then(function(r){var o={id:'u'+Date.now()+Math.random().toString(36).slice(2,6),n:f.name.replace(/\.[^.]+$/,'').slice(0,28),blob:r.blob,w:r.w,h:r.h,t:Date.now()};return dbPut(o).then(function(){o.url=URL.createObjectURL(o.blob);NAT[o.id]=[o.w,o.h];UPL.unshift(o);last=o})}).catch(function(){})})});
+ seq.then(function(){if(last){var v=st.v[st.tpl];v.foto=last.id;v.fx=50;v.fy=50;v.fz=100;cat='mis';save();buildUI();render();$('ms').textContent='Foto lista. Arrástrala en la vista previa para encuadrarla.'}else $('ms').textContent='No se pudo leer la foto. Prueba con un JPG o PNG.'})}
 try{st=JSON.parse(localStorage.getItem(KEY))}catch(e){}
 (function(){var d=defaults();if(!st||!st.v){st=d;return}for(var t in d.v){st.v[t]=Object.assign({},d.v[t],st.v[t]||{})}if(!TPL[st.tpl])st.tpl='feria';if(!FMT[st.fmt])st.fmt='post'})();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
@@ -311,11 +383,16 @@ function render(){
  var keys={};TPL[t].f.forEach(function(x){keys[x.k]=1});
  pz.querySelectorAll('[data-f]').forEach(function(el){var k=el.getAttribute('data-f'),val=(keys[k]?(v[k]||''):'').trim();setTxt(el,val);el.classList.toggle('x',!val)});
  pz.querySelectorAll('[data-w]').forEach(function(el){var ks=el.getAttribute('data-w').split(','),any=ks.some(function(k){return keys[k]&&(v[k]||'').trim()});el.classList.toggle('x',!any)});
- $('ph').style.backgroundImage='url("assets/fotos/'+v.foto+'.jpg")';
- $('ph').style.backgroundPosition=v.fx+'% '+v.fy+'%';
+ photo();
  fit();scale();warn();
  $('pvt').textContent=TPL[t].n+' · '+FMT[f].n+' '+FMT[f].d;
 }
+function bgSize(id,H,z){var n=NAT[id];if(!n)return null;var s=Math.max(1080/n[0],H/n[1])*(z||100)/100;return [n[0]*s,n[1]*s]}
+function photo(){var v=st.v[st.tpl],id=v.foto,src=srcOf(id),ph=$('ph'),H=PH[st.fmt];
+ ph.style.backgroundImage='url("'+src+'")';ph.style.backgroundPosition=v.fx+'% '+v.fy+'%';
+ var b=bgSize(id,H,v.fz);
+ if(b)ph.style.backgroundSize=b[0]+'px '+b[1]+'px';
+ else{ph.style.backgroundSize='cover';var im=new Image();im.onload=function(){NAT[id]=[im.naturalWidth,im.naturalHeight];if(st.v[st.tpl].foto===id)photo()};im.src=src}}
 function shrinkW(el,base,min){el.style.fontSize=base+'px';var s=base;while(el.scrollWidth>el.clientWidth+1&&s>min){s*=.96;el.style.fontSize=s+'px'}}
 function fit(){
  var t=st.tpl,f=st.fmt,post=f==='post';
@@ -338,22 +415,58 @@ function warn(){var t=st.tpl,v=st.v[t],ls=[];TPL[t].f.forEach(function(f){if(f.e
 
 function buildUI(){
  var tp=$('tpls');tp.innerHTML='';
- Object.keys(TPL).forEach(function(t){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',st.tpl===t);b.innerHTML='';b.appendChild(document.createTextNode(TPL[t].n));var sm=document.createElement('small');sm.textContent=TPL[t].d;b.appendChild(sm);b.onclick=function(){st.tpl=t;save();buildUI();render()};tp.appendChild(b)});
+ Object.keys(TPL).forEach(function(t){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',st.tpl===t);
+  var im=document.createElement('img');im.src='img/'+t+'_post.jpg';im.alt='';b.appendChild(im);
+  var nb=document.createElement('b');nb.textContent=TPL[t].n;var sm=document.createElement('small');sm.textContent=TPL[t].d;nb.appendChild(sm);b.appendChild(nb);
+  b.onclick=function(){st.tpl=t;save();buildUI();render()};tp.appendChild(b)});
  var fm=$('fmts');fm.innerHTML='';
- Object.keys(FMT).forEach(function(f){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',st.fmt===f);b.appendChild(document.createTextNode(FMT[f].n));var sm=document.createElement('small');sm.textContent=FMT[f].d;b.appendChild(sm);b.onclick=function(){st.fmt=f;save();buildUI();render()};fm.appendChild(b)});
+ Object.keys(FMT).forEach(function(f){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',st.fmt===f);
+  var sh=document.createElement('span');sh.className='sh';sh.style.height=(f==='post'?37:53)+'px';b.appendChild(sh);
+  var d=document.createElement('div');var nb=document.createElement('b');nb.textContent=FMT[f].n;var sm=document.createElement('small');sm.textContent=FMT[f].d;d.appendChild(nb);d.appendChild(sm);b.appendChild(d);
+  b.onclick=function(){st.fmt=f;save();buildUI();render()};fm.appendChild(b)});
  var fl=$('flds');fl.innerHTML='';var v=st.v[st.tpl];
  TPL[st.tpl].f.forEach(function(f){var w=document.createElement('div');w.className='fld';var id='f_'+f.k;
   var lb=document.createElement('label');lb.htmlFor=id;lb.textContent=f.l;if(f.ej){var em=document.createElement('em');em.textContent='ejemplo';lb.appendChild(em)}
   var inp=document.createElement(f.ta?'textarea':'input');inp.id=id;if(!f.ta)inp.type='text';inp.value=v[f.k]||'';inp.placeholder=f.v||'(vacío)';if(f.ta)inp.rows=2;
   inp.oninput=function(){st.v[st.tpl][f.k]=inp.value;save();render()};
   w.appendChild(lb);w.appendChild(inp);if(f.h){var h=document.createElement('small');h.textContent=f.h;w.appendChild(h)}fl.appendChild(w)});
+ var tb=$('tabs');tb.innerHTML='';
+ CATS.forEach(function(c){var n=c[0]==='all'?FOTOS.length+UPL.length:c[0]==='mis'?UPL.length:FOTOS.filter(function(p){return p.c===c[0]}).length;
+  var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',cat===c[0]);b.textContent=c[1];var em=document.createElement('em');em.textContent=n;b.appendChild(em);
+  b.onclick=function(){cat=c[0];buildUI()};tb.appendChild(b)});
  var pg=$('phs');pg.innerHTML='';
- FOTOS.forEach(function(p){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',v.foto===p.id);var im=document.createElement('img');im.src='assets/fotos/min/'+p.id+'.jpg';im.alt='';im.loading='lazy';b.appendChild(im);b.appendChild(document.createTextNode(p.n));
-  b.onclick=function(){var o=st.v[st.tpl];o.foto=p.id;o.fx=p.x;o.fy=p.y;save();buildUI();render()};pg.appendChild(b)});
- $('fx').value=v.fx;$('fy').value=v.fy;
+ var up=document.createElement('label');up.className='up';up.innerHTML='<svg viewBox="0 0 24 24"><path d="M11 16V7.8L7.4 11.4 6 10l6-6 6 6-1.4 1.4L13 7.8V16z"/><path d="M4 18h16v2H4z"/></svg>Subir foto<small style="font-weight:500;color:var(--muted)">o arrástrala aquí</small>';
+ var fi=document.createElement('input');fi.type='file';fi.accept='image/*';fi.multiple=true;fi.setAttribute('aria-label','Subir foto');fi.onchange=function(){addFiles(fi.files);fi.value=''};up.appendChild(fi);pg.appendChild(up);
+ var list=[];
+ if(cat==='all'||cat==='mis')UPL.forEach(function(u){list.push({id:u.id,n:u.n,u:1})});
+ if(cat!=='mis')FOTOS.forEach(function(p){if(cat==='all'||p.c===cat)list.push(p)});
+ list.forEach(function(p){var w=document.createElement('div');w.className='it';var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',v.foto===p.id);var im=document.createElement('img');im.src=thumbOf(p.id);im.alt='';im.loading='lazy';b.appendChild(im);b.appendChild(document.createTextNode(p.n));
+  b.onclick=function(){var o=st.v[st.tpl];o.foto=p.id;o.fx=p.u?50:p.x;o.fy=p.u?50:p.y;o.fz=100;save();buildUI();render()};w.appendChild(b);
+  if(p.u){var x=document.createElement('button');x.type='button';x.className='del';x.textContent='×';x.title='Quitar de Mis fotos';x.setAttribute('aria-label','Quitar '+p.n+' de Mis fotos');
+   x.onclick=function(){if(!confirm('¿Quitar esta foto de Mis fotos?'))return;dbDel(p.id);UPL=UPL.filter(function(u){return u.id!==p.id});for(var t in st.v){if(st.v[t].foto===p.id){var d=foto(TPL[t].foto);st.v[t].foto=d.id;st.v[t].fx=d.x;st.v[t].fy=d.y;st.v[t].fz=100}}save();buildUI();render()};w.appendChild(x)}
+  pg.appendChild(w)});
+ if(cat==='mis'&&!UPL.length){var e=document.createElement('p');e.className='tip';e.style.gridColumn='1/-1';e.textContent='Aún no has subido fotos. Las que subas quedan guardadas aquí, en este navegador.';pg.appendChild(e)}
+ $('fx').value=v.fx;$('fy').value=v.fy;$('fz').value=v.fz||100;
 }
 $('fx').oninput=function(){st.v[st.tpl].fx=+this.value;save();render()};
 $('fy').oninput=function(){st.v[st.tpl].fy=+this.value;save();render()};
+$('fz').oninput=function(){st.v[st.tpl].fz=+this.value;save();photo()};
+$('fc').onclick=function(){var o=st.v[st.tpl],p=upl(o.foto)?{x:50,y:50}:foto(o.foto);o.fx=p.x;o.fy=p.y;o.fz=100;save();buildUI();photo()};
+/* arrastrar la foto en la vista previa para encuadrar */
+(function(){var fr=$('fr'),drag=null;
+ fr.addEventListener('pointerdown',function(e){if(e.button!==0)return;var o=st.v[st.tpl],b=bgSize(o.foto,PH[st.fmt],o.fz);if(!b)return;drag={x:e.clientX,y:e.clientY,fx:o.fx,fy:o.fy,b:b,s:fr.clientWidth/1080};fr.setPointerCapture(e.pointerId);fr.classList.add('grab');e.preventDefault()});
+ fr.addEventListener('pointermove',function(e){if(!drag)return;var o=st.v[st.tpl],H=PH[st.fmt],ex=drag.b[0]-1080,ey=drag.b[1]-H,dx=(e.clientX-drag.x)/drag.s,dy=(e.clientY-drag.y)/drag.s;
+  if(ex>1)o.fx=Math.max(0,Math.min(100,drag.fx-dx/ex*100));if(ey>1)o.fy=Math.max(0,Math.min(100,drag.fy-dy/ey*100));$('ph').style.backgroundPosition=o.fx+'% '+o.fy+'%'});
+ function end(){if(!drag)return;drag=null;fr.classList.remove('grab');save();$('fx').value=st.v[st.tpl].fx;$('fy').value=st.v[st.tpl].fy}
+ fr.addEventListener('pointerup',end);fr.addEventListener('pointercancel',end);
+ fr.addEventListener('wheel',function(e){if(!e.ctrlKey&&!e.altKey)return;e.preventDefault();var o=st.v[st.tpl];o.fz=Math.max(100,Math.min(250,(o.fz||100)-Math.sign(e.deltaY)*8));$('fz').value=o.fz;save();photo()},{passive:false});
+})();
+/* soltar fotos sobre el bloque de fotos o la vista previa */
+['fgrp','fr'].forEach(function(id){var el=$(id);
+ el.addEventListener('dragover',function(e){if([].indexOf.call(e.dataTransfer.types,'Files')<0)return;e.preventDefault();$('fgrp').classList.add('drop')});
+ el.addEventListener('dragleave',function(e){if(e.target===el)$('fgrp').classList.remove('drop')});
+ el.addEventListener('drop',function(e){e.preventDefault();$('fgrp').classList.remove('drop');addFiles(e.dataTransfer.files)})});
+$('dlq').onclick=function(){$('dl').click()};$('dlq2').onclick=function(){$('dl2').click()};
 $('rs').onclick=function(){if(!confirm('¿Volver a los textos y la foto de ejemplo de esta plantilla?'))return;st.v[st.tpl]=defaults().v[st.tpl];save();buildUI();render()};
 
 /* ---------- exportación PNG (fuentes incrustadas para que coincida con la vista previa) ---------- */
@@ -388,7 +501,7 @@ function exportBlob(kind){
 function slug(s){return (s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40)}
 function fname(){var t=st.tpl,v=st.v[t],x=t==='feria'?slug(v.t1):'';return 'montserrat_'+t+'_'+st.fmt+(x?'_'+x:'')+'.png'}
 function saveBlob(b,n){var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},4000)}
-function busy(on,msg){$('dl').disabled=on;$('dl2').disabled=on;$('ms').textContent=msg||''}
+function busy(on,msg){['dl','dl2','dlq','dlq2'].forEach(function(i){$(i).disabled=on});$('ms').textContent=msg||'';$('pvt').textContent=on?(msg||''):TPL[st.tpl].n+' · '+FMT[st.fmt].n+' '+FMT[st.fmt].d+(msg?' · '+msg:'')}
 $('dl').onclick=function(){busy(true,'Generando imagen…');exportBlob('png').then(function(b){saveBlob(b,fname());busy(false,'Listo: '+fname())}).catch(function(e){console.error(e);busy(false,'No se pudo generar la imagen. Revisa la conexión a internet y vuelve a intentar.')})};
 $('dl2').onclick=function(){var f0=st.fmt;busy(true,'Generando post e historia…');
  var seq=Promise.resolve(),names=[];
@@ -405,6 +518,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)
 
 buildUI();render();
 document.fonts.ready.then(function(){render()});
+dbAll().then(function(a){a.sort(function(x,y){return y.t-x.t});a.forEach(function(o){o.url=URL.createObjectURL(o.blob);NAT[o.id]=[o.w,o.h]});UPL=a;
+ for(var t in st.v){var id=st.v[t].foto;if(/^u/.test(id)&&!upl(id)){var d=foto(TPL[t].foto);st.v[t].foto=d.id;st.v[t].fx=d.x;st.v[t].fy=d.y}}
+ buildUI();render()});
 
 /* modo automático (solo en local): genera los PNG de ejemplo en img/ */
 if(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)&&/[?&]auto=1/.test(location.search)){
