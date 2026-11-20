@@ -3,7 +3,7 @@
 Una sola página para presentarle a Doña Lú (Diana Zamudio) dos entregas con el mismo sistema de marca:
 
 1. **Contenidos de lanzamiento** (Instagram y Facebook): 12 piezas, Nº 01 a Nº 12.
-2. **Anuncios de Navidad** (Meta Ads): un anuncio por kit (k01 a k10) en 4:5 y 9:16, y 3 anuncios principales (hogar, empresas, recordatorio) en 4:5, 9:16 y 1:1. Ver la sección *Anuncios de Navidad* más abajo.
+2. **Anuncios de Navidad** (Meta Ads): un anuncio por kit vigente (k02 Cesta vertical 2, k05 Cesta vertical 5, k08 Caja Doña Lú 8, k07 Caja Doña Lú 7) y 3 anuncios principales (hogar, empresas, recordatorio), todos en 4:5 y 9:16. Ver la sección *Anuncios de Navidad* más abajo.
 
 ## Contenidos de lanzamiento
 
@@ -86,26 +86,25 @@ Fotos: reales de la finca (las del manual) y de los kits con el tratamiento nuev
 
 ## Anuncios de Navidad (Meta Ads)
 
-Fuente única: `scripts/ads.mjs` (kits del catálogo de Diana, textos, enlaces). Plan: `../meta-ads/PLAN-META-ADS-NAVIDAD.md`. Todos los textos en `anuncios/ANUNCIOS.md` y uno por anuncio en `anuncios/piezas/<id>/copy.md`.
+Fuente única: `scripts/ads.mjs` (4 kits de kits-navidad/_fuente/build.js y wp-setup/kits-precios.php, textos, variantes A/B, enlaces). Plan: `../meta-ads/PLAN-META-ADS-NAVIDAD.md`. Todos los textos en `anuncios/ANUNCIOS.md` y uno por anuncio en `anuncios/piezas/<id>/copy.md`.
 
 | Anuncio | Formatos | Conjunto |
 |---|---|---|
-| k01 a k10 · un anuncio por kit, misma plantilla (solo cambia el kit) | 4:5 (1080×1350) y 9:16 (1080×1920) | A · Regalo hogar y C · Ya los conocen; los de $119.000 o más también en B · Empresas |
-| h1 · Regale lo que hubo que cuidar (hogar) | 4:5, 9:16, 1:1 | A |
-| h2 · Para su equipo y sus clientes (empresas) | 4:5, 9:16, 1:1 | B |
-| h3 · Un buen café no se acelera. Su pedido, mejor ya (recordatorio) | 4:5, 9:16, 1:1 | C |
+| k02, k05, k08, k07 · un anuncio por kit, misma plantilla (solo cambia el kit) | 4:5 (1080×1350) y 9:16 (1080×1920) | A · Regalo hogar y C · Ya los conocen; k08 y k07 también en B · Empresas |
+| h1 · Regale café de la finca. Usted elige cuál. (hogar) | 4:5, 9:16 | A |
+| h2 · Para su equipo y sus clientes. (empresas) | 4:5, 9:16 | B |
+| h3 · Su regalo le espera. (recordatorio) | 4:5, 9:16 | C |
 
-- Plantilla: kraft arriba con la foto del kit (estudio 4:5 de `../kits-fotos`, a su tamaño, nunca ampliada) y banda verde abajo con filete dorado, como la bolsa del empaque único: nombre, contenido, precio del catálogo y WhatsApp 322 470 2667. Sello dorado con la etiqueta del catálogo (Para empezar, Tres procesos, Un kilo de café…).
-- Cada anuncio trae texto principal, título, descripción y dos destinos: **Comprar** → `https://donalu.com.co/kits-navidad/?utm_source=meta&utm_medium=paid&utm_campaign=nav-prueba&utm_content=k01#k01` y **Enviar mensaje** → wa.me/573224702667 con mensaje prellenado que incluye el código del anuncio.
-- 9:16: nada clave arriba de 270 px ni debajo de 1.540 px (ahí Meta pone el perfil y el botón).
+- Plantilla: verde con luz dorada y la foto del kit en arco con filete dorado, como el hero de la landing. Titular "Usted elige el café." (Caja 7: "No elija: llévese los tres."), nombre y contenido del kit, precio "desde" con IVA incluido y botón de WhatsApp 322 470 2667.
+- Fotos: reales de Diana (18 nov 2026) en `assets/photos/nav-kit-*.jpg`, nunca ampliadas. La Caja 7 sigue con la foto del catálogo (592 px).
+- Cada anuncio trae texto principal, título, descripción y dos destinos: **Comprar** → `https://donalu.com.co/kits-navidad/?utm_source=meta&utm_medium=paid&utm_campaign=nav-prueba&utm_content=k02#k02` (o la página del producto) y **Enviar mensaje** → wa.me/573224702667 con mensaje prellenado que incluye el código del anuncio. Los principales traen 3 variantes de texto para prueba A/B.
+- 9:16: todo el texto dentro de y = 285–1.635 px.
 - **Fecha límite:** "Pida antes del XX de diciembre" va solo en los textos (copy.md) hasta que se confirme. No está impresa en las imágenes.
 
 Validar antes de pautar:
 - [ ] Fecha límite de pedidos y envío (agregarla a los textos).
-- [ ] k08 y k10: el catálogo dice "mug térmico" y la foto muestra un termo Owala. Confirmar el contenido.
-- [ ] Que la landing `donalu.com.co/kits-navidad/` esté publicada con los anclajes #k01 a #k10 (si no, usar el destino WhatsApp).
-- [ ] Precios vigentes del catálogo.
-- [ ] Fotos: las de `kits-fotos` salen de capturas del catálogo (unos 600 px). Pedir a Diana las fotos originales para ganar nitidez.
+- [ ] Foto real de la Caja Doña Lú 7 (hoy es la del catálogo).
+- [ ] Precios de Honey y Natural (provisionales en kits-precios.php); los anuncios solo muestran el "desde" de Lavado 250 g, que está confirmado.
 
 ## Derechos
 

@@ -227,13 +227,13 @@ Guárdelo para su próxima compra. ¿Cuál es el suyo? Le ayudamos a elegir por 
     { bg: 'verde', html: `${topo()}<img src="../../assets/brand/rama.png" alt="" style="position:absolute;right:-50px;top:170px;width:440px;z-index:1;transform:scaleX(-1)">
       ${tx({ b: 190, r: 260 }, `<h2 class="d x3">Lavado, Honey y Natural, <em>para regalar.</em></h2><p class="p">250 g de cada uno en una caja de madera pino. Para quien quiere probarlos todos.</p>`)}`,
       alt: 'Rama de café en grabado sobre verde. Texto: "Lavado, Honey y Natural, para regalar. 250 g de cada uno en una caja de madera pino."' },
-    { bg: 'crema', html: `${tx({ t: 150 }, `<h2 class="d x5">Diez kits, <em>entre cestas y cajas.</em></h2>`)}
-      ${[['kit-01-cuadrado.jpg', 84, 300], ['kit-04-cuadrado.jpg', 552, 300], ['kit-09-cuadrado.jpg', 84, 764], ['kit-10-cuadrado.jpg', 552, 764]].map(([f, l, t]) => ph(f, { l, t, w: 444, h: 440, raw: true, pos: '50% 50%' })).join('')}`,
-      alt: 'Cuatro fotos de kits de Navidad: cestas de madera con bolsas de café, una con mug y otra con termo. Texto: "Diez kits, entre cestas y cajas."' },
+    { bg: 'crema', html: `${tx({ t: 150 }, `<h2 class="d x5">Cuatro kits, <em>entre cestas y cajas.</em></h2>`)}
+      ${[['nav-kit-02-1.jpg', 84, 300, '50% 62%'], ['nav-kit-05-1.jpg', 552, 300, '50% 55%'], ['nav-kit-08-1.jpg', 84, 764, '50% 62%'], ['nav-kit-07-1.jpg', 552, 764, '50% 55%']].map(([f, l, t, pp]) => ph(f, { l, t, w: 444, h: 440, raw: true, pos: pp })).join('')}`,
+      alt: 'Cuatro fotos de los kits de Navidad: dos cestas de madera pino con café y termo, una caja de madera pino con dos bolsas de café y termo, y una caja con tres bolsas de café. Texto: "Cuatro kits, entre cestas y cajas."' },
     { bg: 'verde', html: `${topo()}${tx({ mid: 1 }, `<h2 class="d x1">Para la familia, para su equipo, <em>para sus clientes.</em></h2><div class="rule"></div><p class="p">Café de la finca en cestas y cajas de madera pino, listas para entregar.</p>`)}`,
       alt: 'Texto en verde: "Para la familia, para su equipo, para sus clientes. Café de la finca en cestas y cajas de madera pino."' },
-    { bg: 'kraft', html: `${tx({ mid: 1 }, `<div style="display:flex;justify-content:center">${icon('regalo', 170, 'var(--cafe)', 1)}</div><h2 class="d x1">Pídalo <em>por WhatsApp.</em></h2><p class="p">Le mostramos los diez kits y le confirmamos el envío. Pida con tiempo para que llegue antes de Navidad.</p><div class="btnlike" style="background:var(--verde);color:var(--crema)">${WA}</div>`, 'c')}`,
-      alt: 'Ícono de regalo. Texto: "Pídalo por WhatsApp. Le mostramos los diez kits y le confirmamos el envío." WhatsApp 322 470 2667.' },
+    { bg: 'kraft', html: `${tx({ mid: 1 }, `<div style="display:flex;justify-content:center">${icon('regalo', 170, 'var(--cafe)', 1)}</div><h2 class="d x1">Pídalo <em>por WhatsApp.</em></h2><p class="p">Le mostramos los cuatro kits y le confirmamos el envío. Pida con tiempo para que llegue antes de Navidad.</p><div class="btnlike" style="background:var(--verde);color:var(--crema)">${WA}</div>`, 'c')}`,
+      alt: 'Ícono de regalo. Texto: "Pídalo por WhatsApp. Le mostramos los cuatro kits y le confirmamos el envío." WhatsApp 322 470 2667.' },
     { story: true, bg: 'kraft', file: 'historia-enlace', html: `${tx({ t: 340 }, `<div class="k">Kits de Navidad</div><h1 class="d x3">Los tres, <em>en una caja.</em></h1>`, 'c')}
       ${ph('kit-07-mesa.jpg', { l: 84, t: 620, w: 912, h: 912, raw: true })}`,
       alt: 'Historia: caja de madera con tres bolsas de café. "Los tres, en una caja." Sticker de enlace a los kits.' },
@@ -242,12 +242,12 @@ Guárdelo para su próxima compra. ¿Cuál es el suyo? Le ayudamos a elegir por 
 
 Lavado, Honey y Natural, 250 g de cada uno, en una caja de madera pino. Para quien quiere probarlos todos (o para regalarle a alguien la finca entera en una mesa).
 
-Tenemos diez kits de Navidad, entre cestas y cajas, para la familia, el equipo de trabajo o los clientes.
+Tenemos cuatro kits de Navidad, entre cestas y cajas, para la familia, el equipo de trabajo o los clientes.
 
 Pídalo por WhatsApp al 322 470 2667 (wa.me/573224702667): le mostramos los kits y le confirmamos el envío. Pida con tiempo para que llegue antes de Navidad.`,
   corto: 'Los kits de Navidad: Lavado, Honey y Natural en una caja.',
   hashtags: '#DoñaLúCoffee #CaféQueSeHonra #RegalosDeNavidad #RegalosCorporativos #KitsDeNavidad #CaféDeColombia',
-  notas: ['Fotos de los kits con el tratamiento nuevo (kits-fotos/: mesa de regalos y cuadrado), sacadas de capturas del catálogo de Diana; se muestran a su tamaño o más pequeñas, nunca ampliadas. Pedir a Diana las fotos originales para mejorar la nitidez. Las bolsas de los kits son la edición blanca de Navidad, no el empaque único: es correcto, es lo que se entrega.', 'Contenido del kit 7 (3 × 250 g en caja de madera pino) según el catálogo. Validar fecha límite de pedidos y cobertura de envío para agregarla al caption.', 'Historia: sticker de enlace a la página de kits (donalu.com.co/kits-navidad/ cuando esté publicada) o a WhatsApp.', 'Coordinar con la pauta: este post orgánico no repite los anuncios, presenta el regalo desde la marca.'],
+  notas: ['Lámina 3: fotos reales de Diana de los 4 kits vigentes (assets/photos/nav-kit-*.jpg, 18 nov 2026); la Caja 7 sigue siendo la del catálogo. Láminas 1 e historia: kit-07-mesa.jpg (catálogo con el tratamiento de mesa de regalos), se muestran a su tamaño o más pequeñas, nunca ampliadas. Pedir a Diana las fotos originales para mejorar la nitidez. Las bolsas de los kits son la edición blanca de Navidad, no el empaque único: es correcto, es lo que se entrega.', 'Contenido del kit 7 (3 × 250 g en caja de madera pino) según el catálogo. Validar fecha límite de pedidos y cobertura de envío para agregarla al caption.', 'Historia: sticker de enlace a la página de kits (donalu.com.co/kits-navidad/ cuando esté publicada) o a WhatsApp.', 'Coordinar con la pauta: este post orgánico no repite los anuncios, presenta el regalo desde la marca.'],
 },
 
 // ───────────────────────────────── Nº 07 · La finca

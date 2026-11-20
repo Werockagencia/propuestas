@@ -2,24 +2,52 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>k08 · Caja Doña Lú 8 · $169.000 · Doña Lú anuncios</title>
+<title>k08 · Caja Doña Lú 8 · desde $170.000 · Doña Lú anuncios</title>
 <link rel="stylesheet" href="../../../assets/css/donalu.css">
 <style>
-.kitph{box-shadow:0 34px 60px -26px rgba(43,28,18,.55);outline:1px solid rgba(201,164,92,.6);outline-offset:14px}
-.band{position:absolute;left:0;right:0;bottom:0;background:var(--bolsa);color:var(--crema);z-index:4}
-.band .topo{inset:0;width:100%;height:100%;color:rgba(244,237,224,.06)}
-.band-edge{position:absolute;left:0;right:0;top:-58px;width:100%;height:60px}
-.seal{width:190px;height:190px;border-radius:50%;background:var(--verde);border:2px solid var(--oro);outline:1px solid rgba(201,164,92,.5);outline-offset:6px;display:flex;align-items:center;justify-content:center;text-align:center;z-index:8;transform:rotate(-8deg)}
-.seal span{font:italic 400 36px/1.05 var(--serif);color:var(--oro);padding:0 22px}
-.buy{position:absolute;left:var(--m);right:var(--m);display:flex;align-items:center;justify-content:space-between;z-index:10}
-.price{font:300 96px/1 var(--serif);color:var(--oro);letter-spacing:-.01em;white-space:nowrap}
-.price i{display:block;font:500 18px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;font-style:normal;color:var(--kraft);margin-bottom:12px}
-.buy .btnlike{white-space:nowrap}
-.buy .btnlike{padding:22px 32px;font-size:22px;gap:14px}
-.ad .tx{z-index:10}
-.ad .d em{color:var(--oro)}
-.bg-kraft.ad .mast{color:var(--cafe)}
-.ad .sub{font:300 30px/1.35 var(--sans);color:var(--kraft)}
+.ad{--v2:#0A2A1B;--o2:#E7CF97;--c3:#FBF7EF;background:radial-gradient(120% 80% at 88% 6%,#1b5639 0%,var(--verde) 40%,var(--v2) 100%);color:var(--crema)}
+.ad.crema{background:radial-gradient(120% 80% at 12% 0%,#FBF7EF 0%,var(--crema) 45%,#E9DDC6 100%);color:var(--verde)}
+.ad .lines{inset:0;z-index:0;background:repeating-linear-gradient(90deg,rgba(231,207,151,.04) 0 1px,transparent 1px 90px);pointer-events:none}
+.ad.crema .lines{background:repeating-linear-gradient(90deg,rgba(15,59,38,.045) 0 1px,transparent 1px 90px)}
+.ad .topo{color:rgba(231,207,151,.05)}
+.ad.crema .topo{color:rgba(15,59,38,.05)}
+.ad .mast{color:rgba(244,237,224,.86)}
+.ad.crema .mast{color:var(--verde)}
+.ad.crema .mast .no{color:#8E6F31}
+.arch{position:absolute;overflow:hidden;border-radius:999px 999px 22px 22px;background:#EADFC9;z-index:6;box-shadow:0 0 0 2px var(--oro),0 0 0 9px var(--v2),0 0 0 10.5px rgba(201,164,92,.5),0 50px 80px -34px rgba(0,0,0,.85)}
+.ad.crema .arch{box-shadow:0 0 0 2px var(--oro),0 0 0 9px var(--crema),0 0 0 10.5px rgba(201,164,92,.6),0 46px 70px -34px rgba(43,28,18,.6)}
+.arch img{width:100%;height:100%;object-fit:cover;display:block}
+.arch .lb{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);white-space:nowrap;background:var(--c3);color:var(--verde);border-radius:999px;padding:13px 26px;font:500 19px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;box-shadow:0 14px 28px -14px rgba(0,0,0,.7)}
+.ad .k{color:var(--o2)}
+.ad.crema .k{color:#8E6F31}
+.ad .d{color:#fff;font-feature-settings:"liga" 1,"dlig" 0,"lnum" 1;text-wrap:balance}
+.ad .nm,.ad .pv{font-feature-settings:"lnum" 1,"dlig" 0}
+.story .pv{font-size:92px}
+.story .cta .btn{padding:24px 34px;font-size:22px}
+.ad .d em{color:var(--o2)}
+.ad.crema .d{color:var(--verde)}
+.ad.crema .d em{color:#8E6F31}
+.ad .nm{font:italic 400 60px/1 var(--serif);color:var(--crema)}
+.rows2{list-style:none}
+.rows2 li{display:flex;flex-direction:column;gap:9px;padding:17px 0;border-top:1px solid rgba(201,164,92,.38)}
+.rows2 li:last-child{border-bottom:1px solid rgba(201,164,92,.38)}
+.rows2 span{font:500 16px/1.2 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--oro)}
+.rows2 b{font:400 27px/1.2 var(--sans);color:var(--crema);white-space:nowrap}
+.sub2{font:300 30px/1.4 var(--sans);color:rgba(244,237,224,.88)}
+.ad.crema .sub2{color:#3c3226}
+.buy{position:absolute;left:var(--m);right:var(--m);display:flex;align-items:flex-end;justify-content:space-between;gap:30px;z-index:10;padding-top:34px;border-top:1px solid rgba(201,164,92,.5)}
+.pr{display:flex;flex-direction:column}
+.pl{font:500 17px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--o2);margin-bottom:12px}
+.pv{font:400 104px/.9 var(--serif);color:#fff;letter-spacing:-.01em;white-space:nowrap}
+.iva{font:400 19px/1 var(--sans);letter-spacing:.06em;color:rgba(244,237,224,.72);margin-top:14px}
+.ad.crema .pl{color:#8E6F31}.ad.crema .pv{color:var(--verde)}.ad.crema .iva{color:#5B5145}
+.cta{display:flex;flex-direction:column;align-items:flex-end;gap:16px}
+.cta .btn{display:inline-flex;align-items:center;gap:16px;background:var(--oro);color:var(--v2);border-radius:999px;padding:26px 38px;font:500 23px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;box-shadow:0 18px 34px -16px rgba(201,164,92,.9)}
+.cta .num{font:400 18px/1 var(--sans);letter-spacing:.08em;color:rgba(244,237,224,.7);white-space:nowrap}
+.ad.crema .cta .num{color:#5B5145}
+.ad.crema .cta .btn{background:var(--verde);color:var(--crema);box-shadow:0 18px 34px -16px rgba(15,59,38,.7)}
+.tx.c{text-align:center}
+.glow{z-index:1;border-radius:50%;background:radial-gradient(closest-side,rgba(231,207,151,.22),rgba(231,207,151,0));pointer-events:none}
 </style>
 </head>
 <body>
@@ -31,14 +59,22 @@
 <filter id="pgrain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .55 0"/></filter>
 <filter id="pblur" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="7"/></filter>
 <filter id="lshadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="1.2" stdDeviation="1.2" flood-opacity=".25"/></filter><clipPath id="rclip"><rect x="-24" y="252" width="128" height="150"/></clipPath><clipPath id="sclip"><path d="M6 4Q6 0 12 0H98Q104 0 104 4L106 40C110 160 110 300 108 400C107 432 104 446 92 448H18C6 446 3 432 2 400C0 300 0 160 4 40Z"/></clipPath><linearGradient id="mist" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EBDFC8" stop-opacity="0"/><stop offset=".3" stop-color="#EBDFC8" stop-opacity=".12"/><stop offset=".6" stop-color="#EBDFC8" stop-opacity=".35"/><stop offset="1" stop-color="#EBDFC8" stop-opacity="0"/></linearGradient></defs></svg>
-<section class="slide bg-kraft ad" data-file="DL-NAV-k08-4x5.png">
-<div class="ph raw kitph" style="left:247px;top:140px;width:586px;height:732px"><img src="../../../assets/photos/kit-08-estudio.jpg" alt=""></div><div class="band" style="top:950px"><svg class="band-edge" viewBox="0 0 1080 60" preserveAspectRatio="none"><path d="M0 60V34Q540 -6 1080 34V60Z" fill="var(--bolsa)"/><path d="M0 44Q540 4 1080 44" fill="none" stroke="var(--oro)" stroke-width="1.6"/></svg><svg class="topo " viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" style="" aria-hidden="true"><use href="#topo" width="1000" height="1000"/></svg></div>
-      <div class="tx" style="top:990px"><div class="k">Kit 08 · Caja Doña Lú 8</div><h1 class="d x4" style="margin-top:14px;color:var(--crema)">Dos cafés <em>y mug térmico</em></h1><p class="sub" style="margin-top:10px">250 g Lavado · 250 g Honey · mug térmico · caja</p></div><div class="buy" style="top:1205px"><span class="price">$169.000</span><div class="btnlike"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="var(--verde)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M4.2 19.8 5.3 16A8 8 0 1 1 8.2 18.8z"/><path d="M9.2 8.6c.3 2.8 2.5 5.3 5.6 6.2l1.2-1.4-1.9-1-.9.8c-1-.5-2-1.5-2.4-2.5l.8-.9-.9-1.9z"/></svg><span>WhatsApp 322 470 2667</span></div></div><div class="mast"><span><b>Doña Lú</b> · <span class="no">Kits de Navidad</span></span><span>Café que se honra</span></div>
+<section class="slide ad" data-file="DL-NAV-k08-4x5.png">
+<div class="lines"></div><svg class="topo " viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" style="" aria-hidden="true"><use href="#topo" width="1000" height="1000"/></svg><div class="mast"><span><b>Doña Lú</b> · <span class="no">Navidad 2026</span></span><span>Café que se honra</span></div>
+      <div class="tx" style="top:140px"><div class="k">Kit de Navidad · Caja Doña&nbsp;Lú 8</div><div style="margin-top:22px"><h1 class="d" style="font-size:104px">Usted elige <em>los dos cafés.</em></h1></div></div>
+      <div class="glow" style="left:384px;top:300px;width:732px;height:849px"></div>
+      <div class="arch" style="left:504px;top:372px;width:492px;height:649px"><img src="../../../assets/photos/nav-kit-08-1.jpg" alt="" style="object-position:50% 58%"><span class="lb">Dos cafés y termo</span></div>
+      <div class="tx" style="top:400px;right:628px"><div class="nm">Caja Doña&nbsp;Lú 8</div><div style="margin-top:34px"><ul class="rows2"><li><span>Cafés · combine dos</span><b>Lavado, Honey, Natural</b></li><li><span>Bolsas</span><b>250 g o 500 g</b></li><li><span>Y además</span><b>Termo</b></li><li><span>Empaque</span><b>Caja con tapa de madera pino</b></li></ul></div></div>
+      <div class="buy" style="top:1086px"><div class="pr"><span class="pl">Desde</span><span class="pv">$170.000</span><span class="iva">IVA incluido</span></div><div class="cta"><span class="btn"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M4.2 19.8 5.3 16A8 8 0 1 1 8.2 18.8z"/><path d="M9.2 8.6c.3 2.8 2.5 5.3 5.6 6.2l1.2-1.4-1.9-1-.9.8c-1-.5-2-1.5-2.4-2.5l.8-.9-.9-1.9z"/></svg><span>Pídalo por WhatsApp</span></span><span class="num">WhatsApp 322 470 2667 · donalu.com.co</span></div></div>
 </section>
 
-<section class="slide bg-kraft ad story" data-file="DL-NAV-k08-9x16.png">
-<div class="ph raw kitph" style="left:247px;top:310px;width:586px;height:732px"><img src="../../../assets/photos/kit-08-estudio.jpg" alt=""></div><div class="band" style="top:1110px"><svg class="band-edge" viewBox="0 0 1080 60" preserveAspectRatio="none"><path d="M0 60V34Q540 -6 1080 34V60Z" fill="var(--bolsa)"/><path d="M0 44Q540 4 1080 44" fill="none" stroke="var(--oro)" stroke-width="1.6"/></svg><svg class="topo " viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" style="" aria-hidden="true"><use href="#topo" width="1000" height="1000"/></svg></div>
-      <div class="tx" style="top:1150px"><div class="k">Kit 08 · Caja Doña Lú 8</div><h1 class="d x4" style="margin-top:14px;color:var(--crema)">Dos cafés <em>y mug térmico</em></h1><p class="sub" style="margin-top:10px">250 g Lavado · 250 g Honey · mug térmico · caja</p></div><div class="buy" style="top:1440px"><span class="price">$169.000</span><div class="btnlike"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="var(--verde)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M4.2 19.8 5.3 16A8 8 0 1 1 8.2 18.8z"/><path d="M9.2 8.6c.3 2.8 2.5 5.3 5.6 6.2l1.2-1.4-1.9-1-.9.8c-1-.5-2-1.5-2.4-2.5l.8-.9-.9-1.9z"/></svg><span>WhatsApp 322 470 2667</span></div></div><div class="mast"><span><b>Doña Lú</b> · <span class="no">Kits de Navidad</span></span><span>Café que se honra</span></div>
+<section class="slide ad story" data-file="DL-NAV-k08-9x16.png">
+<div class="lines"></div><svg class="topo " viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" style="" aria-hidden="true"><use href="#topo" width="1000" height="1000"/></svg><div class="mast" style="top:300px"><span><b>Doña Lú</b> · <span class="no">Navidad 2026</span></span><span>Café que se honra</span></div>
+      <div class="tx c" style="top:366px"><div class="k">Kit de Navidad · Caja Doña&nbsp;Lú 8</div><div style="margin-top:20px"><h1 class="d" style="font-size:118px">Usted elige<br><em>los dos cafés.</em></h1></div></div>
+      <div class="glow" style="left:140px;top:640px;width:800px;height:870px"></div>
+      <div class="arch" style="left:280px;top:690px;width:520px;height:650px"><img src="../../../assets/photos/nav-kit-08-1.jpg" alt="" style="object-position:50% 58%"><span class="lb">Dos cafés y termo</span></div>
+      <div class="tx c" style="top:1370px"><p class="sub2" style="font-size:26px">2 bolsas de café a elegir · Termo · Caja con tapa de madera pino</p></div>
+      <div class="buy" style="top:1424px"><div class="pr"><span class="pl">Desde</span><span class="pv">$170.000</span><span class="iva">IVA incluido</span></div><div class="cta"><span class="btn"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M4.2 19.8 5.3 16A8 8 0 1 1 8.2 18.8z"/><path d="M9.2 8.6c.3 2.8 2.5 5.3 5.6 6.2l1.2-1.4-1.9-1-.9.8c-1-.5-2-1.5-2.4-2.5l.8-.9-.9-1.9z"/></svg><span>Pídalo por WhatsApp</span></span><span class="num">WhatsApp 322 470 2667 · donalu.com.co</span></div></div>
 </section>
 </body>
 </html>

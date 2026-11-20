@@ -1,7 +1,0 @@
-node_modules/
-.DS_Store
-Thumbs.db
-*.log
-# PNG a tamaño completo: se regeneran con npm run render y van completos en descargas/*.zip
-piezas/*/export/
-anuncios/piezas/*/export/

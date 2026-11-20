@@ -56,12 +56,12 @@ const adCard = (a) => `
   <header><span class="num">${a.id.toUpperCase()}</span><div><h3>${esc(a.title)}</h3><small>Conjunto: ${esc(a.set)}</small></div></header>
   <div class="strip">${a.files.map((f) => `<figure><img src="web/ads/${f.replace('.png', '.webp')}" alt="Anuncio ${esc(a.title)} en formato ${fmt(f)}" loading="lazy"><figcaption>${fmt(f)}</figcaption></figure>`).join('')}</div>
   <div class="adcopy"><div><span class="k2">Texto principal</span><pre>${esc(a.copy.p)}</pre><button data-copy="p${a.id}">Copiar texto principal</button></div>
-  <div><span class="k2">Título</span><p>${esc(a.copy.h)}</p><span class="k2">Descripción</span><p>${esc(a.copy.d)}</p><span class="k2">Botones</span><p><b>Comprar</b> → landing${a.id.startsWith('k') ? ' #' + a.id : ''} con UTM<br><b>Enviar mensaje</b> → WhatsApp 322 470 2667</p><button data-copy="u${a.id}">Copiar enlace con UTM</button></div></div>
+  <div><span class="k2">Título</span><p>${esc(a.copy.h)}</p><span class="k2">Descripción</span><p>${esc(a.copy.d)}</p>${a.variants && a.variants.length > 1 ? `<span class="k2">Variantes A/B</span><p>${a.variants.map((v, i) => `<button data-copy="v${a.id}${i}">Copiar ${String.fromCharCode(65 + i)}</button>`).join(' ')}</p>` : ''}<span class="k2">Botones</span><p><b>Comprar</b> → landing${a.id.startsWith('k') ? ' #' + a.id : ''} con UTM<br><b>Enviar mensaje</b> → WhatsApp 322 470 2667</p><button data-copy="u${a.id}">Copiar enlace con UTM</button></div></div>
 </article>`;
 const kitAds = ads.filter((a) => a.id.startsWith('k')), heroAds = ads.filter((a) => a.id.startsWith('h'));
 const zip = async (n) => { const f = path.join(ROOT, 'descargas', n); return existsSync(f) ? `${(await stat(f)).size / 1e6 | 0} MB` : 'por generar'; };
 const zc = await zip('dona-lu-contenidos-lanzamiento.zip'), za = await zip('dona-lu-anuncios-navidad.zip');
-const copyMap = Object.fromEntries([...items.map((p) => [`c${p.n}`, p.caption + (p.hashtags ? '\n\n' + p.hashtags : '')]), ...ads.map((a) => [`p${a.id}`, a.copy.p]), ...ads.map((a) => [`u${a.id}`, a.url])]);
+const copyMap = Object.fromEntries([...items.map((p) => [`c${p.n}`, p.caption + (p.hashtags ? '\n\n' + p.hashtags : '')]), ...ads.map((a) => [`p${a.id}`, a.copy.p]), ...ads.map((a) => [`u${a.id}`, a.url]), ...ads.flatMap((a) => (a.variants || []).map((v, i) => [`v${a.id}${i}`, v]))]);
 
 const html = `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Doña Lú · Contenidos y anuncios</title><meta name="robots" content="noindex">
@@ -130,10 +130,10 @@ ${cards}
 </section>
 
 <section class="panel" id="p-anuncios">
-<div class="facts"><div><b>13 anuncios</b>Uno por kit (k01 a k10) y tres principales</div><div><b>3 formatos</b>4:5 y 9:16 por kit; 4:5, 9:16 y 1:1 los principales</div><div><b>Misma plantilla</b>En la prueba solo cambia el kit, para saber cuál se vende más</div><div><b>WhatsApp</b>322 470 2667 en cada anuncio</div></div>
+<div class="facts"><div><b>7 anuncios</b>Uno por kit (Cesta vertical 2 y 5, Caja Doña Lú 8 y 7) y tres principales</div><div><b>2 formatos</b>4:5 para el feed y 9:16 para historias y reels</div><div><b>Misma plantilla</b>En la prueba solo cambia el kit, para saber cuál se vende más</div><div><b>WhatsApp</b>322 470 2667 en cada anuncio</div></div>
 <a class="dl" href="descargas/dona-lu-anuncios-navidad.zip" download>Descargar todos los anuncios (ZIP · ${za})</a>
 <div class="row" style="margin-top:30px"><div class="side"><h2>El plan <em>de prueba</em></h2>
-<ol><li><b>Fase 1 (5 a 7 días):</b> los 10 kits con la misma plantilla, en tres conjuntos: A · Regalo hogar, B · Empresas (kits desde $119.000) y C · Quienes ya los conocen. Cada anuncio lleva su código (k01…k10) en el enlace y en el mensaje de WhatsApp.</li>
+<ol><li><b>Fase 1 (5 a 7 días):</b> los 4 kits con la misma plantilla, en tres conjuntos: A · Regalo hogar, B · Empresas y C · Quienes ya los conocen. Cada anuncio lleva su código (k02, k05, k08, k07) en el enlace y en el mensaje de WhatsApp. Precios con IVA incluido.</li>
 <li><b>Ganador:</b> el kit con más utilidad por peso invertido, con mínimo 3 pedidos; si ninguno llega, el de menor costo por clic a WhatsApp.</li>
 <li><b>Fase 2:</b> pauta concentrada en 1 o 2 kits y los anuncios principales (hogar, empresas, recordatorio).</li>
 <li><b>Fecha límite:</b> “Pida antes del __ de diciembre” se agrega al texto cuando Doña Lú la confirme. No va impresa en las imágenes.</li></ol></div></div>

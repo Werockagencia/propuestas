@@ -92,7 +92,7 @@ Los tres, en una caja. 🎁
 
 Lavado, Honey y Natural, 250 g de cada uno, en una caja de madera pino. Para quien quiere probarlos todos (o para regalarle a alguien la finca entera en una mesa).
 
-Tenemos diez kits de Navidad, entre cestas y cajas, para la familia, el equipo de trabajo o los clientes.
+Tenemos cuatro kits de Navidad, entre cestas y cajas, para la familia, el equipo de trabajo o los clientes.
 
 Pídalo por WhatsApp al 322 470 2667 (wa.me/573224702667): le mostramos los kits y le confirmamos el envío. Pida con tiempo para que llegue antes de Navidad.
 
